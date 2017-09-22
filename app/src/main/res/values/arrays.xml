@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2009 Alejandro Grijalba
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string-array name="ImeEntries">
+        <item>預設</item>
+        <item>英數</item>
+        <item>粉瞎</item>
+        <item>簡易</item>
+    </string-array>
+    <string-array name="ImeValues">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="twoTypeEntries">
+        <item>英數</item>
+        <item>超瞎</item>
+    </string-array>
+    <string-array name="twoTypeValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="slideThresholdEntries">
+        <item>3%</item>
+        <item>5%</item>
+        <item>7%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+    </string-array>
+    <string-array name="slideThresholdEntryValues">
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+    <string-array name="main_menu">
+    	<item>設定</item>
+    	<item>啟用</item>
+    </string-array>
+    <string-array name="main_menu_desc">
+    	<item>狂想輸入法設置</item>
+    	<item>檢查狂想輸入法是否啟用</item>
+    </string-array>
+</resources>

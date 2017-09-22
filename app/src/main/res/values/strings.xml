@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2008, The Android Open Source Project
+** Copyright (C) 2009 Alejandro Grijalba
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for Latin keyboard  -->
+    <string name="ime_name">狂想輸入法</string>
+
+    <string name="ime_settings">狂想輸入法設置</string>
+    <string name="selectIME">選擇輸入法</string>
+    <string name="key_layout">按鍵配置</string>
+    <string name="htmlLang">index</string>
+    <string name="slideThresholdTitle">滑動敏感度</string>
+    <string name="slideThresholdDesc">最小滑動值 (相對於螢幕大小)</string>
+    <string name="pleaseEnable">請在設定中啟動狂想輸入法\n按返回之後回到此畫面再按『啟用』</string>
+    <string name="twoTypeDesc">設置兩行模式</string>
+    <string name="ImeDesc">設置優先的鍵盤</string>
+
+    <!-- Popup / Alternate keys for qwerty keyboard -->
+    <string name="label_go_key">Go</string>
+    <string name="label_next_key">下一個</string>
+    <string name="label_send_key">Send</string>
+
+    <!-- 第一種鍵盤，最簡單的: labels for letter keys -->
+    <string name="two_for_1">"1a!gm"</string>
+    <string name="two_for_2">"2b@xz"</string>
+    <string name="two_for_3">"3c#ij"</string>
+    <string name="two_for_4">"4d$sq"</string>
+    <string name="two_for_5">"5e%hp"</string>
+    <string name="two_for_6">"6f^tk"</string>
+    <string name="two_for_7">"7l&amp;wy"</string>
+    <string name="two_for_8">"8n*u'"</string>
+    <string name="two_for_9">"9o(r\""</string>
+    <string name="two_for_0">"0v) _"</string>
+    <string name="two_for_dot">".&lt;~&gt;`"</string>
+    <string name="two_for_comma">",{|}\\"</string>
+    <string name="two_for_semicolon">";[:]?"</string>
+    <string name="two_for_equal">"=+-*/"</string>
+
+    <!-- 第二種鍵盤，英文 labels for letter keys -->
+    <string name="letters_for_direction">" ◀▲▶▼"</string>
+    <string name="letters_for_1">"1 !"</string>
+    <string name="letters_for_2">"2 @"</string>
+    <string name="letters_for_3">"3 #"</string>
+    <string name="letters_for_4">"4 $"</string>
+    <string name="letters_for_5">"5 %"</string>
+    <string name="letters_for_6">"6 ^"</string>
+    <string name="letters_for_7">"7 &amp;"</string>
+    <string name="letters_for_8">"8 *"</string>
+    <string name="letters_for_9">"9 ("</string>
+    <string name="letters_for_0">"0 )"</string>
+    <string name="letters_for_minus">"- _"</string>
+    <string name="letters_for_equal">"+ ="</string>
+
+    <string name="letters_for_q">"q Q"</string>
+    <string name="letters_for_w">"w W"</string>
+    <string name="letters_for_e">"e E"</string>
+    <string name="letters_for_r">"r R"</string>
+    <string name="letters_for_t">"t T"</string>
+    <string name="letters_for_y">"y Y"</string>
+    <string name="letters_for_u">"u U"</string>
+    <string name="letters_for_i">"i I"</string>
+    <string name="letters_for_o">"o O"</string>
+    <string name="letters_for_p">"p P"</string>
+    <string name="letters_for_left_square">"[ {"</string>
+    <string name="letters_for_right_square">"] }"</string>
+
+    <string name="letters_for_a">"a A"</string>
+    <string name="letters_for_s">"s S"</string>
+    <string name="letters_for_d">"d D"</string>
+    <string name="letters_for_f">"f F"</string>
+    <string name="letters_for_g">"g G"</string>
+    <string name="letters_for_h">"h H"</string>
+    <string name="letters_for_j">"j J"</string>
+    <string name="letters_for_k">"k K"</string>
+    <string name="letters_for_l">"l L"</string>
+    <string name="letters_for_semi_colon">"; :"</string>
+    <string name="letters_for_quote">"/ ?"</string>
+    <string name="letters_for_back_slash">"\\ |"</string>
+
+    <string name="letters_for_z">"z Z"</string>
+    <string name="letters_for_x">"x X"</string>
+    <string name="letters_for_c">"c C"</string>
+    <string name="letters_for_v">"v V"</string>
+    <string name="letters_for_b">"b B"</string>
+    <string name="letters_for_n">"n N"</string>
+    <string name="letters_for_m">"m M"</string>
+    <string name="letters_for_comma">", &lt;"</string>
+    <string name="letters_for_dot">". &gt;"</string>
+    <string name="letters_for_slash">"' \""</string>
+    <string name="letters_for_tilde">"` ~"</string>
+
+    <!-- 第三種鍵盤，混蝦 labels for letter keys -->
+    <string name="juin_for_a">a ㄚ</string>
+    <string name="juin_for_b">b ㄅ</string>
+    <string name="juin_for_c">c ㄕㄒ</string>
+    <string name="juin_for_d">d ㄉ˙</string>
+    <string name="juin_for_e">e ㄧ</string>
+    <string name="juin_for_f">f ㄈˊ</string>
+    <string name="juin_for_g">g ㄓㄐ</string>
+    <string name="juin_for_h">h ㄏㄦ</string>
+    <string name="juin_for_i">i ㄞ</string>
+    <string name="juin_for_j">j ㄖˇ</string>
+    <string name="juin_for_k">k ㄎˋ</string>
+    <string name="juin_for_l">l ㄌㄥ</string>
+    <string name="juin_for_m">m ㄇㄢ</string>
+    <string name="juin_for_n">n ㄋㄣ</string>
+    <string name="juin_for_o">o ㄛ</string>
+    <string name="juin_for_p">p ㄆㄡ</string>
+    <string name="juin_for_q">q ㄗㄟ</string>
+    <string name="juin_for_r">r ㄜ</string>
+    <string name="juin_for_s">s ㄙ</string>
+    <string name="juin_for_t">t ㄊㄤ</string>
+    <string name="juin_for_u">u ㄩ</string>
+    <string name="juin_for_v">v ㄍㄑ</string>
+    <string name="juin_for_w">w ㄘㄝ</string>
+    <string name="juin_for_x">x ㄨ</string>
+    <string name="juin_for_y">y ㄔ</string>
+    <string name="juin_for_z">z ㄠ</string>
+</resources>

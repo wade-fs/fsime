@@ -1,0 +1,6 @@
+        bdatabase = new BDatabase(MainActivity.this);
+        b = bdatabase.getB("tt");
+        for (B d : b) {
+            Log.d(TAG,  d.eng + " / " + d.ch);
+        }
+
