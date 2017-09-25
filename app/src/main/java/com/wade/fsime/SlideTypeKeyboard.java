@@ -214,6 +214,7 @@ public class SlideTypeKeyboard extends InputMethodService
             turnCandidate(keynow < 2 || superBlind == 1);
             mCapsLock = false;
             mInputView.setShifted(false);
+            getCurrentInputConnection().setComposingText("", 1);
         } else {
             switch (keynow) {
                 case 0:
@@ -730,11 +731,11 @@ public class SlideTypeKeyboard extends InputMethodService
             setKB(1);
         } else if (mInputView.direction == 4) { // 向下
             if (keynow == 2) { // 切換超瞎及英數
-                SharedPreferences.Editor editor1 = mySharedPreferences.edit();
-                editor1.putString("twoKbType",superBlind == 0?"1":"0");
-                editor1.commit();
-                superBlind = 1-superBlind;
-                Log.d(TAG, "將 superBlind 切換成 "+superBlind);
+                SharedPreferences.Editor editor = mySharedPreferences.edit();
+                editor.putString("twoKbType",superBlind == 0?"1":"0");
+                editor.commit();
+                superBlind = Integer.valueOf(mySharedPreferences.getString("twoKbType", "0"));
+                // Log.d(TAG, "將 superBlind 切換成 "+superBlind);
             }
             setKB(2);
         } else { // click, 沒有滑動

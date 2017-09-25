@@ -26,6 +26,7 @@ import android.content.res.XmlResourceParser;
 import android.graphics.PorterDuff.Mode;
 import android.inputmethodservice.Keyboard;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.inputmethod.EditorInfo;
  
 /*
@@ -104,6 +105,7 @@ public class LatinKeyboard extends Keyboard {
         }
         SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
         int superBlind = Integer.valueOf(mySharedPreferences.getString("twoKbType", "0"));
+        Log.d("MyLog", "superBlind in Pref = "+superBlind);
         if (keynow != 2) return; // 目前只有2行模式需要切換
         if (superBlind == 0) { // 英數
             mShiftKey.icon = res.getDrawable(R.drawable.sym_keyboard_eng);
