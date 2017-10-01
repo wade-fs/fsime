@@ -179,7 +179,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     private void turnCandidate(boolean b) {
-        Log.d(TAG, "turnCandidate("+b+")");
+//        Log.d(TAG, "turnCandidate("+b+")");
         if (mCandidateView != null && !b) {
             mComposing.setLength(0);
             mCandidateView.clear();
@@ -189,7 +189,7 @@ public class SlideTypeKeyboard extends InputMethodService
             setCandidatesViewShown(b);
     }
     private void setKB(int n) {
-        Log.d(TAG, "setKB("+n+") "+keynow+" / "+(mInputView==null?"null":"haveView") + " / "+superBlind);
+//        Log.d(TAG, "setKB("+n+") "+keynow+" / "+(mInputView==null?"null":"haveView") + " / "+superBlind);
         if (n >= 0) keynow = n;
         mMetaState = 0;
 
@@ -247,7 +247,7 @@ public class SlideTypeKeyboard extends InputMethodService
                     {
                         mPredictionOn = false;
                     } else {
-                        Log.d(TAG, "setInputType(...) " + keynow);
+//                        Log.d(TAG, "setInputType(...) " + keynow);
                         if ((keynow < 2) || (superBlind==1)) turnCandidate(true);
                         if ((attribute.inputType & EditorInfo.TYPE_TEXT_FLAG_AUTO_COMPLETE) != 0) {
                             mCompletionOn = false;
@@ -540,7 +540,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onKey(int keycode, int[] keyCodes) {
-//        Log.d(TAG, "onKey("+(char)keycode+") "+mPredictOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
+//        Log.d(TAG, "onKey("+(char)keycode+") "+mPredictionOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
         int primaryCode = keycode;
         if (mInputView.direction != -1)
             primaryCode=getCharFromKey(pressedCode, mInputView.direction);
@@ -666,7 +666,7 @@ public class SlideTypeKeyboard extends InputMethodService
     public void setSuggestions(List<String> suggestions, boolean completions,
             boolean typedWordValid)
     {
-        Log.d(TAG, "setSuggestions()"+mCompletionOn+"/"+mComposing+(suggestions == null?"null":Arrays.toString(suggestions.toArray())));
+//        Log.d(TAG, "setSuggestions()"+mCompletionOn+"/"+mComposing+(suggestions == null?"null":Arrays.toString(suggestions.toArray())));
         if (mCandidateView != null) {
             if (mComposing.length() == 1 && mComposing.charAt(0) > 'z') suggestions.add(0, mComposing.toString());
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
@@ -735,7 +735,7 @@ public class SlideTypeKeyboard extends InputMethodService
                 editor.putString("twoKbType",superBlind == 0?"1":"0");
                 editor.commit();
                 superBlind = Integer.valueOf(mySharedPreferences.getString("twoKbType", "0"));
-                // Log.d(TAG, "將 superBlind 切換成 "+superBlind);
+//                 Log.d(TAG, "將 superBlind 切換成 "+superBlind);
             }
             setKB(2);
         } else { // click, 沒有滑動
@@ -775,8 +775,9 @@ public class SlideTypeKeyboard extends InputMethodService
                 primaryCode = Character.toUpperCase(primaryCode);
             }
         }
-        if (keynow == 1 || (keynow == 2 && superBlind == 1)) mPredictionOn = true;
-
+        if ((keynow == 1 && (primaryCode < '0' || primaryCode > '9')) || (keynow == 2 && superBlind == 1)) mPredictionOn = true;
+        else mPredictionOn=false;
+//        Log.d(TAG, "handleCharacter("+(char)primaryCode+") mPredictionOn="+mPredictionOn+", keynow="+keynow);
         if (primaryCode > 0) {
             if (mPredictionOn) {
                 mComposing.append((char)primaryCode);
@@ -828,6 +829,7 @@ public class SlideTypeKeyboard extends InputMethodService
     private int start = 0;
     public void updateCandidates(int forward) {
         if (!mCompletionOn) {
+//            Log.d(TAG, "updateCandidates("+forward+") Composing.length="+mComposing.length());
             if (mComposing.length() > 0) {
                 // 將使用者打的字放第一個
                 ArrayList<String> list = new ArrayList<String>();
