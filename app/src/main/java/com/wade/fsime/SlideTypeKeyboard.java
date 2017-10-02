@@ -775,11 +775,13 @@ public class SlideTypeKeyboard extends InputMethodService
                 primaryCode = Character.toUpperCase(primaryCode);
             }
         }
-        if ((keynow == 1 && (primaryCode < '0' || primaryCode > '9')) || (keynow == 2 && superBlind == 1)) mPredictionOn = true;
-        else mPredictionOn=false;
-//        Log.d(TAG, "handleCharacter("+(char)primaryCode+") mPredictionOn="+mPredictionOn+", keynow="+keynow);
+        boolean p = mPredictionOn;
+        if (keynow < 2 && ('0' <= primaryCode && primaryCode <= '9')) p = false;
+        else if (keynow == 2 && superBlind == 1) p = true;
+
+//        Log.d(TAG, "handleCharacter("+(char)primaryCode+") p="+p+", keynow="+keynow);
         if (primaryCode > 0) {
-            if (mPredictionOn) {
+            if (p) {
                 mComposing.append((char)primaryCode);
                 String c = mComposing.toString();
                 if (keynow == 1)

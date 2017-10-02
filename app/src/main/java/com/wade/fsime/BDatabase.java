@@ -89,7 +89,7 @@ public class BDatabase extends SQLiteAssetHelper {
         cv.put("eng", eng);
         cv.put("ch", ch);
         cv.put("freq", 14);
-        Log.d(TAG, "add "+eng+","+ch+",14 into table "+tb);
+//        Log.d(TAG, "add "+eng+","+ch+",14 into table "+tb);
         long id = db.insert(tb, null, cv);
     }
 
@@ -232,7 +232,7 @@ public class BDatabase extends SQLiteAssetHelper {
         if (k.length() == 0) return resExact;
         k = TS.StoT(k);
         q = "SELECT * FROM pp WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT 30 OFFSET "+start+";";
-        Log.d(TAG, "getPP("+k+","+start+") "+q);
+//        Log.d(TAG, "getPP("+k+","+start+") "+q);
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= 30){
@@ -243,7 +243,7 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            Log.d(TAG, "\t=> "+b.eng+","+b.ch+","+b.freq);
+//            Log.d(TAG, "\t=> "+b.eng+","+b.ch+","+b.freq);
             if (!isIn(resExact, b, 1)) {
                 resExact.add(b);
                 ++count;
@@ -287,7 +287,7 @@ public class BDatabase extends SQLiteAssetHelper {
     }
 
     public int setTs(int v) {
-        Log.d(TAG, "setTs("+v+")");
+//        Log.d(TAG, "setTs("+v+")");
         return ts = v;
     }
 }
