@@ -540,7 +540,8 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onKey(int keycode, int[] keyCodes) {
-        if (debug) Log.d(TAG, "onKey("+(char)keycode+") "+mPredictionOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
+        if (keynow == 1 && (keycode >= 'A' && keycode<='Z' || keycode >= 'a' && keycode<='z')) mPredictionOn = true;
+        if (debug) Log.d(TAG, "onKey("+keycode+") "+keynow+"/"+mPredictionOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
         int primaryCode = keycode;
         if (mInputView.direction != -1)
             primaryCode=getCharFromKey(pressedCode, mInputView.direction);
