@@ -23,7 +23,7 @@
     android:horizontalGap="0px"
     android:verticalGap="0px"
     android:keyWidth="9.5%p"
-    android:keyHeight="9%p"
+    android:keyHeight="8.5%p"
     >
     <Row android:rowEdgeFlags="top">
         <Key android:codes="49" android:keyLabel="@string/two_for_1" android:horizontalGap="5%p" android:keyEdgeFlags="left"/>
