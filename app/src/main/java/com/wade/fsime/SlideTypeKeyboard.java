@@ -724,6 +724,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     private void handleShift() {
+        if (debug) Log.d(TAG, "handleShift() "+mInputView.direction);
         if (mInputView == null) {
             return;
         }
@@ -783,8 +784,12 @@ public class SlideTypeKeyboard extends InputMethodService
             }
         }
         boolean p = mPredictionOn;
-        if (keynow < 2 && !('A' <= primaryCode && primaryCode <= 'Z' ||
-                'a' <= primaryCode && primaryCode <= 'z')) p = false;
+        if (keynow == 0 && !('A' <= primaryCode && primaryCode <= 'Z' || 'a' <= primaryCode && primaryCode <= 'z') ||
+            keynow == 1 && !('A' <= primaryCode && primaryCode <= 'Z' || 'a' <= primaryCode && primaryCode <= 'z' ||
+                    primaryCode == ',' || primaryCode == '[' || primaryCode == ']' || primaryCode == '.' || primaryCode == '\''))
+        {
+            p = false;
+        }
         else if (keynow == 2 && superBlind == 1) p = true;
 
         if (debug) Log.d(TAG, "handleCharacter("+(char)primaryCode+") p="+p+", keynow="+keynow);
