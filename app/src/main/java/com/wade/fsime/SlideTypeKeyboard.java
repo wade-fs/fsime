@@ -538,13 +538,19 @@ public class SlideTypeKeyboard extends InputMethodService
                 break;
         }
     }
-
+/*
+        10-06 10:58:25.240 11821-11821/com.wade.fsime D/MyLog: onKey(81) 1/true/0/0/
+        10-06 10:58:31.530 11821-11821/com.wade.fsime D/MyLog: onKey(81) 1/true/0/0/
+        10-06 10:58:31.530 11821-11821/com.wade.fsime D/MyLog: handleCharacter(+) p=false, keynow=1
+        10-06 10:58:31.540 11821-11821/com.wade.fsime D/MyLog: onUpdateSelection(-1/false/5/0//false
+        10-06 10:58:31.540 11821-11821/com.wade.fsime D/MyLog: setSuggestions()false/null
+    */
     public void onKey(int keycode, int[] keyCodes) {
-        if (keynow == 1 && (keycode >= 'A' && keycode<='Z' || keycode >= 'a' && keycode<='z')) mPredictionOn = true;
-        if (debug) Log.d(TAG, "onKey("+keycode+") "+keynow+"/"+mPredictionOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
+        if (keynow == 1 && ('A' <= keycode && keycode<='Z' || 'a' <= keycode && keycode<='z')) mPredictionOn = true;
         int primaryCode = keycode;
         if (mInputView.direction != -1)
             primaryCode=getCharFromKey(pressedCode, mInputView.direction);
+        if (debug) Log.d(TAG, "onKey("+keycode+","+primaryCode+") "+keynow+"/"+mPredictionOn+"/"+superBlind+"/"+(mCandidateView==null?"null":mCandidateView.size())+"/"+mComposing);
         if (keycode == -100) {
             switch (primaryCode) {
                 case '◀':
@@ -593,7 +599,7 @@ public class SlideTypeKeyboard extends InputMethodService
                 } else sendKey(primaryCode);
                 break;
             case Keyboard.KEYCODE_DELETE: handleBackspace(); break;
-            case 61: handleTab(); break;
+            case 9: handleTab(); break;
             case Keyboard.KEYCODE_SHIFT: handleShift(); break;
             case 10:
                 if (mComposing.length() > 0) {
@@ -777,7 +783,8 @@ public class SlideTypeKeyboard extends InputMethodService
             }
         }
         boolean p = mPredictionOn;
-        if (keynow < 2 && ('0' <= primaryCode && primaryCode <= '9')) p = false;
+        if (keynow < 2 && !('A' <= primaryCode && primaryCode <= 'Z' ||
+                'a' <= primaryCode && primaryCode <= 'z')) p = false;
         else if (keynow == 2 && superBlind == 1) p = true;
 
         if (debug) Log.d(TAG, "handleCharacter("+(char)primaryCode+") p="+p+", keynow="+keynow);

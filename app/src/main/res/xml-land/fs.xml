@@ -19,7 +19,7 @@
         <Key android:codes="48" android:keyLabel="@string/letters_for_0"/>
         <Key android:codes="69" android:keyLabel="@string/letters_for_minus" />
         <Key android:codes="81" android:keyLabel="@string/letters_for_equal" />
-        <Key android:codes="61" android:keyWidth="7.5%p"
+        <Key android:codes="9" android:keyWidth="7.5%p"
             android:keyIcon="@drawable/sym_keyboard_tab"/>
         <Key android:codes="-5" android:keyWidth="7.5%p"
             android:keyIcon="@drawable/sym_keyboard_delete" android:isRepeatable="true" />
