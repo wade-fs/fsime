@@ -602,7 +602,9 @@ public class SlideTypeKeyboard extends InputMethodService
             case 9: handleTab(); break;
             case Keyboard.KEYCODE_SHIFT: handleShift(); break;
             case 10:
+/*
                 if (mComposing.length() > 0) {
+// or just comment out here
                     if ((mPredictionOn || (keynow == 2 && superBlind == 1)) && mCandidateView != null && mCandidateView.size() > 1)
                         pickSuggestionManually(1);
                     else
@@ -614,6 +616,7 @@ public class SlideTypeKeyboard extends InputMethodService
                         ic.finishComposingText();
                     }
                 }
+*/
                 InputConnection ic = getCurrentInputConnection();
                 switch (sEditorInfo.imeOptions & (EditorInfo.IME_MASK_ACTION | EditorInfo.IME_FLAG_NO_ENTER_ACTION)) {
                     case EditorInfo.IME_ACTION_DONE:
