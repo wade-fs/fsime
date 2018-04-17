@@ -567,9 +567,11 @@ public class SlideTypeKeyboard extends InputMethodService
                     break;
                 default: // ESC
                     if (mComposing.length()>0) {
+                        // TODO: 先送出所打的字
+                        commitTyped(getCurrentInputConnection());
                         mComposing.setLength(0);
                         setCandidatesViewShown(false);
-                        getCurrentInputConnection().commitText("", 0);
+//                        getCurrentInputConnection().commitText("", 0);
                     } else
                         handleClose();
             }
@@ -602,10 +604,8 @@ public class SlideTypeKeyboard extends InputMethodService
             case 9: handleTab(); break;
             case Keyboard.KEYCODE_SHIFT: handleShift(); break;
             case 10:
-/*
                 if (mComposing.length() > 0) {
-// or just comment out here
-                    if ((mPredictionOn || (keynow == 2 && superBlind == 1)) && mCandidateView != null && mCandidateView.size() > 1)
+                    if (mPredictionOn && mCandidateView != null && mCandidateView.size() > 1)
                         pickSuggestionManually(1);
                     else
                         commitTyped(getCurrentInputConnection());
@@ -615,35 +615,35 @@ public class SlideTypeKeyboard extends InputMethodService
                     if (ic != null) {
                         ic.finishComposingText();
                     }
-                }
-*/
-                InputConnection ic = getCurrentInputConnection();
-                switch (sEditorInfo.imeOptions & (EditorInfo.IME_MASK_ACTION | EditorInfo.IME_FLAG_NO_ENTER_ACTION)) {
-                    case EditorInfo.IME_ACTION_DONE:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_DONE);
-                        break;
-                    case EditorInfo.IME_ACTION_GO:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_GO);
-                        break;
-                    case EditorInfo.IME_ACTION_NEXT:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_NEXT);
-                        break;
-                    case EditorInfo.IME_ACTION_NONE:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_NONE);
-                        break;
-                    case EditorInfo.IME_ACTION_SEARCH:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_SEARCH);
-                        break;
-                    case EditorInfo.IME_ACTION_SEND:
-                        ic.performEditorAction(EditorInfo.IME_ACTION_SEND);
-                        break;
-                    default:
-                        if (sEditorInfo.imeOptions == 1342177286)//fix for DroidEdit
-                        {
+                } else {
+                    InputConnection ic = getCurrentInputConnection();
+                    switch (sEditorInfo.imeOptions & (EditorInfo.IME_MASK_ACTION | EditorInfo.IME_FLAG_NO_ENTER_ACTION)) {
+                        case EditorInfo.IME_ACTION_DONE:
+                            ic.performEditorAction(EditorInfo.IME_ACTION_DONE);
+                            break;
+                        case EditorInfo.IME_ACTION_GO:
                             ic.performEditorAction(EditorInfo.IME_ACTION_GO);
-                        } else
-                            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-                        break;
+                            break;
+                        case EditorInfo.IME_ACTION_NEXT:
+                            ic.performEditorAction(EditorInfo.IME_ACTION_NEXT);
+                            break;
+                        case EditorInfo.IME_ACTION_NONE:
+                            ic.performEditorAction(EditorInfo.IME_ACTION_NONE);
+                            break;
+                        case EditorInfo.IME_ACTION_SEARCH:
+                            ic.performEditorAction(EditorInfo.IME_ACTION_SEARCH);
+                            break;
+                        case EditorInfo.IME_ACTION_SEND:
+                            ic.performEditorAction(EditorInfo.IME_ACTION_SEND);
+                            break;
+                        default:
+                            if (sEditorInfo.imeOptions == 1342177286)//fix for DroidEdit
+                            {
+                                ic.performEditorAction(EditorInfo.IME_ACTION_GO);
+                            } else
+                                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+                            break;
+                    }
                 }
                 break;
             case Keyboard.KEYCODE_CANCEL:

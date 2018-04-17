@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.wade.fsime"
@@ -19,17 +19,22 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
-                variant.outputs.each { output ->
+                variant.outputs.all { output ->
                     project.ext { appName = android.defaultConfig.applicationId }
-                    def newName = output.outputFile.name
+                    def newName = outputFileName
                     newName = newName.replace("app-", "$project.ext.appName-")
                     newName = newName.replace("release", android.defaultConfig.versionName)
-                    output.outputFile = new File(output.outputFile.parent, newName)
+                    outputFileName = newName
                 }
             }
+\
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 dependencies {
-    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 }
