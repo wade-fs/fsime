@@ -20,13 +20,10 @@ package com.wade.fsime;
 import com.wade.fsime.R;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.PorterDuff.Mode;
 import android.inputmethodservice.Keyboard;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.inputmethod.EditorInfo;
  
 /*
@@ -35,28 +32,28 @@ import android.view.inputmethod.EditorInfo;
  */
 public class LatinKeyboard extends Keyboard {
 
-    private Key mEnterKey;
-    private Key mShiftKey;
-    public int keynow = 0;
-    private Context ctx;
+    private Key mEnterKey; 
     
-    public LatinKeyboard(Context context, int xmlLayoutResId, int keyOrder) {
-        super(context, xmlLayoutResId);
-        ctx = context;
-        keynow = keyOrder;
-    }
+    public LatinKeyboard(Context context, int xmlLayoutResId) {
+        super(context, xmlLayoutResId); 
+    } 
 
     public LatinKeyboard(Context context, int layoutTemplateResId, 
             CharSequence characters, int columns, int horizontalPadding) {
         super(context, layoutTemplateResId, characters, columns, horizontalPadding);
-        ctx = context;
     }
 
+    
     @Override
     protected Key createKeyFromXml(Resources res, Row parent, int x, int y, 
             XmlResourceParser parser) {
         LatinKey key = new LatinKey(res, parent, x, y, parser);
-
+        
+//	android.os.Debug.waitForDebugger(); 
+	
+//	ColorDrawable cd=new ColorDrawable(0xFFff0000+(cckk++)*0x4000);
+//	cd.setBounds(5, 10, 10, 15);
+	
         if (key.icon == null) {
         	key.icon=new FancyLabelDraw(key);
         	key.iconPreview = new TextDrawable(key);
@@ -64,14 +61,15 @@ public class LatinKeyboard extends Keyboard {
         
         if (key.codes[0] == 10) {
         	mEnterKey = key;
-        } else if (key.codes[0] == -1) {
-            mShiftKey = key;
         }
         return key;
     }
-
+    
+    
+    
     /**
-     * TODO: 該不會是可以切換按鈕的圖示吧？
+     * This looks at the ime options given by the current editor, to set the
+     * appropriate label on the keyboard's enter key (if it has one).
      */
     void setImeOptions(Resources res, int options) {
         if (mEnterKey == null) {
@@ -85,11 +83,13 @@ public class LatinKeyboard extends Keyboard {
                 mEnterKey.label = res.getText(R.string.label_go_key);
                 break;
             case EditorInfo.IME_ACTION_NEXT:
-                mEnterKey.icon = res.getDrawable(R.drawable.sym_keyboard_return);
-                mEnterKey.label = null;
+                mEnterKey.iconPreview = null;
+                mEnterKey.icon = null;
+                mEnterKey.label = res.getText(R.string.label_next_key);
                 break;
             case EditorInfo.IME_ACTION_SEARCH:
-                mEnterKey.icon = res.getDrawable(R.drawable.sym_keyboard_search);
+                mEnterKey.icon = res.getDrawable(
+                        R.drawable.sym_keyboard_search);
                 mEnterKey.label = null;
                 break;
             case EditorInfo.IME_ACTION_SEND:
@@ -99,33 +99,27 @@ public class LatinKeyboard extends Keyboard {
                 break;
             default:
                 mEnterKey.icon = res.getDrawable(
-                R.drawable.sym_keyboard_return);
+                        R.drawable.sym_keyboard_return);
                 mEnterKey.label = null;
                 break;
         }
-        SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
-        int superBlind = Integer.valueOf(mySharedPreferences.getString("twoKbType", "0"));
-//        Log.d("MyLog", "superBlind in Pref = "+superBlind);
-        if (keynow != 2) return; // 目前只有2行模式需要切換
-        if (superBlind == 0) { // 英數
-            mShiftKey.icon = res.getDrawable(R.drawable.sym_keyboard_eng);
-            mShiftKey.label = null;
-        } else { // 超瞎
-            mShiftKey.icon = res.getDrawable(R.drawable.sym_keyboard_super);
-            mShiftKey.label = null;
-        }
     }
+   
+    
     
     static class LatinKey extends Keyboard.Key {    	    	
     	public CharSequence fancyLabel;
     	
         public LatinKey(Resources res, Keyboard.Row parent, int x, int y, XmlResourceParser parser) {
             super(res, parent, x, y, parser);
-
+         //   android.os.Debug.waitForDebugger();
+            
             this.fancyLabel=label;
             if (fancyLabel != null)
             	fancyLabel=fancyLabel+"     ";
             this.label=null;
+          //  iconPreview = new ColorDrawable(0xFF000000+cckk*0x40);
+          //
         }
                 
     }

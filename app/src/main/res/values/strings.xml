@@ -29,14 +29,125 @@
     <string name="slideThresholdTitle">滑動敏感度</string>
     <string name="slideThresholdDesc">最小滑動值 (相對於螢幕大小)</string>
     <string name="pleaseEnable">請在設定中啟動狂想輸入法\n按返回之後回到此畫面再按『啟用』</string>
+    <string name="pleaseSelect">請進入設置並檢查狂想輸入法是目前的鍵盤</string>
     <string name="twoTypeDesc">設置兩行模式</string>
     <string name="ImeDesc">設置優先的鍵盤</string>
+    <string name="word_separators">\u0020;:!?\n()*&amp;@{}/&lt;&gt;_+=|&quot;</string>
 
     <!-- Popup / Alternate keys for qwerty keyboard -->
     <string name="label_go_key">Go</string>
     <string name="label_next_key">下一個</string>
-    <string name="label_send_key">Send</string>
+    <string name="label_send_key">送出</string>
 
+    <!-- qwerty.xml -->
+    <string name="alternates_for_1">1!１！ㄅ</string>
+    <string name="alternates_for_2">2@２＠ㄉ</string>
+    <string name="alternates_for_3">3#３＃ˇ</string>
+    <string name="alternates_for_4">4$４＄ˋ</string>
+    <string name="alternates_for_5">5%５％ㄓ</string>
+    <string name="alternates_for_6">6^６ˊ</string>
+    <string name="alternates_for_7">7&amp;７＆˙</string>
+    <string name="alternates_for_8">8*８×ㄚ</string>
+    <string name="alternates_for_9">9(９（ㄞ</string>
+    <string name="alternates_for_0">0)０）ㄢ</string>
+
+    <string name="alternates_for_minus">"-_－ㄦ"</string>
+    <string name="alternates_for_equal">"=+＝＋"</string>
+    <string name="alternates_for_q">"qQｑＱㄆ手"</string>
+    <string name="alternates_for_w">"wWｗＷㄊ田"</string>
+    <string name="alternates_for_e">"eEｅＥㄍ水"</string>
+    <string name="alternates_for_r">"rRｒＲㄐ口"</string>
+    <string name="alternates_for_t">"tTｔＴㄔ廿"</string>
+    <string name="alternates_for_y">"yYｙＹㄗ卜"</string>
+    <string name="alternates_for_u">"uUｕＵㄧ山"</string>
+    <string name="alternates_for_i">"iIｉＩㄛ戈"</string>
+    <string name="alternates_for_o">"oOｏＯㄟ人"</string>
+    <string name="alternates_for_p">"pPｐＰㄣ心"</string>
+    <string name="alternates_for_left_square" >"[{［｛「《『【〈"</string>
+    <string name="alternates_for_right_square">"]}］｝」》』】〉"</string>
+
+    <string name="alternates_for_a">"aAａＡㄇ日"</string>
+    <string name="alternates_for_s">"sSｓＳㄋ尸"</string>
+    <string name="alternates_for_d">"dDｄＤㄎ木"</string>
+    <string name="alternates_for_f">"fFｆＦㄑ火"</string>
+    <string name="alternates_for_g">"gGｇＧㄕ土"</string>
+    <string name="alternates_for_h">"hHｈＨㄘ竹"</string>
+    <string name="alternates_for_j">"jJｊＪㄨ十"</string>
+    <string name="alternates_for_k">"kKｋＫㄜ大"</string>
+    <string name="alternates_for_l">"lLｌＬㄠ中"</string>
+    <string name="alternates_for_semi_colon">";:ㄤ；："</string>
+    <string name="alternates_for_quote">"/?ㄥ／？"</string>
+    <string name="alternates_for_back_slash">"\\|＼｜"</string>
+
+    <string name="alternates_for_z">"zZｚＺㄈ重"</string>
+    <string name="alternates_for_x">"xXｘＸㄌ難"</string>
+    <string name="alternates_for_c">"cCｃＣㄏ金"</string>
+    <string name="alternates_for_v">"vVｖＶㄒ女"</string>
+    <string name="alternates_for_b">"bBｂＢㄖ月"</string>
+    <string name="alternates_for_n">"nNｎＮㄙ弓"</string>
+    <string name="alternates_for_m">"mMｍＭㄩ一"</string>
+    <string name="alternates_for_comma">",&lt;ㄝ，＜"</string>
+    <string name="alternates_for_dot">".&gt;ㄡ．＜。…∵∴"</string>
+    <string name="alternates_for_slash">"'\"＇＂"</string>
+    <string name="alternates_for_tilde">"`~｀～"</string>
+
+    <!-- juin.xml -->
+    <string name="alternate2_for_1">1!１！</string>
+    <string name="alternate2_for_2">2@２＠</string>
+    <string name="alternate2_for_3">3#３＃</string>
+    <string name="alternate2_for_4">4$４＄</string>
+    <string name="alternate2_for_5">5%５％</string>
+    <string name="alternate2_for_6">6^６</string>
+    <string name="alternate2_for_7">7&amp;７＆</string>
+    <string name="alternate2_for_8">8*８×</string>
+    <string name="alternate2_for_9">9(９（</string>
+    <string name="alternate2_for_0">0)０）</string>
+    <string name="alternate2_for_minus">"-_－"</string>
+    <string name="alternate2_for_equal">"=+＝＋"</string>
+    <string name="alternate2_for_q">"qQｑＱ手ㄗㄟ"</string>
+    <string name="alternate2_for_w">"wWｗＷ田ㄘㄝ"</string>
+    <string name="alternate2_for_e">"eEｅＥ水ㄧ"</string>
+    <string name="alternate2_for_r">"rRｒＲ口ㄜ"</string>
+    <string name="alternate2_for_t">"tTｔＴ廿ㄊㄤ"</string>
+    <string name="alternate2_for_y">"yYｙＹ卜ㄔ"</string>
+    <string name="alternate2_for_u">"uUｕＵ山ㄩ"</string>
+    <string name="alternate2_for_i">"iIｉＩ戈ㄞ"</string>
+    <string name="alternate2_for_o">"oOｏＯ人ㄛ"</string>
+    <string name="alternate2_for_p">"pPｐＰ心ㄆㄡ"</string>
+    <string name="alternate2_for_a">"aAａＡ日ㄚ"</string>
+    <string name="alternate2_for_s">"sSｓＳ尸ㄙ"</string>
+    <string name="alternate2_for_d">"dDｄＤ木ㄉ˙"</string>
+    <string name="alternate2_for_f">"fFｆＦ火ㄈˊ"</string>
+    <string name="alternate2_for_g">"gGｇＧ土ㄓㄐ"</string>
+    <string name="alternate2_for_h">"hHｈＨ竹ㄏㄦ"</string>
+    <string name="alternate2_for_j">"jJｊＪ十ㄖˇ"</string>
+    <string name="alternate2_for_k">"kKｋＫ大ㄎˋ"</string>
+    <string name="alternate2_for_l">"lLｌＬ中ㄌㄥ"</string>
+    <string name="alternate2_for_z">"zZｚＺ重ㄠ"</string>
+    <string name="alternate2_for_x">"xXｘＸ難ㄨ"</string>
+    <string name="alternate2_for_c">"cCｃＣ金ㄕㄒ"</string>
+    <string name="alternate2_for_v">"vVｖＶ女ㄍㄑ"</string>
+    <string name="alternate2_for_b">"bBｂＢ月ㄅ"</string>
+    <string name="alternate2_for_n">"nNｎＮ弓ㄋㄣ"</string>
+    <string name="alternate2_for_m">"mMｍＭ一ㄇㄢ"</string>
+
+    <!-- two.xml -->
+    <string name="atwo_for_1">"１ａ！ｇｍ"</string>
+    <string name="atwo_for_2">"２ｂ＠ｘｚ"</string>
+    <string name="atwo_for_3">"３ｃ＃ｉｊ"</string>
+    <string name="atwo_for_4">"４ｄ＄ｓｑ"</string>
+    <string name="atwo_for_5">"５ｅ％ｈｐ"</string>
+    <string name="atwo_for_6">"６ｆ＾ｔｋ"</string>
+    <string name="atwo_for_7">"７ｌ＆ｗｙ"</string>
+    <string name="atwo_for_8">"８ｎ＊ｕ＇"</string>
+    <string name="atwo_for_9">"９ｏ（ｒ＂"</string>
+    <string name="atwo_for_0">"０ｖ）＿"</string>
+    <string name="atwo_for_semicolon">"；【：】？"</string>
+    <string name="atwo_for_comma"    >"，｛｜｝＼"</string>
+    <string name="atwo_for_dot"      >"．＜＞｀"</string>
+    <string name="atwo_for_equal"    >"＝＋－＊／"</string>
+
+    <!-- labels for letter keys -->
     <!-- 第一種鍵盤，最簡單的: labels for letter keys -->
     <string name="two_for_1">"1a!gm"</string>
     <string name="two_for_2">"2b@xz"</string>
@@ -48,89 +159,102 @@
     <string name="two_for_8">"8n*u'"</string>
     <string name="two_for_9">"9o(r\""</string>
     <string name="two_for_0">"0v) _"</string>
-    <string name="two_for_dot">".&lt;~&gt;`"</string>
-    <string name="two_for_comma">",{|}\\"</string>
     <string name="two_for_semicolon">";[:]?"</string>
+    <string name="two_for_comma">",{|}\\"</string>
+    <string name="two_for_dot">".&lt;~&gt;`"</string>
     <string name="two_for_equal">"=+-*/"</string>
 
-    <!-- 第二種鍵盤，英文 labels for letter keys -->
+    <!-- 第二種鍵盤，英文 + 嘸蝦米 -->
     <string name="letters_for_direction">" ◀▲▶▼"</string>
-    <string name="letters_for_1">"1 !"</string>
-    <string name="letters_for_2">"2 @"</string>
-    <string name="letters_for_3">"3 #"</string>
-    <string name="letters_for_4">"4 $"</string>
-    <string name="letters_for_5">"5 %"</string>
-    <string name="letters_for_6">"6 ^"</string>
-    <string name="letters_for_7">"7 &amp;"</string>
-    <string name="letters_for_8">"8 *"</string>
-    <string name="letters_for_9">"9 ("</string>
-    <string name="letters_for_0">"0 )"</string>
-    <string name="letters_for_minus">"- _"</string>
-    <string name="letters_for_equal">"+ ="</string>
+    <string name="letters_for_1">"1!"</string>
+    <string name="letters_for_2">"2@"</string>
+    <string name="letters_for_3">"3#"</string>
+    <string name="letters_for_4">"4$"</string>
+    <string name="letters_for_5">"5%"</string>
+    <string name="letters_for_6">"6^"</string>
+    <string name="letters_for_7">"7&amp;"</string>
+    <string name="letters_for_8">"8*"</string>
+    <string name="letters_for_9">"9("</string>
+    <string name="letters_for_0">"0)"</string>
+    <string name="letters_for_minus">"-_"</string>
+    <string name="letters_for_equal">"+="</string>
+    <string name="letters_for_q">"qQ"</string>
+    <string name="letters_for_w">"wW"</string>
+    <string name="letters_for_e">"eE"</string>
+    <string name="letters_for_r">"rR"</string>
+    <string name="letters_for_t">"tT"</string>
+    <string name="letters_for_y">"yY"</string>
+    <string name="letters_for_u">"uU"</string>
+    <string name="letters_for_i">"iI"</string>
+    <string name="letters_for_o">"oO"</string>
+    <string name="letters_for_p">"pP"</string>
+    <string name="letters_for_left_square">"[{"</string>
+    <string name="letters_for_right_square">"]}"</string>
 
-    <string name="letters_for_q">"q Q"</string>
-    <string name="letters_for_w">"w W"</string>
-    <string name="letters_for_e">"e E"</string>
-    <string name="letters_for_r">"r R"</string>
-    <string name="letters_for_t">"t T"</string>
-    <string name="letters_for_y">"y Y"</string>
-    <string name="letters_for_u">"u U"</string>
-    <string name="letters_for_i">"i I"</string>
-    <string name="letters_for_o">"o O"</string>
-    <string name="letters_for_p">"p P"</string>
-    <string name="letters_for_left_square">"[ {"</string>
-    <string name="letters_for_right_square">"] }"</string>
+    <string name="letters_for_a">"aA"</string>
+    <string name="letters_for_s">"sS"</string>
+    <string name="letters_for_d">"dD"</string>
+    <string name="letters_for_f">"fF"</string>
+    <string name="letters_for_g">"gG"</string>
+    <string name="letters_for_h">"hH"</string>
+    <string name="letters_for_j">"jJ"</string>
+    <string name="letters_for_k">"kK"</string>
+    <string name="letters_for_l">"lL"</string>
+    <string name="letters_for_semi_colon">";:"</string>
+    <string name="letters_for_slash">"/?"</string>
+    <string name="letters_for_back_slash">"\\|"</string>
 
-    <string name="letters_for_a">"a A"</string>
-    <string name="letters_for_s">"s S"</string>
-    <string name="letters_for_d">"d D"</string>
-    <string name="letters_for_f">"f F"</string>
-    <string name="letters_for_g">"g G"</string>
-    <string name="letters_for_h">"h H"</string>
-    <string name="letters_for_j">"j J"</string>
-    <string name="letters_for_k">"k K"</string>
-    <string name="letters_for_l">"l L"</string>
-    <string name="letters_for_semi_colon">"; :"</string>
-    <string name="letters_for_quote">"/ ?"</string>
-    <string name="letters_for_back_slash">"\\ |"</string>
+    <string name="letters_for_z">"zZ"</string>
+    <string name="letters_for_x">"xX"</string>
+    <string name="letters_for_c">"cC"</string>
+    <string name="letters_for_v">"vV"</string>
+    <string name="letters_for_b">"bB"</string>
+    <string name="letters_for_n">"nN"</string>
+    <string name="letters_for_m">"mM"</string>
+    <string name="letters_for_comma">",&lt;"</string>
+    <string name="letters_for_dot">".&gt;"</string>
+    <string name="letters_for_quote">"'\""</string>
+    <string name="letters_for_tilde">"`~"</string>
 
-    <string name="letters_for_z">"z Z"</string>
-    <string name="letters_for_x">"x X"</string>
-    <string name="letters_for_c">"c C"</string>
-    <string name="letters_for_v">"v V"</string>
-    <string name="letters_for_b">"b B"</string>
-    <string name="letters_for_n">"n N"</string>
-    <string name="letters_for_m">"m M"</string>
-    <string name="letters_for_comma">", &lt;"</string>
-    <string name="letters_for_dot">". &gt;"</string>
-    <string name="letters_for_slash">"' \""</string>
-    <string name="letters_for_tilde">"` ~"</string>
+    <!-- 第三種鍵盤，注音 -->
+    <string name="juin_for_a">aAㄚ</string>
+    <string name="juin_for_b">bBㄅ</string>
+    <string name="juin_for_c">cCㄕㄒ</string>
+    <string name="juin_for_d">dDㄉ˙</string>
+    <string name="juin_for_e">eEㄧ</string>
+    <string name="juin_for_f">fFㄈˊ</string>
+    <string name="juin_for_g">gGㄓㄐ</string>
+    <string name="juin_for_h">hHㄏㄦ</string>
+    <string name="juin_for_i">iIㄞ</string>
+    <string name="juin_for_j">jJㄖˇ</string>
+    <string name="juin_for_k">kKㄎˋ</string>
+    <string name="juin_for_l">lLㄌㄥ</string>
+    <string name="juin_for_m">mMㄇㄢ</string>
+    <string name="juin_for_n">nNㄋㄣ</string>
+    <string name="juin_for_o">oOㄛ</string>
+    <string name="juin_for_p">pPㄆㄡ</string>
+    <string name="juin_for_q">qQㄗㄟ</string>
+    <string name="juin_for_r">rRㄜ</string>
+    <string name="juin_for_s">sSㄙ</string>
+    <string name="juin_for_t">tTㄊㄤ</string>
+    <string name="juin_for_u">uUㄩ</string>
+    <string name="juin_for_v">vVㄍㄑ</string>
+    <string name="juin_for_w">wWㄘㄝ</string>
+    <string name="juin_for_x">xXㄨ</string>
+    <string name="juin_for_y">yYㄔ</string>
+    <string name="juin_for_z">zZㄠ</string>
+    <string name="letters_for_ast">*-/_@</string>
 
-    <!-- 第三種鍵盤，混蝦 labels for letter keys -->
-    <string name="juin_for_a">a ㄚ</string>
-    <string name="juin_for_b">b ㄅ</string>
-    <string name="juin_for_c">c ㄕㄒ</string>
-    <string name="juin_for_d">d ㄉ˙</string>
-    <string name="juin_for_e">e ㄧ</string>
-    <string name="juin_for_f">f ㄈˊ</string>
-    <string name="juin_for_g">g ㄓㄐ</string>
-    <string name="juin_for_h">h ㄏㄦ</string>
-    <string name="juin_for_i">i ㄞ</string>
-    <string name="juin_for_j">j ㄖˇ</string>
-    <string name="juin_for_k">k ㄎˋ</string>
-    <string name="juin_for_l">l ㄌㄥ</string>
-    <string name="juin_for_m">m ㄇㄢ</string>
-    <string name="juin_for_n">n ㄋㄣ</string>
-    <string name="juin_for_o">o ㄛ</string>
-    <string name="juin_for_p">p ㄆㄡ</string>
-    <string name="juin_for_q">q ㄗㄟ</string>
-    <string name="juin_for_r">r ㄜ</string>
-    <string name="juin_for_s">s ㄙ</string>
-    <string name="juin_for_t">t ㄊㄤ</string>
-    <string name="juin_for_u">u ㄩ</string>
-    <string name="juin_for_v">v ㄍㄑ</string>
-    <string name="juin_for_w">w ㄘㄝ</string>
-    <string name="juin_for_x">x ㄨ</string>
-    <string name="juin_for_y">y ㄔ</string>
-    <string name="juin_for_z">z ㄠ</string>
+    <!--  Labels on symbol keys -->
+    <string name="symbols_for_1">1[#]&amp;</string>
+    <string name="symbols_for_2">2(=)+</string>
+    <string name="symbols_for_3">"3`\'´\""</string>
+    <string name="symbols_for_4">4\\:/;</string>
+    <string name="symbols_for_5">5~±×÷</string>
+    <string name="symbols_for_6">6©•®°</string>
+    <string name="symbols_for_7">7¥£€¢</string>
+    <string name="symbols_for_8">8&lt;^&gt;$</string>
+    <string name="symbols_for_9">9|¡¿…</string>
+    <string name="symbols_for_ast">*-/_@</string>
+    <string name="symbols_for_0">0.!,?</string>
 </resources>

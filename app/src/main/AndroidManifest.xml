@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.wade.fsime">
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<application android:label="@string/ime_name" android:icon="@drawable/icon">
 
 		<service android:permission="android.permission.BIND_INPUT_METHOD"
@@ -19,13 +18,8 @@
 		</activity>
 	
 		<activity android:name="SettingsActivity"></activity>
-		
-		<!-- We use singleinstance attribute to prevent from going to HelpActivity when pressing back -->
+
 		<activity android:name="SettingsActivity2" android:launchMode="singleInstance"></activity>
-
-		<activity android:name="HelpActivity"></activity>
-
-
 	</application>
 
 	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"></uses-sdk>

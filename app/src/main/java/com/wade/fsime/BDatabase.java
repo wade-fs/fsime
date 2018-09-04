@@ -185,13 +185,14 @@ public class BDatabase extends SQLiteAssetHelper {
         return resExact;
     }
 
-    public ArrayList<B> getC(String k, int start){
+    public ArrayList<B> getJuin(String k, int start){
         if (db == null) db=getWritableDatabase();
         k = k.replaceAll("[\"\\|{}<>/=-_()!@#$%^&;:`~]", "").toLowerCase();
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         if (k.length() == 0) return resExact;
-        q = "SELECT * FROM c WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT 30 OFFSET "+start+";";
+        q = "SELECT * FROM juin WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT 30 OFFSET "+start+";";
+
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= 30){
@@ -207,7 +208,7 @@ public class BDatabase extends SQLiteAssetHelper {
         if (count >= 30) return resExact;
 
         start = start < count ? 0 : start-count;
-        q = "SELECT * FROM c WHERE eng LIKE \"" + k + "%\" AND eng != \""+k+"\" ORDER BY freq DESC LIMIT "+(30-count)+" OFFSET "+start+";";
+        q = "SELECT * FROM juin WHERE eng LIKE \"" + k + "%\" AND eng != \""+k+"\" ORDER BY freq DESC LIMIT "+(30-count)+" OFFSET "+start+";";
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= 30){
@@ -259,7 +260,7 @@ public class BDatabase extends SQLiteAssetHelper {
         String q="";
         if (tb.equals("b"))
             q = "UPDATE b SET freq="+freq+" WHERE ch='"+b.ch+"';";
-        else q = "UPDATE c SET freq="+freq+" WHERE eng='"+b.eng+"';";
+        else q = "UPDATE juin SET freq="+freq+" WHERE eng='"+b.eng+"';";
         Cursor c = db.rawQuery(q, null);
         c.moveToFirst();
         c.close();
@@ -287,7 +288,6 @@ public class BDatabase extends SQLiteAssetHelper {
     }
 
     public int setTs(int v) {
-//        Log.d(TAG, "setTs("+v+")");
         return ts = v;
     }
 }

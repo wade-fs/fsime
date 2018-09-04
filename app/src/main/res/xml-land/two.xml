@@ -26,25 +26,26 @@
     android:keyHeight="10%p"
     >
     <Row android:rowEdgeFlags="top">
-        <Key android:codes="49" android:keyLabel="@string/two_for_1" android:keyEdgeFlags="left" android:horizontalGap="5%p" />
-        <Key android:codes="50" android:keyLabel="@string/two_for_2"/>
-        <Key android:codes="51" android:keyLabel="@string/two_for_3"/>
-        <Key android:codes="52" android:keyLabel="@string/two_for_4"/>
-        <Key android:codes="53" android:keyLabel="@string/two_for_5"/>
-        <Key android:codes="54" android:keyLabel="@string/two_for_6"/>
-        <Key android:codes="55" android:keyLabel="@string/two_for_7"/>
-        <Key android:codes="56" android:keyLabel="@string/two_for_8"/>
-        <Key android:codes="57" android:keyLabel="@string/two_for_9"/>
-        <Key android:codes="48" android:keyLabel="@string/two_for_0"/>
+        <Key android:codes="49" android:keyLabel="@string/two_for_1" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_1"
+             android:keyEdgeFlags="left" android:horizontalGap="5%p" />
+        <Key android:codes="50" android:keyLabel="@string/two_for_2" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_2" />
+        <Key android:codes="51" android:keyLabel="@string/two_for_3" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_3" />
+        <Key android:codes="52" android:keyLabel="@string/two_for_4" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_4" />
+        <Key android:codes="53" android:keyLabel="@string/two_for_5" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_5" />
+        <Key android:codes="54" android:keyLabel="@string/two_for_6" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_6" />
+        <Key android:codes="55" android:keyLabel="@string/two_for_7" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_7" />
+        <Key android:codes="56" android:keyLabel="@string/two_for_8" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_8" />
+        <Key android:codes="57" android:keyLabel="@string/two_for_9" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_9" />
+        <Key android:codes="48" android:keyLabel="@string/two_for_0" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_0" />
     </Row>
 
     <Row android:rowEdgeFlags="bottom" android:verticalGap="5%p">
         <Key android:codes="9" android:keyIcon="@drawable/sym_keyboard_tab" android:horizontalGap="5%p"/>
         <Key android:codes="-100" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir" />
-        <Key android:codes="59" android:keyLabel="@string/two_for_semicolon" />
-        <Key android:codes="44" android:keyLabel="@string/two_for_comma"/>
-        <Key android:codes="46" android:keyLabel="@string/two_for_dot"/>
-        <Key android:codes="70" android:keyLabel="@string/two_for_equal"/>
+        <Key android:codes="59" android:keyLabel="@string/two_for_semicolon" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_semicolon" />
+        <Key android:codes="44" android:keyLabel="@string/two_for_comma" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_comma" />
+        <Key android:codes="46" android:keyLabel="@string/two_for_dot" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_dot" />
+        <Key android:codes="70" android:keyLabel="@string/two_for_equal" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_equal" />
         <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:isRepeatable="true"/>
         <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" android:isRepeatable="true" />
         <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_super" android:isModifier="true"/>

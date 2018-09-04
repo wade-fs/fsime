@@ -18,15 +18,12 @@
 package com.wade.fsime;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 /* Class that displays a popup preview of each key
  *  It is shown when pressing a key, and hides when releasing the key.
@@ -56,12 +53,7 @@ class TextDrawable extends Drawable {
 	
 	@Override
 	public void draw(Canvas canvas) {
-		Shader shader = new LinearGradient(0, 0, canvas.getWidth(), canvas.getHeight(), Color.GREEN, Color.BLUE, Shader.TileMode.CLAMP);
-		Paint paint = new Paint();
-		paint.setShader(shader);
-		canvas.drawRect(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), paint);
-
-		//float keyX=key.width*horizontalPadding/2;
+        //float keyX=key.width*horizontalPadding/2;
         float keyY=key.height*verticalPadding/2;
 
         float textSize=key.height*(float)0.7;
@@ -78,7 +70,6 @@ class TextDrawable extends Drawable {
         Paint.FontMetrics pfm = mPaint.getFontMetrics();
         tMY = (pfm.ascent+pfm.descent)/(float)2.0;
 
-        
 		canvas.drawText(String.valueOf(letter[0]), -tMX, -keyY-tMY, mPaint);
 	}
 		
@@ -86,19 +77,15 @@ class TextDrawable extends Drawable {
 
 	@Override
 	public int getOpacity() {
-		// TODO Auto-generated method stub
 		return PixelFormat.TRANSLUCENT;
 	}
 
 	@Override
 	public void setAlpha(int alpha) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void setColorFilter(ColorFilter cf) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	
@@ -111,7 +98,6 @@ class TextDrawable extends Drawable {
 	@Override
 	public int getIntrinsicWidth() {
 		return (int)(key.width*horizontalPadding);
-		//return 10;//width;
 	}
 	
 	// called each time it is drawn
@@ -130,7 +116,5 @@ class TextDrawable extends Drawable {
 	public void onBoundsChange(Rect newBounds) {
 		bounds.set(newBounds);
 	}
-
-
 }
 

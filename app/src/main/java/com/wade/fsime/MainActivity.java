@@ -19,11 +19,8 @@ package com.wade.fsime;
 
 
 import java.util.List;
-
-import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodInfo;
@@ -53,136 +50,200 @@ import java.util.Map;
 */
 
 public class MainActivity extends ListActivity {
-    final static private String TAG="MyLog";
-    private static final int M_SETTINGS = 0;
-    private static final int M_ENABLE = 1;
-    protected int dontAsk=0;
-    protected String versionName;
-    BDatabase bdatabase;
+	
+	/* Whether to automatically show IME picker, etc
+	 * 	0: never asked
+	 *  1: just asked for enabling
+	 *  2: already asked for enabling & picker
+	 */
+	protected int dontAsk;
+	
+	protected String versionName;
 
-    @Override
-    protected void onCreate(Bundle state) {
-        super.onCreate(state);
-        setContentView(R.layout.help);
+	// menus
+	private static final int M_SETTINGS=0;
+	private static final int M_ENABLE=1;
 
-        try {
-            dontAsk = state.getInt("dontAsk");
-        } catch (Exception e) {
-            dontAsk = 0;
-        }
+	// dialogs
+	private static final int D_ENABLE=0;
+	private static final int D_PICKER=1;
 
-        // populate main menu
-        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+	  
+	@Override
+	protected void onCreate(Bundle state) {
+		super.onCreate(state);
+		setContentView(R.layout.help);
 
-        String[] menu = getResources().getStringArray(R.array.main_menu);
-        String[] menuDesc = getResources().getStringArray(R.array.main_menu_desc);
+		try {
+			dontAsk=state.getInt("dontAsk");
+		} catch (Exception e) {}
 
-        // convert 2 arrays of strings -> one list of maps of 2 strings
-        for (int i = 0; i < menu.length; i++) {
-            Map<String, String> map = new HashMap<String, String>();
-            map.put("text1", menu[i]);
-            map.put("text2", menuDesc[i]);
-            list.add(map);
-        }
-        String[] from = {"text1", "text2"};
-        int[] to = {android.R.id.text1, android.R.id.text2};
+		
+		// populate main menu
+      	List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
-        // let built-in function do the magic (put the strings into the textviews)
-        SimpleAdapter sa = new SimpleAdapter(this.getApplicationContext(),
-                list,
-                android.R.layout.simple_list_item_2,
-                from,
-                to);
+      	String[] menu = getResources().getStringArray(R.array.main_menu);
+      	String[] menuDesc = getResources().getStringArray(R.array.main_menu_desc);      	
+      	
+      	// convert 2 arrays of strings -> one list of maps of 2 strings
+      	for (int i=0; i<menu.length; i++) {
+      		Map<String, String> map = new HashMap<String, String>();
+      		map.put("text1", menu[i]);
+			map.put("text2", menuDesc[i]);
+      		list.add(map);
+      	}
+      	String[] from = {"text1","text2"};
+      	int[] to = {android.R.id.text1, android.R.id.text2};
+      	
+      	// let built-in function do the magic (put the strings into the textviews)
+      	SimpleAdapter sa = new SimpleAdapter(this.getApplicationContext(), 
+      			list, 
+      			android.R.layout.simple_list_item_2, 
+      			from, 
+      			to);
+      	
+      	setListAdapter(sa);
+	}
 
-        setListAdapter(sa);
-    }
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		Intent intent;
+		
+		switch (position) {
+			case M_SETTINGS:
+		        intent = new Intent();
+		        intent.setClass(MainActivity.this, SettingsActivity.class);
+		        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.setFlags(/*Intent.FLAG_ACTIVITY_NO_HISTORY|*/Intent.FLAG_ACTIVITY_CLEAR_TOP);		        
+		        startActivity(intent);
+				break;
+			case M_ENABLE:
+				if (!getIMEStatus()) {
+					dontAsk=1;
+					showDialog(D_ENABLE);
+				} else {
+					dontAsk=2;
+					showDialog(D_PICKER);
+				}
+				break;
+		}
+	}
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        Intent intent;
 
-        switch (position) {
-            case M_SETTINGS:
-                intent = new Intent();
-                intent.setClass(MainActivity.this, SettingsActivity.class);
-                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.setFlags(/*Intent.FLAG_ACTIVITY_NO_HISTORY|*/Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                break;
-            case M_ENABLE:
-                if (getIMEStatus() == 0) {
-                    dontAsk = 1;
-                    launchLocaleSettings();
-                } else {
-                    dontAsk = 2;
-                    showPicker();
-                }
-                break;
-        }
-    }
+	// When launched, whether to show "Enable" dialogs and IME picker
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		if (dontAsk==0 && !getIMEStatus()) {
+			dontAsk=1;
+			showDialog(D_ENABLE);
+		} else if (dontAsk==1 && getIMEStatus()) {
+			dontAsk=2;
+			showDialog(D_PICKER);
+		}
+	}
+	
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle s) {
+		dontAsk=s.getChar("dontAsk");
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle s) {
+		s.putInt("dontAsk", dontAsk);
+	}
+	
+	// Launch device keyboard settings
+	protected void launchLocaleSettings() {
+		Intent queryIntent = new Intent(Intent.ACTION_MAIN);
+		queryIntent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
+		queryIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(queryIntent);
+		
+	}
 
-    // When launched, whether to show "Enable" dialogs and IME picker
-    @Override
-    protected void onStart() {
-        super.onStart();
-        int imeStatus = getIMEStatus();
-        if (imeStatus == 0) {
-            dontAsk = 1;
-            launchLocaleSettings();
-        } else if (imeStatus < 2) {
-            dontAsk = 2;
-            showPicker();
-        }
-    }
+	// Show android IME picker
+	//  (due to a kind of bug we need to show it in a delayed runnable)
+	void showPicker() {
+		Runnable run = new Runnable() {
+			public void run() {
+        		InputMethodManager inputManager = (InputMethodManager) getSystemService (INPUT_METHOD_SERVICE);		
+        		inputManager.showInputMethodPicker();				
+			}
+		};	
+		
+		Handler h=new android.os.Handler();
+		h.postDelayed(run,250);
+	}
+	
+	
+	// populate dialogs
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		AlertDialog.Builder builder;
+		AlertDialog alert;
+		
+		switch (id) {
+			case D_ENABLE:
+			builder = new AlertDialog.Builder(this);
+			builder.setMessage(getResources().getString(R.string.pleaseEnable))
+			.setCancelable(true)
+			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					launchLocaleSettings();
+				}
+			}).setNegativeButton("Cancel", null);
+			alert = builder.create();
+			return alert;
+			
+		case D_PICKER:
+			builder = new AlertDialog.Builder(this);
+			builder.setMessage(getResources().getString(R.string.pleaseSelect))
+			.setCancelable(false)
+			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+							//sendMessageDelayed(null, 100);
+							showPicker();
+				}
+			});
+			alert = builder.create();
+			return alert;
+			
+		default:
+			return null;
+		}
+	}
+	
+	
+	
+	// return true if our IME is enabled in android settings
+	protected boolean getIMEStatus() {
+		InputMethodManager inputManager = (InputMethodManager) getSystemService (Context.INPUT_METHOD_SERVICE);
+		List<InputMethodInfo> inputMethodInfoList = inputManager.getEnabledInputMethodList();
+		String myPackageName = this.getClass().getPackage().getName();
+		
+		for (InputMethodInfo i : inputMethodInfoList) {
+		        if (i.getPackageName().equals(myPackageName))
+		        	return true;
+		}
+		return false;
+	}
 
-    @Override
-    protected void onRestoreInstanceState(Bundle s) {
-        dontAsk = s.getChar("dontAsk");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle s) {
-        s.putInt("dontAsk", dontAsk);
-    }
-
-    // Launch device keyboard settings
-    protected void launchLocaleSettings() {
-        Intent queryIntent = new Intent(Intent.ACTION_MAIN);
-        queryIntent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
-        queryIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(queryIntent);
-
-    }
-
-    // Show android IME picker
-    //  (due to a kind of bug we need to show it in a delayed runnable)
-    void showPicker() {
-        Runnable run = new Runnable() {
-            public void run() {
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                inputManager.showInputMethodPicker();
-            }
-        };
-
-        Handler h = new android.os.Handler();
-        h.postDelayed(run, 500);
-    }
-
-    // return true if our IME is enabled in android settings
-    protected int getIMEStatus() {
-        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        List<InputMethodInfo> inputMethodInfoList = inputManager.getEnabledInputMethodList();
-        String myPackageName = this.getClass().getPackage().getName();
-        int res = 0;
-        for (InputMethodInfo i : inputMethodInfoList) {
-            if (i.getPackageName().equals(myPackageName)) {
-                res = 1;
-                break;
-            }
-        }
-        String curIME = Settings.Secure.getString(getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
-        if (curIME.contains(myPackageName)) res = 2;
-        return res;
-    }
+	protected String getVersionName() {
+		if (versionName==null) {
+			try {
+				PackageInfo pinfo = this.getPackageManager().getPackageInfo(this.getClass().getPackage().getName(), 0);
+				versionName=pinfo.versionName;
+			} catch (Exception e) {
+				versionName="";
+			}
+		}
+		
+		return versionName;
+	}
+	
+	
 }

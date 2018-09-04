@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2009 Alejandro Grijalba
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string-array name="keyLayoutEntries">
+    	<item>Número detrás</item>
+        <item>Número a la izquierda</item>
+        <item>Número centrado</item>
+    </string-array>
+
+
+    
+    <string-array name="main_menu">
+    	<item>Ayuda</item>
+    	<item>Ajustes</item>
+    	<item>Habilitar</item>
+    	<item>Acerca de...</item>
+    </string-array>
+
+    <string-array name="main_menu_desc">
+    	<item>Tutorial</item>
+    	<item>Ajustes de SlideType Keyboard</item>
+    	<item>Comprobar que esté habilitado</item>
+    	<!-- Version number added by code -->
+    	<item>Versión</item>
+    </string-array>
+
+
+   <string-array name="about_menu">
+    	<item>ChangeLog</item>
+    	<item>Licencia</item>
+    	<item>Email al autor</item>
+    </string-array>
+
+    <string-array name="about_menu_desc">
+    	<item>Ver cambios recientes (en línea)</item>
+    	<item>Ver Licencia Apache 2.0 (inglés)</item>
+    	<item>Enviarme un email</item>
+    </string-array>
+    
+</resources>
+
