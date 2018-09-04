@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.wade.fsime"
         minSdkVersion 3
-        targetSdkVersion 4
-        versionCode 406
-        versionName "0.4.6"
+        targetSdkVersion 27
+        versionCode 407
+        versionName "0.4.7"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

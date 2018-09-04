@@ -350,7 +350,6 @@ public class SlideTypeKeyboard extends InputMethodService
     boolean isPP = false;
     ArrayList<String> PP = new ArrayList<String>();
     private void turnCandidate(boolean prediction) {
-//        Log.d("MyLog", "turnCandidate("+prediction+")");
         if (mCandidateView != null && !prediction) {
             mComposing.setLength(0);
             mCandidateView.clear();
@@ -650,11 +649,11 @@ public class SlideTypeKeyboard extends InputMethodService
                 default: // ESC
                     if (mComposing.length() > 0) {
                         commitTyped(getCurrentInputConnection());
-                        mComposing.setLength(0);
-                        setCandidatesViewShown(false);
-//                        getCurrentInputConnection().commitText("", 0);
                     } else
                         handleClose();
+                    mCandidateView.clear();
+                    mComposing.setLength(0);
+                    setCandidatesViewShown(false);
             }
             return;
         }
@@ -799,9 +798,7 @@ public class SlideTypeKeyboard extends InputMethodService
 
     public void setSuggestions(List<String> suggestions, boolean completions,
                                boolean typedWordValid) {
-        if (suggestions != null && suggestions.size() > 0) {
-            setCandidatesViewShown(true);
-        } else if (isExtractViewShown()) {
+        if (suggestions != null && suggestions.size() > 0 || isExtractViewShown()) {
             setCandidatesViewShown(true);
         }
         if (mCandidateView != null) {
@@ -916,7 +913,6 @@ public class SlideTypeKeyboard extends InputMethodService
             commitTyped(ic);
         requestHideSelf(0);
 
-        android.util.Log.w("slidetype", "Connection died! Hiding ourselves");
         mInputView.closing();
     }
 
