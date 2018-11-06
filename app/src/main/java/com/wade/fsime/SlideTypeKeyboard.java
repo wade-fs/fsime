@@ -42,6 +42,7 @@ import android.view.inputmethod.InputMethodManager;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.wade.fsime.LatinKeyboard.LatinKey;
@@ -241,6 +242,7 @@ public class SlideTypeKeyboard extends InputMethodService
         SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String customPref = mySharedPreferences.getString("keyLayout", "0");
         keyLayout = Integer.valueOf(customPref);
+        Log.d("MyLog", "keyLayout = "+keyLayout);
         customPref = mySharedPreferences.getString("slideThreshold", "7");
         slideThreshold = Integer.valueOf(customPref);
         LatinKeyboardView.minSlide = 0; // force re-calc
@@ -312,7 +314,7 @@ public class SlideTypeKeyboard extends InputMethodService
 
         // Update the label on the enter key, depending on what the application
         // says it will do.
-        mCurKeyboard.setImeOptions(getResources(), attribute.imeOptions);
+        mCurKeyboard.setImeOptions(getResources(), attribute.imeOptions | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
     }
 
     /**
@@ -321,7 +323,7 @@ public class SlideTypeKeyboard extends InputMethodService
     @Override
     public void onFinishInput() {
         super.onFinishInput();
-
+        Log.d("MyLog", "onFinishInput()@SlideTypeKeyboard()");
         // Clear current composing text and candidates.
         mComposing.setLength(0);
         updateCandidates(0);
@@ -345,43 +347,19 @@ public class SlideTypeKeyboard extends InputMethodService
         mInputView.setKeyboard(mCurKeyboard);
         mInputView.closing();
         sEditorInfo = attribute;
+        Log.d("MyLog", "onStartInputView("+sEditorInfo.privateImeOptions+","+sEditorInfo.imeOptions+","+sEditorInfo.inputType+")");
     }
     private String lastWord="";
     boolean isPP = false;
     ArrayList<String> PP = new ArrayList<String>();
     private void turnCandidate(boolean prediction) {
+        Log.d("MyLog", "turnCandidate("+prediction+") on SlideTypeKeyboard");
         if (mCandidateView != null && !prediction) {
             mComposing.setLength(0);
             mCandidateView.clear();
         }
         mPredictionOn = prediction;
-        if (mComposing.length() > 0)
-            setCandidatesViewShown(prediction);
-    }
-    /**
-     * Deal with the editor reporting movement of its cursor.
-     */
-    @Override
-    public void onUpdateSelection(int oldSelStart, int oldSelEnd, int newSelStart, int newSelEnd, int candidatesStart, int candidatesEnd) {
-        super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
-                candidatesStart, candidatesEnd);
-        if (isPP && PP.size() > 0) {
-            setSuggestions(PP, true, true);
-            isPP = false;
-            PP.clear();
-        } else if (mComposing.length() > 0 && (newSelStart != candidatesEnd
-                || newSelEnd != candidatesEnd)) {
-            mComposing.setLength(0);
-            updateCandidates(0);
-            InputConnection ic = getCurrentInputConnection();
-            if (ic != null) {
-                ic.finishComposingText();
-            }
-        } else if (mComposing.length() == 0){
-            setSuggestions(null, false, false);
-            mComposing.setLength(0);
-            setCandidatesViewShown(false);
-        }
+        setCandidatesViewShown(prediction);
     }
 
     /**
@@ -392,6 +370,7 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     @Override
     public void onDisplayCompletions(CompletionInfo[] completions) {
+        Log.d("MyLog", "onDisplayCompletions("+completions.toString()+")");
         if (mCompletionOn) {
             mCompletions = completions;
             if (completions == null) {
@@ -414,6 +393,7 @@ public class SlideTypeKeyboard extends InputMethodService
      * PROCESS_HARD_KEYS option.
      */
     private boolean translateKeyDown(int keyCode, KeyEvent event) {
+        Log.d("MyLog", "translateKeyDown("+keyCode+") "+event.toString());
         mMetaState = MetaKeyKeyListener.handleKeyDown(mMetaState,
                 keyCode, event);
         int c = event.getUnicodeChar(MetaKeyKeyListener.getMetaState(mMetaState));
@@ -446,12 +426,11 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     /**
-     * Use this to monitor key events being delivered to the application.
-     * We get first crack at them, and can either resume them or let them
-     * continue to the app.
+     * 這個應該是硬體按鍵，一般不會進來
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.d("MyLog", "onKeyDown("+keyCode+") "+event.toString());
         LatinKeyboardView.direction = -1;
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
@@ -524,9 +503,7 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        // If we want to do transformations on text being entered with a hard
-        // keyboard, we need to process the up events to update the meta key
-        // state we are tracking.
+        Log.d("MyLog", "onKeyUp("+keyCode+") "+event.toString());
         if (PROCESS_HARD_KEYS) {
             if (mPredictionOn) {
                 mMetaState = MetaKeyKeyListener.handleKeyUp(mMetaState,
@@ -559,6 +536,7 @@ public class SlideTypeKeyboard extends InputMethodService
      * editor state.
      */
     private void updateShiftKeyState(EditorInfo attr) {
+        Log.d("MyLog", "updateShiftKeyState("+attr.toString()+")");
         if (attr != null && mInputView != null) {
             int caps = 0;
             EditorInfo ei = getCurrentInputEditorInfo();
@@ -627,10 +605,12 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onKey(int keycode, int[] keyCodes) {
+//        if (hasPressed || !hasReleased) return;
         mPredictionOn = isAlphabet(keycode);
         int primaryCode = keycode;
         if (LatinKeyboardView.direction != -1)
             primaryCode = getCharFromKey(pressedCode, LatinKeyboardView.direction);
+        Log.d("MyLog", "onKey("+keycode+","+Arrays.toString(keyCodes)+") " +primaryCode);
         if (mComposing.length() > 0 && mComposing.charAt(0) >= 256) mComposing.setLength(0);
         if (keycode == -100) {
             switch (primaryCode) {
@@ -645,6 +625,9 @@ public class SlideTypeKeyboard extends InputMethodService
                     break;
                 case '▼':
                     handleDown();
+                    break;
+                case -100: // Options
+                    showOptionsMenu();//launchSettings();
                     break;
                 default: // ESC
                     if (mComposing.length() > 0) {
@@ -737,8 +720,6 @@ public class SlideTypeKeyboard extends InputMethodService
                         break;
                 }
             }
-        } else if (primaryCode == LatinKeyboardView.KEYCODE_OPTIONS) {
-            showOptionsMenu();//launchSettings();
         } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE
                 && mInputView != null) {
             Keyboard current = mInputView.getKeyboard();
@@ -749,6 +730,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onText(CharSequence text) {
+        Log.d("MyLog", "onText("+text+")");
         InputConnection ic = getCurrentInputConnection();
         if (ic == null) return;
         ic.beginBatchEdit();
@@ -767,46 +749,72 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     private int start = 0;
     public void updateCandidates(int forward) {
-        if (!mCompletionOn) {
-            if (mComposing.length() > 0) {
-                ArrayList<String> list = new ArrayList<String>();
-                list.add(mComposing.toString());
+        Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
+        if (!mCompletionOn && mComposing.length() > 0) {
+            ArrayList<String> list = new ArrayList<String>();
+            list.add(mComposing.toString());
 
-                if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
-                // wade, 底下根據鍵盤，切換不同的資料庫
-                int s = start + forward * 30;
-                if (mInputView.getKeyboard().equals(keyboardQwerty)) { // 英瞎
-                    b = bdatabase.getB(mComposing.toString().toLowerCase(), s);
+            if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
+            // wade, 底下根據鍵盤，切換不同的資料庫
+            int s = start + forward * 30;
+            if (mInputView.getKeyboard().equals(keyboardQwerty)) { // 英瞎
+                b = bdatabase.getB(mComposing.toString().toLowerCase(), s);
+                for (B d : b) {
+                    list.add(d.ch);
+                }
+            } else if (mInputView.getKeyboard().equals(keyboardJuin)) { // 注音
+                if ((b = bdatabase.getJuin(mComposing.toString().toLowerCase(), s)).size() > 0) {
+                    start += forward * b.size();
                     for (B d : b) {
                         list.add(d.ch);
                     }
-                } else if (mInputView.getKeyboard().equals(keyboardJuin)) { // 注音
-                    if ((b = bdatabase.getJuin(mComposing.toString().toLowerCase(), s)).size() > 0) {
-                        start += forward * b.size();
-                        for (B d : b) {
-                            list.add(d.ch);
-                        }
-                    }
                 }
-
-                setSuggestions(list, true, true);
-            } else {
-                setSuggestions(null, false, false);
             }
+
+            setSuggestions(list, true, true);
+        } else {
+            setSuggestions(null, false, false);
         }
     }
 
-    public void setSuggestions(List<String> suggestions, boolean completions,
-                               boolean typedWordValid) {
+    public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
+        Log.d("MyLog", "SlideTypeKeyboard::setSuggestions("+(suggestions==null?"Null":suggestions.toString())+") "+completions+", "+typedWordValid);
+
         if (suggestions != null && suggestions.size() > 0 || isExtractViewShown()) {
             setCandidatesViewShown(true);
-        }
-        if (mCandidateView != null) {
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
+        } else setCandidatesViewShown(false);
+    }
+
+    /**
+     * Deal with the editor reporting movement of its cursor.
+     */
+    @Override
+    public void onUpdateSelection(int oldSelStart, int oldSelEnd, int newSelStart, int newSelEnd, int candidatesStart, int candidatesEnd) {
+        super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
+                candidatesStart, candidatesEnd);
+        Log.d("MyLog", "onUpdateSelection("+oldSelStart+","+oldSelEnd+","+newSelStart+","+newSelEnd+","+candidatesStart+","+candidatesEnd+")");
+        if (isPP && PP.size() > 0) {
+            setSuggestions(PP, true, true);
+            isPP = false;
+            PP.clear();
+        } else if (mComposing.length() > 0 && (newSelStart != candidatesEnd
+                || newSelEnd != candidatesEnd)) {
+            mComposing.setLength(0);
+            updateCandidates(0);
+            InputConnection ic = getCurrentInputConnection();
+            if (ic != null) {
+                ic.finishComposingText();
+            }
+        } else if (mComposing.length() == 0){
+            setSuggestions(null, false, false);
+            mComposing.setLength(0);
+            setCandidatesViewShown(false);
         }
     }
 
     private void handleBackspace() {
+        Log.d("MyLog", "handleBackspace()");
         final int length = mComposing.length();
         if (length > 1) {
             mComposing.delete(length - 1, length);
@@ -886,6 +894,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     private void handleCharacter(int primaryCode) {
+        Log.d("MyLog", "handleCharacter("+primaryCode+")");
         if (isInputViewShown() && LatinKeyboardView.sShiftState) {
             primaryCode = Character.toUpperCase(primaryCode);
         }
@@ -922,6 +931,7 @@ public class SlideTypeKeyboard extends InputMethodService
 
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
+        Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
         if (!res.equals("")) {
             getCurrentInputConnection().commitText(res, res.length());
             mComposing.setLength(0);
@@ -951,6 +961,8 @@ public class SlideTypeKeyboard extends InputMethodService
                         turnCandidate(false);
                     }
                 }
+            } else {
+                turnCandidate(false);
             }
         } else if (mCompletionOn && mCompletions != null && index >= 0
                 && index < mCompletions.length) {
@@ -960,28 +972,25 @@ public class SlideTypeKeyboard extends InputMethodService
             commitTyped(getCurrentInputConnection());
             mComposing.setLength(0);
         }
+        if (sEditorInfo.inputType == 0) {
+            turnCandidate(false);
+        }
     }
 
     public void swipeRight() {
-        onKey(pressedCode, null);
-        //handleSlideKey();
-
+        Log.d("MyLog", "swipeRight()");
     }
 
-
     public void swipeLeft() {
-        onKey(pressedCode, null);
-        //handleSlideKey();
+        Log.d("MyLog", "swipeLeft()");
     }
 
     public void swipeDown() {
-        onKey(pressedCode, null);
-        //handleSlideKey();
+        Log.d("MyLog", "swipeDown()");
     }
 
     public void swipeUp() {
-        onKey(pressedCode, null);
-        //handleSlideKey();
+        Log.d("MyLog", "swipeUp()");
     }
 
     public void onPress(int primaryCode) {
@@ -989,7 +998,6 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
-        int kk = 3;
-        kk = kk + 1;
+        pressedCode = primaryCode;
     }
 }

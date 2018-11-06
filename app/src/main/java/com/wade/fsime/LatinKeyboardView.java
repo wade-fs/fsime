@@ -113,7 +113,7 @@ public class LatinKeyboardView extends KeyboardView {
 
 	// 
     @Override
-    protected boolean onLongPress(Key key) {    	
+    protected boolean onLongPress(Key key) {
         if (key.codes[0] == '\n') {
         	direction=-1;
         	// force launch options activity

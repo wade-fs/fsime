@@ -73,16 +73,6 @@ class FancyLabelDraw extends Drawable {
 	}
 		
 	private void drawNumCenter(Canvas canvas) { 
-        // TODO Auto-generated method stub
-        //canvas.drawColor(Color.MAGENTA);
-//      Paint mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-        //mPaint.setColor(Color.CYAN);
-//      mPaint
-//      canvas.drawRect(bounds, mPaint);
-//      mPaint.setColor(Color.YELLOW);
-//      android.os.Debug.waitForDebugger();
-
-
         if (key.fancyLabel != null) {
                 float keyX=key.width*horizontalPadding/2;
                 float keyY=key.height*verticalPadding/2;
@@ -230,24 +220,24 @@ class FancyLabelDraw extends Drawable {
 			mPaint.getTextBounds(letter, 0, 1, bounds);
 			tMX=(bounds.right+bounds.left)/(float)2.0;
 			tW0=(bounds.right-bounds.left);
-			canvas.drawText(letter, 0, 1, keyX-tMX, keyY-tMY+tH0/2-1, mPaint);
+			canvas.drawText(letter, 0, 1, keyX-bounds.left +tW0/2, keyY-tMY+tH0/2-1, mPaint);
 
 			letter[0]=getLetter(4); 
 			mPaint.getTextBounds(letter, 0, 1, bounds);
 			tMX=(bounds.right+bounds.left)/(float)2.0;
 			if (bounds.right-bounds.left > tW0)
 				tW0=(bounds.right-bounds.left);
-			canvas.drawText(letter, 0, 1, keyX-tMX, keyY-tMY-tH0/2+1, mPaint);
+			canvas.drawText(letter, 0, 1, keyX-bounds.right -tW0/2, keyY-tMY-tH0/2+1, mPaint);
 
 			// left & right
 			letter[0]=getLetter(2);
 			mPaint.getTextBounds(letter, 0, 1, bounds);
 			tMY = (pfm.ascent+pfm.descent)/(float)2.0;
-			canvas.drawText(letter, 0, 1, keyX-bounds.right -tW0/2-4, keyY-tMY, mPaint);
+			canvas.drawText(letter, 0, 1, keyX-bounds.right -tW0/2, keyY-tMY+tH0/2-1, mPaint);
 			
 			letter[0]=getLetter(3);
 			mPaint.getTextBounds(letter, 0, 1, bounds);
-			canvas.drawText(letter, 0, 1, keyX-bounds.left +tW0/2+4, keyY-tMY, mPaint);
+			canvas.drawText(letter, 0, 1, keyX-bounds.left +tW0/2, keyY-tMY-tH0/2+1, mPaint);
 		}
 	}
 

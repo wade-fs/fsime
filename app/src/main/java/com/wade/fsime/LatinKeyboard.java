@@ -75,7 +75,7 @@ public class LatinKeyboard extends Keyboard {
         if (mEnterKey == null) {
             return;
         }
-        
+
         switch (options&(EditorInfo.IME_MASK_ACTION|EditorInfo.IME_FLAG_NO_ENTER_ACTION)) {
             case EditorInfo.IME_ACTION_GO:
                 mEnterKey.iconPreview = null;

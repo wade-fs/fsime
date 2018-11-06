@@ -129,10 +129,11 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b, 1)) {
-                resExact.add(b);
-                ++count;
-            }
+            // 更改排序會讓自己困擾
+//            if (!isIn(resExact, b, 1)) {
+//                resExact.add(b);
+//                ++count;
+//            }
             n = cursor.moveToNext();
         }
         return resExact;
