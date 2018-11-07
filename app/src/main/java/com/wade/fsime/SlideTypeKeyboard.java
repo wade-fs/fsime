@@ -632,8 +632,13 @@ public class SlideTypeKeyboard extends InputMethodService
                 default: // ESC
                     if (mComposing.length() > 0) {
                         commitTyped(getCurrentInputConnection());
-                    } else
+                    } else {
+                        mComposing.setLength(0);
+                        mComposing.append((char)27);
+                        getCurrentInputConnection().commitText(mComposing, 0);
+                        mComposing.setLength(0);
                         handleClose();
+                    }
                     mCandidateView.clear();
                     mComposing.setLength(0);
                     setCandidatesViewShown(false);
