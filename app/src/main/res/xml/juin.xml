@@ -62,7 +62,7 @@
         <Key android:codes="96" android:keyLabel="@string/letters_for_tilde" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternate2_for_e"/>
         <Key android:codes="91" android:keyLabel="@string/letters_for_left_square" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternates_for_left_square"/>
         <Key android:codes="93" android:keyLabel="@string/letters_for_right_square" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternates_for_right_square"/>
-        <Key android:codes="-100" android:keyWidth="13.6%p" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir"/>
+        <Key android:codes="27" android:keyWidth="13.6%p" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir"/>
         <Key android:codes="32" android:keyWidth="17.6%p" android:keyIcon="@drawable/sym_keyboard_space" android:isModifier="true" android:isRepeatable="true"/>
         <Key android:codes="44" android:keyLabel="@string/letters_for_comma" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternate2_for_e"/>
         <Key android:codes="46" android:keyLabel="@string/letters_for_dot" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternate2_for_e"/>

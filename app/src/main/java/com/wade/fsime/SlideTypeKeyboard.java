@@ -100,6 +100,7 @@ public class SlideTypeKeyboard extends InputMethodService
     //    private long mLastShiftTime;
     private long mMetaState;
     private LatinKeyboard keyboardQwerty;
+    private LatinKeyboard keyboardFs;
     private LatinKeyboard keyboardTwo;
     private LatinKeyboard keyboardJuin;
     private String mWordSeparators;
@@ -199,6 +200,7 @@ public class SlideTypeKeyboard extends InputMethodService
             mLastDisplayWidth = displayWidth;
         }
         keyboardQwerty = new LatinKeyboard(this, R.xml.qwerty);
+        keyboardFs = new LatinKeyboard(this, R.xml.fs);
         keyboardTwo = new LatinKeyboard(this, R.xml.two);
         keyboardJuin = new LatinKeyboard(this, R.xml.juin);
     }
@@ -306,10 +308,7 @@ public class SlideTypeKeyboard extends InputMethodService
                 break;
 
             default:
-                // For all unknown input types, default to the alphabetic
-                // keyboard with no special features.
                 mCurKeyboard = keyboardQwerty;
-//                updateShiftKeyState(attribute);
         }
 
         // Update the label on the enter key, depending on what the application
@@ -752,6 +751,7 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     private int start = 0;
     public void updateCandidates(int forward) {
+        if (mInputView != null && mInputView.getKeyboard() != null && mInputView.getKeyboard().equals(keyboardQwerty)) return;
         Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
         if (!mCompletionOn && mComposing.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
@@ -760,7 +760,7 @@ public class SlideTypeKeyboard extends InputMethodService
             if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
             // wade, 底下根據鍵盤，切換不同的資料庫
             int s = start + forward * 30;
-            if (mInputView.getKeyboard().equals(keyboardQwerty)) { // 英瞎
+            if (mInputView.getKeyboard().equals(keyboardFs)) { // 英瞎
                 b = bdatabase.getB(mComposing.toString().toLowerCase(), s);
                 for (B d : b) {
                     list.add(d.ch);
@@ -796,6 +796,7 @@ public class SlideTypeKeyboard extends InputMethodService
     public void onUpdateSelection(int oldSelStart, int oldSelEnd, int newSelStart, int newSelEnd, int candidatesStart, int candidatesEnd) {
         super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
                 candidatesStart, candidatesEnd);
+        if (mInputView.getKeyboard().equals(keyboardQwerty)) return;
         Log.d("MyLog", "onUpdateSelection("+oldSelStart+","+oldSelEnd+","+newSelStart+","+newSelEnd+","+candidatesStart+","+candidatesEnd+")");
         if (isPP && PP.size() > 0) {
             setSuggestions(PP, true, true);
@@ -823,7 +824,7 @@ public class SlideTypeKeyboard extends InputMethodService
             mComposing.delete(length - 1, length);
             getCurrentInputConnection().setComposingText(mComposing, 1);
             updateCandidates(0);
-        } else if (length > 0) {
+        } else if (length == 1) {
             mComposing.setLength(0);
             getCurrentInputConnection().commitText("", 0);
             updateCandidates(0);
@@ -834,12 +835,17 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void handleArrow(int keyCode) {
-        InputConnection ic = getCurrentInputConnection();
         sendDownUpKeyEvents(keyCode);
     }
 
     private void handleTab() {
-        sendDownUpKeyEvents(KeyEvent.KEYCODE_TAB);
+        if (LatinKeyboardView.direction == 1) {
+            mInputView.getKeyboard().setShifted(true);
+            updateShiftKeyState(getCurrentInputEditorInfo());
+            sendDownUpKeyEvents(KeyEvent.KEYCODE_TAB);
+            mInputView.getKeyboard().setShifted(false);
+            updateShiftKeyState(getCurrentInputEditorInfo());
+        } else sendDownUpKeyEvents(KeyEvent.KEYCODE_TAB);
     }
 
     private void handleUp() {
@@ -860,49 +866,29 @@ public class SlideTypeKeyboard extends InputMethodService
 
     private void handleShift() {
         if (mInputView == null) return;
+        mCapsLock = false;
         if (LatinKeyboardView.direction == 1) { // 左, 回英瞎
-            mCapsLock = false;
             mInputView.setKeyboard(keyboardQwerty);
-            mInputView.setNormal();
         } else if (LatinKeyboardView.direction == 2) { // 向上
-            mCapsLock = !mCapsLock;
-            mInputView.setShifted(mCapsLock);
-            updateShiftKeyState(getCurrentInputEditorInfo());
+            mInputView.setKeyboard(keyboardFs);
         } else if (LatinKeyboardView.direction == 3) { // 向右
-            mCapsLock = false;
             mInputView.setKeyboard(keyboardJuin);
-            mInputView.setNormal();
         } else if (LatinKeyboardView.direction == 4) { // 向下
-            mCapsLock = false;
             mInputView.setKeyboard(keyboardTwo);
-            mInputView.setNormal();
         } else {
-            mInputView.rotateAltShift();
-            if (LatinKeyboardView.sAltState) { // 換鍵盤
-                Keyboard curKB = mInputView.getKeyboard();
-                if (curKB.equals(keyboardQwerty)) mInputView.setKeyboard(keyboardJuin);
-                else if (curKB.equals(keyboardJuin)) mInputView.setKeyboard(keyboardTwo);
-                else mInputView.setKeyboard(keyboardQwerty);
-                mInputView.setNormal();
-            }
+            Keyboard curKB = mInputView.getKeyboard();
+            if (curKB.equals(keyboardQwerty)) mInputView.setKeyboard(keyboardFs);
+            else if (curKB.equals(keyboardFs)) mInputView.setKeyboard(keyboardJuin);
+            else if (curKB.equals(keyboardJuin)) mInputView.setKeyboard(keyboardTwo);
+            else mInputView.setKeyboard(keyboardQwerty);
         }
-    }
-    private int setTs(int v) {
-        if (bdatabase == null) bdatabase  = new BDatabase(getApplicationContext());
-        mComposing.setLength(0);
-        getCurrentInputConnection().setComposingText(mComposing, 1);
-        updateCandidates(0); // TODO, 更新候選區
-        setCandidatesViewShown(false);
-        return bdatabase.setTs(v);
+        mInputView.setNormal();
     }
 
     private void handleCharacter(int primaryCode) {
         Log.d("MyLog", "handleCharacter("+primaryCode+")");
-        if (isInputViewShown() && LatinKeyboardView.sShiftState) {
-            primaryCode = Character.toUpperCase(primaryCode);
-        }
         if (primaryCode > 0) {
-            if (isAlphabet(primaryCode) && mPredictionOn) {
+            if (!mInputView.getKeyboard().equals(keyboardQwerty) && isAlphabet(primaryCode) && mPredictionOn) {
                 mComposing.append((char) primaryCode);
                 getCurrentInputConnection().setComposingText(mComposing, 1);
                 // updateShiftKeyState(getCurrentInputEditorInfo());
@@ -933,6 +919,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void pickSuggestionManually(int index) {
+        if (mInputView.getKeyboard().equals(keyboardQwerty)) return;
         String res = mCandidateView.getSuggestion(index);
         Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
         if (!res.equals("")) {
@@ -941,7 +928,7 @@ public class SlideTypeKeyboard extends InputMethodService
             if (index > 0) {
                 if (bdatabase == null) bdatabase  = new BDatabase(getApplicationContext());
                 if (!isPP && b.size()>0)
-                    bdatabase.updateRow(b.get(index - 1), mInputView.getKeyboard().equals(keyboardQwerty)?"b":"juin");
+                    bdatabase.updateRow(b.get(index - 1), mInputView.getKeyboard().equals(keyboardFs)?"b":"juin");
                 res = res.substring(res.length()-1);
                 if (bdatabase.isFreq(res)) {
                     if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());

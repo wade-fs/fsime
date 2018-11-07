@@ -35,7 +35,7 @@
         <Key android:codes="112" android:keyLabel="@string/juin_for_p" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternate2_for_p"/>
         <Key android:codes="91" android:keyLabel="@string/letters_for_left_square" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternates_for_left_square"/>
         <Key android:codes="93" android:keyLabel="@string/letters_for_right_square" android:popupKeyboard="@xml/kbd_popup" android:popupCharacters="@string/alternates_for_right_square"/>
-        <Key android:codes="-100" android:keyWidth="7.5%p" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir"/>
+        <Key android:codes="27" android:keyWidth="7.5%p" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir"/>
         <Key android:codes="-1" android:keyWidth="7.5%p"
             android:keyIcon="@drawable/sym_keyboard_juin" android:isModifier="true" />
     </Row>

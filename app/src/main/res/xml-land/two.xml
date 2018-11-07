@@ -41,7 +41,7 @@
 
     <Row android:rowEdgeFlags="bottom" android:verticalGap="5%p">
         <Key android:codes="9" android:keyIcon="@drawable/sym_keyboard_tab" android:horizontalGap="5%p"/>
-        <Key android:codes="-100" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir" />
+        <Key android:codes="27" android:keyLabel="@string/letters_for_direction" android:keyIcon="@drawable/sym_keyboard_dir" />
         <Key android:codes="59" android:keyLabel="@string/two_for_semicolon" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_semicolon" />
         <Key android:codes="44" android:keyLabel="@string/two_for_comma" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_comma" />
         <Key android:codes="46" android:keyLabel="@string/two_for_dot" android:popupKeyboard="@xml/kbd_popup2" android:popupCharacters="@string/atwo_for_dot" />
