@@ -629,23 +629,21 @@ public class SlideTypeKeyboard extends InputMethodService
                 case -100: // Options
                     showOptionsMenu();//launchSettings();
                     break;
-                default: // ESC
-                    if (mComposing.length() > 0) {
-                        commitTyped(getCurrentInputConnection());
-                    } else {
-                        mComposing.setLength(0);
-                        mComposing.append((char)27);
-                        getCurrentInputConnection().commitText(mComposing, 0);
-                        mComposing.setLength(0);
-                        handleClose();
-                    }
-                    mCandidateView.clear();
-                    mComposing.setLength(0);
-                    setCandidatesViewShown(false);
             }
             return;
-        }
-        if (primaryCode == ' ') {
+        } else if (keycode == 27) { // ESC
+            mComposing.setLength(0);
+            if (primaryCode == 32) {
+                mComposing.append((char)27);
+                getCurrentInputConnection().commitText(mComposing, 0);
+                commitTyped(getCurrentInputConnection());
+                mComposing.setLength(0);
+            } else {
+                handleClose();
+                mCandidateView.clear();
+                setCandidatesViewShown(false);
+            }
+        } else if (primaryCode == ' ') {
             if (mPredictionOn || !(mInputView.getKeyboard().equals(keyboardTwo))) {
                 if (mCandidateView != null && mCandidateView.size() >= 1) {
                     if (mComposing.length() > 0 && ((int)mComposing.charAt(0)) < 256) {

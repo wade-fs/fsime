@@ -20,6 +20,7 @@
 package com.wade.fsime;
 
 
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.WindowManager;
@@ -27,6 +28,8 @@ import android.content.Context;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
 import android.util.AttributeSet;
+
+import java.util.Arrays;
 
 /* This class is the View of the keyboard.
  * Currently extends KeyboardView class.
@@ -114,14 +117,19 @@ public class LatinKeyboardView extends KeyboardView {
 	// 
     @Override
     protected boolean onLongPress(Key key) {
-        if (key.codes[0] == '\n') {
-        	direction=-1;
-        	// force launch options activity
-            getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null);
-            return true;
-        } else {
+    	Log.d("MyLog", "LatinKeyboardView::onLongPress("+Arrays.toString(key.codes)+")");
+    	direction = -1;
+        switch (key.codes[0]) {
+		case '\n':
+            getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null); // 啟動選單，用來切換輸入法等等
+			break;
+		case 27:
+			getOnKeyboardActionListener().onKey(27, null); // ESC, 讓輸入法鍵盤消失
+			break;
+		default:
         	return super.onLongPress(key);
-        }        
+        }
+		return true;
     }
 
     public float downX;
