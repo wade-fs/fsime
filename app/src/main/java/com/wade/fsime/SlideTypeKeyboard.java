@@ -244,7 +244,7 @@ public class SlideTypeKeyboard extends InputMethodService
         SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String customPref = mySharedPreferences.getString("keyLayout", "0");
         keyLayout = Integer.valueOf(customPref);
-        Log.d("MyLog", "keyLayout = "+keyLayout);
+        //Log.d("MyLog", "keyLayout = "+keyLayout);
         customPref = mySharedPreferences.getString("slideThreshold", "7");
         slideThreshold = Integer.valueOf(customPref);
         LatinKeyboardView.minSlide = 0; // force re-calc
@@ -322,7 +322,7 @@ public class SlideTypeKeyboard extends InputMethodService
     @Override
     public void onFinishInput() {
         super.onFinishInput();
-        Log.d("MyLog", "onFinishInput()@SlideTypeKeyboard()");
+        //Log.d("MyLog", "onFinishInput()@SlideTypeKeyboard()");
         // Clear current composing text and candidates.
         mComposing.setLength(0);
         updateCandidates(0);
@@ -346,13 +346,13 @@ public class SlideTypeKeyboard extends InputMethodService
         mInputView.setKeyboard(mCurKeyboard);
         mInputView.closing();
         sEditorInfo = attribute;
-        Log.d("MyLog", "onStartInputView("+sEditorInfo.privateImeOptions+","+sEditorInfo.imeOptions+","+sEditorInfo.inputType+")");
+        //Log.d("MyLog", "onStartInputView("+sEditorInfo.privateImeOptions+","+sEditorInfo.imeOptions+","+sEditorInfo.inputType+")");
     }
     private String lastWord="";
     boolean isPP = false;
     ArrayList<String> PP = new ArrayList<String>();
     private void turnCandidate(boolean prediction) {
-        Log.d("MyLog", "turnCandidate("+prediction+") on SlideTypeKeyboard");
+        //Log.d("MyLog", "turnCandidate("+prediction+") on SlideTypeKeyboard");
         if (mCandidateView != null && !prediction) {
             mComposing.setLength(0);
             mCandidateView.clear();
@@ -369,7 +369,7 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     @Override
     public void onDisplayCompletions(CompletionInfo[] completions) {
-        Log.d("MyLog", "onDisplayCompletions("+completions.toString()+")");
+        //Log.d("MyLog", "onDisplayCompletions("+completions.toString()+")");
         if (mCompletionOn) {
             mCompletions = completions;
             if (completions == null) {
@@ -392,7 +392,7 @@ public class SlideTypeKeyboard extends InputMethodService
      * PROCESS_HARD_KEYS option.
      */
     private boolean translateKeyDown(int keyCode, KeyEvent event) {
-        Log.d("MyLog", "translateKeyDown("+keyCode+") "+event.toString());
+        //Log.d("MyLog", "translateKeyDown("+keyCode+") "+event.toString());
         mMetaState = MetaKeyKeyListener.handleKeyDown(mMetaState,
                 keyCode, event);
         int c = event.getUnicodeChar(MetaKeyKeyListener.getMetaState(mMetaState));
@@ -429,7 +429,6 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.d("MyLog", "onKeyDown("+keyCode+") "+event.toString());
         LatinKeyboardView.direction = -1;
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
@@ -502,7 +501,6 @@ public class SlideTypeKeyboard extends InputMethodService
      */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        Log.d("MyLog", "onKeyUp("+keyCode+") "+event.toString());
         if (PROCESS_HARD_KEYS) {
             if (mPredictionOn) {
                 mMetaState = MetaKeyKeyListener.handleKeyUp(mMetaState,
@@ -535,7 +533,7 @@ public class SlideTypeKeyboard extends InputMethodService
      * editor state.
      */
     private void updateShiftKeyState(EditorInfo attr) {
-        Log.d("MyLog", "updateShiftKeyState("+attr.toString()+")");
+        //Log.d("MyLog", "updateShiftKeyState("+attr.toString()+")");
         if (attr != null && mInputView != null) {
             int caps = 0;
             EditorInfo ei = getCurrentInputEditorInfo();
@@ -604,12 +602,11 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onKey(int keycode, int[] keyCodes) {
-//        if (hasPressed || !hasReleased) return;
         mPredictionOn = isAlphabet(keycode);
         int primaryCode = keycode;
         if (LatinKeyboardView.direction != -1)
             primaryCode = getCharFromKey(pressedCode, LatinKeyboardView.direction);
-        Log.d("MyLog", "onKey("+keycode+","+Arrays.toString(keyCodes)+") " +primaryCode);
+//        Log.d("MyLog", "onKey("+keycode+","+Arrays.toString(keyCodes)+") " +primaryCode);
         if (mComposing.length() > 0 && mComposing.charAt(0) >= 256) mComposing.setLength(0);
         if (keycode == -100) {
             switch (primaryCode) {
@@ -732,7 +729,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void onText(CharSequence text) {
-        Log.d("MyLog", "onText("+text+")");
+        //Log.d("MyLog", "onText("+text+")");
         InputConnection ic = getCurrentInputConnection();
         if (ic == null) return;
         ic.beginBatchEdit();
@@ -752,7 +749,7 @@ public class SlideTypeKeyboard extends InputMethodService
     private int start = 0;
     public void updateCandidates(int forward) {
         if (mInputView != null && mInputView.getKeyboard() != null && mInputView.getKeyboard().equals(keyboardQwerty)) return;
-        Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
+        //Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
         if (!mCompletionOn && mComposing.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(mComposing.toString());
@@ -781,7 +778,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
-        Log.d("MyLog", "SlideTypeKeyboard::setSuggestions("+(suggestions==null?"Null":suggestions.toString())+") "+completions+", "+typedWordValid);
+        //Log.d("MyLog", "SlideTypeKeyboard::setSuggestions("+(suggestions==null?"Null":suggestions.toString())+") "+completions+", "+typedWordValid);
 
         if (suggestions != null && suggestions.size() > 0 || isExtractViewShown()) {
             setCandidatesViewShown(true);
@@ -797,7 +794,7 @@ public class SlideTypeKeyboard extends InputMethodService
         super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
                 candidatesStart, candidatesEnd);
         if (mInputView.getKeyboard().equals(keyboardQwerty)) return;
-        Log.d("MyLog", "onUpdateSelection("+oldSelStart+","+oldSelEnd+","+newSelStart+","+newSelEnd+","+candidatesStart+","+candidatesEnd+")");
+        //Log.d("MyLog", "onUpdateSelection("+oldSelStart+","+oldSelEnd+","+newSelStart+","+newSelEnd+","+candidatesStart+","+candidatesEnd+")");
         if (isPP && PP.size() > 0) {
             setSuggestions(PP, true, true);
             isPP = false;
@@ -818,7 +815,7 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     private void handleBackspace() {
-        Log.d("MyLog", "handleBackspace()");
+        //Log.d("MyLog", "handleBackspace()");
         final int length = mComposing.length();
         if (length > 1) {
             mComposing.delete(length - 1, length);
@@ -887,7 +884,7 @@ public class SlideTypeKeyboard extends InputMethodService
 
     // TODO: 目前非英文字就會馬上送出，可能需要改這邊
     private void handleCharacter(int primaryCode) {
-        Log.d("MyLog", "handleCharacter("+mInputView.getShiftState()+","+primaryCode+", '"+(char)primaryCode+"')");
+        //Log.d("MyLog", "handleCharacter("+mInputView.getShiftState()+","+primaryCode+", '"+(char)primaryCode+"')");
         if (primaryCode > 0) {
             if (mInputView.getShiftState() && 'a' <= primaryCode && primaryCode <= 'z')
                 primaryCode -= 'a' - 'A';
@@ -924,7 +921,7 @@ public class SlideTypeKeyboard extends InputMethodService
     public void pickSuggestionManually(int index) {
         if (mInputView.getKeyboard().equals(keyboardQwerty)) return;
         String res = mCandidateView.getSuggestion(index);
-        Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
+        //Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
         if (!res.equals("")) {
             getCurrentInputConnection().commitText(res, res.length());
             mComposing.setLength(0);
@@ -971,19 +968,19 @@ public class SlideTypeKeyboard extends InputMethodService
     }
 
     public void swipeRight() {
-        Log.d("MyLog", "swipeRight()");
+        //Log.d("MyLog", "swipeRight()");
     }
 
     public void swipeLeft() {
-        Log.d("MyLog", "swipeLeft()");
+        //Log.d("MyLog", "swipeLeft()");
     }
 
     public void swipeDown() {
-        Log.d("MyLog", "swipeDown()");
+        //Log.d("MyLog", "swipeDown()");
     }
 
     public void swipeUp() {
-        Log.d("MyLog", "swipeUp()");
+        //Log.d("MyLog", "swipeUp()");
     }
 
     public void onPress(int primaryCode) {
