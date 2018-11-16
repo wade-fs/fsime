@@ -41,51 +41,21 @@ public class LatinKeyboardView extends KeyboardView {
     static int direction;
     
     static boolean sShiftState;
-    static boolean sAltState;
-    
+
     static int screenW, screenH;
     
     static long downTime=0;
-        
+
+	public boolean getShiftState() {
+    	return sShiftState;
+	}
     @Override
     public boolean setShifted(boolean newState) {
     	sShiftState=newState;
-    	if (newState)
-    		sAltState=false;
-    	
-    	super.setShifted(!(sShiftState || sAltState));
-    	
-    	return super.setShifted(sShiftState || sAltState);
-    //	invalidate();
-    // 	return sShiftState;
+    	super.setShifted(!sShiftState);
+    	return super.setShifted(sShiftState);
     }
 
-    public void setAlt(boolean newState) {
-    	sAltState=newState;
-    	
-    	if (newState)
-    		sShiftState=false;
-    	
-    	super.setShifted(!(sShiftState || sAltState));
-    	super.setShifted(sShiftState || sAltState);
-    }
-    
-    public void setNormal() {
-		setShifted(false);
-		setAlt(false);
-    }
-    
-    public void rotateAltShift() {
-    	if (!sShiftState && !sAltState) {
-			setShifted(true);
-		} else if (sShiftState && !sAltState) {
-			setShifted(false);
-			setAlt(true);
-		} else {
-    		setNormal();
-		}
-    }
-    
     // calculate slide threshold
     public void calcMinSlide() {
     	int min = Math.min(screenW, screenH);
@@ -99,8 +69,6 @@ public class LatinKeyboardView extends KeyboardView {
       Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
       screenW = display.getWidth();
       screenH = display.getHeight();
-      //setProximityCorrectionEnabled(false);
-      
     }
 
     public LatinKeyboardView(Context context, AttributeSet attrs, int defStyle) {
@@ -109,15 +77,12 @@ public class LatinKeyboardView extends KeyboardView {
     	Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
     	screenW = display.getWidth();
     	screenH = display.getHeight();
-    	
-        //setProximityCorrectionEnabled(false);
     }
         
 
 	// 
     @Override
     protected boolean onLongPress(Key key) {
-    	Log.d("MyLog", "LatinKeyboardView::onLongPress("+Arrays.toString(key.codes)+")");
     	direction = -1;
         switch (key.codes[0]) {
 		case '\n':
@@ -125,6 +90,9 @@ public class LatinKeyboardView extends KeyboardView {
 			break;
 		case 27:
 			getOnKeyboardActionListener().onKey(27, null); // ESC, 讓輸入法鍵盤消失
+			break;
+		case -1:
+			setShifted(!sShiftState);
 			break;
 		default:
         	return super.onLongPress(key);

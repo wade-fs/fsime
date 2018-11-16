@@ -882,12 +882,15 @@ public class SlideTypeKeyboard extends InputMethodService
             else if (curKB.equals(keyboardJuin)) mInputView.setKeyboard(keyboardTwo);
             else mInputView.setKeyboard(keyboardQwerty);
         }
-        mInputView.setNormal();
+        mInputView.setShifted(false);
     }
 
+    // TODO: 目前非英文字就會馬上送出，可能需要改這邊
     private void handleCharacter(int primaryCode) {
-        Log.d("MyLog", "handleCharacter("+primaryCode+")");
+        Log.d("MyLog", "handleCharacter("+mInputView.getShiftState()+","+primaryCode+", '"+(char)primaryCode+"')");
         if (primaryCode > 0) {
+            if (mInputView.getShiftState() && 'a' <= primaryCode && primaryCode <= 'z')
+                primaryCode -= 'a' - 'A';
             if (!mInputView.getKeyboard().equals(keyboardQwerty) && isAlphabet(primaryCode) && mPredictionOn) {
                 mComposing.append((char) primaryCode);
                 getCurrentInputConnection().setComposingText(mComposing, 1);
