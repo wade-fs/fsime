@@ -59,7 +59,7 @@ public class LatinKeyboardView extends KeyboardView {
     // calculate slide threshold
     public void calcMinSlide() {
     	int min = Math.min(screenW, screenH);
-    	minSlide=(min*SlideTypeKeyboard.slideThreshold)/100;
+    	minSlide=SlideTypeKeyboard.slideThreshold;
     }
     
     
@@ -125,6 +125,7 @@ public class LatinKeyboardView extends KeyboardView {
 					} else { direction=2; }
 				}
 			} else { direction=0; }
+			Log.d("MyLog", "onTouchEvent("+dx+","+dy+") minSlide="+minSlide+", dir="+direction);
 			if (act==android.view.MotionEvent.ACTION_MOVE) {
 				if (lastDirection!=direction) {
 					lastDirection=direction;
