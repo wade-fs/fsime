@@ -8,8 +8,8 @@ android {
         applicationId "com.wade.fsime"
         minSdkVersion 3
         targetSdkVersion 28
-        versionCode 20001
-        versionName "2.0.1"
+        versionCode 20002
+        versionName "2.0.2"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

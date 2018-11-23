@@ -59,7 +59,7 @@ public class LatinKeyboardView extends KeyboardView {
     // calculate slide threshold
     public void calcMinSlide() {
     	int min = Math.min(screenW, screenH);
-    	minSlide=SlideTypeKeyboard.slideThreshold;
+    	minSlide=(min*SlideTypeKeyboard.slideThreshold)/100;
     }
     
     
@@ -116,7 +116,13 @@ public class LatinKeyboardView extends KeyboardView {
 		} else if (act==android.view.MotionEvent.ACTION_UP || act==android.view.MotionEvent.ACTION_MOVE) {
 			float dy=me.getY()-downY;
 			float dx=me.getX()-downX;
-			if (Math.abs(dx)>minSlide || Math.abs(dy)>minSlide) {
+			float ms = minSlide;
+
+			if (screenW - me.getX() < minSlide && Math.abs(dx)> SlideTypeKeyboard.slideThreshold
+					|| screenW - me.getX() >= minSlide && Math.abs(dx) > minSlide
+					|| screenH - me.getY() < minSlide && Math.abs(dy) > SlideTypeKeyboard.slideThreshold
+					|| screenH - me.getY() >= minSlide && Math.abs(dy)>minSlide)
+			{
 				if (dy > dx) {
 					if (dy > -dx) { direction=4;
 					} else { direction=1; }
@@ -125,7 +131,6 @@ public class LatinKeyboardView extends KeyboardView {
 					} else { direction=2; }
 				}
 			} else { direction=0; }
-			Log.d("MyLog", "onTouchEvent("+dx+","+dy+") minSlide="+minSlide+", dir="+direction);
 			if (act==android.view.MotionEvent.ACTION_MOVE) {
 				if (lastDirection!=direction) {
 					lastDirection=direction;

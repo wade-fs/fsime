@@ -108,16 +108,21 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
             return primaryCode; // hardware key
 
         int dir = direction;
+        // 不知道為什麼，方向要交換？
         if (primaryCode != -100) {
             if (dir == 1) dir = 2;
             else if (dir == 2) dir = 1;
         }
+
         List<Key> listKeys = mInstance.mInputView.getKeyboard().getKeys();
+
         if (listKeys != null) {
             for (Key k : listKeys) {
                 LatinKey lk = (LatinKey) k;
-                if (lk.fancyLabel != null && primaryCode == k.codes[0])
-                    return lk.fancyLabel.charAt(dir);
+                if (lk.fancyLabel != null && primaryCode == k.codes[0]) {
+                    int c = lk.fancyLabel.charAt(dir);
+                    if (c != ' ') return c;
+                }
             }
         }
         return primaryCode;
@@ -630,10 +635,11 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
         } else if (primaryCode == ' ') {
             if (mPredictionOn || !(mInputView.getKeyboard().equals(keyboardTwo))) {
                 if (mCandidateView != null && mCandidateView.size() >= 1) {
+                    Log.d("MyLog", "onKey(1)");
                     if (mComposing.length() > 0 && ((int)mComposing.charAt(0)) < 256) {
                         pickSuggestionManually(1);
                     } else {
-                        sendKey(primaryCode);
+                        pickSuggestionManually(0);
                     }
                 } else {
                     if (mComposing.length() > 0) {
