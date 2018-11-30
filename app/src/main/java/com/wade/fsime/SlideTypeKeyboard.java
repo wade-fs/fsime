@@ -81,7 +81,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
     }
 
     static int slideThreshold;
-    private static LatinKeyboard mCurKeyboard;
+    static LatinKeyboard mCurKeyboard;
     private static SlideTypeKeyboard mInstance;
 
     EditorInfo sEditorInfo;
@@ -216,6 +216,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
                 R.layout.input, null);
         mInputView.setOnKeyboardActionListener(this);
         mInputView.setKeyboard(keyboardQwerty); // 預設
+        mCurKeyboard = keyboardQwerty;
         return mInputView;
     }
 
@@ -640,7 +641,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
                     handleClose();
             }
         } else if (primaryCode == ' ') {
-            if (mPredictionOn || !(mInputView.getKeyboard().equals(keyboardTwo))) {
+            if (mPredictionOn || !(mCurKeyboard.equals(keyboardTwo))) {
                 if (mCandidateView != null && mCandidateView.size() >= 1) {
                     Log.d("MyLog", "onKey(1)");
                     if (mComposing.length() > 0 && ((int)mComposing.charAt(0)) < 256) {
@@ -671,7 +672,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
             } else {
                 sendKey(primaryCode);
             }
-        } else if (isWordSeparator(primaryCode)) {
+        } else if (mCurKeyboard != keyboardJuin && isWordSeparator(primaryCode)) {
             // Handle separator
             if (mComposing.length() > 0) {
                 commitTyped(getCurrentInputConnection());
@@ -757,8 +758,8 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
      */
     private int start = 0;
     public void updateCandidates(int forward) {
-        if (mInputView != null && mInputView.getKeyboard() != null && mInputView.getKeyboard().equals(keyboardQwerty)) return;
-//        Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
+        if (mInputView != null && mInputView.getKeyboard() != null && mCurKeyboard.equals(keyboardQwerty)) return;
+        Log.d("MyLog", "updateCandidates("+forward+") "+mCompletionOn + " / "+mComposing.length());
         if (!mCompletionOn && mComposing.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(mComposing.toString());
@@ -778,8 +779,14 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
                         list.add(d.ch);
                     }
                 }
+            } else if (mInputView.getKeyboard().equals(keyboardTwo)) { // 兩行
+                if ((b = bdatabase.getB2(mComposing.toString().toLowerCase(), s)).size() > 0) {
+                    start += forward * b.size();
+                    for (B d : b) {
+                        list.add(d.ch);
+                    }
+                }
             }
-
             setSuggestions(list, true, true);
         } else {
             setSuggestions(null, false, false);
@@ -887,23 +894,22 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
         } else if (LatinKeyboardView.direction == 4) { // 向下
             mInputView.setKeyboard(keyboardTwo);
         } else {
-            Keyboard curKB = mInputView.getKeyboard();
-            if (curKB.equals(keyboardQwerty)) mInputView.setKeyboard(keyboardFs);
-            else if (curKB.equals(keyboardFs)) mInputView.setKeyboard(keyboardJuin);
-            else if (curKB.equals(keyboardJuin)) mInputView.setKeyboard(keyboardTwo);
+            if (mCurKeyboard.equals(keyboardQwerty)) mInputView.setKeyboard(keyboardFs);
+            else if (mCurKeyboard.equals(keyboardFs)) mInputView.setKeyboard(keyboardJuin);
+            else if (mCurKeyboard.equals(keyboardJuin)) mInputView.setKeyboard(keyboardTwo);
             else mInputView.setKeyboard(keyboardQwerty);
         }
+        mCurKeyboard = (LatinKeyboard)mInputView.getKeyboard();
         mInputView.setShifted(false);
         setSuggestions(null, false, false);
     }
 
-    // TODO: 目前非英文字就會馬上送出，可能需要改這邊
     private void handleCharacter(int primaryCode) {
-        //Log.d("MyLog", "handleCharacter("+mInputView.getShiftState()+","+primaryCode+", '"+(char)primaryCode+"')");
+        Log.d("MyLog", "handleCharacter("+mPredictionOn+","+primaryCode+", '"+(char)primaryCode+"') "+mCurKeyboard.equals(keyboardJuin)+"/"+mCurKeyboard.equals(keyboardQwerty));
         if (primaryCode > 0) {
             if (mInputView.getShiftState() && 'a' <= primaryCode && primaryCode <= 'z')
                 primaryCode -= 'a' - 'A';
-            if (!mInputView.getKeyboard().equals(keyboardQwerty) && isAlphabet(primaryCode) && mPredictionOn) {
+            if ((!mCurKeyboard.equals(keyboardQwerty) && isAlphabet(primaryCode) || mCurKeyboard.equals(keyboardJuin)) && mPredictionOn) {
                 mComposing.append((char) primaryCode);
                 getCurrentInputConnection().setComposingText(mComposing, 1);
                 // updateShiftKeyState(getCurrentInputEditorInfo());
@@ -934,7 +940,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
     }
 
     public void pickSuggestionManually(int index) {
-        if (mInputView.getKeyboard().equals(keyboardQwerty)) return;
+        if (mCurKeyboard.equals(keyboardQwerty)) return;
         String res = mCandidateView.getSuggestion(index);
         //Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
         if (!res.equals("")) {
@@ -943,7 +949,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
             if (index > 0) {
                 if (bdatabase == null) bdatabase  = new BDatabase(getApplicationContext());
                 if (!isPP && b.size()>0)
-                    bdatabase.updateRow(b.get(index - 1), mInputView.getKeyboard().equals(keyboardFs)?"b":"juin");
+                    bdatabase.updateRow(b.get(index - 1), mCurKeyboard.equals(keyboardFs)?"b":"juin");
                 res = res.substring(res.length()-1);
                 if (bdatabase.isFreq(res)) {
                     if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());

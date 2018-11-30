@@ -22,5 +22,21 @@
 <!-- for the Search Manager. -->
 
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
-		android:settingsActivity="com.wade.fsime.SettingsActivity"
-/>
+	android:settingsActivity="com.wade.fsime.SettingsActivity"
+	android:isDefault="true"
+	android:supportsSwitchingToNextInputMethod="true">
+	<subtype android:icon="@drawable/icon"
+		android:label="中文(zh_TW)"
+		android:subtypeId="0xc9194f98"
+		android:imeSubtypeLocale="zh_TW"
+		android:imeSubtypeMode="keyboard"
+		android:imeSubtypeExtraValue="TrySuppressingImeSwitcher,AsciiCapable,SupportTouchPositionCorrection,EmojiCapable"
+		android:isAsciiCapable="true"
+		/>
+	<subtype
+		android:label="English(en_US)"
+		android:imeSubtypeLocale="en_US"
+		android:icon="@drawable/icon"
+		android:imeSubtypeMode="keyboard"
+		android:isAsciiCapable="true"/>
+</input-method>

@@ -39,7 +39,7 @@
     <string name="label_next_key">下一個</string>
     <string name="label_send_key">送出</string>
 
-    <!-- qwerty.xml -->
+    <!-- qwerty.xml + juin.xml -->
     <string name="alternates_for_1">1!１！ㄅ</string>
     <string name="alternates_for_2">2@２＠ㄉ</string>
     <string name="alternates_for_3">3#３＃ˇ</string>
@@ -91,45 +91,57 @@
     <string name="alternates_for_slash">"'\"＇＂"</string>
     <string name="alternates_for_tilde">"`~｀～"</string>
 
-    <!-- juin.xml -->
-    <string name="alternate2_for_1">1!１！</string>
-    <string name="alternate2_for_2">2@２＠</string>
-    <string name="alternate2_for_3">3#３＃</string>
-    <string name="alternate2_for_4">4$４＄</string>
-    <string name="alternate2_for_5">5%５％</string>
-    <string name="alternate2_for_6">6^６</string>
-    <string name="alternate2_for_7">7&amp;７＆</string>
-    <string name="alternate2_for_8">8*８×</string>
-    <string name="alternate2_for_9">9(９（</string>
-    <string name="alternate2_for_0">0)０）</string>
-    <string name="alternate2_for_minus">"-_－"</string>
-    <string name="alternate2_for_equal">"=+＝＋"</string>
-    <string name="alternate2_for_q">"qQｑＱ手ㄗㄟ"</string>
-    <string name="alternate2_for_w">"wWｗＷ田ㄘㄝ"</string>
-    <string name="alternate2_for_e">"eEｅＥ水ㄧ"</string>
-    <string name="alternate2_for_r">"rRｒＲ口ㄜ"</string>
-    <string name="alternate2_for_t">"tTｔＴ廿ㄊㄤ"</string>
-    <string name="alternate2_for_y">"yYｙＹ卜ㄔ"</string>
-    <string name="alternate2_for_u">"uUｕＵ山ㄩ"</string>
-    <string name="alternate2_for_i">"iIｉＩ戈ㄞ"</string>
-    <string name="alternate2_for_o">"oOｏＯ人ㄛ"</string>
-    <string name="alternate2_for_p">"pPｐＰ心ㄆㄡ"</string>
-    <string name="alternate2_for_a">"aAａＡ日ㄚ"</string>
-    <string name="alternate2_for_s">"sSｓＳ尸ㄙ"</string>
-    <string name="alternate2_for_d">"dDｄＤ木ㄉ˙"</string>
-    <string name="alternate2_for_f">"fFｆＦ火ㄈˊ"</string>
-    <string name="alternate2_for_g">"gGｇＧ土ㄓㄐ"</string>
-    <string name="alternate2_for_h">"hHｈＨ竹ㄏㄦ"</string>
-    <string name="alternate2_for_j">"jJｊＪ十ㄖˇ"</string>
-    <string name="alternate2_for_k">"kKｋＫ大ㄎˋ"</string>
-    <string name="alternate2_for_l">"lLｌＬ中ㄌㄥ"</string>
-    <string name="alternate2_for_z">"zZｚＺ重ㄠ"</string>
-    <string name="alternate2_for_x">"xXｘＸ難ㄨ"</string>
-    <string name="alternate2_for_c">"cCｃＣ金ㄕㄒ"</string>
-    <string name="alternate2_for_v">"vVｖＶ女ㄍㄑ"</string>
-    <string name="alternate2_for_b">"bBｂＢ月ㄅ"</string>
-    <string name="alternate2_for_n">"nNｎＮ弓ㄋㄣ"</string>
-    <string name="alternate2_for_m">"mMｍＭ一ㄇㄢ"</string>
+    <!-- 第三種鍵盤，注音 -->
+    <string name="juin_for_tilde">"`~"</string>
+    <string name="juin_for_1">1ㄅ!</string>
+    <string name="juin_for_2">2ㄉ@</string>
+    <string name="juin_for_3">3ˇ#</string>
+    <string name="juin_for_4">4ˋ$</string>
+    <string name="juin_for_5">5ㄓ%</string>
+    <string name="juin_for_6">6ˊ^</string>
+    <string name="juin_for_7">7˙&amp;</string>
+    <string name="juin_for_8">8ㄚ*</string>
+    <string name="juin_for_9">9ㄞ(</string>
+    <string name="juin_for_0">0ㄢ)</string>
+
+    <string name="juin_for_minus">"-ㄦ_"</string>
+    <string name="juin_for_equal">"=+"</string>
+    <string name="juin_for_q">"qㄆQ"</string>
+    <string name="juin_for_w">"wㄊW"</string>
+    <string name="juin_for_e">"eㄍE"</string>
+    <string name="juin_for_r">"rㄐR"</string>
+    <string name="juin_for_t">"tㄔT"</string>
+    <string name="juin_for_y">"yㄗY"</string>
+    <string name="juin_for_u">"uㄧU"</string>
+    <string name="juin_for_i">"iㄛI"</string>
+    <string name="juin_for_o">"oㄟO"</string>
+    <string name="juin_for_p">"pㄣP"</string>
+    <string name="juin_for_left_square" >"[{"</string>
+    <string name="juin_for_right_square">"]}"</string>
+    <string name="juin_for_back_slash">"\\|"</string>
+
+    <string name="juin_for_a">"aㄇA"</string>
+    <string name="juin_for_s">"sㄋS"</string>
+    <string name="juin_for_d">"dㄎD"</string>
+    <string name="juin_for_f">"fㄑF"</string>
+    <string name="juin_for_g">"gㄕG"</string>
+    <string name="juin_for_h">"hㄘH"</string>
+    <string name="juin_for_j">"jㄨJ"</string>
+    <string name="juin_for_k">"kㄜK"</string>
+    <string name="juin_for_l">"lㄠL"</string>
+    <string name="juin_for_semi_colon">";ㄤ:"</string>
+    <string name="juin_for_slash">"'\""</string>
+
+    <string name="juin_for_z">"zㄈZ"</string>
+    <string name="juin_for_x">"xㄌX"</string>
+    <string name="juin_for_c">"cㄏC"</string>
+    <string name="juin_for_v">"vㄒV"</string>
+    <string name="juin_for_b">"bㄖB"</string>
+    <string name="juin_for_n">"nㄙN"</string>
+    <string name="juin_for_m">"mㄩM"</string>
+    <string name="juin_for_comma">",ㄝ&lt;"</string>
+    <string name="juin_for_dot">".ㄡ&gt;"</string>
+    <string name="juin_for_quote">"/ㄥ?"</string>
 
     <!-- two.xml -->
     <string name="atwo_for_1">"１ａ！ｇｍ"</string>
@@ -215,35 +227,6 @@
     <string name="letters_for_dot">".&gt;"</string>
     <string name="letters_for_quote">"'\""</string>
     <string name="letters_for_tilde">"`~"</string>
-
-    <!-- 第三種鍵盤，注音 -->
-    <string name="juin_for_a">aAㄚ</string>
-    <string name="juin_for_b">bBㄅ</string>
-    <string name="juin_for_c">cCㄕㄒ</string>
-    <string name="juin_for_d">dDㄉ˙</string>
-    <string name="juin_for_e">eEㄧ</string>
-    <string name="juin_for_f">fFㄈˊ</string>
-    <string name="juin_for_g">gGㄓㄐ</string>
-    <string name="juin_for_h">hHㄏㄦ</string>
-    <string name="juin_for_i">iIㄞ</string>
-    <string name="juin_for_j">jJㄖˇ</string>
-    <string name="juin_for_k">kKㄎˋ</string>
-    <string name="juin_for_l">lLㄌㄥ</string>
-    <string name="juin_for_m">mMㄇㄢ</string>
-    <string name="juin_for_n">nNㄋㄣ</string>
-    <string name="juin_for_o">oOㄛ</string>
-    <string name="juin_for_p">pPㄆㄡ</string>
-    <string name="juin_for_q">qQㄗㄟ</string>
-    <string name="juin_for_r">rRㄜ</string>
-    <string name="juin_for_s">sSㄙ</string>
-    <string name="juin_for_t">tTㄊㄤ</string>
-    <string name="juin_for_u">uUㄩ</string>
-    <string name="juin_for_v">vVㄍㄑ</string>
-    <string name="juin_for_w">wWㄘㄝ</string>
-    <string name="juin_for_x">xXㄨ</string>
-    <string name="juin_for_y">yYㄔ</string>
-    <string name="juin_for_z">zZㄠ</string>
-    <string name="letters_for_ast">*-/_@</string>
 
     <!--  Labels on symbol keys -->
     <string name="symbols_for_1">1[#]&amp;</string>
