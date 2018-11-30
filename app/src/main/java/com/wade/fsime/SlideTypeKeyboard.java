@@ -75,12 +75,11 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
     BDatabase bdatabase;
     private ArrayList<B> b;
 
-    /*
     @Override
     public boolean onEvaluateFullscreenMode() {
-    	return true;
+    	return false;
     }
-    */
+
     static int slideThreshold;
     private static LatinKeyboard mCurKeyboard;
     private static SlideTypeKeyboard mInstance;
@@ -267,6 +266,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
         // text being edited.
         switch (attribute.inputType & EditorInfo.TYPE_MASK_CLASS) {
             case EditorInfo.TYPE_CLASS_NUMBER:
+            case EditorInfo.TYPE_CLASS_DATETIME:
             case EditorInfo.TYPE_CLASS_TEXT:
                 mCurKeyboard = keyboardQwerty;
                 mPredictionOn = true;
@@ -296,7 +296,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
                     // candidates when in fullscreen mode, otherwise relying
                     // own it displaying its own UI.
                     mPredictionOn = false;
-                    mCompletionOn = isFullscreenMode();
+                    mCompletionOn = false;
                 }
 
                 // We also want to look at the current state of the editor
@@ -585,16 +585,23 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
             case '\n':
                 keyDownUp(KeyEvent.KEYCODE_ENTER);
                 break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9': keyDownUp(keyCode - '0' + KeyEvent.KEYCODE_0); break;
+            case ' ': keyDownUp(KeyEvent.KEYCODE_SPACE); break;
             default:
-                if (keyCode >= '0' && keyCode <= '9') {
-                    keyDownUp(keyCode - '0' + KeyEvent.KEYCODE_0);
-                } else {
-                    InputConnection ic = getCurrentInputConnection();
-                    if (ic != null)
-                        ic.commitText(String.valueOf((char) keyCode), 1);
-                    else
-                        handleClose();
-                }
+                InputConnection ic = getCurrentInputConnection();
+                if (ic != null)
+                    ic.commitText(String.valueOf((char) keyCode), 1);
+                else
+                    handleClose();
                 break;
         }
     }
@@ -604,7 +611,7 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
         int primaryCode = keycode;
         if (LatinKeyboardView.direction != -1)
             primaryCode = getCharFromKey(pressedCode, LatinKeyboardView.direction);
-//        Log.d("MyLog", "onKey("+keycode+","+pressedCode+"," +primaryCode+") mComposing = '"+mComposing.toString()+"' with Dir="+LatinKeyboardView.direction);
+        Log.d("MyLog", "onKey("+keycode+","+pressedCode+"," +primaryCode+") mComposing = '"+mComposing.toString()+"' with Dir="+LatinKeyboardView.direction+", pred = "+mPredictionOn);
         if (mComposing.length() > 0 && mComposing.charAt(0) >= 256) mComposing.setLength(0);
         if (keycode == 27) { // ESC
             switch (primaryCode) {
@@ -637,14 +644,19 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
                 if (mCandidateView != null && mCandidateView.size() >= 1) {
                     Log.d("MyLog", "onKey(1)");
                     if (mComposing.length() > 0 && ((int)mComposing.charAt(0)) < 256) {
+                        Log.d("MyLog", "onKey(1.1)");
                         pickSuggestionManually(1);
                     } else {
+                        Log.d("MyLog", "onKey(1.2)");
                         pickSuggestionManually(0);
                     }
                 } else {
+                    Log.d("MyLog", "onKey(2)");
                     if (mComposing.length() > 0) {
+                        Log.d("MyLog", "onKey(2.1)");
                         commitTyped(getCurrentInputConnection());
                     } else {
+                        Log.d("MyLog", "onKey(2.2)");
                         sendKey(primaryCode);
                     }
                     mComposing.setLength(0);
