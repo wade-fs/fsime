@@ -49,26 +49,7 @@ import com.wade.fsime.LatinKeyboard.LatinKey;
 import com.wade.fsime.R;
 
 
-/**
- * Example of writing an input method for a soft keyboard.  This code is
- * focused on simplicity over completeness, so it should in no way be considered
- * to be a complete soft keyboard implementation.  Its purpose is to provide
- * a basic example for how you would get started writing an input method, to
- * be fleshed out as appropriate.
- */
 public class SlideTypeKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
-    /**
-     * This boolean indicates the optional example code for performing
-     * processing of hard keys in addition to regular text generation
-     * from on-screen interaction.  It would be used for input methods that
-     * perform language translations (such as converting text entered on
-     * a QWERTY keyboard to Chinese), but may not be used for input methods
-     * that are primarily intended to be used for on-screen text entry.
-     * <p>
-     * I could enable this to enable predictive text with hard keyboard.
-     * But it seems other keybards dont do it.
-     */
-
     static final boolean PROCESS_HARD_KEYS = false;
     static int pressedCode;
     static int keyLayout;
@@ -909,13 +890,16 @@ public class SlideTypeKeyboard extends InputMethodService implements KeyboardVie
         if (primaryCode > 0) {
             if (mInputView.getShiftState() && 'a' <= primaryCode && primaryCode <= 'z')
                 primaryCode -= 'a' - 'A';
-            if ((!mCurKeyboard.equals(keyboardQwerty) && isAlphabet(primaryCode) || mCurKeyboard.equals(keyboardJuin)) && mPredictionOn) {
+            if (!mCurKeyboard.equals(keyboardQwerty) && isAlphabet(primaryCode) && mPredictionOn  || mCurKeyboard.equals(keyboardJuin)) {
+                Log.d("MyLog", "handleCharacter(1)");
                 mComposing.append((char) primaryCode);
                 getCurrentInputConnection().setComposingText(mComposing, 1);
                 // updateShiftKeyState(getCurrentInputEditorInfo());
                 updateCandidates(0);
             } else {
+                Log.d("MyLog", "handleCharacter(2)");
                 if (mComposing.length() > 0) {
+                    Log.d("MyLog", "handleCharacter(2.1)");
                     commitTyped(getCurrentInputConnection());
                 }
                 getCurrentInputConnection().commitText(String.valueOf((char) primaryCode), 1);
