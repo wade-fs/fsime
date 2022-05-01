@@ -113,8 +113,8 @@ public class CodeBoardIME extends InputMethodService
                 } else if (mKeyboardState == R.integer.keyboard_normal) {
                     mKeyboardState = R.integer.keyboard_boshiamy;
                 } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
-                    mKeyboardState = R.integer.keyboard_phonetic;
-                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+//                    mKeyboardState = R.integer.keyboard_phonetic;
+//                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
                     mKeyboardState = R.integer.keyboard_sym;
                 } else {
                     mKeyboardState = R.integer.keyboard_normal;
