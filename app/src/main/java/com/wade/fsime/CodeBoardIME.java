@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
+import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.Build;
 import android.os.Handler;
@@ -302,10 +303,10 @@ public class CodeBoardIME extends InputMethodService
                     if (mKeyboardState == R.integer.keyboard_boshiamy && ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else {
-                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
-                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                         mComposing.append((char) primaryCode);
                     }
+                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
+                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     updateCandidates(0);
                 } else {
                     //All non-letter characters are handled here
@@ -465,24 +466,27 @@ public class CodeBoardIME extends InputMethodService
 
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
-        //Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
-        if (!res.equals("")) {
-            getCurrentInputConnection().commitText(res, res.length());
-            mComposing.setLength(0);
-            if (index > 0) {
-                if (bdatabase == null) bdatabase  = new BDatabase(getApplicationContext());
-                res = res.substring(res.length()-1);
-            } else {
-                turnCandidate(false);
-            }
-        } else if (mComposing.length() > 0) {
-            commitTyped(getCurrentInputConnection());
-            mComposing.setLength(0);
+        InputConnection ic = getCurrentInputConnection();
+        Logi("pickSuggestionManually() "+mComposing.length());
+        for (int i=0; i<mComposing.length(); i++) {
+            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, Keyboard.KEYCODE_DELETE, 0, 0));
+            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, Keyboard.KEYCODE_DELETE, 0, 0));
         }
-        if (sEditorInfo.inputType == 0) {
-            turnCandidate(false);
-        }
+        ic.commitText(res, res.length());
+        mComposing.setLength(0);
+        turnCandidate(false);
     }
+    private void keyDownUp(int keyEventCode) {
+        if (getCurrentInputConnection() == null) {
+            handleClose();
+            return;
+        }
+        getCurrentInputConnection().sendKeyEvent(
+                new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
+        getCurrentInputConnection().sendKeyEvent(
+                new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
+    }
+
     private void commitTyped(InputConnection inputConnection) {
         if (inputConnection == null) {
             handleClose();
