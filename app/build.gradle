@@ -1,41 +1,42 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 32
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "com.wade.fsime"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 20003
-        versionName "2.0.3"
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
+        applicationId "com.gazlaws.codeboard"
+        minSdkVersion 23
+        targetSdkVersion 32
+        versionCode 20
+        versionName "6.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-        applicationVariants.all { variant ->
-            variant.outputs.all { output ->
-                project.ext { appName = android.defaultConfig.applicationId }
-                def newName = outputFileName
-                newName = newName.replace("app-", "$project.ext.appName-")
-                newName = newName.replace("release", android.defaultConfig.versionName)
-                outputFileName = newName
-            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        checkReleaseBuilds false
+    }
 }
+
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
+
+    api 'androidx.appcompat:appcompat:1.4.1'
+    api 'androidx.legacy:legacy-support-v13:1.0.0'
+    api 'androidx.preference:preference:1.2.0'
+
+    implementation 'com.google.android.material:material:1.7.0-alpha01'
+    implementation 'com.github.AppIntro:AppIntro:6.1.0'
+    implementation 'com.pes.materialcolorpicker:library:1.2.5'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 }

@@ -1,42 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/**
- * Copyright (c) 2008, The Android Open Source Project
- * Copyright (C) 2009 Alejandro Grijalba
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- *
- *     http://www.apache.org/licenses/LICENSE-2.0 
- *
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License.
- */
--->
-
-<!-- The attributes in this XML file provide configuration information -->
-<!-- for the Search Manager. -->
-
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
-	android:settingsActivity="com.wade.fsime.SettingsActivity"
-	android:isDefault="true"
-	android:supportsSwitchingToNextInputMethod="true">
-	<subtype android:icon="@drawable/icon"
-		android:label="中文(zh_TW)"
-		android:subtypeId="0xc9194f98"
-		android:imeSubtypeLocale="zh_TW"
-		android:imeSubtypeMode="keyboard"
-		android:imeSubtypeExtraValue="TrySuppressingImeSwitcher,AsciiCapable,SupportTouchPositionCorrection,EmojiCapable"
-		android:isAsciiCapable="true"
-		/>
-	<subtype
-		android:label="English(en_US)"
-		android:imeSubtypeLocale="en_US"
-		android:icon="@drawable/icon"
-		android:imeSubtypeMode="keyboard"
-		android:isAsciiCapable="true"/>
+    android:settingsActivity="com.gazlaws.codeboard.MainActivity"
+    android:icon="@drawable/icon_old_1"
+    android:supportsSwitchingToNextInputMethod="true">
+    <subtype
+        android:label="@string/subtype_en_US"
+            android:imeSubtypeLocale="en_US"
+            android:imeSubtypeMode="Keyboard"/>
+    <subtype
+        android:label="@string/subtype_fr_FR"
+        android:imeSubtypeLocale="zh_TW"
+        android:imeSubtypeMode="Keyboard"
+        />
+
 </input-method>
