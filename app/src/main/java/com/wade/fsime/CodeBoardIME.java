@@ -72,7 +72,7 @@ public class CodeBoardIME extends InputMethodService
     private KeyboardLayoutView mCurrentKeyboardLayoutView = null;
     private CandidateView mCandidateView;
     private CompletionInfo[] mCompletions;
-    private boolean mCompletionOn, mPredictionOn;
+    private boolean mPredictionOn;
     private final StringBuilder mComposing = new StringBuilder();
 
     BDatabase bdatabase;
@@ -118,6 +118,7 @@ public class CodeBoardIME extends InputMethodService
                 } else {
                     mKeyboardState = R.integer.keyboard_normal;
                 }
+                mComposing.setLength(0);
                 // regenerate view
                 //Simple remove shift
                 if (shift) {
@@ -202,6 +203,16 @@ public class CodeBoardIME extends InputMethodService
                         break;
                     case 32:
                         ke = KeyEvent.KEYCODE_SPACE;
+                        if (mKeyboardState == R.integer.keyboard_boshiamy) {
+                            if (mCandidateView != null && mCandidateView.size() >= 1) {
+                                if (mComposing.length() > 0 && ((int) mComposing.charAt(0)) < 256) {
+                                    pickSuggestionManually(1);
+                                } else {
+                                    pickSuggestionManually(0);
+                                }
+                            }
+                            return;
+                        }
                         break;
                     case -5:
                         ke = KeyEvent.KEYCODE_DEL;
@@ -288,9 +299,13 @@ public class CodeBoardIME extends InputMethodService
                 }
                 if (ke != 0) {
                     Logi("onKey: keyEvent " + ke + " Char "+(char)primaryCode);
-                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
-                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
-                    mComposing.append((char)primaryCode);
+                    if (mKeyboardState == R.integer.keyboard_boshiamy && ke == KeyEvent.KEYCODE_DEL) {
+                        handleBackspace();
+                    } else {
+                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
+                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
+                        mComposing.append((char) primaryCode);
+                    }
                     updateCandidates(0);
                 } else {
                     //All non-letter characters are handled here
@@ -302,6 +317,16 @@ public class CodeBoardIME extends InputMethodService
                     ic.commitText(String.valueOf(code), 1);
                 }
             }
+        }
+    }
+    private void handleBackspace() {
+        final int length = mComposing.length();
+        if (length > 1) {
+            mComposing.delete(length - 1, length);
+            getCurrentInputConnection().setComposingText(mComposing, 1);
+        } else {
+            mComposing.setLength(0);
+            getCurrentInputConnection().commitText("", 0);
         }
     }
 
@@ -403,29 +428,6 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
-    /**
-     * This tells us about completions that the editor has determined based
-     * on the current text in it.  We want to use this in fullscreen mode
-     * to show the completions ourself, since the editor can not be seen
-     * in that situation.
-     */
-    @Override public void onDisplayCompletions(CompletionInfo[] completions) {
-        if (mCompletionOn) {
-            mCompletions = completions;
-            if (completions == null) {
-                setSuggestions(null, false, false);
-                return;
-            }
-
-            List<String> stringList = new ArrayList<String>();
-            for (int i=0; i<(completions != null ? completions.length : 0); i++) {
-                CompletionInfo ci = completions[i];
-                if (ci != null) stringList.add(ci.getText().toString());
-            }
-            setSuggestions(stringList, true, true);
-        }
-    }
-
     public void onText(CharSequence text) {
         InputConnection ic = getCurrentInputConnection();
         ic.commitText(text, 1);
@@ -451,21 +453,34 @@ public class CodeBoardIME extends InputMethodService
     public void swipeUp() {
         onKey(pressedCode,null);
     }
+    private void turnCandidate(boolean prediction) {
+        //Log.d("MyLog", "turnCandidate("+prediction+") on SlideTypeKeyboard");
+        if (mCandidateView != null && !prediction) {
+            mComposing.setLength(0);
+            mCandidateView.clear();
+        }
+        mPredictionOn = prediction;
+        setCandidatesViewShown(prediction);
+    }
 
     public void pickSuggestionManually(int index) {
-        if (mCompletionOn && mCompletions != null && index >= 0
-                && index < mCompletions.length) {
-            CompletionInfo ci = mCompletions[index];
-            getCurrentInputConnection().commitCompletion(ci);
-            if (mCandidateView != null) {
-                mCandidateView.clear();
+        String res = mCandidateView.getSuggestion(index);
+        //Log.d("MyLog", "pickSuggestionManually("+index+")" + mCompletionOn +","+(mCompletions==null?"null":mCompletions.length)+","+mComposing.length()+"/"+res);
+        if (!res.equals("")) {
+            getCurrentInputConnection().commitText(res, res.length());
+            mComposing.setLength(0);
+            if (index > 0) {
+                if (bdatabase == null) bdatabase  = new BDatabase(getApplicationContext());
+                res = res.substring(res.length()-1);
+            } else {
+                turnCandidate(false);
             }
-            shiftKeyUpdateView();
         } else if (mComposing.length() > 0) {
-            // If we were generating candidate suggestions for the current
-            // text, we would commit one of them here.  But for this sample,
-            // we will just commit the current text.
             commitTyped(getCurrentInputConnection());
+            mComposing.setLength(0);
+        }
+        if (sEditorInfo.inputType == 0) {
+            turnCandidate(false);
         }
     }
     private void commitTyped(InputConnection inputConnection) {
@@ -492,7 +507,7 @@ public class CodeBoardIME extends InputMethodService
     private void updateCandidates(int forward) {
         if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic)
             return;
-        if (!mCompletionOn && mComposing.length() > 0) {
+        if (mComposing.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(mComposing.toString());
 
@@ -713,7 +728,6 @@ public class CodeBoardIME extends InputMethodService
         updateCandidates(0);
 
         mPredictionOn = true; // 決定要不要顯示候選區
-        mCompletionOn = false;
         mCompletions = null;
     }
 

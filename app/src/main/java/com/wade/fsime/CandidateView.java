@@ -50,27 +50,22 @@ public class CandidateView extends View {
     
     private Rect mBgPadding;
 
-    private static final int MAX_SUGGESTIONS = 32;
+    private static final int MAX_SUGGESTIONS = 64;
     private static final int SCROLL_PIXELS = 20;
-    
-    private final int[] mWordWidth = new int[MAX_SUGGESTIONS];
-    private final int[] mWordX = new int[MAX_SUGGESTIONS];
-
     private static final int X_GAP = 10;
-    
     private static final List<String> EMPTY_LIST = new ArrayList<String>();
 
-    private final int mColorNormal;
+    public final int mColorNormal;
     private final int mColorRecommended;
     private final int mColorOther;
     private final int mVerticalPadding;
-    private Paint mPaint;
+    private final Paint mPaint;
     private boolean mScrolled;
     private int mTargetScrollX;
     
     private int mTotalWidth;
     
-    private GestureDetector mGestureDetector;
+    private final GestureDetector mGestureDetector;
 
     /**
      * Construct a CandidateView for showing suggested words for completion.
@@ -188,8 +183,6 @@ public class CandidateView extends View {
             float textWidth = paint.measureText(suggestion);
             final int wordWidth = (int) textWidth + X_GAP * 2;
 
-            mWordX[i] = x;
-            mWordWidth[i] = wordWidth;
             paint.setColor(mColorNormal);
             if (touchX + scrollX >= x && touchX + scrollX < x + wordWidth && !scrolled) {
                 if (canvas != null) {
@@ -308,4 +301,7 @@ public class CandidateView extends View {
         mTouchX = OUT_OF_BOUNDS;
         invalidate();
     }
+    public int size() { return mSuggestions==null?0:mSuggestions.size(); }
+    public String getSuggestion(int i) { if (mSuggestions.size() > i) return mSuggestions.get(i); else return ""; }
+
 }
