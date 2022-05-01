@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.view.inputmethod.InputMethodManager;
 
 public class NotificationReceiver extends BroadcastReceiver {
     private CodeBoardIME mIME;
-    static public final String ACTION_SHOW = "com.gazlaws.codeboard.SHOW";
-    static public final String ACTION_SETTINGS = "com.gazlaws.codeboard.SETTINGS";
+    static public final String ACTION_SHOW = "com.wade.fsime.SHOW";
+    static public final String ACTION_SETTINGS = "com.wade.fsime.SETTINGS";
 
     NotificationReceiver(CodeBoardIME ime) {
         super();

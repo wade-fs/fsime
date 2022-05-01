@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.theme;
+package com.wade.fsime.theme;
 
 import android.graphics.Color;
 import android.graphics.Paint;

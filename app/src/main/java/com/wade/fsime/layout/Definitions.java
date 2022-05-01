@@ -1,9 +1,9 @@
-package com.gazlaws.codeboard.layout;
+package com.wade.fsime.layout;
 
 import android.content.Context;
 
-import com.gazlaws.codeboard.R;
-import com.gazlaws.codeboard.layout.builder.KeyboardLayoutBuilder;
+import com.wade.fsime.R;
+import com.wade.fsime.layout.builder.KeyboardLayoutBuilder;
 
 public class Definitions {
     private Context context;

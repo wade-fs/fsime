@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -6,7 +6,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.gazlaws.codeboard.theme.IOnFocusListenable;
+import com.wade.fsime.theme.IOnFocusListenable;
 
 /**
  * Created by Ruby on 02/06/2016.

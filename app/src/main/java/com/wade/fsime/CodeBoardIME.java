@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -31,15 +31,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.gazlaws.codeboard.layout.Box;
-import com.gazlaws.codeboard.layout.Definitions;
-import com.gazlaws.codeboard.layout.Key;
-import com.gazlaws.codeboard.layout.builder.KeyboardLayoutBuilder;
-import com.gazlaws.codeboard.layout.builder.KeyboardLayoutException;
-import com.gazlaws.codeboard.layout.ui.KeyboardLayoutView;
-import com.gazlaws.codeboard.layout.ui.KeyboardUiFactory;
-import com.gazlaws.codeboard.theme.ThemeDefinitions;
-import com.gazlaws.codeboard.theme.ThemeInfo;
+import com.wade.fsime.layout.Box;
+import com.wade.fsime.layout.Definitions;
+import com.wade.fsime.layout.Key;
+import com.wade.fsime.layout.builder.KeyboardLayoutBuilder;
+import com.wade.fsime.layout.builder.KeyboardLayoutException;
+import com.wade.fsime.layout.ui.KeyboardLayoutView;
+import com.wade.fsime.layout.ui.KeyboardUiFactory;
+import com.wade.fsime.theme.ThemeDefinitions;
+import com.wade.fsime.theme.ThemeInfo;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,7 +50,7 @@ import java.util.TimerTask;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
-/*Created by Ruby(aka gazlaws) on 13/02/2016.
+/*Created by Ruby(aka wade) on 13/02/2016.
  */
 
 

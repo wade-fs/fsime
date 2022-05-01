@@ -15,7 +15,7 @@
  * the License.
  */
 
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -30,7 +30,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gazlaws.codeboard.R;
+import com.wade.fsime.R;
 
 
 /*

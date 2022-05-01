@@ -1,7 +1,7 @@
-package com.gazlaws.codeboard.layout.builder;
+package com.wade.fsime.layout.builder;
 
-import com.gazlaws.codeboard.layout.Box;
-import com.gazlaws.codeboard.layout.Key;
+import com.wade.fsime.layout.Box;
+import com.wade.fsime.layout.Key;
 
 import java.util.ArrayList;
 

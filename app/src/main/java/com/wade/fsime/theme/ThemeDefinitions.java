@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.theme;
+package com.wade.fsime.theme;
 
 public class ThemeDefinitions {
 

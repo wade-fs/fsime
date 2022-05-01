@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.layout.ui;
+package com.wade.fsime.layout.ui;
 
 import android.content.Context;
 import android.inputmethodservice.KeyboardView;
@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.gazlaws.codeboard.layout.Box;
-import com.gazlaws.codeboard.layout.Key;
-import com.gazlaws.codeboard.theme.ThemeDefinitions;
-import com.gazlaws.codeboard.theme.ThemeInfo;
-import com.gazlaws.codeboard.theme.UiTheme;
+import com.wade.fsime.layout.Box;
+import com.wade.fsime.layout.Key;
+import com.wade.fsime.theme.ThemeDefinitions;
+import com.wade.fsime.theme.ThemeInfo;
+import com.wade.fsime.theme.UiTheme;
 
 import java.util.Collection;
 

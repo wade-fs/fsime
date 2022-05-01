@@ -194,26 +194,26 @@
             android:title="還原預設值" />
         <Preference
             android:key="restore_old"
-            android:title="還原符號為原 Codeboard 布局" />
+            android:title="還原符號為原狂想鍵盤布局" />
     </PreferenceCategory>
     <PreferenceCategory android:title="關於">
         <Preference android:title="Restart Tutorial">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="com.gazlaws.codeboard.IntroActivity"
-                android:targetPackage="com.gazlaws.codeboard" />
+                android:targetClass="com.wade.fsime.IntroActivity"
+                android:targetPackage="com.wade.fsime" />
         </Preference>
         <Preference android:title="在 Google Play 評分">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="market://details?id=com.gazlaws.codeboard" />
+                android:data="market://details?id=com.wade.fsime" />
         </Preference>
         <Preference
             android:summary="@string/github_summary"
             android:title="開啟在 GitHub">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/gazlaws-dev/codeboard" />
+                android:data="https://gitlab.com/wade_fs/fsime" />
         </Preference>
 
     </PreferenceCategory>

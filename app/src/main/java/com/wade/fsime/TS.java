@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import java.util.HashMap;
 import java.util.Map;

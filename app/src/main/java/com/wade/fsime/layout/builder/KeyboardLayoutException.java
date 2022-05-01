@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.layout.builder;
+package com.wade.fsime.layout.builder;
 
 public class KeyboardLayoutException extends Exception {
     public KeyboardLayoutException(String message) {

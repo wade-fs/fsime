@@ -1,11 +1,11 @@
-package com.gazlaws.codeboard.layout.builder;
+package com.wade.fsime.layout.builder;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import com.gazlaws.codeboard.R;
-import com.gazlaws.codeboard.layout.Box;
-import com.gazlaws.codeboard.layout.Key;
+import com.wade.fsime.R;
+import com.wade.fsime.layout.Box;
+import com.wade.fsime.layout.Key;
 
 import java.util.ArrayList;
 

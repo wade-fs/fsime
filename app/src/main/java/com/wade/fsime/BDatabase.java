@@ -1,4 +1,5 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,11 +9,9 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BDatabase extends SQLiteAssetHelper {
-    private static final String TAG="MyLog";
     private static final String DATABASE_NAME = "b.db";
     private static final int DATABASE_VERSION = 1;
     private static final String ID="id";
@@ -20,8 +19,9 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String CH="ch";
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
-    private Map<String, String> mapJuin, mapJuinEt;
-    private int ts = 0;
+    protected final Map<String, String> mapJuin;
+//    private final Map<String, String> mapJuinEt;
+    private final int ts = 0;
 
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -70,7 +70,7 @@ public class BDatabase extends SQLiteAssetHelper {
         mapJuin.put(",", "ㄝ");
         mapJuin.put(".", "ㄡ");
         mapJuin.put("/", "ㄥ");
-
+/*
         mapJuinEt = new HashMap<>();
         mapJuinEt.put("1", "˙");
         mapJuinEt.put("2", "ˊ");
@@ -116,56 +116,27 @@ public class BDatabase extends SQLiteAssetHelper {
         mapJuinEt.put(",", "ㄓ");
         mapJuinEt.put(".", "ㄔ");
         mapJuinEt.put("/", "ㄕ");
-    }
-
-    private List<String> regexp2(String s, Map<String, String[]>map) {
-        List<String> maps = new ArrayList<>();
-        if (s.length() > 1) {
-            String a = s.substring(0, 1);
-            s = s.substring(1);
-            if (map.get(a) != null) {
-                for (String b : map.get(a)) {
-                    for (String d : regexp2(s, map)) {
-                        maps.add(b + d);
-                    }
-                }
-            } else {
-                for (String d : regexp2(s, map)) {
-                    maps.add(a + d);
-                }
-            }
-        } else if (s.length() == 1){
-            if (map.get(s) != null)
-                for (String c : map.get(s)) {
-                    maps.add(c);
-                }
-        }
-        return maps;
+ */
     }
 
     private String regexp(String s, Map<String, String>map) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (String c : s.split("(?!^)")) {
             if (map.get(c) != null) {
-                res += map.get(c);
+                res.append(map.get(c));
             }
         }
-        return res;
+        return res.toString();
     }
 
-    private boolean isIn(ArrayList<B> res, B b, int field) {
-        if (field == 0) { // ENG
-            for (B bb : res) {
-                if (bb.eng.equals(b.eng)) return true;
-            }
-        } else if (field == 1) { // CH
-            for (B bb : res) {
-                if (bb.ch.equals(b.ch)) return true;
-            }
+    private boolean isIn(ArrayList<B> res, B b) {
+        for (B bb : res) {
+            if (bb.ch.equals(b.ch)) return true;
         }
         return false;
     }
 
+    @SuppressLint("Range")
     public ArrayList<B> getB(String k, int start){
         if (db == null) db=getWritableDatabase();
         k = k.toLowerCase().replaceAll("[^A-Za-z,\\.'\\[\\]]","").replaceAll("'", "''");
@@ -184,7 +155,7 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b, 1)) {
+            if (!isIn(resExact, b)) {
                 resExact.add(b);
                 ++count;
             }
@@ -205,7 +176,7 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b, 1)) {
+            if (!isIn(resExact, b)) {
                 resExact.add(b);
                 ++count;
             }
@@ -215,6 +186,7 @@ public class BDatabase extends SQLiteAssetHelper {
         return resExact;
     }
 
+    @SuppressLint("Range")
     public ArrayList<B> getJuin(String k, int start){
         if (db == null) db = getWritableDatabase();
         k = k.toLowerCase();
@@ -234,7 +206,7 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b, 1)) {
+            if (!isIn(resExact, b)) {
                 resExact.add(b);
                 ++count;
             }
@@ -243,70 +215,4 @@ public class BDatabase extends SQLiteAssetHelper {
         cursor.close();
         return resExact;
     }
-
-    public ArrayList<B> getPP(String k, int start) {
-        if (db == null) db=getWritableDatabase();
-        k = TS.StoT(k);
-        String q; Cursor cursor; int count=0; boolean n;
-        ArrayList<B> resExact=new ArrayList<>();
-        if (k.length() == 0) return resExact;
-        k = TS.StoT(k);
-        q = "SELECT * FROM pp WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT 30 OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= 30){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b, 1)) {
-                resExact.add(b);
-                ++count;
-            }
-            n = cursor.moveToNext();
-        }
-        cursor.close();
-        return resExact;
-    }
-
-    void updateRow(B b, String tb) {
-        if (db == null) db = getWritableDatabase();
-        double freq = b.freq + 1/b.freq;
-        String q="";
-        if (tb.equals("b"))
-            q = "UPDATE b SET freq="+freq+" WHERE ch='"+b.ch+"';";
-        else q = "UPDATE z SET freq="+freq+" WHERE eng='"+b.eng+"';";
-        Cursor c = db.rawQuery(q, null);
-        c.moveToFirst();
-        c.close();
-    }
-
-    boolean isFreq(String k){
-        if (db == null) db=getWritableDatabase();
-        k = TS.StoT(k);
-        String[] columns={"ch"};
-        k = k.replaceAll("'","\'");
-
-        // 先找出完整比對的結果
-        Cursor cursor=db.query("r", columns, "ch='"+k+"'", null, null, null, null);
-        ArrayList<B> resExact=new ArrayList<>();
-        return cursor.moveToFirst();
-    }
-    boolean isInPP(String eng, String ch){
-        if (db == null) db=getWritableDatabase();
-        eng = TS.StoT(eng);
-        ch  = TS.StoT(ch);
-        String[] columns={"eng,ch"};
-
-        // 先找出完整比對的結果
-        Cursor cursor=db.query("pp", columns, "eng=\""+eng+"\" and ch=\""+ch+"\"", null, null, null, null);
-        return cursor.moveToFirst();
-    }
-
-//    public int setTs(int v) {
-//        return ts = v;
-//    }
 }

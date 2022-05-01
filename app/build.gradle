@@ -5,7 +5,7 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "com.gazlaws.codeboard"
+        applicationId "com.wade.codeboard"
         minSdkVersion 23
         targetSdkVersion 32
         versionCode 20

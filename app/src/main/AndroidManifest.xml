@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gazlaws.codeboard"
+    package="com.wade.fsime"
     >
     <uses-permission android:name="android.permission.VIBRATE"/>
 
@@ -13,7 +13,7 @@
         >
         <service
             android:name=".CodeBoardIME"
-            android:label="@string/codeboard_ime"
+            android:label="@string/fsime"
             android:permission="android.permission.BIND_INPUT_METHOD"
             android:exported="false">
             <meta-data
@@ -25,7 +25,7 @@
         </service>
 
 
-        <activity android:name="com.gazlaws.codeboard.MainActivity"
+        <activity android:name="com.wade.fsime.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:exported="true">
@@ -37,10 +37,6 @@
 
         <activity android:name=".IntroActivity"
             android:label="@string/app_intro" />
-
-
-        <uses-library android:name="android.test.runner"
-            android:required="false" />
 
     </application>
 

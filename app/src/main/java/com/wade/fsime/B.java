@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 public class B{
   public int id;

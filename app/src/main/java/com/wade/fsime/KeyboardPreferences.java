@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;

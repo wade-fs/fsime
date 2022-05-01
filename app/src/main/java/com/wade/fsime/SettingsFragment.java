@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard;
+package com.wade.fsime;
 
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -22,9 +22,9 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.gazlaws.codeboard.theme.IOnFocusListenable;
-import com.gazlaws.codeboard.theme.ThemeDefinitions;
-import com.gazlaws.codeboard.theme.ThemeInfo;
+import com.wade.fsime.theme.IOnFocusListenable;
+import com.wade.fsime.theme.ThemeDefinitions;
+import com.wade.fsime.theme.ThemeInfo;
 import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
 import com.pes.androidmaterialcolorpickerdialog.ColorPickerCallback;
 

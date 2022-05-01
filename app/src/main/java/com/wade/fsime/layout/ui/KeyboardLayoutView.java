@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.layout.ui;
+package com.wade.fsime.layout.ui;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gazlaws.codeboard.theme.UiTheme;
+import com.wade.fsime.theme.UiTheme;
 
 public class KeyboardLayoutView extends ViewGroup {
 

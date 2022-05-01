@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/background_light"
-        android:text="接下來，選擇 CodeBoard 當做鍵盤"/>
+        android:text="接下來，選擇狂想鍵盤當做鍵盤"/>
 
         <Button
             android:id="@+id/change_button_intro"

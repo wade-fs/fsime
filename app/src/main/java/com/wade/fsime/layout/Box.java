@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.layout;
+package com.wade.fsime.layout;
 
 public class Box {
     public float x;

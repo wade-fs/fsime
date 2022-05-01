@@ -1,4 +1,4 @@
-package com.gazlaws.codeboard.layout.ui;
+package com.wade.fsime.layout.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 
-import com.gazlaws.codeboard.layout.Box;
-import com.gazlaws.codeboard.layout.Key;
-import com.gazlaws.codeboard.theme.UiTheme;
+import com.wade.fsime.layout.Box;
+import com.wade.fsime.layout.Key;
+import com.wade.fsime.theme.UiTheme;
 
 import java.util.Timer;
 import java.util.TimerTask;

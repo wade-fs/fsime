@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">CodeBoard</string>
-    <string name="codeboard_ime">CodeBoard輸入法</string>
-    <string name="subtype_en_US">CodeBoard-%s</string>
-    <string name="subtype_fr_FR">CodeBoard-%s</string>
-    <string name="app_intro">CodeBoard - 簡介</string>
+    <string name="app_name">狂想鍵盤</string>
+    <string name="fsime">狂想鍵盤</string>
+    <string name="subtype_en_US">狂想鍵盤-%s</string>
+    <string name="subtype_fr_FR">狂想鍵盤-%s</string>
+    <string name="app_intro">狂想鍵盤 - 簡介</string>
     <string name="change_keyboard">改更鍵盤</string>
     <string name="reopen_hint">按此讓變更生效</string>
     <string name="top_row_actions">用剪切/複製/粘貼快捷方式代替箭頭?</string>
@@ -14,9 +14,9 @@
     <string name="keyboard_size_landscape">鍵盤大小(橫式)</string>
     <string name="key_borders">按鍵隔線</string>
     <string name="my_default_tile_label">打開鍵盤</string>
-    <string name="notification_channel_name">CodeboardNotification</string>
+    <string name="notification_channel_name">FsimeNotification</string>
     <string name="notification_channel_description">允許強制打開鍵盤</string>
-    <string name="notification_action_open_keyboard">打開 Codeboard 鍵盤</string>
+    <string name="notification_action_open_keyboard">打開狂想鍵盤</string>
     <string name="notification_action_settings">設定</string>
     <string name="github_summary">本軟體是免費的，開源的，並且沒有讀取您的數據！ 您可以在github上查看，自行修改和編譯.</string>
 </resources>
