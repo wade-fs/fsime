@@ -5,7 +5,7 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "com.wade.codeboard"
+        applicationId "com.wade.fsime"
         minSdkVersion 23
         targetSdkVersion 32
         versionCode 20
@@ -16,6 +16,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                project.ext { appName = android.defaultConfig.applicationId }
+                def newName = outputFileName
+                newName = newName.replace("app-", "$project.ext.appName-")
+                newName = newName.replace("release", android.defaultConfig.versionName)
+                outputFileName = newName
+            }
         }
     }
     lintOptions {
