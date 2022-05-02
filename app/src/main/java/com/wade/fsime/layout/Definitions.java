@@ -117,11 +117,11 @@ public class Definitions {
                 .addKey('ㄞ')    // 9
                 .addKey('ㄢ')    // 0
                 .addKey('ㄦ')    // -
-                .addKey("")     // =
-                .addKey("")     // BS
+                .addKey("-")     // =
+                .addKey("=")     // BS
 
                 .newRow() // qwertyuiop
-                .addKey("")     // \
+                .addKey("`")     // \
                 .addKey('ㄆ')    // q
                 .addKey('ㄊ')    // w
                 .addKey('ㄍ')    // e
@@ -132,12 +132,12 @@ public class Definitions {
                 .addKey('ㄛ')    // o
                 .addKey('ㄟ')    // o
                 .addKey("ㄣ")    // p
-                .addKey("")     // [
-                .addKey("")     // ]
-                .addKey("")     // \
+                .addKey("[")     // [
+                .addKey("]")     // ]
+                .addKey("\\")     // \
 
                 .newRow()       // asdfghjkl;
-                .addKey("")     // \
+                .addKey("~")     // \
                 .addKey('ㄇ')    // a
                 .addKey('ㄋ')    // s
                 .addKey('ㄎ')    // d
@@ -148,8 +148,9 @@ public class Definitions {
                 .addKey('ㄜ')    // k
                 .addKey('ㄠ')    // l
                 .addKey("ㄤ")    // ;
-                .addKey("")    // '
-                .addKey("")    // '
+                .addKey("<")    // '
+                .addKey(">")    // '
+                .addKey("/")     // /
 
                 .newRow()       // zxcvbnm,./
                 .addShiftKey()

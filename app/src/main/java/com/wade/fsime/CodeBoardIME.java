@@ -112,7 +112,7 @@ public class CodeBoardIME extends InputMethodService
                 } else {
                     mKeyboardState = R.integer.keyboard_normal;
                 }
-                mComposing.setLength(0);
+                turnCandidate(false);
                 // regenerate view
                 //Simple remove shift
                 if (shift) {
@@ -199,7 +199,7 @@ public class CodeBoardIME extends InputMethodService
                         ke = KeyEvent.KEYCODE_SPACE;
                         if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                             if (mCandidateView != null && mCandidateView.size() >= 1) {
-                                if (mComposing.length() > 0 && ((int) mComposing.charAt(0)) < 256) {
+                                if (mComposing.length() > 1) {
                                     pickSuggestionManually(1);
                                 } else {
                                     pickSuggestionManually(0);
@@ -292,7 +292,7 @@ public class CodeBoardIME extends InputMethodService
 //                        }
                 }
                 if (ke != 0) {
-                    if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
+                    if (mKeyboardState == R.integer.keyboard_boshiamy) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (isAlphabet(primaryCode)) {
@@ -304,13 +304,17 @@ public class CodeBoardIME extends InputMethodService
                         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     }
                 } else {
-                    //All non-letter characters are handled here
-                    // This doesn't use modifiers.
-                    // For most users, this usage makes sense.
-                    //eg. (0 key) code 48 -> ke 7
-                    // If we handled '0' with a keyEvent, shift+0 would result in ')'
                     Logi("onKey: committext " + String.valueOf(code));
-                    ic.commitText(String.valueOf(code), 1);
+                    if (mKeyboardState == R.integer.keyboard_phonetic) {
+                        if (ke == KeyEvent.KEYCODE_DEL) {
+                            handleBackspace();
+                        } else if (isAlphabet(primaryCode)) {
+                            mComposing.append(String.valueOf(code));
+                        }
+                        updateCandidates(0);
+                    } else {
+                        ic.commitText(String.valueOf(code), 1);
+                    }
                 }
             }
         }
@@ -514,6 +518,7 @@ public class CodeBoardIME extends InputMethodService
                         list.add(d.ch);
                     }
                 }
+                Logi("updateCandidate("+mComposing+"): "+list);
             }
             setSuggestions(list, true, true);
         } else {
@@ -683,7 +688,6 @@ public class CodeBoardIME extends InputMethodService
 
         mComposing.setLength(0);
         mPredictionOn = true; // 決定要不要顯示候選區
-        mCompletions = null;
         updateCandidates(0);
     }
 
@@ -842,6 +846,7 @@ public class CodeBoardIME extends InputMethodService
      * Helper to determine if a given character code is alphabetic.
      */
     private boolean isAlphabet(int code) {
+        Logi("isAlphabet() "+code);
         if (Character.isLetter(code) || code == ',' || code == '.' || code == '[' || code == ']' || code == '\'') {
             return true;
         } else {

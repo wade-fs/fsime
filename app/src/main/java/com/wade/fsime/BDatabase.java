@@ -193,8 +193,7 @@ public class BDatabase extends SQLiteAssetHelper {
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         q = "select * from z where ";
-        String m = regexp(k, mapJuinEt);
-        q += "eng like \""+m+"%\" ORDER BY freq DESC LIMIT 40 OFFSET "+start+";";
+        q += "eng like \""+k+"%\" ORDER BY freq DESC LIMIT 40 OFFSET "+start+";";
         Log.d("MyLog", "getJuin("+k+","+start+") Q='"+q+"'");
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
