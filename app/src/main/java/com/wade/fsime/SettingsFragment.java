@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.InputType;
-import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -81,7 +80,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         });
 
         Bundle bundle = this.getArguments();
-//        Log.d(this.getClass().getSimpleName(), "onCreatePreferences: "+bundle );
         if (bundle != null &&
                 (bundle.getInt("notification") == 1)) {
             scrollToPreference("notification");

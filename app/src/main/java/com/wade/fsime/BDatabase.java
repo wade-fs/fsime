@@ -3,7 +3,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  
@@ -194,7 +193,6 @@ public class BDatabase extends SQLiteAssetHelper {
         ArrayList<B> resExact=new ArrayList<>();
         q = "select * from z where ";
         q += "eng like \""+k+"%\" ORDER BY freq DESC LIMIT 40 OFFSET "+start+";";
-        Log.d("MyLog", "getJuin("+k+","+start+") Q='"+q+"'");
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= 30){

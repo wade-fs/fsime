@@ -98,11 +98,20 @@ public class CodeBoardIME extends InputMethodService
             case 53742:
                 ic.performContextMenuAction(android.R.id.redo);
                 break;
-            case -1:
-                //SYM
+            case -1: // SYM, 切換鍵盤
+                turnCandidate(false);
+                if (shift) {
+                    shift = false;
+                    shiftLock = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+                }
                 if (ctrl) {
                     mKeyboardState = R.integer.keyboard_clipboard;
-                } else if (mKeyboardState == R.integer.keyboard_clipboard) {
+                    ctrl = false;
+                    ctrlLock = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+                }
+                if (mKeyboardState == R.integer.keyboard_clipboard) {
                     mKeyboardState = R.integer.keyboard_normal;
                 } else if (mKeyboardState == R.integer.keyboard_normal) {
                     if (use_boshiamy) {
@@ -120,19 +129,6 @@ public class CodeBoardIME extends InputMethodService
                     mKeyboardState = R.integer.keyboard_sym;
                 } else {
                     mKeyboardState = R.integer.keyboard_normal;
-                }
-                turnCandidate(false);
-                // regenerate view
-                //Simple remove shift
-                if (shift) {
-                    shift = false;
-                    shiftLock = false;
-                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-                }
-                if (ctrl) {
-                    ctrl = false;
-                    ctrlLock = false;
-                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
                 }
                 setInputView(onCreateInputView());
                 controlKeyUpdateView();
@@ -206,16 +202,6 @@ public class CodeBoardIME extends InputMethodService
                         break;
                     case 32:
                         ke = KeyEvent.KEYCODE_SPACE;
-                        if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
-                            if (mCandidateView != null && mCandidateView.size() >= 1) {
-                                if (mComposing.length() > 1) {
-                                    pickSuggestionManually(1);
-                                } else {
-                                    pickSuggestionManually(0);
-                                }
-                            }
-                            return;
-                        }
                         break;
                     case -5:
                         ke = KeyEvent.KEYCODE_DEL;
@@ -304,19 +290,36 @@ public class CodeBoardIME extends InputMethodService
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
-                        } else if (isAlphabet(primaryCode)) {
-                            mComposing.append((char) primaryCode);
+                        } else if (ke == KeyEvent.KEYCODE_SPACE) {
+                            if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
+                                if (mCandidateView != null && mCandidateView.size() >= 1) {
+                                    if (mComposing.length() >= 1) {
+                                        pickSuggestionManually(1);
+                                    } else {
+                                        pickSuggestionManually(0);
+                                    }
+                                }
+                                return;
+                            }
+                        } else if (ke == KeyEvent.KEYCODE_ENTER) {
+                            keyDownUp(ke, 0);
+                            return;
+                        } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
+                            turnCandidate(false);
+                        } else {
+                            mComposing.append(code);
                         }
                         updateCandidates(0);
                     } else {
-                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
-                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
+                        keyDownUp(ke, meta);
+//                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
+//                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     }
                 } else {
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
-                        } else if (isAlphabet(primaryCode)) {
+                        } else {
                             mComposing.append(String.valueOf(code));
                         }
                         updateCandidates(0);
@@ -329,14 +332,13 @@ public class CodeBoardIME extends InputMethodService
     }
     private void handleBackspace() {
         final int length = mComposing.length();
-        Logi("handleBackspace("+length+") "+mComposing);
-        if (length > 1) {
+        if (length >= 1) {
             mComposing.delete(length - 1, length);
-            Logi("handleBackspace(DEL) "+mComposing);
             getCurrentInputConnection().setComposingText(mComposing, 1);
         } else {
             mComposing.setLength(0);
             getCurrentInputConnection().commitText("", 0);
+            keyDownUp(KeyEvent.KEYCODE_DEL, 0);
         }
     }
 
@@ -369,13 +371,13 @@ public class CodeBoardIME extends InputMethodService
                             try {
                                 CodeBoardIME.this.onKeyLongPress(primaryCode);
                             } catch (Exception e) {
-                                Log.e(getClass().getSimpleName(), "uiHandler.run: " + e.getMessage(), e);
+                                
                             }
                         }
                     };
                     uiHandler.post(runnable);
                 } catch (Exception e) {
-                    Log.e(getClass().getSimpleName(), "Timer.run: " + e.getMessage(), e);
+                    
                 }
             }
         }, ViewConfiguration.getLongPressTimeout());
@@ -487,11 +489,11 @@ public class CodeBoardIME extends InputMethodService
         turnCandidate(false);
     }
 
-//    private void keyDownUp(int keyEventCode) {
-//        InputConnection ic = getCurrentInputConnection();
-//        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
-//        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
-//    }
+    private void keyDownUp(int keyEventCode, int meta) {
+        InputConnection ic = getCurrentInputConnection();
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
+    }
 
     private void Logi(String msg) {
         Log.i(getClass().getSimpleName(), msg);
@@ -528,7 +530,6 @@ public class CodeBoardIME extends InputMethodService
                         list.add(d.ch);
                     }
                 }
-                Logi("updateCandidate("+mComposing+"): "+list);
             }
             setSuggestions(list, true, true);
         } else {
@@ -789,7 +790,6 @@ public class CodeBoardIME extends InputMethodService
 
         if (visible && mNotificationReceiver == null) {
             CharSequence text = "Keyboard notification enabled.";
-            Logi("setNotification:" + text);
 
             createNotificationChannel();
             mNotificationReceiver = new NotificationReceiver(this);
@@ -847,7 +847,6 @@ public class CodeBoardIME extends InputMethodService
         @Override
         public void attachToken(IBinder token) {
             super.attachToken(token);
-            Logi("attachToken " + token);
             if (mToken == null) {
                 mToken = token;
             }
@@ -858,7 +857,6 @@ public class CodeBoardIME extends InputMethodService
      * Helper to determine if a given character code is alphabetic.
      */
     private boolean isAlphabet(int code) {
-        Logi("isAlphabet() "+code);
         if (Character.isLetter(code) || code == ',' || code == '.' || code == '[' || code == ']' || code == '\'') {
             return true;
         } else {
