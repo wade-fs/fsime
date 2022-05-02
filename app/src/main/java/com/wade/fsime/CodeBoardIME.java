@@ -57,6 +57,7 @@ public class CodeBoardIME extends InputMethodService
     private boolean vibratorOn;
     private int vibrateLength;
     private boolean soundOn;
+    private boolean use_boshiamy=true, use_phonetic=true;
     private boolean shiftLock = false;
     private boolean ctrlLock = false;
     private boolean shift = false;
@@ -104,9 +105,15 @@ public class CodeBoardIME extends InputMethodService
                 } else if (mKeyboardState == R.integer.keyboard_clipboard) {
                     mKeyboardState = R.integer.keyboard_normal;
                 } else if (mKeyboardState == R.integer.keyboard_normal) {
-                    mKeyboardState = R.integer.keyboard_boshiamy;
+                    if (use_boshiamy) {
+                        mKeyboardState = R.integer.keyboard_boshiamy;
+                    } else if (use_phonetic) {
+                        mKeyboardState = R.integer.keyboard_phonetic;
+                    }
                 } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
-                    mKeyboardState = R.integer.keyboard_phonetic;
+                    if (use_phonetic)
+                        mKeyboardState = R.integer.keyboard_phonetic;
+                    else mKeyboardState = R.integer.keyboard_normal;
                 } else if (mKeyboardState == R.integer.keyboard_phonetic) {
                     mKeyboardState = R.integer.keyboard_sym;
                 } else {
@@ -562,6 +569,8 @@ public class CodeBoardIME extends InputMethodService
         vibrateLength = sharedPreferences.getVibrateLength();
         vibratorOn = sharedPreferences.isVibrateEnabled();
         soundOn = sharedPreferences.isSoundEnabled();
+        use_boshiamy = sharedPreferences.useBoshiamy();
+        use_phonetic = sharedPreferences.usePhonetic();
         mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
         mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
         mKeyboardUiFactory.theme.fontSize = sharedPreferences.getFontSizeAsSp();
