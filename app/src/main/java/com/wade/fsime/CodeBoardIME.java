@@ -292,7 +292,7 @@ public class CodeBoardIME extends InputMethodService
 //                        }
                 }
                 if (ke != 0) {
-                    if (mKeyboardState == R.integer.keyboard_boshiamy) {
+                    if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (isAlphabet(primaryCode)) {
@@ -304,7 +304,6 @@ public class CodeBoardIME extends InputMethodService
                         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     }
                 } else {
-                    Logi("onKey: committext " + String.valueOf(code));
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
@@ -321,8 +320,10 @@ public class CodeBoardIME extends InputMethodService
     }
     private void handleBackspace() {
         final int length = mComposing.length();
+        Logi("handleBackspace("+length+") "+mComposing);
         if (length > 1) {
             mComposing.delete(length - 1, length);
+            Logi("handleBackspace(DEL) "+mComposing);
             getCurrentInputConnection().setComposingText(mComposing, 1);
         } else {
             mComposing.setLength(0);
