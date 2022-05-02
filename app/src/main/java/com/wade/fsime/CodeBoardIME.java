@@ -306,9 +306,10 @@ public class CodeBoardIME extends InputMethodService
                             mComposing.append((char) primaryCode);
                         }
                         updateCandidates(0);
+                    } else {
+                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
+                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     }
-                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
-                    ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                 } else {
                     //All non-letter characters are handled here
                     // This doesn't use modifiers.
