@@ -299,15 +299,16 @@ public class CodeBoardIME extends InputMethodService
 //                        }
                 }
                 if (ke != 0) {
-                    Logi("onKey: keyEvent " + ke + " Char "+(char)primaryCode);
-                    if (mKeyboardState == R.integer.keyboard_boshiamy && ke == KeyEvent.KEYCODE_DEL) {
-                        handleBackspace();
-                    } else {
-                        mComposing.append((char) primaryCode);
+                    if (mKeyboardState == R.integer.keyboard_boshiamy) {
+                        if (ke == KeyEvent.KEYCODE_DEL) {
+                            handleBackspace();
+                        } else if (isAlphabet(primaryCode)) {
+                            mComposing.append((char) primaryCode);
+                        }
+                        updateCandidates(0);
                     }
                     ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
                     ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
-                    updateCandidates(0);
                 } else {
                     //All non-letter characters are handled here
                     // This doesn't use modifiers.
@@ -430,8 +431,7 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onText(CharSequence text) {
-        InputConnection ic = getCurrentInputConnection();
-        ic.commitText(text, 1);
+        getCurrentInputConnection().commitText(text, 1);
         clearLongPressTimer();
     }
 
@@ -454,8 +454,8 @@ public class CodeBoardIME extends InputMethodService
     public void swipeUp() {
         onKey(pressedCode,null);
     }
+
     private void turnCandidate(boolean prediction) {
-        //Log.d("MyLog", "turnCandidate("+prediction+") on SlideTypeKeyboard");
         if (mCandidateView != null && !prediction) {
             mComposing.setLength(0);
             mCandidateView.clear();
@@ -464,40 +464,26 @@ public class CodeBoardIME extends InputMethodService
         setCandidatesViewShown(prediction);
     }
 
+    /**
+     * 每次發送字之後，應關閉候選區
+     */
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
-        InputConnection ic = getCurrentInputConnection();
-        Logi("pickSuggestionManually() "+mComposing.length());
-        for (int i=0; i<mComposing.length(); i++) {
-            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, Keyboard.KEYCODE_DELETE, 0, 0));
-            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, Keyboard.KEYCODE_DELETE, 0, 0));
-        }
-        ic.commitText(res, res.length());
-        mComposing.setLength(0);
-        turnCandidate(false);
-    }
-    private void keyDownUp(int keyEventCode) {
-        if (getCurrentInputConnection() == null) {
-            handleClose();
-            return;
-        }
-        getCurrentInputConnection().sendKeyEvent(
-                new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
-        getCurrentInputConnection().sendKeyEvent(
-                new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
-    }
-
-    private void commitTyped(InputConnection inputConnection) {
-        if (inputConnection == null) {
-            handleClose();
-            return;
-        }
-        if (mComposing.length() > 0 && inputConnection!=null) {
-            inputConnection.finishComposingText();
+        if (res.length() > 0) {
+            InputConnection ic = getCurrentInputConnection();
+            ic.commitText(res, res.length());
+            ic.finishComposingText();
             mComposing.setLength(0);
             updateCandidates(0);
         }
+        turnCandidate(false);
     }
+
+//    private void keyDownUp(int keyEventCode) {
+//        InputConnection ic = getCurrentInputConnection();
+//        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, keyEventCode));
+//        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, keyEventCode));
+//    }
 
     private void Logi(String msg) {
         Log.i(getClass().getSimpleName(), msg);
@@ -508,7 +494,11 @@ public class CodeBoardIME extends InputMethodService
      * candidates.
      */
     private int start = 0;
-    private void updateCandidates(int forward) {
+    /**
+     * 更新候選區，其內容是由 mComposing 從資料庫產生，第一筆就是輸入組字
+     */
+    private void updateCandidates(int forward) { // 候選區是捲動式的，要往前 forward 幾個字
+        // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
         if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic)
             return;
         if (mComposing.length() > 0) {
@@ -537,25 +527,20 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
+    /**
+     * 會導致 出現候選區
+     * @param suggestions
+     * @param completions
+     * @param typedWordValid
+     */
     public void setSuggestions(List<String> suggestions, boolean completions,
                                boolean typedWordValid) {
-        if (suggestions != null && suggestions.size() > 0) {
-            setCandidatesViewShown(true);
-        } else if (isExtractViewShown()) {
+        if (suggestions != null && suggestions.size() > 0 || isExtractViewShown()) {
             setCandidatesViewShown(true);
         }
         if (mCandidateView != null) {
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
         }
-    }
-
-    private void handleClose() {
-        setCandidatesViewShown(false);
-
-        InputConnection ic=getCurrentInputConnection();
-        if (ic != null)
-            commitTyped(ic);
-        requestHideSelf(0);
     }
 
     @Override
@@ -728,11 +713,11 @@ public class CodeBoardIME extends InputMethodService
         super.onStartInputView(attribute, restarting);
         setInputView(onCreateInputView());
         sEditorInfo = attribute;
-        mComposing.setLength(0);
-        updateCandidates(0);
 
+        mComposing.setLength(0);
         mPredictionOn = true; // 決定要不要顯示候選區
         mCompletions = null;
+        updateCandidates(0);
     }
 
     public void controlKeyUpdateView() {
@@ -886,4 +871,14 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
+    /**
+     * Helper to determine if a given character code is alphabetic.
+     */
+    private boolean isAlphabet(int code) {
+        if (Character.isLetter(code) || code == ',' || code == '.' || code == '[' || code == ']' || code == '\'') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
