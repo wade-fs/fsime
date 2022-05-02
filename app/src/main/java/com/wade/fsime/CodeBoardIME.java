@@ -286,6 +286,7 @@ public class CodeBoardIME extends InputMethodService
 //                            ke = KeyEvent.keyCodeFromString("KEYCODE_" + code);
 //                        }
                 }
+                Logi("ke: "+ke);
                 if (ke != 0) {
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
@@ -293,11 +294,10 @@ public class CodeBoardIME extends InputMethodService
                         } else if (ke == KeyEvent.KEYCODE_SPACE) {
                             if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                                 if (mCandidateView != null && mCandidateView.size() >= 1) {
-                                    if (mComposing.length() >= 1) {
-                                        pickSuggestionManually(1);
-                                    } else {
-                                        pickSuggestionManually(0);
-                                    }
+                                    pickSuggestionManually(1);
+                                } else {
+                                    Logi("send space");
+                                    ic.commitText(String.valueOf(code), 1);
                                 }
                                 return;
                             }
