@@ -105,36 +105,64 @@ public class Definitions {
     }
 
     public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey('ㄟ').onShiftUppercase()
-                .addKey('ㄝ').onShiftUppercase()
-                .addKey('一').onShiftUppercase()
-                .addKey('ㄜ').onShiftUppercase()
-                .addKey('ㄊ').onShiftUppercase()
-                .addKey('ㄡ').onShiftUppercase()
-                .addKey('ㄩ').onShiftUppercase()
-                .addKey('ㄞ').onShiftUppercase()
-                .addKey('ㄛ').onShiftUppercase()
-                .addKey('ㄆ').onShiftUppercase()
-                .newRow()
-                .addKey('ㄚ').onShiftUppercase().withSize(1.5f)
-                .addKey('ㄙ').onShiftUppercase()
-                .addKey('ㄉ').onShiftUppercase()
-                .addKey('ㄈ').onShiftUppercase()
-                .addKey('ㄐ').onShiftUppercase()
-                .addKey('ㄏ').onShiftUppercase()
-                .addKey('ㄖ').onShiftUppercase()
-                .addKey('ㄎ').onShiftUppercase()
-                .addKey('ㄌ').onShiftUppercase().withSize(1.5f)
-                .newRow()
+        keyboard.newRow()       // 1234567890-=
+                .addKey('ㄅ')    // 1
+                .addKey('ㄉ')    // 2
+                .addKey('ˇ')    // 3
+                .addKey('ˋ')    // 4
+                .addKey('ㄓ')    // 5
+                .addKey('ˊ')    // 6
+                .addKey('˙')    // 7
+                .addKey('ㄚ')    // 8
+                .addKey('ㄞ')    // 9
+                .addKey('ㄢ')    // 0
+                .addKey('ㄦ')    // -
+                .addKey("")     // =
+                .addKey("")     // BS
+
+                .newRow() // qwertyuiop
+                .addKey("")     // \
+                .addKey('ㄆ')    // q
+                .addKey('ㄊ')    // w
+                .addKey('ㄍ')    // e
+                .addKey('ㄐ')    // r
+                .addKey('ㄔ')    // t
+                .addKey('ㄗ')    // y
+                .addKey('一')    // u
+                .addKey('ㄛ')    // o
+                .addKey('ㄟ')    // o
+                .addKey("ㄣ")    // p
+                .addKey("")     // [
+                .addKey("")     // ]
+                .addKey("")     // \
+
+                .newRow()       // asdfghjkl;
+                .addKey("")     // \
+                .addKey('ㄇ')    // a
+                .addKey('ㄋ')    // s
+                .addKey('ㄎ')    // d
+                .addKey("ㄑ")    // f
+                .addKey('ㄕ')    // g
+                .addKey('ㄘ')    // h
+                .addKey('ㄨ')    // j
+                .addKey('ㄜ')    // k
+                .addKey('ㄠ')    // l
+                .addKey("ㄤ")    // ;
+                .addKey("")    // '
+                .addKey("")    // '
+
+                .newRow()       // zxcvbnm,./
                 .addShiftKey()
-                .addKey('ㄠ').onShiftUppercase()
-                .addKey('ㄨ').onShiftUppercase()
-                .addKey('ㄒ').onShiftUppercase()
-                .addKey('ㄍ').onShiftUppercase()
-                .addKey('ㄅ').onShiftUppercase()
-                .addKey('ㄋ').onShiftUppercase()
-                .addKey('ㄇ').onShiftUppercase()
+                .addKey('ㄈ')    // z
+                .addKey('ㄌ')    // x
+                .addKey('ㄏ')    // c
+                .addKey('ㄒ')    // v
+                .addKey('ㄖ')    // b
+                .addKey('ㄙ')    // n
+                .addKey('ㄩ')    // m
+                .addKey('ㄝ')    // ,
+                .addKey('ㄡ')    // .
+                .addKey("ㄥ")    // /
                 .addBackspaceKey()
         ;
     }

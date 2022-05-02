@@ -11,7 +11,6 @@ import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
-import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.Build;
 import android.os.Handler;
@@ -22,7 +21,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
@@ -51,10 +49,6 @@ import java.util.TimerTask;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
-/*Created by Ruby(aka wade) on 13/02/2016.
- */
-
-
 public class CodeBoardIME extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener {
     private static final String NOTIFICATION_CHANNEL_ID = "Codeboard";
@@ -72,7 +66,6 @@ public class CodeBoardIME extends InputMethodService
     private KeyboardUiFactory mKeyboardUiFactory = null;
     private KeyboardLayoutView mCurrentKeyboardLayoutView = null;
     private CandidateView mCandidateView;
-    private CompletionInfo[] mCompletions;
     private boolean mPredictionOn;
     private final StringBuilder mComposing = new StringBuilder();
 
@@ -113,8 +106,8 @@ public class CodeBoardIME extends InputMethodService
                 } else if (mKeyboardState == R.integer.keyboard_normal) {
                     mKeyboardState = R.integer.keyboard_boshiamy;
                 } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
-//                    mKeyboardState = R.integer.keyboard_phonetic;
-//                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+                    mKeyboardState = R.integer.keyboard_phonetic;
+                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
                     mKeyboardState = R.integer.keyboard_sym;
                 } else {
                     mKeyboardState = R.integer.keyboard_normal;
@@ -204,7 +197,7 @@ public class CodeBoardIME extends InputMethodService
                         break;
                     case 32:
                         ke = KeyEvent.KEYCODE_SPACE;
-                        if (mKeyboardState == R.integer.keyboard_boshiamy) {
+                        if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                             if (mCandidateView != null && mCandidateView.size() >= 1) {
                                 if (mComposing.length() > 0 && ((int) mComposing.charAt(0)) < 256) {
                                     pickSuggestionManually(1);
@@ -299,7 +292,7 @@ public class CodeBoardIME extends InputMethodService
 //                        }
                 }
                 if (ke != 0) {
-                    if (mKeyboardState == R.integer.keyboard_boshiamy) {
+                    if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (isAlphabet(primaryCode)) {
@@ -588,7 +581,6 @@ public class CodeBoardIME extends InputMethodService
         String mCustomSymbolsSym3 = sharedPreferences.getCustomSymbolsSym3();
         String mCustomSymbolsSym4 = sharedPreferences.getCustomSymbolsSym4();
         String mCustomSymbolsMainBottom = sharedPreferences.getCustomSymbolsMainBottom();
-        int mLayout = sharedPreferences.getLayoutIndex();
 
         //Need this to get resources for drawables
         Definitions definitions = new Definitions(this);
@@ -620,30 +612,7 @@ public class CodeBoardIME extends InputMethodService
                 } else {
                     definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
                 }
-            } else if (mKeyboardState == R.integer.keyboard_normal) {
-                if (!mCustomSymbolsMain.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain);
-                }
-                if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2);
-                }
-                switch (mLayout) {
-                    default:
-                    case R.integer.layout_qwerty:
-                        Definitions.addQwertyRows(builder);
-                        break;
-                    case R.integer.layout_azerty:
-                        Definitions.addAzertyRows(builder);
-                        break;
-                    case R.integer.layout_dvorak:
-                        Definitions.addDvorakRows(builder);
-                        break;
-                    case R.integer.layout_qwertz:
-                        Definitions.addQwertzRows(builder);
-                        break;
-                }
-                definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
-            } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
+            } else if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
                 if (!mCustomSymbolsMain.isEmpty()) {
                     Definitions.addCustomRow(builder, mCustomSymbolsMain);
                 }
@@ -653,9 +622,6 @@ public class CodeBoardIME extends InputMethodService
                 Definitions.addQwertyRows(builder);
                 definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
             } else if (mKeyboardState == R.integer.keyboard_phonetic) {
-                if (!mCustomSymbolsMain.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain);
-                }
                 if (!mCustomSymbolsMain2.isEmpty()) {
                     Definitions.addCustomRow(builder, mCustomSymbolsMain2);
                 }

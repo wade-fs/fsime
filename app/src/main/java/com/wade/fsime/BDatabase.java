@@ -19,12 +19,13 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String CH="ch";
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
-    protected final Map<String, String> mapJuin;
-//    private final Map<String, String> mapJuinEt;
+//    protected final Map<String, String> mapJuin;
+    private final Map<String, String> mapJuinEt;
     private final int ts = 0;
 
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+/*
         mapJuin = new HashMap<>();
         mapJuin.put("1", "ㄅ");
         mapJuin.put("2", "ㄉ");
@@ -70,7 +71,7 @@ public class BDatabase extends SQLiteAssetHelper {
         mapJuin.put(",", "ㄝ");
         mapJuin.put(".", "ㄡ");
         mapJuin.put("/", "ㄥ");
-/*
+ */
         mapJuinEt = new HashMap<>();
         mapJuinEt.put("1", "˙");
         mapJuinEt.put("2", "ˊ");
@@ -116,7 +117,6 @@ public class BDatabase extends SQLiteAssetHelper {
         mapJuinEt.put(",", "ㄓ");
         mapJuinEt.put(".", "ㄔ");
         mapJuinEt.put("/", "ㄕ");
- */
     }
 
     private String regexp(String s, Map<String, String>map) {
@@ -193,7 +193,7 @@ public class BDatabase extends SQLiteAssetHelper {
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         q = "select * from z where ";
-        String m = regexp(k, mapJuin);
+        String m = regexp(k, mapJuinEt);
         q += "eng like \""+m+"%\" ORDER BY freq DESC LIMIT 40 OFFSET "+start+";";
         Log.d("MyLog", "getJuin("+k+","+start+") Q='"+q+"'");
         cursor=db.rawQuery(q, null);
