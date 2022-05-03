@@ -288,15 +288,17 @@ public class CodeBoardIME extends InputMethodService
                 }
 
                 if (ke != 0) {
-                    Logi("ke1: "+ke);
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (ke == KeyEvent.KEYCODE_SPACE) {
-                            if (mCandidateView != null && mCandidateView.size() >= 1) {
-                                pickSuggestionManually(1);
+                            if (mCandidateView != null) {
+                                Logi("候選區: "+mCandidateView.size()+"/"+mComposing.length());
+                                if (mCandidateView.size() > 1)
+                                    pickSuggestionManually(1);
+                                else
+                                    pickSuggestionManually(0);
                             } else {
-                                Logi("send space");
                                 ic.commitText(String.valueOf(code), 1);
                             }
                             return;
@@ -328,9 +330,7 @@ public class CodeBoardIME extends InputMethodService
             }
         }
     }
-    private void commitTyped() {
 
-    }
     private void handleBackspace() {
         final int length = mComposing.length();
         if (length >= 1) {
