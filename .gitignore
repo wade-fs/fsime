@@ -1,6 +1,7 @@
 # Custom ignore
 .DS_Store
 /build
+debug/
 /captures
 /.tmp
 /.idea

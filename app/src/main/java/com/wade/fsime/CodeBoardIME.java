@@ -286,21 +286,20 @@ public class CodeBoardIME extends InputMethodService
 //                            ke = KeyEvent.keyCodeFromString("KEYCODE_" + code);
 //                        }
                 }
-                Logi("ke: "+ke);
+
                 if (ke != 0) {
+                    Logi("ke1: "+ke);
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (ke == KeyEvent.KEYCODE_SPACE) {
-                            if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
-                                if (mCandidateView != null && mCandidateView.size() >= 1) {
-                                    pickSuggestionManually(1);
-                                } else {
-                                    Logi("send space");
-                                    ic.commitText(String.valueOf(code), 1);
-                                }
-                                return;
+                            if (mCandidateView != null && mCandidateView.size() >= 1) {
+                                pickSuggestionManually(1);
+                            } else {
+                                Logi("send space");
+                                ic.commitText(String.valueOf(code), 1);
                             }
+                            return;
                         } else if (ke == KeyEvent.KEYCODE_ENTER) {
                             keyDownUp(ke, 0);
                             return;
@@ -312,23 +311,25 @@ public class CodeBoardIME extends InputMethodService
                         updateCandidates(0);
                     } else {
                         keyDownUp(ke, meta);
-//                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, ke, 0, meta));
-//                        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, ke, 0, meta));
                     }
                 } else {
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
-                        if (ke == KeyEvent.KEYCODE_DEL) {
-                            handleBackspace();
-                        } else {
-                            mComposing.append(String.valueOf(code));
-                        }
+                        mComposing.append(String.valueOf(code));
                         updateCandidates(0);
                     } else {
+                        if (mKeyboardState == R.integer.keyboard_boshiamy &&
+                            mCandidateView != null && mCandidateView.size() >= 1)
+                        {
+                            pickSuggestionManually(1);
+                        }
                         ic.commitText(String.valueOf(code), 1);
                     }
                 }
             }
         }
+    }
+    private void commitTyped() {
+
     }
     private void handleBackspace() {
         final int length = mComposing.length();
