@@ -292,19 +292,17 @@ public class CodeBoardIME extends InputMethodService
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
                         } else if (ke == KeyEvent.KEYCODE_SPACE) {
-                            if (mCandidateView != null) {
-                                Logi("候選區: "+mCandidateView.size()+"/"+mComposing.length());
-                                if (mCandidateView.size() > 1)
-                                    pickSuggestionManually(1);
-                                else
-                                    pickSuggestionManually(0);
-                            } else {
+                            if (mCandidateView == null || mCandidateView.size() == 0) {
                                 ic.commitText(String.valueOf(code), 1);
+                            } else if (mCandidateView.size() > 1) {
+                                Logi("Space2");
+                                pickSuggestionManually(1);
+                            } else {
+                                Logi("Space3");
+                                pickSuggestionManually(0);
                             }
-                            return;
                         } else if (ke == KeyEvent.KEYCODE_ENTER) {
                             keyDownUp(ke, 0);
-                            return;
                         } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
                             turnCandidate(false);
                         } else {
