@@ -10,6 +10,7 @@
     <bool name="top_row_actions">false</bool>
     <bool name="notification">false</bool>
     <bool name="use_boshiamy">true</bool>
+    <bool name="disable_normal">false</bool>
     <bool name="use_phonetic">true</bool>
     <integer name="theme">1</integer>
     <integer name="vibrate_length">1</integer>

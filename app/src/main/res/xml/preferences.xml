@@ -5,14 +5,14 @@
         <Preference
             android:key="change_keyboard"
             android:title="@string/change_keyboard" />
-        <EditTextPreference
-            android:imeOptions="flagNoExtractUi"
-            android:key="edit_dialog"
-            android:title="@string/reopen_hint" />
         <SwitchPreferenceCompat
             android:defaultValue="@bool/borders"
             android:key="use_boshiamy"
             android:title="@string/key_use_boshiamy" />
+        <SwitchPreferenceCompat
+            android:defaultValue="@bool/borders"
+            android:key="disable_normal"
+            android:title="@string/key_disable_normal"/>
         <SwitchPreferenceCompat
             android:defaultValue="@bool/navbar"
             android:key="use_phonetic"

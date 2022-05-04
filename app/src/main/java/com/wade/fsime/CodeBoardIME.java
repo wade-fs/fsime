@@ -8,6 +8,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
@@ -57,21 +58,66 @@ public class CodeBoardIME extends InputMethodService
     private boolean vibratorOn;
     private int vibrateLength;
     private boolean soundOn;
-    private boolean use_boshiamy=true, use_phonetic=true;
+    private boolean use_boshiamy=true, disable_normal=false, use_phonetic=true;
     private boolean shiftLock = false;
     private boolean ctrlLock = false;
     private boolean shift = false;
     private boolean ctrl = false;
-    private int mKeyboardState = R.integer.keyboard_normal;
+    private int mKeyboardState = -1;
     private Timer timerLongPress = null;
     private KeyboardUiFactory mKeyboardUiFactory = null;
     private KeyboardLayoutView mCurrentKeyboardLayoutView = null;
     private CandidateView mCandidateView;
-    private boolean mPredictionOn;
     private final StringBuilder mComposing = new StringBuilder();
 
     BDatabase bdatabase;
     private ArrayList<B> b;
+
+    // normal -> boshiamy -> phonetic
+    //    -> sym
+    //    -> clipboard
+    private void nextKeyboard() {
+        if (mKeyboardState < 0) mKeyboardState = R.integer.keyboard_clipboard;
+        if (mKeyboardState == R.integer.keyboard_clipboard) {
+            if (disable_normal) {
+                if (use_boshiamy) {
+                    mKeyboardState = R.integer.keyboard_boshiamy;
+                } else if (use_phonetic) {
+                    mKeyboardState = R.integer.keyboard_phonetic;
+                } else {
+                    mKeyboardState = R.integer.keyboard_sym;
+                }
+            } else {
+                mKeyboardState = R.integer.keyboard_normal;
+            }
+        } else if (mKeyboardState == R.integer.keyboard_normal) {
+            if (use_boshiamy) {
+                mKeyboardState = R.integer.keyboard_boshiamy;
+            } else if (use_phonetic) {
+                mKeyboardState = R.integer.keyboard_phonetic;
+            } else {
+                mKeyboardState = R.integer.keyboard_sym;
+            }
+        } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
+            if (use_phonetic)
+                mKeyboardState = R.integer.keyboard_phonetic;
+            else mKeyboardState = R.integer.keyboard_sym;
+        } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+            mKeyboardState = R.integer.keyboard_sym;
+        } else {
+            if (disable_normal) {
+                if (use_boshiamy) {
+                    mKeyboardState = R.integer.keyboard_boshiamy;
+                } else if (use_phonetic) {
+                    mKeyboardState = R.integer.keyboard_phonetic;
+                } else {
+                    mKeyboardState = R.integer.keyboard_sym;
+                }
+            } else {
+                mKeyboardState = R.integer.keyboard_normal;
+            }
+        }
+    }
 
     @Override
     public void onKey(int primaryCode, int[] KeyCodes) {
@@ -111,25 +157,7 @@ public class CodeBoardIME extends InputMethodService
                     ctrlLock = false;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
                 }
-                if (mKeyboardState == R.integer.keyboard_clipboard) {
-                    mKeyboardState = R.integer.keyboard_normal;
-                } else if (mKeyboardState == R.integer.keyboard_normal) {
-                    if (use_boshiamy) {
-                        mKeyboardState = R.integer.keyboard_boshiamy;
-                    } else if (use_phonetic) {
-                        mKeyboardState = R.integer.keyboard_phonetic;
-                    } else {
-                        mKeyboardState = R.integer.keyboard_sym;
-                    }
-                } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
-                    if (use_phonetic)
-                        mKeyboardState = R.integer.keyboard_phonetic;
-                    else mKeyboardState = R.integer.keyboard_sym;
-                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
-                    mKeyboardState = R.integer.keyboard_sym;
-                } else {
-                    mKeyboardState = R.integer.keyboard_normal;
-                }
+                nextKeyboard();
                 setInputView(onCreateInputView());
                 controlKeyUpdateView();
                 shiftKeyUpdateView();
@@ -470,7 +498,6 @@ public class CodeBoardIME extends InputMethodService
             mComposing.setLength(0);
             mCandidateView.clear();
         }
-        mPredictionOn = prediction;
         setCandidatesViewShown(prediction);
     }
 
@@ -573,6 +600,7 @@ public class CodeBoardIME extends InputMethodService
         vibratorOn = sharedPreferences.isVibrateEnabled();
         soundOn = sharedPreferences.isSoundEnabled();
         use_boshiamy = sharedPreferences.useBoshiamy();
+        disable_normal = sharedPreferences.disableNormal();
         use_phonetic = sharedPreferences.usePhonetic();
         mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
         mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
@@ -696,12 +724,12 @@ public class CodeBoardIME extends InputMethodService
     @Override
     public void onStartInputView(EditorInfo attribute, boolean restarting) {
         super.onStartInputView(attribute, restarting);
+        if (mKeyboardState < 0) nextKeyboard();
         setInputView(onCreateInputView());
         sEditorInfo = attribute;
-
-        mComposing.setLength(0);
-        mPredictionOn = true; // 決定要不要顯示候選區
-        updateCandidates(0);
+        turnCandidate(false);
+//        mComposing.setLength(0);
+//        updateCandidates(0);
     }
 
     public void controlKeyUpdateView() {

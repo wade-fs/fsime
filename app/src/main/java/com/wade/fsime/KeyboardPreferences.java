@@ -29,9 +29,15 @@ public class KeyboardPreferences {
     public boolean useBoshiamy() {
         return read("use_boshiamy", res.getBoolean(R.bool.use_boshiamy));
     }
+
+    public boolean disableNormal() {
+        return read("disable_normal", res.getBoolean(R.bool.disable_normal));
+    }
+
     public boolean usePhonetic() {
         return read("use_phonetic", res.getBoolean(R.bool.use_phonetic));
     }
+
     public boolean isSoundEnabled() {
         return read("sound",
                 res.getBoolean(R.bool.sound));

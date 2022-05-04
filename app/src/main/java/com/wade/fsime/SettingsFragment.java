@@ -5,12 +5,14 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.InputType;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -84,7 +86,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                 (bundle.getInt("notification") == 1)) {
             scrollToPreference("notification");
         }
-
     }
 
     public static CharSequence getCurrentImeLabel(Context context) {
