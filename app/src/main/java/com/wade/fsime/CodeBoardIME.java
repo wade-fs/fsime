@@ -295,14 +295,15 @@ public class CodeBoardIME extends InputMethodService
                             if (mCandidateView == null || mCandidateView.size() == 0) {
                                 ic.commitText(String.valueOf(code), 1);
                             } else if (mCandidateView.size() > 1) {
-                                Logi("Space2");
                                 pickSuggestionManually(1);
                             } else {
-                                Logi("Space3");
                                 pickSuggestionManually(0);
                             }
                         } else if (ke == KeyEvent.KEYCODE_ENTER) {
-                            keyDownUp(ke, 0);
+                            if (mComposing.length() > 0)
+                                pickSuggestionManually(0);
+                            else
+                                keyDownUp(ke, 0);
                         } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
                             turnCandidate(false);
                         } else {
