@@ -566,9 +566,6 @@ public class CodeBoardIME extends InputMethodService
 
     /**
      * 會導致 出現候選區
-     * @param suggestions
-     * @param completions
-     * @param typedWordValid
      */
     public void setSuggestions(List<String> suggestions, boolean completions,
                                boolean typedWordValid) {
