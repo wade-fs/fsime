@@ -306,16 +306,12 @@ public class CodeBoardIME extends InputMethodService
                         ke = KeyEvent.KEYCODE_DPAD_RIGHT;
                         break;
                     default:
-                        //(t key) code 116-> ke 48
                         if (Character.isLetter(code)) {
                             ke = KeyEvent.keyCodeFromString("KEYCODE_" + Character.toUpperCase(code));
                         }
-//                        if (primaryCode >= 48 && primaryCode <= 57) {
-//                            ke = KeyEvent.keyCodeFromString("KEYCODE_" + code);
-//                        }
                 }
 
-                if (ke != 0) {
+                if (ke != 0  || ",.[]".indexOf(code) >= 0) {
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
