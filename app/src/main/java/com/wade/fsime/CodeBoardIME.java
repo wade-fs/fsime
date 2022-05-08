@@ -59,6 +59,7 @@ public class CodeBoardIME extends InputMethodService
     private int vibrateLength;
     private boolean soundOn;
     private boolean use_boshiamy=true, disable_normal=false, use_phonetic=true;
+    private int maxMatch = 30;
     private boolean shiftLock = false;
     private boolean ctrlLock = false;
     private boolean shift = false;
@@ -549,12 +550,12 @@ public class CodeBoardIME extends InputMethodService
             // wade, 底下根據鍵盤，切換不同的資料庫
             int s = start + forward * 30;
             if (mKeyboardState == R.integer.keyboard_boshiamy) { // 英瞎
-                b = bdatabase.getB(mComposing.toString().toLowerCase(), s);
+                b = bdatabase.getB(mComposing.toString().toLowerCase(), s, maxMatch);
                 for (B d : b) {
                     list.add(d.ch);
                 }
             } else if (mKeyboardState == R.integer.keyboard_phonetic) { // 注音
-                if ((b = bdatabase.getJuin(mComposing.toString().toLowerCase(), s)).size() > 0) {
+                if ((b = bdatabase.getJuin(mComposing.toString().toLowerCase(), s, maxMatch)).size() > 0) {
                     start += forward * b.size();
                     for (B d : b) {
                         list.add(d.ch);
@@ -595,6 +596,7 @@ public class CodeBoardIME extends InputMethodService
         } else {
             mKeyboardUiFactory.theme = setThemeByIndex(sharedPreferences, sharedPreferences.getThemeIndex());
         }
+        maxMatch = sharedPreferences.getMaxMatch();
         // Keyboard Features
         vibrateLength = sharedPreferences.getVibrateLength();
         vibratorOn = sharedPreferences.isVibrateEnabled();

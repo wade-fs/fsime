@@ -35,6 +35,12 @@
             android:title="震動長度 (ms)"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
+            android:defaultValue="@integer/max_match"
+            android:imeOptions="flagNoExtractUi"
+            android:key="max_match"
+            android:title="最大候選長度"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
             android:defaultValue="@integer/font_size"
             android:imeOptions="flagNoExtractUi"
             android:key="font_size"

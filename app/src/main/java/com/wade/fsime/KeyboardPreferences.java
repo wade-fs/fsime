@@ -57,9 +57,14 @@ public class KeyboardPreferences {
         return Integer.parseInt(safeRead("vibrate_ms",
                 String.valueOf(res.getInteger(R.integer.vibrate_length))));
     }
+//
+//    public void setVibrateLength(int length) {
+//        write("vibrate_ms", String.valueOf(length));
+//    }
 
-    public void setVibrateLength(int length) {
-        write("vibrate_ms", String.valueOf(length));
+    public int getMaxMatch() {
+        return Integer.parseInt(safeRead("max_match",
+                String.valueOf(res.getInteger(R.integer.max_match))));
     }
 
     public int getBgColor() {
