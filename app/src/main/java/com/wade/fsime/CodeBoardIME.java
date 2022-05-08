@@ -77,7 +77,13 @@ public class CodeBoardIME extends InputMethodService
     //    -> sym
     //    -> clipboard
     private void nextKeyboard() {
-        if (mKeyboardState < 0) mKeyboardState = R.integer.keyboard_clipboard;
+        if (ctrl) {
+            mKeyboardState = R.integer.keyboard_clipboard;
+            return;
+        }
+        if (mKeyboardState < 0) {
+            mKeyboardState = R.integer.keyboard_clipboard;
+        }
         if (mKeyboardState == R.integer.keyboard_clipboard) {
             if (disable_normal) {
                 if (use_boshiamy) {
@@ -156,8 +162,9 @@ public class CodeBoardIME extends InputMethodService
                     ctrl = false;
                     ctrlLock = false;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+                } else {
+                    nextKeyboard();
                 }
-                nextKeyboard();
                 setInputView(onCreateInputView());
                 controlKeyUpdateView();
                 shiftKeyUpdateView();

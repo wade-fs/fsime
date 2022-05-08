@@ -36,6 +36,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
+                .addBackspaceKey()
                 .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪")
         ;
     }
@@ -58,6 +59,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)
                 .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)
                 .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)
+                .addBackspaceKey()
                 .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪")
         ;
     }
@@ -71,7 +73,7 @@ public class Definitions {
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()
-                .addKey('`')
+                .addKey('~')
                 .addKey('q').onShiftUppercase()
                 .addKey('w').onShiftUppercase()
                 .addKey('e').onShiftUppercase()
@@ -84,9 +86,8 @@ public class Definitions {
                 .addKey('p').onShiftUppercase()
                 .addKey('[')
                 .addKey(']')
-                .addKey('\\')
                 .newRow()
-                .addKey('~')
+                .addKey('\\')
                 .addKey('a').onShiftUppercase()
                 .addKey('s').onShiftUppercase()
                 .addKey('d').onShiftUppercase()
@@ -112,7 +113,6 @@ public class Definitions {
                 .addKey(')')
                 .addKey('{')
                 .addKey('}')
-                .addBackspaceKey()
         ;
     }
 
@@ -176,116 +176,6 @@ public class Definitions {
                 .addKey('ㄝ')    // ,
                 .addKey('ㄡ')    // .
                 .addKey("ㄥ")    // /
-                .addBackspaceKey()
-        ;
-    }
-
-    public static void addQwertzRows(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey('q').onShiftUppercase()
-                .addKey('w').onShiftUppercase()
-                .addKey('e').onShiftUppercase()
-                .addKey('r').onShiftUppercase()
-                .addKey('t').onShiftUppercase()
-                .addKey('z').onShiftUppercase()
-                .addKey('u').onShiftUppercase()
-                .addKey('i').onShiftUppercase()
-                .addKey('o').onShiftUppercase()
-                .addKey('p').onShiftUppercase()
-                .newRow()
-                .addKey('a').onShiftUppercase().withSize(1.5f)
-                .addKey('s').onShiftUppercase()
-                .addKey('d').onShiftUppercase()
-                .addKey('f').onShiftUppercase()
-                .addKey('g').onShiftUppercase()
-                .addKey('h').onShiftUppercase()
-                .addKey('j').onShiftUppercase()
-                .addKey('k').onShiftUppercase()
-                .addKey('l').onShiftUppercase().withSize(1.5f)
-                .newRow()
-                .addShiftKey()
-                .addKey('y').onShiftUppercase()
-                .addKey('x').onShiftUppercase()
-                .addKey('c').onShiftUppercase()
-                .addKey('v').onShiftUppercase()
-                .addKey('b').onShiftUppercase()
-                .addKey('n').onShiftUppercase()
-                .addKey('m').onShiftUppercase()
-                .addBackspaceKey()
-        ;
-    }
-
-    public static void addAzertyRows(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey('a').onShiftUppercase()
-                .addKey('z').onShiftUppercase()
-                .addKey('e').onShiftUppercase()
-                .addKey('r').onShiftUppercase()
-                .addKey('t').onShiftUppercase()
-                .addKey('y').onShiftUppercase()
-                .addKey('u').onShiftUppercase()
-                .addKey('i').onShiftUppercase()
-                .addKey('o').onShiftUppercase()
-                .addKey('p').onShiftUppercase()
-                .newRow()
-                .addKey('q').onShiftUppercase()
-                .addKey('s').onShiftUppercase()
-                .addKey('d').onShiftUppercase()
-                .addKey('f').onShiftUppercase()
-                .addKey('g').onShiftUppercase()
-                .addKey('h').onShiftUppercase()
-                .addKey('j').onShiftUppercase()
-                .addKey('k').onShiftUppercase()
-                .addKey('l').onShiftUppercase()
-                .addKey('m').onShiftUppercase()
-                .addBackspaceKey()
-                .newRow()
-                .addShiftKey()
-                .addKey('w').onShiftUppercase()
-                .addKey('x').onShiftUppercase()
-                .addKey('c').onShiftUppercase()
-                .addKey('v').onShiftUppercase()
-                .addKey('b').onShiftUppercase()
-                .addKey('n').onShiftUppercase()
-                .addKey('!').withSize(.8f)
-                .addKey('?').withSize(.8f)
-                .addTabKey();
-    }
-
-    public static void addDvorakRows(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey('!')
-                .addKey('p').onShiftUppercase()
-                .addKey('y').onShiftUppercase()
-                .addKey('f').onShiftUppercase()
-                .addKey('g').onShiftUppercase()
-                .addKey('c').onShiftUppercase()
-                .addKey('r').onShiftUppercase()
-                .addKey('l').onShiftUppercase()
-                .addEnterKey()
-                .newRow()
-                .addKey('a').onShiftUppercase()
-                .addKey('o').onShiftUppercase()
-                .addKey('e').onShiftUppercase()
-                .addKey('u').onShiftUppercase()
-                .addKey('i').onShiftUppercase()
-                .addKey('d').onShiftUppercase()
-                .addKey('h').onShiftUppercase()
-                .addKey('t').onShiftUppercase()
-                .addKey('n').onShiftUppercase()
-                .addKey('s').onShiftUppercase()
-                .addBackspaceKey()
-                .newRow()
-                .addShiftKey()
-                .addKey('q').onShiftUppercase()
-                .addKey('j').onShiftUppercase()
-                .addKey('k').onShiftUppercase()
-                .addKey('x').onShiftUppercase()
-                .addKey('b').onShiftUppercase()
-                .addKey('m').onShiftUppercase()
-                .addKey('w').onShiftUppercase()
-                .addKey('v').onShiftUppercase()
-                .addKey('z').onShiftUppercase()
         ;
     }
 
@@ -305,7 +195,6 @@ public class Definitions {
                 .addKey("F5", -10)
                 .addKey("F6", -11)
                 .addKey("F7", -12)
-                .addBackspaceKey()
                 .newRow()
                 .addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL")
                 .addKey("F8", -13)
