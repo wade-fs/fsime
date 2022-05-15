@@ -105,7 +105,6 @@ public class Definitions {
                 .addKey('j').onShiftUppercase()
                 .addKey('k').onShiftUppercase()
                 .addKey('l').onShiftUppercase()
-                .addKey('/').withLongPress("?")
                 .newRow()
                 .addShiftKey()
                 .addKey('z').onShiftUppercase()
@@ -122,63 +121,63 @@ public class Definitions {
 
     public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()       // 1234567890-=
-                .addKey('ㄅ')    // 1
-                .addKey('ㄉ')    // 2
-                .addKey('ˇ')    // 3
-                .addKey('ˋ')    // 4
-                .addKey('ㄓ')    // 5
-                .addKey('ˊ')    // 6
-                .addKey('˙')    // 7
-                .addKey('ㄚ')    // 8
-                .addKey('ㄞ')    // 9
-                .addKey('ㄢ')    // 0
-                .addKey('ㄦ')    // -
-                .addKey("-")     // =
-                .addKey("=")     // BS
+                .addKey('ㄅ').withLongPress("1")
+                .addKey('ㄉ').withLongPress("2")
+                .addKey('ˇ').withLongPress("3")
+                .addKey('ˋ').withLongPress("4")
+                .addKey('ㄓ').withLongPress("5")
+                .addKey('ˊ').withLongPress("6")
+                .addKey('˙').withLongPress("7")
+                .addKey('ㄚ').withLongPress("8")
+                .addKey('ㄞ').withLongPress("9")
+                .addKey('ㄢ').withLongPress("0")
+                .addKey('ㄦ').withLongPress("-")
+                .addKey("-").withLongPress("_")
+                .addKey("=").withLongPress("+")
 
                 .newRow() // qwertyuiop
-                .addKey("\\")     // \
-                .addKey('ㄆ')    // q
-                .addKey('ㄊ')    // w
-                .addKey('ㄍ')    // e
-                .addKey('ㄐ')    // r
-                .addKey('ㄔ')    // t
-                .addKey('ㄗ')    // y
-                .addKey('一')    // u
-                .addKey('ㄛ')    // o
-                .addKey('ㄟ')    // o
-                .addKey("ㄣ", 12579)    // p
-                .addKey("[")     // [
-                .addKey("]")     // ]
+                .addKey("\\").withLongPress("|")
+                .addKey('ㄆ').withLongPress("q")
+                .addKey('ㄊ').withLongPress("w")
+                .addKey('ㄍ').withLongPress("e")
+                .addKey('ㄐ').withLongPress("r")
+                .addKey('ㄔ').withLongPress("t")
+                .addKey('ㄗ').withLongPress("y")
+                .addKey('一').withLongPress("u")
+                .addKey('ㄛ').withLongPress("i")
+                .addKey('ㄟ').withLongPress("o")
+                .addKey("ㄣ", 12579).withLongPress("p")
+                .addKey("[").withLongPress("{")
+                .addKey("]").withLongPress("}")
 
                 .newRow()       // asdfghjkl;
-                .addKey("~")     // \
-                .addKey('ㄇ')    // a
-                .addKey('ㄋ')    // s
-                .addKey('ㄎ')    // d
-                .addKey("ㄑ", 12561)    // f
-                .addKey('ㄕ')    // g
-                .addKey('ㄘ')    // h
-                .addKey('ㄨ')    // j
-                .addKey('ㄜ')    // k
-                .addKey('ㄠ')    // l
-                .addKey("ㄤ", 12580)    // ;
-                .addKey("<")    // '
-                .addKey(">")    // '
-                .addKey("/")     // /
+                .addKey("`").withLongPress("~")
+                .addKey('ㄇ').withLongPress("a")
+                .addKey('ㄋ').withLongPress("s")
+                .addKey('ㄎ').withLongPress("d")
+                .addKey("ㄑ", 12561).withLongPress("f")
+                .addKey('ㄕ').withLongPress("g")
+                .addKey('ㄘ').withLongPress("h")
+                .addKey('ㄨ').withLongPress("j")
+                .addKey('ㄜ').withLongPress("k")
+                .addKey('ㄠ').withLongPress("l")
+                .addKey("ㄤ", 12580).withLongPress(";")
+                .addKey("'").withLongPress("\"")
+                .addKey("#").withLongPress(":")
+                .addKey("$").withLongPress("%")
 
                 .newRow()       // zxcvbnm,./
                 .addShiftKey()
-                .addKey('ㄈ')    // z
-                .addKey('ㄌ')    // x
-                .addKey('ㄏ')    // c
-                .addKey('ㄒ')    // v
-                .addKey('ㄖ')    // b
-                .addKey('ㄙ')    // n
-                .addKey('ㄩ')    // m
-                .addKey('ㄝ')    // ,
-                .addKey('ㄡ')    // .
-                .addKey("ㄥ", 12581)    // /
+                .addKey('ㄈ').withLongPress("z")
+                .addKey('ㄌ').withLongPress("x")
+                .addKey('ㄏ').withLongPress("c")
+                .addKey('ㄒ').withLongPress("v")
+                .addKey('ㄖ').withLongPress("b")
+                .addKey('ㄙ').withLongPress("n")
+                .addKey('ㄩ').withLongPress("m")
+                .addKey('ㄝ').withLongPress("!")
+                .addKey('ㄡ').withLongPress("@")
+                .addKey("ㄥ", 12581).withLongPress("?")
         ;
     }
 
