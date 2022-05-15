@@ -466,6 +466,8 @@ public class CodeBoardIME extends InputMethodService
                     }
                     if (mComposing.length() > 0) {
                         updateCandidates(0, "");
+                    } else {
+                        setCandidatesViewShown(false);
                     }
                 } else {
                     keyDownUp(ke, meta);
@@ -475,6 +477,9 @@ public class CodeBoardIME extends InputMethodService
                     mComposing.append(String.valueOf(code));
                     updateCandidates(0, "");
                 } else {
+                    if (mComposing.length() > 0) {
+                        pickSuggestionManually(0);
+                    }
                     ic.commitText(String.valueOf(code), 1);
                 }
             }
@@ -613,6 +618,7 @@ public class CodeBoardIME extends InputMethodService
      */
     public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
         if (suggestions == null || suggestions.size() == 0) {
+            setCandidatesViewShown(false);
             return;
         }
         setCandidatesViewShown(true);

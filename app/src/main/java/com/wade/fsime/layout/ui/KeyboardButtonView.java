@@ -122,7 +122,7 @@ public class KeyboardButtonView extends View {
         if (key.info.longPress != "") {
             canvas.drawText(key.info.longPress, x/2, y/2, uiTheme.longPressPaint);
         }
-        canvas.drawText(currentLabel, x, y, uiTheme.foregroundPaint);
+        canvas.drawText(currentLabel, x, y+10, uiTheme.foregroundPaint);
 
         if (key.info.icon != null){
             Drawable d = key.info.icon;
