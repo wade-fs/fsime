@@ -16,6 +16,7 @@ public class KeyInfo {
      * label is shown on the keyboard
      */
     public String label;
+	public String longPress = ""; // 長按
 
     /**
      * size relative to other keys in the same row

@@ -1,6 +1,7 @@
 package com.wade.fsime.layout;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.wade.fsime.R;
 import com.wade.fsime.layout.builder.KeyboardLayoutBuilder;
@@ -55,20 +56,27 @@ public class Definitions {
         keyboard.newRow()
                 .addKey("Esc", CODE_ESCAPE)
                 .addTabKey()
-                .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)
-                .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)
-                .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)
-                .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)
+                .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)  // Left <
+                .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)         // Down v
+                .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)        // Up >
+                .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)       // Right >
                 .addBackspaceKey()
                 .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪")
         ;
     }
 
 
-    public static void addCustomRow(KeyboardLayoutBuilder keyboard, String symbols) {
+    public static void addCustomRow(KeyboardLayoutBuilder keyboard, String symbols, String longPress) {
         keyboard.newRow();
         char[] chars = symbols.toCharArray();
-        for (char aChar : chars) keyboard.addKey(aChar);
+        char[] charl = longPress.toCharArray();
+        for (int i=0; i<chars.length; i++) {
+            if (i < charl.length) {
+                keyboard.addKey(chars[i]).withLongPress("" + charl[i]);
+            } else {
+                keyboard.addKey(chars[i]);
+            }
+        }
     }
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {

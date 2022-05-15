@@ -42,6 +42,7 @@ import com.wade.fsime.theme.ThemeDefinitions;
 import com.wade.fsime.theme.ThemeInfo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -207,73 +208,6 @@ public class CodeBoardIME extends InputMethodService
         }
         return res;
     }
-    @Override
-    public void onKey(int primaryCode, int[] KeyCodes) {
-        //NOTE: Long press goes second, this is onDown
-        InputConnection ic = getCurrentInputConnection();
-        char code = (char) primaryCode;
-
-        if (!processSpecialKey(primaryCode)) { // normal key
-                int meta = 0;
-                if (shift) {
-                    meta = KeyEvent.META_SHIFT_ON;
-                    code = Character.toUpperCase(code);
-                    if (!shiftLock) {
-                        shift = false;
-                        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-                        shiftKeyUpdateView();
-                    }
-                }
-                if (ctrl) {
-                    meta = meta | KeyEvent.META_CTRL_ON;
-                    if (!ctrlLock) {
-                        ctrl = false;
-                        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
-                        controlKeyUpdateView();
-                    }
-                }
-                int ke = primary2ke(primaryCode);
-                if (ke < 0) { // 特殊字，例如上下左右等等
-                    keyDownUp(-ke, meta);
-                } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
-                    if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
-                        if (ke == KeyEvent.KEYCODE_DEL) {
-                            handleBackspace();
-                        } else if (ke == KeyEvent.KEYCODE_SPACE) {
-                            if (mCandidateView == null || mCandidateView.size() == 0) {
-                                ic.commitText(String.valueOf(code), 1);
-                            } else if (mCandidateView.size() > 1) {
-                                pickSuggestionManually(1);
-                                return;
-                            } else {
-                                pickSuggestionManually(0);
-                            }
-                        } else if (ke == KeyEvent.KEYCODE_ENTER) {
-                            if (mComposing.length() > 0)
-                                pickSuggestionManually(0);
-                            else
-                                keyDownUp(ke, 0);
-                        } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
-                            turnCandidate(false);
-                        } else {
-                            mComposing.append(code);
-                        }
-                        if (mComposing.length() > 0) {
-                            updateCandidates(0, "");
-                        }
-                    } else {
-                        keyDownUp(ke, meta);
-                    }
-                } else {
-                    if (mKeyboardState == R.integer.keyboard_phonetic) {
-                        mComposing.append(String.valueOf(code));
-                        updateCandidates(0, "");
-                    } else {
-                        ic.commitText(String.valueOf(code), 1);
-                    }
-                }
-            }
-    }
 
     private int primary2ke(int primaryCode) {
         char code = (char) primaryCode;
@@ -384,6 +318,8 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onPress(final int primaryCode) {
+        Logi("onPress() code "+primaryCode);
+
         pressedCode = primaryCode;
         if (soundOn) {
             MediaPlayer keypressSoundPlayer = MediaPlayer.create(this, R.raw.keypress_sound);
@@ -412,39 +348,93 @@ public class CodeBoardIME extends InputMethodService
                             try {
                                 CodeBoardIME.this.onKeyLongPress(primaryCode);
                             } catch (Exception e) {
-                                
+
                             }
                         }
                     };
                     uiHandler.post(runnable);
                 } catch (Exception e) {
-                    
+
                 }
             }
         }, ViewConfiguration.getLongPressTimeout());
     }
 
     @Override
-    public void onWindowHidden() {
-        super.onWindowHidden();
-        clearLongPressTimer();
-    }
+    public void onKey(int primaryCode, int[] KeyCodes) {
+        Logi("onKey() code "+primaryCode);
+        //NOTE: Long press goes second, this is onDown
+        InputConnection ic = getCurrentInputConnection();
+        char code = (char) primaryCode;
 
-    @Override
-    public void onViewClicked(boolean focusChanged) {
-        super.onViewClicked(focusChanged);
-        clearLongPressTimer();
-    }
-
-    public void onRelease(int primaryCode) {
-        clearLongPressTimer();
+        if (!processSpecialKey(primaryCode)) { // normal key
+            int meta = 0;
+            if (shift) {
+                meta = KeyEvent.META_SHIFT_ON;
+                code = Character.toUpperCase(code);
+                if (!shiftLock) {
+                    shift = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+                    shiftKeyUpdateView();
+                }
+            }
+            if (ctrl) {
+                meta = meta | KeyEvent.META_CTRL_ON;
+                if (!ctrlLock) {
+                    ctrl = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+                    controlKeyUpdateView();
+                }
+            }
+            int ke = primary2ke(primaryCode);
+            if (ke < 0) { // 特殊字，例如上下左右等等
+                keyDownUp(-ke, meta);
+            } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
+                if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
+                    if (ke == KeyEvent.KEYCODE_DEL) {
+                        handleBackspace();
+                    } else if (ke == KeyEvent.KEYCODE_SPACE) {
+                        if (mCandidateView == null || mCandidateView.size() == 0) {
+                            ic.commitText(String.valueOf(code), 1);
+                        } else if (mCandidateView.size() > 1) {
+                            pickSuggestionManually(1);
+                            return;
+                        } else {
+                            pickSuggestionManually(0);
+                        }
+                    } else if (ke == KeyEvent.KEYCODE_ENTER) {
+                        if (mComposing.length() > 0)
+                            pickSuggestionManually(0);
+                        else
+                            keyDownUp(ke, 0);
+                    } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
+                        turnCandidate(false);
+                    } else {
+                        mComposing.append(code);
+                    }
+                    if (mComposing.length() > 0) {
+                        updateCandidates(0, "");
+                    }
+                } else {
+                    keyDownUp(ke, meta);
+                }
+            } else {
+                if (mKeyboardState == R.integer.keyboard_phonetic) {
+                    mComposing.append(String.valueOf(code));
+                    updateCandidates(0, "");
+                } else {
+                    ic.commitText(String.valueOf(code), 1);
+                }
+            }
+        }
     }
 
     public void onKeyLongPress(int keyCode) {
+        Logi("onKeyLongPress() code "+keyCode);
         // Process long-click here
         // This is following an onKey()
         InputConnection ic = getCurrentInputConnection();
-        if (keyCode == 16) {
+        if (keyCode == 16) { // Shift
             shiftLock = !shiftLock;
             if (shiftLock) {
                 shift = true;
@@ -456,7 +446,7 @@ public class CodeBoardIME extends InputMethodService
             shiftKeyUpdateView();
         }
 
-        if (keyCode == 17) {
+        if (keyCode == 17) { // Ctrl
             ctrlLock = !ctrlLock;
             if (ctrlLock) {
                 ctrl = true;
@@ -468,7 +458,7 @@ public class CodeBoardIME extends InputMethodService
             controlKeyUpdateView();
         }
 
-        if (keyCode == 32) {
+        if (keyCode == 32) { // SPACE
             InputMethodManager imm = (InputMethodManager)
                     getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null)
@@ -481,29 +471,57 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
+    // KeyboardButtonView.onTouchEvent(e)
+    public void onRelease(int primaryCode) {
+        Logi("onRelease() code "+primaryCode);
+        clearLongPressTimer();
+    }
+
+    // KeyboardButtonView.submitKeyEvent()
     public void onText(CharSequence text) {
+        Logi("onText() code "+text.toString());
         getCurrentInputConnection().commitText(text, 1);
         clearLongPressTimer();
     }
 
     @Override
     public void swipeLeft() {
+        Logi("swipeLeft() code "+pressedCode);
+
         onKey(pressedCode,null);
     }
 
     @Override
     public void swipeRight() {
+        Logi("swipeRight() code "+pressedCode);
+
         onKey(pressedCode,null);
     }
 
     @Override
     public void swipeDown() {
+        Logi("swipeDown() code "+pressedCode);
+
         onKey(pressedCode,null);
     }
 
     @Override
     public void swipeUp() {
+        Logi("swipeUp() code "+pressedCode);
+
         onKey(pressedCode,null);
+    }
+
+    @Override
+    public void onWindowHidden() {
+        super.onWindowHidden();
+        clearLongPressTimer();
+    }
+
+    @Override
+    public void onViewClicked(boolean focusChanged) {
+        super.onViewClicked(focusChanged);
+        clearLongPressTimer();
     }
 
     private void turnCandidate(boolean prediction) {
@@ -649,6 +667,7 @@ public class CodeBoardIME extends InputMethodService
         //Key Layout
         boolean mToprow = sharedPreferences.getTopRowActions();
         String mCustomSymbolsMain = sharedPreferences.getCustomSymbolsMain();
+        String mCustomSymbolsLongPress = sharedPreferences.getCustomSymbolsLongPress();
         String mCustomSymbolsMain2 = sharedPreferences.getCustomSymbolsMain2();
         String mCustomSymbolsSym = sharedPreferences.getCustomSymbolsSym();
         String mCustomSymbolsSym2 = sharedPreferences.getCustomSymbolsSym2();
@@ -670,16 +689,16 @@ public class CodeBoardIME extends InputMethodService
 
             if (mKeyboardState == R.integer.keyboard_sym) {
                 if (!mCustomSymbolsSym.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym);
+                    Definitions.addCustomRow(builder, mCustomSymbolsSym, "");
                 }
                 if (!mCustomSymbolsSym2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym2);
+                    Definitions.addCustomRow(builder, mCustomSymbolsSym2, "");
                 }
                 if (!mCustomSymbolsSym3.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym3);
+                    Definitions.addCustomRow(builder, mCustomSymbolsSym3, "");
                 }
                 if (!mCustomSymbolsSym4.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym4);
+                    Definitions.addCustomRow(builder, mCustomSymbolsSym4, "");
                 }
                 if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
                     definitions.addSymbolRows(builder);
@@ -688,16 +707,16 @@ public class CodeBoardIME extends InputMethodService
                 }
             } else if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
                 if (!mCustomSymbolsMain.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain);
+                    Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress);
                 }
                 if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2);
+                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "");
                 }
                 Definitions.addQwertyRows(builder);
                 definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
             } else if (mKeyboardState == R.integer.keyboard_phonetic) {
                 if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2);
+                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "");
                 }
                 Definitions.addPhoneticRows(builder);
                 definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
@@ -904,17 +923,6 @@ public class CodeBoardIME extends InputMethodService
             if (mToken == null) {
                 mToken = token;
             }
-        }
-    }
-
-    /**
-     * Helper to determine if a given character code is alphabetic.
-     */
-    private boolean isAlphabet(int code) {
-        if (Character.isLetter(code) || code == ',' || code == '.' || code == '[' || code == ']' || code == '\'') {
-            return true;
-        } else {
-            return false;
         }
     }
 }

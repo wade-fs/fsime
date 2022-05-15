@@ -8,6 +8,7 @@ import androidx.core.graphics.ColorUtils;
 public class UiTheme {
 
     public Paint foregroundPaint;
+    public Paint longPressPaint;
     public int backgroundColor;
     public float fontHeight;
 
@@ -21,6 +22,7 @@ public class UiTheme {
 
     private UiTheme(){
         this.foregroundPaint = new Paint();
+        this.longPressPaint = new Paint();
         this.buttonBodyPaint = new Paint();
         backgroundColor = 0xff000000;
     }
@@ -46,6 +48,13 @@ public class UiTheme {
         theme.foregroundPaint.setTextAlign(Paint.Align.CENTER);
         theme.foregroundPaint.setAntiAlias(true);
         theme.foregroundPaint.setTypeface(Typeface.DEFAULT);
+        // longPress
+        theme.longPressPaint.setColor(info.foregroundColor);
+        theme.fontHeight = info.fontSize/2;
+        theme.longPressPaint.setTextSize(theme.fontHeight);
+        theme.longPressPaint.setTextAlign(Paint.Align.CENTER);
+        theme.longPressPaint.setAntiAlias(true);
+        theme.longPressPaint.setTypeface(Typeface.DEFAULT);
 
         return theme;
     }

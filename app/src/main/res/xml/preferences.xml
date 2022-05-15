@@ -115,6 +115,12 @@
             android:title="主鍵盤 [頂列]:"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
+            android:defaultValue="@string/input_symbols_long_press"
+            android:imeOptions="flagNoExtractUi"
+            android:key="input_symbols_long_press"
+            android:title="主鍵盤 [頂列shift]:"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
             android:defaultValue="@string/input_symbols_main_2"
             android:imeOptions="flagNoExtractUi"
             android:key="input_symbols_main_2"

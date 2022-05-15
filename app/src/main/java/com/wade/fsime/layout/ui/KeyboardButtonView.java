@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.KeyboardView;
 import androidx.annotation.NonNull;
+
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ public class KeyboardButtonView extends View {
     private final UiTheme uiTheme;
     private Timer timer;
     private String currentLabel = null;
+	private String currentLongPress = "";
     private boolean isPressed = false;
 
     public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme) {
@@ -38,16 +41,36 @@ public class KeyboardButtonView extends View {
         this.setOutlineProvider(ViewOutlineProvider.BOUNDS);
     }
 
+    float lastX = 0, lastY = 0;
+
     @Override
     public boolean onTouchEvent(MotionEvent e)
     {
         int action = e.getAction();
         switch(action){
             case MotionEvent.ACTION_DOWN:
+                lastX = e.getX();
+                lastY = e.getY();
                 onPress();
                 break;
             case MotionEvent.ACTION_UP:
-                onRelease();
+                float diffX = e.getX() - lastX;
+                float diffY = e.getY() - lastY;
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffY) > 5.0f) { // 左右
+                    if (diffX > 0) {
+                        inputService.swipeRight();
+                    } else {
+                        inputService.swipeLeft();
+                    }
+                } else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffX) > 5.0f) { // 上下
+                    if (diffY > 0) {
+                        inputService.swipeDown();
+                    } else {
+                        inputService.swipeUp();
+                    }
+                } else {
+                    onRelease();
+                }
                 break;
             default:
                 break;
@@ -89,6 +112,9 @@ public class KeyboardButtonView extends View {
     private void drawButtonContent(Canvas canvas) {
         float x = this.getWidth()/2;
         float y = this.getHeight()/2 + uiTheme.fontHeight/3;
+        if (key.info.longPress != "") {
+            canvas.drawText(key.info.longPress, x/2, y/2, uiTheme.longPressPaint);
+        }
         canvas.drawText(currentLabel, x, y, uiTheme.foregroundPaint);
 
         if (key.info.icon != null){
@@ -127,9 +153,7 @@ public class KeyboardButtonView extends View {
 
     private void onPress() {
         isPressed = true;
-//        if (key.info.code != 0){
-            inputService.onPress(key.info.code);
-//        }
+        inputService.onPress(key.info.code);
         if (key.info.isRepeatable){
             startRepeating();
         }

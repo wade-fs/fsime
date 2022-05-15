@@ -125,6 +125,14 @@ public class KeyboardPreferences {
         write("input_symbols_main", symbols);
     }
 
+    public String getCustomSymbolsLongPress() {
+        return read("input_symbols_long_press", res.getString(R.string.input_symbols_long_press));
+    }
+
+    public void setCustomSymbolsLongPress(String symbols) {
+        write("input_symbols_long_press", symbols);
+    }
+
     public String getCustomSymbolsMain2() {
         return read("input_symbols_main_2", res.getString(R.string.input_symbols_main_2));
     }

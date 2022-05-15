@@ -140,6 +140,11 @@ public class KeyboardLayoutBuilder {
         return this;
     }
 
+    public KeyboardLayoutBuilder withLongPress(String l) {
+        currentKey.longPress = l;
+        return this;
+    }
+
     public KeyboardLayoutBuilder onShiftShow(String label){
         currentKey.onShiftLabel = label;
         return this;
