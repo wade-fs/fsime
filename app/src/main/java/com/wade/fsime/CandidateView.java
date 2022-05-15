@@ -158,8 +158,8 @@ public class CandidateView extends View {
         if (canvas != null) {
             super.onDraw(canvas);
         }
-        mTotalWidth = 0;
         if (mSuggestions == null) return;
+        mTotalWidth = 0;
         
         if (mBgPadding == null) {
             mBgPadding = new Rect(0, 0, 0, 0);
@@ -239,11 +239,10 @@ public class CandidateView extends View {
         clear();
         if (suggestions != null) {
             mSuggestions = new ArrayList<String>(suggestions);
+            mTypedWordValid = typedWordValid;
+            scrollTo(0, 0);
+            mTargetScrollX = 0;
         }
-        mTypedWordValid = typedWordValid;
-        scrollTo(0, 0);
-        mTargetScrollX = 0;
-        // Compute the total width
         onDraw(null); // TODO: 導致當掉
         invalidate();
         requestLayout();
@@ -253,7 +252,7 @@ public class CandidateView extends View {
         mSuggestions = EMPTY_LIST;
         mTouchX = OUT_OF_BOUNDS;
         mSelectedIndex = -1;
-        invalidate();
+//        invalidate();
     }
     
     @Override

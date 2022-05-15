@@ -341,17 +341,16 @@ public class CodeBoardIME extends InputMethodService
                         } else {
                             mComposing.append(code);
                         }
-                        updateCandidates(0, "");
-//                        Logi("ke: "+ke + " code "+code + " updateCandidates(1)");
+                        if (mComposing.length() > 0) {
+                            updateCandidates(0, "");
+                        }
                     } else {
-//                        Logi("ke: "+ke + " code "+code + " keyDownUp(ke)");
                         keyDownUp(ke, meta);
                     }
                 } else {
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
                         mComposing.append(String.valueOf(code));
                         updateCandidates(0, "");
-//                        Logi("ke: "+ke + " code "+code + " updateCandidates(2)");
                     } else {
                         ic.commitText(String.valueOf(code), 1);
                     }
@@ -587,9 +586,10 @@ public class CodeBoardIME extends InputMethodService
      * 會導致 出現候選區
      */
     public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
-        if (suggestions != null && suggestions.size() > 0) {
-            setCandidatesViewShown(true);
+        if (suggestions == null || suggestions.size() == 0) {
+            return;
         }
+        setCandidatesViewShown(true);
         if (mCandidateView != null) {
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
         }

@@ -9,7 +9,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 32
         versionCode 20
-        versionName "6.2.1"
+        versionName "6.2.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,9 +27,10 @@ android {
             }
         }
     }
-    lintOptions {
+    lint {
         checkReleaseBuilds false
     }
+    namespace 'com.wade.fsime'
 }
 
 repositories {

@@ -178,12 +178,12 @@ public class KeyboardButtonView extends View {
             return;
         }
         timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 submitKeyEvent();
             }
-        },400, 50);
+        },500, 100);
     }
 
     private void animatePress(){
