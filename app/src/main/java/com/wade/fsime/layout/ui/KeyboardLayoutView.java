@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wade.fsime.layout.builder.KeyInfo;
 import com.wade.fsime.theme.UiTheme;
 
 public class KeyboardLayoutView extends ViewGroup {
@@ -66,5 +67,18 @@ public class KeyboardLayoutView extends ViewGroup {
             }
         }
         return list;
+    }
+
+    public String getKey() {
+        for (KeyboardButtonView button : getKeyboardButtons()){
+            if (button.isClicked()) {
+                if (button.getLongPress() != "") {
+                    return button.getLongPress();
+                } else {
+                    return button.getCurrentLabel();
+                }
+            }
+        }
+        return null;
     }
 }

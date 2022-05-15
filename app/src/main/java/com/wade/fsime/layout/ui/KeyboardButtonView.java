@@ -28,7 +28,6 @@ public class KeyboardButtonView extends View {
     private final UiTheme uiTheme;
     private Timer timer;
     private String currentLabel = null;
-	private String currentLongPress = "";
     private boolean isPressed = false;
 
     public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme) {
@@ -43,6 +42,15 @@ public class KeyboardButtonView extends View {
 
     float lastX = 0, lastY = 0;
 
+    public boolean isClicked() {
+        return isPressed;
+    }
+    public String getLongPress() {
+        return key.info.longPress;
+    }
+    public String getCurrentLabel() {
+        return currentLabel;
+    }
     @Override
     public boolean onTouchEvent(MotionEvent e)
     {
@@ -68,9 +76,8 @@ public class KeyboardButtonView extends View {
                     } else {
                         inputService.swipeUp();
                     }
-                } else {
-                    onRelease();
                 }
+                onRelease();
                 break;
             default:
                 break;
