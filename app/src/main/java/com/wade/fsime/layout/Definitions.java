@@ -81,7 +81,7 @@ public class Definitions {
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()
-                .addKey('~')
+                .addKey('`').withLongPress("~")
                 .addKey('q').onShiftUppercase()
                 .addKey('w').onShiftUppercase()
                 .addKey('e').onShiftUppercase()
@@ -92,10 +92,10 @@ public class Definitions {
                 .addKey('i').onShiftUppercase()
                 .addKey('o').onShiftUppercase()
                 .addKey('p').onShiftUppercase()
-                .addKey('[')
-                .addKey(']')
+                .addKey('[').withLongPress("{")
+                .addKey(']').withLongPress("}")
                 .newRow()
-                .addKey('\\')
+                .addKey('\\').withLongPress("|")
                 .addKey('a').onShiftUppercase()
                 .addKey('s').onShiftUppercase()
                 .addKey('d').onShiftUppercase()
@@ -105,9 +105,7 @@ public class Definitions {
                 .addKey('j').onShiftUppercase()
                 .addKey('k').onShiftUppercase()
                 .addKey('l').onShiftUppercase()
-                .addKey('<')
-                .addKey('>')
-                .addKey('/')
+                .addKey('/').withLongPress("?")
                 .newRow()
                 .addShiftKey()
                 .addKey('z').onShiftUppercase()
@@ -117,10 +115,8 @@ public class Definitions {
                 .addKey('b').onShiftUppercase()
                 .addKey('n').onShiftUppercase()
                 .addKey('m').onShiftUppercase()
-                .addKey('(')
-                .addKey(')')
-                .addKey('{')
-                .addKey('}')
+                .addKey(';').withLongPress(":")
+                .addKey('\'').withLongPress("\"")
         ;
     }
 
