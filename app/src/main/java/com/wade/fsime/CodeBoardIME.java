@@ -224,101 +224,10 @@ public class CodeBoardIME extends InputMethodService
                         controlKeyUpdateView();
                     }
                 }
-                //Now shift/ctrl metadata is set
-                //Convert primaryCode to KeyEvent:
-                //primaryCode is the char value, it doesn't correspond to the KeyEvent that we want to press
-                int ke = 0;
-                switch (primaryCode) {
-                    case 9:
-                        ke = KeyEvent.KEYCODE_TAB;
-                        //ic.commitText("\u0009", 1);
-                        break;
-                    case -2:
-                        ke = KeyEvent.KEYCODE_ESCAPE;
-                        break;
-                    case 32:
-                        ke = KeyEvent.KEYCODE_SPACE;
-                        break;
-                    case -5:
-                        ke = KeyEvent.KEYCODE_DEL;
-                        break;
-                    case -4:
-                        ke = KeyEvent.KEYCODE_ENTER;
-                        break;
-                    case -6:
-                        ke = KeyEvent.KEYCODE_F1;
-                        break;
-                    case -7:
-                        ke = KeyEvent.KEYCODE_F2;
-                        break;
-                    case -8:
-                        ke = KeyEvent.KEYCODE_F3;
-                        break;
-                    case -9:
-                        ke = KeyEvent.KEYCODE_F4;
-                        break;
-                    case -10:
-                        ke = KeyEvent.KEYCODE_F5;
-                        break;
-                    case -11:
-                        ke = KeyEvent.KEYCODE_F6;
-                        break;
-                    case -12:
-                        ke = KeyEvent.KEYCODE_F7;
-                        break;
-                    case -13:
-                        ke = KeyEvent.KEYCODE_F8;
-                        break;
-                    case -14:
-                        ke = KeyEvent.KEYCODE_F9;
-                        break;
-                    case -15:
-                        ke = KeyEvent.KEYCODE_F10;
-                        break;
-                    case -16:
-                        ke = KeyEvent.KEYCODE_F11;
-                        break;
-                    case -17:
-                        ke = KeyEvent.KEYCODE_F12;
-                        break;
-                    case -18:
-                        ke = KeyEvent.KEYCODE_MOVE_HOME;
-                        break;
-                    case -19:
-                        ke = KeyEvent.KEYCODE_MOVE_END;
-                        break;
-                    case -20:
-                        ke = KeyEvent.KEYCODE_INSERT;
-                        break;
-                    case -21:
-                        ke = KeyEvent.KEYCODE_FORWARD_DEL;
-                        break;
-                    case -22:
-                        ke = KeyEvent.KEYCODE_PAGE_UP;
-                        break;
-                    case -23:
-                        ke = KeyEvent.KEYCODE_PAGE_DOWN;
-                        break;
-
-                    //These are like a directional joystick - can jump outside the inputConnection
-                    case 5000:
-                        ke = KeyEvent.KEYCODE_DPAD_LEFT;
-                        break;
-                    case 5001:
-                        ke = KeyEvent.KEYCODE_DPAD_DOWN;
-                        break;
-                    case 5002:
-                        ke = KeyEvent.KEYCODE_DPAD_UP;
-                        break;
-                    case 5003:
-                        ke = KeyEvent.KEYCODE_DPAD_RIGHT;
-                        break;
-                    default:
-                        if (Character.isLetter(code)) {
-                            ke = KeyEvent.keyCodeFromString("KEYCODE_" + Character.toUpperCase(code));
-                        }
-                }
-                if (ke != 0  || ",.[]".indexOf(code) >= 0) {
+                int ke = primary2ke(primaryCode);
+                if (ke < 0) { // 特殊字，例如上下左右等等
+                    keyDownUp(-ke, meta);
+                } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
                             handleBackspace();
@@ -357,6 +266,102 @@ public class CodeBoardIME extends InputMethodService
                 }
             }
         }
+    }
+
+    private int primary2ke(int primaryCode) {
+        char code = (char) primaryCode;
+        int ke = 0;
+        switch (primaryCode) {
+            case 9:
+                ke = -KeyEvent.KEYCODE_TAB;
+                //ic.commitText("\u0009", 1);
+                break;
+            case -2:
+                ke = -KeyEvent.KEYCODE_ESCAPE;
+                break;
+            case 32:
+                ke = -KeyEvent.KEYCODE_SPACE;
+                break;
+            case -5:
+                ke = -KeyEvent.KEYCODE_DEL;
+                break;
+            case -4:
+                ke = -KeyEvent.KEYCODE_ENTER;
+                break;
+            case -6:
+                ke = -KeyEvent.KEYCODE_F1;
+                break;
+            case -7:
+                ke = -KeyEvent.KEYCODE_F2;
+                break;
+            case -8:
+                ke = -KeyEvent.KEYCODE_F3;
+                break;
+            case -9:
+                ke = -KeyEvent.KEYCODE_F4;
+                break;
+            case -10:
+                ke = -KeyEvent.KEYCODE_F5;
+                break;
+            case -11:
+                ke = -KeyEvent.KEYCODE_F6;
+                break;
+            case -12:
+                ke = -KeyEvent.KEYCODE_F7;
+                break;
+            case -13:
+                ke = -KeyEvent.KEYCODE_F8;
+                break;
+            case -14:
+                ke = -KeyEvent.KEYCODE_F9;
+                break;
+            case -15:
+                ke = -KeyEvent.KEYCODE_F10;
+                break;
+            case -16:
+                ke = -KeyEvent.KEYCODE_F11;
+                break;
+            case -17:
+                ke = -KeyEvent.KEYCODE_F12;
+                break;
+            case -18:
+                ke = -KeyEvent.KEYCODE_MOVE_HOME;
+                break;
+            case -19:
+                ke = -KeyEvent.KEYCODE_MOVE_END;
+                break;
+            case -20:
+                ke = -KeyEvent.KEYCODE_INSERT;
+                break;
+            case -21:
+                ke = -KeyEvent.KEYCODE_FORWARD_DEL;
+                break;
+            case -22:
+                ke = -KeyEvent.KEYCODE_PAGE_UP;
+                break;
+            case -23:
+                ke = -KeyEvent.KEYCODE_PAGE_DOWN;
+                break;
+
+            //These are like a directional joystick - can jump outside the inputConnection
+            case 5000:
+                ke = -KeyEvent.KEYCODE_DPAD_LEFT;
+                break;
+            case 5001:
+                ke = -KeyEvent.KEYCODE_DPAD_DOWN;
+                break;
+            case 5002:
+                ke = -KeyEvent.KEYCODE_DPAD_UP;
+                break;
+            case 5003:
+                ke = -KeyEvent.KEYCODE_DPAD_RIGHT;
+                break;
+            default:
+                if (Character.isLetter(code)) {
+                    ke = KeyEvent.keyCodeFromString("KEYCODE_" + Character.toUpperCase(code));
+                }
+        }
+        return ke;
     }
 
     private void handleBackspace() {
