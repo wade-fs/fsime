@@ -3,12 +3,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
- 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class BDatabase extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "b.db";
@@ -22,16 +18,6 @@ public class BDatabase extends SQLiteAssetHelper {
 
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
-
-    private String regexp(String s, Map<String, String>map) {
-        StringBuilder res = new StringBuilder();
-        for (String c : s.split("(?!^)")) {
-            if (map.get(c) != null) {
-                res.append(map.get(c));
-            }
-        }
-        return res.toString();
     }
 
     private boolean isIn(ArrayList<B> res, B b) {
@@ -94,7 +80,6 @@ public class BDatabase extends SQLiteAssetHelper {
     @SuppressLint("Range")
     public ArrayList<B> getJuin(String k, int start, int max){
         if (db == null) db = getWritableDatabase();
-        k = k.toLowerCase();
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         q = "select * from z where ";
@@ -109,6 +94,32 @@ public class BDatabase extends SQLiteAssetHelper {
             b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
+            if (!isIn(resExact, b)) {
+                resExact.add(b);
+                ++count;
+            }
+            n = cursor.moveToNext();
+        }
+        cursor.close();
+        return resExact;
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<B> getF(String k, int start, int max){
+        if (db == null) db = getWritableDatabase();
+        String q; Cursor cursor; int count=0; boolean n;
+        ArrayList<B> resExact=new ArrayList<>();
+        q = "select * from f where ";
+        q += "ch like \""+k+"%\" LIMIT 40 OFFSET "+start+";";
+        cursor=db.rawQuery(q, null);
+        n = cursor.moveToFirst();
+        while(n && count <= max){
+            B b=new B();
+            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
+            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
+            if (ts == 1) b.ch = TS.StoT(b.ch);
+            else if (ts == 2) b.ch = TS.TtoS(b.ch);
+            b.ch = b.ch.substring(1,2);
             if (!isIn(resExact, b)) {
                 resExact.add(b);
                 ++count;

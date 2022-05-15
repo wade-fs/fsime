@@ -328,6 +328,7 @@ public class CodeBoardIME extends InputMethodService
                                 ic.commitText(String.valueOf(code), 1);
                             } else if (mCandidateView.size() > 1) {
                                 pickSuggestionManually(1);
+                                return;
                             } else {
                                 pickSuggestionManually(0);
                             }
@@ -341,14 +342,14 @@ public class CodeBoardIME extends InputMethodService
                         } else {
                             mComposing.append(code);
                         }
-                        updateCandidates(0);
+                        updateCandidates(0, "");
                     } else {
                         keyDownUp(ke, meta);
                     }
                 } else {
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
                         mComposing.append(String.valueOf(code));
-                        updateCandidates(0);
+                        updateCandidates(0, "");
                     } else {
                         if (mKeyboardState == R.integer.keyboard_boshiamy &&
                             mCandidateView != null && mCandidateView.size() >= 1)
@@ -515,9 +516,15 @@ public class CodeBoardIME extends InputMethodService
             ic.commitText(res, res.length());
             ic.finishComposingText();
             mComposing.setLength(0);
-            updateCandidates(0);
+            if (res.length() == 1) {
+                updateCandidates(0, res);
+            } else {
+                updateCandidates(0, "");
+                turnCandidate(false);
+            }
+        } else {
+            turnCandidate(false);
         }
-        turnCandidate(false);
     }
 
     private void keyDownUp(int keyEventCode, int meta) {
@@ -538,11 +545,22 @@ public class CodeBoardIME extends InputMethodService
     /**
      * 更新候選區，其內容是由 mComposing 從資料庫產生，第一筆就是輸入組字
      */
-    private void updateCandidates(int forward) { // 候選區是捲動式的，要往前 forward 幾個字
+    private void updateCandidates(int forward, String freq) { // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
         if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic)
             return;
-        if (mComposing.length() > 0) {
+        if (freq.length() > 0) {
+            ArrayList<String> list = new ArrayList<String>();
+            list.add(freq.substring(0,1));
+            if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
+            int s = start + forward * 30;
+            b = bdatabase.getF(freq, s, maxMatch);
+            start += forward * b.size();
+            for (B d : b) {
+                list.add(d.ch);
+            }
+            setSuggestions(list, true, true);
+        } else if (mComposing.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(mComposing.toString());
 
@@ -555,7 +573,7 @@ public class CodeBoardIME extends InputMethodService
                     list.add(d.ch);
                 }
             } else if (mKeyboardState == R.integer.keyboard_phonetic) { // 注音
-                if ((b = bdatabase.getJuin(mComposing.toString().toLowerCase(), s, maxMatch)).size() > 0) {
+                if ((b = bdatabase.getJuin(mComposing.toString(), s, maxMatch)).size() > 0) {
                     start += forward * b.size();
                     for (B d : b) {
                         list.add(d.ch);
@@ -571,9 +589,8 @@ public class CodeBoardIME extends InputMethodService
     /**
      * 會導致 出現候選區
      */
-    public void setSuggestions(List<String> suggestions, boolean completions,
-                               boolean typedWordValid) {
-        if (suggestions != null && suggestions.size() > 0 || isExtractViewShown()) {
+    public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
+        if (suggestions != null && suggestions.size() > 0) {
             setCandidatesViewShown(true);
         }
         if (mCandidateView != null) {
@@ -730,8 +747,6 @@ public class CodeBoardIME extends InputMethodService
         setInputView(onCreateInputView());
         sEditorInfo = attribute;
         turnCandidate(false);
-//        mComposing.setLength(0);
-//        updateCandidates(0);
     }
 
     public void controlKeyUpdateView() {
