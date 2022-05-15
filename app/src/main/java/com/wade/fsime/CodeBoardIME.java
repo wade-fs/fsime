@@ -318,7 +318,6 @@ public class CodeBoardIME extends InputMethodService
                             ke = KeyEvent.keyCodeFromString("KEYCODE_" + Character.toUpperCase(code));
                         }
                 }
-
                 if (ke != 0  || ",.[]".indexOf(code) >= 0) {
                     if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                         if (ke == KeyEvent.KEYCODE_DEL) {
@@ -343,19 +342,17 @@ public class CodeBoardIME extends InputMethodService
                             mComposing.append(code);
                         }
                         updateCandidates(0, "");
+//                        Logi("ke: "+ke + " code "+code + " updateCandidates(1)");
                     } else {
+//                        Logi("ke: "+ke + " code "+code + " keyDownUp(ke)");
                         keyDownUp(ke, meta);
                     }
                 } else {
                     if (mKeyboardState == R.integer.keyboard_phonetic) {
                         mComposing.append(String.valueOf(code));
                         updateCandidates(0, "");
+//                        Logi("ke: "+ke + " code "+code + " updateCandidates(2)");
                     } else {
-                        if (mKeyboardState == R.integer.keyboard_boshiamy &&
-                            mCandidateView != null && mCandidateView.size() >= 1)
-                        {
-                            pickSuggestionManually(1);
-                        }
                         ic.commitText(String.valueOf(code), 1);
                     }
                 }
