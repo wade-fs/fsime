@@ -126,11 +126,9 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
-    @Override
-    public void onKey(int primaryCode, int[] KeyCodes) {
-        //NOTE: Long press goes second, this is onDown
+    private boolean processSpecialKey(int primaryCode) {
+        boolean res = true;
         InputConnection ic = getCurrentInputConnection();
-        char code = (char) primaryCode;
         switch (primaryCode) {
             //First handle cases that  don't use shift/ctrl meta modifiers
             case 53737:
@@ -204,8 +202,18 @@ public class CodeBoardIME extends InputMethodService
                 //}
                 shiftKeyUpdateView();
                 break;
+            default:
+                res = false;
+        }
+        return res;
+    }
+    @Override
+    public void onKey(int primaryCode, int[] KeyCodes) {
+        //NOTE: Long press goes second, this is onDown
+        InputConnection ic = getCurrentInputConnection();
+        char code = (char) primaryCode;
 
-            default: {
+        if (!processSpecialKey(primaryCode)) { // normal key
                 int meta = 0;
                 if (shift) {
                     meta = KeyEvent.META_SHIFT_ON;
@@ -265,7 +273,6 @@ public class CodeBoardIME extends InputMethodService
                     }
                 }
             }
-        }
     }
 
     private int primary2ke(int primaryCode) {
@@ -277,16 +284,16 @@ public class CodeBoardIME extends InputMethodService
                 //ic.commitText("\u0009", 1);
                 break;
             case -2:
-                ke = -KeyEvent.KEYCODE_ESCAPE;
+                ke = KeyEvent.KEYCODE_ESCAPE;
                 break;
             case 32:
-                ke = -KeyEvent.KEYCODE_SPACE;
+                ke = KeyEvent.KEYCODE_SPACE;
                 break;
             case -5:
-                ke = -KeyEvent.KEYCODE_DEL;
+                ke = KeyEvent.KEYCODE_DEL;
                 break;
             case -4:
-                ke = -KeyEvent.KEYCODE_ENTER;
+                ke = KeyEvent.KEYCODE_ENTER;
                 break;
             case -6:
                 ke = -KeyEvent.KEYCODE_F1;
