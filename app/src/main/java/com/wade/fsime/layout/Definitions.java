@@ -93,7 +93,6 @@ public class Definitions {
                 .addKey('o').onShiftUppercase()
                 .addKey('p').onShiftUppercase()
                 .addKey('[').withLongPress("{")
-                .addKey(']').withLongPress("}")
                 .newRow()
                 .addKey('\\').withLongPress("|")
                 .addKey('a').onShiftUppercase()
@@ -105,6 +104,7 @@ public class Definitions {
                 .addKey('j').onShiftUppercase()
                 .addKey('k').onShiftUppercase()
                 .addKey('l').onShiftUppercase()
+                .addKey(']').withLongPress("}")
                 .newRow()
                 .addShiftKey()
                 .addKey('z').onShiftUppercase()
@@ -225,13 +225,15 @@ public class Definitions {
         char[] chars = symbols.toCharArray();
 
         keyboard.newRow().addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
-
-        for (int i = 0; i < (chars.length + 1) / 2 && chars.length > 0; i++) {
-            keyboard.addKey(chars[i]).withSize(.7f);
-        }
         keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
-        for (int i = (chars.length + 1) / 2; i < chars.length; i++) {
-            keyboard.addKey(chars[i]).withSize(.7f);
+
+        int half = (chars.length + 1) / 2;
+        for (int i = 0; i < half && chars.length > 0; i++) {
+            if ((i+half) < chars.length) {
+                keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(.7f);
+            } else {
+                keyboard.addKey(chars[i]).withSize(.7f);
+            }
         }
         keyboard.addEnterKey();
 
