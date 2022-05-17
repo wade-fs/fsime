@@ -20,15 +20,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class KeyboardButtonView extends View {
-
-    private static final String TAG = "KeyboardButtonView";
-
     private final Key key;
     private final KeyboardView.OnKeyboardActionListener inputService;
     private final UiTheme uiTheme;
     private Timer timer;
     private String currentLabel = null;
     private boolean isPressed = false;
+    private boolean shift = false, ctrl = false;
 
     public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme) {
         super(context);
@@ -120,9 +118,29 @@ public class KeyboardButtonView extends View {
         float x = this.getWidth()/2;
         float y = this.getHeight()/2 + uiTheme.fontHeight/3;
         if (key.info.longPress != "") {
-            canvas.drawText(key.info.longPress, x/2, y/2, uiTheme.longPressPaint);
+            if (shift) {
+                canvas.drawText(key.info.label, x / 2, y / 2, uiTheme.longPressPaint);
+            } else {
+                canvas.drawText(key.info.longPress, x / 2, y / 2, uiTheme.longPressPaint);
+            }
         }
-        canvas.drawText(currentLabel, x, y+10, uiTheme.foregroundPaint);
+        if (shift) {
+            if (this.key.info.onShiftLabel != null) {
+                canvas.drawText(this.key.info.onShiftLabel, x, y + 10, uiTheme.foregroundPaint);
+            } else if (this.key.info.longPress != "") {
+                canvas.drawText(this.key.info.longPress, x, y + 10, uiTheme.foregroundPaint);
+            } else {
+                canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+            }
+        } else if (ctrl) {
+            if (this.key.info.onCtrlLabel != null) {
+                canvas.drawText(this.key.info.onCtrlLabel, x, y + 10, uiTheme.foregroundPaint);
+            } else {
+                canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+            }
+        } else {
+            canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+        }
 
         if (key.info.icon != null){
             Drawable d = key.info.icon;
@@ -239,27 +257,12 @@ public class KeyboardButtonView extends View {
     }
 
     public void applyShiftModifier(boolean shiftPressed) {
-        if (this.key.info.onShiftLabel != null){
-            String nextLabel = shiftPressed
-                    ? this.key.info.onShiftLabel
-                    : this.key.info.label;
-            setCurrentLabel(nextLabel);
-        }
+        this.shift = shiftPressed;
+        this.invalidate();
     }
 
     public void applyCtrlModifier(boolean ctrlPressed) {
-        if (this.key.info.onCtrlLabel != null){
-            String nextLabel = ctrlPressed
-                    ? this.key.info.onCtrlLabel
-                    : this.key.info.label;
-            setCurrentLabel(nextLabel);
-        }
-    }
-
-    private void setCurrentLabel(String nextLabel) {
-        if (nextLabel != currentLabel){
-            currentLabel = nextLabel;
-            this.invalidate();
-        }
+        this.ctrl = ctrlPressed;
+        this.invalidate();
     }
 }
