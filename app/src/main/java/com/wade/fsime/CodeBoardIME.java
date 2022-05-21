@@ -408,16 +408,9 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
+        Logi("onRelease() code " + primaryCode);
         if (!swipe) processKey();
         clearLongPressTimer();
-    }
-
-    private void releaseCtrl(InputConnection ic) {
-        if (!ctrlLock) {
-            ctrl = false;
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
-            controlKeyUpdateView();
-        }
     }
 
     private void processKey() {
@@ -427,30 +420,21 @@ public class CodeBoardIME extends InputMethodService
         char code = (char) primaryCode;
 
         if (!processSpecialKey(primaryCode)) { // normal key
-            int ke = primary2ke(primaryCode);
             int meta = 0;
-            Logi("processKey() "+ke + (ctrl?"Ctrl ":" ")+(shift?"Shift ":" "));
-            if (ctrl) {
-                releaseCtrl(ic);
-                meta = KeyEvent.META_CTRL_ON;
-                if (ke > 0) {
-                    ic.commitText(String.valueOf(code), 1);
-                    return;
-                }
-            }
             if (shift) {
-                meta = meta | KeyEvent.META_SHIFT_ON;
+                meta = KeyEvent.META_SHIFT_ON;
                 code = Character.toUpperCase(code);
-                if (!shiftLock) {
-                    shift = false;
-                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-                    shiftKeyUpdateView();
-                }
             }
+            if (ctrl) {
+                meta = meta | KeyEvent.META_CTRL_ON;
+            }
+            int ke = primary2ke(primaryCode);
             if (ke < 0) { // 特殊字，例如上下左右等等
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
-                if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
+				if (ctrl) {
+                    keyDownUp(ke, meta);
+                } else if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
                     if (ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
@@ -490,6 +474,16 @@ public class CodeBoardIME extends InputMethodService
                     }
                     ic.commitText(String.valueOf(code), 1);
                 }
+            }
+            if (shift && !shiftLock) {
+                shift = false;
+                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+                shiftKeyUpdateView();
+            }
+            if (ctrl && !ctrlLock) {
+                ctrl = false;
+                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+                controlKeyUpdateView();
             }
         }
     }
