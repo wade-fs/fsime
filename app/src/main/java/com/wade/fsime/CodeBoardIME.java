@@ -363,7 +363,7 @@ public class CodeBoardIME extends InputMethodService
 
     @Override
     public void onKey(int primaryCode, int[] KeyCodes) {
-        // move to onRelease();
+        // move to processKey();
     }
 
     public void onKeyLongPress(int keyCode) {
@@ -408,9 +408,16 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
-        Logi("onRelease() code " + primaryCode);
         if (!swipe) processKey();
         clearLongPressTimer();
+    }
+
+    private void releaseCtrl(InputConnection ic) {
+        if (!ctrlLock) {
+            ctrl = false;
+            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+            controlKeyUpdateView();
+        }
     }
 
     private void processKey() {
@@ -420,9 +427,19 @@ public class CodeBoardIME extends InputMethodService
         char code = (char) primaryCode;
 
         if (!processSpecialKey(primaryCode)) { // normal key
+            int ke = primary2ke(primaryCode);
             int meta = 0;
+            Logi("processKey() "+ke + (ctrl?"Ctrl ":" ")+(shift?"Shift ":" "));
+            if (ctrl) {
+                releaseCtrl(ic);
+                meta = KeyEvent.META_CTRL_ON;
+                if (ke > 0) {
+                    ic.commitText(String.valueOf(code), 1);
+                    return;
+                }
+            }
             if (shift) {
-                meta = KeyEvent.META_SHIFT_ON;
+                meta = meta | KeyEvent.META_SHIFT_ON;
                 code = Character.toUpperCase(code);
                 if (!shiftLock) {
                     shift = false;
@@ -430,15 +447,6 @@ public class CodeBoardIME extends InputMethodService
                     shiftKeyUpdateView();
                 }
             }
-            if (ctrl) {
-                meta = meta | KeyEvent.META_CTRL_ON;
-                if (!ctrlLock) {
-                    ctrl = false;
-                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
-                    controlKeyUpdateView();
-                }
-            }
-            int ke = primary2ke(primaryCode);
             if (ke < 0) { // 特殊字，例如上下左右等等
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
