@@ -40,8 +40,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
                 .addBackspaceKey()
-                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪")
-        ;
+                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
     }
 
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
@@ -65,8 +64,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)        // Up >
                 .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)       // Right >
                 .addBackspaceKey()
-                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪")
-        ;
+                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
     }
 
 
@@ -103,7 +101,7 @@ public class Definitions {
                 .addKey('[').withLongPress("{");
     }
 
-    public void addQwertyRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
+    public static void addQwertyRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }
@@ -117,11 +115,10 @@ public class Definitions {
                 .addKey('j').onShiftUppercase().withLongPress("J")
                 .addKey('k').onShiftUppercase().withLongPress("K")
                 .addKey('l').onShiftUppercase().withLongPress("L")
-                .addKey(']').withLongPress("}")
-                .newRow();
+                .addKey(']').withLongPress("}");
     }
 
-    public void addQwertyRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
+    public static void addQwertyRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }

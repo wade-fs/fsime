@@ -19,6 +19,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -72,7 +73,7 @@ public class CodeBoardIME extends InputMethodService
     private CandidateView mCandidateView;
     private final StringBuilder mComposing = new StringBuilder();
     private boolean swipe;
-    private String swipeCode;
+    private int mDir = 2;
 
     BDatabase bdatabase;
     private ArrayList<B> b;
@@ -686,20 +687,43 @@ public class CodeBoardIME extends InputMethodService
             builder.setBox(Box.create(0, 0, 1, 1));
 
             if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
-                if (mToprow) {
-                    definitions.addCopyPasteRow(builder, mKeyboardState, true);
-                } else {
-                    definitions.addArrowsRow(builder, mKeyboardState, true);
-                }
+                if (mDir == 1) {
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mKeyboardState, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mKeyboardState, true);
+                    }
 
-                if (!mCustomSymbolsMain.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
+                    if (!mCustomSymbolsMain.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
+                    }
+                    if (!mCustomSymbolsMain2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
+                    }
+                    Definitions.addQwertyRows(builder);
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                } else {
+                    // 第一行
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mKeyboardState, false);
+                    } else {
+                        definitions.addArrowsRow(builder, mKeyboardState, false);
+                    }
+                    Definitions.addQwertyRows1(builder, false);
+
+                    // 第二行
+                    if (!mCustomSymbolsMain.isEmpty()) { // digits
+                        Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
+                    }
+                    Definitions.addQwertyRows2(builder, false);
+//                    if (!mCustomSymbolsMain2.isEmpty()) {
+//                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
+//                    }
+
+                    // 第三行
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                    Definitions.addQwertyRows3(builder, false);
                 }
-                if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
-                }
-                Definitions.addQwertyRows(builder);
-                definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
             } else {
                 if (mToprow) {
                     definitions.addCopyPasteRow(builder, mKeyboardState, true);
@@ -771,7 +795,25 @@ public class CodeBoardIME extends InputMethodService
     @Override public View onCreateCandidatesView() {
         mCandidateView = new CandidateView(this);
         mCandidateView.setService(this);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mDir = 1;
+        } else {
+            mDir = 2;
+        }
+
         return mCandidateView;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            mDir = 2;
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            mDir = 1;
+        }
     }
 
     @Override
