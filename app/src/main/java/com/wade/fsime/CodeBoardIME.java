@@ -685,69 +685,77 @@ public class CodeBoardIME extends InputMethodService
             KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
             builder.setBox(Box.create(0, 0, 1, 1));
 
-            if (mToprow) {
-                definitions.addCopyPasteRow(builder, mKeyboardState);
-            } else {
-                definitions.addArrowsRow(builder, mKeyboardState);
-            }
-
-            if (mKeyboardState == R.integer.keyboard_sym) {
-                if (!mCustomSymbolsSym.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym, "");
-                }
-                if (!mCustomSymbolsSym2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym2, "");
-                }
-                if (!mCustomSymbolsSym3.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym3, "");
-                }
-                if (!mCustomSymbolsSym4.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsSym4, "");
-                }
-                if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
-                    definitions.addSymbolRows(builder);
+            if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
+                if (mToprow) {
+                    definitions.addCopyPasteRow(builder, mKeyboardState, true);
                 } else {
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
+                    definitions.addArrowsRow(builder, mKeyboardState, true);
                 }
-            } else if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
+
                 if (!mCustomSymbolsMain.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress);
+                    Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
                 }
                 if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "");
+                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                 }
                 Definitions.addQwertyRows(builder);
-                definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
-            } else if (mKeyboardState == R.integer.keyboard_phonetic) {
-                if (!mCustomSymbolsMain2.isEmpty()) {
-                    Definitions.addCustomRow(builder, mCustomSymbolsMain2, "");
-                }
-                Definitions.addPhoneticRows(builder);
-                definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom);
-            } else if (mKeyboardState == R.integer.keyboard_clipboard) {
-                definitions.addClipboardActions(builder);
-
-                ClipboardManager clipboard = (ClipboardManager)
-                        getSystemService(Context.CLIPBOARD_SERVICE);
-                if (clipboard.hasPrimaryClip()
-                        && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
-                    ClipData pr = clipboard.getPrimaryClip();
-                    //Android only allows one item in Clipboard
-                    String s = pr.getItemAt(0).getText().toString();
-                    builder.newRow().addKey(s);
+                definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+            } else {
+                if (mToprow) {
+                    definitions.addCopyPasteRow(builder, mKeyboardState, true);
                 } else {
-                    builder.newRow().addKey("Nothing copied").withOutputText("");
+                    definitions.addArrowsRow(builder, mKeyboardState, true);
                 }
-                builder.addKey(sharedPreferences.getPin1());
-                builder.newRow()
-                        .addKey(sharedPreferences.getPin2())
-                        .addKey(sharedPreferences.getPin3());
-                builder.newRow()
-                        .addKey(sharedPreferences.getPin4())
-                        .addKey(sharedPreferences.getPin5());
-                builder.newRow()
-                        .addKey(sharedPreferences.getPin6())
-                        .addKey(sharedPreferences.getPin7());
+
+                if (mKeyboardState == R.integer.keyboard_sym) {
+                    if (!mCustomSymbolsSym.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
+                    }
+                    if (!mCustomSymbolsSym2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
+                    }
+                    if (!mCustomSymbolsSym3.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym3, "", true);
+                    }
+                    if (!mCustomSymbolsSym4.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym4, "", true);
+                    }
+                    if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
+                        definitions.addSymbolRows(builder);
+                    } else {
+                        definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                    }
+                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+                    if (!mCustomSymbolsMain2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
+                    }
+                    Definitions.addPhoneticRows(builder);
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                } else if (mKeyboardState == R.integer.keyboard_clipboard) {
+                    definitions.addClipboardActions(builder);
+
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard.hasPrimaryClip()
+                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
+                        ClipData pr = clipboard.getPrimaryClip();
+                        //Android only allows one item in Clipboard
+                        String s = pr.getItemAt(0).getText().toString();
+                        builder.newRow().addKey(s);
+                    } else {
+                        builder.newRow().addKey("Nothing copied").withOutputText("");
+                    }
+                    builder.addKey(sharedPreferences.getPin1());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin2())
+                            .addKey(sharedPreferences.getPin3());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin4())
+                            .addKey(sharedPreferences.getPin5());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin6())
+                            .addKey(sharedPreferences.getPin7());
+                }
             }
 
             Collection<Key> keyboardLayout = builder.build();

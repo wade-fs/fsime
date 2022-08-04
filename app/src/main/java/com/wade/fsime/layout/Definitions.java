@@ -15,7 +15,7 @@ public class Definitions {
         this.context = current;
     }
 
-    public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState) {
+    public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         int CODE_ARROW_LEFT = 5000;
         int CODE_ARROW_DOWN = 5001;
         int CODE_ARROW_UP = 5002;
@@ -30,8 +30,10 @@ public class Definitions {
         } else if (mKeyboardState == R.integer.keyboard_clipboard) {
             SYM = "剪";
         }
-        keyboard.newRow()
-                .addKey("Esc", CODE_ESCAPE)
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey("Esc", CODE_ESCAPE)
                 .addTabKey()
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_left_24dp), CODE_ARROW_LEFT).asRepeatable()
                 .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
@@ -42,7 +44,7 @@ public class Definitions {
         ;
     }
 
-    public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState) {
+    public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
         if (mKeyboardState == R.integer.keyboard_boshiamy) {
             SYM = "嘸";
@@ -53,8 +55,10 @@ public class Definitions {
         } else if (mKeyboardState == R.integer.keyboard_clipboard) {
             SYM = "剪";
         }
-        keyboard.newRow()
-                .addKey("Esc", CODE_ESCAPE)
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey("Esc", CODE_ESCAPE)
                 .addTabKey()
                 .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)  // Left <
                 .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)         // Down v
@@ -66,8 +70,10 @@ public class Definitions {
     }
 
 
-    public static void addCustomRow(KeyboardLayoutBuilder keyboard, String symbols, String longPress) {
-        keyboard.newRow();
+    public static void addCustomRow(KeyboardLayoutBuilder keyboard, String symbols, String longPress, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
         char[] chars = symbols.toCharArray();
         char[] charl = longPress.toCharArray();
         for (int i=0; i<chars.length; i++) {
@@ -77,6 +83,58 @@ public class Definitions {
                 keyboard.addKey(chars[i]);
             }
         }
+    }
+
+    public static void addQwertyRows1(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey('`').withLongPress("~")
+                .addKey('q').onShiftUppercase().withLongPress("Q")
+                .addKey('w').onShiftUppercase().withLongPress("W")
+                .addKey('e').onShiftUppercase().withLongPress("E")
+                .addKey('r').onShiftUppercase().withLongPress("R")
+                .addKey('t').onShiftUppercase().withLongPress("T")
+                .addKey('y').onShiftUppercase().withLongPress("Y")
+                .addKey('u').onShiftUppercase().withLongPress("U")
+                .addKey('i').onShiftUppercase().withLongPress("I")
+                .addKey('o').onShiftUppercase().withLongPress("O")
+                .addKey('p').onShiftUppercase().withLongPress("P")
+                .addKey('[').withLongPress("{");
+    }
+
+    public void addQwertyRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey('\\').withLongPress("|")
+                .addKey('a').onShiftUppercase().withLongPress("A")
+                .addKey('s').onShiftUppercase().withLongPress("S")
+                .addKey('d').onShiftUppercase().withLongPress("D")
+                .addKey('f').onShiftUppercase().withLongPress("F")
+                .addKey('g').onShiftUppercase().withLongPress("G")
+                .addKey('h').onShiftUppercase().withLongPress("H")
+                .addKey('j').onShiftUppercase().withLongPress("J")
+                .addKey('k').onShiftUppercase().withLongPress("K")
+                .addKey('l').onShiftUppercase().withLongPress("L")
+                .addKey(']').withLongPress("}")
+                .newRow();
+    }
+
+    public void addQwertyRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addShiftKey()
+                .addKey('z').onShiftUppercase().withLongPress("Z")
+                .addKey('x').onShiftUppercase().withLongPress("X")
+                .addKey('c').onShiftUppercase().withLongPress("C")
+                .addKey('v').onShiftUppercase().withLongPress("V")
+                .addKey('b').onShiftUppercase().withLongPress("B")
+                .addKey('n').onShiftUppercase().withLongPress("N")
+                .addKey('m').onShiftUppercase().withLongPress("M")
+                .addKey(';').withLongPress(":")
+                .addKey('\'').withLongPress("\"");
     }
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {
@@ -115,8 +173,7 @@ public class Definitions {
                 .addKey('n').onShiftUppercase().withLongPress("N")
                 .addKey('m').onShiftUppercase().withLongPress("M")
                 .addKey(';').withLongPress(":")
-                .addKey('\'').withLongPress("\"")
-        ;
+                .addKey('\'').withLongPress("\"");
     }
 
     public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
@@ -221,10 +278,13 @@ public class Definitions {
         ;
     }
 
-    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols) {
+    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols, boolean newRow) {
         char[] chars = symbols.toCharArray();
 
-        keyboard.newRow().addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
         keyboard.addKey("-").withLongPress("_");
         keyboard.addKey("=").withLongPress("+");
         keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
