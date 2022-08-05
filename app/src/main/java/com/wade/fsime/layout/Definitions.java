@@ -15,7 +15,7 @@ public class Definitions {
         this.context = current;
     }
 
-    public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
+    public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow, boolean split) {
         int CODE_ARROW_LEFT = 5000;
         int CODE_ARROW_DOWN = 5001;
         int CODE_ARROW_UP = 5002;
@@ -33,14 +33,25 @@ public class Definitions {
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey("Esc", CODE_ESCAPE)
-                .addTabKey()
-                .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_left_24dp), CODE_ARROW_LEFT).asRepeatable()
-                .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
-                .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
-                .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
-                .addBackspaceKey()
-                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
+        if (split) {
+            keyboard.addKey("Esc", CODE_ESCAPE).withSize(1.6f)
+                    .addTabKey().withSize(1.6f)
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_left_24dp), CODE_ARROW_LEFT).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
+                    .addBackspaceKey().withSize(2f)
+                    .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪").withSize(1.6f);
+        } else {
+            keyboard.addKey("Esc", CODE_ESCAPE)
+                    .addTabKey()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_left_24dp), CODE_ARROW_LEFT).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
+                    .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
+                    .addBackspaceKey()
+                    .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
+        }
     }
 
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
@@ -275,27 +286,43 @@ public class Definitions {
         ;
     }
 
-    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols, boolean newRow) {
+    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols, boolean newRow, boolean split) {
         char[] chars = symbols.toCharArray();
 
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
-        keyboard.addKey("-").withLongPress("_");
-        keyboard.addKey("=").withLongPress("+");
-        keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
+        if (!split) {
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
+            keyboard.addKey("-").withLongPress("_");
+            keyboard.addKey("=").withLongPress("+");
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
-        int half = (chars.length + 1) / 2;
-        for (int i = 0; i < half && chars.length > 0; i++) {
-            if ((i+half) < chars.length) {
-                keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(.7f);
-            } else {
-                keyboard.addKey(chars[i]).withSize(.7f);
+            int half = (chars.length + 1) / 2;
+            for (int i = 0; i < half && chars.length > 0; i++) {
+                if ((i + half) < chars.length) {
+                    keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(.7f);
+                } else {
+                    keyboard.addKey(chars[i]).withSize(.7f);
+                }
             }
-        }
-        keyboard.addEnterKey();
+            keyboard.addEnterKey();
+        } else {
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f);
+            keyboard.addKey("-").withLongPress("_");
+            keyboard.addKey("=").withLongPress("+");
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
+            int half = (chars.length + 1) / 2;
+            for (int i = 0; i < half && chars.length > 0; i++) {
+                if ((i+half) < chars.length) {
+                    keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(1.0f);
+                } else {
+                    keyboard.addKey(chars[i]).withSize(1.0f);
+                }
+            }
+            keyboard.addEnterKey().withSize(1.4f);
+        }
     }
 
 }

@@ -691,7 +691,7 @@ public class CodeBoardIME extends InputMethodService
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mKeyboardState, true);
                     } else {
-                        definitions.addArrowsRow(builder, mKeyboardState, true);
+                        definitions.addArrowsRow(builder, mKeyboardState, true, false);
                     }
 
                     if (!mCustomSymbolsMain.isEmpty()) {
@@ -701,13 +701,13 @@ public class CodeBoardIME extends InputMethodService
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
                     Definitions.addQwertyRows(builder);
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
                 } else {
                     // 第一行
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mKeyboardState, false);
                     } else {
-                        definitions.addArrowsRow(builder, mKeyboardState, false);
+                        definitions.addArrowsRow(builder, mKeyboardState, false, true);
                     }
                     Definitions.addQwertyRows1(builder, false);
 
@@ -721,14 +721,14 @@ public class CodeBoardIME extends InputMethodService
 //                    }
 
                     // 第三行
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, true);
                     Definitions.addQwertyRows3(builder, false);
                 }
             } else {
                 if (mToprow) {
                     definitions.addCopyPasteRow(builder, mKeyboardState, true);
                 } else {
-                    definitions.addArrowsRow(builder, mKeyboardState, true);
+                    definitions.addArrowsRow(builder, mKeyboardState, true, false);
                 }
 
                 if (mKeyboardState == R.integer.keyboard_sym) {
@@ -747,14 +747,14 @@ public class CodeBoardIME extends InputMethodService
                     if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
                         definitions.addSymbolRows(builder);
                     } else {
-                        definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                        definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
                     }
                 } else if (mKeyboardState == R.integer.keyboard_phonetic) {
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
                     Definitions.addPhoneticRows(builder);
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true);
+                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
                 } else if (mKeyboardState == R.integer.keyboard_clipboard) {
                     definitions.addClipboardActions(builder);
 
