@@ -40,7 +40,7 @@ public class Definitions {
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
-                    .addBackspaceKey().withSize(2f)
+                    .addBackspaceKey().withSize(2f).asRepeatable()
                     .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪").withSize(1.6f);
         } else {
             keyboard.addKey("Esc", CODE_ESCAPE)
@@ -49,7 +49,7 @@ public class Definitions {
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_down_24dp), CODE_ARROW_DOWN).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
-                    .addBackspaceKey()
+                    .addBackspaceKey().asRepeatable()
                     .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
         }
     }
@@ -87,7 +87,7 @@ public class Definitions {
         char[] charl = longPress.toCharArray();
         for (int i=0; i<chars.length; i++) {
             if (i < charl.length) {
-                keyboard.addKey(chars[i]).withLongPress("" + charl[i]);
+                keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + charl[i]);
             } else {
                 keyboard.addKey(chars[i]);
             }
@@ -98,7 +98,7 @@ public class Definitions {
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey('`').withLongPress("~")
+        keyboard.addKey('`').onShiftUppercase().withLongPress("~")
                 .addKey('q').onShiftUppercase().withLongPress("Q")
                 .addKey('w').onShiftUppercase().withLongPress("W")
                 .addKey('e').onShiftUppercase().withLongPress("E")
@@ -109,14 +109,14 @@ public class Definitions {
                 .addKey('i').onShiftUppercase().withLongPress("I")
                 .addKey('o').onShiftUppercase().withLongPress("O")
                 .addKey('p').onShiftUppercase().withLongPress("P")
-                .addKey('[').withLongPress("{");
+                .addKey('[').onShiftUppercase().withLongPress("{");
     }
 
     public static void addQwertyRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey('\\').withLongPress("|")
+        keyboard.addKey('\\').onShiftUppercase().withLongPress("|")
                 .addKey('a').onShiftUppercase().withLongPress("A")
                 .addKey('s').onShiftUppercase().withLongPress("S")
                 .addKey('d').onShiftUppercase().withLongPress("D")
@@ -126,7 +126,7 @@ public class Definitions {
                 .addKey('j').onShiftUppercase().withLongPress("J")
                 .addKey('k').onShiftUppercase().withLongPress("K")
                 .addKey('l').onShiftUppercase().withLongPress("L")
-                .addKey(']').withLongPress("}");
+                .addKey(']').onShiftUppercase().withLongPress("}");
     }
 
     public static void addQwertyRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
@@ -141,13 +141,13 @@ public class Definitions {
                 .addKey('b').onShiftUppercase().withLongPress("B")
                 .addKey('n').onShiftUppercase().withLongPress("N")
                 .addKey('m').onShiftUppercase().withLongPress("M")
-                .addKey(';').withLongPress(":")
-                .addKey('\'').withLongPress("\"");
+                .addKey(';').onShiftUppercase().withLongPress(":")
+                .addKey('\'').onShiftUppercase().withLongPress("\"");
     }
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()
-                .addKey('`').withLongPress("~")
+                .addKey('`').onShiftUppercase().withLongPress("~")
                 .addKey('q').onShiftUppercase().withLongPress("Q")
                 .addKey('w').onShiftUppercase().withLongPress("W")
                 .addKey('e').onShiftUppercase().withLongPress("E")
@@ -158,9 +158,9 @@ public class Definitions {
                 .addKey('i').onShiftUppercase().withLongPress("I")
                 .addKey('o').onShiftUppercase().withLongPress("O")
                 .addKey('p').onShiftUppercase().withLongPress("P")
-                .addKey('[').withLongPress("{")
+                .addKey('[').onShiftUppercase().withLongPress("{")
                 .newRow()
-                .addKey('\\').withLongPress("|")
+                .addKey('\\').onShiftUppercase().withLongPress("|")
                 .addKey('a').onShiftUppercase().withLongPress("A")
                 .addKey('s').onShiftUppercase().withLongPress("S")
                 .addKey('d').onShiftUppercase().withLongPress("D")
@@ -170,7 +170,7 @@ public class Definitions {
                 .addKey('j').onShiftUppercase().withLongPress("J")
                 .addKey('k').onShiftUppercase().withLongPress("K")
                 .addKey('l').onShiftUppercase().withLongPress("L")
-                .addKey(']').withLongPress("}")
+                .addKey(']').onShiftUppercase().withLongPress("}")
                 .newRow()
                 .addShiftKey()
                 .addKey('z').onShiftUppercase().withLongPress("Z")
@@ -180,8 +180,8 @@ public class Definitions {
                 .addKey('b').onShiftUppercase().withLongPress("B")
                 .addKey('n').onShiftUppercase().withLongPress("N")
                 .addKey('m').onShiftUppercase().withLongPress("M")
-                .addKey(';').withLongPress(":")
-                .addKey('\'').withLongPress("\"");
+                .addKey(';').onShiftUppercase().withLongPress(":")
+                .addKey('\'').onShiftUppercase().withLongPress("\"");
     }
 
     public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
@@ -294,14 +294,14 @@ public class Definitions {
         }
         if (!split) {
             keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
-            keyboard.addKey("-").withLongPress("_");
-            keyboard.addKey("=").withLongPress("+");
+            keyboard.addKey('-').onShiftUppercase().withLongPress("_");
+            keyboard.addKey('=').onShiftUppercase().withLongPress("+");
             keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
             int half = (chars.length + 1) / 2;
             for (int i = 0; i < half && chars.length > 0; i++) {
                 if ((i + half) < chars.length) {
-                    keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(.7f);
+                    keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + chars[i + half]).withSize(.7f);
                 } else {
                     keyboard.addKey(chars[i]).withSize(.7f);
                 }
@@ -309,8 +309,8 @@ public class Definitions {
             keyboard.addEnterKey();
         } else {
             keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f);
-            keyboard.addKey("-").withLongPress("_");
-            keyboard.addKey("=").withLongPress("+");
+            keyboard.addKey('-').onShiftUppercase().withLongPress("_");
+            keyboard.addKey('=').onShiftUppercase().withLongPress("+");
             keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
             int half = (chars.length + 1) / 2;

@@ -409,7 +409,6 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
-        Logi("onRelease() code " + primaryCode);
         if (!swipe) processKey();
         clearLongPressTimer();
     }
@@ -497,23 +496,27 @@ public class CodeBoardIME extends InputMethodService
 
     @Override
     public void swipeLeft() {
-        Logi("swipeLeft() code "+pressedCode);
+        Logi("swipeLeft() code "+mCurrentKeyboardLayoutView.getKey());
     }
 
     @Override
     public void swipeRight() {
-        Logi("swipeRight() code "+pressedCode);
+        Logi("swipeRight() code "+mCurrentKeyboardLayoutView.getKey());
     }
 
     @Override
     public void swipeDown() {
-        Logi("swipeDown() code "+pressedCode);
+        Logi("swipeDown() code "+mCurrentKeyboardLayoutView.getKey());
     }
 
     @Override
     public void swipeUp() {
+        Logi("swipeUp() code "+mCurrentKeyboardLayoutView.getKey());
         swipe = true; // prevent processKey() @ onRelease()
-        getCurrentInputConnection().commitText(mCurrentKeyboardLayoutView.getKey(), 1);
+
+        //getCurrentInputConnection().commitText(mCurrentKeyboardLayoutView.getKey(), 1);
+        pressedCode = mCurrentKeyboardLayoutView.getKey().hashCode();
+        processKey();
     }
 
     @Override
