@@ -440,18 +440,10 @@ public class CodeBoardIME extends InputMethodService
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
                         if (mCandidateView == null || mCandidateView.size() == 0) {
-                            Logi("1 ic.commitText("+code+")");
                             ic.commitText(String.valueOf(code), 1);
-                        } else {
-                            Logi("mCandidateView.size()" + mCandidateView.size());
-                            if (mCandidateView.size() > 1) {
-                                Logi("2 "+mCandidateView.size());
-                                pickSuggestionManually(1);
-                                return;
-                            } else {
-                                Logi("3");
-                                pickSuggestionManually(0);
-                            }
+                        } else if (mCandidateView.size() > 1) {
+                            pickSuggestionManually(1);
+                            return;
                         }
                     } else if (ke == KeyEvent.KEYCODE_ENTER) {
                         if (mComposing.length() > 0)
