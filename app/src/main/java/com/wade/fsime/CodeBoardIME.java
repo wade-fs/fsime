@@ -317,6 +317,7 @@ public class CodeBoardIME extends InputMethodService
             mComposing.setLength(0);
             getCurrentInputConnection().commitText("", 0);
             keyDownUp(KeyEvent.KEYCODE_DEL, 0);
+            mCandidateView.setSuggestions(null, false, false);
         }
     }
 
@@ -430,7 +431,6 @@ public class CodeBoardIME extends InputMethodService
             }
             int ke = primary2ke(primaryCode);
             if (ke < 0) { // 特殊字，例如上下左右等等
-                Logi("ke < 0 "+ke);
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
 				if (ctrl) {
@@ -440,13 +440,18 @@ public class CodeBoardIME extends InputMethodService
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
                         if (mCandidateView == null || mCandidateView.size() == 0) {
-                            Logi("ic.commitText("+code+")");
+                            Logi("1 ic.commitText("+code+")");
                             ic.commitText(String.valueOf(code), 1);
-                        } else if (mCandidateView.size() > 1) {
-                            pickSuggestionManually(1);
-                            return;
                         } else {
-                            pickSuggestionManually(0);
+                            Logi("mCandidateView.size()" + mCandidateView.size());
+                            if (mCandidateView.size() > 1) {
+                                Logi("2 "+mCandidateView.size());
+                                pickSuggestionManually(1);
+                                return;
+                            } else {
+                                Logi("3");
+                                pickSuggestionManually(0);
+                            }
                         }
                     } else if (ke == KeyEvent.KEYCODE_ENTER) {
                         if (mComposing.length() > 0)
@@ -578,7 +583,6 @@ public class CodeBoardIME extends InputMethodService
         if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic) {
             return;
         }
-        Logi("updateCandidates "+mComposing);
         if (freq.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(freq.substring(0,1));
@@ -622,6 +626,7 @@ public class CodeBoardIME extends InputMethodService
     public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
         if (suggestions == null || suggestions.size() == 0) {
             setCandidatesViewShown(false);
+            mCandidateView.setSuggestions(null, false, false);
             return;
         }
         setCandidatesViewShown(true);
