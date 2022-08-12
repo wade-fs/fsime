@@ -430,6 +430,7 @@ public class CodeBoardIME extends InputMethodService
             }
             int ke = primary2ke(primaryCode);
             if (ke < 0) { // 特殊字，例如上下左右等等
+                Logi("ke < 0 "+ke);
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
 				if (ctrl) {
@@ -439,6 +440,7 @@ public class CodeBoardIME extends InputMethodService
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
                         if (mCandidateView == null || mCandidateView.size() == 0) {
+                            Logi("ic.commitText("+code+")");
                             ic.commitText(String.valueOf(code), 1);
                         } else if (mCandidateView.size() > 1) {
                             pickSuggestionManually(1);
@@ -465,15 +467,8 @@ public class CodeBoardIME extends InputMethodService
                     keyDownUp(ke, meta);
                 }
             } else {
-                if (mKeyboardState == R.integer.keyboard_phonetic) {
-                    mComposing.append(String.valueOf(code));
-                    updateCandidates(0, "");
-                } else {
-                    if (mComposing.length() > 0) {
-                        pickSuggestionManually(0);
-                    }
-                    ic.commitText(String.valueOf(code), 1);
-                }
+                mComposing.append(String.valueOf(code));
+                updateCandidates(0, "");
             }
             if (shift && !shiftLock) {
                 shift = false;
@@ -567,7 +562,7 @@ public class CodeBoardIME extends InputMethodService
     }
 
     private void Logi(String msg) {
-        Log.i(getClass().getSimpleName(), msg);
+        Log.i("FSIME", msg);
     }
     /**
      * Update the list of available candidates from the current composing
@@ -580,8 +575,10 @@ public class CodeBoardIME extends InputMethodService
      */
     private void updateCandidates(int forward, String freq) { // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
-        if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic)
+        if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic) {
             return;
+        }
+        Logi("updateCandidates "+mComposing);
         if (freq.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(freq.substring(0,1));
