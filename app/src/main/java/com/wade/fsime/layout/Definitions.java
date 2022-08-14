@@ -297,7 +297,7 @@ public class Definitions {
             keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL");
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f);
 
             int half = (chars.length + 1) / 2;
             for (int i = 0; i < half && chars.length > 0; i++) {
@@ -312,7 +312,7 @@ public class Definitions {
             keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL").withSize(1.2f);
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f);
 
             int half = (chars.length + 1) / 2;
             for (int i = 0; i < half && chars.length > 0; i++) {
