@@ -264,11 +264,11 @@ public class Definitions {
                 .addKey("F6", -11)
                 .addKey("F7", -12)
                 .newRow()
-                .addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL")
+                .addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL")
                 .addKey("F8", -13)
                 .addKey("F9", -14)
                 .addKey("F10", -15)
-                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f)
+                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
                 .addKey("F11", -16)
                 .addKey("F12", -17)
                 .addEnterKey()
@@ -294,10 +294,10 @@ public class Definitions {
             keyboard.newRow();
         }
         if (!split) {
-            keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL");
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f);
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
             int half = (chars.length + 1) / 2;
             for (int i = 0; i < half && chars.length > 0; i++) {
@@ -309,10 +309,10 @@ public class Definitions {
             }
             keyboard.addEnterKey();
         } else {
-            keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL").withSize(1.2f);
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f);
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f);
+            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
 
             int half = (chars.length + 1) / 2;
             for (int i = 0; i < half && chars.length > 0; i++) {

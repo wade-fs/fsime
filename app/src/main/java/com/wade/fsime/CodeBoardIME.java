@@ -168,7 +168,7 @@ public class CodeBoardIME extends InputMethodService
                 shiftKeyUpdateView();
                 break;
 
-            case KeyEvent.KEYCODE_CTRL_LEFT:
+            case 17: //KeyEvent.KEYCODE_CTRL_LEFT
                 if (!ctrlLock && !ctrl) {
                     ctrl = true;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_CTRL_LEFT));
@@ -211,7 +211,7 @@ public class CodeBoardIME extends InputMethodService
             case -2:
                 ke = KeyEvent.KEYCODE_ESCAPE;
                 break;
-            case KeyEvent.KEYCODE_SPACE:
+            case 32:
                 ke = KeyEvent.KEYCODE_SPACE;
                 break;
             case -5:
@@ -372,7 +372,7 @@ public class CodeBoardIME extends InputMethodService
             shiftKeyUpdateView();
         }
 
-        if (keyCode == KeyEvent.KEYCODE_CTRL_LEFT) { // Ctrl
+        if (keyCode == 17) { // Ctrl
             ctrlLock = !ctrlLock;
             if (ctrlLock) {
                 ctrl = true;
@@ -384,7 +384,7 @@ public class CodeBoardIME extends InputMethodService
             controlKeyUpdateView();
         }
 
-        if (keyCode == KeyEvent.KEYCODE_SPACE) { // SPACE
+        if (keyCode == 32) { // SPACE
             InputMethodManager imm = (InputMethodManager)
                     getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null)
