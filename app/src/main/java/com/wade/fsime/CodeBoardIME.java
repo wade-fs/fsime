@@ -66,14 +66,14 @@ public class CodeBoardIME extends InputMethodService
     private boolean ctrlLock = false;
     private boolean shift = false;
     private boolean ctrl = false;
-    private int mKeyboardState = -1;
+    private int mCurKeyboard = R.integer.keyboard_boshiamy;
     private Timer timerLongPress = null;
     private KeyboardUiFactory mKeyboardUiFactory = null;
     private KeyboardLayoutView mCurrentKeyboardLayoutView = null;
     private CandidateView mCandidateView;
     private final StringBuilder mComposing = new StringBuilder();
     private boolean swipe;
-    private int mDir = 2;
+    private int mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
 
     BDatabase bdatabase;
     private ArrayList<B> b;
@@ -83,50 +83,48 @@ public class CodeBoardIME extends InputMethodService
     //    -> clipboard
     private void nextKeyboard() {
         if (ctrl) {
-            mKeyboardState = R.integer.keyboard_clipboard;
+            mCurKeyboard = R.integer.keyboard_clipboard;
             return;
         }
-        if (mKeyboardState < 0) {
-            mKeyboardState = R.integer.keyboard_clipboard;
+        if (mCurKeyboard < 0) {
+            mCurKeyboard = R.integer.keyboard_clipboard;
         }
-        if (mKeyboardState == R.integer.keyboard_clipboard) {
+        if (mCurKeyboard == R.integer.keyboard_clipboard) {
             if (disable_qwerty) {
                 if (use_boshiamy) {
-                    mKeyboardState = R.integer.keyboard_boshiamy;
+                    mCurKeyboard = R.integer.keyboard_boshiamy;
                 } else if (use_phonetic) {
-                    mKeyboardState = R.integer.keyboard_phonetic;
+                    mCurKeyboard = R.integer.keyboard_phonetic;
                 } else {
-                    mKeyboardState = R.integer.keyboard_sym;
+                    mCurKeyboard = R.integer.keyboard_sym;
                 }
             } else {
-                mKeyboardState = R.integer.keyboard_normal;
+                mCurKeyboard = R.integer.keyboard_normal;
             }
-        } else if (mKeyboardState == R.integer.keyboard_normal) {
+        } else if (mCurKeyboard == R.integer.keyboard_normal) {
             if (use_boshiamy) {
-                mKeyboardState = R.integer.keyboard_boshiamy;
+                mCurKeyboard = R.integer.keyboard_boshiamy;
             } else if (use_phonetic) {
-                mKeyboardState = R.integer.keyboard_phonetic;
+                mCurKeyboard = R.integer.keyboard_phonetic;
             } else {
-                mKeyboardState = R.integer.keyboard_sym;
+                mCurKeyboard = R.integer.keyboard_sym;
             }
-        } else if (mKeyboardState == R.integer.keyboard_boshiamy) {
+        } else if (mCurKeyboard == R.integer.keyboard_boshiamy) {
             if (use_phonetic)
-                mKeyboardState = R.integer.keyboard_phonetic;
-            else mKeyboardState = R.integer.keyboard_sym;
-        } else if (mKeyboardState == R.integer.keyboard_phonetic) {
-            mKeyboardState = R.integer.keyboard_sym;
-        } else {
-            if (disable_qwerty) {
-                if (use_boshiamy) {
-                    mKeyboardState = R.integer.keyboard_boshiamy;
-                } else if (use_phonetic) {
-                    mKeyboardState = R.integer.keyboard_phonetic;
-                } else {
-                    mKeyboardState = R.integer.keyboard_sym;
-                }
+                mCurKeyboard = R.integer.keyboard_phonetic;
+            else mCurKeyboard = R.integer.keyboard_sym;
+        } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
+            mCurKeyboard = R.integer.keyboard_sym;
+        } else if (disable_qwerty) {
+            if (use_boshiamy) {
+                mCurKeyboard = R.integer.keyboard_boshiamy;
+            } else if (use_phonetic) {
+                mCurKeyboard = R.integer.keyboard_phonetic;
             } else {
-                mKeyboardState = R.integer.keyboard_normal;
+                mCurKeyboard = R.integer.keyboard_sym;
             }
+        } else {
+            mCurKeyboard = R.integer.keyboard_normal;
         }
     }
 
@@ -161,7 +159,7 @@ public class CodeBoardIME extends InputMethodService
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
                 }
                 if (ctrl) {
-                    mKeyboardState = R.integer.keyboard_clipboard;
+                    mCurKeyboard = R.integer.keyboard_clipboard;
                     ctrl = false;
                     ctrlLock = false;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
@@ -173,20 +171,14 @@ public class CodeBoardIME extends InputMethodService
                 shiftKeyUpdateView();
                 break;
 
-            case 17: //KEYCODE_CTRL_LEFT:
-                // emulates a press down of the ctrl key
+            case KeyEvent.KEYCODE_CTRL_LEFT:
                 if (!ctrlLock && !ctrl) {
-                    //Simple ctrl to true
                     ctrl = true;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_CTRL_LEFT));
                 } else if (!ctrlLock && ctrl) {
-                    //Simple remove ctrl
                     ctrl = false;
                     ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
                 }
-                //else if (ctrl && ctrlLock) {
-                //Stay ctrled if previously ctrled
-                //}
                 controlKeyUpdateView();
                 break;
 
@@ -218,12 +210,11 @@ public class CodeBoardIME extends InputMethodService
         switch (primaryCode) {
             case 9:
                 ke = -KeyEvent.KEYCODE_TAB;
-                //ic.commitText("\u0009", 1);
                 break;
             case -2:
                 ke = KeyEvent.KEYCODE_ESCAPE;
                 break;
-            case 32:
+            case KeyEvent.KEYCODE_SPACE:
                 ke = KeyEvent.KEYCODE_SPACE;
                 break;
             case -5:
@@ -384,7 +375,7 @@ public class CodeBoardIME extends InputMethodService
             shiftKeyUpdateView();
         }
 
-        if (keyCode == 17) { // Ctrl
+        if (keyCode == KeyEvent.KEYCODE_CTRL_LEFT) { // Ctrl
             ctrlLock = !ctrlLock;
             if (ctrlLock) {
                 ctrl = true;
@@ -396,7 +387,7 @@ public class CodeBoardIME extends InputMethodService
             controlKeyUpdateView();
         }
 
-        if (keyCode == 32) { // SPACE
+        if (keyCode == KeyEvent.KEYCODE_SPACE) { // SPACE
             InputMethodManager imm = (InputMethodManager)
                     getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null)
@@ -435,7 +426,7 @@ public class CodeBoardIME extends InputMethodService
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
 				if (ctrl) {
                     keyDownUp(ke, meta);
-                } else if (mKeyboardState == R.integer.keyboard_boshiamy || mKeyboardState == R.integer.keyboard_phonetic) {
+                } else if (mCurKeyboard == R.integer.keyboard_boshiamy || mCurKeyboard == R.integer.keyboard_phonetic) {
                     if (ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
@@ -572,7 +563,7 @@ public class CodeBoardIME extends InputMethodService
      */
     private void updateCandidates(int forward, String freq) { // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
-        if (mKeyboardState != R.integer.keyboard_boshiamy && mKeyboardState != R.integer.keyboard_phonetic) {
+        if (mCurKeyboard != R.integer.keyboard_boshiamy && mCurKeyboard != R.integer.keyboard_phonetic) {
             return;
         }
         if (freq.length() > 0) {
@@ -593,12 +584,12 @@ public class CodeBoardIME extends InputMethodService
             if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
             // wade, 底下根據鍵盤，切換不同的資料庫
             int s = start + forward * 30;
-            if (mKeyboardState == R.integer.keyboard_boshiamy) { // 英瞎
+            if (mCurKeyboard == R.integer.keyboard_boshiamy) { // 英瞎
                 b = bdatabase.getB(mComposing.toString().toLowerCase(), s, maxMatch);
                 for (B d : b) {
                     list.add(d.ch);
                 }
-            } else if (mKeyboardState == R.integer.keyboard_phonetic) { // 注音
+            } else if (mCurKeyboard == R.integer.keyboard_phonetic) { // 注音
                 if ((b = bdatabase.getJuin(mComposing.toString(), s, maxMatch)).size() > 0) {
                     start += forward * b.size();
                     for (B d : b) {
@@ -648,7 +639,7 @@ public class CodeBoardIME extends InputMethodService
         vibratorOn = sharedPreferences.isVibrateEnabled();
         soundOn = sharedPreferences.isSoundEnabled();
         use_boshiamy = sharedPreferences.useBoshiamy();
-        disable_qwerty = sharedPreferences.disableQwerty();
+        disable_qwerty = sharedPreferences.isDisabledQwerty();
         use_phonetic = sharedPreferences.usePhonetic();
         mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
         mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
@@ -683,12 +674,12 @@ public class CodeBoardIME extends InputMethodService
             KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
             builder.setBox(Box.create(0, 0, 1, 1));
 
-            if (mKeyboardState == R.integer.keyboard_normal || mKeyboardState == R.integer.keyboard_boshiamy) {
-                if (mDir == 1) {
+            if (mCurKeyboard == R.integer.keyboard_normal || mCurKeyboard == R.integer.keyboard_boshiamy) {
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) {
                     if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mKeyboardState, true);
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                     } else {
-                        definitions.addArrowsRow(builder, mKeyboardState, true, false);
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
                     }
 
                     if (!mCustomSymbolsMain.isEmpty()) {
@@ -702,9 +693,9 @@ public class CodeBoardIME extends InputMethodService
                 } else {
                     // 第一行
                     if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mKeyboardState, false);
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, false);
                     } else {
-                        definitions.addArrowsRow(builder, mKeyboardState, false, true);
+                        definitions.addArrowsRow(builder, mCurKeyboard, false, true);
                     }
                     Definitions.addQwertyRows1(builder, false);
 
@@ -723,12 +714,12 @@ public class CodeBoardIME extends InputMethodService
                 }
             } else {
                 if (mToprow) {
-                    definitions.addCopyPasteRow(builder, mKeyboardState, true);
+                    definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                 } else {
-                    definitions.addArrowsRow(builder, mKeyboardState, true, false);
+                    definitions.addArrowsRow(builder, mCurKeyboard, true, false);
                 }
 
-                if (mKeyboardState == R.integer.keyboard_sym) {
+                if (mCurKeyboard == R.integer.keyboard_sym) {
                     if (!mCustomSymbolsSym.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
                     }
@@ -746,13 +737,13 @@ public class CodeBoardIME extends InputMethodService
                     } else {
                         definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
                     }
-                } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+                } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
                     Definitions.addPhoneticRows(builder);
                     definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
-                } else if (mKeyboardState == R.integer.keyboard_clipboard) {
+                } else if (mCurKeyboard == R.integer.keyboard_clipboard) {
                     definitions.addClipboardActions(builder);
 
                     ClipboardManager clipboard = (ClipboardManager)
@@ -793,9 +784,9 @@ public class CodeBoardIME extends InputMethodService
         mCandidateView = new CandidateView(this);
         mCandidateView.setService(this);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mDir = 1;
+            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
         } else {
-            mDir = 2;
+            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
         }
 
         return mCandidateView;
@@ -807,9 +798,9 @@ public class CodeBoardIME extends InputMethodService
 
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mDir = 2;
+            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            mDir = 1;
+            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
         }
     }
 
@@ -822,7 +813,6 @@ public class CodeBoardIME extends InputMethodService
     @Override
     public void onStartInputView(EditorInfo attribute, boolean restarting) {
         super.onStartInputView(attribute, restarting);
-        if (mKeyboardState < 0) nextKeyboard();
         setInputView(onCreateInputView());
         sEditorInfo = attribute;
         turnCandidate(false);

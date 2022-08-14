@@ -2,6 +2,7 @@ package com.wade.fsime.layout;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import com.wade.fsime.R;
 import com.wade.fsime.layout.builder.KeyboardLayoutBuilder;
@@ -41,7 +42,7 @@ public class Definitions {
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
                     .addBackspaceKey().withSize(2f).asRepeatable()
-                    .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪").withSize(1.6f);
+                    .addKey(SYM, CODE_SYMBOLS).withSize(1.6f);
         } else {
             keyboard.addKey("Esc", CODE_ESCAPE)
                     .addTabKey()
@@ -50,7 +51,7 @@ public class Definitions {
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_up_24dp), CODE_ARROW_UP).asRepeatable()
                     .addKey(context.getDrawable(R.drawable.ic_keyboard_arrow_right_24dp), CODE_ARROW_RIGHT).asRepeatable()
                     .addBackspaceKey().asRepeatable()
-                    .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
+                    .addKey(SYM, CODE_SYMBOLS);
         }
     }
 
@@ -75,7 +76,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)        // Up >
                 .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)       // Right >
                 .addBackspaceKey()
-                .addKey(SYM, CODE_SYMBOLS).onCtrlShow("剪");
+                .addKey(SYM, CODE_SYMBOLS);
     }
 
 
@@ -263,11 +264,11 @@ public class Definitions {
                 .addKey("F6", -11)
                 .addKey("F7", -12)
                 .newRow()
-                .addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL")
+                .addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL")
                 .addKey("F8", -13)
                 .addKey("F9", -14)
                 .addKey("F10", -15)
-                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
+                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), KeyEvent.KEYCODE_SPACE).withSize(2f)
                 .addKey("F11", -16)
                 .addKey("F12", -17)
                 .addEnterKey()
@@ -293,7 +294,7 @@ public class Definitions {
             keyboard.newRow();
         }
         if (!split) {
-            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
+            keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL");
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
             keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
@@ -308,7 +309,7 @@ public class Definitions {
             }
             keyboard.addEnterKey();
         } else {
-            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f);
+            keyboard.addKey("Ctrl", KeyEvent.KEYCODE_CTRL_LEFT).asModifier().onCtrlShow("CTRL").withSize(1.2f);
             keyboard.addKey('-').onShiftUppercase().withLongPress("_");
             keyboard.addKey('=').onShiftUppercase().withLongPress("+");
             keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
