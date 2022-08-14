@@ -18,7 +18,7 @@
             android:text="@string/word"
             tools:ignore="Suspicious0dp" />
         <EditText
-            android:id="@+id/chinese"
+            android:id="@+id/word"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
