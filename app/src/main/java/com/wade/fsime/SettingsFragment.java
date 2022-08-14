@@ -45,9 +45,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
             @Override
             public void run() {
                 if (keyboardPreferences.isFirstStart()) {
-                    Intent i = new Intent(getActivity(), IntroActivity.class);
-                    startActivity(i);
                     keyboardPreferences.setFirstStart(false);
+                    startActivity(new Intent(getActivity(), IntroActivity.class));
                 }
             }
         });

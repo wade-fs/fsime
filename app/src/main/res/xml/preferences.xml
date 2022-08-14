@@ -6,17 +6,17 @@
             android:key="change_keyboard"
             android:title="@string/change_keyboard" />
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/borders"
+            android:defaultValue="@bool/use_boshiamy"
             android:key="use_boshiamy"
-            android:title="@string/key_use_boshiamy" />
+            android:title="@string/use_boshiamy" />
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/borders"
-            android:key="disable_normal"
-            android:title="@string/key_disable_normal"/>
+            android:defaultValue="@bool/disable_qwerty"
+            android:key="disable_qwerty"
+            android:title="@string/disable_qwerty"/>
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/navbar"
+            android:defaultValue="@bool/use_phonetic"
             android:key="use_phonetic"
-            android:title="@string/key_use_phonetic" />
+            android:title="@string/use_phonetic" />
     </PreferenceCategory>
     <PreferenceCategory android:title="特性">
         <SwitchPreferenceCompat
@@ -93,7 +93,7 @@
         <SwitchPreferenceCompat
             android:defaultValue="@bool/borders"
             android:key="borders"
-            android:title="@string/key_borders" />
+            android:title="@string/borders" />
         <SwitchPreferenceCompat
             android:defaultValue="@bool/navbar"
             android:key="navbar"

@@ -30,8 +30,8 @@ public class KeyboardPreferences {
         return read("use_boshiamy", res.getBoolean(R.bool.use_boshiamy));
     }
 
-    public boolean disableNormal() {
-        return read("disable_normal", res.getBoolean(R.bool.disable_normal));
+    public boolean disableQwerty() {
+        return read("disable_qwerty", res.getBoolean(R.bool.disable_qwerty));
     }
 
     public boolean usePhonetic() {
@@ -245,6 +245,7 @@ public class KeyboardPreferences {
         editor.clear();
         editor.apply();
         setFirstStart(false);
+        setSoundEnabled(false);
     }
 
     private boolean read(String key, boolean defaultValue) {

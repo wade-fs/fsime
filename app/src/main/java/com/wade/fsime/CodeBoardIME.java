@@ -60,7 +60,7 @@ public class CodeBoardIME extends InputMethodService
     private boolean vibratorOn;
     private int vibrateLength;
     private boolean soundOn;
-    private boolean use_boshiamy=true, disable_normal=false, use_phonetic=true;
+    private boolean use_boshiamy=true, disable_qwerty=false, use_phonetic=true;
     private int maxMatch = 30;
     private boolean shiftLock = false;
     private boolean ctrlLock = false;
@@ -90,7 +90,7 @@ public class CodeBoardIME extends InputMethodService
             mKeyboardState = R.integer.keyboard_clipboard;
         }
         if (mKeyboardState == R.integer.keyboard_clipboard) {
-            if (disable_normal) {
+            if (disable_qwerty) {
                 if (use_boshiamy) {
                     mKeyboardState = R.integer.keyboard_boshiamy;
                 } else if (use_phonetic) {
@@ -116,7 +116,7 @@ public class CodeBoardIME extends InputMethodService
         } else if (mKeyboardState == R.integer.keyboard_phonetic) {
             mKeyboardState = R.integer.keyboard_sym;
         } else {
-            if (disable_normal) {
+            if (disable_qwerty) {
                 if (use_boshiamy) {
                     mKeyboardState = R.integer.keyboard_boshiamy;
                 } else if (use_phonetic) {
@@ -648,7 +648,7 @@ public class CodeBoardIME extends InputMethodService
         vibratorOn = sharedPreferences.isVibrateEnabled();
         soundOn = sharedPreferences.isSoundEnabled();
         use_boshiamy = sharedPreferences.useBoshiamy();
-        disable_normal = sharedPreferences.disableNormal();
+        disable_qwerty = sharedPreferences.disableQwerty();
         use_phonetic = sharedPreferences.usePhonetic();
         mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
         mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();

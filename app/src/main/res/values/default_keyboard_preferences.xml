@@ -4,13 +4,13 @@
     <bool name="vibrate">false</bool>
     <bool name="preview">false</bool>
     <bool name="borders">true</bool>
+    <bool name="disable_qwerty">true</bool>
     <bool name="custom_theme">false</bool>
     <bool name="navbar">true</bool>
     <bool name="navbar_dark">false</bool>
     <bool name="top_row_actions">false</bool>
     <bool name="notification">false</bool>
     <bool name="use_boshiamy">true</bool>
-    <bool name="disable_normal">false</bool>
     <bool name="use_phonetic">true</bool>
     <integer name="theme">1</integer>
     <integer name="vibrate_length">1</integer>
