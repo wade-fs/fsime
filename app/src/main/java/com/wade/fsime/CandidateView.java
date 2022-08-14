@@ -50,7 +50,6 @@ public class CandidateView extends View {
     
     private Rect mBgPadding;
 
-    private static final int MAX_SUGGESTIONS = 64;
     private static final int SCROLL_PIXELS = 20;
     private static final int X_GAP = 10;
     private static final List<String> EMPTY_LIST = new ArrayList<String>();

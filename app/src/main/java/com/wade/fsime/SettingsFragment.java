@@ -1,5 +1,6 @@
 package com.wade.fsime;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -34,10 +35,14 @@ import static android.provider.Settings.Secure.DEFAULT_INPUT_METHOD;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements IOnFocusListenable {
     KeyboardPreferences keyboardPreferences;
+    Context styledContext;
+    String rootPreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
+        styledContext = getPreferenceScreen().getContext();
+        rootPreference = rootKey;
         keyboardPreferences = new KeyboardPreferences(requireActivity());
 
         //  Declare a new thread to do a preference check
@@ -103,7 +108,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         }
         return readableName;
     }
+    private void Logi(String msg) {
+        Log.i("FSIME", msg);
+    }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
 
@@ -117,6 +126,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                         requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showInputMethodPicker();
                 preference.setSummary(getCurrentImeLabel(getActivity().getApplicationContext()));
+                break;
+            case "use_boshiamy":
+                if (!keyboardPreferences.useBoshiamy()) {
+                    keyboardPreferences.setDisabledNormal(false);
+                    setPreferenceScreen(
+                            getPreferenceManager().inflateFromResource(
+                                    styledContext,
+                                    R.xml.preferences,
+                                    null)
+                    );
+                }
+                break;
+            case "disable_normal":
+                break;
+            case "use_phonetic":
                 break;
             case "bg_colour_picker":
             case "fg_colour_picker":

@@ -33,14 +33,14 @@ public class KeyboardPreferences {
     public boolean isDisabledNormal() {
         return read("disable_normal", res.getBoolean(R.bool.disable_normal));
     }
+    public void setDisabledNormal(boolean v) { write("disable_normal", v); }
 
     public boolean usePhonetic() {
         return read("use_phonetic", res.getBoolean(R.bool.use_phonetic));
     }
 
     public boolean isSoundEnabled() {
-        return read("sound",
-                res.getBoolean(R.bool.sound));
+        return read("sound", res.getBoolean(R.bool.sound));
     }
 
     public void setSoundEnabled(boolean bool) {
@@ -48,8 +48,7 @@ public class KeyboardPreferences {
     }
 
     public boolean isVibrateEnabled() {
-        return read("vibrate",
-                res.getBoolean(R.bool.vibrate));
+        return read("vibrate", res.getBoolean(R.bool.vibrate));
     }
 
     //Note: EditTextPreference saves these as strings. Could be null
@@ -63,28 +62,23 @@ public class KeyboardPreferences {
 //    }
 
     public int getMaxMatch() {
-        return Integer.parseInt(safeRead("max_match",
-                String.valueOf(res.getInteger(R.integer.max_match))));
+        return Integer.parseInt(safeRead("max_match", String.valueOf(res.getInteger(R.integer.max_match))));
     }
 
     public int getBgColor() {
-        return Integer.parseInt(safeRead("bg_colour_picker",
-                String.valueOf(res.getInteger(R.integer.bg_color))));
+        return Integer.parseInt(safeRead("bg_colour_picker", String.valueOf(res.getInteger(R.integer.bg_color))));
     }
 
     public void setBgColor(String color) {
-        write("bg_colour_picker",
-                color);
+        write("bg_colour_picker", color);
     }
 
     public int getFgColor() {
-        return Integer.parseInt(safeRead("fg_colour_picker",
-                String.valueOf(res.getInteger(R.integer.fg_color))));
+        return Integer.parseInt(safeRead("fg_colour_picker", String.valueOf(res.getInteger(R.integer.fg_color))));
     }
 
     public void setFgColor(String color) {
-        write("fg_colour_picker",
-                color);
+        write("fg_colour_picker", color);
     }
 
     public int getPortraitSize() {
@@ -99,8 +93,7 @@ public class KeyboardPreferences {
 
 
     public float getFontSizeAsSp() {
-        String fontSize = safeRead("font_size",
-                String.valueOf(res.getInteger(R.integer.font_size)));
+        String fontSize = safeRead("font_size", String.valueOf(res.getInteger(R.integer.font_size)));
         DisplayMetrics dm = res.getDisplayMetrics();
         float sp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
                 Float.parseFloat(fontSize), dm);
@@ -108,13 +101,11 @@ public class KeyboardPreferences {
     }
 
     public boolean isPreviewEnabled() {
-        return read("preview",
-                res.getBoolean(R.bool.preview));
+        return read("preview", res.getBoolean(R.bool.preview));
     }
 
     public boolean isBorderEnabled() {
-        return read("borders",
-                res.getBoolean(R.bool.borders));
+        return read("borders", res.getBoolean(R.bool.borders));
     }
 
     public String getCustomSymbolsMain() {
