@@ -10,9 +10,9 @@
             android:key="use_boshiamy"
             android:title="@string/use_boshiamy" />
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/disable_qwerty"
-            android:key="disable_qwerty"
-            android:title="@string/disable_qwerty"/>
+            android:defaultValue="@bool/disable_normal"
+            android:key="disable_normal"
+            android:title="@string/disable_normal"/>
         <SwitchPreferenceCompat
             android:defaultValue="@bool/use_phonetic"
             android:key="use_phonetic"

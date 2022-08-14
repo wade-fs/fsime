@@ -30,8 +30,8 @@ public class KeyboardPreferences {
         return read("use_boshiamy", res.getBoolean(R.bool.use_boshiamy));
     }
 
-    public boolean isDisabledQwerty() {
-        return read("disable_qwerty", res.getBoolean(R.bool.disable_qwerty));
+    public boolean isDisabledNormal() {
+        return read("disable_normal", res.getBoolean(R.bool.disable_normal));
     }
 
     public boolean usePhonetic() {
