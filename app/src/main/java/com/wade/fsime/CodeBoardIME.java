@@ -80,7 +80,7 @@ public class CodeBoardIME extends InputMethodService
 
     // normal -> boshiamy -> phonetic
     //    -> sym
-    //    -> clipboard
+    // 若有 ctrl -> clipboard
     private void nextKeyboard() {
         if (ctrl) {
             mCurKeyboard = R.integer.keyboard_clipboard;
@@ -112,13 +112,13 @@ public class CodeBoardIME extends InputMethodService
             else mCurKeyboard = R.integer.keyboard_sym;
         } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
             mCurKeyboard = R.integer.keyboard_sym;
-        } else if (disable_normal) {
+        } else if (disable_normal) { // keyboard_sym
             if (use_boshiamy) {
                 mCurKeyboard = R.integer.keyboard_boshiamy;
             } else if (use_phonetic) {
                 mCurKeyboard = R.integer.keyboard_phonetic;
             } else {
-                mCurKeyboard = R.integer.keyboard_sym;
+                mCurKeyboard = R.integer.keyboard_normal;
             }
         } else {
             mCurKeyboard = R.integer.keyboard_normal;
