@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory android:title="檢視鍵盤">
+    <PreferenceCategory android:title="@string/ime">
         <Preference
             android:key="change_keyboard"
             android:title="@string/change_keyboard" />
@@ -201,7 +201,10 @@
             android:title="Pin 7:"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="還原">
+    <PreferenceCategory android:title="@string/custom">
+        <Preference
+            android:key="custom_table"
+            android:title="@string/custom_table" />
         <Preference
             android:key="restore_default"
             android:title="還原預設值" />

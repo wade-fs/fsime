@@ -31,7 +31,7 @@ import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
 import com.pes.androidmaterialcolorpickerdialog.ColorPickerCallback;
 
 import static android.provider.Settings.Secure.DEFAULT_INPUT_METHOD;
-
+import com.wade.fsime.custom.CustomTable;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements IOnFocusListenable {
     KeyboardPreferences keyboardPreferences;
@@ -153,6 +153,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
             case "restore_old":
                 classicSymbols();
                 break;
+            case "custom_table":
+                Intent intent = new Intent(styledContext, CustomTable.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }
@@ -244,6 +248,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         } else if (key.equals("fg_colour_picker")) {
             color = keyboardPreferences.getFgColor();
         }
+
         ColorPicker cp = new ColorPicker(getActivity(),
                 Color.red(color),
                 Color.green(color),

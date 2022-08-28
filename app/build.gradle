@@ -39,8 +39,6 @@ repositories {
 }
 
 dependencies {
-
-    api 'androidx.appcompat:appcompat:1.5.1'
     api 'androidx.legacy:legacy-support-v13:1.0.0'
     api 'androidx.preference:preference:1.2.0'
 

@@ -38,6 +38,9 @@
         <activity android:name=".IntroActivity"
             android:label="@string/app_intro" />
 
+        <activity android:name=".custom.CustomTable"
+            android:label="@string/custom_table" />
+
     </application>
 
 </manifest>
