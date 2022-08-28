@@ -1,5 +1,6 @@
 package com.wade.fsime;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,7 +9,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
@@ -19,11 +19,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Vibrator;
 import android.util.Log;
-import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.media.MediaPlayer; // for keypress sound
@@ -43,7 +43,6 @@ import com.wade.fsime.theme.ThemeDefinitions;
 import com.wade.fsime.theme.ThemeInfo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -76,7 +75,6 @@ public class CodeBoardIME extends InputMethodService
     private int mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
 
     BDatabase bdatabase;
-    private ArrayList<B> b;
 
     // normal -> boshiamy -> phonetic
     //    -> sym
@@ -149,7 +147,7 @@ public class CodeBoardIME extends InputMethodService
                 ic.performContextMenuAction(android.R.id.redo);
                 break;
             case -1: // SYM, 切換鍵盤
-                turnCandidate(false);
+                turnCandidateOff();
                 if (shift) {
                     shift = false;
                     shiftLock = false;
@@ -315,11 +313,7 @@ public class CodeBoardIME extends InputMethodService
         if (soundOn) {
             MediaPlayer keypressSoundPlayer = MediaPlayer.create(this, R.raw.keypress_sound);
             keypressSoundPlayer.start();
-            keypressSoundPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
-                }
-            });
+            keypressSoundPlayer.setOnCompletionListener(mp -> mp.release());
         }
         if (vibratorOn) {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -333,18 +327,15 @@ public class CodeBoardIME extends InputMethodService
             public void run() {
                 try {
                     Handler uiHandler = new Handler(Looper.getMainLooper());
-                    Runnable runnable = new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                CodeBoardIME.this.onKeyLongPress(primaryCode);
-                            } catch (Exception e) {
+                    Runnable runnable = () -> {
+                        try {
+                            CodeBoardIME.this.onKeyLongPress(primaryCode);
+                        } catch (Exception ignored) {
 
-                            }
                         }
                     };
                     uiHandler.post(runnable);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
 
                 }
             }
@@ -439,12 +430,12 @@ public class CodeBoardIME extends InputMethodService
                         else
                             keyDownUp(ke, 0);
                     } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
-                        turnCandidate(false);
+                        turnCandidateOff();
                     } else {
                         mComposing.append(code);
                     }
                     if (mComposing.length() > 0) {
-                        updateCandidates(0, "");
+                        updateCandidates("");
                     } else {
                         setCandidatesViewShown(false);
                     }
@@ -452,8 +443,8 @@ public class CodeBoardIME extends InputMethodService
                     keyDownUp(ke, meta);
                 }
             } else {
-                mComposing.append(String.valueOf(code));
-                updateCandidates(0, "");
+                mComposing.append(code);
+                updateCandidates("");
             }
             if (shift && !shiftLock) {
                 shift = false;
@@ -511,12 +502,12 @@ public class CodeBoardIME extends InputMethodService
         clearLongPressTimer();
     }
 
-    private void turnCandidate(boolean prediction) {
-        if (mCandidateView != null && !prediction) {
+    private void turnCandidateOff() {
+        if (mCandidateView != null) {
             mComposing.setLength(0);
             mCandidateView.clear();
         }
-        setCandidatesViewShown(prediction);
+        setCandidatesViewShown(false);
     }
 
     /**
@@ -528,15 +519,28 @@ public class CodeBoardIME extends InputMethodService
             InputConnection ic = getCurrentInputConnection();
             ic.commitText(res, res.length());
             ic.finishComposingText();
+
+            if (index == 0) {
+                CharSequence currentText = ic.getExtractedText(new ExtractedTextRequest(), 0).text;
+                CharSequence afterCursorText = ic.getTextAfterCursor(currentText.length(), 0);
+                int back = afterCursorText.length();
+                Logi("current " + currentText + " after " + afterCursorText.toString() + " back " + back);
+                if (res.length() > back) {
+                    back = res.length();
+                }
+                for (int i = 0; i < back - 1; i++) {
+                    keyDownUp(KeyEvent.KEYCODE_DPAD_LEFT, 0);
+                }
+            }
             mComposing.setLength(0);
             if (res.length() == 1) {
-                updateCandidates(0, res);
+                updateCandidates(res);
             } else {
-                updateCandidates(0, "");
-                turnCandidate(false);
+                updateCandidates("");
+                turnCandidateOff();
             }
         } else {
-            turnCandidate(false);
+            turnCandidateOff();
         }
     }
 
@@ -558,18 +562,18 @@ public class CodeBoardIME extends InputMethodService
     /**
      * 更新候選區，其內容是由 mComposing 從資料庫產生，第一筆就是輸入組字
      */
-    private void updateCandidates(int forward, String freq) { // 候選區是捲動式的，要往前 forward 幾個字
+    private void updateCandidates(String freq) { // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
         if (mCurKeyboard != R.integer.keyboard_boshiamy && mCurKeyboard != R.integer.keyboard_phonetic) {
             return;
         }
+        ArrayList<B> b;
         if (freq.length() > 0) {
             ArrayList<String> list = new ArrayList<String>();
             list.add(freq.substring(0,1));
             if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
-            int s = start + forward * 30;
+            int s = start;
             b = bdatabase.getF(freq, s, maxMatch);
-            start += forward * b.size();
             for (B d : b) {
                 list.add(d.ch);
             }
@@ -580,7 +584,7 @@ public class CodeBoardIME extends InputMethodService
 
             if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
             // wade, 底下根據鍵盤，切換不同的資料庫
-            int s = start + forward * 30;
+            int s = start;
             if (mCurKeyboard == R.integer.keyboard_boshiamy) { // 英瞎
                 b = bdatabase.getB(mComposing.toString().toLowerCase(), s, maxMatch);
                 for (B d : b) {
@@ -588,7 +592,6 @@ public class CodeBoardIME extends InputMethodService
                 }
             } else if (mCurKeyboard == R.integer.keyboard_phonetic) { // 注音
                 if ((b = bdatabase.getJuin(mComposing.toString(), s, maxMatch)).size() > 0) {
-                    start += forward * b.size();
                     for (B d : b) {
                         list.add(d.ch);
                     }
@@ -812,7 +815,7 @@ public class CodeBoardIME extends InputMethodService
         super.onStartInputView(attribute, restarting);
         setInputView(onCreateInputView());
         sEditorInfo = attribute;
-        turnCandidate(false);
+        turnCandidateOff();
     }
 
     public void controlKeyUpdateView() {
@@ -909,17 +912,17 @@ public class CodeBoardIME extends InputMethodService
             registerReceiver(mNotificationReceiver, pFilter);
 
             Intent notificationIntent = new Intent(NotificationReceiver.ACTION_SHOW);
-            PendingIntent contentIntent =
+            @SuppressLint("LaunchActivityFromNotification") PendingIntent contentIntent =
                     PendingIntent.getBroadcast(getApplicationContext(), 1, notificationIntent, 0);
 
             Intent configIntent = new Intent(NotificationReceiver.ACTION_SETTINGS);
-            PendingIntent configPendingIntent =
+            @SuppressLint("UnspecifiedImmutableFlag") PendingIntent configPendingIntent =
                     PendingIntent.getBroadcast(getApplicationContext(), 2, configIntent, 0);
 
             String title = "Show Codeboard Keyboard";
             String body = "Select this to open the keyboard. Disable in settings.";
 
-            NotificationCompat.Builder mBuilder =
+            @SuppressLint("LaunchActivityFromNotification") NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                             .setSmallIcon(R.drawable.icon_large)
                             .setColor(0xff220044)
@@ -936,10 +939,7 @@ public class CodeBoardIME extends InputMethodService
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-            // notificationId is a unique int for each notification that you must define
             notificationManager.notify(NOTIFICATION_ONGOING_ID, mBuilder.build());
-
         } else if (!visible && mNotificationReceiver != null) {
             mNotificationManager.cancel(NOTIFICATION_ONGOING_ID);
             unregisterReceiver(mNotificationReceiver);
