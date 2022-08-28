@@ -418,17 +418,20 @@ public class CodeBoardIME extends InputMethodService
                     if (ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
-                        if (mCandidateView == null || mCandidateView.size() == 0) {
-                            ic.commitText(String.valueOf(code), 1);
+                        if (mCandidateView == null || mCandidateView.size() == 0 || mComposing.length() == 0) {
+                            Logi("no mCandidateView");
+                            ic.commitText(" ", 1);
                         } else if (mCandidateView.size() > 1) {
+                            Logi("mCandidateView "+mCandidateView.toString());
                             pickSuggestionManually(1);
                             return;
                         }
                     } else if (ke == KeyEvent.KEYCODE_ENTER) {
-                        if (mComposing.length() > 0)
+                        if (mComposing.length() > 0) {
                             pickSuggestionManually(0);
-                        else
+                        } else {
                             keyDownUp(ke, 0);
+                        }
                     } else if (ke == KeyEvent.KEYCODE_ESCAPE) {
                         turnCandidateOff();
                     } else {
