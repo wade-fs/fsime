@@ -11,38 +11,59 @@
         android:layout_weight="0.1"
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
-        <TextView
+        <Button
+            android:id="@+id/id_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:text="@string/word"
-            tools:ignore="Suspicious0dp" />
+            android:textSize="20sp"
+            tools:ignore="NestedWeights,Suspicious0dp" />
         <EditText
             android:id="@+id/word"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/word"
-            android:maxLines="1"
+            android:layout_weight="0.7"
+            android:text=""
+            android:textSize="20sp"
+            android:singleLine="true"
             tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        tools:ignore="Suspicious0dp">
         <Button
             android:id="@+id/add_compose"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.3"
+            android:textSize="20sp"
             android:text="@string/add_compose"
-            />
+            tools:ignore="NestedWeights,Suspicious0dp" />
+        <EditText
+            android:id="@+id/compose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text=""
+            android:textSize="20sp"
+            android:singleLine="true"
+            tools:ignore="Suspicious0dp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
+        android:layout_weight="0.8"
         tools:ignore="Suspicious0dp">
 
         <ListView
             android:id="@+id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
             />
 
     </LinearLayout>

@@ -520,21 +520,21 @@ public class CodeBoardIME extends InputMethodService
         String res = mCandidateView.getSuggestion(index);
         if (res.length() > 0) {
             InputConnection ic = getCurrentInputConnection();
+            CharSequence afterCursorText = ic.getTextAfterCursor(res.length()+1, 0);
             ic.commitText(res, res.length());
-            ic.finishComposingText();
 
             if (index == 0) {
-                CharSequence currentText = ic.getExtractedText(new ExtractedTextRequest(), 0).text;
-                CharSequence afterCursorText = ic.getTextAfterCursor(currentText.length(), 0);
-                int back = afterCursorText.length();
-                Logi("current " + currentText + " after " + afterCursorText.toString() + " back " + back);
-                if (res.length() > back) {
-                    back = res.length();
+                // 如果後面無字，不用退，
+                int after = afterCursorText.length();
+                Logi("res "+res+" after " + afterCursorText.toString() + " back " + after);
+                if (res.length() < after) {
+                    after = res.length() - 1;
                 }
-                for (int i = 0; i < back - 1; i++) {
+                for (int i = 0; i < after; i++) {
                     keyDownUp(KeyEvent.KEYCODE_DPAD_LEFT, 0);
                 }
             }
+            ic.finishComposingText();
             mComposing.setLength(0);
             if (res.length() == 1) {
                 updateCandidates(res);

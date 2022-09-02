@@ -1,6 +1,9 @@
 <resources>
     <string name="custom">客製化與還原</string>
     <string name="custom_table">客製化字碼</string>
+    <string name="delete_compose">刪除</string>
+    <string name="add_compose">"新增> "</string>
+    <string name="word">"查詢> "</string>
     <string name="ime">檢視鍵盤</string>
     <string name="app_name">狂想鍵盤</string>
     <string name="fsime">狂想鍵盤</string>
@@ -25,7 +28,4 @@
     <string name="notification_action_open_keyboard">打開狂想鍵盤</string>
     <string name="notification_action_settings">設定</string>
     <string name="github_summary">本軟體是免費的，開源的，並且沒有讀取您的數據！ 您可以在 https://gitlab.com/wade_fs/fsime 上查看，自行修改和編譯.</string>
-    <string name="delete_compose">刪除</string>
-    <string name="add_compose">新增</string>
-    <string name="word">請輸入中文字</string>
 </resources>

@@ -2,24 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="40sp"
     android:background="@color/colorPrimaryDark"
     android:orientation="horizontal">
 
     <EditText
         android:id="@+id/compose_item"
         android:layout_width="0dp"
-        android:layout_height="32sp"
-        android:layout_weight="0.8"
+        android:layout_height="40sp"
+        android:layout_weight="0.7"
         android:layout_gravity="start"
         android:text=""
         android:textSize="20sp"
+        android:textColor="#FFF"
         tools:ignore="Suspicious0dp" />
     <Button
         android:id="@+id/delete_compose"
         android:layout_width="0dp"
-        android:layout_height="32sp"
-        android:text="@string/delete_compose"
+        android:layout_height="40sp"
         android:layout_weight="0.3"
+        android:text="@string/delete_compose"
         />
 </LinearLayout>
