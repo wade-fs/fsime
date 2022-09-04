@@ -11,15 +11,15 @@
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
         <Button
-            android:id="@+id/id_search"
+            android:id="@+id/btsearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:text="@string/word"
+            android:text="@string/btsearch"
             android:textSize="20sp"
             tools:ignore="NestedWeights,Suspicious0dp" />
         <EditText
-            android:id="@+id/word"
+            android:id="@+id/etsearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -35,15 +35,15 @@
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
         <Button
-            android:id="@+id/add_compose"
+            android:id="@+id/btadd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:textSize="20sp"
-            android:text="@string/add_compose"
+            android:text="@string/btadd"
             tools:ignore="NestedWeights,Suspicious0dp" />
         <EditText
-            android:id="@+id/compose_to_add"
+            android:id="@+id/etadd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -59,15 +59,15 @@
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
         <Button
-            android:id="@+id/edit_compose"
+            android:id="@+id/btedit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:textSize="20sp"
-            android:text="@string/add_compose"
+            android:text="@string/btedit"
             tools:ignore="NestedWeights,Suspicious0dp" />
         <EditText
-            android:id="@+id/compose_to_edit"
+            android:id="@+id/etedit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -77,6 +77,28 @@
             tools:ignore="Suspicious0dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="Suspicious0dp">
+        <Button
+            android:id="@+id/btsave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="20sp"
+            android:text="@string/btsave"
+            tools:ignore="NestedWeights,Suspicious0dp" />
+        <Button
+            android:id="@+id/btback"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textSize="20sp"
+            android:text="@string/btback"
+            tools:ignore="NestedWeights,Suspicious0dp" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -85,7 +107,7 @@
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
+            android:layout_height="match_parent"
             />
 
     </LinearLayout>

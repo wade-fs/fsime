@@ -1,4 +1,4 @@
-package com.wade.fsime;
+package com.wade.fsime.database;
 
 public class B{
   public int id;

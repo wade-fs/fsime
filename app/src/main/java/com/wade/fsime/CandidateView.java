@@ -30,9 +30,6 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wade.fsime.R;
-
-
 /*
  * This class will display candidate words based on some dictionary
  * (Feature currently not implemented!)

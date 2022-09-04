@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.wade.fsime.R;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class CustomAdapter extends ArrayAdapter<String> {
     private ArrayList<String> dataSet;
@@ -25,15 +26,28 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     public void addItem(String item){
         dataSet.add(item);
+        this.notifyDataSetChanged();
     }
 
     public void removeItem(int position){
         dataSet.remove(position);
+        this.notifyDataSetChanged();
+    }
+    public void clean() {
+        ListIterator<String> listIterator = dataSet.listIterator();
+        while (listIterator.hasNext()) {
+            listIterator.next();
+            listIterator.remove();
+        }
+    }
+    public void setItems(ArrayList<String> composes) {
+        clean();
+        dataSet = composes;
+        this.notifyDataSetChanged();
     }
 
-    public ArrayList<String> getItems() {
-        return dataSet;
-
+    public void setItem(int pos, String item) {
+        dataSet.set(pos, item);
     }
     @Override
     public int getCount() {
@@ -43,6 +57,9 @@ public class CustomAdapter extends ArrayAdapter<String> {
     @Override
     public String getItem(int position) {
         return dataSet.get(position);
+    }
+    public ArrayList<String> getDataSet() {
+        return dataSet;
     }
 
     @Override

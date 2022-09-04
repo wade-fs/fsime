@@ -1,8 +1,13 @@
-package com.wade.fsime;
+package com.wade.fsime.database;
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import java.util.ArrayList;
 
@@ -27,6 +32,38 @@ public class BDatabase extends SQLiteAssetHelper {
         return false;
     }
 
+    public ArrayList<String> getCompose(String word) {
+        if (db == null) db=getWritableDatabase();
+        ArrayList<String> composes = new ArrayList<>();
+
+        String q = "SELECT * FROM b WHERE ch = \"" + word + "\";";
+        Cursor cursor = db.rawQuery(q, null);
+        boolean next = cursor.moveToFirst();
+        while (next) {
+            int idx = cursor.getColumnIndex(BDatabase.ENG);
+            if (idx >= 0) {
+                String compose = cursor.getString(idx);
+                composes.add(compose);
+            }
+            next = cursor.moveToNext();
+        }
+        return composes;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void saveCompose(String ch, ArrayList<String> composes) {
+        if (ch.length() != 1) {
+            return;
+        }
+        if (db == null) db=getWritableDatabase();
+        db.delete("b", "ch=?", new String[]{ch});
+        for (String item : composes) {
+            ContentValues values = new ContentValues();
+            values.put("eng", item);
+            values.put("ch", ch);
+            db.insert("b", null, values);
+        }
+    }
     @SuppressLint("Range")
     public ArrayList<B> getB(String k, int start, int max){
         if (db == null) db=getWritableDatabase();

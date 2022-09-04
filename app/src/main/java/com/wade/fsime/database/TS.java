@@ -1,4 +1,4 @@
-package com.wade.fsime;
+package com.wade.fsime.database;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,9 +7,7 @@ import java.util.Map;
  * Created by npes87184 on 2015/4/10.
  */
 public class TS {
-
     public TS() {
-
     }
 
     public static String StoT(String data) {

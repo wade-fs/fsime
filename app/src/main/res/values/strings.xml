@@ -1,9 +1,11 @@
 <resources>
     <string name="custom">客製化與還原</string>
     <string name="custom_table">客製化字碼</string>
-    <string name="delete_compose">刪除</string>
-    <string name="add_compose">"新增> "</string>
-    <string name="word">"查詢> "</string>
+    <string name="btadd">"新增&gt; "</string>
+    <string name="btedit">"編輯&gt; "</string>
+    <string name="btsearch">"查詢&gt; "</string>
+    <string name="btsave">"&lt;儲存&gt; "</string>
+    <string name="btback">"&lt;備份資料庫&gt; "</string>
     <string name="ime">檢視鍵盤</string>
     <string name="app_name">狂想鍵盤</string>
     <string name="fsime">狂想鍵盤</string>

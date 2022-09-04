@@ -23,7 +23,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.media.MediaPlayer; // for keypress sound
@@ -32,6 +31,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.graphics.ColorUtils;
 
+import com.wade.fsime.database.B;
+import com.wade.fsime.database.BDatabase;
 import com.wade.fsime.layout.Box;
 import com.wade.fsime.layout.Definitions;
 import com.wade.fsime.layout.Key;
@@ -419,12 +420,13 @@ public class CodeBoardIME extends InputMethodService
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
                         if (mCandidateView == null || mCandidateView.size() == 0 || mComposing.length() == 0) {
-                            Logi("no mCandidateView");
                             ic.commitText(" ", 1);
                         } else if (mCandidateView.size() > 1) {
-                            Logi("mCandidateView "+mCandidateView.toString());
                             pickSuggestionManually(1);
                             return;
+                        } else {
+                            mComposing.append(" ");
+                            updateCandidates("");
                         }
                     } else if (ke == KeyEvent.KEYCODE_ENTER) {
                         if (mComposing.length() > 0) {
