@@ -7,8 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
         <Button
@@ -32,8 +31,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:ignore="Suspicious0dp">
         <Button
@@ -45,7 +43,7 @@
             android:text="@string/add_compose"
             tools:ignore="NestedWeights,Suspicious0dp" />
         <EditText
-            android:id="@+id/compose"
+            android:id="@+id/compose_to_add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
@@ -54,10 +52,34 @@
             android:singleLine="true"
             tools:ignore="Suspicious0dp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="Suspicious0dp">
+        <Button
+            android:id="@+id/edit_compose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:textSize="20sp"
+            android:text="@string/add_compose"
+            tools:ignore="NestedWeights,Suspicious0dp" />
+        <EditText
+            android:id="@+id/compose_to_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text=""
+            android:textSize="20sp"
+            android:singleLine="true"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:ignore="Suspicious0dp">
 
         <ListView

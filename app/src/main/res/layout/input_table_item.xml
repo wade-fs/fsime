@@ -6,7 +6,7 @@
     android:background="@color/colorPrimaryDark"
     android:orientation="horizontal">
 
-    <EditText
+    <TextView
         android:id="@+id/compose_item"
         android:layout_width="0dp"
         android:layout_height="40sp"
@@ -16,11 +16,4 @@
         android:textSize="20sp"
         android:textColor="#FFF"
         tools:ignore="Suspicious0dp" />
-    <Button
-        android:id="@+id/delete_compose"
-        android:layout_width="0dp"
-        android:layout_height="40sp"
-        android:layout_weight="0.3"
-        android:text="@string/delete_compose"
-        />
 </LinearLayout>

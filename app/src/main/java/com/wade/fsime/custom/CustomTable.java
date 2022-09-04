@@ -15,12 +15,10 @@ import com.wade.fsime.R;
 import java.util.ArrayList;
 
 public class CustomTable extends Activity {
-
-    ArrayList<DataModel> dataModels;
     ListView listView;
-    Button btnSearch, btnAddCompose;
-    EditText etWord, etCompose;
-    private static CustomAdapter adapter;
+    Button btnSearch, btnAddCompose, btnEditCompose;
+    EditText etWord, etCompose, etEdit;
+    private static CustomAdapter mAdapter;
     private void Logi(String msg) {
         Log.i("FSIME", msg);
     }
@@ -31,31 +29,45 @@ public class CustomTable extends Activity {
 
         listView = findViewById(R.id.list);
         etWord = findViewById(R.id.word);
-        etCompose = findViewById(R.id.compose);
+        etCompose = findViewById(R.id.compose_to_add);
+        etEdit = findViewById(R.id.compose_to_edit);
         btnSearch = findViewById(R.id.id_search);
-        btnAddCompose = findViewById(R.id.add_compose);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Logi("Search "+etWord.getText().toString());
             }
         });
+        btnAddCompose = findViewById(R.id.add_compose);
         btnAddCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Logi("Add compose "+etCompose.getText().toString());
             }
         });
+        btnEditCompose = findViewById(R.id.edit_compose);
+        btnEditCompose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logi("Edit compose "+etCompose.getText().toString());
+            }
+        });
 
-        dataModels= new ArrayList<>();
+        mAdapter= new CustomAdapter(getApplicationContext(), new ArrayList<>());
+        mAdapter.addItem("tt"); // TODO
 
-//        dataModels.add(new DataModel("tt"));
-        adapter= new CustomAdapter(getApplicationContext(), dataModels);
-        if (listView != null && adapter != null) {
-            listView.setAdapter(adapter);
+        if (listView != null && mAdapter != null) {
+            listView.setAdapter(mAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    DataModel dataModel = dataModels.get(position);
+                    Logi("onClick "+mAdapter.getItem(position));
+                }
+            });
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                    Logi("remove item "+mAdapter.getItem(position));
+                    return true;
                 }
             });
         }
