@@ -19,12 +19,13 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String CH="ch";
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
-    private final int ts = 0;
+    private int ts = 0;
 
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    public void setTs(int t) { ts = t; }
     private boolean isIn(ArrayList<B> res, B b) {
         for (B bb : res) {
             if (bb.ch.equals(b.ch)) return true;
@@ -50,7 +51,6 @@ public class BDatabase extends SQLiteAssetHelper {
         return composes;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void saveCompose(String ch, ArrayList<String> composes) {
         if (ch.length() != 1) {
             return;

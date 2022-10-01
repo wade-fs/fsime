@@ -424,6 +424,15 @@ public class CodeBoardIME extends InputMethodService
                         } else if (mCandidateView.size() > 1) {
                             pickSuggestionManually(1);
                             return;
+                        } else if (mComposing.toString().equals(",,s")) {
+                            bdatabase.setTs(2);
+                            turnCandidateOff();
+                        } else if (mComposing.toString().equals(",,t")) {
+                            bdatabase.setTs(1);
+                            turnCandidateOff();
+                        } else if (mComposing.toString().equals(",,c")) {
+                            bdatabase.setTs(0);
+                            turnCandidateOff();
                         } else {
                             mComposing.append(" ");
                             updateCandidates("");
