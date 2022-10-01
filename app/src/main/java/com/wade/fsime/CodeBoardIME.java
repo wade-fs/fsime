@@ -386,12 +386,6 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
-    public void onText(CharSequence text) {
-        Logi("onText() code "+text.toString());
-        getCurrentInputConnection().commitText(text, 1);
-        clearLongPressTimer();
-    }
-
     @Override
     public void onWindowHidden() {
         super.onWindowHidden();
@@ -723,6 +717,7 @@ public class CodeBoardIME extends InputMethodService
     }
 
     private void keyDownUp(int keyEventCode, int meta) {
+        Logi("onKey "+keyEventCode);
         InputConnection ic = getCurrentInputConnection();
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
@@ -765,8 +760,15 @@ public class CodeBoardIME extends InputMethodService
     }
 
     @Override
-    public void onKey(int primaryCode, int[] KeyCodes) {
-        Logi("CBIME onKey "+primaryCode);
+    public void onKey(int code, int[] KeyCodes) {
+        pressedCode = code;
+        processKey();
+    }
+
+    public void onText(CharSequence text) {
+        Logi("onText() code "+text.toString());
+        getCurrentInputConnection().commitText(text, 1);
+        clearLongPressTimer();
     }
 
     public void onKeyLongPress(int keyCode) {
@@ -819,8 +821,6 @@ public class CodeBoardIME extends InputMethodService
 
     public void onRelease(int primaryCode) {
         Logi("CBIME onRelease "+primaryCode);
-
-        if (!swipe) processKey();
         clearLongPressTimer();
     }
 

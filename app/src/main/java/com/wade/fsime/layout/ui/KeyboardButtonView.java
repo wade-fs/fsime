@@ -55,7 +55,6 @@ public class KeyboardButtonView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
-        Logi("KBV onTouchEvent "+e.toString());
         int action = e.getAction();
         switch(action){
             case MotionEvent.ACTION_DOWN:
@@ -88,7 +87,6 @@ public class KeyboardButtonView extends View {
     }
 
     private void onPress() {
-        Logi("KBV onPress");
         isPressed = true;
         inputService.onPress(key.info.code);
         if (key.info.isRepeatable){
@@ -99,9 +97,7 @@ public class KeyboardButtonView extends View {
     }
 
     private void onRelease() {
-        Logi("KBV onRelease");
         isPressed = false;
-//      NOTE: If the arrow keys move out of the input view, the onRelease is never called
         if (key.info.code != 0){
             inputService.onRelease(key.info.code);
         }
@@ -238,7 +234,7 @@ public class KeyboardButtonView extends View {
             public void run() {
                 submitKeyEvent();
             }
-        },500, 100);
+        },500, 200);
     }
 
     private void animatePress(){

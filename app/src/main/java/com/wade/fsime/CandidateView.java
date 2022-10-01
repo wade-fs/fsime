@@ -230,8 +230,7 @@ public class CandidateView extends View {
         invalidate();
     }
     
-    public void setSuggestions(List<String> suggestions, boolean completions,
-            boolean typedWordValid) {
+    public void setSuggestions(List<String> suggestions, boolean completions, boolean typedWordValid) {
         clear();
         if (suggestions != null) {
             mSuggestions = new ArrayList<String>(suggestions);
