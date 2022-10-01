@@ -301,97 +301,10 @@ public class CodeBoardIME extends InputMethodService
             mComposing.delete(length - 1, length);
             getCurrentInputConnection().setComposingText(mComposing, 1);
         } else {
-            mComposing.setLength(0);
+            turnCandidateOff();
             getCurrentInputConnection().commitText("", 0);
             keyDownUp(KeyEvent.KEYCODE_DEL, 0);
-            mCandidateView.setSuggestions(null, false, false);
         }
-    }
-
-    public void onPress(final int primaryCode) {
-        swipe = false;
-        pressedCode = primaryCode;
-        if (soundOn) {
-            MediaPlayer keypressSoundPlayer = MediaPlayer.create(this, R.raw.keypress_sound);
-            keypressSoundPlayer.start();
-            keypressSoundPlayer.setOnCompletionListener(mp -> mp.release());
-        }
-        if (vibratorOn) {
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null) vibrator.vibrate(vibrateLength);
-        }
-
-        clearLongPressTimer();
-        timerLongPress = new Timer();
-        timerLongPress.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    Handler uiHandler = new Handler(Looper.getMainLooper());
-                    Runnable runnable = () -> {
-                        try {
-                            CodeBoardIME.this.onKeyLongPress(primaryCode);
-                        } catch (Exception ignored) {
-
-                        }
-                    };
-                    uiHandler.post(runnable);
-                } catch (Exception ignored) {
-
-                }
-            }
-        }, ViewConfiguration.getLongPressTimeout());
-    }
-
-    @Override
-    public void onKey(int primaryCode, int[] KeyCodes) {
-        // move to processKey();
-    }
-
-    public void onKeyLongPress(int keyCode) {
-        // Process long-click here
-        // This is following an onKey()
-        InputConnection ic = getCurrentInputConnection();
-        if (keyCode == 16) { // Shift
-            shiftLock = !shiftLock;
-            if (shiftLock) {
-                shift = true;
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
-            } else {
-                shift = false;
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-            }
-            shiftKeyUpdateView();
-        }
-
-        if (keyCode == 17) { // Ctrl
-            ctrlLock = !ctrlLock;
-            if (ctrlLock) {
-                ctrl = true;
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_CTRL_LEFT));
-            } else {
-                ctrl = false;
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
-            }
-            controlKeyUpdateView();
-        }
-
-        if (keyCode == 32) { // SPACE
-            InputMethodManager imm = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null)
-                imm.showInputMethodPicker();
-        }
-
-        if (vibratorOn) {
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null) vibrator.vibrate(vibrateLength);
-        }
-    }
-
-    public void onRelease(int primaryCode) {
-        if (!swipe) processKey();
-        clearLongPressTimer();
     }
 
     private void processKey() {
@@ -480,31 +393,6 @@ public class CodeBoardIME extends InputMethodService
     }
 
     @Override
-    public void swipeLeft() {
-        Logi("swipeLeft() code "+mCurrentKeyboardLayoutView.getKey());
-    }
-
-    @Override
-    public void swipeRight() {
-        Logi("swipeRight() code "+mCurrentKeyboardLayoutView.getKey());
-    }
-
-    @Override
-    public void swipeDown() {
-        Logi("swipeDown() code "+mCurrentKeyboardLayoutView.getKey());
-    }
-
-    @Override
-    public void swipeUp() {
-        Logi("swipeUp() code "+mCurrentKeyboardLayoutView.getKey());
-        swipe = true; // prevent processKey() @ onRelease()
-
-        //getCurrentInputConnection().commitText(mCurrentKeyboardLayoutView.getKey(), 1);
-        pressedCode = mCurrentKeyboardLayoutView.getKey().hashCode();
-        processKey();
-    }
-
-    @Override
     public void onWindowHidden() {
         super.onWindowHidden();
         clearLongPressTimer();
@@ -518,9 +406,9 @@ public class CodeBoardIME extends InputMethodService
 
     private void turnCandidateOff() {
         if (mCandidateView != null) {
-            mComposing.setLength(0);
             mCandidateView.clear();
         }
+        mComposing.setLength(0);
         setCandidatesViewShown(false);
     }
 
@@ -546,22 +434,15 @@ public class CodeBoardIME extends InputMethodService
                 }
             }
             ic.finishComposingText();
-            mComposing.setLength(0);
             if (res.length() == 1) {
+                mComposing.setLength(0);
                 updateCandidates(res);
             } else {
-                updateCandidates("");
                 turnCandidateOff();
             }
         } else {
             turnCandidateOff();
         }
-    }
-
-    private void keyDownUp(int keyEventCode, int meta) {
-        InputConnection ic = getCurrentInputConnection();
-        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
-        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
     }
 
     private void Logi(String msg) {
@@ -576,7 +457,8 @@ public class CodeBoardIME extends InputMethodService
     /**
      * 更新候選區，其內容是由 mComposing 從資料庫產生，第一筆就是輸入組字
      */
-    private void updateCandidates(String freq) { // 候選區是捲動式的，要往前 forward 幾個字
+    private void updateCandidates(String freq) {
+        // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
         if (mCurKeyboard != R.integer.keyboard_boshiamy && mCurKeyboard != R.integer.keyboard_phonetic) {
             return;
@@ -838,6 +720,133 @@ public class CodeBoardIME extends InputMethodService
 
     public void shiftKeyUpdateView() {
         mCurrentKeyboardLayoutView.applyShiftModifier(shift);
+    }
+
+    private void keyDownUp(int keyEventCode, int meta) {
+        InputConnection ic = getCurrentInputConnection();
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
+    }
+
+    public void onPress(final int primaryCode) {
+        Logi("CBIME onPress "+primaryCode);
+        swipe = false;
+        pressedCode = primaryCode;
+        if (soundOn) {
+            MediaPlayer keypressSoundPlayer = MediaPlayer.create(this, R.raw.keypress_sound);
+            keypressSoundPlayer.start();
+            keypressSoundPlayer.setOnCompletionListener(mp -> mp.release());
+        }
+        if (vibratorOn) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null) vibrator.vibrate(vibrateLength);
+        }
+
+        clearLongPressTimer();
+        timerLongPress = new Timer();
+        timerLongPress.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    Handler uiHandler = new Handler(Looper.getMainLooper());
+                    Runnable runnable = () -> {
+                        try {
+                            CodeBoardIME.this.onKeyLongPress(primaryCode);
+                        } catch (Exception ignored) {
+
+                        }
+                    };
+                    uiHandler.post(runnable);
+                } catch (Exception ignored) {
+
+                }
+            }
+        }, ViewConfiguration.getLongPressTimeout());
+    }
+
+    @Override
+    public void onKey(int primaryCode, int[] KeyCodes) {
+        Logi("CBIME onKey "+primaryCode);
+    }
+
+    public void onKeyLongPress(int keyCode) {
+        Logi("CBIME onKeyLongPress "+keyCode + " "+mCurrentKeyboardLayoutView.getKey());
+        // Process long-click here
+        // This is following an onKey()
+        InputConnection ic = getCurrentInputConnection();
+        switch (keyCode) {
+            case 16: { // Shift
+                shiftLock = !shiftLock;
+                if (shiftLock) {
+                    shift = true;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
+                } else {
+                    shift = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+                }
+                shiftKeyUpdateView();
+                break;
+            }
+
+            case 17: { // Ctrl
+                ctrlLock = !ctrlLock;
+                if (ctrlLock) {
+                    ctrl = true;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_CTRL_LEFT));
+                } else {
+                    ctrl = false;
+                    ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CTRL_LEFT));
+                }
+                controlKeyUpdateView();
+                break;
+            }
+
+            case 32: { // SPACE
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) imm.showInputMethodPicker();
+                break;
+            }
+            default: {
+                pressedCode = mCurrentKeyboardLayoutView.getKey().charAt(0);
+            }
+        }
+        if (vibratorOn) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null) vibrator.vibrate(vibrateLength);
+        }
+    }
+
+    public void onRelease(int primaryCode) {
+        Logi("CBIME onRelease "+primaryCode);
+
+        if (!swipe) processKey();
+        clearLongPressTimer();
+    }
+
+    @Override
+    public void swipeLeft() {
+        Logi("swipeLeft() code "+mCurrentKeyboardLayoutView.getKey());
+    }
+
+    @Override
+    public void swipeRight() {
+        Logi("swipeRight() code "+mCurrentKeyboardLayoutView.getKey());
+    }
+
+    @Override
+    public void swipeDown() {
+        Logi("swipeDown() code "+mCurrentKeyboardLayoutView.getKey());
+    }
+
+    @Override
+    public void swipeUp() {
+        Logi("swipeUp() code "+mCurrentKeyboardLayoutView.getKey());
+        swipe = true; // prevent processKey() @ onRelease()
+
+        //getCurrentInputConnection().commitText(mCurrentKeyboardLayoutView.getKey(), 1);
+        pressedCode = mCurrentKeyboardLayoutView.getKey().hashCode();
+        processKey();
     }
 
     private void clearLongPressTimer() {

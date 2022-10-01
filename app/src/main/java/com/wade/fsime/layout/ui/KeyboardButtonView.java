@@ -49,9 +49,13 @@ public class KeyboardButtonView extends View {
     public String getCurrentLabel() {
         return currentLabel;
     }
+    private void Logi(String msg) {
+        Log.i("FSIME", msg);
+    }
+
     @Override
-    public boolean onTouchEvent(MotionEvent e)
-    {
+    public boolean onTouchEvent(MotionEvent e) {
+        Logi("KBV onTouchEvent "+e.toString());
         int action = e.getAction();
         switch(action){
             case MotionEvent.ACTION_DOWN:
@@ -81,6 +85,30 @@ public class KeyboardButtonView extends View {
                 break;
         }
         return true;
+    }
+
+    private void onPress() {
+        Logi("KBV onPress");
+        isPressed = true;
+        inputService.onPress(key.info.code);
+        if (key.info.isRepeatable){
+            startRepeating();
+        }
+        submitKeyEvent();
+        animatePress();
+    }
+
+    private void onRelease() {
+        Logi("KBV onRelease");
+        isPressed = false;
+//      NOTE: If the arrow keys move out of the input view, the onRelease is never called
+        if (key.info.code != 0){
+            inputService.onRelease(key.info.code);
+        }
+        if (key.info.isRepeatable){
+            stopRepeating();
+        }
+        animateRelease();
     }
 
     @Override
@@ -174,28 +202,6 @@ public class KeyboardButtonView extends View {
         float rx = uiTheme.buttonBodyBorderRadius;
         float ry = uiTheme.buttonBodyBorderRadius;
         canvas.drawRoundRect(left, top, right, bottom, rx, ry, uiTheme.buttonBodyPaint);
-    }
-
-    private void onPress() {
-        isPressed = true;
-        inputService.onPress(key.info.code);
-        if (key.info.isRepeatable){
-            startRepeating();
-        }
-        submitKeyEvent();
-        animatePress();
-    }
-
-    private void onRelease() {
-        isPressed = false;
-//      NOTE: If the arrow keys move out of the input view, the onRelease is never called
-        if (key.info.code != 0){
-            inputService.onRelease(key.info.code);
-        }
-        if (key.info.isRepeatable){
-            stopRepeating();
-        }
-        animateRelease();
     }
 
     private void submitKeyEvent(){

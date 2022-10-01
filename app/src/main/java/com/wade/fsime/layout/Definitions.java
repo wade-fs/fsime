@@ -1,5 +1,6 @@
 package com.wade.fsime.layout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,6 +17,7 @@ public class Definitions {
         this.context = current;
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow, boolean split) {
         int CODE_ARROW_LEFT = 5000;
         int CODE_ARROW_DOWN = 5001;
@@ -55,6 +57,7 @@ public class Definitions {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
         if (mKeyboardState == R.integer.keyboard_boshiamy) {
@@ -75,7 +78,7 @@ public class Definitions {
                 .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)         // Down v
                 .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)        // Up >
                 .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)       // Right >
-                .addBackspaceKey()
+                .addBackspaceKey().asRepeatable()
                 .addKey(SYM, CODE_SYMBOLS);
     }
 
@@ -276,6 +279,7 @@ public class Definitions {
 
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void addClipboardActions(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()
                 .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)
@@ -287,6 +291,7 @@ public class Definitions {
         ;
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols, boolean newRow, boolean split) {
         char[] chars = symbols.toCharArray();
 
