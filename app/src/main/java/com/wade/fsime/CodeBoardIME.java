@@ -762,6 +762,9 @@ public class CodeBoardIME extends InputMethodService
     @Override
     public void onKey(int code, int[] KeyCodes) {
         pressedCode = code;
+        if (swipe) {
+            return;
+        }
         processKey();
     }
 

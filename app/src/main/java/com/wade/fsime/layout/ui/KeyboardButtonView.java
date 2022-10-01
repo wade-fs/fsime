@@ -27,6 +27,7 @@ public class KeyboardButtonView extends View {
     private String currentLabel = null;
     private boolean isPressed = false;
     private boolean shift = false, ctrl = false;
+    private boolean swipe = false;
 
     public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme) {
         super(context);
@@ -60,24 +61,28 @@ public class KeyboardButtonView extends View {
             case MotionEvent.ACTION_DOWN:
                 lastX = e.getX();
                 lastY = e.getY();
+                swipe = false;
                 onPress();
                 break;
             case MotionEvent.ACTION_UP:
                 float diffX = e.getX() - lastX;
                 float diffY = e.getY() - lastY;
                 if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffY) > 5.0f) { // 左右
+                    swipe = true;
                     if (diffX > 0) {
                         inputService.swipeRight();
                     } else {
                         inputService.swipeLeft();
                     }
                 } else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffX) > 5.0f) { // 上下
+                    swipe = true;
                     if (diffY > 0) {
                         inputService.swipeDown();
                     } else {
                         inputService.swipeUp();
                     }
                 }
+                swipe = false;
                 onRelease();
                 break;
             default:
@@ -92,12 +97,14 @@ public class KeyboardButtonView extends View {
         if (key.info.isRepeatable){
             startRepeating();
         }
-        submitKeyEvent();
         animatePress();
     }
 
     private void onRelease() {
         isPressed = false;
+        if (!swipe) {
+            submitKeyEvent();
+        }
         if (key.info.code != 0){
             inputService.onRelease(key.info.code);
         }
