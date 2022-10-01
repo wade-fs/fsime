@@ -6,10 +6,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.InputType;
@@ -17,7 +15,6 @@ import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
@@ -27,8 +24,6 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.wade.fsime.theme.IOnFocusListenable;
 import com.wade.fsime.theme.ThemeDefinitions;
 import com.wade.fsime.theme.ThemeInfo;
-import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
-import com.pes.androidmaterialcolorpickerdialog.ColorPickerCallback;
 
 import static android.provider.Settings.Secure.DEFAULT_INPUT_METHOD;
 import com.wade.fsime.custom.CustomTable;
@@ -142,11 +137,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                 break;
             case "use_phonetic":
                 break;
-            case "bg_colour_picker":
-            case "fg_colour_picker":
-                openColourPicker(preference.getKey());
-                getPreferenceManager().findPreference("theme").setSummary("Custom Theme is set");
-                break;
             case "restore_default":
                 confirmReset();
                 break;
@@ -240,33 +230,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         keyboardPreferences.setBgColor(String.valueOf(themeInfo.backgroundColor));
         keyboardPreferences.setFgColor(String.valueOf(themeInfo.foregroundColor));
     }
-
-    public void openColourPicker(final String key) {
-        int color = 0;
-        if (key.equals("bg_colour_picker")) {
-            color = keyboardPreferences.getBgColor();
-        } else if (key.equals("fg_colour_picker")) {
-            color = keyboardPreferences.getFgColor();
-        }
-
-        ColorPicker cp = new ColorPicker(getActivity(),
-                Color.red(color),
-                Color.green(color),
-                Color.blue(color));
-        cp.show();
-        cp.enableAutoClose();
-        cp.setCallback(new ColorPickerCallback() {
-            @Override
-            public void onColorChosen(@ColorInt int color) {
-                if (key.equals("bg_colour_picker")) {
-                    keyboardPreferences.setBgColor(String.valueOf(color));
-                } else if (key.equals("fg_colour_picker")) {
-                    keyboardPreferences.setFgColor(String.valueOf(color));
-                }
-            }
-        });
-    }
-
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

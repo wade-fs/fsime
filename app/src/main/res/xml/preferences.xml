@@ -77,20 +77,6 @@
             android:key="theme"
             android:title="選擇主題"/>
         <SwitchPreferenceCompat
-            android:defaultValue="false"
-            android:key="custom_theme"
-            android:title="設定自定主題" />
-        <Preference
-            android:defaultValue="@integer/bg_color"
-            android:dependency="custom_theme"
-            android:key="bg_colour_picker"
-            android:title="背景色" />
-        <Preference
-            android:defaultValue="@integer/fg_color"
-            android:dependency="custom_theme"
-            android:key="fg_colour_picker"
-            android:title="前景色" />
-        <SwitchPreferenceCompat
             android:defaultValue="@bool/borders"
             android:key="borders"
             android:title="@string/borders" />
