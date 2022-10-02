@@ -807,6 +807,8 @@ public class CodeBoardIME extends InputMethodService
             }
             default: {
                 pressedCode = mCurrentKeyboardLayoutView.getKey().charAt(0);
+                onKey(pressedCode, null);
+                swipe = true;
             }
         }
         if (vibratorOn) {
