@@ -17,6 +17,7 @@ public class Definitions {
         this.context = current;
     }
 
+    // split 是橫放，分成左右兩半，所以每個按鍵的大小不一樣
     @SuppressLint("UseCompatLoadingForDrawables")
     public void addArrowsRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow, boolean split) {
         int CODE_ARROW_LEFT = 5000;
@@ -57,80 +58,91 @@ public class Definitions {
         }
     }
 
+    // 續上，newRow 為真不同行，為假續行
     @SuppressLint("UseCompatLoadingForDrawables")
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
-        if (mKeyboardState == R.integer.keyboard_boshiamy) {
-            SYM = "嘸";
-        } else if (mKeyboardState == R.integer.keyboard_phonetic) {
-            SYM = "注";
-        } else if (mKeyboardState == R.integer.keyboard_sym) {
-            SYM = "符";
-        } else if (mKeyboardState == R.integer.keyboard_clipboard) {
-            SYM = "剪";
+        switch (mKeyboardState) {
+            case R.integer.keyboard_boshiamy: SYM = "嘸"; break;
+            case R.integer.keyboard_phonetic: SYM = "注"; break;
+            case R.integer.keyboard_sym: SYM = "符"; break;
+            case R.integer.keyboard_clipboard: SYM = "剪"; break;
+            default: SYM = "X";
         }
         if (newRow) {
             keyboard.newRow();
         }
         keyboard.addKey("Esc", CODE_ESCAPE)
-                .addTabKey()
-                .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)  // Left <
-                .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)         // Down v
-                .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)        // Up >
-                .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)       // Right >
+                .addTabKey().asRepeatable()
+                .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737).asRepeatable()  // Left <
+                .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738).asRepeatable()         // Down v
+                .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739).asRepeatable()        // Up >
+                .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740).asRepeatable()       // Right >
                 .addBackspaceKey().asRepeatable()
                 .addKey(SYM, CODE_SYMBOLS);
     }
 
-
+    // 自定義行，常用的是數字行, 與輸入法本身無關
     public static void addCustomRow(KeyboardLayoutBuilder keyboard, String symbols, String longPress, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }
         char[] chars = symbols.toCharArray();
         char[] charl = longPress.toCharArray();
-        for (int i=0; i<chars.length; i++) {
-            if (i < charl.length) {
-                keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + charl[i]);
-            } else {
-                keyboard.addKey(chars[i]);
-            }
+        for (int i=0; i<Math.min(chars.length, charl.length); i++) {
+            keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + charl[i]);
         }
+    }
+
+    public static void addDigits(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey('1').withLongPress("!").withJi("ㄅ")
+                .addKey('2').withLongPress("@").withJi("ㄉ")
+                .addKey('3').withLongPress("#").withJi("ˇ")
+                .addKey('4').withLongPress("$").withJi("ˇ")
+                .addKey('5').withLongPress("%").withJi("ㄓ")
+                .addKey('6').withLongPress("^").withJi("ˊ")
+                .addKey('7').withLongPress("&").withJi("˙")
+                .addKey('8').withLongPress("*").withJi("ㄚ")
+                .addKey('9').withLongPress("(").withJi("ㄞ")
+                .addKey('0').withLongPress(")").withJi("ㄢ");
     }
 
     public static void addQwertyRows1(KeyboardLayoutBuilder keyboard, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey('`').onShiftUppercase().withLongPress("~")
-                .addKey('q').onShiftUppercase().withLongPress("Q")
-                .addKey('w').onShiftUppercase().withLongPress("W")
-                .addKey('e').onShiftUppercase().withLongPress("E")
-                .addKey('r').onShiftUppercase().withLongPress("R")
-                .addKey('t').onShiftUppercase().withLongPress("T")
-                .addKey('y').onShiftUppercase().withLongPress("Y")
-                .addKey('u').onShiftUppercase().withLongPress("U")
-                .addKey('i').onShiftUppercase().withLongPress("I")
-                .addKey('o').onShiftUppercase().withLongPress("O")
-                .addKey('p').onShiftUppercase().withLongPress("P")
-                .addKey('[').onShiftUppercase().withLongPress("{");
+        keyboard.addKey('`').withLongPress("~")
+                .addKey('q').onShiftUppercase().withLongPress("Q").withCj("手").withJi("ㄆ")
+                .addKey('w').onShiftUppercase().withLongPress("W").withCj("田").withJi("ㄊ")
+                .addKey('e').onShiftUppercase().withLongPress("E").withCj("水").withJi("ㄍ")
+                .addKey('r').onShiftUppercase().withLongPress("R").withCj("口").withJi("ㄐ")
+                .addKey('t').onShiftUppercase().withLongPress("T").withCj("廿").withJi("ㄔ")
+                .addKey('y').onShiftUppercase().withLongPress("Y").withCj("卜").withJi("ㄗ")
+                .addKey('u').onShiftUppercase().withLongPress("U").withCj("山").withJi("一")
+                .addKey('i').onShiftUppercase().withLongPress("I").withCj("戈").withJi("ㄛ")
+                .addKey('o').onShiftUppercase().withLongPress("O").withCj("人").withJi("ㄟ")
+                .addKey('p').onShiftUppercase().withLongPress("P").withCj("心").withJi("ㄣ")
+                .addKey('[').withLongPress("{");
     }
 
     public static void addQwertyRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
         if (newRow) {
             keyboard.newRow();
         }
-        keyboard.addKey('\\').onShiftUppercase().withLongPress("|")
-                .addKey('a').onShiftUppercase().withLongPress("A")
-                .addKey('s').onShiftUppercase().withLongPress("S")
-                .addKey('d').onShiftUppercase().withLongPress("D")
-                .addKey('f').onShiftUppercase().withLongPress("F")
-                .addKey('g').onShiftUppercase().withLongPress("G")
-                .addKey('h').onShiftUppercase().withLongPress("H")
-                .addKey('j').onShiftUppercase().withLongPress("J")
-                .addKey('k').onShiftUppercase().withLongPress("K")
-                .addKey('l').onShiftUppercase().withLongPress("L")
-                .addKey(']').onShiftUppercase().withLongPress("}");
+        keyboard.addKey('\\').withLongPress("|")
+                .addKey('a').onShiftUppercase().withLongPress("A").withCj("日").withJi("ㄇ")
+                .addKey('s').onShiftUppercase().withLongPress("S").withCj("尸").withJi("ㄋ")
+                .addKey('d').onShiftUppercase().withLongPress("D").withCj("木").withJi("ㄎ")
+                .addKey('f').onShiftUppercase().withLongPress("F").withCj("火").withJi("ㄑ")
+                .addKey('g').onShiftUppercase().withLongPress("G").withCj("土").withJi("ㄕ")
+                .addKey('h').onShiftUppercase().withLongPress("H").withCj("竹").withJi("ㄘ")
+                .addKey('j').onShiftUppercase().withLongPress("J").withCj("十").withJi("ㄨ")
+                .addKey('k').onShiftUppercase().withLongPress("K").withCj("大").withJi("ㄜ")
+                .addKey('l').onShiftUppercase().withLongPress("L").withCj("中").withJi("ㄠ")
+                .addKey(']').withLongPress("}");
     }
 
     public static void addQwertyRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
@@ -138,54 +150,54 @@ public class Definitions {
             keyboard.newRow();
         }
         keyboard.addShiftKey()
-                .addKey('z').onShiftUppercase().withLongPress("Z")
-                .addKey('x').onShiftUppercase().withLongPress("X")
-                .addKey('c').onShiftUppercase().withLongPress("C")
-                .addKey('v').onShiftUppercase().withLongPress("V")
-                .addKey('b').onShiftUppercase().withLongPress("B")
-                .addKey('n').onShiftUppercase().withLongPress("N")
-                .addKey('m').onShiftUppercase().withLongPress("M")
-                .addKey(';').onShiftUppercase().withLongPress(":")
-                .addKey('\'').onShiftUppercase().withLongPress("\"");
+                .addKey('z').onShiftUppercase().withLongPress("Z").withCj("重").withJi("ㄈ")
+                .addKey('x').onShiftUppercase().withLongPress("X").withCj("難").withJi("ㄌ")
+                .addKey('c').onShiftUppercase().withLongPress("C").withCj("金").withJi("ㄏ")
+                .addKey('v').onShiftUppercase().withLongPress("V").withCj("女").withJi("ㄒ")
+                .addKey('b').onShiftUppercase().withLongPress("B").withCj("月").withJi("ㄖ")
+                .addKey('n').onShiftUppercase().withLongPress("N").withCj("弓").withJi("ㄙ")
+                .addKey('m').onShiftUppercase().withLongPress("M").withCj("一").withJi("ㄩ")
+                .addKey(';').withLongPress(":").withJi("ㄤ")
+                .addKey('\'').withLongPress("\"");
     }
 
     public static void addQwertyRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()
-                .addKey('`').onShiftUppercase().withLongPress("~")
-                .addKey('q').onShiftUppercase().withLongPress("Q")
-                .addKey('w').onShiftUppercase().withLongPress("W")
-                .addKey('e').onShiftUppercase().withLongPress("E")
-                .addKey('r').onShiftUppercase().withLongPress("R")
-                .addKey('t').onShiftUppercase().withLongPress("T")
-                .addKey('y').onShiftUppercase().withLongPress("Y")
-                .addKey('u').onShiftUppercase().withLongPress("U")
-                .addKey('i').onShiftUppercase().withLongPress("I")
-                .addKey('o').onShiftUppercase().withLongPress("O")
-                .addKey('p').onShiftUppercase().withLongPress("P")
-                .addKey('[').onShiftUppercase().withLongPress("{")
+                .addKey('`').withLongPress("~")
+                .addKey('q').onShiftUppercase().withLongPress("Q").withCj("手").withJi("ㄆ")
+                .addKey('w').onShiftUppercase().withLongPress("W").withCj("田").withJi("ㄊ")
+                .addKey('e').onShiftUppercase().withLongPress("E").withCj("水").withJi("ㄍ")
+                .addKey('r').onShiftUppercase().withLongPress("R").withCj("口").withJi("ㄐ")
+                .addKey('t').onShiftUppercase().withLongPress("T").withCj("廿").withJi("ㄔ")
+                .addKey('y').onShiftUppercase().withLongPress("Y").withCj("卜").withJi("ㄗ")
+                .addKey('u').onShiftUppercase().withLongPress("U").withCj("山").withJi("一")
+                .addKey('i').onShiftUppercase().withLongPress("I").withCj("戈").withJi("ㄛ")
+                .addKey('o').onShiftUppercase().withLongPress("O").withCj("人").withJi("ㄟ")
+                .addKey('p').onShiftUppercase().withLongPress("P").withCj("心").withJi("ㄣ")
+                .addKey('[').withLongPress("{")
                 .newRow()
-                .addKey('\\').onShiftUppercase().withLongPress("|")
-                .addKey('a').onShiftUppercase().withLongPress("A")
-                .addKey('s').onShiftUppercase().withLongPress("S")
-                .addKey('d').onShiftUppercase().withLongPress("D")
-                .addKey('f').onShiftUppercase().withLongPress("F")
-                .addKey('g').onShiftUppercase().withLongPress("G")
-                .addKey('h').onShiftUppercase().withLongPress("H")
-                .addKey('j').onShiftUppercase().withLongPress("J")
-                .addKey('k').onShiftUppercase().withLongPress("K")
-                .addKey('l').onShiftUppercase().withLongPress("L")
-                .addKey(']').onShiftUppercase().withLongPress("}")
+                .addKey('\\').withLongPress("|")
+                .addKey('a').onShiftUppercase().withLongPress("A").withCj("日").withJi("ㄇ")
+                .addKey('s').onShiftUppercase().withLongPress("S").withCj("尸").withJi("ㄋ")
+                .addKey('d').onShiftUppercase().withLongPress("D").withCj("木").withJi("ㄎ")
+                .addKey('f').onShiftUppercase().withLongPress("F").withCj("火").withJi("ㄑ")
+                .addKey('g').onShiftUppercase().withLongPress("G").withCj("土").withJi("ㄕ")
+                .addKey('h').onShiftUppercase().withLongPress("H").withCj("竹").withJi("ㄘ")
+                .addKey('j').onShiftUppercase().withLongPress("J").withCj("十").withJi("ㄨ")
+                .addKey('k').onShiftUppercase().withLongPress("K").withCj("大").withJi("ㄜ")
+                .addKey('l').onShiftUppercase().withLongPress("L").withCj("中").withJi("ㄠ")
+                .addKey(']').withLongPress("}")
                 .newRow()
                 .addShiftKey()
-                .addKey('z').onShiftUppercase().withLongPress("Z")
-                .addKey('x').onShiftUppercase().withLongPress("X")
-                .addKey('c').onShiftUppercase().withLongPress("C")
-                .addKey('v').onShiftUppercase().withLongPress("V")
-                .addKey('b').onShiftUppercase().withLongPress("B")
-                .addKey('n').onShiftUppercase().withLongPress("N")
-                .addKey('m').onShiftUppercase().withLongPress("M")
-                .addKey(';').onShiftUppercase().withLongPress(":")
-                .addKey('\'').onShiftUppercase().withLongPress("\"");
+                .addKey('z').onShiftUppercase().withLongPress("Z").withCj("重").withJi("ㄈ")
+                .addKey('x').onShiftUppercase().withLongPress("X").withCj("難").withJi("ㄌ")
+                .addKey('c').onShiftUppercase().withLongPress("C").withCj("金").withJi("ㄏ")
+                .addKey('v').onShiftUppercase().withLongPress("V").withCj("女").withJi("ㄒ")
+                .addKey('b').onShiftUppercase().withLongPress("B").withCj("月").withJi("ㄖ")
+                .addKey('n').onShiftUppercase().withLongPress("N").withCj("弓").withJi("ㄙ")
+                .addKey('m').onShiftUppercase().withLongPress("M").withCj("一").withJi("ㄩ")
+                .addKey(';').withLongPress(":").withJi("ㄤ")
+                .addKey('\'').withLongPress("\"");
     }
 
     public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
@@ -292,42 +304,28 @@ public class Definitions {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, String symbols, boolean newRow, boolean split) {
-        char[] chars = symbols.toCharArray();
-
+    public void addCustomSpaceRow(KeyboardLayoutBuilder keyboard, boolean newRow, boolean split) {
         if (newRow) {
             keyboard.newRow();
         }
         if (!split) {
-            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL");
-            keyboard.addKey('-').onShiftUppercase().withLongPress("_");
-            keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
-
-            int half = (chars.length + 1) / 2;
-            for (int i = 0; i < half && chars.length > 0; i++) {
-                if ((i + half) < chars.length) {
-                    keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + chars[i + half]).withSize(.7f);
-                } else {
-                    keyboard.addKey(chars[i]).withSize(.7f);
-                }
-            }
-            keyboard.addEnterKey();
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL")
+            .addKey('-').withLongPress("_").withJi("ㄦ")
+            .addKey('=').withLongPress("+")
+            .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
+            .addKey(',').withLongPress("<").withJi("ㄝ")
+            .addKey('.').withLongPress(">").withJi("ㄡ")
+            .addKey('/').withLongPress("?").withJi("ㄥ")
+            .addEnterKey();
         } else {
-            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f);
-            keyboard.addKey('-').onShiftUppercase().withLongPress("_");
-            keyboard.addKey('=').onShiftUppercase().withLongPress("+");
-            keyboard.addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f);
-
-            int half = (chars.length + 1) / 2;
-            for (int i = 0; i < half && chars.length > 0; i++) {
-                if ((i+half) < chars.length) {
-                    keyboard.addKey(chars[i]).withLongPress("" + chars[i + half]).withSize(1.0f);
-                } else {
-                    keyboard.addKey(chars[i]).withSize(1.0f);
-                }
-            }
-            keyboard.addEnterKey().withSize(1.4f);
+            keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL").withSize(1.2f)
+            .addKey('-').withLongPress("_").withJi("ㄦ")
+            .addKey('=').withLongPress("+")
+            .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
+            .addKey(',').withLongPress("<").withJi("ㄝ")
+            .addKey('.').withLongPress(">").withJi("ㄡ")
+            .addKey('/').withLongPress("?").withJi("ㄥ")
+            .addEnterKey().withSize(1.4f);
         }
     }
 

@@ -549,14 +549,11 @@ public class CodeBoardIME extends InputMethodService
         }
         //Key Layout
         boolean mToprow = sharedPreferences.getTopRowActions();
-        String mCustomSymbolsMain = sharedPreferences.getCustomSymbolsMain();
-        String mCustomSymbolsLongPress = sharedPreferences.getCustomSymbolsLongPress();
         String mCustomSymbolsMain2 = sharedPreferences.getCustomSymbolsMain2();
         String mCustomSymbolsSym = sharedPreferences.getCustomSymbolsSym();
         String mCustomSymbolsSym2 = sharedPreferences.getCustomSymbolsSym2();
         String mCustomSymbolsSym3 = sharedPreferences.getCustomSymbolsSym3();
         String mCustomSymbolsSym4 = sharedPreferences.getCustomSymbolsSym4();
-        String mCustomSymbolsMainBottom = sharedPreferences.getCustomSymbolsMainBottom();
 
         //Need this to get resources for drawables
         Definitions definitions = new Definitions(this);
@@ -572,14 +569,12 @@ public class CodeBoardIME extends InputMethodService
                         definitions.addArrowsRow(builder, mCurKeyboard, true, false);
                     }
 
-                    if (!mCustomSymbolsMain.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
-                    }
+                    Definitions.addDigits(builder, true);
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
                     Definitions.addQwertyRows(builder);
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
+                    definitions.addCustomSpaceRow(builder,true, false);
                 } else {
                     // 第一行
                     if (mToprow) {
@@ -590,16 +585,14 @@ public class CodeBoardIME extends InputMethodService
                     Definitions.addQwertyRows1(builder, false);
 
                     // 第二行
-                    if (!mCustomSymbolsMain.isEmpty()) { // digits
-                        Definitions.addCustomRow(builder, mCustomSymbolsMain, mCustomSymbolsLongPress, true);
-                    }
+                    Definitions.addDigits(builder, true);
                     Definitions.addQwertyRows2(builder, false);
 //                    if (!mCustomSymbolsMain2.isEmpty()) {
 //                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
 //                    }
 
                     // 第三行
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, true);
+                    definitions.addCustomSpaceRow(builder, true, true);
                     Definitions.addQwertyRows3(builder, false);
                 }
             } else {
@@ -625,14 +618,14 @@ public class CodeBoardIME extends InputMethodService
                     if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
                         definitions.addSymbolRows(builder);
                     } else {
-                        definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
+                        definitions.addCustomSpaceRow(builder, true, false);
                     }
                 } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
                     Definitions.addPhoneticRows(builder);
-                    definitions.addCustomSpaceRow(builder, mCustomSymbolsMainBottom, true, false);
+                    definitions.addCustomSpaceRow(builder, true, false);
                 } else if (mCurKeyboard == R.integer.keyboard_clipboard) {
                     definitions.addClipboardActions(builder);
 

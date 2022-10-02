@@ -17,6 +17,7 @@ public class KeyInfo {
      */
     public String label;
 	public String longPress = ""; // 長按
+    public String Cj, Ji; // 倉頡，注音字母
 
     /**
      * size relative to other keys in the same row

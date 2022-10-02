@@ -145,6 +145,16 @@ public class KeyboardLayoutBuilder {
         return this;
     }
 
+    public KeyboardLayoutBuilder withCj(String l) {
+        currentKey.Cj = l;
+        return this;
+    }
+
+    public KeyboardLayoutBuilder withJi(String l) {
+        currentKey.Ji = l;
+        return this;
+    }
+
     public KeyboardLayoutBuilder onShiftShow(String label){
         currentKey.onShiftLabel = label;
         return this;
