@@ -3,6 +3,7 @@ package com.wade.fsime.theme;
 public class ThemeDefinitions {
 
     private static int whiteColor = 0xffffffff;
+    private static int mainColor = 0xffffff00;
     private static int blackColor = 0xff000000;
 
     public static ThemeInfo Default(){
@@ -14,6 +15,7 @@ public class ThemeDefinitions {
         ThemeInfo theme = new ThemeInfo();
         theme.foregroundColor = whiteColor;
         theme.backgroundColor = 0xff263238;
+        theme.mainColor = mainColor;
         return theme;
     }
 
@@ -21,6 +23,7 @@ public class ThemeDefinitions {
         ThemeInfo theme = Default();
         theme.foregroundColor = blackColor;
         theme.backgroundColor = 0xffeceff1;
+        theme.mainColor = mainColor;
         return theme;
     }
 

@@ -61,7 +61,6 @@ public class CustomTable extends Activity {
         etEdit = findViewById(R.id.etedit);
         btnSearch = findViewById(R.id.btsearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             public void onClick(View v) {
                 String word = etSearch.getText().toString();
                 if (word.length() < 1) {
@@ -98,7 +97,6 @@ public class CustomTable extends Activity {
         });
         btnSave = findViewById(R.id.btsave);
         btnSave.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
                 if (etSearch.getText().toString().length() == 0) {
@@ -110,7 +108,6 @@ public class CustomTable extends Activity {
         });
         btnBack = findViewById(R.id.btback);
         btnBack.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
                 exportDB();

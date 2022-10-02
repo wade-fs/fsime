@@ -59,7 +59,7 @@ public class Definitions {
     }
 
     // 續上，newRow 為真不同行，為假續行
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint({"UseCompatLoadingForDrawables", "NonConstantResourceId"})
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
         switch (mKeyboardState) {
@@ -67,7 +67,6 @@ public class Definitions {
             case R.integer.keyboard_phonetic: SYM = "注"; break;
             case R.integer.keyboard_sym: SYM = "符"; break;
             case R.integer.keyboard_clipboard: SYM = "剪"; break;
-            default: SYM = "X";
         }
         if (newRow) {
             keyboard.newRow();
@@ -89,8 +88,12 @@ public class Definitions {
         }
         char[] chars = symbols.toCharArray();
         char[] charl = longPress.toCharArray();
-        for (int i=0; i<Math.min(chars.length, charl.length); i++) {
-            keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + charl[i]);
+        for (int i=0; i<chars.length; i++) {
+            if (i < charl.length) {
+                keyboard.addKey(chars[i]).onShiftUppercase().withLongPress("" + charl[i]);
+            } else {
+                keyboard.addKey(chars[i]);
+            }
         }
     }
 

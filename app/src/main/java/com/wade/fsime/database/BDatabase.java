@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
-
+import java.util.Locale;
 import androidx.annotation.RequiresApi;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
@@ -67,7 +67,7 @@ public class BDatabase extends SQLiteAssetHelper {
     @SuppressLint("Range")
     public ArrayList<B> getB(String k, int start, int max){
         if (db == null) db=getWritableDatabase();
-        k = k.toLowerCase().replaceAll("[^A-Za-z,\\.'\\[\\]]","").replaceAll("'", "''");
+        k = k.toLowerCase(Locale.ENGLISH).replaceAll("[^A-Za-z,\\.'\\[\\]]","").replaceAll("'", "''");
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         if (k.length() == 0) return resExact;

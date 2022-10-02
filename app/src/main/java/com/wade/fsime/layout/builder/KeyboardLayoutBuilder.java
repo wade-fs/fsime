@@ -2,7 +2,7 @@ package com.wade.fsime.layout.builder;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-
+import java.util.Locale;
 import com.wade.fsime.R;
 import com.wade.fsime.layout.Box;
 import com.wade.fsime.layout.Key;
@@ -166,7 +166,7 @@ public class KeyboardLayoutBuilder {
     }
 
     public KeyboardLayoutBuilder onShiftUppercase() {
-        return onShiftShow(currentKey.label.toUpperCase());
+        return onShiftShow(currentKey.label.toUpperCase(Locale.ENGLISH));
     }
 
     // common key definitions (extension methods)

@@ -146,31 +146,40 @@ public class KeyboardButtonView extends View {
     }
 
     private void drawButtonContent(Canvas canvas) {
-        float x = this.getWidth()/2;
-        float y = this.getHeight()/2 + uiTheme.fontHeight/3;
-        if (key.info.longPress != "") {
+        float f = uiTheme.fontHeight;
+        float w = (float)(this.getWidth());
+        float h = (float)(this.getHeight());
+        float x = (float)(this.getWidth()/2.0);
+        float y = (float)(this.getHeight()/2.0 + f /2.0);
+        if (!key.info.longPress.equals("")) {
             if (shift) {
                 canvas.drawText(key.info.label, x / 2, y / 2, uiTheme.longPressPaint);
             } else {
                 canvas.drawText(key.info.longPress, x / 2, y / 2, uiTheme.longPressPaint);
             }
         }
+        if (!key.info.Cj.equals("")) {
+            canvas.drawText(key.info.Cj, x / 2, h - (y-f) / 2, uiTheme.longPressPaint);
+        }
+        if (!key.info.Ji.equals("")) {
+            canvas.drawText(key.info.Ji, w - x / 2, h-(y-f) / 2, uiTheme.longPressPaint);
+        }
         if (shift) {
             if (this.key.info.onShiftLabel != null) {
-                canvas.drawText(this.key.info.onShiftLabel, x, y + 10, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.onShiftLabel, x, y, uiTheme.foregroundPaint);
             } else if (this.key.info.longPress != "") {
-                canvas.drawText(this.key.info.longPress, x, y + 10, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.longPress, x, y, uiTheme.foregroundPaint);
             } else {
-                canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.label, x, y, uiTheme.foregroundPaint);
             }
         } else if (ctrl) {
             if (this.key.info.onCtrlLabel != null) {
-                canvas.drawText(this.key.info.onCtrlLabel, x, y + 10, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.onCtrlLabel, x, y, uiTheme.foregroundPaint);
             } else {
-                canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.label, x, y, uiTheme.foregroundPaint);
             }
         } else {
-            canvas.drawText(this.key.info.label, x, y + 10, uiTheme.foregroundPaint);
+            canvas.drawText(this.key.info.label, x, y, uiTheme.mainPaint);
         }
 
         if (key.info.icon != null){

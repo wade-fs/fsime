@@ -238,7 +238,7 @@ public class CandidateView extends View {
             scrollTo(0, 0);
             mTargetScrollX = 0;
         }
-        onDraw(null); // TODO: 導致當掉
+        //onDraw(null); // TODO: 導致當掉
         invalidate();
         requestLayout();
     }
