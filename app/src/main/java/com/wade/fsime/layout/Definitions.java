@@ -25,10 +25,12 @@ public class Definitions {
         int CODE_ARROW_UP = 5002;
         int CODE_ARROW_RIGHT = 5003;
         String SYM = "英";
-        if (mKeyboardState == R.integer.keyboard_boshiamy) {
+        if (mKeyboardState == R.integer.keyboard_bs) {
             SYM = "嘸";
-        } else if (mKeyboardState == R.integer.keyboard_phonetic) {
+        } else if (mKeyboardState == R.integer.keyboard_ji) {
             SYM = "注";
+        } else if (mKeyboardState == R.integer.keyboard_cj) {
+            SYM = "倉";
         } else if (mKeyboardState == R.integer.keyboard_sym) {
             SYM = "符";
         } else if (mKeyboardState == R.integer.keyboard_clipboard) {
@@ -63,8 +65,9 @@ public class Definitions {
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
         switch (mKeyboardState) {
-            case R.integer.keyboard_boshiamy: SYM = "嘸"; break;
-            case R.integer.keyboard_phonetic: SYM = "注"; break;
+            case R.integer.keyboard_bs: SYM = "嘸"; break;
+            case R.integer.keyboard_ji: SYM = "注"; break;
+            case R.integer.keyboard_cj: SYM = "倉"; break;
             case R.integer.keyboard_sym: SYM = "符"; break;
             case R.integer.keyboard_clipboard: SYM = "剪"; break;
         }
@@ -203,7 +206,7 @@ public class Definitions {
                 .addKey('\'').withLongPress("\"");
     }
 
-    public static void addPhoneticRows(KeyboardLayoutBuilder keyboard) {
+    public static void addJiRows(KeyboardLayoutBuilder keyboard) {
         keyboard.newRow()       // 1234567890-=
                 .addKey('ㄅ').withLongPress("1")
                 .addKey('ㄉ').withLongPress("2")

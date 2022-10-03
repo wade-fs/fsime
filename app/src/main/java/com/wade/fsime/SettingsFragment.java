@@ -122,8 +122,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                 imm.showInputMethodPicker();
                 preference.setSummary(getCurrentImeLabel(getActivity().getApplicationContext()));
                 break;
-            case "use_boshiamy":
-                if (!keyboardPreferences.useBoshiamy()) {
+            case "use_bs":
+                if (!keyboardPreferences.useBs()) {
                     keyboardPreferences.setDisabledNormal(false);
                     setPreferenceScreen(
                             getPreferenceManager().inflateFromResource(
@@ -135,7 +135,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                 break;
             case "disable_normal":
                 break;
-            case "use_phonetic":
+            case "use_ji":
+                break;
+            case "use_cj":
                 break;
             case "restore_default":
                 confirmReset();

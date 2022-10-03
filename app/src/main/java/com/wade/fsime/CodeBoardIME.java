@@ -60,13 +60,13 @@ public class CodeBoardIME extends InputMethodService
     private boolean vibratorOn;
     private int vibrateLength;
     private boolean soundOn;
-    private boolean use_boshiamy=true, disable_normal=false, use_phonetic=true;
+    private boolean use_bs=true, disable_normal=false, use_ji=true, use_cj=true;
     private int maxMatch = 30;
     private boolean shiftLock = false;
     private boolean ctrlLock = false;
     private boolean shift = false;
     private boolean ctrl = false;
-    private int mCurKeyboard = R.integer.keyboard_boshiamy;
+    private int mCurKeyboard = R.integer.keyboard_bs;
     private Timer timerLongPress = null;
     private KeyboardUiFactory mKeyboardUiFactory = null;
     private KeyboardLayoutView mCurrentKeyboardLayoutView = null;
@@ -77,9 +77,9 @@ public class CodeBoardIME extends InputMethodService
 
     BDatabase bdatabase;
 
-    // normal -> boshiamy -> phonetic
-    //    -> sym
-    // 若有 ctrl -> clipboard
+    // normal-0 -> bs-1 -> ji-2 -> cj-3
+    //    -> sym-4
+    // 若有 ctrl -> clipboard-5
     private void nextKeyboard() {
         if (ctrl) {
             mCurKeyboard = R.integer.keyboard_clipboard;
@@ -87,10 +87,12 @@ public class CodeBoardIME extends InputMethodService
         }
         if (mCurKeyboard == R.integer.keyboard_clipboard) {
             if (disable_normal) {
-                if (use_boshiamy) {
-                    mCurKeyboard = R.integer.keyboard_boshiamy;
-                } else if (use_phonetic) {
-                    mCurKeyboard = R.integer.keyboard_phonetic;
+                if (use_bs) {
+                    mCurKeyboard = R.integer.keyboard_bs;
+                } else if (use_ji) {
+                    mCurKeyboard = R.integer.keyboard_ji;
+                } else if (use_cj) {
+                    mCurKeyboard = R.integer.keyboard_cj;
                 } else {
                     mCurKeyboard = R.integer.keyboard_sym;
                 }
@@ -98,30 +100,52 @@ public class CodeBoardIME extends InputMethodService
                 mCurKeyboard = R.integer.keyboard_normal;
             }
         } else if (mCurKeyboard == R.integer.keyboard_normal) {
-            if (use_boshiamy) {
-                mCurKeyboard = R.integer.keyboard_boshiamy;
-            } else if (use_phonetic) {
-                mCurKeyboard = R.integer.keyboard_phonetic;
+            if (use_bs) {
+                mCurKeyboard = R.integer.keyboard_bs;
+            } else if (use_ji) {
+                mCurKeyboard = R.integer.keyboard_ji;
+            } else if (use_cj) {
+                mCurKeyboard = R.integer.keyboard_cj;
             } else {
                 mCurKeyboard = R.integer.keyboard_sym;
             }
-        } else if (mCurKeyboard == R.integer.keyboard_boshiamy) {
-            if (use_phonetic)
-                mCurKeyboard = R.integer.keyboard_phonetic;
-            else mCurKeyboard = R.integer.keyboard_sym;
-        } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
+        } else if (mCurKeyboard == R.integer.keyboard_bs) {
+            if (use_ji) {
+                mCurKeyboard = R.integer.keyboard_ji;
+            } else if (use_cj) {
+                mCurKeyboard = R.integer.keyboard_cj;
+            } else { mCurKeyboard = R.integer.keyboard_sym; }
+        } else if (mCurKeyboard == R.integer.keyboard_ji) {
+            if (use_cj) {
+                mCurKeyboard = R.integer.keyboard_cj;
+            } else {
+                mCurKeyboard = R.integer.keyboard_sym;
+            }
+        } else if (mCurKeyboard == R.integer.keyboard_cj) {
             mCurKeyboard = R.integer.keyboard_sym;
         } else if (disable_normal) { // keyboard_sym
-            if (use_boshiamy) {
-                mCurKeyboard = R.integer.keyboard_boshiamy;
-            } else if (use_phonetic) {
-                mCurKeyboard = R.integer.keyboard_phonetic;
+            if (use_bs) {
+                mCurKeyboard = R.integer.keyboard_bs;
+            } else if (use_ji) {
+                mCurKeyboard = R.integer.keyboard_ji;
+            } else if (use_cj) {
+                mCurKeyboard = R.integer.keyboard_cj;
             } else {
                 mCurKeyboard = R.integer.keyboard_normal;
             }
         } else {
             mCurKeyboard = R.integer.keyboard_normal;
         }
+        String ime = "";
+        switch (mCurKeyboard) {
+            case R.integer.keyboard_normal    : ime = "英"; break;
+            case R.integer.keyboard_bs        : ime = "嘸"; break;
+            case R.integer.keyboard_ji        : ime = "注"; break;
+            case R.integer.keyboard_cj        : ime = "倉"; break;
+            case R.integer.keyboard_sym       : ime = "符"; break;
+            case R.integer.keyboard_clipboard : ime = "剪"; break;
+        }
+        Logi("輸入法 "+ime);
     }
 
     private boolean processSpecialKey(int primaryCode) {
@@ -328,7 +352,7 @@ public class CodeBoardIME extends InputMethodService
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
 				if (ctrl) {
                     keyDownUp(ke, meta);
-                } else if (mCurKeyboard == R.integer.keyboard_boshiamy || mCurKeyboard == R.integer.keyboard_phonetic) {
+                } else if (mCurKeyboard >= R.integer.keyboard_bs && mCurKeyboard <= R.integer.keyboard_cj) {
                     if (ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
@@ -454,7 +478,7 @@ public class CodeBoardIME extends InputMethodService
     private void updateCandidates(String freq) {
         // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
-        if (mCurKeyboard != R.integer.keyboard_boshiamy && mCurKeyboard != R.integer.keyboard_phonetic) {
+        if (mCurKeyboard < R.integer.keyboard_bs || mCurKeyboard > R.integer.keyboard_cj) {
             return;
         }
         ArrayList<B> b;
@@ -475,17 +499,23 @@ public class CodeBoardIME extends InputMethodService
             if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
             // wade, 底下根據鍵盤，切換不同的資料庫
             int s = start;
-            if (mCurKeyboard == R.integer.keyboard_boshiamy) { // 英瞎
+            if (mCurKeyboard == R.integer.keyboard_bs) { // 英瞎
                 b = bdatabase.getB(mComposing.toString().toLowerCase(), s, maxMatch);
                 for (B d : b) {
                     list.add(d.ch);
                 }
-            } else if (mCurKeyboard == R.integer.keyboard_phonetic) { // 注音
+            } else if (mCurKeyboard == R.integer.keyboard_ji) { // 注音
                 if ((b = bdatabase.getJuin(mComposing.toString(), s, maxMatch)).size() > 0) {
                     for (B d : b) {
                         list.add(d.ch);
                     }
                 }
+//            } else if (mCurKeyboard == R.integer.keyboard_cj) { // 倉頡
+//                if ((b = bdatabase.getCj(mComposing.toString(), s, maxMatch)).size() > 0) {
+//                    for (B d : b) {
+//                        list.add(d.ch);
+//                    }
+//                }
             }
             setSuggestions(list, true, true);
         } else {
@@ -528,9 +558,10 @@ public class CodeBoardIME extends InputMethodService
         vibrateLength = sharedPreferences.getVibrateLength();
         vibratorOn = sharedPreferences.isVibrateEnabled();
         soundOn = sharedPreferences.isSoundEnabled();
-        use_boshiamy = sharedPreferences.useBoshiamy();
         disable_normal = sharedPreferences.isDisabledNormal();
-        use_phonetic = sharedPreferences.usePhonetic();
+        use_bs = sharedPreferences.useBs();
+        use_ji = sharedPreferences.useJi();
+        use_cj = sharedPreferences.useCj();
         mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
         mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
         mKeyboardUiFactory.theme.fontSize = sharedPreferences.getFontSizeAsSp();
@@ -560,20 +591,25 @@ public class CodeBoardIME extends InputMethodService
         try {
             KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
             builder.setBox(Box.create(0, 0, 1, 1));
-
-            if (mCurKeyboard == R.integer.keyboard_normal || mCurKeyboard == R.integer.keyboard_boshiamy) {
+            // normal-0 -> bs-1 -> ji-2 -> cj-3
+            //    -> sym-4
+            // 若有 ctrl -> clipboard-5
+            if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard <= R.integer.keyboard_ji || mCurKeyboard <= R.integer.keyboard_cj) {
                 if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                    Logi("Portraint Arrows");
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                     } else {
                         definitions.addArrowsRow(builder, mCurKeyboard, true, false);
                     }
-
+                    Logi("Portraint digits");
                     Definitions.addDigits(builder, true);
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
+                    Logi("Portraint qwerty");
                     Definitions.addQwertyRows(builder);
+                    Logi("Portraint space");
                     definitions.addCustomSpaceRow(builder,true, false);
                 } else {
                     // 第一行
@@ -595,7 +631,7 @@ public class CodeBoardIME extends InputMethodService
                     definitions.addCustomSpaceRow(builder, true, true);
                     Definitions.addQwertyRows3(builder, false);
                 }
-            } else {
+            } else { // 符號跟剪貼簿，未處理橫放
                 if (mToprow) {
                     definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                 } else {
@@ -620,12 +656,6 @@ public class CodeBoardIME extends InputMethodService
                     } else {
                         definitions.addCustomSpaceRow(builder, true, false);
                     }
-                } else if (mCurKeyboard == R.integer.keyboard_phonetic) {
-                    if (!mCustomSymbolsMain2.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
-                    }
-                    Definitions.addPhoneticRows(builder);
-                    definitions.addCustomSpaceRow(builder, true, false);
                 } else if (mCurKeyboard == R.integer.keyboard_clipboard) {
                     definitions.addClipboardActions(builder);
 
@@ -654,7 +684,7 @@ public class CodeBoardIME extends InputMethodService
             }
 
             Collection<Key> keyboardLayout = builder.build();
-            mCurrentKeyboardLayoutView = mKeyboardUiFactory.createKeyboardView(this, keyboardLayout);
+            mCurrentKeyboardLayoutView = mKeyboardUiFactory.createKeyboardView(this, keyboardLayout, mCurKeyboard);
             return mCurrentKeyboardLayoutView;
 
         } catch (KeyboardLayoutException e) {

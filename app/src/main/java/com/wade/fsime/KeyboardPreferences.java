@@ -26,8 +26,8 @@ public class KeyboardPreferences {
         write("FIRST_START", value);
     }
 
-    public boolean useBoshiamy() {
-        return read("use_boshiamy", res.getBoolean(R.bool.use_boshiamy));
+    public boolean useBs() {
+        return read("use_bs", res.getBoolean(R.bool.use_bs));
     }
 
     public boolean isDisabledNormal() {
@@ -35,8 +35,12 @@ public class KeyboardPreferences {
     }
     public void setDisabledNormal(boolean v) { write("disable_normal", v); }
 
-    public boolean usePhonetic() {
-        return read("use_phonetic", res.getBoolean(R.bool.use_phonetic));
+    public boolean useJi() {
+        return read("use_ji", res.getBoolean(R.bool.use_ji));
+    }
+
+    public boolean useCj() {
+        return read("use_cj", res.getBoolean(R.bool.use_cj));
     }
 
     public boolean isSoundEnabled() {

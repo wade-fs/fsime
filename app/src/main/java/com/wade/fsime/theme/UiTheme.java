@@ -9,6 +9,7 @@ public class UiTheme {
 
     public Paint foregroundPaint;
     public Paint mainPaint;
+    public Paint cjPaint;
     public Paint longPressPaint;
     public int backgroundColor;
     public float fontHeight;
@@ -24,6 +25,7 @@ public class UiTheme {
     private UiTheme(){
         this.foregroundPaint = new Paint();
         this.mainPaint = new Paint();
+        this.cjPaint = new Paint();
         this.longPressPaint = new Paint();
         this.buttonBodyPaint = new Paint();
         backgroundColor = 0xff000000;
@@ -56,12 +58,17 @@ public class UiTheme {
         theme.mainPaint.setAntiAlias(true);
         theme.mainPaint.setTypeface(Typeface.DEFAULT);
         // longPress
-        theme.longPressPaint.setColor(info.foregroundColor);
         theme.fontHeight = info.fontSize/2;
+        theme.longPressPaint.setColor(info.foregroundColor);
         theme.longPressPaint.setTextSize(theme.fontHeight);
         theme.longPressPaint.setTextAlign(Paint.Align.CENTER);
         theme.longPressPaint.setAntiAlias(true);
         theme.longPressPaint.setTypeface(Typeface.DEFAULT);
+        theme.cjPaint.setColor(info.cjColor);
+        theme.cjPaint.setTextSize(theme.fontHeight);
+        theme.cjPaint.setTextAlign(Paint.Align.CENTER);
+        theme.cjPaint.setAntiAlias(true);
+        theme.cjPaint.setTypeface(Typeface.DEFAULT);
 
         return theme;
     }

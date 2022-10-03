@@ -6,17 +6,21 @@
             android:key="change_keyboard"
             android:title="@string/change_keyboard" />
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/use_boshiamy"
-            android:key="use_boshiamy"
-            android:title="@string/use_boshiamy" />
+            android:defaultValue="@bool/use_bs"
+            android:key="use_bs"
+            android:title="@string/use_bs" />
         <SwitchPreferenceCompat
             android:defaultValue="@bool/disable_normal"
             android:key="disable_normal"
             android:title="@string/disable_normal"/>
         <SwitchPreferenceCompat
-            android:defaultValue="@bool/use_phonetic"
-            android:key="use_phonetic"
-            android:title="@string/use_phonetic" />
+            android:defaultValue="@bool/use_ji"
+            android:key="use_ji"
+            android:title="@string/use_ji" />
+        <SwitchPreferenceCompat
+            android:defaultValue="@bool/use_cj"
+            android:key="use_cj"
+            android:title="@string/use_cj" />
     </PreferenceCategory>
     <PreferenceCategory android:title="特性">
         <SwitchPreferenceCompat

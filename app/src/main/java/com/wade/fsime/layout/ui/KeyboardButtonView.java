@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 
+import com.wade.fsime.R;
 import com.wade.fsime.layout.Box;
 import com.wade.fsime.layout.Key;
 import com.wade.fsime.theme.UiTheme;
@@ -23,18 +24,20 @@ public class KeyboardButtonView extends View {
     private final Key key;
     private final KeyboardView.OnKeyboardActionListener inputService;
     private final UiTheme uiTheme;
+    private int mCurKeyboard=R.integer.keyboard_bs;
     private Timer timer;
     private String currentLabel = null;
     private boolean isPressed = false;
     private boolean shift = false, ctrl = false;
     private boolean swipe = false;
 
-    public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme) {
+    public KeyboardButtonView(Context context, Key key, KeyboardView.OnKeyboardActionListener inputService, UiTheme uiTheme, int mCurKeyboard) {
         super(context);
         this.inputService = inputService;
         this.key = key;
         this.uiTheme = uiTheme;
         this.currentLabel = key.info.label;
+        this.mCurKeyboard = mCurKeyboard;
         //Enable shadow
         this.setOutlineProvider(ViewOutlineProvider.BOUNDS);
     }
@@ -159,10 +162,18 @@ public class KeyboardButtonView extends View {
             }
         }
         if (!key.info.Cj.equals("")) {
-            canvas.drawText(key.info.Cj, x / 2, h - (y-f) / 2, uiTheme.longPressPaint);
+            if (mCurKeyboard == R.integer.keyboard_cj) {
+                canvas.drawText(key.info.Cj, x / 2, h - (y - f) / 2, uiTheme.cjPaint);
+            } else {
+                canvas.drawText(key.info.Cj, x / 2, h - (y - f) / 2, uiTheme.longPressPaint);
+            }
         }
         if (!key.info.Ji.equals("")) {
-            canvas.drawText(key.info.Ji, w - x / 2, h-(y-f) / 2, uiTheme.longPressPaint);
+            if (mCurKeyboard == R.integer.keyboard_ji) {
+                canvas.drawText(key.info.Ji, w - x / 2, h - (y - f) / 2, uiTheme.cjPaint);
+            } else {
+                canvas.drawText(key.info.Ji, w - x / 2, h - (y - f) / 2, uiTheme.longPressPaint);
+            }
         }
         if (shift) {
             if (this.key.info.onShiftLabel != null) {
