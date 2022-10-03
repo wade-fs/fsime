@@ -104,7 +104,7 @@ public class Definitions {
         keyboard.addKey('1').withLongPress("!").withJi("ㄅ")
                 .addKey('2').withLongPress("@").withJi("ㄉ")
                 .addKey('3').withLongPress("#").withJi("ˇ")
-                .addKey('4').withLongPress("$").withJi("ˊ")
+                .addKey('4').withLongPress("$").withJi("ˋ")
                 .addKey('5').withLongPress("%").withJi("ㄓ")
                 .addKey('6').withLongPress("^").withJi("ˊ")
                 .addKey('7').withLongPress("&").withJi("˙")
