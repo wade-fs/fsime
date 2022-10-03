@@ -166,17 +166,17 @@ public class KeyboardButtonView extends View {
         }
         if (shift) {
             if (this.key.info.onShiftLabel != null) {
-                canvas.drawText(this.key.info.onShiftLabel, x, y, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.onShiftLabel, x, y, uiTheme.mainPaint);
             } else if (this.key.info.longPress != "") {
-                canvas.drawText(this.key.info.longPress, x, y, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.longPress, x, y, uiTheme.mainPaint);
             } else {
                 canvas.drawText(this.key.info.label, x, y, uiTheme.foregroundPaint);
             }
         } else if (ctrl) {
             if (this.key.info.onCtrlLabel != null) {
-                canvas.drawText(this.key.info.onCtrlLabel, x, y, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.onCtrlLabel, x, y, uiTheme.mainPaint);
             } else {
-                canvas.drawText(this.key.info.label, x, y, uiTheme.foregroundPaint);
+                canvas.drawText(this.key.info.label, x, y, uiTheme.mainPaint);
             }
         } else {
             canvas.drawText(this.key.info.label, x, y, uiTheme.mainPaint);
