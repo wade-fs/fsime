@@ -71,12 +71,9 @@ public class KeyboardLayoutView extends ViewGroup {
 
     public String getKey() {
         for (KeyboardButtonView button : getKeyboardButtons()){
-            if (button.isClicked()) {
-                if (button.getLongPress() != "") {
-                    return button.getLongPress();
-                } else {
-                    return button.getCurrentLabel();
-                }
+			String k = button.getKey();
+			if (k != "") {
+                return k;
             }
         }
         return null;

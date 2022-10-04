@@ -478,49 +478,36 @@ public class CodeBoardIME extends InputMethodService
     private void updateCandidates(String freq) {
         // 候選區是捲動式的，要往前 forward 幾個字
         // 為了防呆，也為了讓思考不要去管鍵盤是哪一個，在此阻止非自建輸入法顯示候選區
-        if (mCurKeyboard < R.integer.keyboard_bs || mCurKeyboard > R.integer.keyboard_cj) {
+        if (mCurKeyboard != R.integer.keyboard_bs &&
+			mCurKeyboard != R.integer.keyboard_cj &&
+			mCurKeyboard != R.integer.keyboard_ji) {
             return;
         }
-        ArrayList<B> b;
+        if (freq.length() == 0 || mComposing.length() == 0) {
+            setSuggestions(null, false, false);
+			return;
+		}
+        if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
+        ArrayList<B> b = new ArrayList<B>();
+        ArrayList<String> list = new ArrayList<String>();
         if (freq.length() > 0) {
-            ArrayList<String> list = new ArrayList<String>();
             list.add(freq.substring(0,1));
-            if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
-            int s = start;
-            b = bdatabase.getF(freq, s, maxMatch);
-            for (B d : b) {
-                list.add(d.ch);
-            }
-            setSuggestions(list, true, true);
+            b = bdatabase.getF(freq, start, maxMatch);
         } else if (mComposing.length() > 0) {
-            ArrayList<String> list = new ArrayList<String>();
             list.add(mComposing.toString());
 
-            if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
-            // wade, 底下根據鍵盤，切換不同的資料庫
-            int s = start;
             if (mCurKeyboard == R.integer.keyboard_bs) { // 英瞎
-                b = bdatabase.getB(mComposing.toString().toLowerCase(), s, maxMatch);
-                for (B d : b) {
-                    list.add(d.ch);
-                }
+                b = bdatabase.getB(mComposing.toString().toLowerCase(), start, maxMatch);
             } else if (mCurKeyboard == R.integer.keyboard_ji) { // 注音
-                if ((b = bdatabase.getJuin(mComposing.toString(), s, maxMatch)).size() > 0) {
-                    for (B d : b) {
-                        list.add(d.ch);
-                    }
-                }
+                b = bdatabase.getJuin(mComposing.toString(), start, maxMatch);
 //            } else if (mCurKeyboard == R.integer.keyboard_cj) { // 倉頡
-//                if ((b = bdatabase.getCj(mComposing.toString(), s, maxMatch)).size() > 0) {
-//                    for (B d : b) {
-//                        list.add(d.ch);
-//                    }
-//                }
+//                bdatabase.getCj(mComposing.toString(), start, maxMatch)
             }
-            setSuggestions(list, true, true);
-        } else {
-            setSuggestions(null, false, false);
         }
+        for (B d : b) {
+            list.add(d.ch);
+        }
+        setSuggestions(list, true, true);
     }
 
     /**

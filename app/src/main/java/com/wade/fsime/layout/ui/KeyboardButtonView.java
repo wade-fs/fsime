@@ -44,6 +44,17 @@ public class KeyboardButtonView extends View {
 
     float lastX = 0, lastY = 0;
 
+	public String getKey() {
+        if (isPressed) {
+            if (key.info.longPress != "") {
+                return key.info.longPress;
+            } else {
+                return currentLabel;
+            }
+        }
+		return "";
+	}
+
     public boolean isClicked() {
         return isPressed;
     }
