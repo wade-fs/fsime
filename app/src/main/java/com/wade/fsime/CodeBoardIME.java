@@ -442,7 +442,6 @@ public class CodeBoardIME extends InputMethodService
             if (index == 0) {
                 // 如果後面無字，不用退，
                 int after = afterCursorText.length();
-                Logi("res "+res+" after " + afterCursorText.toString() + " back " + after);
                 if (res.length() < after) {
                     after = res.length() - 1;
                 }
@@ -574,20 +573,16 @@ public class CodeBoardIME extends InputMethodService
             // 若有 ctrl -> clipboard-5
             if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
                 if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) {
-                    Logi("Portraint Arrows");
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                     } else {
                         definitions.addArrowsRow(builder, mCurKeyboard, true, false);
                     }
-                    Logi("Portraint digits");
                     Definitions.addDigits(builder, true);
                     if (!mCustomSymbolsMain2.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
                     }
-                    Logi("Portraint qwerty");
                     Definitions.addQwertyRows(builder);
-                    Logi("Portraint space");
                     definitions.addCustomSpaceRow(builder,true, false);
                 } else {
                     // 第一行
@@ -718,14 +713,12 @@ public class CodeBoardIME extends InputMethodService
     }
 
     private void keyDownUp(int keyEventCode, int meta) {
-        Logi("onKey "+keyEventCode);
         InputConnection ic = getCurrentInputConnection();
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
     }
 
     public void onPress(final int primaryCode) {
-        Logi("CBIME onPress "+primaryCode);
         swipe = false;
         pressedCode = primaryCode;
         if (soundOn) {
@@ -770,13 +763,11 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onText(CharSequence text) {
-        Logi("onText() code "+text.toString());
         getCurrentInputConnection().commitText(text, 1);
         clearLongPressTimer();
     }
 
     public void onKeyLongPress(int keyCode) {
-        Logi("CBIME onKeyLongPress "+keyCode + " "+mCurrentKeyboardLayoutView.getKey());
         // Process long-click here
         // This is following an onKey()
         InputConnection ic = getCurrentInputConnection();
@@ -826,7 +817,6 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
-        Logi("CBIME onRelease "+primaryCode);
         clearLongPressTimer();
     }
 

@@ -175,7 +175,6 @@ public class BDatabase extends SQLiteAssetHelper {
         if (db == null) db = getWritableDatabase();
 		ArrayList<String> list = new ArrayList<>();
 		list.add(k);
-        Logi("table = "+table+" k = "+k);
 
         k = k.toLowerCase(Locale.ENGLISH);
         String q; Cursor cursor; int count=0; boolean n;
