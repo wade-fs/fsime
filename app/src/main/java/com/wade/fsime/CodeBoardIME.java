@@ -489,16 +489,15 @@ public class CodeBoardIME extends InputMethodService
 		}
         if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
         ArrayList<String> list = new ArrayList<String>();
-		int kb = 1;
+        String table = "b";
 		switch (mCurKeyboard) {
-		case R.integer.keyboard_ji: kb = 2; break;
-		case R.integer.keyboard_cj: kb = 3; break;
+		case R.integer.keyboard_ji: table = "z"; break;
+		case R.integer.keyboard_cj: table = "c"; break;
 		}
-        Logi("UpdateCandidate kb="+kb+" ch="+mComposing.toString());
         if (freq.length() > 0) {
             list = bdatabase.getF(freq, start, maxMatch);
         } else if (mComposing.length() > 0) {
-            list = bdatabase.getWord(mComposing.toString(), start, maxMatch, kb);
+            list = bdatabase.getWord(mComposing.toString(), start, maxMatch, table);
         }
         setSuggestions(list, true, true);
     }

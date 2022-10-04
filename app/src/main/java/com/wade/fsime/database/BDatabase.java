@@ -154,20 +154,55 @@ public class BDatabase extends SQLiteAssetHelper {
         Log.i("FSIME", msg);
     }
     @SuppressLint("Range")
-    public ArrayList<String> getWord(String k, int start, int max, int kb){
+    public ArrayList<String> getWord(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();
 		ArrayList<String> list = new ArrayList<>();
 		list.add(k);
-        Logi("getWord "+kb+" ch="+k);
-        ArrayList<B> b = new ArrayList<>();
-        if (kb == 1) { // 英瞎
-            b = getB(k.toLowerCase(), start, max);
-        } else if (kb == 2) { // 注音
-            b = getJuin(k, start, max);
-//        } else if (kb == 3) { // 倉頡
-//            getCj(k, start, max);
+
+        k = k.toLowerCase(Locale.ENGLISH).replaceAll(" .*","");
+        String q; Cursor cursor; int count=0; boolean n;
+        ArrayList<B> resExact=new ArrayList<>();
+        if (k.length() == 0) return list;
+        // 首先找完全比對的結果
+        q = "SELECT * FROM "+table +" WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
+        cursor=db.rawQuery(q, null);
+        n = cursor.moveToFirst();
+        while(n && count <= max){
+            B b=new B();
+            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
+            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
+            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
+            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
+            if (ts == 1) b.ch = TS.StoT(b.ch);
+            else if (ts == 2) b.ch = TS.TtoS(b.ch);
+            if (!isIn(resExact, b)) {
+                resExact.add(b);
+                ++count;
+            }
+            n = cursor.moveToNext();
         }
-        for (B d : b) {
+        if (count < 30) { // 如果不足，再找更多比對結果
+            start = start < count ? 0 : start - count;
+            q = "SELECT * FROM b WHERE eng LIKE \"" + k + "%\" AND eng != \"" + k + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
+            cursor = db.rawQuery(q, null);
+            n = cursor.moveToFirst();
+            while (n && count <= max) {
+                B b = new B();
+                b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
+                b.eng = cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
+                b.ch = cursor.getString(cursor.getColumnIndex(BDatabase.CH));
+                b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
+                if (ts == 1) b.ch = TS.StoT(b.ch);
+                else if (ts == 2) b.ch = TS.TtoS(b.ch);
+                if (!isIn(resExact, b)) {
+                    resExact.add(b);
+                    ++count;
+                }
+                n = cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        for (B d : resExact) {
             list.add(d.ch);
         }
 		return list;
