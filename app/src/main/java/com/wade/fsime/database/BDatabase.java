@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+import android.util.Log;
+
 import java.util.Locale;
 import androidx.annotation.RequiresApi;
 
@@ -148,13 +150,15 @@ public class BDatabase extends SQLiteAssetHelper {
         cursor.close();
         return resExact;
     }
-
+    private void Logi(String msg) {
+        Log.i("FSIME", msg);
+    }
     @SuppressLint("Range")
     public ArrayList<String> getWord(String k, int start, int max, int kb){
         if (db == null) db = getWritableDatabase();
 		ArrayList<String> list = new ArrayList<>();
 		list.add(k);
-
+        Logi("getWord "+kb+" ch="+k);
         ArrayList<B> b = new ArrayList<>();
         if (kb == 1) { // 英瞎
             b = getB(k.toLowerCase(), start, max);

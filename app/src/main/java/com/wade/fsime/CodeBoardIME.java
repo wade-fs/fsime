@@ -494,6 +494,7 @@ public class CodeBoardIME extends InputMethodService
 		case R.integer.keyboard_ji: kb = 2; break;
 		case R.integer.keyboard_cj: kb = 3; break;
 		}
+        Logi("UpdateCandidate kb="+kb+" ch="+mComposing.toString());
         if (freq.length() > 0) {
             list = bdatabase.getF(freq, start, maxMatch);
         } else if (mComposing.length() > 0) {
