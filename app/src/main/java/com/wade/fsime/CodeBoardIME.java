@@ -483,7 +483,7 @@ public class CodeBoardIME extends InputMethodService
 			mCurKeyboard != R.integer.keyboard_ji) {
             return;
         }
-        if (freq.length() == 0 || mComposing.length() == 0) {
+        if (freq.length() == 0 && mComposing.length() == 0) {
             setSuggestions(null, false, false);
 			return;
 		}
