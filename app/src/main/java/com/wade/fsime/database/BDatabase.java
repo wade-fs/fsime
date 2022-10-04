@@ -26,9 +26,17 @@ public class BDatabase extends SQLiteAssetHelper {
     }
 
     public void setTs(int t) { ts = t; }
+
     private boolean isIn(ArrayList<B> res, B b) {
         for (B bb : res) {
             if (bb.ch.equals(b.ch)) return true;
+        }
+        return false;
+    }
+
+    private boolean isIn(ArrayList<String> res, String b) {
+        for (String bb : res) {
+            if (bb.equals(b)) return true;
         }
         return false;
     }
@@ -142,10 +150,32 @@ public class BDatabase extends SQLiteAssetHelper {
     }
 
     @SuppressLint("Range")
-    public ArrayList<B> getF(String k, int start, int max){
+    public ArrayList<String> getWord(String k, int start, int max, int kb){
         if (db == null) db = getWritableDatabase();
+		ArrayList<String> list = new ArrayList<>();
+		list.add(k);
+
+        ArrayList<B> b = new ArrayList<>();
+        if (kb == 1) { // 英瞎
+            b = getB(k.toLowerCase(), start, max);
+        } else if (kb == 2) { // 注音
+            b = getJuin(k, start, max);
+//        } else if (kb == 3) { // 倉頡
+//            getCj(k, start, max);
+        }
+        for (B d : b) {
+            list.add(d.ch);
+        }
+		return list;
+	}
+
+    @SuppressLint("Range")
+    public ArrayList<String> getF(String k, int start, int max){
+        if (db == null) db = getWritableDatabase();
+		ArrayList<String> list = new ArrayList<>();
+		list.add(k.substring(0,1));
+
         String q; Cursor cursor; int count=0; boolean n;
-        ArrayList<B> resExact=new ArrayList<>();
         q = "select * from f where ";
         q += "ch like \""+k+"%\" LIMIT "+max+" OFFSET "+start+";";
         cursor=db.rawQuery(q, null);
@@ -157,13 +187,13 @@ public class BDatabase extends SQLiteAssetHelper {
             if (ts == 1) b.ch = TS.StoT(b.ch);
             else if (ts == 2) b.ch = TS.TtoS(b.ch);
             b.ch = b.ch.substring(1,2);
-            if (!isIn(resExact, b)) {
-                resExact.add(b);
+            if (!isIn(list, b.ch)) {
+                list.add(b.ch);
                 ++count;
             }
             n = cursor.moveToNext();
         }
         cursor.close();
-        return resExact;
+        return list;
     }
 }

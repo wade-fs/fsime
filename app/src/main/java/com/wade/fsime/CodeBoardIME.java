@@ -488,24 +488,16 @@ public class CodeBoardIME extends InputMethodService
 			return;
 		}
         if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
-        ArrayList<B> b = new ArrayList<B>();
         ArrayList<String> list = new ArrayList<String>();
+		int kb = 1;
+		switch (mCurKeyboard) {
+		case R.integer.keyboard_ji: kb = 2; break;
+		case R.integer.keyboard_cj: kb = 3; break;
+		}
         if (freq.length() > 0) {
-            list.add(freq.substring(0,1));
-            b = bdatabase.getF(freq, start, maxMatch);
+            list = bdatabase.getF(freq, start, maxMatch);
         } else if (mComposing.length() > 0) {
-            list.add(mComposing.toString());
-
-            if (mCurKeyboard == R.integer.keyboard_bs) { // 英瞎
-                b = bdatabase.getB(mComposing.toString().toLowerCase(), start, maxMatch);
-            } else if (mCurKeyboard == R.integer.keyboard_ji) { // 注音
-                b = bdatabase.getJuin(mComposing.toString(), start, maxMatch);
-//            } else if (mCurKeyboard == R.integer.keyboard_cj) { // 倉頡
-//                bdatabase.getCj(mComposing.toString(), start, maxMatch)
-            }
-        }
-        for (B d : b) {
-            list.add(d.ch);
+            list = bdatabase.getWord(mComposing.toString(), start, maxMatch, kb);
         }
         setSuggestions(list, true, true);
     }
