@@ -7,11 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.util.Log;
 
+import java.util.HashMap;
 import java.util.Locale;
 import androidx.annotation.RequiresApi;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class BDatabase extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "b.db";
@@ -22,7 +24,21 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
     private int ts = 0;
-
+    Map<String, String> e2j  = new HashMap<String, String>() {{
+        put("a", "ㄇ"); put("b", "ㄖ"); put("c", "ㄏ"); put("d", "ㄎ"); put("e", "ㄍ");
+        put("f", "ㄑ"); put("g", "ㄕ"); put("h", "ㄘ"); put("i", "ㄛ"); put("j", "ㄨ");
+        put("k", "ㄜ"); put("l", "ㄠ"); put("m", "ㄩ"); put("n", "ㄙ"); put("o", "ㄟ");
+        put("p", "ㄣ"); put("q", "ㄆ"); put("r", "ㄐ"); put("s", "ㄋ"); put("t", "ㄔ");
+        put("u", "ㄧ"); put("v", "ㄒ"); put("w", "ㄊ"); put("x", "ㄌ"); put("y", "ㄗ");
+        put("z", "ㄈ"); put("1", "ㄅ"); put("2", "ㄉ"); put("3", "ˇ"); put("4", "ˋ");
+        put("5", "ㄓ"); put("6", "ˊ"); put("7", "˙"); put("8", "ㄚ"); put("9", "ㄞ");
+        put("0", "ㄢ"); put("-", "ㄦ"); put(";", "ㄤ"); put(",", "ㄝ"); put(".", "ㄡ");
+        put("/", "ㄥ");
+    }};
+//    A	    B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y	Z
+//    ㄇ	ㄖ	ㄏ	ㄎ	ㄍ	ㄑ	ㄕ	ㄘ	ㄛ	ㄨ	ㄜ	ㄠ	ㄩ	ㄙ	ㄟ	ㄣ	ㄆ	ㄐ	ㄋ	ㄔ	ㄧ	ㄒ	ㄊ	ㄌ	ㄗ	ㄈ
+//    1	    2	3	4	5	6	7	8	9	0	-	;	,	.	/	\	'	[	]	=
+//    ㄅ	ㄉ	ˇ	ˋ	ㄓ	ˊ	˙	ㄚ	ㄞ	ㄢ	ㄦ	ㄤ	ㄝ	ㄡ	ㄥ
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -153,16 +169,25 @@ public class BDatabase extends SQLiteAssetHelper {
     private void Logi(String msg) {
         Log.i("FSIME", msg);
     }
+
     @SuppressLint("Range")
     public ArrayList<String> getWord(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();
 		ArrayList<String> list = new ArrayList<>();
 		list.add(k);
+        Logi("table = "+table+" k = "+k);
 
-        k = k.toLowerCase(Locale.ENGLISH).replaceAll(" .*","");
+        k = k.toLowerCase(Locale.ENGLISH);
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         if (k.length() == 0) return list;
+        if (table == "z") {
+            String kk = "";
+            for (String s : k.split("")) {
+                kk = kk + e2j.get(s);
+            }
+            k = kk;
+        }
         // 首先找完全比對的結果
         q = "SELECT * FROM "+table +" WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
         cursor=db.rawQuery(q, null);
@@ -183,7 +208,7 @@ public class BDatabase extends SQLiteAssetHelper {
         }
         if (count < 30) { // 如果不足，再找更多比對結果
             start = start < count ? 0 : start - count;
-            q = "SELECT * FROM b WHERE eng LIKE \"" + k + "%\" AND eng != \"" + k + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
+            q = "SELECT * FROM "+table+" WHERE eng LIKE \"" + k + "%\" AND eng != \"" + k + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
             cursor = db.rawQuery(q, null);
             n = cursor.moveToFirst();
             while (n && count <= max) {

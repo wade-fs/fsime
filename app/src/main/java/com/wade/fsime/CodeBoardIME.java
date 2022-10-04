@@ -145,7 +145,6 @@ public class CodeBoardIME extends InputMethodService
             case R.integer.keyboard_sym       : ime = "符"; break;
             case R.integer.keyboard_clipboard : ime = "剪"; break;
         }
-        Logi("輸入法 "+ime);
     }
 
     private boolean processSpecialKey(int primaryCode) {
@@ -352,7 +351,7 @@ public class CodeBoardIME extends InputMethodService
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
 				if (ctrl) {
                     keyDownUp(ke, meta);
-                } else if (mCurKeyboard >= R.integer.keyboard_bs && mCurKeyboard <= R.integer.keyboard_cj) {
+                } else if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
                     if (ke == KeyEvent.KEYCODE_DEL) {
                         handleBackspace();
                     } else if (ke == KeyEvent.KEYCODE_SPACE) {
@@ -573,7 +572,7 @@ public class CodeBoardIME extends InputMethodService
             // normal-0 -> bs-1 -> ji-2 -> cj-3
             //    -> sym-4
             // 若有 ctrl -> clipboard-5
-            if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard <= R.integer.keyboard_ji || mCurKeyboard <= R.integer.keyboard_cj) {
+            if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
                 if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) {
                     Logi("Portraint Arrows");
                     if (mToprow) {
