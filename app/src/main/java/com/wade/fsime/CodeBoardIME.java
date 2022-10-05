@@ -571,7 +571,7 @@ public class CodeBoardIME extends InputMethodService
             //    -> sym-4
             // 若有 ctrl -> clipboard-5
             if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
-                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mCurKeyboard, true);
                     } else {
@@ -583,34 +583,31 @@ public class CodeBoardIME extends InputMethodService
                     }
                     Definitions.addQwertyRows(builder);
                     definitions.addCustomSpaceRow(builder,true, false);
-                } else {
+                } else { // 橫
                     // 第一行
+                    Definitions.addQwertyRows1(builder, false);
                     if (mToprow) {
                         definitions.addCopyPasteRow(builder, mCurKeyboard, false);
                     } else {
                         definitions.addArrowsRow(builder, mCurKeyboard, false, true);
                     }
-                    Definitions.addQwertyRows1(builder, false);
 
                     // 第二行
-                    Definitions.addDigits(builder, true);
-                    Definitions.addQwertyRows2(builder, false);
-//                    if (!mCustomSymbolsMain2.isEmpty()) {
-//                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
-//                    }
+                    Definitions.addQwertyRows2(builder, true);
+                    Definitions.addDigits(builder, false);
 
                     // 第三行
-                    definitions.addCustomSpaceRow(builder, true, true);
-                    Definitions.addQwertyRows3(builder, false);
+                    Definitions.addQwertyRows3(builder, true);
+                    definitions.addCustomSpaceRow(builder, false, true);
                 }
-            } else { // 符號跟剪貼簿，未處理橫放
-                if (mToprow) {
-                    definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                } else {
-                    definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                }
+            } else if (mCurKeyboard == R.integer.keyboard_sym) { // 符號，未處理橫放
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
 
-                if (mCurKeyboard == R.integer.keyboard_sym) {
                     if (!mCustomSymbolsSym.isEmpty()) {
                         Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
                     }
@@ -628,8 +625,48 @@ public class CodeBoardIME extends InputMethodService
                     } else {
                         definitions.addCustomSpaceRow(builder, true, false);
                     }
-                } else if (mCurKeyboard == R.integer.keyboard_clipboard) {
-                    definitions.addClipboardActions(builder);
+                } else {
+                    // 第一行左
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+                    definitions.addSymbolRows1(builder, false);
+
+                    // 第二行左
+                    if (!mCustomSymbolsSym.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
+                    }
+                    definitions.addSymbolRows2(builder, false);
+
+                    // 第三行左
+                    if (!mCustomSymbolsSym2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
+                    }
+                    definitions.addSymbolRows3(builder, false);
+//                    if (!mCustomSymbolsSym3.isEmpty()) {
+//                        Definitions.addCustomRow(builder, mCustomSymbolsSym3, "", false);
+//                    }
+//                    if (!mCustomSymbolsSym4.isEmpty()) {
+//                        Definitions.addCustomRow(builder, mCustomSymbolsSym4, "", false);
+//                    }
+//
+//                    if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
+//                        definitions.addSymbolRows(builder);
+//                    } else {
+//                        definitions.addCustomSpaceRow(builder, false, false);
+//                    }
+                }
+            } else if (mCurKeyboard == R.integer.keyboard_clipboard) { // 剪貼簿
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+
+                    definitions.addClipboardActions(builder, true);
 
                     ClipboardManager clipboard = (ClipboardManager)
                             getSystemService(Context.CLIPBOARD_SERVICE);
@@ -652,6 +689,37 @@ public class CodeBoardIME extends InputMethodService
                     builder.newRow()
                             .addKey(sharedPreferences.getPin6())
                             .addKey(sharedPreferences.getPin7());
+                } else { // 橫
+                    // 第一行左
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+                    definitions.addClipboardActions(builder,false);
+
+                    // 第二行左
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard.hasPrimaryClip()
+                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
+                        ClipData pr = clipboard.getPrimaryClip();
+                        //Android only allows one item in Clipboard
+                        String s = pr.getItemAt(0).getText().toString();
+                        builder.newRow().addKey(s);
+                    } else {
+                        builder.newRow().addKey("Nothing copied").withOutputText("");
+                    }
+                    builder.addKey(sharedPreferences.getPin1());
+                    builder.addKey(sharedPreferences.getPin2()).withSize(0.9f)
+                           .addKey(sharedPreferences.getPin3()).withSize(0.9f);
+
+                    // 第三行左
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin4()).withSize(0.3f)
+                            .addKey(sharedPreferences.getPin5()).withSize(2.3f);
+                    builder.addKey(sharedPreferences.getPin6()).withSize(0.9f)
+                           .addKey(sharedPreferences.getPin7()).withSize(0.3f);
                 }
             }
 

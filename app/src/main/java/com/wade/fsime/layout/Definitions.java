@@ -206,66 +206,49 @@ public class Definitions {
                 .addKey('\'').withLongPress("\"");
     }
 
-    public static void addJiRows(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()       // 1234567890-=
-                .addKey('ㄅ').withLongPress("1")
-                .addKey('ㄉ').withLongPress("2")
-                .addKey('ˇ').withLongPress("3")
-                .addKey('ˋ').withLongPress("4")
-                .addKey('ㄓ').withLongPress("5")
-                .addKey('ˊ').withLongPress("6")
-                .addKey('˙').withLongPress("7")
-                .addKey('ㄚ').withLongPress("8")
-                .addKey('ㄞ').withLongPress("9")
-                .addKey('ㄢ').withLongPress("0")
-                .addKey('ㄦ').withLongPress("-")
-                .addKey("-").withLongPress("_")
-                .addKey("=").withLongPress("+")
+    public void addSymbolRows1(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow()
+                    .addKey("Home", -18)
+                    .addKey("End", -19)
+                    .addKey("Del", -21)
+                    .addKey("PgUp", -22)
+                    .addKey("PgDn", -23);
+        } else {
+            keyboard.addKey("Home", -18).withSize(1.6f)
+                    .addKey("End",  -19).withSize(1.5f)
+                    .addKey("Del",  -21).withSize(1.5f)
+                    .addKey("PgUp", -22).withSize(1.5f)
+                    .addKey("PgDn", -23).withSize(1.5f);
+        }
+    }
 
-                .newRow() // qwertyuiop
-                .addKey("\\").withLongPress("|")
-                .addKey('ㄆ').withLongPress("q")
-                .addKey('ㄊ').withLongPress("w")
-                .addKey('ㄍ').withLongPress("e")
-                .addKey('ㄐ').withLongPress("r")
-                .addKey('ㄔ').withLongPress("t")
-                .addKey('ㄗ').withLongPress("y")
-                .addKey('一').withLongPress("u")
-                .addKey('ㄛ').withLongPress("i")
-                .addKey('ㄟ').withLongPress("o")
-                .addKey("ㄣ", 12579).withLongPress("p")
-                .addKey("[").withLongPress("{")
-                .addKey("]").withLongPress("}")
+    public void addSymbolRows2(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard               .addShiftKey().withSize(2.0f)
+                .addKey("F1",  -6).withSize(1.5f)
+                .addKey("F2",  -7).withSize(1.5f)
+                .addKey("F3",  -8).withSize(1.5f)
+                .addKey("F4",  -9).withSize(1.5f)
+                .addKey("F5", -10).withSize(1.5f)
+                .addKey("F6", -11).withSize(1.5f)
+                .addKey("F7", -12).withSize(1.5f);
+    }
 
-                .newRow()       // asdfghjkl;
-                .addKey("`").withLongPress("~")
-                .addKey('ㄇ').withLongPress("a")
-                .addKey('ㄋ').withLongPress("s")
-                .addKey('ㄎ').withLongPress("d")
-                .addKey("ㄑ", 12561).withLongPress("f")
-                .addKey('ㄕ').withLongPress("g")
-                .addKey('ㄘ').withLongPress("h")
-                .addKey('ㄨ').withLongPress("j")
-                .addKey('ㄜ').withLongPress("k")
-                .addKey('ㄠ').withLongPress("l")
-                .addKey("ㄤ", 12580).withLongPress(";")
-                .addKey("'").withLongPress("\"")
-                .addKey("#").withLongPress(":")
-                .addKey("$").withLongPress("%")
-
-                .newRow()       // zxcvbnm,./
-                .addShiftKey()
-                .addKey('ㄈ').withLongPress("z")
-                .addKey('ㄌ').withLongPress("x")
-                .addKey('ㄏ').withLongPress("c")
-                .addKey('ㄒ').withLongPress("v")
-                .addKey('ㄖ').withLongPress("b")
-                .addKey('ㄙ').withLongPress("n")
-                .addKey('ㄩ').withLongPress("m")
-                .addKey('ㄝ').withLongPress("!")
-                .addKey('ㄡ').withLongPress("@")
-                .addKey("ㄥ", 12581).withLongPress("?")
-        ;
+    public void addSymbolRows3(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow();
+        }
+        keyboard.addKey("Ctrl", 17).asModifier().onCtrlShow("CTRL")
+                .addKey("F8", -13)
+                .addKey("F9", -14)
+                .addKey("F10", -15)
+                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
+                .addKey("F11", -16)
+                .addKey("F12", -17)
+                .addEnterKey();
     }
 
     public void addSymbolRows(KeyboardLayoutBuilder keyboard) {
@@ -298,15 +281,23 @@ public class Definitions {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public void addClipboardActions(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)
-                .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)
-                .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)
-                .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)
-                .addKey(context.getDrawable(R.drawable.ic_undo_24dp), 53741)
-                .addKey(context.getDrawable(R.drawable.ic_redo_24dp), 53742)
-        ;
+    public void addClipboardActions(KeyboardLayoutBuilder keyboard, boolean newRow) {
+        if (newRow) {
+            keyboard.newRow()
+                    .addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737)
+                    .addKey(context.getDrawable(R.drawable.ic_cut_24dp), 53738)
+                    .addKey(context.getDrawable(R.drawable.ic_copy_24dp), 53739)
+                    .addKey(context.getDrawable(R.drawable.ic_paste_24dp), 53740)
+                    .addKey(context.getDrawable(R.drawable.ic_undo_24dp), 53741)
+                    .addKey(context.getDrawable(R.drawable.ic_redo_24dp), 53742);
+        } else {
+            keyboard.addKey(context.getDrawable(R.drawable.ic_select_all_24dp), 53737).withSize(1.2f)
+                    .addKey(context.getDrawable(R.drawable.ic_cut_24dp),        53738).withSize(1.2f)
+                    .addKey(context.getDrawable(R.drawable.ic_copy_24dp),       53739).withSize(1.2f)
+                    .addKey(context.getDrawable(R.drawable.ic_paste_24dp),      53740).withSize(1.2f)
+                    .addKey(context.getDrawable(R.drawable.ic_undo_24dp),       53741).withSize(1.2f)
+                    .addKey(context.getDrawable(R.drawable.ic_redo_24dp),       53742).withSize(1.2f);
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
