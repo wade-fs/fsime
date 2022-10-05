@@ -337,6 +337,7 @@ public class CodeBoardIME extends InputMethodService
                 meta = meta | KeyEvent.META_CTRL_ON;
             }
             int ke = primary2ke(primaryCode);
+            Logi("process "+primaryCode+ " code "+code + " ke "+ke);
             if (ke < 0) { // 特殊字，例如上下左右等等
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
@@ -380,9 +381,16 @@ public class CodeBoardIME extends InputMethodService
                     } else {
                         setCandidatesViewShown(false);
                     }
+                } else if (pressedCode > 0) {
+                    ic.commitText(""+code, 1);
                 } else {
                     keyDownUp(ke, meta);
                 }
+            } else if (pressedCode > 0 && (
+                    mCurKeyboard == R.integer.keyboard_sym ||
+                            mCurKeyboard == R.integer.keyboard_normal ||
+                            mCurKeyboard == R.integer.keyboard_clipboard)) {
+                ic.commitText(""+code, 1);
             } else {
                 mComposing.append(code);
                 updateCandidates("");
@@ -750,6 +758,7 @@ public class CodeBoardIME extends InputMethodService
         if (swipe) {
             return;
         }
+        Logi("onKey "+code+" "+KeyCodes);
         processKey();
     }
 
