@@ -21,7 +21,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         if (action.equals(ACTION_SHOW)) {
             InputMethodManager imm = (InputMethodManager)
-                    context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                context.getSystemService(Context.INPUT_METHOD_SERVICE);
             if (imm != null) {
                 imm.showSoftInputFromInputMethod(mIME.mToken, InputMethodManager.SHOW_FORCED);
             }

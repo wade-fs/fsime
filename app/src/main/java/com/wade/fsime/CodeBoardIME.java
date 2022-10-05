@@ -136,15 +136,6 @@ public class CodeBoardIME extends InputMethodService
         } else {
             mCurKeyboard = R.integer.keyboard_normal;
         }
-        String ime = "";
-        switch (mCurKeyboard) {
-            case R.integer.keyboard_normal    : ime = "英"; break;
-            case R.integer.keyboard_bs        : ime = "嘸"; break;
-            case R.integer.keyboard_ji        : ime = "注"; break;
-            case R.integer.keyboard_cj        : ime = "倉"; break;
-            case R.integer.keyboard_sym       : ime = "符"; break;
-            case R.integer.keyboard_clipboard : ime = "剪"; break;
-        }
     }
 
     private boolean processSpecialKey(int primaryCode) {
@@ -801,7 +792,10 @@ public class CodeBoardIME extends InputMethodService
             case 32: { // SPACE
                 InputMethodManager imm = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm != null) imm.showInputMethodPicker();
+                if (imm != null) {
+					imm.showInputMethodPicker();
+					imm.showSoftInput(mCurrentKeyboardLayoutView, InputMethodManager.SHOW_IMPLICIT);
+				}
                 break;
             }
             default: {

@@ -35,10 +35,10 @@ public class BDatabase extends SQLiteAssetHelper {
         put("0", "ㄢ"); put("-", "ㄦ"); put(";", "ㄤ"); put(",", "ㄝ"); put(".", "ㄡ");
         put("/", "ㄥ");
     }};
-//    A	    B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y	Z
-//    ㄇ	ㄖ	ㄏ	ㄎ	ㄍ	ㄑ	ㄕ	ㄘ	ㄛ	ㄨ	ㄜ	ㄠ	ㄩ	ㄙ	ㄟ	ㄣ	ㄆ	ㄐ	ㄋ	ㄔ	ㄧ	ㄒ	ㄊ	ㄌ	ㄗ	ㄈ
-//    1	    2	3	4	5	6	7	8	9	0	-	;	,	.	/	\	'	[	]	=
-//    ㄅ	ㄉ	ˇ	ˋ	ㄓ	ˊ	˙	ㄚ	ㄞ	ㄢ	ㄦ	ㄤ	ㄝ	ㄡ	ㄥ
+// A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
+// ㄇ ㄖ ㄏ ㄎ ㄍ ㄑ ㄕ ㄘ ㄛ ㄨ ㄜ ㄠ ㄩ ㄙ ㄟ ㄣ ㄆ ㄐ ㄋ ㄔ ㄧ ㄒ ㄊ ㄌ ㄗ ㄈ
+// 1  2  3 4 5  6 7 8  9  0  -  ;  ,  .  /
+// ㄅ ㄉ ˇ ˋ ㄓ ˊ ˙ ㄚ ㄞ ㄢ ㄦ ㄤ ㄝ ㄡ ㄥ
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -90,82 +90,7 @@ public class BDatabase extends SQLiteAssetHelper {
             db.insert("b", null, values);
         }
     }
-    @SuppressLint("Range")
-    public ArrayList<B> getB(String k, int start, int max){
-        if (db == null) db=getWritableDatabase();
-        k = k.toLowerCase(Locale.ENGLISH).replaceAll("[^A-Za-z,\\.'\\[\\]]","").replaceAll("'", "''");
-        String q; Cursor cursor; int count=0; boolean n;
-        ArrayList<B> resExact=new ArrayList<>();
-        if (k.length() == 0) return resExact;
-        // 首先找完全比對的結果
-        q = "SELECT * FROM b WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= max){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b)) {
-                resExact.add(b);
-                ++count;
-            }
-            n = cursor.moveToNext();
-        }
-        if (count >= 30) return resExact;
 
-        // 如果不足，再找更多比對結果
-        start = start < count ? 0 : start-count;
-        q = "SELECT * FROM b WHERE eng LIKE \"" + k + "%\" AND eng != \""+k+"\" ORDER BY freq DESC LIMIT "+(max-count)+" OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= max){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b)) {
-                resExact.add(b);
-                ++count;
-            }
-            n = cursor.moveToNext();
-        }
-        cursor.close();
-        return resExact;
-    }
-
-    @SuppressLint("Range")
-    public ArrayList<B> getJuin(String k, int start, int max){
-        if (db == null) db = getWritableDatabase();
-        String q; Cursor cursor; int count=0; boolean n;
-        ArrayList<B> resExact=new ArrayList<>();
-        q = "select * from z where ";
-        q += "eng like \""+k+"%\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= max){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b)) {
-                resExact.add(b);
-                ++count;
-            }
-            n = cursor.moveToNext();
-        }
-        cursor.close();
-        return resExact;
-    }
     private void Logi(String msg) {
         Log.i("FSIME", msg);
     }
@@ -180,34 +105,49 @@ public class BDatabase extends SQLiteAssetHelper {
         String q; Cursor cursor; int count=0; boolean n;
         ArrayList<B> resExact=new ArrayList<>();
         if (k.length() == 0) return list;
-        if (table == "z") {
-            String kk = "";
-            for (String s : k.split("")) {
-                kk = kk + e2j.get(s);
+		ArrayList<String> tables = new ArrayList<>();
+
+        if (table.equals("b")) { // mix
+			tables.add("b"); tables.add("z"); tables.add("c");
+            max = max + max + max;
+		} else {
+			tables.add(table);
+		}
+        String pre = "SELECT * FROM ";
+        String kk = "";
+		for (String t : tables) {
+            kk = "";
+            if (t.equals("z")) {
+                for (String s : k.split("")) {
+                    kk = kk + e2j.get(s);
+                }
+            } else {
+                kk = k;
             }
-            k = kk;
-        }
-        // 首先找完全比對的結果
-        q = "SELECT * FROM "+table +" WHERE eng = \"" + k + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= max){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            if (!isIn(resExact, b)) {
-                resExact.add(b);
-                ++count;
+            String post = " WHERE eng = \"" + kk + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
+            // 首先找完全比對的結果
+            q = pre + t + post;
+            cursor=db.rawQuery(q, null);
+            n = cursor.moveToFirst();
+            while(n && count <= max){
+                B b=new B();
+                b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
+                b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
+                b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
+                b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
+                if (ts == 1) { b.ch = TS.StoT(b.ch); }
+                else if (ts == 2) { b.ch = TS.TtoS(b.ch); }
+                if (!isIn(resExact, b)) {
+                    resExact.add(b);
+                    ++count;
+                }
+                n = cursor.moveToNext();
             }
-            n = cursor.moveToNext();
-        }
+		}
+        kk = k;
         if (count < 30) { // 如果不足，再找更多比對結果
             start = start < count ? 0 : start - count;
-            q = "SELECT * FROM "+table+" WHERE eng LIKE \"" + k + "%\" AND eng != \"" + k + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
+            q = "SELECT * FROM "+table+" WHERE eng LIKE \"" + kk + "%\" AND eng != \"" + kk + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
             cursor = db.rawQuery(q, null);
             n = cursor.moveToFirst();
             while (n && count <= max) {

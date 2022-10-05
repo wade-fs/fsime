@@ -66,6 +66,7 @@ public class IntroActivity extends AppIntro {
         InputMethodManager imm = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showInputMethodPicker();
+		imm.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT);
     }
 }
 

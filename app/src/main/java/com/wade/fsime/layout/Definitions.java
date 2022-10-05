@@ -26,7 +26,7 @@ public class Definitions {
         int CODE_ARROW_RIGHT = 5003;
         String SYM = "英";
         if (mKeyboardState == R.integer.keyboard_bs) {
-            SYM = "嘸";
+            SYM = "混";
         } else if (mKeyboardState == R.integer.keyboard_ji) {
             SYM = "注";
         } else if (mKeyboardState == R.integer.keyboard_cj) {
@@ -65,7 +65,7 @@ public class Definitions {
     public void addCopyPasteRow(KeyboardLayoutBuilder keyboard, int mKeyboardState, boolean newRow) {
         String SYM = "英";
         switch (mKeyboardState) {
-            case R.integer.keyboard_bs: SYM = "嘸"; break;
+            case R.integer.keyboard_bs: SYM = "混"; break;
             case R.integer.keyboard_ji: SYM = "注"; break;
             case R.integer.keyboard_cj: SYM = "倉"; break;
             case R.integer.keyboard_sym: SYM = "符"; break;

@@ -29,6 +29,7 @@
 
         <activity android:name="com.wade.fsime.MainActivity"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="stateVisible"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
