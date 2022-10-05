@@ -8,8 +8,8 @@ android {
         applicationId "com.wade.fsime"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 811
-        versionName "8.1.1"
+        versionCode 829
+        versionName "8.2.0"
     }
     buildTypes {
         release {
