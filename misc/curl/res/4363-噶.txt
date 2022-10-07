@@ -1,0 +1,3045 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW">
+<head>
+    <meta property="og:title" content="教育百科 | 教育雲線上字典" />
+    <title>噶 搜尋結果 - 教育百科 | 教育雲線上字典</title>
+    <link rel="icon" href="/Content/Images/icon/favicon.ico">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="教育百科,教育,edu, 辭典,字典,成語,教育部,同義詞,造句" />
+    <meta name="description" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="subject" content="教育部教育雲計畫教育百科" />
+    <meta name="copyright" content="卡米爾股份有限公司" />
+    <meta name="language" content="zh-TW" />
+    <meta name="abstract" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="topic" content="教育部教育雲計畫教育百科" />
+    <meta name="summary" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="author" content="教育部,卡米爾" />
+    <meta name="owner" content="教育部" />
+    <meta name="subtitle" content="教育雲端應用及平臺服務計畫" />
+    <meta charset="UTF-8" />
+
+    <link href="/Content/CSS/bootstrap.css?version=-710204471" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_common.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap.lib/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap-toggle.css" rel="stylesheet">
+    <link href="/Content/CSS/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.lib/ui.totop.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/lightbox.css" rel="stylesheet">
+    <link href="/Content/CSS/lity.css" rel="stylesheet">
+    <link href="/Content/CSS/fixed.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/index.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/style.css?version=1852324458" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search.css?version=651332762" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search_result.css?version=-787154487" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/Content/CSS/pdx.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cookie_login {
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .header_mobile {
+                display: inline-block !important;
+            }
+
+            .cookie_register {
+                padding-left: 0px !important;
+            }
+        }
+
+        a:focus img {
+            border: 5px solid #900;
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+
+        a:focus {
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-58889268-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script type="text/javascript">
+        var isLogin = false;
+
+        function addCookie() {
+            document.cookie = "lasturl=" + location.href + "; path=/";
+        }
+        function delCookie() {
+            document.cookie = "lasturl=; path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        $(document).ready(function () {
+            $(".cookie_login").click(function () {
+                addCookie();
+                var pathname = window.location.pathname; // Returns path only
+                var url      = window.location.href;     // Returns full URL
+                url = url.replace("https://pedia.cloud.edu.tw", "").replace("http://pedia.cloud.edu.tw", "").replace("http://localhost:50026", "");
+                location.href = "/SsoLogin/Home?statepage=" + url;
+            });
+
+            if (isLogin) {
+                var strLastUrl = getCookie("lasturl");
+                if (strLastUrl !== "") {
+                    delCookie();
+                    location.href = strLastUrl;
+                    return;
+                }
+            } else {
+                delCookie();
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <a href="#mainContent" title="跳到主要內容" tabindex="1" class="sr-only sr-only-focusable">跳到主要內容</a>
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="navbar navbar-inverse navbar-static-top header">
+            <a href="#Accesskey_U" id="Accesskey_U" accesskey="U" alt="教育百科瀏覽選單" title="上方選單連結區，此區塊列有本網站的主要連結" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- 在小 device-compatiple 用的, 勿刪-->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand" style="margin-top: 0;">
+                        <a href="/">
+                            <img src="/Content/Images/logo/logo_small_white.png" width="100" alt="教育百科logo" />
+                        </a>
+                    </h1>
+                </div>
+
+                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                    <!-- 左邊 -->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a title="網站導覽" tabindex="2" class="dropdown" id="index_sitemap" href="/Home/WebsiteMap">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>網站導覽
+                            </a>
+                        </li>
+                        <li>
+                            <a title="前往教育雲入口網(另開新視窗)" class="dropdown" id="cloud" target="_blank" href="http://cloud.edu.tw/">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>教育雲入口網
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="index_menu" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>索引選單<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="index_category" href="/NavigateWord">分類索引</a></li>
+                                <li><a id="index_character" href="/Bopomofo">單字索引</a></li>
+                                <li><a id="index_withTaieol" href="/NavigateWord/Taieol">生命大百科索引</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown" id="submission" href="/Stroke/Advice">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>投稿區
+                            </a>
+                        </li>
+
+                        <li>
+                            <a title="國語各版本生字詞彙表" class="dropdown" id="word_list" href="/Bookmark/Textword">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>生字詞彙表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown" id="word_list" href="/NavigateWord">
+                                <font color="#FFFF00"> <span class="glyphicon glyphicon glyphicon-star mr10"></span>新上架資源</font>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 右邊 -->
+                    <ul id="loginSection" class="nav navbar-nav navbar-right" style="margin-right: -40px;">
+
+                            <li class="header_mobile">
+                                <a class="login_rigister" href="/SsoLogin/Home"><span class="glyphicon glyphicon-user mr10"></span>登入會員/註冊</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main-body">
+            <a id="mainContent" title="中間主要內容區 (Alt+C)" accesskey="C" href="#content" style="font-size: 1px;" class="printhidden_inline">:::</a>
+            
+
+<style>
+    .main-body {
+        background-color: #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        outline: none;
+    }
+</style>
+
+<div class="bgGrey-light border-grey-bottom" style="margin-bottom:-1px">
+    <div class="container pt20">
+        <!--  工具列  -->
+        <div class="toolBar">
+            <div class="floatLeft mt10 mb10" style="width:100%!important;">
+
+                <!-- search-->
+                
+
+<form id="frmMain" method="post" action="/Home/Search" class="form-search form-inline">
+    <input name="__RequestVerificationToken" type="hidden" value="S2GaPCzdOuKui2MRVullXVEq6tqLk3kQenlUekhNighRJxFcuBhrwPYyjAd2DgRol5phJXjlGXBvHNl--J9GYm6sPHDpZ2JNpkVa_RmZ_1M1" />
+    <input id="hiddenInput" type="hidden" name="search1" />
+    <div class="input-append smallk">
+        <label for="searchInput" class="search-query search-input-rounded-corners-small" style="background: white;">
+            <input value="噶" accesskey="S" id="searchInput" type="text" name="search" placeholder="請輸入生字、詞語或注音" style="font-size: 11pt;width: 80%; border: 0px solid #aaa; border-radius: 4px; outline: none; margin: 3px; padding: 4px; box-sizing: border-box; transition: 0.3s;font-family: 標楷體" />
+            <a id="keyboard-pop-a" href="#search"><img alt="開啟鍵盤圖示" id="keyboard-pop" class="btn-keyboard" src="/Content/img/keyboard.png" /></a>
+        </label>
+        <button type="submit" id="prcisebtn" class="btn btn-primary btn-sm" name="submitButton" value="precise"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>詞條檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="search"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>全文檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="pronounciation" style="background-color: mediumpurple;border-color: #7700BB;" id="bopomofode"><span class="glyphicon glyphicon-search mr10"></span>音讀檢索</button>
+    </div>
+</form>
+
+<style>
+    tr td:first-child {
+        width: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="boPoMoFoKeyBoard" class="keyboardmain" style="display: none; width: 450px">
+    <div class="keyboardmenudiv">
+        <a href="#" id="btnOpenPinyin" onclick="OpenPinyin(); return false;">切換漢語拼音鍵盤</a>
+        <a href="#" id="btnOpenBopomo" style="display: none; max-width: 100%" onclick="OpenBopomo(); return false;">切換注音小鍵盤</a> |
+        <a href="#" id="btnClose">關閉</a>
+    </div>
+    <div style="margin-left: 50pt; color: red;">
+        小提醒：<br />
+        輸入完畢後請點選
+        <span style="background-color: #9471DE;border: 1px solid #8524B7 ;color: white; padding: 7px; margin: 0 4px; border-radius: 5px;">
+            <span class="glyphicon glyphicon-search"></span>
+            音讀檢索
+        </span>
+        進行搜尋
+    </div>
+    <div><p></p></div>
+    <div class="keyboardcontentdiv">
+        <div id="boPoMoFoKeyBoard2" align="center">
+            <div class="keyboardtr">
+                <input value="ㄅ" type="button" class="keyboarditem" />
+                <input value="ㄉ" type="button" class="keyboarditem" />
+                <input value="ㄍ" type="button" class="keyboarditem" />
+                <input value="ㄐ" type="button" class="keyboarditem" />
+                <input value="ㄓ" type="button" class="keyboarditem" />
+                <input value="ㄗ" type="button" class="keyboarditem" />
+                <input value="ㄧ" type="button" class="keyboarditem" />
+                <input value="ㄚ" type="button" class="keyboarditem" />
+                <input value="ㄞ" type="button" class="keyboarditem" />
+                <input value="ㄢ" type="button" class="keyboarditem" />
+                <input value="ㄦ" type="button" class="keyboarditem" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄆ" type="button" class="keyboarditem" />
+                <input value="ㄊ" type="button" class="keyboarditem" />
+                <input value="ㄎ" type="button" class="keyboarditem" />
+                <input value="ㄑ" type="button" class="keyboarditem" />
+                <input value="ㄔ" type="button" class="keyboarditem" />
+                <input value="ㄘ" type="button" class="keyboarditem" />
+                <input value="ㄨ" type="button" class="keyboarditem" />
+                <input value="ㄛ" type="button" class="keyboarditem" />
+                <input value="ㄟ" type="button" class="keyboarditem" />
+                <input value="ㄣ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄇ" type="button" class="keyboarditem" />
+                <input value="ㄋ" type="button" class="keyboarditem" />
+                <input value="ㄏ" type="button" class="keyboarditem" />
+                <input value="ㄒ" type="button" class="keyboarditem" />
+                <input value="ㄕ" type="button" class="keyboarditem" />
+                <input value="ㄙ" type="button" class="keyboarditem" />
+                <input value="ㄩ" type="button" class="keyboarditem" />
+                <input value="ㄜ" type="button" class="keyboarditem" />
+                <input value="ㄠ" type="button" class="keyboarditem" />
+                <input value="ㄤ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄈ" type="button" class="keyboarditem" />
+                <input value="ㄌ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄖ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄝ" type="button" class="keyboarditem" />
+                <input value="ㄡ" type="button" class="keyboarditem" />
+                <input value="ㄥ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ˊ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˇ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˋ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="˙" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="一聲/空格" type="button" class="keyboarditem4" style="background-color: #F8F8C0; font-family: 標楷體; width: 33%;" />
+                <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 24%;" />
+            </div>
+        </div>
+        <div id="boPoMoFoKeyBoard3" style="width: 100%; display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 40px;">
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3">聲母</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="b" type="button" class="keyboarditem" realvalue="ㄅ" />
+                                <input value="c" type="button" class="keyboarditem" realvalue="ㄘ" />
+                                <input value="d" type="button" class="keyboarditem" realvalue="ㄉ" />
+                                <input value="f" type="button" class="keyboarditem" realvalue="ㄈ" />
+                                <input value="g" type="button" class="keyboarditem" realvalue="ㄍ" />
+                                <input value="h" type="button" class="keyboarditem" realvalue="ㄏ" />
+                                <input value="j" type="button" class="keyboarditem" realvalue="ㄐ" />
+                                <input value="k" type="button" class="keyboarditem" realvalue="ㄎ" />
+                                <input value="l" type="button" class="keyboarditem" realvalue="ㄌ" />
+                                <input value="m" type="button" class="keyboarditem" realvalue="ㄇ" />
+                                <input value="n" type="button" class="keyboarditem" realvalue="ㄋ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="p" type="button" class="keyboarditem" realvalue="ㄆ" />
+                                <input value="q" type="button" class="keyboarditem" realvalue="ㄑ" />
+                                <input value="r" type="button" class="keyboarditem" realvalue="ㄖ" />
+                                <input value="s" type="button" class="keyboarditem" realvalue="ㄙ" />
+                                <input value="t" type="button" class="keyboarditem" realvalue="ㄊ" />
+                                <input value="w" type="button" class="keyboarditem" realvalue="ㄨ" />
+                                <input value="x" type="button" class="keyboarditem" realvalue="ㄒ" />
+                                <input value="y" type="button" class="keyboarditem" realvalue="ㄧ" />
+                                <input value="z" type="button" class="keyboarditem" realvalue="ㄗ" />
+                                <input value="ch" type="button" class="keyboarditem" realvalue="ㄔ" />
+                                <input value="sh" type="button" class="keyboarditem" realvalue="ㄕ" />
+                                <input value="zh" type="button" class="keyboarditem" realvalue="ㄓ" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3"><br /><br /><br />韻母<br /><br /><br /><br /></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="a" type="button" class="keyboarditem1" realvalue="ㄚ" />
+                                <input value="ai" type="button" class="keyboarditem1" realvalue="ㄞ" />
+                                <input value="an" type="button" class="keyboarditem1" realvalue="ㄢ" />
+                                <input value="ang" type="button" class="keyboarditem1" realvalue="ㄤ" />
+                                <input value="ao" type="button" class="keyboarditem1" realvalue="ㄠ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="e" type="button" class="keyboarditem1" realvalue="ㄜ" />
+                                <input value="ê" type="button" class="keyboarditem1" realvalue="ㄝ" />
+                                <input value="ei" type="button" class="keyboarditem1" realvalue="ㄟ" />
+                                <input value="en" type="button" class="keyboarditem1" realvalue="ㄣ" />
+                                <input value="eng" type="button" class="keyboarditem1" realvalue="ㄥ" />
+                                <input value="er" type="button" class="keyboarditem1" realvalue="ㄦ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="i" type="button" class="keyboarditem1" realvalue="" />
+                                <input value="ia" type="button" class="keyboarditem1" realvalue="ㄧㄚ" />
+                                <input value="ian" type="button" class="keyboarditem1" realvalue="ㄧㄢ" />
+                                <input value="iang" type="button" class="keyboarditem1" realvalue="ㄧㄤ" />
+                                <input value="iao" type="button" class="keyboarditem1" realvalue="ㄧㄠ" />
+                                <input value="ie" type="button" class="keyboarditem1" realvalue="ㄧㄝ" />
+                                <input value="in" type="button" class="keyboarditem1" realvalue="ㄧㄣ" />
+                                <input value="ing" type="button" class="keyboarditem1" realvalue="ㄧㄥ" />
+                                <input value="iong" type="button" class="keyboarditem1" realvalue="ㄩㄥ" />
+                                <input value="iu" type="button" class="keyboarditem1" realvalue="ㄧㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="o" type="button" class="keyboarditem1" realvalue="ㄛ" />
+                                <input value="ong" type="button" class="keyboarditem1" realvalue="ㄨㄥ" />
+                                <input value="ou" type="button" class="keyboarditem1" realvalue="ㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="u" type="button" class="keyboarditem1" realvalue="ㄨ" />
+                                <input value="ua" type="button" class="keyboarditem1" realvalue="ㄨㄚ" />
+                                <input value="uai" type="button" class="keyboarditem1" realvalue="ㄨㄞ" />
+                                <input value="uan" type="button" class="keyboarditem1" realvalue="ㄨㄢ" />
+                                <input value="uang" type="button" class="keyboarditem1" realvalue="ㄨㄤ" />
+                                <input value="ue" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ui" type="button" class="keyboarditem1" realvalue="ㄨㄟ" />
+                                <input value="un" type="button" class="keyboarditem1" realvalue="ㄨㄣ" />
+                                <input value="uo" type="button" class="keyboarditem1" realvalue="ㄨㄛ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="ü" type="button" class="keyboarditem1" realvalue="ㄩ" />
+                                <input value="üan" type="button" class="keyboarditem1" realvalue="ㄩㄢ" />
+                                <input value="üe" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ün" type="button" class="keyboarditem1" realvalue="ㄩㄣ" />
+                            </div>
+                        </div>
+                        <div class="keyboardtr">
+                            <input value="一" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="" />
+                            <input value="ˊ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˊ" />
+                            <input value="ˇ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˇ" />
+                            <input value="ˋ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˋ" />
+                            <input value="空白鍵" type="button" class="keyboarditem4" style="font-family: 標楷體; width: 100px;" realvalue=" " />
+                            <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 80px;" realvalue="重新輸入" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $input = undefined;
+    var $hiddenInput = undefined;
+
+    $(function () {
+        $input.autocomplete({
+            delay: 300,
+            minLength: 1,
+            source: function (request, response) {
+                window.$.ajax({
+                    url: "/Home/AutoCompleteQuery?q=" + $input.val(),
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== "") {
+                            response(data.split(","));
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    function OpenBopomo() {
+        window.$("#boPoMoFoKeyBoard2").show();
+        window.$("#boPoMoFoKeyBoard3").hide();
+
+        window.$("#btnOpenPinyin").show();
+        window.$("#btnOpenBopomo").hide();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenPinyin").focus();
+
+        return false;
+    }
+
+    function OpenPinyin() {
+
+        window.$("#boPoMoFoKeyBoard2").hide();
+        window.$("#boPoMoFoKeyBoard3").show();
+
+        window.$("#btnOpenPinyin").hide();
+        window.$("#btnOpenBopomo").show();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenBopomo").focus();
+
+        return false;
+    }
+
+    $("#btnClose").click(function () {
+
+        window.$("#boPoMoFoKeyBoard").hide();
+
+        return false;
+    });
+
+    $("#btnClose").on("keydown",
+        function (e) {
+
+            //避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$("#btnClose").click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val());
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val(), window.$(this).attr("realvalue"));
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    function UpdateInput(input, realvalue) {
+        if ($input === undefined ||
+            $hiddenInput === undefined) {
+            return;
+        }
+
+        if (input === "重新輸入") {
+            $input.val("");
+
+            $hiddenInput.val("");
+
+            return;
+        }
+
+        switch (input) {
+            case "一聲/空格":
+            case "空白鍵":
+                input = " ";
+                break;
+        }
+
+        const newInput = $input.val() + input;
+
+        $input.val(newInput);
+
+        if (realvalue === undefined || realvalue === null) {
+            $hiddenInput.val($input.val());
+        } else {
+            let newHiddenInput = $hiddenInput.val() + realvalue.toString();
+
+            if (newInput.includes('yi')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄧ', 'ㄧ');
+            }
+            if (newInput.includes('yong')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄨ', 'ㄩ');
+            }
+            if (newInput.includes('wu')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('wong')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('yü')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+
+            $hiddenInput.val(newHiddenInput);
+        }
+    }
+
+</script>
+
+
+<script>
+
+    $input = $("#searchInput");
+    $hiddenInput = $("#hiddenInput");
+
+    $(function () {
+        const mq = window.matchMedia("(min-width: 480px)");
+        if (mq.matches) {
+            $('[title]').each(function () {
+                const $this = $(this);
+                $this.data('title', $this.attr('title'));
+            });
+        }
+    });
+
+    // 開啟鍵盤
+    $("#keyboard-pop-a").click(function () {
+        OpenBopomo();
+
+        $("#boPoMoFoKeyBoard").show();
+
+        return false;
+    });
+
+    $("#keyboard-pop-a").on("keydown",
+        function (e) {
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            $("#keyboard-pop-a").click();
+
+            return false;
+        });
+
+</script>
+
+                <!-- 選擇顯示數量 -->
+                <div class="mt5">
+
+
+<div class="searchResult">
+    共 52 筆資料，每頁顯示 100 筆資料
+    <a href="#" data-toggle="modal" data-target="#pickListNumber" class="btn btn-primary btn-xs">變更</a>
+</div>
+
+<div class="pull-left">
+
+    <div class="modal fade" id="pickListNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">請選擇要顯示的數量</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="frmPageSize" action="/Home/list/1?search=&amp;#22134;&amp;amp;source=withPrimary&amp;amp;order=relevance" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="4ubpG375IR7R5ydsMJarsqcgizHmnj2MhdKnVz9rhjcu6kUozeoUiOWFFzfNHxhIYvnTVn5OYt9TH0CovQeZskbI4vj0H1DhN-U-Vf2kwvo1" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">數量</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="size">
+                                    <option value="5">一頁 5 筆</option>
+                                    <option value="10">一頁 10 筆</option>
+                                    <option value="15">一頁 15 筆</option>
+                                    <option value="20">一頁 20 筆</option>
+                                    <option value="25">一頁 25 筆</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="javascript: window.location.href = '/Home/list/1?search=&#22134;&amp;source=withPrimary&amp;order=relevance' + '&size=' + $('select[name=size]').val();">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+                </div>
+                <span class="">
+                        資料庫查詢時間：218.4004 ms
+                </span>
+                <div id="counter" style="display:none"></div>
+            </div>
+
+
+
+            <!--Pop up window content-->
+            <div class="modal fade" id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="font-family: Microsoft JhengHei"><b>親愛的使用者您好</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-family: Microsoft JhengHei"><b>非常感謝您對教育百科的愛戴，為了能提供您更好的服務，請幫忙我們勾選您的身份與年級。現在登入的話就能立即體驗個人化收藏服務喔！</b></h5>
+                            <form id="survey" style="font-family: Microsoft JhengHei">
+                                <input name="__RequestVerificationToken" type="hidden" value="q8d5Lgu5q-_ebE89Bs5KRqjAs--_YdfahG2IkfA8yE0V1gdPJMbIEv47JiWvdn6cgdzSzTLUrG8QuOhRiKA7whxnucINx8Qq_01rNI_zk7o1" />
+                                <b>
+                                    <table style="width: 50%">
+                                        <tr>
+                                            <td style="width: 10%">身份:</td>
+                                            <td style="width: 7%"><input data-val="true" data-val-number="欄位 Identity 必須是數字。" id="Teacher" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="1" /><label for="Teacher">教師</label></td>
+                                            <td style="width: 7%"><input id="Student" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="2" /><label for="Student">學生</label></td>
+                                            <td style="width: 15%"><input id="Others" name="Identity" onclick="ischecked2()" placeholder="identity" type="radio" value="3" /><label for="Others">一般民眾</label></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width: 70%">
+                                        <tr>
+                                            <td>年級:</td>
+                                            <td>
+                                                <select data-val="true" data-val-number="欄位 Grade 必須是數字。" id="grade" name="Grade"><option value="-1">請選擇</option>
+<option value="1">一年級</option>
+<option value="2">二年級</option>
+<option value="3">三年級</option>
+<option value="4">四年級</option>
+<option value="5">五年級</option>
+<option value="6">六年級</option>
+<option value="7">七年級</option>
+<option value="8">八年級</option>
+<option value="9">九年級</option>
+<option value="0">無</option>
+</select><p id="dumb" style="color: red; font-size: small">*必填</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </b>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary pull-left" data-dismiss="modal" id="now" value="我要登入" style="background-color: #228B22;border-color: #228B22" />
+                            <input type="button" class="btn btn-primary pull-right" data-dismiss="modal" id="later" value="確定" style="width:82px;" />
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                        <script>
+                            //show by counter
+                            //var ischecked = $("#Others").prop('checked');
+                            $('#dumb').fadeOut();
+
+                            //一般民衆，年級選項鎖定
+                            function ischecked2() {
+                                $('#grade').prop('disabled', true);
+                                $('#grade').val('0');
+                            }
+                            //非一般民衆，年級選項解鎖
+                            function ischecked1() {
+                                $('#grade').prop('disabled', false);
+                                $('#grade').val('-1');
+                            }
+
+                            var n = localStorage.getItem('on_load_counter');
+                            if (n === null) {
+                                n = 0;
+                            }
+                            n++;
+                            localStorage.setItem("on_load_counter", n);
+                            document.getElementById('counter').innerHTML = n;
+
+                            $(document).ready(function () {
+                                //if (n == 2) {
+                                //    $('#poplogin').modal('show');
+                                //    localStorage.clear();
+                                //}
+
+                                //localStorage.clear();
+                                var strSearch = decodeURIComponent(window.location.search);
+                                if (strSearch.includes("&orgSearch=")) {
+                                    if (strSearch.includes("&search1=")) {
+                                        var parts = strSearch.replace('orgSearch=', '').replace('search1=', '').split('&');
+                                        strSearch = parts[parts.length - 2];
+                                        $("#searchInput1").val(parts[parts.length - 1]);
+                                    } else {
+                                        var parts = strSearch.replace('orgSearch=', '').split('&');
+                                        strSearch = parts[parts.length - 1];
+                                    }
+                                }
+                                else {
+                                    strSearch = strSearch.replace('?search=', '').split('&')[0];
+                                    if (strSearch.includes("&test=True")) {
+                                        strSearch = strSearch.replace('&test=True', '');
+                                    }
+                                }
+
+                                $('.multiInput').val(strSearch);
+                            });
+
+                            //show by 1 day
+                            //$(document).ready(function () {
+                            //    if ($.cookie('whenToShowDialog') == null) {
+
+                            //        // Create expiring cookie, 1 days from now:
+                            //        $.cookie('whenToShowDialog', 'yes', { expires: 1, path: '/' });
+
+                            //        // Show dialog
+                            //        $('#poplogin').modal('show');
+                            //    }
+                            //});
+
+                            //show by 10 minutes
+
+                            setTimeout(function () {
+                                $('#poplogin').modal('show');
+                            }, 600000);
+
+                            $(document).ready(function () {
+                                $("#later").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+                                    }
+
+                                })
+                                $("#now").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+
+                                        let current = window.location.href.toString();
+                                        current = "../SsoLogin/Home?statepage="+current;
+                                        window.location.href = current;
+                                    }
+                                })
+                            })
+
+                            //產生目前頁面網址，回傳
+                            var current = window.location.href.toString();
+                            $('#url').val(current);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="Keyword" value="噶" />
+<input type="hidden" id="Order" value="relevance" />
+<input type="hidden" id="Category" value="" />
+<input type="hidden" id="Source" value="withPrimary,withEOL,withMH,withConcise,withIdiom,withJunior,withRevised" />
+<input type="hidden" id="Size" value="100" />
+<input type="hidden" id="Token" />
+<div class="container">
+    <div id="wordListFilter" style="padding-bottom: 170px;">
+        <div>
+            <span id="wordListFilter_title">縮小搜尋結果範圍</span><span id="extend" class="glyphicon glyphicon-circle-arrow-down" style="padding-left: 5px;"> </span>
+        </div>
+        <div id="advanced" style="margin-top: 20px;">
+            <div>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 16px;"><label><input id="btnSelectAllArea" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 725px;"><label><input id="btnSelectAllMedia" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline" id="n-head1">．適用年級</p>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline; margin-left: 680px;" id="n-head2">．媒體形式</p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head1">．適用年級</p>
+                <br>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 20px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox1">
+                            <input class="cb" name="cballPrimary" type="checkbox" id="inlineCheckbox1" value="withPrimary" style="zoom: 1.2; font-size: 40px" />低年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox1" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox2">
+                            <input class="cb" type="checkbox" id="inlineCheckbox2" name="choose_Primary" value="withEOL" /> 國語小辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox3">
+                            <input class="cb" name="cballMH" type="checkbox" id="inlineCheckbox3" value="withMH" style="zoom: 1.2; font-size: 40px" /> 中高年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox3" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox4">
+                            <input class="cb" type="checkbox" id="inlineCheckbox4" name="choose_MH" value="withConcise"> 教育部辭典簡編本
+                        </label>
+                    </label>
+                    <label id="checkbox4" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox5">
+                            <input class="cb" type="checkbox" id="inlineCheckbox5" name="choose_MH" value="withMinnan"> 教育部閩南語辭典
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox5" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox6">
+                            <input class="cb" type="checkbox" id="inlineCheckbox6" name="choose_MH" value="withIdiom"> 教育部成語典
+                        </label>
+                    </label>
+                    <label id="checkbox6" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox7">
+                            <input class="cb" type="checkbox" id="inlineCheckbox7" name="choose_MH" value="withTaieol"> 中研院台灣生命大百科
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox7" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox8">
+                            <input class="cb" type="checkbox" id="inlineCheckbox8" name="choose_MH" value="withHakka"> 教育部客家語辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label id="checkbox8" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox9">
+                            <input class="cb" name="cballJunior" type="checkbox" value="withJunior" id="inlineCheckbox9" style="zoom: 1.2;"> 國中以上
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox9" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox10">
+                            <input class="cb" type="checkbox" id="inlineCheckbox10" name="choose_Junior" value="withRevised"> 教育部辭典修訂本書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox10" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox11">
+                            <input class="cb" type="checkbox" id="inlineCheckbox11" name="choose_Junior" value="withNMNS"> 自然科學博物館
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox11" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox12">
+                            <input class="cb" type="checkbox" id="inlineCheckbox12" name="choose_Junior" value="withGlossary"> 教育部國教院辭書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox12" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox13">
+                            <input class="cb" type="checkbox" id="inlineCheckbox13" name="choose_Junior" value="withEduWiki"> 教育 Wiki
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox13" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox14">
+                            <input class="cb" type="checkbox" id="inlineCheckbox14" name="choose_Junior" value="withFineart"> 視覺素養學習網
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox14" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox15">
+                            <input class="cb" type="checkbox" id="inlineCheckbox15" name="choose_Junior" value="withDeepsea"> 海洋生物百科
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withNpm"> 國立故宮博物院典藏精選
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withMusiciantw"> 臺灣音樂群像資料庫
+                        </label>
+                    </label>
+					<br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withTaiwanmusic"> 傳統民族樂器資料庫
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head2">．媒體形式</p>
+
+                <div class="checkbox, checkbox_rwd" style="margin-left: 60px">
+                    <label id="checkbox16" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox16">
+                            <input class="cb" type="checkbox" id="inlineCheckbox16" value="withAudio" style="zoom: 1.2;"> 音檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox17" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox17">
+                            <input class="cb" type="checkbox" id="inlineCheckbox17" value="withGraph" style="zoom: 1.2;"> 圖檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox18" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox18">
+                            <input class="cb" type="checkbox" id="inlineCheckbox18" value="withVideo" style="zoom: 1.2;"> 影片
+                        </label>
+                    </label>
+                </div>
+                <div><button id="filter_btn" type="button" class="btn btn-primary btn-sm" style="margin-left: 120px; margin-top: 50px">送出</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchlogo" style="padding-top: 20px; text-align: right">
+        排序方式：
+        <span id="order_title" style="cursor: pointer;">關鍵字</span> |
+        <span id="order_search" style="cursor: pointer;">搜尋次數</span> |
+        <span id="order_relate" style="cursor: pointer;">關聯性</span>
+    </div>
+
+
+        <!--  辭條列表 -->
+        <a style="color:#FFFFFF;" accesskey="R" href="#wordList" title="搜尋結果" id="searchResult-section">:::</a>
+        <span style="font-weight:bold">你是不是要搜尋以下結果</span>
+        <table id="wordList" class="table">
+            <tbody>
+
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="1" href="/Entry/Detail/?title=喀什噶爾&search=噶">喀什<span class="color-important">噶</span>爾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=喀什噶爾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_118040">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_118040">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">地名。位於新疆南疆的西部，為過去維吾爾族的首邑，有漢、回兩城。漢城在南邊，稱為新城，今設疏勒縣；回城在北邊，稱為舊城，置疏附縣。二城隔烏蘭烏蘇河相望。地當蔥嶺之東，為中國大陸極西邊防重鎮。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="2" href="/Entry/Detail/?title=噶大克&search=噶"><span class="color-important">噶</span>大克</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶大克" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138391">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138391">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">城市名。西藏阿里的首府，位於印度河支流象泉河東岸，南通印度、尼泊爾，北通新疆和闐，西通伊朗、阿富汗，東達西藏中部、東部，為西陲交通要地，清光緒三十二年中英新訂藏印條約開為商埠。也稱為「加托克」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="3" href="/Entry/Detail/?title=葉爾羌河&search=噶">葉爾羌河</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=葉爾羌河" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_97501">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_97501">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">河川名。位於新疆天山南路，源出喀喇崑崙山東北，高達海拔五千三百公尺。上流稱澤普勒善河，東北流至葉爾羌縣，以下稱為葉爾羌河。又東流，經巴楚縣，會合喀什<span class="color-important">噶</span>爾河，注入塔里木河。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="4" href="/Entry/Detail/?title=噶&search=噶"><span class="color-important">噶</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_43536">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_43536">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">譯音用字。為藏文譯音所常用。如：「<span class="color-important">噶</span>當派」、「<span class="color-important">噶</span>廈」。</div>
+                            <div class="wordDefination">譯音用字。為藏文譯音所常用。如：「<span class="color-important">噶</span>大克」、「<span class="color-important">噶</span>倫」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="5" href="/Entry/Detail/?title=廳&search=噶">廳</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=廳" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_52891">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_52891">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">清代府下所設與州、縣同級的地方行政單位。如清代在臺灣設有淡水廳、<span class="color-important">噶</span>瑪蘭廳等。《清史稿．卷一一六．職官志三》：「初治明制，府廳、州、縣及各衛武學並置學官。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="6" href="/Entry/Detail/?title=羅漢腳&search=噶">羅漢腳</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=羅漢腳" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_74506">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_74506">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">四方，隨處結黨；且衫褲不全，赤腳終生也。大市不下數百人，小市村 　規制不下數十人，臺灣之難治在此。（<span class="color-important"><span class="color-important">噶</span></span>瑪蘭廳志卷二）切岱等各莊，欣逢盛世，安居樂業，毫非不染。冤有不事生業，賭□□徒，綽號「羅漢腳」，結黨成群，日為流丐，夜行鼠竊；身窮計生，靡所不為，暮夜之間，且將病斃丐屍□□殷實之家，或丟田頭、園尾、街衢、路巷，或移吊園頭樹木，藉屍嚇騙，以致差保到地查視，不肯收埋，□索分肥，為害不淺！（臺灣南部碑文集成）闖兄，羅漢腳之別名也。近日樹旗聚眾，多以械鬥開端，非真有大志也。逞一朝之忿，冐不韙之名，身膏蕭斧，懵然未悟，可哀也哉！（...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="7" href="/Entry/Detail/?title=乾隆&search=噶">乾隆</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=乾隆" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_71227">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_71227">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">，自詡「十全老人」。乾隆五十七年，命人以滿、漢、蒙、藏四種文字刻碑，昭示其武功。「十全武功」指「平準<span class="color-important"><span class="color-important">噶</span></span>爾為二，定回部為一，掃金川為二，靖台灣為一，降緬甸、安南各一，即今二次受廓爾喀降，合為十」。至此，清朝的版圖已達到約1300萬平方千米。參考資料http://zh.wikipedia.org/wiki/%E4%B9%BE%E9%9A%86%E5%B8%9Dhttp://www.greatchinese.com/emperors/qianlong.htmhttp://www.cathlinks.org/ching3.htm</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="8" href="/Entry/Detail/?title=康熙&search=噶">康熙</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=康熙" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_72600">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_72600">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">開始真正親政的階段。康熙執政期間，撤除吳三桂等三藩勢力（1673年），攻取臺灣（1684年），平定準<span class="color-important"><span class="color-important">噶</span></span>爾汗<span class="color-important"><span class="color-important">噶</span></span>爾丹叛亂（1688年-1697年），並勝利地驅逐沙俄對黑龍江流域的侵略。他在京師東北的熱河營建了避暑山莊，將其作為蒙古、西藏、哈薩克等部王公貴族覲見的場所。康熙帝親政不久後，便宣佈停止圈地，放寬墾荒地的免稅年限。他還着手整頓吏治，恢復了京察、大計 (清)等考核制度。為了防止被臣下矇蔽欺騙，愛新覺羅玄燁還親自出京巡視，了解民情吏治。其中最著名的...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="9" href="/Entry/Detail/?title=沈葆楨&search=噶">沈葆楨</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=沈葆楨" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73596">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73596">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">居民生活更加便利。 臺灣行政體制的改革在艋舟甲創建臺北府；增設恒春、淡水兩縣；改原淡水廳為新竹縣，將<span class="color-important"><span class="color-important">噶</span></span>瑪蘭廳改為宜蘭縣。 加強軍事防禦建設新式炮臺、購買洋炮及軍火機械，購買鐵甲艦，練水雷軍等等 參考書目沈葆楨，1998。《沈文肅公政書》。南投：臺灣省文獻委員會。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="10" href="/Entry/Detail/?title=厓&search=噶">厓</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=厓" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_64602">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_64602">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">水邊。《文選．揚雄．甘泉賦》：「北熿幽都，南煬丹厓。」李善注引服虔曰：「丹水之厓也。」清．徐珂《清稗類鈔．戰事類．聖祖親征<span class="color-important">噶</span>爾丹》：「忽得明成祖勒銘紀功之石於水厓，濯而視之，中有永清沙漠語。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="11" href="/Entry/Detail/?title=湟&search=噶">湟</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=湟" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_41994">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_41994">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">河川名。源於大陸地區青海省東北<span class="color-important">噶</span>爾藏嶺，流入甘肅省會大通河後注入黃河。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="12" href="/Entry/Detail/?title=原住民&search=噶">原住民</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=原住民" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_161923">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_161923">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">目前官方所認定的「原住民」包含有阿美族、泰雅族、排灣族、布農族、卑南族、魯凱族、鄒族、賽夏族、雅美（達悟）族、太魯閣族、撒奇萊雅族、邵族、<span class="color-important">噶</span>瑪蘭族、賽德克族、拉阿魯哇族及卡那卡那富族等十六族。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="13" href="/Entry/Detail/?title=瓦剌&search=噶">瓦剌</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=瓦剌" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_106457">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_106457">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">元朝亡後所分出的一部落，約包括現今的新疆北部與蒙古西部。明英宗時，也先其部太師，屢寇明邊，英宗親征，至土木堡，竟被擄。後來也先自立為大元田盛可汗，據有大漠南北地，勢極強，至也先死而衰。清初，漠西蒙古分和碩特、杜爾伯特、準<span class="color-important">噶</span>爾、土爾扈特四衛拉特（即瓦剌）。四部之中，以準<span class="color-important">噶</span>爾最強，乾隆年間討平之。清代官書作「厄魯特」，也作「額魯特」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="14" href="/Entry/Detail/?title=平埔族&search=噶">平埔族</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=平埔族" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_43006">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_43006">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">泛稱原居平原地帶的原住民族群，包括<span class="color-important">噶</span>瑪蘭族、凱達加蘭族、雷朗族、道卡斯族、巴則海族、巴瀑拉族、貓霧捒族、邵族、和安耶族、西拉雅族等族群。屬南島語族。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="15" href="/Entry/Detail/?title=高山族&search=噶">高山族</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=高山族" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_146055">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_146055">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">臺灣原住民族正名前的舊稱，為相對於平埔族的稱呼。漢族移民稱居住於平原地區的原住民叫「平埔族」，對居住於近山地區或山區的原住民則稱為「高山族」，日治時代稱為「高砂族」。居住在平原地區的平埔族，因較早接觸漢人文化、與漢人通婚融合而難以區分，相對而言，高山族則保存較多傳統的語言及文化，昔日多以初級農耕兼漁獵為生。參見「原住民」條。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="16" href="/Entry/Detail/?title=宜蘭縣&search=噶">宜蘭縣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=宜蘭縣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_72417">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_72417">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">縣名。位於東北部，花蓮縣之北，東瀕太平洋。面積二千一百餘平方公里。原為平埔族「蛤仔難」的居住地，嘉慶十五年（西元1810）正式收入版圖，改稱為「<span class="color-important">噶</span>瑪蘭」。光緒元年（西元1875）改制為「宜蘭縣」。縣治為宜蘭市。境內有蘭陽溪沖積而成的蘭陽平原。農作以稻米為主，金棗、桶柑也很著名。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="17" href="/Entry/Detail/?title=巴斯卡（Blaise Pascal）&search=噶">巴斯卡（Blaise Pascal）</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=巴斯卡（Blaise Pascal）" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32949">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32949">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。（西元1623～1662）法國數學家、物理學家、神學家兼哲學家。生於克里蒙佛蘭，十九歲時發明巴斯卡加法器。在科學上，發明了機率論、巴斯卡原理。在哲學上，致力於理性和信仰的調和，成為近代存在主義的前驅。著作有《圓錐論》、《幾何精神和思想錄》等。也譯作「巴斯<span class="color-important">噶</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="18" href="/Entry/Detail/?title=天山&search=噶">天山</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=天山" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_20283">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_20283">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">山脈名。位於亞洲中部，橫亙新疆中部，向西延伸入吉爾吉斯、烏茲別克和哈薩克等四國，大致作東西走向，由許多平行山脈組成，高峻而寬闊。最高峰托木爾峰高七千四百四十三公尺，第二高峰汗騰格里山高六千九百九十五公尺，皆位於中國和吉爾吉斯邊界。天山山脈的構造複雜，包括多個由斷層作用形成的谷地和盆地，如伊犁縱谷、哈密盆地、吐魯番窪地等。天山地勢高聳，多冰河。天山分新疆為南、北二路，北路稱為準<span class="color-important">噶</span>爾盆地，或稱北疆，南路稱為塔里木盆地，或稱南疆；南北疆的自然景觀與人文特色差異頗大。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="19" href="/Entry/Detail/?title=破竹建瓴&search=噶">破竹建瓴</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=破竹建瓴" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_4734">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_4734">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">破竹，順勢劈開竹子；建瓴，往下傾倒瓶水。「破竹建瓴」比喻順勢而下，所向無敵。《清史稿．卷三○一．傅恆列傳》：「我兵且戰且前，自昔嶺中峰直抵<span class="color-important">噶</span>拉依，破竹建瓴，功在垂成，棄之可惜。」《清史稿．卷三八八．列傳．官文》：「通籌大局，我軍已據水陸上游，實蓄破竹建瓴之勢。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="20" href="/Entry/Detail/?title=黃河&search=噶">黃河</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=黃河" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_144333">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_144333">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">河川名。源出於青海省巴顏喀喇山北麓<span class="color-important">噶</span>達素齊老峰，流經甘肅、寧夏、綏遠、山西、陝西、河南、河北、山東等九省，注入渤海。全長約五千四百六十四公里，為中國第二大河。因多沙而色黃，故稱為「黃河」。雖然氾濫頻繁，卻是中華文化孕育的搖籃。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="21" href="/Entry/Detail/?title=奧理略（Marcus Aurelius Antoninus）&search=噶">奧理略（Marcus Aurelius Antoninus）</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=奧理略（Marcus Aurelius Antoninus）" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_115014">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_115014">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。（西元121～180）古羅馬帝國皇帝，為五賢君之一。愛好哲學，深受斯多<span class="color-important">噶</span>學派影響，政績卓著。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="22" href="/Entry/Detail/?title=巴斯噶(Blaise Pascal)&search=噶">巴斯<span class="color-important">噶</span>(Blaise Pascal)</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=巴斯噶(Blaise Pascal)" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32950">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32950">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。參見「巴斯卡」條。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="23" href="/Entry/Detail/?title=噶當派&search=噶"><span class="color-important">噶</span>當派</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶當派" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138393">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138393">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西藏佛教主要宗派之一。藏語bka'gdams pa 的音譯。<span class="color-important">噶</span>當，意為一切佛語都是對僧徒修習的指導。淵源於十一世紀阿底峽尊者，由其高足仲敦巴確立西藏的傳承。後分成教典、教授、教誡三派。對西藏佛教各宗影響頗大。至十五世紀初，宗喀巴吸收其教義，創立格魯派，亦稱新<span class="color-important">噶</span>當派，<span class="color-important">噶</span>當派和格魯派遂合而為一。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="24" href="/Entry/Detail/?title=斯多噶學派&search=噶">斯多<span class="color-important">噶</span>學派</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=斯多噶學派" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_121407">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_121407">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古希臘羅馬時代哲學的一派。盛行於西元前四世紀至西元前三世紀間，由芝諾（Zeno）創始。混合早期希臘哲學、柏拉圖和亞里斯多德思想，將哲學分成理則學、物理學和倫理學三部分，以倫理學為重心。主張德性高過一切，必須克己禁欲。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="25" href="/Entry/Detail/?title=準噶爾盆地&search=噶">準<span class="color-important">噶</span>爾盆地</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=準噶爾盆地" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_141092">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_141092">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">地名。位於新疆北部，天山以北和阿爾泰山間的盆地，俗稱為「北疆」。地勢由東北向西南傾斜，面積約三十八萬平方公里，高度約在六百至一千五百公尺之間。中部為沙漠，周圍多綠洲，草原較廣，畜牧業發達。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="26" href="/Entry/Detail/?title=齊諾（Zeno）&search=噶">齊諾（Zeno）</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=齊諾（Zeno）" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_155179">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_155179">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名：(1)（西元前490？～前430？）古希臘伊利亞學派哲學家，辯證法的初祖，以詭妙論證否定動與多的存在。(2)（西元前336？～前264？）古希臘斯多<span class="color-important">噶</span>派哲學的創始人，主張節欲苦行，以求心理安寧。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="27" href="/Entry/Detail/?title=阿里&search=噶">阿里</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=阿里" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_134668">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_134668">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">地名。東連後藏，南界尼泊爾，西界印度，北界新疆。境內有喜馬拉雅、岡底斯山脈。地區行署在<span class="color-important">噶</span>爾縣獅泉河鎮。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="28" href="/Entry/Detail/?title=十三行遺址&search=噶">十三行遺址</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=十三行遺址" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_154374">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_154374">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">位於新北市淡水河口南岸，觀音山前緣之河口平原上的古蹟遺址。原為臺灣原住民平埔族祖先凱達<span class="color-important">噶</span>蘭族，在一千五百至二千年前的活動空間。因該處舊有清代十三洋行設立的行口，故稱為「十三行遺址」。民國四十六年，始由臺灣大學林朝棨教授發現。歷經考古學家的挖掘與研究，證明當時已將鐵器應用到日常生活中。其中，「煉鐵作坊」的出土，為現存臺灣史前先民冶鐵技術的唯一證據。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="29" href="/Entry/Detail/?title=噶廈&search=噶"><span class="color-important">噶</span>廈</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶廈" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138392">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138392">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西藏最高的行政機關，<span class="color-important">噶</span>布倫議事的所在地。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="30" href="/Entry/Detail/?title=宗喀巴&search=噶">宗喀巴</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=宗喀巴" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_161114">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_161114">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。（西元1357～1419）為藏語tsong khapa的音譯。本名羅桑扎巴貝。宗喀（今青海西寧）人。西藏高僧。七歲出家，從<span class="color-important">噶</span>當派法王頓珠仁欽學經，後又跟薩迦派仁達瓦及布頓弟子卻貝瓦等大師學法，顯密教法莫不精熟，其深度和廣度超邁前賢，一時獨步，並卓然成一家之言。因感當時西藏佛教輕忽比丘戒律的缺失，大力提倡嚴守戒律，戴從前持律者所戴的黃色僧帽，表示嚴持戒律的決心和思想，成為西藏佛教的改革者，其教法經弟子的弘揚、發展形成格魯派。所以宗喀巴也是格魯派的創立者。弟子眾多，其中以賈曹傑、克主結最著名。著有《菩提道次第廣論》、《密宗道次第廣論》、《辨了不了義論》等。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="31" href="/Entry/Detail/?title=格魯派&search=噶">格魯派</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=格魯派" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_96762">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_96762">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西藏佛教主要宗派之一。「格魯」為藏語dge-lugs的音譯。十五世紀初由宗喀巴創立。由於宗喀巴晚年常駐其所建立的甘丹寺，因此該宗派被稱「法主甘丹人的宗派」，藏語為了詞字簡化和順口改稱為「格魯派」。主張嚴守戒律，強調顯密兼修與修行次第。因此派僧侶頂戴標示奉守戒律的黃帽，俗稱為「黃教」。又以宗喀巴出於<span class="color-important">噶</span>當派，故也稱為「新<span class="color-important">噶</span>當派」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="32" href="/Entry/Detail/?title=伊犁&search=噶">伊犁</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=伊犁" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_150930">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_150930">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">地名。漢代時為烏孫國，元代稱阿力麻亞，明代時為瓦刺占據，清初則屬準<span class="color-important">噶</span>爾部。乾隆時，平定準<span class="color-important">噶</span>爾，建立惠遠、綏定、廣仁、熙春、寧遠、拱辰、瞻德、惠寧及搭爾奇等九城，總稱為「伊犁」。民國建立後，就原來九城之地，設置綏定、伊寧、霍城、鞏留四縣。位置險要，為大陸西北地區的戰略重地。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="33" href="/Entry/Detail/?title=佉沙&search=噶">佉沙</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=佉沙" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_154815">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_154815">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">國名。古西域諸國之一，在今新疆喀什<span class="color-important">噶</span>爾。其地稼穡繁盛，花草繁茂，出產毛氈，氣候和暢宜人。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="34" href="/Entry/Detail/?title=噶倫&search=噶"><span class="color-important">噶</span>倫</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶倫" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138390">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138390">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西藏地方政府的內閣或閣員。<span class="color-important">噶</span>倫係由一喇嘛、一俗官、二軍事長官所組成。也稱為「<span class="color-important">噶</span>布隆」、「<span class="color-important">噶</span>布倫」、「<span class="color-important">噶</span>隆」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="35" href="/Entry/Detail/?title=疏勒縣&search=噶">疏勒縣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=疏勒縣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_119473">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_119473">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">縣名。位於新疆喀什<span class="color-important">噶</span>爾河南岸，為南疆最大綠洲中心，也是通中亞的門戶。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="36" href="/Entry/Detail/?title=阿底峽&search=噶">阿底峽</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=阿底峽" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_134560">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_134560">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。(西元982～1054）梵語Atisa的音譯，意譯為「殊勝」，法名燃燈吉祥智。幼年出家。曾從菩提賢、金洲法稱修學，博通顯密，教證雙全，為當時超戒寺最傑出的學者。後應西藏王之邀至西藏弘法。使十一世紀朗達瑪毀佛後的西藏佛教得以復興。歷史上並以阿底峽入藏以後的西藏佛教為後弘期。對承傳其教法的是<span class="color-important">噶</span>當派和格魯派有極深遠的影響。其著作保留在《西藏大藏經》中多達一百一十七部。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="37" href="/Entry/Detail/?title=塔里木河&search=噶">塔里木河</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=塔里木河" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6859">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6859">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">河川名。為新疆最大的內陸河，有四源，分別為阿克蘇河、喀什<span class="color-important">噶</span>爾河、葉爾羌河、和闐河，在阿克蘇縣東南會合，主流及支流長達一萬餘公里，圍繞省內塔里木大戈壁，下流注入羅布淖爾及臺特馬淖爾兩湖。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="38" href="/Entry/Detail/?title=密勒日巴&search=噶">密勒日巴</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=密勒日巴" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_67257">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_67257">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。生卒年不詳。全名密勒日巴脫巴<span class="color-important">噶</span>。西藏拉堆貢塘地方人。西藏佛教<span class="color-important">噶</span>舉派的大修行者。瑪爾巴的弟子。注重苦修、收徒傳法，一生未曾娶妻，亦未出家。其感人的事跡，為後人寫成傳記，繪成壁畫，編為戲劇，影響很大。有《密勒日巴歌集》行世。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="39" href="/Entry/Detail/?title=伯克制度&search=噶">伯克制度</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=伯克制度" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_57782">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_57782">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">清代在新疆回部（即維吾爾聚居區）依其原有的伯克稱謂，設置阿奇木伯克、伊沙<span class="color-important">噶</span>伯克等，依次遞降，置官敘品，所形成的地方政治體制，稱為「伯克制度」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="40" href="/Entry/Detail/?title=烏梁海&search=噶">烏梁海</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=烏梁海" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_105383">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_105383">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">為朵顏、泰寧、福餘三衛區域或部族的統稱。譯自女真語。散居於阿爾泰山、唐努山、黑龍江南北，而居俄屬西伯利亞者尤多。明末先後服屬喀爾喀、準<span class="color-important">噶</span>爾及俄羅斯；清時分唐努烏梁海、阿爾泰烏梁海及阿爾泰諾爾烏梁海三部。也稱為「兀良哈」、「兀良合」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="41" href="/Entry/Detail/?title=平定準噶爾回部得勝圖&search=噶">平定準<span class="color-important">噶</span>爾回部得勝圖</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=平定準噶爾回部得勝圖" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_43023">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_43023">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">清高宗乾隆年間，平定新疆準<span class="color-important">噶</span>爾及回部後，高宗命耶穌會教士郎世寧等人作得勝圖十六幅，稱為「平定準<span class="color-important">噶</span>爾回部得勝圖」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="42" href="/Entry/Detail/?title=菩提道燈論&search=噶">菩提道燈論</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=菩提道燈論" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_69580">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_69580">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">書名。阿底峽撰。闡述佛教修習次第，依上士、中士、下士之三士道循序漸進，著重在發菩提心、持戒、修觀，並強調顯教的修持，是修行密續的基礎。後有仲敦巴等人專弘其說，形成西藏佛教<span class="color-important">噶</span>當派的特色，對西藏佛教有廣大影響。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="43" href="/Entry/Detail/?title=西藏佛教&search=噶">西藏佛教</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=西藏佛教" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_117988">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_117988">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">約西元七世紀起在西藏發展的佛教。為佛教三大傳統之一，以藏文為聖典語言。原只盛行西藏、蒙古，如今弘揚全球。其教學特色在綜合小乘與大乘的波羅蜜多乘、金剛乘，見解上以中觀為究竟，法門則以密續為主流。藏經分《甘珠爾》、《丹珠爾》兩部分，前者指佛語，包括經和律，後者乃是印度佛教大師的論著。主要教派有寧瑪、<span class="color-important">噶</span>舉、薩迦、格魯四宗。各有嚴密的寺院組織和學經制度。俗稱為「喇嘛教」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="44" href="/Entry/Detail/?title=大手印&search=噶">大手印</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=大手印" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_19147">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_19147">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種西藏佛教<span class="color-important">噶</span>舉派的修行法。有顯教、密教兩種。顯教主由定起觀，證得空智解脫的的境界。密教以唯一白法，成就空、樂二智，最後達到即身成佛，是無上瑜伽的最高法門。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="45" href="/Entry/Detail/?title=北塔山&search=噶">北塔山</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北塔山" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55923">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55923">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">山名。位於北疆準<span class="color-important">噶</span>爾盆地東部。近蒙古邊界，為奇臺、哈密的屏障，生產鈾礦。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="46" href="/Entry/Detail/?title=達魯花赤&search=噶">達魯花赤</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=達魯花赤" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6925">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6925">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">頭目、領袖。元代在中外各官署主管以外，都設置達魯花赤一員，由蒙古人擔任，以監視漢官。也稱為「達嚕<span class="color-important">噶</span>齊」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="47" href="/Entry/Detail/?title=噶舉派&search=噶"><span class="color-important">噶</span>舉派</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶舉派" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138394">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138394">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西藏佛教主要宗派之一。藏語bKa' brgyud pa的音譯。<span class="color-important">噶</span>舉，意為口傳。由於此派特別著重密法的修習，而這些密法又全靠師長口授，故稱為「<span class="color-important">噶</span>舉派」。又本派的祖瑪爾巴、密勒日巴等在修法時都穿白布裙，所以也稱為「白教」。十一世紀時，由瑪爾巴創立，傳與密勒日巴等，密勒日巴又傳法給岡波巴，由岡波巴門下弟子建立六個支派，大多以其寺院取名，教義差別不大，主要是月稱派的中觀見，強調瑜伽苦修，以證得大手印為圓滿。是西藏現存的主要佛教支派之一。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="48" href="/Entry/Detail/?title=噶個點兒&search=噶"><span class="color-important">噶</span>個點兒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=噶個點兒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138389">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138389">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">指打賭。如：「你不相信今天會下雨？咱們不妨來<span class="color-important">噶</span>個點兒。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="49" href="/Entry/Detail/?title=宜蘭市&search=噶">宜蘭市</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=宜蘭市" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_161671">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_161671">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">城市名。位在宜蘭縣的中央偏北處，臨宜蘭川南岸。舊稱為「<span class="color-important">噶</span>瑪蘭」或「哈仔難」。民國三十九年改為縣轄市，為蘭陽地區政治、經濟中心。特產有鴨賞、膽肝、李仔糕等。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="50" href="/Entry/Detail/?title=巴楚縣&search=噶">巴楚縣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=巴楚縣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32965">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32965">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">縣名。位於新疆西南，喀什<span class="color-important">噶</span>爾河南岸。清光緒八年新疆建省，置瑪喇巴什廳水利撫民通判，後改為巴楚州，屬疏勒府。至民國時改為巴楚縣。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="51" href="/Entry/Detail/?title=水壓機&search=噶">水壓機</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=水壓機" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_95941">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_95941">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種利用水來傳達壓力的機械。可產生大的壓力以壓縮物體，為西元一七九五年英人布累馬（Jaseph Bramah)應用巴斯<span class="color-important">噶</span>定律所設計。也稱為「布累馬水壓機」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="52" href="/Entry/Detail/?title=巴士噶語言&search=噶">巴士<span class="color-important">噶</span>語言</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=巴士噶語言" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32898">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32898">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種電腦程式語言。以易於作結構化程式設計及語法明確易懂著稱。西元一九七一年由瑞士蘇黎世技術大學尼古拉．維爾特(Niklaus Wirth）教授發表，並以十七世紀法國偉大數學家布萊斯．巴斯卡(Blaise Pascal）命名。適用於科學及商務上的及時作業，尤其適合小型及微電腦系統。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                <!-- 分頁 -->
+                <tr>
+                    <td>
+                                <div id="ask_search"><span><img alt="" src="/Content/img/asksearch.png" /></span>曾經查過此詞彙的人也經常查詢以下字詞：</div>
+                                <div id="ask_list">
+                                            <a href="/Entry/Detail/?title=%e5%99%b6%e7%91%aa%e8%98%ad&search=%e5%99%b6">噶瑪蘭</a>
+                                            <a href="/Entry/Detail/?title=%e8%a6%83&search=%e5%99%b6">覃</a>
+                                            <a href="/Entry/Detail/?title=%e8%91%a9&search=%e5%99%b6">葩</a>
+                                            <a href="/Entry/Detail/?title=%e9%87%a3%e5%90%8d%e6%b2%bd%e8%ad%bd&search=%e5%99%b6">釣名沽譽</a>
+                                            <a href="/Entry/Detail/?title=%e5%85%89%e6%80%aa%e9%99%b8%e9%9b%a2&search=%e5%99%b6">光怪陸離</a>
+                                            <a href="/Entry/Detail/?title=%e8%90%ac%e5%8a%ab%e4%b8%8d%e5%be%a9&search=%e5%99%b6">萬劫不復</a>
+                                </div>
+
+                                <div align="center">
+                                    <a style="color: #FFFFFF;" accesskey="P" href="#paging-section" title="分頁" id="paging-section">:::</a>
+                                    <ul class="floatCenter pagination"><li class="active"><a>1</a></li></ul>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contribute_word_rwd">
+            <hr size="1" style="height:0;border: 0 none;border:1px #322f32 dashed;" />
+            
+            
+
+        </div>
+</div>
+    <script language="javascript" type="text/javascript">
+
+        $(function (){
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var connectstringOut = new Array();
+
+        $('.cb').each(function () {
+            const name = $(this).attr("name");
+            if (location.search.includes($(this).val())) {
+                $(this).prop("checked", true);
+                //否則子filter會disabled
+                if (name == "cballPrimary")
+                    $("input[name='choose_Primary']").prop("disabled", false);
+                if (name == "cballMH")
+                    $("input[name='choose_MH']").prop("disabled", false);
+                if (name == "cballJunior")
+                    $("input[name='choose_Junior']").prop("disabled", false);
+            }
+            if ($(this).prop('checked') === true) {
+                connectstringOut.push($(this).val());
+            }
+        });
+
+        //點擊觸發全選或是全不選
+        //有三個選項的全選：低年級、中高年級、國中以上
+        $('.cb').click(function () {
+            const name = $(this).attr("name");
+            if ($(this).prop("checked")) {
+                connectstringOut.push($(this).val());
+                if (name == "cballPrimary") {
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballMH") {
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballJunior") {
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+            }
+            else {
+                index = connectstringOut.indexOf($(this).val());
+                if (index >= 0) {
+                    connectstringOut.splice(index, 1);
+                }
+                if (name === "cballPrimary")
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballMH")
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballJunior")
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+            }
+        });
+
+        $("#btnSelectAllArea").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", false);
+                $("input[name='choose_MH']").prop("disabled", false);
+                $("input[name='choose_Junior']").prop("disabled", false);
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", "disabled");
+                $("input[name='choose_MH']").prop("disabled", "disabled");
+                $("input[name='choose_Junior']").prop("disabled", "disabled");
+            }
+        });
+
+        $("#btnSelectAllMedia").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+            }
+        });
+
+        let isSelectAllArea = true;
+        let isSelectAllMedia = true;
+
+        $('.cb').each(function () {
+            if ($(this).val() !== "withAudio" &&
+                $(this).val() !== "withGraph" &&
+                $(this).val() !== "withVideo" &&
+                !$(this).prop("checked")) {
+                isSelectAllArea = false;
+            }
+
+            if (($(this).val() === "withAudio" ||
+                $(this).val() === "withGraph" ||
+                $(this).val() === "withVideo") &&
+                !$(this).prop("checked")) {
+                isSelectAllMedia = false;
+            }
+        });
+
+        if (isSelectAllArea) {
+            $("#btnSelectAllArea").prop("checked", "checked");
+        }
+
+        if (isSelectAllMedia) {
+            $("#btnSelectAllMedia").prop("checked", "checked");
+        }
+
+        if (location.href.includes("order=query")) {
+            $('#order_search').css("color", "#c80106");
+            $('#order_relate').css("color", "black");
+            $('#order_title').css("color", "black");
+        }
+        else if (location.href.includes("order=keyword_title")) {
+            $('#order_title').css("color", "#c80106");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "black");
+        } else {
+            $('#order_title').css("color", "black");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "#c80106");
+        }
+
+        $('#filter_btn').click(function () {
+            var strUrl = "/Home/List/1";
+
+            var order = "keyword_title";
+            var orgSearch = "";
+
+            if (location.search.split("order=").length > 1) {
+                order = location.search.split("order=")[1].split("&orgSearch=")[0];
+                orgSearch = location.search.split("order=")[1].split("&orgSearch=")[1];
+            }
+
+            connectstringOut = new Array();
+
+            $('.cb').each(function () {
+                if ($(this).prop('checked')) {
+                    connectstringOut.push($(this).val());
+                }
+            });
+
+            if (order === "query"){
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=query";
+            }
+            else if (order === "keyword_title") {
+                if (orgSearch && orgSearch.length > 0) {
+                    strUrl = "/Home/Search?submitButton=pronounciation&search=" + orgSearch + "&source=" + connectstringOut.join() + "&order=keyword_title&orgSearch=" + orgSearch;
+                } else {
+                    strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=keyword_title";
+                }
+            }
+            else{
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=relevance";
+            }
+
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI(connectstringOut.join()) +"&behavior=B026&URL="+encodeURIComponent(strUrl),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            window.location = strUrl;
+        });
+
+        $("#order_relate").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=relevance";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B027&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_search").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=query";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B028&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_title").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=keyword_title";
+
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B029&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#ask_list a").click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI($(this).text()) +"&behavior=B030&URL="+encodeURIComponent(location.origin + $(this).attr("href")),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        const lstIntWordTitleId = [118040,138391,97501,43536,52891,74506,71227,72600,73596,64602,41994,161923,106457,43006,146055,72417,32949,20283,4734,144333,115014,32950,138393,121407,141092,155179,134668,154374,138392,161114,96762,150930,154815,138390,119473,134560,6859,67257,57782,105383,43023,69580,117988,19147,55923,6925,138394,138389,161671,32965,95941,32898];
+
+        for (let intIndex in lstIntWordTitleId)
+        {
+            $.ajax({
+                url: "/api/WordTitleReviewCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordViewCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            $.ajax({
+                url: "/api/WordBookmarkCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordSaveCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+    });
+
+    var i = 0;
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 768) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#n-head1").css("display", "none");
+            $("#m-head1").css("display", "inline");
+            $("#n-head2").css("display", "none");
+            $("#m-head2").css("display", "inline");
+        }
+        else {
+            $("#m-head1").css("display", "none");
+            $("#n-head1").css("display", "inline");
+            $("#m-head2").css("display", "none");
+            $("#n-head2").css("display", "inline");
+        }
+    });
+
+    $("#extend").click(function () {
+        i = i + 1;
+        if (i % 2 === 1) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".searchResultWord").click(function () {
+            $.ajax({
+                url: "/api/SearchHitApi/?id=" + $("#Token").val() +
+                    "&order=" + encodeURIComponent($("#Order").val()) +
+                    "&category=" + encodeURIComponent($("#Category").val()) +
+                    "&source=" + encodeURIComponent($("#Source").val()) +
+                    "&size=" + encodeURIComponent($("#Size").val()) +
+                    "&keyword=" + encodeURIComponent($("#Keyword").val()) +
+                    "&hitword=" + encodeURIComponent($(this).text()) +
+                    "&pageIndex=" + $(".pagination .active a").text() +
+                    "&hitIndex=" + $(this).attr("index"),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.extension').each(function () {
+            const oldUrl = $(this).attr('href'); // Get current url
+            const newUrl = oldUrl + "&order=keyword_title"; // Create new url
+            $(this).attr("href", newUrl); // Set herf value
+        });
+    });
+</script>
+            <div id="flex_block"></div>
+        </div>
+
+        <footer class="main-footer printhidden">
+            <a href="#Accesskey_Z" id="Accesskey_Z" accesskey="Z" title="下方選單連結區" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="footerblock footer_left">
+                    <a class="footer_link" href="/Home/WebsiteMap">網站導覽</a>
+                    <a class="footer_link" href="/Home/WebsiteIntro">服務簡介</a>
+                    <a class="footer_link" href="/Home/WebsiteContact">聯絡我們</a>
+                    <a class="footer_link" href="/Home/CopyRight">版權聲明</a>
+                    <a class="footer_link" href="/Home/OpenAPI">開放API使用說明</a>
+                    <a class="footer_link" href="/Home/Embed">內嵌搜尋欄位說明</a>
+                    <a class="footer_link" href="/Link/List">相關連結</a>
+                    <a class="footer_link" href="/WebsiteQA/List">常見問題</a>
+                    <a class="footer_link" href="/Home/Privacy">隱私權政策</a>
+
+                </div>
+                <div class="footerblock footer_img footer_right">
+                    <div class="logo_wrap">
+                        <a href="http://cloud.edu.tw/" title="前往教育雲入口網(另開新視窗)" target="_blank">
+                            <img src="/Content/img/footer_logo.png" alt="教育雲">
+                        </a>
+                        <a href="http://www.edu.tw/" title="前往教育部網站(另開新視窗)" target="_blank">
+                            <img src="/Content/img/edu_logo.png" class="edu_logo" alt="教育部">
+                        </a>
+                        <a href="https://www.handicap-free.nat.gov.tw/Applications/Detail?category=20191016081617" title="前往無障礙網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/f60e69ce-4174-4246-8f7a-5f806e5950b6.jpg" border="0" width="88" height="31" alt="通過A檢測等級無障礙網頁檢測">
+                        </a>
+                        <a href="https://www.twca.com.tw/" title="前往臺灣網路認證網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/MINI.gif" alt="臺灣網路認證" />
+                        </a>
+                    </div>
+
+                    <span class="footer_span">本網站內容豐富，雖經審查仍有可能疏漏， <br id="mobile_br"> 若有欠妥之處，請隨時與我們聯絡。</span>
+                    <span class="footer_span">Copyright©2014教育部 <br id="mobile_br">｜系統維運廠商：卡米爾有限公司</span>
+                    <br>
+                    <span class="footer_span">本站建議最佳瀏覽器版本為 <br id="mobile_br"> Chrome 29+、 Edge、 Firefox20+、Internet Explorer 11、及Safari</span>
+                    <br>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- Late Loading library to enhance speed -->
+<script src="/Scripts/cameo/initialize.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.animation.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.mask.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.form.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.browser.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.iframe.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.extend/popover.extend.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/Bootstrap-multiselect.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/easing.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/jquery.ui.totop.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/fileinput.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap-toggle.js"></script>
+<script src="/Scripts/jquery.bxslider.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.min.js"></script>
+<script src="/Scripts/superembed.min.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5928297cad6afe55"></script>
+     -->
+<!-- initialize JS & common JS (初始化及共用的 JS Code)-->
+
+<script src="/Scripts/lightbox.js"></script>
+<script src="/Scripts/lity.js"></script>
+<script type="text/javascript" src="/Scripts/html5_local_stoage.js"></script>
+<script>
+    $(function () {
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+        $('.navbar-brand').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B031&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#cloud').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B032&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        //Index rule(for example):original url + Bopomofo/Index/
+
+        $('#index_menu').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B033&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_category').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B034&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_character').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B035&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_withTaieol').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B036&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#submission').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B037&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#word_list').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B038&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.login_rigister').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B039&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    });
+</script>
+<noscript>您的瀏覽器不支援javascript</noscript>

@@ -1,0 +1,3334 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW">
+<head>
+    <meta property="og:title" content="教育百科 | 教育雲線上字典" />
+    <title>璣 搜尋結果 - 教育百科 | 教育雲線上字典</title>
+    <link rel="icon" href="/Content/Images/icon/favicon.ico">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="教育百科,教育,edu, 辭典,字典,成語,教育部,同義詞,造句" />
+    <meta name="description" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="subject" content="教育部教育雲計畫教育百科" />
+    <meta name="copyright" content="卡米爾股份有限公司" />
+    <meta name="language" content="zh-TW" />
+    <meta name="abstract" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="topic" content="教育部教育雲計畫教育百科" />
+    <meta name="summary" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="author" content="教育部,卡米爾" />
+    <meta name="owner" content="教育部" />
+    <meta name="subtitle" content="教育雲端應用及平臺服務計畫" />
+    <meta charset="UTF-8" />
+
+    <link href="/Content/CSS/bootstrap.css?version=-710204471" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_common.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap.lib/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap-toggle.css" rel="stylesheet">
+    <link href="/Content/CSS/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.lib/ui.totop.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/lightbox.css" rel="stylesheet">
+    <link href="/Content/CSS/lity.css" rel="stylesheet">
+    <link href="/Content/CSS/fixed.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/index.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/style.css?version=1852324458" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search.css?version=651332762" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search_result.css?version=-787154487" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/Content/CSS/pdx.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cookie_login {
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .header_mobile {
+                display: inline-block !important;
+            }
+
+            .cookie_register {
+                padding-left: 0px !important;
+            }
+        }
+
+        a:focus img {
+            border: 5px solid #900;
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+
+        a:focus {
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-58889268-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script type="text/javascript">
+        var isLogin = false;
+
+        function addCookie() {
+            document.cookie = "lasturl=" + location.href + "; path=/";
+        }
+        function delCookie() {
+            document.cookie = "lasturl=; path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        $(document).ready(function () {
+            $(".cookie_login").click(function () {
+                addCookie();
+                var pathname = window.location.pathname; // Returns path only
+                var url      = window.location.href;     // Returns full URL
+                url = url.replace("https://pedia.cloud.edu.tw", "").replace("http://pedia.cloud.edu.tw", "").replace("http://localhost:50026", "");
+                location.href = "/SsoLogin/Home?statepage=" + url;
+            });
+
+            if (isLogin) {
+                var strLastUrl = getCookie("lasturl");
+                if (strLastUrl !== "") {
+                    delCookie();
+                    location.href = strLastUrl;
+                    return;
+                }
+            } else {
+                delCookie();
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <a href="#mainContent" title="跳到主要內容" tabindex="1" class="sr-only sr-only-focusable">跳到主要內容</a>
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="navbar navbar-inverse navbar-static-top header">
+            <a href="#Accesskey_U" id="Accesskey_U" accesskey="U" alt="教育百科瀏覽選單" title="上方選單連結區，此區塊列有本網站的主要連結" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- 在小 device-compatiple 用的, 勿刪-->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand" style="margin-top: 0;">
+                        <a href="/">
+                            <img src="/Content/Images/logo/logo_small_white.png" width="100" alt="教育百科logo" />
+                        </a>
+                    </h1>
+                </div>
+
+                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                    <!-- 左邊 -->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a title="網站導覽" tabindex="2" class="dropdown" id="index_sitemap" href="/Home/WebsiteMap">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>網站導覽
+                            </a>
+                        </li>
+                        <li>
+                            <a title="前往教育雲入口網(另開新視窗)" class="dropdown" id="cloud" target="_blank" href="http://cloud.edu.tw/">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>教育雲入口網
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="index_menu" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>索引選單<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="index_category" href="/NavigateWord">分類索引</a></li>
+                                <li><a id="index_character" href="/Bopomofo">單字索引</a></li>
+                                <li><a id="index_withTaieol" href="/NavigateWord/Taieol">生命大百科索引</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown" id="submission" href="/Stroke/Advice">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>投稿區
+                            </a>
+                        </li>
+
+                        <li>
+                            <a title="國語各版本生字詞彙表" class="dropdown" id="word_list" href="/Bookmark/Textword">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>生字詞彙表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown" id="word_list" href="/NavigateWord">
+                                <font color="#FFFF00"> <span class="glyphicon glyphicon glyphicon-star mr10"></span>新上架資源</font>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 右邊 -->
+                    <ul id="loginSection" class="nav navbar-nav navbar-right" style="margin-right: -40px;">
+
+                            <li class="header_mobile">
+                                <a class="login_rigister" href="/SsoLogin/Home"><span class="glyphicon glyphicon-user mr10"></span>登入會員/註冊</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main-body">
+            <a id="mainContent" title="中間主要內容區 (Alt+C)" accesskey="C" href="#content" style="font-size: 1px;" class="printhidden_inline">:::</a>
+            
+
+<style>
+    .main-body {
+        background-color: #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        outline: none;
+    }
+</style>
+
+<div class="bgGrey-light border-grey-bottom" style="margin-bottom:-1px">
+    <div class="container pt20">
+        <!--  工具列  -->
+        <div class="toolBar">
+            <div class="floatLeft mt10 mb10" style="width:100%!important;">
+
+                <!-- search-->
+                
+
+<form id="frmMain" method="post" action="/Home/Search" class="form-search form-inline">
+    <input name="__RequestVerificationToken" type="hidden" value="Qqa7HeWn1Ta2w5KKd1DHmtiIII2e9d6mwgVnDjIeN9mvvLeCWYEVUNHT6M9EQ5qx9mMjmPD72_dOeLf6mntIpmJoSqT55_QSpNi4EVhLcDY1" />
+    <input id="hiddenInput" type="hidden" name="search1" />
+    <div class="input-append smallk">
+        <label for="searchInput" class="search-query search-input-rounded-corners-small" style="background: white;">
+            <input value="璣" accesskey="S" id="searchInput" type="text" name="search" placeholder="請輸入生字、詞語或注音" style="font-size: 11pt;width: 80%; border: 0px solid #aaa; border-radius: 4px; outline: none; margin: 3px; padding: 4px; box-sizing: border-box; transition: 0.3s;font-family: 標楷體" />
+            <a id="keyboard-pop-a" href="#search"><img alt="開啟鍵盤圖示" id="keyboard-pop" class="btn-keyboard" src="/Content/img/keyboard.png" /></a>
+        </label>
+        <button type="submit" id="prcisebtn" class="btn btn-primary btn-sm" name="submitButton" value="precise"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>詞條檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="search"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>全文檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="pronounciation" style="background-color: mediumpurple;border-color: #7700BB;" id="bopomofode"><span class="glyphicon glyphicon-search mr10"></span>音讀檢索</button>
+    </div>
+</form>
+
+<style>
+    tr td:first-child {
+        width: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="boPoMoFoKeyBoard" class="keyboardmain" style="display: none; width: 450px">
+    <div class="keyboardmenudiv">
+        <a href="#" id="btnOpenPinyin" onclick="OpenPinyin(); return false;">切換漢語拼音鍵盤</a>
+        <a href="#" id="btnOpenBopomo" style="display: none; max-width: 100%" onclick="OpenBopomo(); return false;">切換注音小鍵盤</a> |
+        <a href="#" id="btnClose">關閉</a>
+    </div>
+    <div style="margin-left: 50pt; color: red;">
+        小提醒：<br />
+        輸入完畢後請點選
+        <span style="background-color: #9471DE;border: 1px solid #8524B7 ;color: white; padding: 7px; margin: 0 4px; border-radius: 5px;">
+            <span class="glyphicon glyphicon-search"></span>
+            音讀檢索
+        </span>
+        進行搜尋
+    </div>
+    <div><p></p></div>
+    <div class="keyboardcontentdiv">
+        <div id="boPoMoFoKeyBoard2" align="center">
+            <div class="keyboardtr">
+                <input value="ㄅ" type="button" class="keyboarditem" />
+                <input value="ㄉ" type="button" class="keyboarditem" />
+                <input value="ㄍ" type="button" class="keyboarditem" />
+                <input value="ㄐ" type="button" class="keyboarditem" />
+                <input value="ㄓ" type="button" class="keyboarditem" />
+                <input value="ㄗ" type="button" class="keyboarditem" />
+                <input value="ㄧ" type="button" class="keyboarditem" />
+                <input value="ㄚ" type="button" class="keyboarditem" />
+                <input value="ㄞ" type="button" class="keyboarditem" />
+                <input value="ㄢ" type="button" class="keyboarditem" />
+                <input value="ㄦ" type="button" class="keyboarditem" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄆ" type="button" class="keyboarditem" />
+                <input value="ㄊ" type="button" class="keyboarditem" />
+                <input value="ㄎ" type="button" class="keyboarditem" />
+                <input value="ㄑ" type="button" class="keyboarditem" />
+                <input value="ㄔ" type="button" class="keyboarditem" />
+                <input value="ㄘ" type="button" class="keyboarditem" />
+                <input value="ㄨ" type="button" class="keyboarditem" />
+                <input value="ㄛ" type="button" class="keyboarditem" />
+                <input value="ㄟ" type="button" class="keyboarditem" />
+                <input value="ㄣ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄇ" type="button" class="keyboarditem" />
+                <input value="ㄋ" type="button" class="keyboarditem" />
+                <input value="ㄏ" type="button" class="keyboarditem" />
+                <input value="ㄒ" type="button" class="keyboarditem" />
+                <input value="ㄕ" type="button" class="keyboarditem" />
+                <input value="ㄙ" type="button" class="keyboarditem" />
+                <input value="ㄩ" type="button" class="keyboarditem" />
+                <input value="ㄜ" type="button" class="keyboarditem" />
+                <input value="ㄠ" type="button" class="keyboarditem" />
+                <input value="ㄤ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄈ" type="button" class="keyboarditem" />
+                <input value="ㄌ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄖ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄝ" type="button" class="keyboarditem" />
+                <input value="ㄡ" type="button" class="keyboarditem" />
+                <input value="ㄥ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ˊ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˇ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˋ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="˙" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="一聲/空格" type="button" class="keyboarditem4" style="background-color: #F8F8C0; font-family: 標楷體; width: 33%;" />
+                <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 24%;" />
+            </div>
+        </div>
+        <div id="boPoMoFoKeyBoard3" style="width: 100%; display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 40px;">
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3">聲母</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="b" type="button" class="keyboarditem" realvalue="ㄅ" />
+                                <input value="c" type="button" class="keyboarditem" realvalue="ㄘ" />
+                                <input value="d" type="button" class="keyboarditem" realvalue="ㄉ" />
+                                <input value="f" type="button" class="keyboarditem" realvalue="ㄈ" />
+                                <input value="g" type="button" class="keyboarditem" realvalue="ㄍ" />
+                                <input value="h" type="button" class="keyboarditem" realvalue="ㄏ" />
+                                <input value="j" type="button" class="keyboarditem" realvalue="ㄐ" />
+                                <input value="k" type="button" class="keyboarditem" realvalue="ㄎ" />
+                                <input value="l" type="button" class="keyboarditem" realvalue="ㄌ" />
+                                <input value="m" type="button" class="keyboarditem" realvalue="ㄇ" />
+                                <input value="n" type="button" class="keyboarditem" realvalue="ㄋ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="p" type="button" class="keyboarditem" realvalue="ㄆ" />
+                                <input value="q" type="button" class="keyboarditem" realvalue="ㄑ" />
+                                <input value="r" type="button" class="keyboarditem" realvalue="ㄖ" />
+                                <input value="s" type="button" class="keyboarditem" realvalue="ㄙ" />
+                                <input value="t" type="button" class="keyboarditem" realvalue="ㄊ" />
+                                <input value="w" type="button" class="keyboarditem" realvalue="ㄨ" />
+                                <input value="x" type="button" class="keyboarditem" realvalue="ㄒ" />
+                                <input value="y" type="button" class="keyboarditem" realvalue="ㄧ" />
+                                <input value="z" type="button" class="keyboarditem" realvalue="ㄗ" />
+                                <input value="ch" type="button" class="keyboarditem" realvalue="ㄔ" />
+                                <input value="sh" type="button" class="keyboarditem" realvalue="ㄕ" />
+                                <input value="zh" type="button" class="keyboarditem" realvalue="ㄓ" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3"><br /><br /><br />韻母<br /><br /><br /><br /></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="a" type="button" class="keyboarditem1" realvalue="ㄚ" />
+                                <input value="ai" type="button" class="keyboarditem1" realvalue="ㄞ" />
+                                <input value="an" type="button" class="keyboarditem1" realvalue="ㄢ" />
+                                <input value="ang" type="button" class="keyboarditem1" realvalue="ㄤ" />
+                                <input value="ao" type="button" class="keyboarditem1" realvalue="ㄠ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="e" type="button" class="keyboarditem1" realvalue="ㄜ" />
+                                <input value="ê" type="button" class="keyboarditem1" realvalue="ㄝ" />
+                                <input value="ei" type="button" class="keyboarditem1" realvalue="ㄟ" />
+                                <input value="en" type="button" class="keyboarditem1" realvalue="ㄣ" />
+                                <input value="eng" type="button" class="keyboarditem1" realvalue="ㄥ" />
+                                <input value="er" type="button" class="keyboarditem1" realvalue="ㄦ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="i" type="button" class="keyboarditem1" realvalue="" />
+                                <input value="ia" type="button" class="keyboarditem1" realvalue="ㄧㄚ" />
+                                <input value="ian" type="button" class="keyboarditem1" realvalue="ㄧㄢ" />
+                                <input value="iang" type="button" class="keyboarditem1" realvalue="ㄧㄤ" />
+                                <input value="iao" type="button" class="keyboarditem1" realvalue="ㄧㄠ" />
+                                <input value="ie" type="button" class="keyboarditem1" realvalue="ㄧㄝ" />
+                                <input value="in" type="button" class="keyboarditem1" realvalue="ㄧㄣ" />
+                                <input value="ing" type="button" class="keyboarditem1" realvalue="ㄧㄥ" />
+                                <input value="iong" type="button" class="keyboarditem1" realvalue="ㄩㄥ" />
+                                <input value="iu" type="button" class="keyboarditem1" realvalue="ㄧㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="o" type="button" class="keyboarditem1" realvalue="ㄛ" />
+                                <input value="ong" type="button" class="keyboarditem1" realvalue="ㄨㄥ" />
+                                <input value="ou" type="button" class="keyboarditem1" realvalue="ㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="u" type="button" class="keyboarditem1" realvalue="ㄨ" />
+                                <input value="ua" type="button" class="keyboarditem1" realvalue="ㄨㄚ" />
+                                <input value="uai" type="button" class="keyboarditem1" realvalue="ㄨㄞ" />
+                                <input value="uan" type="button" class="keyboarditem1" realvalue="ㄨㄢ" />
+                                <input value="uang" type="button" class="keyboarditem1" realvalue="ㄨㄤ" />
+                                <input value="ue" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ui" type="button" class="keyboarditem1" realvalue="ㄨㄟ" />
+                                <input value="un" type="button" class="keyboarditem1" realvalue="ㄨㄣ" />
+                                <input value="uo" type="button" class="keyboarditem1" realvalue="ㄨㄛ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="ü" type="button" class="keyboarditem1" realvalue="ㄩ" />
+                                <input value="üan" type="button" class="keyboarditem1" realvalue="ㄩㄢ" />
+                                <input value="üe" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ün" type="button" class="keyboarditem1" realvalue="ㄩㄣ" />
+                            </div>
+                        </div>
+                        <div class="keyboardtr">
+                            <input value="一" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="" />
+                            <input value="ˊ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˊ" />
+                            <input value="ˇ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˇ" />
+                            <input value="ˋ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˋ" />
+                            <input value="空白鍵" type="button" class="keyboarditem4" style="font-family: 標楷體; width: 100px;" realvalue=" " />
+                            <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 80px;" realvalue="重新輸入" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $input = undefined;
+    var $hiddenInput = undefined;
+
+    $(function () {
+        $input.autocomplete({
+            delay: 300,
+            minLength: 1,
+            source: function (request, response) {
+                window.$.ajax({
+                    url: "/Home/AutoCompleteQuery?q=" + $input.val(),
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== "") {
+                            response(data.split(","));
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    function OpenBopomo() {
+        window.$("#boPoMoFoKeyBoard2").show();
+        window.$("#boPoMoFoKeyBoard3").hide();
+
+        window.$("#btnOpenPinyin").show();
+        window.$("#btnOpenBopomo").hide();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenPinyin").focus();
+
+        return false;
+    }
+
+    function OpenPinyin() {
+
+        window.$("#boPoMoFoKeyBoard2").hide();
+        window.$("#boPoMoFoKeyBoard3").show();
+
+        window.$("#btnOpenPinyin").hide();
+        window.$("#btnOpenBopomo").show();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenBopomo").focus();
+
+        return false;
+    }
+
+    $("#btnClose").click(function () {
+
+        window.$("#boPoMoFoKeyBoard").hide();
+
+        return false;
+    });
+
+    $("#btnClose").on("keydown",
+        function (e) {
+
+            //避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$("#btnClose").click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val());
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val(), window.$(this).attr("realvalue"));
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    function UpdateInput(input, realvalue) {
+        if ($input === undefined ||
+            $hiddenInput === undefined) {
+            return;
+        }
+
+        if (input === "重新輸入") {
+            $input.val("");
+
+            $hiddenInput.val("");
+
+            return;
+        }
+
+        switch (input) {
+            case "一聲/空格":
+            case "空白鍵":
+                input = " ";
+                break;
+        }
+
+        const newInput = $input.val() + input;
+
+        $input.val(newInput);
+
+        if (realvalue === undefined || realvalue === null) {
+            $hiddenInput.val($input.val());
+        } else {
+            let newHiddenInput = $hiddenInput.val() + realvalue.toString();
+
+            if (newInput.includes('yi')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄧ', 'ㄧ');
+            }
+            if (newInput.includes('yong')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄨ', 'ㄩ');
+            }
+            if (newInput.includes('wu')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('wong')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('yü')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+
+            $hiddenInput.val(newHiddenInput);
+        }
+    }
+
+</script>
+
+
+<script>
+
+    $input = $("#searchInput");
+    $hiddenInput = $("#hiddenInput");
+
+    $(function () {
+        const mq = window.matchMedia("(min-width: 480px)");
+        if (mq.matches) {
+            $('[title]').each(function () {
+                const $this = $(this);
+                $this.data('title', $this.attr('title'));
+            });
+        }
+    });
+
+    // 開啟鍵盤
+    $("#keyboard-pop-a").click(function () {
+        OpenBopomo();
+
+        $("#boPoMoFoKeyBoard").show();
+
+        return false;
+    });
+
+    $("#keyboard-pop-a").on("keydown",
+        function (e) {
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            $("#keyboard-pop-a").click();
+
+            return false;
+        });
+
+</script>
+
+                <!-- 選擇顯示數量 -->
+                <div class="mt5">
+
+
+<div class="searchResult">
+    共 63 筆資料，每頁顯示 100 筆資料
+    <a href="#" data-toggle="modal" data-target="#pickListNumber" class="btn btn-primary btn-xs">變更</a>
+</div>
+
+<div class="pull-left">
+
+    <div class="modal fade" id="pickListNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">請選擇要顯示的數量</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="frmPageSize" action="/Home/list/1?search=&amp;#29859;&amp;amp;source=withPrimary&amp;amp;order=relevance" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="yy4s_-v6K3wD0AUONbzqYvQMe7xMEB60PBih2_4jOpE_phXIhD65NoL_CenU-ZLE8KSgT6_QDVN-f8SOmz-m9MxvqKLvZv9RHI258vH8mR81" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">數量</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="size">
+                                    <option value="5">一頁 5 筆</option>
+                                    <option value="10">一頁 10 筆</option>
+                                    <option value="15">一頁 15 筆</option>
+                                    <option value="20">一頁 20 筆</option>
+                                    <option value="25">一頁 25 筆</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="javascript: window.location.href = '/Home/list/1?search=&#29859;&amp;source=withPrimary&amp;order=relevance' + '&size=' + $('select[name=size]').val();">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+                </div>
+                <span class="">
+                        資料庫查詢時間：296.4005 ms
+                </span>
+                <div id="counter" style="display:none"></div>
+            </div>
+
+
+
+            <!--Pop up window content-->
+            <div class="modal fade" id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="font-family: Microsoft JhengHei"><b>親愛的使用者您好</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-family: Microsoft JhengHei"><b>非常感謝您對教育百科的愛戴，為了能提供您更好的服務，請幫忙我們勾選您的身份與年級。現在登入的話就能立即體驗個人化收藏服務喔！</b></h5>
+                            <form id="survey" style="font-family: Microsoft JhengHei">
+                                <input name="__RequestVerificationToken" type="hidden" value="jcfW-qNtPP-zXdFOifqcjXuXOH2NYeocci4mxdulNmpozc1k-tseenqb1uAk8dBORq7bZIEAoVncpSg9h17jN9sN6s4CUXAWF2I5slMdcaU1" />
+                                <b>
+                                    <table style="width: 50%">
+                                        <tr>
+                                            <td style="width: 10%">身份:</td>
+                                            <td style="width: 7%"><input data-val="true" data-val-number="欄位 Identity 必須是數字。" id="Teacher" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="1" /><label for="Teacher">教師</label></td>
+                                            <td style="width: 7%"><input id="Student" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="2" /><label for="Student">學生</label></td>
+                                            <td style="width: 15%"><input id="Others" name="Identity" onclick="ischecked2()" placeholder="identity" type="radio" value="3" /><label for="Others">一般民眾</label></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width: 70%">
+                                        <tr>
+                                            <td>年級:</td>
+                                            <td>
+                                                <select data-val="true" data-val-number="欄位 Grade 必須是數字。" id="grade" name="Grade"><option value="-1">請選擇</option>
+<option value="1">一年級</option>
+<option value="2">二年級</option>
+<option value="3">三年級</option>
+<option value="4">四年級</option>
+<option value="5">五年級</option>
+<option value="6">六年級</option>
+<option value="7">七年級</option>
+<option value="8">八年級</option>
+<option value="9">九年級</option>
+<option value="0">無</option>
+</select><p id="dumb" style="color: red; font-size: small">*必填</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </b>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary pull-left" data-dismiss="modal" id="now" value="我要登入" style="background-color: #228B22;border-color: #228B22" />
+                            <input type="button" class="btn btn-primary pull-right" data-dismiss="modal" id="later" value="確定" style="width:82px;" />
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                        <script>
+                            //show by counter
+                            //var ischecked = $("#Others").prop('checked');
+                            $('#dumb').fadeOut();
+
+                            //一般民衆，年級選項鎖定
+                            function ischecked2() {
+                                $('#grade').prop('disabled', true);
+                                $('#grade').val('0');
+                            }
+                            //非一般民衆，年級選項解鎖
+                            function ischecked1() {
+                                $('#grade').prop('disabled', false);
+                                $('#grade').val('-1');
+                            }
+
+                            var n = localStorage.getItem('on_load_counter');
+                            if (n === null) {
+                                n = 0;
+                            }
+                            n++;
+                            localStorage.setItem("on_load_counter", n);
+                            document.getElementById('counter').innerHTML = n;
+
+                            $(document).ready(function () {
+                                //if (n == 2) {
+                                //    $('#poplogin').modal('show');
+                                //    localStorage.clear();
+                                //}
+
+                                //localStorage.clear();
+                                var strSearch = decodeURIComponent(window.location.search);
+                                if (strSearch.includes("&orgSearch=")) {
+                                    if (strSearch.includes("&search1=")) {
+                                        var parts = strSearch.replace('orgSearch=', '').replace('search1=', '').split('&');
+                                        strSearch = parts[parts.length - 2];
+                                        $("#searchInput1").val(parts[parts.length - 1]);
+                                    } else {
+                                        var parts = strSearch.replace('orgSearch=', '').split('&');
+                                        strSearch = parts[parts.length - 1];
+                                    }
+                                }
+                                else {
+                                    strSearch = strSearch.replace('?search=', '').split('&')[0];
+                                    if (strSearch.includes("&test=True")) {
+                                        strSearch = strSearch.replace('&test=True', '');
+                                    }
+                                }
+
+                                $('.multiInput').val(strSearch);
+                            });
+
+                            //show by 1 day
+                            //$(document).ready(function () {
+                            //    if ($.cookie('whenToShowDialog') == null) {
+
+                            //        // Create expiring cookie, 1 days from now:
+                            //        $.cookie('whenToShowDialog', 'yes', { expires: 1, path: '/' });
+
+                            //        // Show dialog
+                            //        $('#poplogin').modal('show');
+                            //    }
+                            //});
+
+                            //show by 10 minutes
+
+                            setTimeout(function () {
+                                $('#poplogin').modal('show');
+                            }, 600000);
+
+                            $(document).ready(function () {
+                                $("#later").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+                                    }
+
+                                })
+                                $("#now").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+
+                                        let current = window.location.href.toString();
+                                        current = "../SsoLogin/Home?statepage="+current;
+                                        window.location.href = current;
+                                    }
+                                })
+                            })
+
+                            //產生目前頁面網址，回傳
+                            var current = window.location.href.toString();
+                            $('#url').val(current);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="Keyword" value="璣" />
+<input type="hidden" id="Order" value="relevance" />
+<input type="hidden" id="Category" value="" />
+<input type="hidden" id="Source" value="withPrimary,withEOL,withMH,withConcise,withIdiom,withJunior,withRevised" />
+<input type="hidden" id="Size" value="100" />
+<input type="hidden" id="Token" />
+<div class="container">
+    <div id="wordListFilter" style="padding-bottom: 170px;">
+        <div>
+            <span id="wordListFilter_title">縮小搜尋結果範圍</span><span id="extend" class="glyphicon glyphicon-circle-arrow-down" style="padding-left: 5px;"> </span>
+        </div>
+        <div id="advanced" style="margin-top: 20px;">
+            <div>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 16px;"><label><input id="btnSelectAllArea" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 725px;"><label><input id="btnSelectAllMedia" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline" id="n-head1">．適用年級</p>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline; margin-left: 680px;" id="n-head2">．媒體形式</p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head1">．適用年級</p>
+                <br>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 20px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox1">
+                            <input class="cb" name="cballPrimary" type="checkbox" id="inlineCheckbox1" value="withPrimary" style="zoom: 1.2; font-size: 40px" />低年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox1" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox2">
+                            <input class="cb" type="checkbox" id="inlineCheckbox2" name="choose_Primary" value="withEOL" /> 國語小辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox3">
+                            <input class="cb" name="cballMH" type="checkbox" id="inlineCheckbox3" value="withMH" style="zoom: 1.2; font-size: 40px" /> 中高年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox3" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox4">
+                            <input class="cb" type="checkbox" id="inlineCheckbox4" name="choose_MH" value="withConcise"> 教育部辭典簡編本
+                        </label>
+                    </label>
+                    <label id="checkbox4" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox5">
+                            <input class="cb" type="checkbox" id="inlineCheckbox5" name="choose_MH" value="withMinnan"> 教育部閩南語辭典
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox5" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox6">
+                            <input class="cb" type="checkbox" id="inlineCheckbox6" name="choose_MH" value="withIdiom"> 教育部成語典
+                        </label>
+                    </label>
+                    <label id="checkbox6" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox7">
+                            <input class="cb" type="checkbox" id="inlineCheckbox7" name="choose_MH" value="withTaieol"> 中研院台灣生命大百科
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox7" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox8">
+                            <input class="cb" type="checkbox" id="inlineCheckbox8" name="choose_MH" value="withHakka"> 教育部客家語辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label id="checkbox8" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox9">
+                            <input class="cb" name="cballJunior" type="checkbox" value="withJunior" id="inlineCheckbox9" style="zoom: 1.2;"> 國中以上
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox9" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox10">
+                            <input class="cb" type="checkbox" id="inlineCheckbox10" name="choose_Junior" value="withRevised"> 教育部辭典修訂本書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox10" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox11">
+                            <input class="cb" type="checkbox" id="inlineCheckbox11" name="choose_Junior" value="withNMNS"> 自然科學博物館
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox11" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox12">
+                            <input class="cb" type="checkbox" id="inlineCheckbox12" name="choose_Junior" value="withGlossary"> 教育部國教院辭書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox12" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox13">
+                            <input class="cb" type="checkbox" id="inlineCheckbox13" name="choose_Junior" value="withEduWiki"> 教育 Wiki
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox13" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox14">
+                            <input class="cb" type="checkbox" id="inlineCheckbox14" name="choose_Junior" value="withFineart"> 視覺素養學習網
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox14" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox15">
+                            <input class="cb" type="checkbox" id="inlineCheckbox15" name="choose_Junior" value="withDeepsea"> 海洋生物百科
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withNpm"> 國立故宮博物院典藏精選
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withMusiciantw"> 臺灣音樂群像資料庫
+                        </label>
+                    </label>
+					<br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withTaiwanmusic"> 傳統民族樂器資料庫
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head2">．媒體形式</p>
+
+                <div class="checkbox, checkbox_rwd" style="margin-left: 60px">
+                    <label id="checkbox16" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox16">
+                            <input class="cb" type="checkbox" id="inlineCheckbox16" value="withAudio" style="zoom: 1.2;"> 音檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox17" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox17">
+                            <input class="cb" type="checkbox" id="inlineCheckbox17" value="withGraph" style="zoom: 1.2;"> 圖檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox18" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox18">
+                            <input class="cb" type="checkbox" id="inlineCheckbox18" value="withVideo" style="zoom: 1.2;"> 影片
+                        </label>
+                    </label>
+                </div>
+                <div><button id="filter_btn" type="button" class="btn btn-primary btn-sm" style="margin-left: 120px; margin-top: 50px">送出</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchlogo" style="padding-top: 20px; text-align: right">
+        排序方式：
+        <span id="order_title" style="cursor: pointer;">關鍵字</span> |
+        <span id="order_search" style="cursor: pointer;">搜尋次數</span> |
+        <span id="order_relate" style="cursor: pointer;">關聯性</span>
+    </div>
+
+
+        <!--  辭條列表 -->
+        <a style="color:#FFFFFF;" accesskey="R" href="#wordList" title="搜尋結果" id="searchResult-section">:::</a>
+        <span style="font-weight:bold">你是不是要搜尋以下結果</span>
+        <table id="wordList" class="table">
+            <tbody>
+
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="1" href="/Entry/Detail/?title=字字珠璣&search=璣">字字珠<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=字字珠璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_89155">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_89155">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">珠<span class="color-important">璣</span>，比喻優美的文章或詞句。字字珠<span class="color-important">璣</span>形容句子或文章中遣詞用字非常優美。如：「這本書集結了作者的生活智慧，字字珠<span class="color-important">璣</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="2" href="/Entry/Detail/?title=璿&search=璣">璿</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璿" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_13066">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_13066">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">美玉。【例】璿<span class="color-important">璣</span></div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="3" href="/Entry/Detail/?title=璣&search=璣"><span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_10742">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_10742">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">不圓的珠子。如：「珠<span class="color-important">璣</span>」、「明<span class="color-important">璣</span>」。秦．李斯〈上書秦始皇〉：「傅<span class="color-important">璣</span>之珥、阿縞之衣、錦繡之飾，不進於前。」</div>
+                            <div class="wordDefination">古代天文儀器「璇<span class="color-important">璣</span>玉衡」上轉動的部分。如：「<span class="color-important">璣</span>衡撫辰儀」（清乾隆所製的渾儀）。《書經．舜典》：「在璿<span class="color-important">璣</span>玉衡，以齊七政。」</div>
+                            <div class="wordDefination">星名。北斗七星的第三顆，在西方為大熊座γ星。《晉書．卷一一．天文志上》：「北斗七星在太微北，……又魁第一星曰天樞，二曰琁，三曰<span class="color-important">璣</span>，四曰權，五曰玉衡，六曰開陽，七曰搖光；一至四為魁，五至七為杓。」也稱為「天<span class="color-important">璣</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="4" href="/Entry/Detail/?title=珠璣&search=璣">珠<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=珠璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_69092">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_69092">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">珠，圓的珠。<span class="color-important">璣</span>，不圓的珠。珠<span class="color-important">璣</span>指珠玉、寶石。《漢書．卷六五．東方朔傳》：「宮人簪瑇瑁，垂珠<span class="color-important">璣</span>，設戲車，教馳逐。」宋．柳永〈望海潮．東南形勝〉詞：「市列珠<span class="color-important">璣</span>，戶盈羅綺，競豪奢。」</div>
+                            <div class="wordDefination">比喻優美的詩文。唐．方干〈贈孫百篇〉詩：「羽翼便從吟處出，珠<span class="color-important">璣</span>續向筆頭生。」元．無名氏《醉寫赤壁賦》第一折：「俺夫人聞知蘇軾胸懷錦繡，口吐珠<span class="color-important">璣</span>，有貫世之才。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="5" href="/Entry/Detail/?title=滿腹珠璣&search=璣">滿腹珠<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=滿腹珠璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_54096">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_54096">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">珠，圓的蚌珠。<span class="color-important">璣</span>，不圓的蚌珠。珠<span class="color-important">璣</span>，引申為詩文。滿腹珠<span class="color-important">璣</span>形容人善於詩文，極有才氣。如：「他滿腹珠<span class="color-important">璣</span>，下筆成章。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="6" href="/Entry/Detail/?title=璇璣&search=璣">璇<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璇璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_101861">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_101861">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古時測量天文的儀器。也作「璿<span class="color-important">璣</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="7" href="/Entry/Detail/?title=璿璣&search=璣">璿<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璿璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_104524">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_104524">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古時測天文的儀器。《書經．舜典》：「在璿<span class="color-important">璣</span>玉衡，以齊七政。」也作「旋<span class="color-important">璣</span>」、「璇<span class="color-important">璣</span>」、「璿機」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="8" href="/Entry/Detail/?title=口吐珠璣&search=璣">口吐珠<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=口吐珠璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_91539">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_91539">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">珠，真珠。<span class="color-important">璣</span>，不圓的珠子。口吐珠<span class="color-important">璣</span>形容一個人說話很有文采。元．無名氏《醉寫赤壁賦》第一折：「因俺夫人聞知蘇軾胸懷錦繡，口吐珠<span class="color-important">璣</span>，有貫世之才。」明．謝讜《四喜記》第五齣：「身呈文彩、口吐珠<span class="color-important">璣</span>，登雲會上廣寒梯，攀龍定陟承明陛。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="9" href="/Entry/Detail/?title=天璣&search=璣">天<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=天璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_20484">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_20484">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">星名。北斗七星的第三顆，在西方為大熊座γ星。《晉書．卷一一．天文志上》：「北斗七星在太微北，……又魁第一星曰天樞，二曰琁，三曰<span class="color-important">璣</span>，四曰權，五曰玉衡，六曰開陽，七曰搖光；一至四為魁，五至七為杓。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="10" href="/Entry/Detail/?title=抱璣&search=璣">抱<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=抱璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_48099">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_48099">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">動物名。一種貝類。軟體動物門鶯蛤科。墨綠色殼表有二片長約十五公分的耳狀突起物。介殼是珍珠養殖中的極品，亦可作裝飾用。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="11" href="/Entry/Detail/?title=照夜璣&search=璣">照夜<span class="color-important">璣</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=照夜璣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_115056">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_115056">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">夜明珠。唐．李朝威《柳毅傳》：「錢塘君復出紅珀盤，貯以照夜<span class="color-important">璣</span>，皆起進毅。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="12" href="/Entry/Detail/?title=拋磚引玉&search=璣">拋磚引玉</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=拋磚引玉" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_49686">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_49686">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">參考詞語︰引玉拋磚注音︰｜ㄣˇ　ㄩˋ　ㄆㄠ　ㄓㄨㄢ漢語拼音︰yǐn yù pāo zhuān釋義︰即「拋磚引玉」。見「拋磚引玉」條。	01.宋．周必大〈聞西省賞酴醾芍藥戲成小詩奉簡泰之侍講舍人年兄併以丁香橄欖百枚助筵卻求殘花數枝〉四首之四：「從來引玉即拋磚，自笑囊空百不堪。」　參考詞語︰投礫引珠注音︰ㄊㄡˊ　ㄌ｜ˋ　｜ㄣˇ　ㄓㄨ漢語拼音︰tóu lì yǐn zhū釋義︰猶「拋磚引玉」。見「拋磚引玉」條。	01.明．徐渭〈呂禮部再燈上元〉詩：「共道勝筵須有紀，不妨投礫引珠<span class="color-important">璣</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="13" href="/Entry/Detail/?title=不可一世&search=璣">不可一世</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=不可一世" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_35101">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_35101">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">04.清．俞樾《春在堂隨筆．卷六》：「杭州陸<span class="color-important">璣</span>，道光間名諸生也。豪於飲，能詩文，且善畫，恃才傲物，不可一世。遇才名出己右者，必力折之。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="14" href="/Entry/Detail/?title=一字千金&search=璣">一字千金</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=一字千金" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_71070">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_71070">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">次懸賞的舉動，使呂不韋及《呂氏春秋》名揚天下。 4.相似、相反詞 相似詞:擲地有聲、一字連城、字字珠<span class="color-important"><span class="color-important">璣</span></span>、金章玉句。 相反詞驢鳴犬吠、禍棗災梨。 5.例句他的作品原本無人青睞，哪知成名之後，一字千金，想求都求不到。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="15" href="/Entry/Detail/?title=魚目混珠&search=璣">魚目混珠</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=魚目混珠" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75727">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75727">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">01.《張右史文集．卷三七．同文唱和．柳子文．詩呈同院諸公》：「得句  酬數，忘言笑語稀。自慚初學步，魚目混珠<span class="color-important">璣</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="16" href="/Entry/Detail/?title=胸無點墨&search=璣">胸無點墨</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=胸無點墨" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_16501">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_16501">0</span></span>
+        </div>
+    </div>
+                    <div class="wordDefination">相反詞：博學多才、滿腹珠<span class="color-important">璣</span>、滿腹經綸</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="17" href="/Entry/Detail/?title=在&search=璣">在</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=在" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_57032">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_57032">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">觀察。《書經．舜典》：「在璿<span class="color-important">璣</span>玉衡，以齊七政。」《禮記．文王世子》：「食上必在視寒暖之節。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="18" href="/Entry/Detail/?title=黃鐘毀棄&search=璣">黃鐘毀棄</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=黃鐘毀棄" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75777">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75777">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">03.宋．胡次焱〈嗟乎賦〉：「嗟乎！貴魚目賤珠<span class="color-important">璣</span>，蓻馬蘭芟江蕹。逐鸞鳳于空谷，畜鶩鵝于庭墀。斥騏驥為緩步，謂駑駘為善馳。瑚璉擯遠兮，登甂甌于清廟；黃鐘毀棄兮，挾秦箏以彈之。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="19" href="/Entry/Detail/?title=回文&search=璣">回文</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=回文" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_51362">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_51362">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">1.反覆顛倒均能成誦的詩詞。如蘇若蘭〈璇<span class="color-important">璣</span>圖〉詩的「詩情明顯。怨義興理。辭麗作此。端無終始。」回讀則作「始終無端。此作麗辭。理興義怨。顯明情詩。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="20" href="/Entry/Detail/?title=精緻&search=璣">精緻</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=精緻" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_13037">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_13037">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">精深細密。《新唐書．卷二○三．文藝傳下．崔元翰傳》：「其好學不倦，用思精緻。」《宋史．卷六八．律曆志一》：「宣和<span class="color-important">璣</span>衡之制，詳密精緻。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="21" href="/Entry/Detail/?title=漸入佳境&search=璣">漸入佳境</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=漸入佳境" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_58414">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_58414">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">05.清．梁廷柟《曲話．卷二》：「鄭廷玉作《楚昭公》雜劇，……第三折以下，則字字珠<span class="color-important">璣</span>，言言玉屑，自尾倒嘗，漸入佳境。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="22" href="/Entry/Detail/?title=頑石點頭&search=璣">頑石點頭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=頑石點頭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_76940">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_76940">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">01.《五燈會元．卷一七．保寧圓<span class="color-important">璣</span>法師》：「雙眉本來自橫，鼻孔本來自直。直饒說得天花亂墜，頑石點頭，筭來多虛不如少實。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="23" href="/Entry/Detail/?title=薏&search=璣">薏</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=薏" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_27540">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_27540">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">蓮子中心的胚芽，味甚苦。《爾雅．釋草》：「荷，芙蕖，……，其實蓮，其根藕，其中的，的中薏。」邢昺疏引陸<span class="color-important">璣</span>曰：「的中有青為薏，味甚苦。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="24" href="/Entry/Detail/?title=流離&search=璣">流離</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=流離" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_22243">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_22243">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">鳥名。梟鳥。《詩經．邶風．旌丘》：「瑣兮尾兮，流離之子。」漢．毛亨．傳：「流離，鳥也。少好長醜，始而愉樂，終以微弱。」唐．孔穎達．疏：「陸<span class="color-important">璣</span>云：『流離，梟也。』」《正字通．木部》：「梟，鳥生炎州，母嫗子百日，羽翼長，從母索食，食母而飛。關西名流離。」也稱為「角鴟」、「貓頭鷹」、「鵂鶹」、「鴟鵂」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="25" href="/Entry/Detail/?title=簡單明瞭&search=璣">簡單明瞭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=簡單明瞭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_79078">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_79078">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">事情或言語明白清楚，毫不雜亂。如：「他的讀書報告字字珠<span class="color-important">璣</span>，簡單明瞭，所以得到最高分。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="26" href="/Entry/Detail/?title=昭示&search=璣">昭示</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=昭示" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_38542">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_38542">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">明白的宣告、公布。漢．袁康《越絕書．卷九．越絕外傳計倪十一》：「傾城傾國，思昭示於後王；麗質冶容，宜求監於前史。」宋．陸游〈謝賜曆日表〉：「齊七政於璿<span class="color-important">璣</span>，昭示太平之象。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="27" href="/Entry/Detail/?title=輪轉&search=璣">輪轉</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=輪轉" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_153040">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_153040">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">旋轉。《淮南子．原道》：「是故能天運地滯，輪轉而無廢。」《文選．李康．運命論》：「天動星迴而辰極猶居其所；<span class="color-important">璣</span>璇輪轉而衡軸猶執其中。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="28" href="/Entry/Detail/?title=纓絡&search=璣">纓絡</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=纓絡" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_140781">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_140781">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">以珠玉綴成的裝飾品。《北史．卷九五．林邑傳》：「王戴金花冠，形如章甫，衣朝霞布，珠<span class="color-important">璣</span>纓絡。」也作「瓔珞」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="29" href="/Entry/Detail/?title=錦書&search=璣">錦書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=錦書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_152770">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_152770">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">本指織在錦緞上的文句。參見「璇<span class="color-important">璣</span>圖」條。後泛指華麗的書信。唐．王勃〈七夕賦〉：「上元錦書傳寶字，王母瓊箱薦金約。」宋．陸游〈釵頭鳳．紅酥手〉詞：「山盟雖在，錦書難託。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="30" href="/Entry/Detail/?title=混元&search=璣">混元</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=混元" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_127257">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_127257">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">宇宙尚未形成時，形質不分、蒙昧一體的狀態。三國魏．阮籍〈詠懷詩〉八二首之四○：「混元生兩儀，四象運衡<span class="color-important">璣</span>。」《封神演義》第八二回：「混元初判道為尊，煉就乾坤清濁分。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="31" href="/Entry/Detail/?title=玉衡&search=璣">玉衡</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=玉衡" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_160088">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_160088">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古時飾有玉石用來觀測天文的器具。《書經．舜典》：「在璿<span class="color-important">璣</span>玉衡，以齊七政。」</div>
+                            <div class="wordDefination">星官名。北斗七星的第五顆，在西方為大熊座ε星。《晉書．卷一一．天文志上》：「北斗七星在太微北，……又魁第一星曰天樞，二曰琁，三曰<span class="color-important">璣</span>，四曰權，五曰玉衡，六曰開陽，七曰搖光；一至四為魁，五至七為杓。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="32" href="/Entry/Detail/?title=玄圃積玉&search=璣">玄圃積玉</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=玄圃積玉" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_89875">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_89875">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">比喻文辭華美，字字珠<span class="color-important">璣</span>。《晉書．卷五四．陸機傳》：「後葛洪著書稱機文猶玄圃之積玉，無非夜光焉。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="33" href="/Entry/Detail/?title=北斗七星&search=璣">北斗七星</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北斗七星" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55959">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55959">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">天樞、天璇、天<span class="color-important">璣</span>、天權、玉衡、開陽和搖光七顆星的合稱。這七顆星排列在北方的天空中，形狀很像古代舀酒的斗，故稱為「北斗七星」。在西方屬於大熊座的一部分。也稱為「北斗」、「北斗星座」、「斗極」、「維斗」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="34" href="/Entry/Detail/?title=投礫引珠&search=璣">投礫引珠</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=投礫引珠" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_85385">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_85385">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">01.明．徐渭〈呂禮部再燈上元〉詩：「共道勝筵須有紀，不妨投礫引珠<span class="color-important">璣</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="35" href="/Entry/Detail/?title=連璧&search=璣">連璧</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=連璧" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_94982">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_94982">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">兩玉並聯。《莊子．列禦寇》：「吾以天地為棺槨，以日月為連璧，星辰為珠<span class="color-important">璣</span>。」《續漢書志．第二九．輿服志上》：「大行載車，其飾如金根車，加施組連璧交絡四角。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="36" href="/Entry/Detail/?title=林紓&search=璣">林紓</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=林紓" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73380">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73380">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">健次郎著，林紓、魏易合譯（1908）•《黑太子南征錄》，英國柯南達利，林紓、魏易合譯（1909）•《<span class="color-important"><span class="color-important">璣</span></span>司刺虎記》，英國哈葛德著，林紓、陳家麟合譯（1909）•《藕孔避兵錄》，英國斐立伯倭本翰著，林紓、魏易合譯（1909）•《西奴林娜小史》，安東尼•霍普，林紓、魏易合譯（1909）•《蘆花餘孽》，林紓、魏易合譯（1909）•《慧星奪婿案》，林紓、魏易合譯（1909）•《歇洛克奇案開場》，英國柯南道爾•《玉樓花劫》，法國大仲馬（1908）•《凱撒遺事》，英國莎士比亞•《鸇巢記》，瑞士威斯•《鬼山狼俠傳》，英國哈葛德•《洞冥記...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="37" href="/Entry/Detail/?title=日月重光&search=璣">日月重光</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=日月重光" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_81646">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_81646">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">日月重放光芒。語本《書經．顧命》：「昔君文王、武王宣重光」句下漢．孔安國．傳：「十一月朔旦冬至，明如疊璧，五星如連珠，故曰重光。」後用以比喻黑暗時期已過去，重新出現穩定清明的局面。《宋書．卷六．孝武帝本紀》：「皇家造宋，日月重光，琁<span class="color-important">璣</span>得序，五星順命。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="38" href="/Entry/Detail/?title=革履&search=璣">革履</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=革履" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_157688">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_157688">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">皮鞋。《漢書．卷七七．蓋諸葛劉鄭孫毋將何傳．鄭崇》：「每見曳革履，上笑曰：『我識鄭尚書履聲。』」《隋書．卷八二．南蠻列傳．林邑》：「王戴金花冠，形如章甫，衣朝霞布，珠<span class="color-important">璣</span>瓔珞，足躡革履，時復錦袍。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="39" href="/Entry/Detail/?title=七星&search=璣">七星</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=七星" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_33798">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_33798">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">北斗星，包括天樞、天璇、天<span class="color-important">璣</span>、天權、天衡、開陽、搖光七星。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="40" href="/Entry/Detail/?title=珠璣咳唾&search=璣">珠<span class="color-important">璣</span>咳唾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=珠璣咳唾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_91459">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_91459">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">談吐如珠玉般美好。語本漢．趙壹〈刺世疾邪賦〉：「勢家多所宜，咳唾自成珠。」多用於形容談吐或詩文的美好。宋．陳師道〈嘲秦觀〉詩：「若為借與春風看，無限珠<span class="color-important">璣</span>咳唾中。」元．劉壎《隱居通議．卷六．四詩類苑》：「東坡高風峻節，窮達不移；山谷孝友清修，行已有恥。珠<span class="color-important">璣</span>咳唾，隨處發見。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="41" href="/Entry/Detail/?title=四靈&search=璣">四靈</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=四靈" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_146679">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_146679">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">南宋永嘉詩人徐照（靈暉）、徐<span class="color-important">璣</span>（靈淵）、翁卷（靈舒）、趙師秀（靈秀）的合稱。見《四庫全書總目提要．卷一六二．別集一五》。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="42" href="/Entry/Detail/?title=一字一珠&search=璣">一字一珠</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=一字一珠" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_82404">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_82404">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">形容文章精妙，字字珠<span class="color-important">璣</span>。《儒林外史》第三回：「這樣文字，連我看一兩遍也不能解，直到三遍之後，纔曉得是天地間之至文，真乃一字一珠！」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="43" href="/Entry/Detail/?title=走筆成章&search=璣">走筆成章</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=走筆成章" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_79766">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_79766">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一揮筆即寫成文章。比喻才思敏捷且具文采。《孤本元明雜劇．浣花溪．第二折》：「胸藏錦繡，口吐珠<span class="color-important">璣</span>，走筆成章，無不通曉。」也作「下筆成章」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="44" href="/Entry/Detail/?title=陳維崧&search=璣">陳維崧</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=陳維崧" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75465">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75465">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">，受到皇帝贊賞，從此譽滿天下。康熙十八年(1679年)，由大司馬宋公推荐給朝廷，召試博學宏詞，以《璇<span class="color-important"><span class="color-important">璣</span></span>玉衡賦》中選，名列一等，授翰林院檢討，參予《明史》編纂工作。凡4年，因患頭痛，1782年卒於北京任上，終年57歲。  文學風格 陳維崧善詩文，尤擅長詞和駢文。其詞效法蘇軾、辛棄疾，雄渾奔放，寫詞1800餘首，為陽羡詞派領袖。與太倉吳偉業，無錫嚴繩孫、秦松齡、顧貞觀等結“慎交”詩社，與朱彝尊、顧貞觀並稱“詞家三絕”。其駢文秀麗無比，時人稱為清代駢文開山。其詩雄麗跌宕，後變為沉鬱。  著作 著作有《湖海樓集》54卷，另有《陳...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="45" href="/Entry/Detail/?title=菁茅&search=璣">菁茅</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=菁茅" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_163935">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_163935">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種茅。《書經．禹貢》：「包匭菁茅，厥篚玄纁<span class="color-important">璣</span>組。」漢．孔安國．傳：「菁以為菹茅，以縮酒。」一說為香草。《穀梁傳．僖公四年》「菁茅之貢不至，故周室不祭」句下晉．范甯．集解：「菁茅，香草，所以縮酒。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="46" href="/Entry/Detail/?title=錦字&search=璣">錦字</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=錦字" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_152761">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_152761">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">織在錦上的字句。參見「璇<span class="color-important">璣</span>圖」條。後泛指妻子寄給丈夫的書信。唐．駱賓王〈豔情代郭氏答盧照鄰〉詩：「錦字回文欲贈君，劍壁層峰自糾紛。」唐．李白〈秋浦寄內〉詩：「開魚得錦字，歸問我何如？」亦指優美的詩句。唐．盧照鄰〈樂府雜詩序〉：「霜臺有暇，文律動於京師，繡服無私，錦字飛於天下。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="47" href="/Entry/Detail/?title=繢罽&search=璣">繢罽</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=繢罽" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_136970">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_136970">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">五彩的毛毯。《漢書．卷六五．東方朔傳》：「木土衣綺繡、狗馬被繢罽；宮人簪瑇瑁、垂珠<span class="color-important">璣</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="48" href="/Entry/Detail/?title=錦繡心腸&search=璣">錦繡心腸</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=錦繡心腸" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_88282">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_88282">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">稱讚人文思巧妙，詞句優美。參見「錦心繡口」條。元．鮮于必仁〈折桂令．醉吟詩誤入平康〉曲：「珠<span class="color-important">璣</span>咳唾，錦繡心腸。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="49" href="/Entry/Detail/?title=倫匹&search=璣">倫匹</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=倫匹" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_95349">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_95349">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">配偶。晉．蘇若蘭〈璇<span class="color-important">璣</span>圖〉詩：「臣賢惟聖配英皇，倫匹離飄浮江湘。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="50" href="/Entry/Detail/?title=把筆&search=璣">把筆</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=把筆" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_46109">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_46109">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">寫作。如：「這大半輩子的生命，盡消磨於把筆之間。」唐．韓愈〈送靈師〉詩：「失職不把筆，珠<span class="color-important">璣</span>為君編。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="51" href="/Entry/Detail/?title=短篇&search=璣">短篇</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=短篇" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_69894">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_69894">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">篇幅短小，文字不多的作品。【例】這個短篇字字珠<span class="color-important">璣</span>，非常值得閱讀。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="52" href="/Entry/Detail/?title=玄纁&search=璣">玄纁</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=玄纁" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_159316">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_159316">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">赤黑色的幣帛，本為荊州貢物，後用以泛稱幣帛。《書經．禹貢》：「包匭茅，厥筐玄纁<span class="color-important">璣</span>組。」《後漢書．卷八三．逸民傳．法真傳》：「將蹈老氏之高蹤，不為玄纁屈也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="53" href="/Entry/Detail/?title=璣琲&search=璣"><span class="color-important">璣</span>琲</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璣琲" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_103069">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_103069">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">珠串。《新唐書．卷七六．后妃傳上．楊貴妃傳》：「瑟瑟<span class="color-important">璣</span>琲，狼藉於道。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="54" href="/Entry/Detail/?title=荃葛&search=璣">荃葛</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=荃葛" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_154607">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_154607">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">細布和葛布。《漢書．卷五三．景十三王傳．江都易王劉非傳》：「繇王閩侯亦遺建荃葛、珠<span class="color-important">璣</span>、犀甲。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="55" href="/Entry/Detail/?title=光陸離&search=璣">光陸離</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=光陸離" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_79066">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_79066">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">陸離，參差、分散的樣子。光陸離為形容色彩繽紛和繁雜。南朝梁．沈約〈三月三日率爾成章〉詩：「綠幘文照耀，紫燕光陸離。」宋．歐陽修〈答聖俞〉詩：「況出新詩數十首，珠<span class="color-important">璣</span>大小光陸離。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="56" href="/Entry/Detail/?title=璇璣圖&search=璣">璇<span class="color-important">璣</span>圖</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璇璣圖" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_101862">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_101862">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">晉時竇滔任秦州刺史被徙流沙，其妻蘇蕙因思念丈夫，於是在錦上織迴文詩二百餘首，縱橫反覆，皆成詩篇，稱為「璇<span class="color-important">璣</span>圖」。見《晉書．卷九六．列女傳．竇滔妻蘇氏傳》。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="57" href="/Entry/Detail/?title=蘇蕙&search=璣">蘇蕙</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=蘇蕙" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_129403">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_129403">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。字若蘭，生卒年不詳。前秦始平人（今陝西省興平縣東北），竇滔之妻。滔有寵姬趙陽臺，蕙嫉之，因與滔相忤，滔斷蕙音，蕙悔恨自傷，因織錦為迴文璇<span class="color-important">璣</span>圖以寄滔。滔感其妙絕，因具禮迎蕙。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="58" href="/Entry/Detail/?title=錦迴文&search=璣">錦迴文</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=錦迴文" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_152794">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_152794">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">織在錦緞上縱橫反覆迴環的詩句。參見「璇<span class="color-important">璣</span>圖」條。明．劉兌《金童玉女嬌紅記》：「廝琅琅頓開金串鎖，扢嗤嗤扯破了錦迴文。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="59" href="/Entry/Detail/?title=便房&search=璣">便房</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=便房" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_66814">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_66814">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">墓地中供祭拜者休息的房間。《漢書．卷六八．霍光傳》：「賜金錢、繒絮，繡被百領，衣五十篋，璧珠<span class="color-important">璣</span>玉衣，梓宮、便房、黃腸題湊各一具，樅木外臧椁十五具。」唐．顏師古．注：「便房，小曲室也。如氏以為楩木名，非也。」《文選．張載．七哀詩二首之一》：「毀壤過一杯，便房啟幽戶。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="60" href="/Entry/Detail/?title=錦字書&search=璣">錦字書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=錦字書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_152762">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_152762">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">織在錦上的文書。參見「璇<span class="color-important">璣</span>圖」條。後泛指妻子寫給丈夫的書信。清．孔尚任《桃花扇》第二三齣：「手帕兒包，頭繩兒繞，抵過錦字書多少。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="61" href="/Entry/Detail/?title=毳錦&search=璣">毳錦</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=毳錦" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_167141">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_167141">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">精緻的毛織品。宋．無名氏《李師師外傳》：「嗣後師師生辰，又賜珠鈿、金條脫各二事，<span class="color-important">璣</span>琲一篋，毳錦數端。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="62" href="/Entry/Detail/?title=龍疏&search=璣">龍疏</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=龍疏" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_160745">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_160745">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">龍鬚草編成的席子。漢．劉向《新序．卷二．雜事二》：「黃金白玉，琅玕龍疏，翡翠珠<span class="color-important">璣</span>，莫落連飾。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="63" href="/Entry/Detail/?title=璣鏡&search=璣"><span class="color-important">璣</span>鏡</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=璣鏡" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_103070">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_103070">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">以光亮的大珠所作的鏡子。比喻明澈的鑑識能力。北周．庾信〈周上柱國齊王憲神道碑〉：「<span class="color-important">璣</span>鏡照林，山河容納。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                <!-- 分頁 -->
+                <tr>
+                    <td>
+                                <div id="ask_search"><span><img alt="" src="/Content/img/asksearch.png" /></span>曾經查過此詞彙的人也經常查詢以下字詞：</div>
+                                <div id="ask_list">
+                                            <a href="/Entry/Detail/?title=%e7%8f%a5&search=%e7%92%a3">珥</a>
+                                            <a href="/Entry/Detail/?title=%e8%a6%83&search=%e7%92%a3">覃</a>
+                                            <a href="/Entry/Detail/?title=%e8%91%a9&search=%e7%92%a3">葩</a>
+                                            <a href="/Entry/Detail/?title=%e9%87%a3%e5%90%8d%e6%b2%bd%e8%ad%bd&search=%e7%92%a3">釣名沽譽</a>
+                                            <a href="/Entry/Detail/?title=%e5%85%89%e6%80%aa%e9%99%b8%e9%9b%a2&search=%e7%92%a3">光怪陸離</a>
+                                            <a href="/Entry/Detail/?title=%e8%90%ac%e5%8a%ab%e4%b8%8d%e5%be%a9&search=%e7%92%a3">萬劫不復</a>
+                                </div>
+
+                                <div align="center">
+                                    <a style="color: #FFFFFF;" accesskey="P" href="#paging-section" title="分頁" id="paging-section">:::</a>
+                                    <ul class="floatCenter pagination"><li class="active"><a>1</a></li></ul>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contribute_word_rwd">
+            <hr size="1" style="height:0;border: 0 none;border:1px #322f32 dashed;" />
+            
+            
+
+        </div>
+</div>
+    <script language="javascript" type="text/javascript">
+
+        $(function (){
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var connectstringOut = new Array();
+
+        $('.cb').each(function () {
+            const name = $(this).attr("name");
+            if (location.search.includes($(this).val())) {
+                $(this).prop("checked", true);
+                //否則子filter會disabled
+                if (name == "cballPrimary")
+                    $("input[name='choose_Primary']").prop("disabled", false);
+                if (name == "cballMH")
+                    $("input[name='choose_MH']").prop("disabled", false);
+                if (name == "cballJunior")
+                    $("input[name='choose_Junior']").prop("disabled", false);
+            }
+            if ($(this).prop('checked') === true) {
+                connectstringOut.push($(this).val());
+            }
+        });
+
+        //點擊觸發全選或是全不選
+        //有三個選項的全選：低年級、中高年級、國中以上
+        $('.cb').click(function () {
+            const name = $(this).attr("name");
+            if ($(this).prop("checked")) {
+                connectstringOut.push($(this).val());
+                if (name == "cballPrimary") {
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballMH") {
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballJunior") {
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+            }
+            else {
+                index = connectstringOut.indexOf($(this).val());
+                if (index >= 0) {
+                    connectstringOut.splice(index, 1);
+                }
+                if (name === "cballPrimary")
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballMH")
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballJunior")
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+            }
+        });
+
+        $("#btnSelectAllArea").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", false);
+                $("input[name='choose_MH']").prop("disabled", false);
+                $("input[name='choose_Junior']").prop("disabled", false);
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", "disabled");
+                $("input[name='choose_MH']").prop("disabled", "disabled");
+                $("input[name='choose_Junior']").prop("disabled", "disabled");
+            }
+        });
+
+        $("#btnSelectAllMedia").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+            }
+        });
+
+        let isSelectAllArea = true;
+        let isSelectAllMedia = true;
+
+        $('.cb').each(function () {
+            if ($(this).val() !== "withAudio" &&
+                $(this).val() !== "withGraph" &&
+                $(this).val() !== "withVideo" &&
+                !$(this).prop("checked")) {
+                isSelectAllArea = false;
+            }
+
+            if (($(this).val() === "withAudio" ||
+                $(this).val() === "withGraph" ||
+                $(this).val() === "withVideo") &&
+                !$(this).prop("checked")) {
+                isSelectAllMedia = false;
+            }
+        });
+
+        if (isSelectAllArea) {
+            $("#btnSelectAllArea").prop("checked", "checked");
+        }
+
+        if (isSelectAllMedia) {
+            $("#btnSelectAllMedia").prop("checked", "checked");
+        }
+
+        if (location.href.includes("order=query")) {
+            $('#order_search').css("color", "#c80106");
+            $('#order_relate').css("color", "black");
+            $('#order_title').css("color", "black");
+        }
+        else if (location.href.includes("order=keyword_title")) {
+            $('#order_title').css("color", "#c80106");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "black");
+        } else {
+            $('#order_title').css("color", "black");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "#c80106");
+        }
+
+        $('#filter_btn').click(function () {
+            var strUrl = "/Home/List/1";
+
+            var order = "keyword_title";
+            var orgSearch = "";
+
+            if (location.search.split("order=").length > 1) {
+                order = location.search.split("order=")[1].split("&orgSearch=")[0];
+                orgSearch = location.search.split("order=")[1].split("&orgSearch=")[1];
+            }
+
+            connectstringOut = new Array();
+
+            $('.cb').each(function () {
+                if ($(this).prop('checked')) {
+                    connectstringOut.push($(this).val());
+                }
+            });
+
+            if (order === "query"){
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=query";
+            }
+            else if (order === "keyword_title") {
+                if (orgSearch && orgSearch.length > 0) {
+                    strUrl = "/Home/Search?submitButton=pronounciation&search=" + orgSearch + "&source=" + connectstringOut.join() + "&order=keyword_title&orgSearch=" + orgSearch;
+                } else {
+                    strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=keyword_title";
+                }
+            }
+            else{
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=relevance";
+            }
+
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI(connectstringOut.join()) +"&behavior=B026&URL="+encodeURIComponent(strUrl),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            window.location = strUrl;
+        });
+
+        $("#order_relate").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=relevance";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B027&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_search").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=query";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B028&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_title").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=keyword_title";
+
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B029&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#ask_list a").click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI($(this).text()) +"&behavior=B030&URL="+encodeURIComponent(location.origin + $(this).attr("href")),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        const lstIntWordTitleId = [89155,13066,10742,69092,54096,101861,104524,91539,20484,48099,115056,49686,35101,71070,75727,16501,57032,75777,51362,13037,58414,76940,27540,22243,79078,38542,153040,140781,152770,127257,160088,89875,55959,85385,94982,73380,81646,157688,33798,91459,146679,82404,79766,75465,163935,152761,136970,88282,95349,46109,69894,159316,103069,154607,79066,101862,129403,152794,66814,152762,167141,160745,103070];
+
+        for (let intIndex in lstIntWordTitleId)
+        {
+            $.ajax({
+                url: "/api/WordTitleReviewCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordViewCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            $.ajax({
+                url: "/api/WordBookmarkCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordSaveCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+    });
+
+    var i = 0;
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 768) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#n-head1").css("display", "none");
+            $("#m-head1").css("display", "inline");
+            $("#n-head2").css("display", "none");
+            $("#m-head2").css("display", "inline");
+        }
+        else {
+            $("#m-head1").css("display", "none");
+            $("#n-head1").css("display", "inline");
+            $("#m-head2").css("display", "none");
+            $("#n-head2").css("display", "inline");
+        }
+    });
+
+    $("#extend").click(function () {
+        i = i + 1;
+        if (i % 2 === 1) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".searchResultWord").click(function () {
+            $.ajax({
+                url: "/api/SearchHitApi/?id=" + $("#Token").val() +
+                    "&order=" + encodeURIComponent($("#Order").val()) +
+                    "&category=" + encodeURIComponent($("#Category").val()) +
+                    "&source=" + encodeURIComponent($("#Source").val()) +
+                    "&size=" + encodeURIComponent($("#Size").val()) +
+                    "&keyword=" + encodeURIComponent($("#Keyword").val()) +
+                    "&hitword=" + encodeURIComponent($(this).text()) +
+                    "&pageIndex=" + $(".pagination .active a").text() +
+                    "&hitIndex=" + $(this).attr("index"),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.extension').each(function () {
+            const oldUrl = $(this).attr('href'); // Get current url
+            const newUrl = oldUrl + "&order=keyword_title"; // Create new url
+            $(this).attr("href", newUrl); // Set herf value
+        });
+    });
+</script>
+            <div id="flex_block"></div>
+        </div>
+
+        <footer class="main-footer printhidden">
+            <a href="#Accesskey_Z" id="Accesskey_Z" accesskey="Z" title="下方選單連結區" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="footerblock footer_left">
+                    <a class="footer_link" href="/Home/WebsiteMap">網站導覽</a>
+                    <a class="footer_link" href="/Home/WebsiteIntro">服務簡介</a>
+                    <a class="footer_link" href="/Home/WebsiteContact">聯絡我們</a>
+                    <a class="footer_link" href="/Home/CopyRight">版權聲明</a>
+                    <a class="footer_link" href="/Home/OpenAPI">開放API使用說明</a>
+                    <a class="footer_link" href="/Home/Embed">內嵌搜尋欄位說明</a>
+                    <a class="footer_link" href="/Link/List">相關連結</a>
+                    <a class="footer_link" href="/WebsiteQA/List">常見問題</a>
+                    <a class="footer_link" href="/Home/Privacy">隱私權政策</a>
+
+                </div>
+                <div class="footerblock footer_img footer_right">
+                    <div class="logo_wrap">
+                        <a href="http://cloud.edu.tw/" title="前往教育雲入口網(另開新視窗)" target="_blank">
+                            <img src="/Content/img/footer_logo.png" alt="教育雲">
+                        </a>
+                        <a href="http://www.edu.tw/" title="前往教育部網站(另開新視窗)" target="_blank">
+                            <img src="/Content/img/edu_logo.png" class="edu_logo" alt="教育部">
+                        </a>
+                        <a href="https://www.handicap-free.nat.gov.tw/Applications/Detail?category=20191016081617" title="前往無障礙網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/f60e69ce-4174-4246-8f7a-5f806e5950b6.jpg" border="0" width="88" height="31" alt="通過A檢測等級無障礙網頁檢測">
+                        </a>
+                        <a href="https://www.twca.com.tw/" title="前往臺灣網路認證網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/MINI.gif" alt="臺灣網路認證" />
+                        </a>
+                    </div>
+
+                    <span class="footer_span">本網站內容豐富，雖經審查仍有可能疏漏， <br id="mobile_br"> 若有欠妥之處，請隨時與我們聯絡。</span>
+                    <span class="footer_span">Copyright©2014教育部 <br id="mobile_br">｜系統維運廠商：卡米爾有限公司</span>
+                    <br>
+                    <span class="footer_span">本站建議最佳瀏覽器版本為 <br id="mobile_br"> Chrome 29+、 Edge、 Firefox20+、Internet Explorer 11、及Safari</span>
+                    <br>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- Late Loading library to enhance speed -->
+<script src="/Scripts/cameo/initialize.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.animation.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.mask.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.form.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.browser.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.iframe.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.extend/popover.extend.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/Bootstrap-multiselect.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/easing.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/jquery.ui.totop.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/fileinput.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap-toggle.js"></script>
+<script src="/Scripts/jquery.bxslider.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.min.js"></script>
+<script src="/Scripts/superembed.min.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5928297cad6afe55"></script>
+     -->
+<!-- initialize JS & common JS (初始化及共用的 JS Code)-->
+
+<script src="/Scripts/lightbox.js"></script>
+<script src="/Scripts/lity.js"></script>
+<script type="text/javascript" src="/Scripts/html5_local_stoage.js"></script>
+<script>
+    $(function () {
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+        $('.navbar-brand').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B031&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#cloud').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B032&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        //Index rule(for example):original url + Bopomofo/Index/
+
+        $('#index_menu').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B033&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_category').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B034&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_character').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B035&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_withTaieol').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B036&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#submission').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B037&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#word_list').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B038&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.login_rigister').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B039&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    });
+</script>
+<noscript>您的瀏覽器不支援javascript</noscript>

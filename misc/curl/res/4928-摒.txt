@@ -1,0 +1,3281 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW">
+<head>
+    <meta property="og:title" content="教育百科 | 教育雲線上字典" />
+    <title>摒 搜尋結果 - 教育百科 | 教育雲線上字典</title>
+    <link rel="icon" href="/Content/Images/icon/favicon.ico">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="教育百科,教育,edu, 辭典,字典,成語,教育部,同義詞,造句" />
+    <meta name="description" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="subject" content="教育部教育雲計畫教育百科" />
+    <meta name="copyright" content="卡米爾股份有限公司" />
+    <meta name="language" content="zh-TW" />
+    <meta name="abstract" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="topic" content="教育部教育雲計畫教育百科" />
+    <meta name="summary" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="author" content="教育部,卡米爾" />
+    <meta name="owner" content="教育部" />
+    <meta name="subtitle" content="教育雲端應用及平臺服務計畫" />
+    <meta charset="UTF-8" />
+
+    <link href="/Content/CSS/bootstrap.css?version=-710204471" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_common.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap.lib/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap-toggle.css" rel="stylesheet">
+    <link href="/Content/CSS/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.lib/ui.totop.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/lightbox.css" rel="stylesheet">
+    <link href="/Content/CSS/lity.css" rel="stylesheet">
+    <link href="/Content/CSS/fixed.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/index.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/style.css?version=1852324458" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search.css?version=651332762" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search_result.css?version=-787154487" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/Content/CSS/pdx.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cookie_login {
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .header_mobile {
+                display: inline-block !important;
+            }
+
+            .cookie_register {
+                padding-left: 0px !important;
+            }
+        }
+
+        a:focus img {
+            border: 5px solid #900;
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+
+        a:focus {
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-58889268-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script type="text/javascript">
+        var isLogin = false;
+
+        function addCookie() {
+            document.cookie = "lasturl=" + location.href + "; path=/";
+        }
+        function delCookie() {
+            document.cookie = "lasturl=; path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        $(document).ready(function () {
+            $(".cookie_login").click(function () {
+                addCookie();
+                var pathname = window.location.pathname; // Returns path only
+                var url      = window.location.href;     // Returns full URL
+                url = url.replace("https://pedia.cloud.edu.tw", "").replace("http://pedia.cloud.edu.tw", "").replace("http://localhost:50026", "");
+                location.href = "/SsoLogin/Home?statepage=" + url;
+            });
+
+            if (isLogin) {
+                var strLastUrl = getCookie("lasturl");
+                if (strLastUrl !== "") {
+                    delCookie();
+                    location.href = strLastUrl;
+                    return;
+                }
+            } else {
+                delCookie();
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <a href="#mainContent" title="跳到主要內容" tabindex="1" class="sr-only sr-only-focusable">跳到主要內容</a>
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="navbar navbar-inverse navbar-static-top header">
+            <a href="#Accesskey_U" id="Accesskey_U" accesskey="U" alt="教育百科瀏覽選單" title="上方選單連結區，此區塊列有本網站的主要連結" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- 在小 device-compatiple 用的, 勿刪-->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand" style="margin-top: 0;">
+                        <a href="/">
+                            <img src="/Content/Images/logo/logo_small_white.png" width="100" alt="教育百科logo" />
+                        </a>
+                    </h1>
+                </div>
+
+                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                    <!-- 左邊 -->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a title="網站導覽" tabindex="2" class="dropdown" id="index_sitemap" href="/Home/WebsiteMap">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>網站導覽
+                            </a>
+                        </li>
+                        <li>
+                            <a title="前往教育雲入口網(另開新視窗)" class="dropdown" id="cloud" target="_blank" href="http://cloud.edu.tw/">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>教育雲入口網
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="index_menu" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>索引選單<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="index_category" href="/NavigateWord">分類索引</a></li>
+                                <li><a id="index_character" href="/Bopomofo">單字索引</a></li>
+                                <li><a id="index_withTaieol" href="/NavigateWord/Taieol">生命大百科索引</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown" id="submission" href="/Stroke/Advice">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>投稿區
+                            </a>
+                        </li>
+
+                        <li>
+                            <a title="國語各版本生字詞彙表" class="dropdown" id="word_list" href="/Bookmark/Textword">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>生字詞彙表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown" id="word_list" href="/NavigateWord">
+                                <font color="#FFFF00"> <span class="glyphicon glyphicon glyphicon-star mr10"></span>新上架資源</font>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 右邊 -->
+                    <ul id="loginSection" class="nav navbar-nav navbar-right" style="margin-right: -40px;">
+
+                            <li class="header_mobile">
+                                <a class="login_rigister" href="/SsoLogin/Home"><span class="glyphicon glyphicon-user mr10"></span>登入會員/註冊</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main-body">
+            <a id="mainContent" title="中間主要內容區 (Alt+C)" accesskey="C" href="#content" style="font-size: 1px;" class="printhidden_inline">:::</a>
+            
+
+<style>
+    .main-body {
+        background-color: #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        outline: none;
+    }
+</style>
+
+<div class="bgGrey-light border-grey-bottom" style="margin-bottom:-1px">
+    <div class="container pt20">
+        <!--  工具列  -->
+        <div class="toolBar">
+            <div class="floatLeft mt10 mb10" style="width:100%!important;">
+
+                <!-- search-->
+                
+
+<form id="frmMain" method="post" action="/Home/Search" class="form-search form-inline">
+    <input name="__RequestVerificationToken" type="hidden" value="8MU8N2oPTMsGwid4nZGwVE620F1OR6sKPK73CaEGzE5dgyUZGC-XvIlM59payNk4Z1V7r41QyDQxKKc1D-vUotHflEhU_spcbliziKKWQaM1" />
+    <input id="hiddenInput" type="hidden" name="search1" />
+    <div class="input-append smallk">
+        <label for="searchInput" class="search-query search-input-rounded-corners-small" style="background: white;">
+            <input value="摒" accesskey="S" id="searchInput" type="text" name="search" placeholder="請輸入生字、詞語或注音" style="font-size: 11pt;width: 80%; border: 0px solid #aaa; border-radius: 4px; outline: none; margin: 3px; padding: 4px; box-sizing: border-box; transition: 0.3s;font-family: 標楷體" />
+            <a id="keyboard-pop-a" href="#search"><img alt="開啟鍵盤圖示" id="keyboard-pop" class="btn-keyboard" src="/Content/img/keyboard.png" /></a>
+        </label>
+        <button type="submit" id="prcisebtn" class="btn btn-primary btn-sm" name="submitButton" value="precise"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>詞條檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="search"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>全文檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="pronounciation" style="background-color: mediumpurple;border-color: #7700BB;" id="bopomofode"><span class="glyphicon glyphicon-search mr10"></span>音讀檢索</button>
+    </div>
+</form>
+
+<style>
+    tr td:first-child {
+        width: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="boPoMoFoKeyBoard" class="keyboardmain" style="display: none; width: 450px">
+    <div class="keyboardmenudiv">
+        <a href="#" id="btnOpenPinyin" onclick="OpenPinyin(); return false;">切換漢語拼音鍵盤</a>
+        <a href="#" id="btnOpenBopomo" style="display: none; max-width: 100%" onclick="OpenBopomo(); return false;">切換注音小鍵盤</a> |
+        <a href="#" id="btnClose">關閉</a>
+    </div>
+    <div style="margin-left: 50pt; color: red;">
+        小提醒：<br />
+        輸入完畢後請點選
+        <span style="background-color: #9471DE;border: 1px solid #8524B7 ;color: white; padding: 7px; margin: 0 4px; border-radius: 5px;">
+            <span class="glyphicon glyphicon-search"></span>
+            音讀檢索
+        </span>
+        進行搜尋
+    </div>
+    <div><p></p></div>
+    <div class="keyboardcontentdiv">
+        <div id="boPoMoFoKeyBoard2" align="center">
+            <div class="keyboardtr">
+                <input value="ㄅ" type="button" class="keyboarditem" />
+                <input value="ㄉ" type="button" class="keyboarditem" />
+                <input value="ㄍ" type="button" class="keyboarditem" />
+                <input value="ㄐ" type="button" class="keyboarditem" />
+                <input value="ㄓ" type="button" class="keyboarditem" />
+                <input value="ㄗ" type="button" class="keyboarditem" />
+                <input value="ㄧ" type="button" class="keyboarditem" />
+                <input value="ㄚ" type="button" class="keyboarditem" />
+                <input value="ㄞ" type="button" class="keyboarditem" />
+                <input value="ㄢ" type="button" class="keyboarditem" />
+                <input value="ㄦ" type="button" class="keyboarditem" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄆ" type="button" class="keyboarditem" />
+                <input value="ㄊ" type="button" class="keyboarditem" />
+                <input value="ㄎ" type="button" class="keyboarditem" />
+                <input value="ㄑ" type="button" class="keyboarditem" />
+                <input value="ㄔ" type="button" class="keyboarditem" />
+                <input value="ㄘ" type="button" class="keyboarditem" />
+                <input value="ㄨ" type="button" class="keyboarditem" />
+                <input value="ㄛ" type="button" class="keyboarditem" />
+                <input value="ㄟ" type="button" class="keyboarditem" />
+                <input value="ㄣ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄇ" type="button" class="keyboarditem" />
+                <input value="ㄋ" type="button" class="keyboarditem" />
+                <input value="ㄏ" type="button" class="keyboarditem" />
+                <input value="ㄒ" type="button" class="keyboarditem" />
+                <input value="ㄕ" type="button" class="keyboarditem" />
+                <input value="ㄙ" type="button" class="keyboarditem" />
+                <input value="ㄩ" type="button" class="keyboarditem" />
+                <input value="ㄜ" type="button" class="keyboarditem" />
+                <input value="ㄠ" type="button" class="keyboarditem" />
+                <input value="ㄤ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄈ" type="button" class="keyboarditem" />
+                <input value="ㄌ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄖ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄝ" type="button" class="keyboarditem" />
+                <input value="ㄡ" type="button" class="keyboarditem" />
+                <input value="ㄥ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ˊ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˇ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˋ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="˙" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="一聲/空格" type="button" class="keyboarditem4" style="background-color: #F8F8C0; font-family: 標楷體; width: 33%;" />
+                <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 24%;" />
+            </div>
+        </div>
+        <div id="boPoMoFoKeyBoard3" style="width: 100%; display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 40px;">
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3">聲母</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="b" type="button" class="keyboarditem" realvalue="ㄅ" />
+                                <input value="c" type="button" class="keyboarditem" realvalue="ㄘ" />
+                                <input value="d" type="button" class="keyboarditem" realvalue="ㄉ" />
+                                <input value="f" type="button" class="keyboarditem" realvalue="ㄈ" />
+                                <input value="g" type="button" class="keyboarditem" realvalue="ㄍ" />
+                                <input value="h" type="button" class="keyboarditem" realvalue="ㄏ" />
+                                <input value="j" type="button" class="keyboarditem" realvalue="ㄐ" />
+                                <input value="k" type="button" class="keyboarditem" realvalue="ㄎ" />
+                                <input value="l" type="button" class="keyboarditem" realvalue="ㄌ" />
+                                <input value="m" type="button" class="keyboarditem" realvalue="ㄇ" />
+                                <input value="n" type="button" class="keyboarditem" realvalue="ㄋ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="p" type="button" class="keyboarditem" realvalue="ㄆ" />
+                                <input value="q" type="button" class="keyboarditem" realvalue="ㄑ" />
+                                <input value="r" type="button" class="keyboarditem" realvalue="ㄖ" />
+                                <input value="s" type="button" class="keyboarditem" realvalue="ㄙ" />
+                                <input value="t" type="button" class="keyboarditem" realvalue="ㄊ" />
+                                <input value="w" type="button" class="keyboarditem" realvalue="ㄨ" />
+                                <input value="x" type="button" class="keyboarditem" realvalue="ㄒ" />
+                                <input value="y" type="button" class="keyboarditem" realvalue="ㄧ" />
+                                <input value="z" type="button" class="keyboarditem" realvalue="ㄗ" />
+                                <input value="ch" type="button" class="keyboarditem" realvalue="ㄔ" />
+                                <input value="sh" type="button" class="keyboarditem" realvalue="ㄕ" />
+                                <input value="zh" type="button" class="keyboarditem" realvalue="ㄓ" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3"><br /><br /><br />韻母<br /><br /><br /><br /></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="a" type="button" class="keyboarditem1" realvalue="ㄚ" />
+                                <input value="ai" type="button" class="keyboarditem1" realvalue="ㄞ" />
+                                <input value="an" type="button" class="keyboarditem1" realvalue="ㄢ" />
+                                <input value="ang" type="button" class="keyboarditem1" realvalue="ㄤ" />
+                                <input value="ao" type="button" class="keyboarditem1" realvalue="ㄠ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="e" type="button" class="keyboarditem1" realvalue="ㄜ" />
+                                <input value="ê" type="button" class="keyboarditem1" realvalue="ㄝ" />
+                                <input value="ei" type="button" class="keyboarditem1" realvalue="ㄟ" />
+                                <input value="en" type="button" class="keyboarditem1" realvalue="ㄣ" />
+                                <input value="eng" type="button" class="keyboarditem1" realvalue="ㄥ" />
+                                <input value="er" type="button" class="keyboarditem1" realvalue="ㄦ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="i" type="button" class="keyboarditem1" realvalue="" />
+                                <input value="ia" type="button" class="keyboarditem1" realvalue="ㄧㄚ" />
+                                <input value="ian" type="button" class="keyboarditem1" realvalue="ㄧㄢ" />
+                                <input value="iang" type="button" class="keyboarditem1" realvalue="ㄧㄤ" />
+                                <input value="iao" type="button" class="keyboarditem1" realvalue="ㄧㄠ" />
+                                <input value="ie" type="button" class="keyboarditem1" realvalue="ㄧㄝ" />
+                                <input value="in" type="button" class="keyboarditem1" realvalue="ㄧㄣ" />
+                                <input value="ing" type="button" class="keyboarditem1" realvalue="ㄧㄥ" />
+                                <input value="iong" type="button" class="keyboarditem1" realvalue="ㄩㄥ" />
+                                <input value="iu" type="button" class="keyboarditem1" realvalue="ㄧㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="o" type="button" class="keyboarditem1" realvalue="ㄛ" />
+                                <input value="ong" type="button" class="keyboarditem1" realvalue="ㄨㄥ" />
+                                <input value="ou" type="button" class="keyboarditem1" realvalue="ㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="u" type="button" class="keyboarditem1" realvalue="ㄨ" />
+                                <input value="ua" type="button" class="keyboarditem1" realvalue="ㄨㄚ" />
+                                <input value="uai" type="button" class="keyboarditem1" realvalue="ㄨㄞ" />
+                                <input value="uan" type="button" class="keyboarditem1" realvalue="ㄨㄢ" />
+                                <input value="uang" type="button" class="keyboarditem1" realvalue="ㄨㄤ" />
+                                <input value="ue" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ui" type="button" class="keyboarditem1" realvalue="ㄨㄟ" />
+                                <input value="un" type="button" class="keyboarditem1" realvalue="ㄨㄣ" />
+                                <input value="uo" type="button" class="keyboarditem1" realvalue="ㄨㄛ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="ü" type="button" class="keyboarditem1" realvalue="ㄩ" />
+                                <input value="üan" type="button" class="keyboarditem1" realvalue="ㄩㄢ" />
+                                <input value="üe" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ün" type="button" class="keyboarditem1" realvalue="ㄩㄣ" />
+                            </div>
+                        </div>
+                        <div class="keyboardtr">
+                            <input value="一" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="" />
+                            <input value="ˊ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˊ" />
+                            <input value="ˇ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˇ" />
+                            <input value="ˋ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˋ" />
+                            <input value="空白鍵" type="button" class="keyboarditem4" style="font-family: 標楷體; width: 100px;" realvalue=" " />
+                            <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 80px;" realvalue="重新輸入" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $input = undefined;
+    var $hiddenInput = undefined;
+
+    $(function () {
+        $input.autocomplete({
+            delay: 300,
+            minLength: 1,
+            source: function (request, response) {
+                window.$.ajax({
+                    url: "/Home/AutoCompleteQuery?q=" + $input.val(),
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== "") {
+                            response(data.split(","));
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    function OpenBopomo() {
+        window.$("#boPoMoFoKeyBoard2").show();
+        window.$("#boPoMoFoKeyBoard3").hide();
+
+        window.$("#btnOpenPinyin").show();
+        window.$("#btnOpenBopomo").hide();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenPinyin").focus();
+
+        return false;
+    }
+
+    function OpenPinyin() {
+
+        window.$("#boPoMoFoKeyBoard2").hide();
+        window.$("#boPoMoFoKeyBoard3").show();
+
+        window.$("#btnOpenPinyin").hide();
+        window.$("#btnOpenBopomo").show();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenBopomo").focus();
+
+        return false;
+    }
+
+    $("#btnClose").click(function () {
+
+        window.$("#boPoMoFoKeyBoard").hide();
+
+        return false;
+    });
+
+    $("#btnClose").on("keydown",
+        function (e) {
+
+            //避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$("#btnClose").click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val());
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val(), window.$(this).attr("realvalue"));
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    function UpdateInput(input, realvalue) {
+        if ($input === undefined ||
+            $hiddenInput === undefined) {
+            return;
+        }
+
+        if (input === "重新輸入") {
+            $input.val("");
+
+            $hiddenInput.val("");
+
+            return;
+        }
+
+        switch (input) {
+            case "一聲/空格":
+            case "空白鍵":
+                input = " ";
+                break;
+        }
+
+        const newInput = $input.val() + input;
+
+        $input.val(newInput);
+
+        if (realvalue === undefined || realvalue === null) {
+            $hiddenInput.val($input.val());
+        } else {
+            let newHiddenInput = $hiddenInput.val() + realvalue.toString();
+
+            if (newInput.includes('yi')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄧ', 'ㄧ');
+            }
+            if (newInput.includes('yong')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄨ', 'ㄩ');
+            }
+            if (newInput.includes('wu')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('wong')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('yü')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+
+            $hiddenInput.val(newHiddenInput);
+        }
+    }
+
+</script>
+
+
+<script>
+
+    $input = $("#searchInput");
+    $hiddenInput = $("#hiddenInput");
+
+    $(function () {
+        const mq = window.matchMedia("(min-width: 480px)");
+        if (mq.matches) {
+            $('[title]').each(function () {
+                const $this = $(this);
+                $this.data('title', $this.attr('title'));
+            });
+        }
+    });
+
+    // 開啟鍵盤
+    $("#keyboard-pop-a").click(function () {
+        OpenBopomo();
+
+        $("#boPoMoFoKeyBoard").show();
+
+        return false;
+    });
+
+    $("#keyboard-pop-a").on("keydown",
+        function (e) {
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            $("#keyboard-pop-a").click();
+
+            return false;
+        });
+
+</script>
+
+                <!-- 選擇顯示數量 -->
+                <div class="mt5">
+
+
+<div class="searchResult">
+    共 61 筆資料，每頁顯示 100 筆資料
+    <a href="#" data-toggle="modal" data-target="#pickListNumber" class="btn btn-primary btn-xs">變更</a>
+</div>
+
+<div class="pull-left">
+
+    <div class="modal fade" id="pickListNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">請選擇要顯示的數量</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="frmPageSize" action="/Home/list/1?search=&amp;#25682;&amp;amp;source=withPrimary&amp;amp;order=relevance" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="UQW7Ea1gK6-5O7hHqHbJdt9GvPJzCU2eX5pasq0S0vNa_KiPoKHJZQhBfl4-jGhvNwjoSWWDP3s7xutdhaVn1P7fiXrIwtlLOjmxwnoSyNg1" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">數量</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="size">
+                                    <option value="5">一頁 5 筆</option>
+                                    <option value="10">一頁 10 筆</option>
+                                    <option value="15">一頁 15 筆</option>
+                                    <option value="20">一頁 20 筆</option>
+                                    <option value="25">一頁 25 筆</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="javascript: window.location.href = '/Home/list/1?search=&#25682;&amp;source=withPrimary&amp;order=relevance' + '&size=' + $('select[name=size]').val();">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+                </div>
+                <span class="">
+                        資料庫查詢時間：15.6 ms
+                </span>
+                <div id="counter" style="display:none"></div>
+            </div>
+
+
+
+            <!--Pop up window content-->
+            <div class="modal fade" id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="font-family: Microsoft JhengHei"><b>親愛的使用者您好</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-family: Microsoft JhengHei"><b>非常感謝您對教育百科的愛戴，為了能提供您更好的服務，請幫忙我們勾選您的身份與年級。現在登入的話就能立即體驗個人化收藏服務喔！</b></h5>
+                            <form id="survey" style="font-family: Microsoft JhengHei">
+                                <input name="__RequestVerificationToken" type="hidden" value="twz97ZQ5__zP3ihjUqaqRv8jJsKZAAk5TSw9GMHHOnazdloiVnazf9CuaI7EYL3kX1vw7nnKPYOXTdTo9FyTcJRZjWFOlrE9jwMX6yj8AgM1" />
+                                <b>
+                                    <table style="width: 50%">
+                                        <tr>
+                                            <td style="width: 10%">身份:</td>
+                                            <td style="width: 7%"><input data-val="true" data-val-number="欄位 Identity 必須是數字。" id="Teacher" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="1" /><label for="Teacher">教師</label></td>
+                                            <td style="width: 7%"><input id="Student" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="2" /><label for="Student">學生</label></td>
+                                            <td style="width: 15%"><input id="Others" name="Identity" onclick="ischecked2()" placeholder="identity" type="radio" value="3" /><label for="Others">一般民眾</label></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width: 70%">
+                                        <tr>
+                                            <td>年級:</td>
+                                            <td>
+                                                <select data-val="true" data-val-number="欄位 Grade 必須是數字。" id="grade" name="Grade"><option value="-1">請選擇</option>
+<option value="1">一年級</option>
+<option value="2">二年級</option>
+<option value="3">三年級</option>
+<option value="4">四年級</option>
+<option value="5">五年級</option>
+<option value="6">六年級</option>
+<option value="7">七年級</option>
+<option value="8">八年級</option>
+<option value="9">九年級</option>
+<option value="0">無</option>
+</select><p id="dumb" style="color: red; font-size: small">*必填</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </b>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary pull-left" data-dismiss="modal" id="now" value="我要登入" style="background-color: #228B22;border-color: #228B22" />
+                            <input type="button" class="btn btn-primary pull-right" data-dismiss="modal" id="later" value="確定" style="width:82px;" />
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                        <script>
+                            //show by counter
+                            //var ischecked = $("#Others").prop('checked');
+                            $('#dumb').fadeOut();
+
+                            //一般民衆，年級選項鎖定
+                            function ischecked2() {
+                                $('#grade').prop('disabled', true);
+                                $('#grade').val('0');
+                            }
+                            //非一般民衆，年級選項解鎖
+                            function ischecked1() {
+                                $('#grade').prop('disabled', false);
+                                $('#grade').val('-1');
+                            }
+
+                            var n = localStorage.getItem('on_load_counter');
+                            if (n === null) {
+                                n = 0;
+                            }
+                            n++;
+                            localStorage.setItem("on_load_counter", n);
+                            document.getElementById('counter').innerHTML = n;
+
+                            $(document).ready(function () {
+                                //if (n == 2) {
+                                //    $('#poplogin').modal('show');
+                                //    localStorage.clear();
+                                //}
+
+                                //localStorage.clear();
+                                var strSearch = decodeURIComponent(window.location.search);
+                                if (strSearch.includes("&orgSearch=")) {
+                                    if (strSearch.includes("&search1=")) {
+                                        var parts = strSearch.replace('orgSearch=', '').replace('search1=', '').split('&');
+                                        strSearch = parts[parts.length - 2];
+                                        $("#searchInput1").val(parts[parts.length - 1]);
+                                    } else {
+                                        var parts = strSearch.replace('orgSearch=', '').split('&');
+                                        strSearch = parts[parts.length - 1];
+                                    }
+                                }
+                                else {
+                                    strSearch = strSearch.replace('?search=', '').split('&')[0];
+                                    if (strSearch.includes("&test=True")) {
+                                        strSearch = strSearch.replace('&test=True', '');
+                                    }
+                                }
+
+                                $('.multiInput').val(strSearch);
+                            });
+
+                            //show by 1 day
+                            //$(document).ready(function () {
+                            //    if ($.cookie('whenToShowDialog') == null) {
+
+                            //        // Create expiring cookie, 1 days from now:
+                            //        $.cookie('whenToShowDialog', 'yes', { expires: 1, path: '/' });
+
+                            //        // Show dialog
+                            //        $('#poplogin').modal('show');
+                            //    }
+                            //});
+
+                            //show by 10 minutes
+
+                            setTimeout(function () {
+                                $('#poplogin').modal('show');
+                            }, 600000);
+
+                            $(document).ready(function () {
+                                $("#later").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+                                    }
+
+                                })
+                                $("#now").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+
+                                        let current = window.location.href.toString();
+                                        current = "../SsoLogin/Home?statepage="+current;
+                                        window.location.href = current;
+                                    }
+                                })
+                            })
+
+                            //產生目前頁面網址，回傳
+                            var current = window.location.href.toString();
+                            $('#url').val(current);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="Keyword" value="摒" />
+<input type="hidden" id="Order" value="relevance" />
+<input type="hidden" id="Category" value="" />
+<input type="hidden" id="Source" value="withPrimary,withEOL,withMH,withConcise,withIdiom,withJunior,withRevised" />
+<input type="hidden" id="Size" value="100" />
+<input type="hidden" id="Token" />
+<div class="container">
+    <div id="wordListFilter" style="padding-bottom: 170px;">
+        <div>
+            <span id="wordListFilter_title">縮小搜尋結果範圍</span><span id="extend" class="glyphicon glyphicon-circle-arrow-down" style="padding-left: 5px;"> </span>
+        </div>
+        <div id="advanced" style="margin-top: 20px;">
+            <div>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 16px;"><label><input id="btnSelectAllArea" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 725px;"><label><input id="btnSelectAllMedia" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline" id="n-head1">．適用年級</p>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline; margin-left: 680px;" id="n-head2">．媒體形式</p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head1">．適用年級</p>
+                <br>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 20px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox1">
+                            <input class="cb" name="cballPrimary" type="checkbox" id="inlineCheckbox1" value="withPrimary" style="zoom: 1.2; font-size: 40px" />低年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox1" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox2">
+                            <input class="cb" type="checkbox" id="inlineCheckbox2" name="choose_Primary" value="withEOL" /> 國語小辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox3">
+                            <input class="cb" name="cballMH" type="checkbox" id="inlineCheckbox3" value="withMH" style="zoom: 1.2; font-size: 40px" /> 中高年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox3" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox4">
+                            <input class="cb" type="checkbox" id="inlineCheckbox4" name="choose_MH" value="withConcise"> 教育部辭典簡編本
+                        </label>
+                    </label>
+                    <label id="checkbox4" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox5">
+                            <input class="cb" type="checkbox" id="inlineCheckbox5" name="choose_MH" value="withMinnan"> 教育部閩南語辭典
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox5" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox6">
+                            <input class="cb" type="checkbox" id="inlineCheckbox6" name="choose_MH" value="withIdiom"> 教育部成語典
+                        </label>
+                    </label>
+                    <label id="checkbox6" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox7">
+                            <input class="cb" type="checkbox" id="inlineCheckbox7" name="choose_MH" value="withTaieol"> 中研院台灣生命大百科
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox7" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox8">
+                            <input class="cb" type="checkbox" id="inlineCheckbox8" name="choose_MH" value="withHakka"> 教育部客家語辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label id="checkbox8" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox9">
+                            <input class="cb" name="cballJunior" type="checkbox" value="withJunior" id="inlineCheckbox9" style="zoom: 1.2;"> 國中以上
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox9" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox10">
+                            <input class="cb" type="checkbox" id="inlineCheckbox10" name="choose_Junior" value="withRevised"> 教育部辭典修訂本書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox10" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox11">
+                            <input class="cb" type="checkbox" id="inlineCheckbox11" name="choose_Junior" value="withNMNS"> 自然科學博物館
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox11" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox12">
+                            <input class="cb" type="checkbox" id="inlineCheckbox12" name="choose_Junior" value="withGlossary"> 教育部國教院辭書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox12" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox13">
+                            <input class="cb" type="checkbox" id="inlineCheckbox13" name="choose_Junior" value="withEduWiki"> 教育 Wiki
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox13" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox14">
+                            <input class="cb" type="checkbox" id="inlineCheckbox14" name="choose_Junior" value="withFineart"> 視覺素養學習網
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox14" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox15">
+                            <input class="cb" type="checkbox" id="inlineCheckbox15" name="choose_Junior" value="withDeepsea"> 海洋生物百科
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withNpm"> 國立故宮博物院典藏精選
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withMusiciantw"> 臺灣音樂群像資料庫
+                        </label>
+                    </label>
+					<br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withTaiwanmusic"> 傳統民族樂器資料庫
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head2">．媒體形式</p>
+
+                <div class="checkbox, checkbox_rwd" style="margin-left: 60px">
+                    <label id="checkbox16" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox16">
+                            <input class="cb" type="checkbox" id="inlineCheckbox16" value="withAudio" style="zoom: 1.2;"> 音檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox17" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox17">
+                            <input class="cb" type="checkbox" id="inlineCheckbox17" value="withGraph" style="zoom: 1.2;"> 圖檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox18" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox18">
+                            <input class="cb" type="checkbox" id="inlineCheckbox18" value="withVideo" style="zoom: 1.2;"> 影片
+                        </label>
+                    </label>
+                </div>
+                <div><button id="filter_btn" type="button" class="btn btn-primary btn-sm" style="margin-left: 120px; margin-top: 50px">送出</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchlogo" style="padding-top: 20px; text-align: right">
+        排序方式：
+        <span id="order_title" style="cursor: pointer;">關鍵字</span> |
+        <span id="order_search" style="cursor: pointer;">搜尋次數</span> |
+        <span id="order_relate" style="cursor: pointer;">關聯性</span>
+    </div>
+
+
+        <!--  辭條列表 -->
+        <a style="color:#FFFFFF;" accesskey="R" href="#wordList" title="搜尋結果" id="searchResult-section">:::</a>
+        <span style="font-weight:bold">你是不是要搜尋以下結果</span>
+        <table id="wordList" class="table">
+            <tbody>
+
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="1" href="/Entry/Detail/?title=摒除&search=摒"><span class="color-important">摒</span>除</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=摒除" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6656">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6656">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除。如：「<span class="color-important">摒</span>除一切困難，勇往直前。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="2" href="/Entry/Detail/?title=併&search=摒">併</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=併" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_62880">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_62880">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除。通「<span class="color-important">摒</span>」。《管子．霸形》：「於是伐鐘磬之縣，併歌舞之樂，宮中虛無人。」《荀子．彊國》：「併己之私欲必以道。」唐．楊倞．注：「併讀曰屏，棄也。屏棄私欲遵達公義也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="3" href="/Entry/Detail/?title=摒棄&search=摒"><span class="color-important">摒</span>棄</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=摒棄" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6655">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6655">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除、捨棄。如：「一切陋習，都應<span class="color-important">摒</span>棄。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="4" href="/Entry/Detail/?title=偋&search=摒">偋</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=偋" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6103">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6103">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除、丟棄。通「<span class="color-important">摒</span>」。《荀子．榮辱》：「恭儉者，偋五兵也。雖有戈矛之刺，不如恭儉之利也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="5" href="/Entry/Detail/?title=洗心&search=摒">洗心</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_108780">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_108780">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">洗滌心胸，<span class="color-important">摒</span>除惡念或雜念。《易經．繫辭上》：「聖人以此洗心，退藏於密。」唐．徐浩〈寶林寺作〉詩：「洗心聽經論，禮足蠲凶災。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="6" href="/Entry/Detail/?title=摒&search=摒"><span class="color-important">摒</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=摒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_6654">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_6654">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除。《集韻．去聲．勁韻》：「<span class="color-important">摒</span>，除也。」如：「<span class="color-important">摒</span>棄」、「<span class="color-important">摒</span>斥」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="7" href="/Entry/Detail/?title=吐&search=摒">吐</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=吐" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_2132">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_2132">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄、拋棄。《左傳．僖公五年》：「若晉取虞，而明德以薦馨香，神其吐之乎？」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="8" href="/Entry/Detail/?title=昭然若揭&search=摒">昭然若揭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=昭然若揭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_38541">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_38541">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">《莊子．達生》論述通達生命的真義，提出<span class="color-important">摒</span>除各種外欲，讓心神寧寂，進而養神的方法。其中記述有個名叫孫休的人，有一次去拜訪他的老師扁慶子，才走進門就慨嘆不已地詢問：「我安居鄉里，不曾被人說過道德修養差；面臨危難時，也不曾被批評不勇敢。然而我的田地卻從未有過好收成，為國出力也沒有遇上聖明的國君，卻被鄉里所<span class="color-important">摒</span>棄，被地方官所放逐。我到底有什麼地方得罪了老天，而遭遇如此的命運？」扁慶子說：「你不曾聽說過那些道德修養極高的人，他們忘卻自己，視而不見，聽而不聞，縱放心靈於世俗之外，在不求建樹的環境中自由自在生活，這就是有所作為卻不自恃。像這樣處處標榜自我的作法，本來是很容易遭受傷害的，你如今把自己裝作很有智慧...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="9" href="/Entry/Detail/?title=翳&search=摒">翳</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=翳" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_70253">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_70253">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄。《國語．周語下》：「而又奪之資，以益其災，是去其藏而翳其人也。」《新唐書．卷一五六．李元諒傳》：「元諒培高浚淵，身執苦與士卒均，菑翳榛莽，闢美田數十里。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="10" href="/Entry/Detail/?title=闢&search=摒">闢</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=闢" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32073">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32073">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">駁斥、<span class="color-important">摒</span>除。如：「闢謠」。《荀子．解蔽》：「是以闢耳目之欲，而遠蚊蝱之聲。」宋．王安石〈答司馬諫議書〉：「闢邪說，難壬人，不為拒諫。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="11" href="/Entry/Detail/?title=脫胎換骨&search=摒">脫胎換骨</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=脫胎換骨" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_21166">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_21166">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">近義:洗心革面反義:舊瓶新酒辨似:   「脫胎換骨」及「洗心革面」都有澈底改變的意思。 「脫胎換骨」側重於整體改變；「洗心革面」側重於<span class="color-important">摒</span>除惡習。 脫胎換骨 洗心革面 辨似例句 ○ ㄨ 經過一番鍛練，他從體弱多病～成身強體壯的青年。 ㄨ ○ 對於曾經犯過錯的人，我們應該鼓勵他，協助他～，改邪歸正。 </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="12" href="/Entry/Detail/?title=斥&search=摒">斥</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=斥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_28501">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_28501">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">排除拒絕、<span class="color-important">摒</span>棄不用。如：「排斥」、「同性相斥」。《漢書．卷六．武帝紀》：「與聞國政而無益於民者斥，在上位而不能進賢者退。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="13" href="/Entry/Detail/?title=後&search=摒">後</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=後" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_64005">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_64005">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄、排除。《漢書．卷五一．鄒陽傳》：「願大王察玉人、李斯之意，而後楚王、胡亥之聽。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="14" href="/Entry/Detail/?title=洗心革面&search=摒">洗心革面</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心革面" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_17736">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_17736">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination"> 「洗心」，洗滌心胸，<span class="color-important">摒</span>除惡念或雜念。語出《易經．繫辭上》。「革面」，改變面目。語出《易經．革卦》。「洗心革面」指除去邪思雜念，改變舊日面目；比喻澈底悔悟，改過遷善。 △「脫胎換骨」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="15" href="/Entry/Detail/?title=暗箭傷人&search=摒">暗箭傷人</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=暗箭傷人" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73224">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73224">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">「暗箭傷人」原作「暗箭中人」。劉炎是南宋時的理學家之一，當時理學以朱熹和陸九淵為首，門戶分立，相互爭論。劉炎卻能<span class="color-important">摒</span>除門戶之見，擷取各家之長，不流於意氣口舌之爭。他著有《邇言》一書，取《詩經．小雅．小旻》詩句「維邇言是聽，唯邇言是爭」之意，以淺近的言語，來闡述理學精微的道理。在這段文字中，劉炎詳細說明了君子和小人的不同。他認為小人經常在背後發表中傷他人的言論，就像暗中放冷箭來傷害人一樣，這兩種行為都可以造成他人痛徹心扉的可怕傷害。而君子的為人光明磊落，認為與其用陰險的手段得勝，寧可用光明正大的手段來一較高下，即使失敗了也沒有怨言。後來「暗箭傷人」這句成語就從這裡演變而出，用來比喻暗中用陰險的手段...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="16" href="/Entry/Detail/?title=老僧入定&search=摒">老僧入定</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=老僧入定" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_242">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_242">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">入定，和尚<span class="color-important">摒</span>除雜念，使心定於一處。老僧入定原指修行很好的老和尚住在定境中。後形容一個人正襟危坐，不受外界影響的樣子。【例】每當他陷入沉思時，就像老僧入定一樣，諸事不聞。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="17" href="/Entry/Detail/?title=收拾&search=摒">收拾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=收拾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_111551">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_111551">0</span></span>
+        </div>
+    </div>
+                    <div class="wordDefination">相似詞：<span class="color-important">摒</span>擋、料理</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="18" href="/Entry/Detail/?title=排斥&search=摒">排斥</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=排斥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_64518">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_64518">0</span></span>
+        </div>
+    </div>
+                    <div class="wordDefination">相似詞：擯棄、擯斥、<span class="color-important">摒</span>除、排擠、排除</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="19" href="/Entry/Detail/?title=拋棄&search=摒">拋棄</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=拋棄" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_49681">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_49681">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">丟棄，扔掉不要。如：「拋棄式隱形眼鏡。」《三國演義》第一三回：「百官宮人，符冊典籍，一應御用之物，盡皆拋棄。」</div>
+                            <div class="wordDefination">遺棄。如：「自從他被女友拋棄後，整天借酒澆愁。」元．關漢卿《救風塵》第一折：「待嫁一個聰俊的，又怕半路裡輕拋棄。」</div>
+                            <div class="wordDefination">權利人放棄其權利而不行使，稱為「拋棄」。如：繼承之拋棄、占有之拋棄等是，為私權喪失原因的一種。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="20" href="/Entry/Detail/?title=文不對題&search=摒">文不對題</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=文不對題" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_80292">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_80292">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">清人宣鼎所著《夜雨秋燈錄》，雜記所見聞之事，多寓勸懲之意。〈科場〉一篇寫：浙之檇（ㄗㄨㄟˋ）李人吳生一連兩次夢見祖先要他參加科考，並且洩露考題，指出同宗的吳蘭陔先生曾以這次的考題〈鄉人皆好之〉作過文章。於是吳生去闈場中找到他，經過再三懇求取得文章。不久，吳蘭陔也在闈場探視吳生，看見吳生正在寫試卷，很驚訝的問：「試題還沒出來，為什麼你就在寫了？」吳生回答：「我讀先生的文章後，心中割捨不下，謄寫在試卷上，以表示對你的欽佩，即使文章內容和題目的意思不符合，不過被<span class="color-important">摒</span>棄而已，我也心甘情願。」「文不對題」這句成語，可能就是出自此處，用來指文章內容和題目不符合。後也用來指話語與話題不符。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="21" href="/Entry/Detail/?title=息交絕游&search=摒">息交絕游</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=息交絕游" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_76325">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_76325">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>絕所有的交游，不問世事。《文選．陶淵明．歸去來辭》：「歸去來辭，請息交以絕游。世與我而相遺，復駕言兮焉求？」宋．王明清《揮麈後錄》卷八：「劉斯立……屏居東平，杜門卻掃，息交絕游，人罕識其面。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="22" href="/Entry/Detail/?title=洗心滌慮&search=摒">洗心滌慮</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心滌慮" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78090">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78090">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">洗滌心胸，<span class="color-important">摒</span>除雜念。比喻澈底改變思想。《元史．卷二七．英宗本紀一》：「卿等亦當洗心滌慮，恪勤乃職。」《西遊記》第八回：「當時入了沙門，送菩薩過了河，他洗心滌慮，再不傷生，專等取經人。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="23" href="/Entry/Detail/?title=王禹偁&search=摒">王禹偁</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=王禹偁" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73877">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73877">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。(西元954～1001）字元之，宋濟州鉅野人。文辭敏贍，太宗時累遷翰林學士、知制誥，為文著書，多涉規諷，故屢見<span class="color-important">摒</span>斥。著有《小畜集》等。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="24" href="/Entry/Detail/?title=拋開&search=摒">拋開</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=拋開" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_49702">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_49702">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除、不理會。如：「拋開成見」、「拋開煩惱」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="25" href="/Entry/Detail/?title=濯纓滄浪&search=摒">濯纓滄浪</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=濯纓滄浪" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75987">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75987">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">語本《孟子．離婁上》：「滄浪之水清兮，可以濯我纓。」比喻<span class="color-important">摒</span>除世間塵俗，保有崇高的節操。《抱朴子．內篇．釋滯》：「夫寵貴不能動其心，極富不能移其好，濯纓滄浪，不降不辱。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="26" href="/Entry/Detail/?title=曹植&search=摒">曹植</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=曹植" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73232">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73232">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">曹植的賦，今存40多篇，數量在漢魏作者中為第一。內容有紀事、述志、詠物等。取材自日常生活，篇幅較短，<span class="color-important"><span class="color-important">摒</span></span>棄漢賦鋪排堆砌的傳統，滲透強烈的主觀情感。他的散文，包括多種體裁，今存近百篇，主要的是寫他的思想抱負。曹植後期的代表作還有《洛神賦》和《贈白馬王彪》，分別是魏晉抒情小賦和五言詩的名篇。詩賦情真意切，詞采流麗，注重韻律，開後世詩歌聲律化之先聲，被稱為“建安風骨”，對後世影響極大。來自http://www.epochtimes.com/b5/3/3/13/n286191.htm</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="27" href="/Entry/Detail/?title=遺毒&search=摒">遺毒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=遺毒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_101370">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_101370">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">過去所遺留下的有害思想、風氣等。【例】專制時代的遺毒已逐漸被民主思想所<span class="color-important">摒</span>除。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="28" href="/Entry/Detail/?title=朗然若揭&search=摒">朗然若揭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=朗然若揭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_88078">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_88078">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「昭然若揭」之典故說明，提供參考。 《莊子．達生》論述通達生命的真義，提出<span class="color-important">摒</span>除各種外欲，讓心神寧寂，進而養神的方法。其中記述有個名叫孫休的人，有一次去拜訪他的老師扁慶子，才走進門就慨嘆不已地詢問：「我安居鄉里，不曾被人說過道德修養差；面臨危難時，也不曾被批評不勇敢。然而我的田地卻從未有過好收成，為國出力也沒有遇上聖明的國君，卻被鄉里所<span class="color-important">摒</span>棄，被地方官所放逐。我到底有什麼地方得罪了老天，而遭遇如此的命運？」扁慶子說：「你不曾聽說過那些道德修養極高的人，他們忘卻自己，視而不見，聽而不聞，縱放心靈於世俗之外，在不求建樹的環境中自由自在生活，這就是有所作為卻不自恃。像這樣處處標榜自我的作法，本...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="29" href="/Entry/Detail/?title=薄伽丘（Giovanni Boccaccio）&search=摒">薄伽丘（Giovanni Boccaccio）</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=薄伽丘（Giovanni Boccaccio）" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_26847">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_26847">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。（西元1313～1375）義大利詩人及散文家。與但丁(Dante)、佩脫拉克(Petrarch）同為義大利文藝復興的先驅。早年從父習商，及長在那不勒斯攻讀法律，因興趣偏好古典文學，棄商<span class="color-important">摒</span>法，以文學著作聞名於世。其代表作品有《菲羅可羅》、《菲亞美達》、《十日談》等。也譯作「薄伽邱」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="30" href="/Entry/Detail/?title=以太&search=摒">以太</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=以太" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_147834">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_147834">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">乃西方的古代物理學家認為充塞於宇宙中，傳播光熱電磁的微妙物質。富於彈性，稍有振動，即生微波，以傳達於上下四方。但在相對論提出後，這種以太的觀念便被推翻而廢棄不用。為英語ether的音譯。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="31" href="/Entry/Detail/?title=吃閉門羹&search=摒">吃閉門羹</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=吃閉門羹" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_92225">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_92225">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">被<span class="color-important">摒</span>拒在門外、被拒絕。如：「那人才剛當業務員，銷售經驗不足，總是三番五次吃閉門羹。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="32" href="/Entry/Detail/?title=黜退&search=摒">黜退</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=黜退" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_146928">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_146928">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">免職、<span class="color-important">摒</span>退不用。《三國演義》第二七回：「田豐尚囚獄中；沮授黜退不用；郭圖各自爭權；袁紹多疑，主持不定。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="33" href="/Entry/Detail/?title=革面洗心&search=摒">革面洗心</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=革面洗心" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_89494">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_89494">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「洗心革面」之典故說明，提供參考。 「洗心革面」係由「洗心」及「革面」二語組合而成。「洗心」見於《易經．繫辭上》，孔子認為《周易》的功用在聖人用它「以通天下之志，以定天下之業，以斷天下之疑」，並以之「洗心，退藏於密」，就是指聖人以《易經》的內容，進則能洗滌心胸，<span class="color-important">摒</span>除惡念或雜念，退則隱藏幽微，其功用隱而不現。「革面」亦見於《易經》，〈革卦〉裡的上六爻辭說：「君子豹變，小人革面。」「豹變」是用豹的毛紋變得更斑斕絢麗，來形容人遷善去惡，美德顯現，而「革面」則是指改變面目。《象傳》則說：「君子豹變，其文蔚也；小人革面，順以從君也。」同樣為改變，但君子改變，是表現在才學文辭上，而小人改變，則是...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="34" href="/Entry/Detail/?title=息心&search=摒">息心</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=息心" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_100485">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_100485">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除雜念。《文選．王巾．頭陁寺碑文》：「息心了義，終焉遊集。」唐．岑參〈終南山雙峰草堂作〉詩：「斂跡歸山田，息心謝時輩。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="35" href="/Entry/Detail/?title=本位主義&search=摒">本位主義</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=本位主義" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_57513">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_57513">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">以一己權益為前提，不顧整體利益的觀念或作風。【例】各部門要<span class="color-important">摒</span>棄本位主義的心態，團結合作，公司才能向上發展。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="36" href="/Entry/Detail/?title=洗心回面&search=摒">洗心回面</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心回面" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78088">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78088">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「洗心革面」之典故說明，提供參考。 「洗心革面」係由「洗心」及「革面」二語組合而成。「洗心」見於《易經．繫辭上》，孔子認為《周易》的功用在聖人用它「以通天下之志，以定天下之業，以斷天下之疑」，並以之「洗心，退藏於密」，就是指聖人以《易經》的內容，進則能洗滌心胸，<span class="color-important">摒</span>除惡念或雜念，退則隱藏幽微，其功用隱而不現。「革面」亦見於《易經》，〈革卦〉裡的上六爻辭說：「君子豹變，小人革面。」「豹變」是用豹的毛紋變得更斑斕絢麗，來形容人遷善去惡，美德顯現，而「革面」則是指改變面目。《象傳》則說：「君子豹變，其文蔚也；小人革面，順以從君也。」同樣為改變，但君子改變，是表現在才學文辭上，而小人改變，則是...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="37" href="/Entry/Detail/?title=除掉&search=摒">除掉</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=除掉" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_137098">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_137098">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">除去、<span class="color-important">摒</span>除。如：「除掉抽菸的壞習慣，才能確保身體健康。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="38" href="/Entry/Detail/?title=暗箭中人&search=摒">暗箭中人</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=暗箭中人" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_85408">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_85408">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「暗箭傷人」之典故說明，提供參考。 「暗箭傷人」原作「暗箭中人」。劉炎是南宋時的理學家之一，當時理學以朱熹和陸九淵為首，門戶分立，相互爭論。劉炎卻能<span class="color-important">摒</span>除門戶之見，擷取各家之長，不流於意氣口舌之爭。他著有《邇言》一書，取《詩經．小雅．小旻》詩句「維邇言是聽，唯邇言是爭」之意，以淺近的言語，來闡述理學精微的道理。在這段文字中，劉炎詳細說明了君子和小人的不同。他認為小人經常在背後發表中傷他人的言論，就像暗中放冷箭來傷害人一樣，這兩種行為都可以造成他人痛徹心扉的可怕傷害。而君子的為人光明磊落，認為與其用陰險的手段得勝，寧可用光明正大的手段來一較高下，即使失敗了也沒有怨言。後來「暗箭傷人」這句...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="39" href="/Entry/Detail/?title=雜念&search=摒">雜念</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=雜念" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_146867">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_146867">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">紛雜或不純正的念頭。【例】打坐時要<span class="color-important">摒</span>除雜念，才能心神入定。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="40" href="/Entry/Detail/?title=劣行&search=摒">劣行</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=劣行" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_141974">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_141974">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">惡劣的舉止。如：「茶商混充低價茶葉而以高價賣出的劣行，始終不曾斷絕。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="41" href="/Entry/Detail/?title=六君子&search=摒">六君子</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=六君子" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_115825">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_115825">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">史稱品格、學識極為傑出的六位人物為「六君子」：(1)指禹、湯、文、武、成王、周公。《禮記．禮運》：「禹、湯、文、武、成王、周公由此其選也，此六君子者，未有不謹於禮者也。」(2)宋代黃庭堅、秦觀、張耒、晁補之、陳師道、李薦，稱為「蘇門六君子」。清．王士禎《池北偶談．卷下．談藝．姑溪集》：「端叔在蘇門，名次六君子，……觀全集殊下秦、晁、張、陳遠甚，然其題跋自是勝場。」(3)宋寧宗時，右丞相趙汝愚被韓侂冑誣陷，太學生周端朝、張衜、徐範、蔣傳、林仲麟、楊宏中六人上書營救，遭<span class="color-important">摒</span>斥，史稱「六君子」。見《宋史．卷四五五．忠義傳十．楊宏中傳》。(4)宋理宗時，殿中侍御史丁大全專權，蠻橫無理，太學生陳宜中、劉黻、黃鏞、林測祖、曾唯、陳宗六人上書批評，輿論界同聲響應，稱為「六君子」。見《宋史．卷四一八．陳宜中傳》。(5)明熹宗時，魏忠賢掌權，其人奸詐殘暴，御史楊漣、左光斗、魏大中、周朝瑞、袁化中、顧大章被陷害死於獄中，時人稱為「六君子」。後魏忠賢又逮捕周起元、繆昌期、周順昌、周宗建、黃尊素、李應昇六人，害死獄中，世人也稱為「六君子」。見《明史．卷三○五．宦官傳二．魏忠賢傳》。(6)清光緒時譚嗣同、林旭、楊銳、劉光第、楊深秀、康廣仁，因變法被殺，時人稱為「戊戌六君子」。見《清史稿．卷四六四．李端棻等傳．論曰》。(7)民初，楊度、孫毓筠、嚴復、劉師培、李燮和胡瑛等組籌安會，擁護袁世凱稱帝，稱為「籌安六君子」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="42" href="/Entry/Detail/?title=息心靜氣&search=摒">息心靜氣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=息心靜氣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_76327">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_76327">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除雜念，靜下心來。《文明小史》第五四回：「賽如下了定錢了，便把馬褂脫去，研得墨濃，蘸的筆飽，息心靜氣的寫起來。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="43" href="/Entry/Detail/?title=不廢&search=摒">不廢</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=不廢" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_35431">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_35431">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">不停止、不撤除、不<span class="color-important">摒</span>棄。《楚辭．宋玉．招魂》：「娛酒不廢，沉日夜些。」三國魏．曹植〈求自試表〉：「臣聞明主使臣，不廢有罪，故奔北敗軍之將，用秦魯以成其功。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="44" href="/Entry/Detail/?title=齋心滌慮&search=摒">齋心滌慮</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=齋心滌慮" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_88960">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_88960">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>去雜念，清心寡欲。宋．葉適〈辯兵部郎官朱元晦狀〉：「方齋心滌慮，以俟陛下反覆詰難，庶幾竭盡愚衷。」也作「齊心滌慮」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="45" href="/Entry/Detail/?title=心死&search=摒">心死</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=心死" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_67049">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_67049">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除雜念而達到無我的境地。《列子．湯問》：「同齋三月，心死形廢，徐以神視。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="46" href="/Entry/Detail/?title=齊心滌慮&search=摒">齊心滌慮</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=齊心滌慮" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_88943">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_88943">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>去雜念，清心寡欲。《舊唐書．卷一一．代宗本紀》：「朕受昊天之成命，承累聖之鴻業，齊心滌慮，夙夜憂勞。」也作「齋心滌慮」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="47" href="/Entry/Detail/?title=省籍&search=摒">省籍</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=省籍" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_149973">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_149973">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">籍貫所在的省分。如：「現代年輕人早已<span class="color-important">摒</span>除省籍情結，不分彼此了。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="48" href="/Entry/Detail/?title=併除&search=摒">併除</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=併除" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_62899">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_62899">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">掃除。《敦煌變文集新書．卷二．佛說觀彌勒菩薩上生兜率天經講經文》：「修行之次，見於六道受苦眾生，欲併除地獄，不要畜生，咸使出離。」也作「屏當」、「併當」、「<span class="color-important">摒</span>擋」。</div>
+                            <div class="wordDefination">收拾、料理。也作「屏當」、「併當」、「<span class="color-important">摒</span>擋」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="49" href="/Entry/Detail/?title=洗心革志&search=摒">洗心革志</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心革志" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78092">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78092">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「洗心革面」之典故說明，提供參考。 「洗心革面」係由「洗心」及「革面」二語組合而成。「洗心」見於《易經．繫辭上》，孔子認為《周易》的功用在聖人用它「以通天下之志，以定天下之業，以斷天下之疑」，並以之「洗心，退藏於密」，就是指聖人以《易經》的內容，進則能洗滌心胸，<span class="color-important">摒</span>除惡念或雜念，退則隱藏幽微，其功用隱而不現。「革面」亦見於《易經》，〈革卦〉裡的上六爻辭說：「君子豹變，小人革面。」「豹變」是用豹的毛紋變得更斑斕絢麗，來形容人遷善去惡，美德顯現，而「革面」則是指改變面目。《象傳》則說：「君子豹變，其文蔚也；小人革面，順以從君也。」同樣為改變，但君子改變，是表現在才學文辭上，而小人改變，則是...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="50" href="/Entry/Detail/?title=暗器傷人&search=摒">暗器傷人</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=暗器傷人" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_85400">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_85400">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「暗箭傷人」之典故說明，提供參考。 「暗箭傷人」原作「暗箭中人」。劉炎是南宋時的理學家之一，當時理學以朱熹和陸九淵為首，門戶分立，相互爭論。劉炎卻能<span class="color-important">摒</span>除門戶之見，擷取各家之長，不流於意氣口舌之爭。他著有《邇言》一書，取《詩經．小雅．小旻》詩句「維邇言是聽，唯邇言是爭」之意，以淺近的言語，來闡述理學精微的道理。在這段文字中，劉炎詳細說明了君子和小人的不同。他認為小人經常在背後發表中傷他人的言論，就像暗中放冷箭來傷害人一樣，這兩種行為都可以造成他人痛徹心扉的可怕傷害。而君子的為人光明磊落，認為與其用陰險的手段得勝，寧可用光明正大的手段來一較高下，即使失敗了也沒有怨言。後來「暗箭傷人」這句...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="51" href="/Entry/Detail/?title=併當&search=摒">併當</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=併當" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_62889">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_62889">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">掃除。《敦煌變文集新書．卷二．佛說觀彌勒菩薩上生兜率天經講經文》：「地獄興心全併當（<span class="color-important">摒</span>擋），畜生有意總教空，若令我等皆成佛，菩薩心中願始終。」也作「併除」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="52" href="/Entry/Detail/?title=洗心自新&search=摒">洗心自新</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心自新" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78091">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78091">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除雜念，改過自新。宋．張君房《雲笈七籤．卷九三．神仙可學論》：「追悔既往，洗心自新，雖失之於壯齒，冀收之於晚節。」宋．洪邁《夷堅丁志．卷三．謝花六》：「其黨康花七者，家已豐餘，欲洗心自新，佯為出探官軍，密以告尉。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="53" href="/Entry/Detail/?title=丟開&search=摒">丟開</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=丟開" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_37734">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_37734">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄、不理會。如：「做事時要專心一志，把雜念丟開，才能收到最大效果。」元．關漢卿《金線池》第二折：「我只怕年深了也難收救，倒不如早早丟開，也免的自僝自僽。」《紅樓夢》第六○回：「近日又想往園內去，越發將此事丟開，只等三、五年後放出時，自向外邊擇婿了。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="54" href="/Entry/Detail/?title=叱退&search=摒">叱退</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=叱退" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_166971">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_166971">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">叱喝<span class="color-important">摒</span>退。《三國演義》第八回：「允叱退左右，只留侍妾數人勸酒。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="55" href="/Entry/Detail/?title=抽象畫&search=摒">抽象畫</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=抽象畫" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_144013">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_144013">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄具體形象，完全憑著直覺和想像作畫。畫中的形象通常帶有幾何形體或設計觀念。其主要源流有二種。一種是以荷蘭畫家蒙德利安等為主，主張以幾何形體構成的形式美，反對用曲線，而以水平線、長方或正方形構成。另一種是以俄國畫家康丁斯基等為主，主張繪畫以色彩、點線面表現主觀的情感。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="56" href="/Entry/Detail/?title=打滅&search=摒">打滅</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=打滅" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_40964">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_40964">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>棄、消除、熄滅。元．楊顯之《瀟湘雨》第二折：「他原來別尋了個女嬌姿，只待要打滅了這窮妻子。」元．鄭光祖《倩女離魂》第四折：「這的是俺娘的弊病，要打滅醜聲，佯做個寱掙。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="57" href="/Entry/Detail/?title=洗心革意&search=摒">洗心革意</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=洗心革意" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78093">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78093">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">此處所列為「洗心革面」之典故說明，提供參考。 「洗心革面」係由「洗心」及「革面」二語組合而成。「洗心」見於《易經．繫辭上》，孔子認為《周易》的功用在聖人用它「以通天下之志，以定天下之業，以斷天下之疑」，並以之「洗心，退藏於密」，就是指聖人以《易經》的內容，進則能洗滌心胸，<span class="color-important">摒</span>除惡念或雜念，退則隱藏幽微，其功用隱而不現。「革面」亦見於《易經》，〈革卦〉裡的上六爻辭說：「君子豹變，小人革面。」「豹變」是用豹的毛紋變得更斑斕絢麗，來形容人遷善去惡，美德顯現，而「革面」則是指改變面目。《象傳》則說：「君子豹變，其文蔚也；小人革面，順以從君也。」同樣為改變，但君子改變，是表現在才學文辭上，而小人改變，則是...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="58" href="/Entry/Detail/?title=荒謬劇&search=摒">荒謬劇</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=荒謬劇" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_155912">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_155912">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種盛行於五○及六○年代的戲劇流派。西元一九四七年興起於法國，主要開創者為伊奧涅斯柯（Ionesco)、貝克特（Beckett)。此派<span class="color-important">摒</span>棄尋常的戲劇手法，改採非寫實的形式，否定語言的傳達功能及戲劇的一切規律，甚至全盤否定了人生。本來應該是很沉痛的戲劇，卻往往令觀眾覺得可笑、怪誕、苦澀、驚異與荒謬，頗能發人省思。代表作品如貝克特的《等待果陀》。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="59" href="/Entry/Detail/?title=支遣&search=摒">支遣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=支遣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_111003">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_111003">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">摒</span>除、排遣。《朱子語類輯略．卷二．持守》：「只是瞑目靜坐時，支遣思慮不去。」元．無名氏《合同文字》第一折：「不爭我病勢正昏沉，更那堪苦事難支遣。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="60" href="/Entry/Detail/?title=退佃&search=摒">退佃</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=退佃" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_48">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_48">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">捨棄、<span class="color-important">摒</span>除。指妓女脫籍。元．王曄〈慶東原．明明的退佃麗春園〉曲：「明明的退佃麗春園，暗暗的開除了雙解元。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="61" href="/Entry/Detail/?title=省慾去奢&search=摒">省慾去奢</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=省慾去奢" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_149959">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_149959">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">節制貪念，<span class="color-important">摒</span>棄奢華。漢．襄楷〈復上書〉：「又聞宮中立黃老浮屠之祠，此道清虛，貴尚無為，好生惡死，省慾去奢。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                <!-- 分頁 -->
+                <tr>
+                    <td>
+                                <div id="ask_search"><span><img alt="" src="/Content/img/asksearch.png" /></span>曾經查過此詞彙的人也經常查詢以下字詞：</div>
+                                <div id="ask_list">
+                                            <a href="/Entry/Detail/?title=%e5%b1%8f&search=%e6%91%92">屏</a>
+                                            <a href="/Entry/Detail/?title=%e8%a6%83&search=%e6%91%92">覃</a>
+                                            <a href="/Entry/Detail/?title=%e8%91%a9&search=%e6%91%92">葩</a>
+                                            <a href="/Entry/Detail/?title=%e9%87%a3%e5%90%8d%e6%b2%bd%e8%ad%bd&search=%e6%91%92">釣名沽譽</a>
+                                            <a href="/Entry/Detail/?title=%e5%85%89%e6%80%aa%e9%99%b8%e9%9b%a2&search=%e6%91%92">光怪陸離</a>
+                                            <a href="/Entry/Detail/?title=%e8%90%ac%e5%8a%ab%e4%b8%8d%e5%be%a9&search=%e6%91%92">萬劫不復</a>
+                                </div>
+
+                                <div align="center">
+                                    <a style="color: #FFFFFF;" accesskey="P" href="#paging-section" title="分頁" id="paging-section">:::</a>
+                                    <ul class="floatCenter pagination"><li class="active"><a>1</a></li></ul>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contribute_word_rwd">
+            <hr size="1" style="height:0;border: 0 none;border:1px #322f32 dashed;" />
+            
+            
+
+        </div>
+</div>
+    <script language="javascript" type="text/javascript">
+
+        $(function (){
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var connectstringOut = new Array();
+
+        $('.cb').each(function () {
+            const name = $(this).attr("name");
+            if (location.search.includes($(this).val())) {
+                $(this).prop("checked", true);
+                //否則子filter會disabled
+                if (name == "cballPrimary")
+                    $("input[name='choose_Primary']").prop("disabled", false);
+                if (name == "cballMH")
+                    $("input[name='choose_MH']").prop("disabled", false);
+                if (name == "cballJunior")
+                    $("input[name='choose_Junior']").prop("disabled", false);
+            }
+            if ($(this).prop('checked') === true) {
+                connectstringOut.push($(this).val());
+            }
+        });
+
+        //點擊觸發全選或是全不選
+        //有三個選項的全選：低年級、中高年級、國中以上
+        $('.cb').click(function () {
+            const name = $(this).attr("name");
+            if ($(this).prop("checked")) {
+                connectstringOut.push($(this).val());
+                if (name == "cballPrimary") {
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballMH") {
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballJunior") {
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+            }
+            else {
+                index = connectstringOut.indexOf($(this).val());
+                if (index >= 0) {
+                    connectstringOut.splice(index, 1);
+                }
+                if (name === "cballPrimary")
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballMH")
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballJunior")
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+            }
+        });
+
+        $("#btnSelectAllArea").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", false);
+                $("input[name='choose_MH']").prop("disabled", false);
+                $("input[name='choose_Junior']").prop("disabled", false);
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", "disabled");
+                $("input[name='choose_MH']").prop("disabled", "disabled");
+                $("input[name='choose_Junior']").prop("disabled", "disabled");
+            }
+        });
+
+        $("#btnSelectAllMedia").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+            }
+        });
+
+        let isSelectAllArea = true;
+        let isSelectAllMedia = true;
+
+        $('.cb').each(function () {
+            if ($(this).val() !== "withAudio" &&
+                $(this).val() !== "withGraph" &&
+                $(this).val() !== "withVideo" &&
+                !$(this).prop("checked")) {
+                isSelectAllArea = false;
+            }
+
+            if (($(this).val() === "withAudio" ||
+                $(this).val() === "withGraph" ||
+                $(this).val() === "withVideo") &&
+                !$(this).prop("checked")) {
+                isSelectAllMedia = false;
+            }
+        });
+
+        if (isSelectAllArea) {
+            $("#btnSelectAllArea").prop("checked", "checked");
+        }
+
+        if (isSelectAllMedia) {
+            $("#btnSelectAllMedia").prop("checked", "checked");
+        }
+
+        if (location.href.includes("order=query")) {
+            $('#order_search').css("color", "#c80106");
+            $('#order_relate').css("color", "black");
+            $('#order_title').css("color", "black");
+        }
+        else if (location.href.includes("order=keyword_title")) {
+            $('#order_title').css("color", "#c80106");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "black");
+        } else {
+            $('#order_title').css("color", "black");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "#c80106");
+        }
+
+        $('#filter_btn').click(function () {
+            var strUrl = "/Home/List/1";
+
+            var order = "keyword_title";
+            var orgSearch = "";
+
+            if (location.search.split("order=").length > 1) {
+                order = location.search.split("order=")[1].split("&orgSearch=")[0];
+                orgSearch = location.search.split("order=")[1].split("&orgSearch=")[1];
+            }
+
+            connectstringOut = new Array();
+
+            $('.cb').each(function () {
+                if ($(this).prop('checked')) {
+                    connectstringOut.push($(this).val());
+                }
+            });
+
+            if (order === "query"){
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=query";
+            }
+            else if (order === "keyword_title") {
+                if (orgSearch && orgSearch.length > 0) {
+                    strUrl = "/Home/Search?submitButton=pronounciation&search=" + orgSearch + "&source=" + connectstringOut.join() + "&order=keyword_title&orgSearch=" + orgSearch;
+                } else {
+                    strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=keyword_title";
+                }
+            }
+            else{
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=relevance";
+            }
+
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI(connectstringOut.join()) +"&behavior=B026&URL="+encodeURIComponent(strUrl),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            window.location = strUrl;
+        });
+
+        $("#order_relate").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=relevance";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B027&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_search").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=query";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B028&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_title").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=keyword_title";
+
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B029&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#ask_list a").click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI($(this).text()) +"&behavior=B030&URL="+encodeURIComponent(location.origin + $(this).attr("href")),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        const lstIntWordTitleId = [6656,62880,6655,6103,108780,6654,2132,38541,70253,32073,21166,28501,64005,17736,73224,242,111551,64518,49681,80292,76325,78090,73877,49702,75987,73232,101370,88078,26847,147834,92225,146928,89494,100485,57513,78088,137098,85408,146867,141974,115825,76327,35431,88960,67049,88943,149973,62899,78092,85400,62889,78091,37734,166971,144013,40964,78093,155912,111003,48,149959];
+
+        for (let intIndex in lstIntWordTitleId)
+        {
+            $.ajax({
+                url: "/api/WordTitleReviewCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordViewCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            $.ajax({
+                url: "/api/WordBookmarkCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordSaveCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+    });
+
+    var i = 0;
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 768) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#n-head1").css("display", "none");
+            $("#m-head1").css("display", "inline");
+            $("#n-head2").css("display", "none");
+            $("#m-head2").css("display", "inline");
+        }
+        else {
+            $("#m-head1").css("display", "none");
+            $("#n-head1").css("display", "inline");
+            $("#m-head2").css("display", "none");
+            $("#n-head2").css("display", "inline");
+        }
+    });
+
+    $("#extend").click(function () {
+        i = i + 1;
+        if (i % 2 === 1) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".searchResultWord").click(function () {
+            $.ajax({
+                url: "/api/SearchHitApi/?id=" + $("#Token").val() +
+                    "&order=" + encodeURIComponent($("#Order").val()) +
+                    "&category=" + encodeURIComponent($("#Category").val()) +
+                    "&source=" + encodeURIComponent($("#Source").val()) +
+                    "&size=" + encodeURIComponent($("#Size").val()) +
+                    "&keyword=" + encodeURIComponent($("#Keyword").val()) +
+                    "&hitword=" + encodeURIComponent($(this).text()) +
+                    "&pageIndex=" + $(".pagination .active a").text() +
+                    "&hitIndex=" + $(this).attr("index"),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.extension').each(function () {
+            const oldUrl = $(this).attr('href'); // Get current url
+            const newUrl = oldUrl + "&order=keyword_title"; // Create new url
+            $(this).attr("href", newUrl); // Set herf value
+        });
+    });
+</script>
+            <div id="flex_block"></div>
+        </div>
+
+        <footer class="main-footer printhidden">
+            <a href="#Accesskey_Z" id="Accesskey_Z" accesskey="Z" title="下方選單連結區" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="footerblock footer_left">
+                    <a class="footer_link" href="/Home/WebsiteMap">網站導覽</a>
+                    <a class="footer_link" href="/Home/WebsiteIntro">服務簡介</a>
+                    <a class="footer_link" href="/Home/WebsiteContact">聯絡我們</a>
+                    <a class="footer_link" href="/Home/CopyRight">版權聲明</a>
+                    <a class="footer_link" href="/Home/OpenAPI">開放API使用說明</a>
+                    <a class="footer_link" href="/Home/Embed">內嵌搜尋欄位說明</a>
+                    <a class="footer_link" href="/Link/List">相關連結</a>
+                    <a class="footer_link" href="/WebsiteQA/List">常見問題</a>
+                    <a class="footer_link" href="/Home/Privacy">隱私權政策</a>
+
+                </div>
+                <div class="footerblock footer_img footer_right">
+                    <div class="logo_wrap">
+                        <a href="http://cloud.edu.tw/" title="前往教育雲入口網(另開新視窗)" target="_blank">
+                            <img src="/Content/img/footer_logo.png" alt="教育雲">
+                        </a>
+                        <a href="http://www.edu.tw/" title="前往教育部網站(另開新視窗)" target="_blank">
+                            <img src="/Content/img/edu_logo.png" class="edu_logo" alt="教育部">
+                        </a>
+                        <a href="https://www.handicap-free.nat.gov.tw/Applications/Detail?category=20191016081617" title="前往無障礙網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/f60e69ce-4174-4246-8f7a-5f806e5950b6.jpg" border="0" width="88" height="31" alt="通過A檢測等級無障礙網頁檢測">
+                        </a>
+                        <a href="https://www.twca.com.tw/" title="前往臺灣網路認證網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/MINI.gif" alt="臺灣網路認證" />
+                        </a>
+                    </div>
+
+                    <span class="footer_span">本網站內容豐富，雖經審查仍有可能疏漏， <br id="mobile_br"> 若有欠妥之處，請隨時與我們聯絡。</span>
+                    <span class="footer_span">Copyright©2014教育部 <br id="mobile_br">｜系統維運廠商：卡米爾有限公司</span>
+                    <br>
+                    <span class="footer_span">本站建議最佳瀏覽器版本為 <br id="mobile_br"> Chrome 29+、 Edge、 Firefox20+、Internet Explorer 11、及Safari</span>
+                    <br>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- Late Loading library to enhance speed -->
+<script src="/Scripts/cameo/initialize.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.animation.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.mask.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.form.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.browser.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.iframe.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.extend/popover.extend.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/Bootstrap-multiselect.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/easing.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/jquery.ui.totop.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/fileinput.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap-toggle.js"></script>
+<script src="/Scripts/jquery.bxslider.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.min.js"></script>
+<script src="/Scripts/superembed.min.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5928297cad6afe55"></script>
+     -->
+<!-- initialize JS & common JS (初始化及共用的 JS Code)-->
+
+<script src="/Scripts/lightbox.js"></script>
+<script src="/Scripts/lity.js"></script>
+<script type="text/javascript" src="/Scripts/html5_local_stoage.js"></script>
+<script>
+    $(function () {
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+        $('.navbar-brand').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B031&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#cloud').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B032&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        //Index rule(for example):original url + Bopomofo/Index/
+
+        $('#index_menu').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B033&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_category').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B034&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_character').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B035&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_withTaieol').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B036&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#submission').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B037&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#word_list').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B038&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.login_rigister').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B039&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    });
+</script>
+<noscript>您的瀏覽器不支援javascript</noscript>

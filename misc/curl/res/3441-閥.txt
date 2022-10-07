@@ -1,0 +1,3442 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW">
+<head>
+    <meta property="og:title" content="教育百科 | 教育雲線上字典" />
+    <title>閥 搜尋結果 - 教育百科 | 教育雲線上字典</title>
+    <link rel="icon" href="/Content/Images/icon/favicon.ico">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="教育百科,教育,edu, 辭典,字典,成語,教育部,同義詞,造句" />
+    <meta name="description" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="subject" content="教育部教育雲計畫教育百科" />
+    <meta name="copyright" content="卡米爾股份有限公司" />
+    <meta name="language" content="zh-TW" />
+    <meta name="abstract" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="topic" content="教育部教育雲計畫教育百科" />
+    <meta name="summary" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="author" content="教育部,卡米爾" />
+    <meta name="owner" content="教育部" />
+    <meta name="subtitle" content="教育雲端應用及平臺服務計畫" />
+    <meta charset="UTF-8" />
+
+    <link href="/Content/CSS/bootstrap.css?version=-710204471" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_common.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap.lib/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap-toggle.css" rel="stylesheet">
+    <link href="/Content/CSS/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.lib/ui.totop.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/lightbox.css" rel="stylesheet">
+    <link href="/Content/CSS/lity.css" rel="stylesheet">
+    <link href="/Content/CSS/fixed.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/index.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/style.css?version=1852324458" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search.css?version=651332762" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search_result.css?version=-787154487" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/Content/CSS/pdx.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cookie_login {
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .header_mobile {
+                display: inline-block !important;
+            }
+
+            .cookie_register {
+                padding-left: 0px !important;
+            }
+        }
+
+        a:focus img {
+            border: 5px solid #900;
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+
+        a:focus {
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-58889268-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script type="text/javascript">
+        var isLogin = false;
+
+        function addCookie() {
+            document.cookie = "lasturl=" + location.href + "; path=/";
+        }
+        function delCookie() {
+            document.cookie = "lasturl=; path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        $(document).ready(function () {
+            $(".cookie_login").click(function () {
+                addCookie();
+                var pathname = window.location.pathname; // Returns path only
+                var url      = window.location.href;     // Returns full URL
+                url = url.replace("https://pedia.cloud.edu.tw", "").replace("http://pedia.cloud.edu.tw", "").replace("http://localhost:50026", "");
+                location.href = "/SsoLogin/Home?statepage=" + url;
+            });
+
+            if (isLogin) {
+                var strLastUrl = getCookie("lasturl");
+                if (strLastUrl !== "") {
+                    delCookie();
+                    location.href = strLastUrl;
+                    return;
+                }
+            } else {
+                delCookie();
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <a href="#mainContent" title="跳到主要內容" tabindex="1" class="sr-only sr-only-focusable">跳到主要內容</a>
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="navbar navbar-inverse navbar-static-top header">
+            <a href="#Accesskey_U" id="Accesskey_U" accesskey="U" alt="教育百科瀏覽選單" title="上方選單連結區，此區塊列有本網站的主要連結" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- 在小 device-compatiple 用的, 勿刪-->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand" style="margin-top: 0;">
+                        <a href="/">
+                            <img src="/Content/Images/logo/logo_small_white.png" width="100" alt="教育百科logo" />
+                        </a>
+                    </h1>
+                </div>
+
+                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                    <!-- 左邊 -->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a title="網站導覽" tabindex="2" class="dropdown" id="index_sitemap" href="/Home/WebsiteMap">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>網站導覽
+                            </a>
+                        </li>
+                        <li>
+                            <a title="前往教育雲入口網(另開新視窗)" class="dropdown" id="cloud" target="_blank" href="http://cloud.edu.tw/">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>教育雲入口網
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="index_menu" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>索引選單<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="index_category" href="/NavigateWord">分類索引</a></li>
+                                <li><a id="index_character" href="/Bopomofo">單字索引</a></li>
+                                <li><a id="index_withTaieol" href="/NavigateWord/Taieol">生命大百科索引</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown" id="submission" href="/Stroke/Advice">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>投稿區
+                            </a>
+                        </li>
+
+                        <li>
+                            <a title="國語各版本生字詞彙表" class="dropdown" id="word_list" href="/Bookmark/Textword">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>生字詞彙表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown" id="word_list" href="/NavigateWord">
+                                <font color="#FFFF00"> <span class="glyphicon glyphicon glyphicon-star mr10"></span>新上架資源</font>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 右邊 -->
+                    <ul id="loginSection" class="nav navbar-nav navbar-right" style="margin-right: -40px;">
+
+                            <li class="header_mobile">
+                                <a class="login_rigister" href="/SsoLogin/Home"><span class="glyphicon glyphicon-user mr10"></span>登入會員/註冊</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main-body">
+            <a id="mainContent" title="中間主要內容區 (Alt+C)" accesskey="C" href="#content" style="font-size: 1px;" class="printhidden_inline">:::</a>
+            
+
+<style>
+    .main-body {
+        background-color: #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        outline: none;
+    }
+</style>
+
+<div class="bgGrey-light border-grey-bottom" style="margin-bottom:-1px">
+    <div class="container pt20">
+        <!--  工具列  -->
+        <div class="toolBar">
+            <div class="floatLeft mt10 mb10" style="width:100%!important;">
+
+                <!-- search-->
+                
+
+<form id="frmMain" method="post" action="/Home/Search" class="form-search form-inline">
+    <input name="__RequestVerificationToken" type="hidden" value="ZdggzLc3imDuQPYh2mP3ZiTnGkI3WdOINeD-5mOUB1gsomw5_OU6Zn6MNLck061h6icXSUjes8IfB4mfX2YmUfu78Ze7iCOQcHoxn5CD_X01" />
+    <input id="hiddenInput" type="hidden" name="search1" />
+    <div class="input-append smallk">
+        <label for="searchInput" class="search-query search-input-rounded-corners-small" style="background: white;">
+            <input value="閥" accesskey="S" id="searchInput" type="text" name="search" placeholder="請輸入生字、詞語或注音" style="font-size: 11pt;width: 80%; border: 0px solid #aaa; border-radius: 4px; outline: none; margin: 3px; padding: 4px; box-sizing: border-box; transition: 0.3s;font-family: 標楷體" />
+            <a id="keyboard-pop-a" href="#search"><img alt="開啟鍵盤圖示" id="keyboard-pop" class="btn-keyboard" src="/Content/img/keyboard.png" /></a>
+        </label>
+        <button type="submit" id="prcisebtn" class="btn btn-primary btn-sm" name="submitButton" value="precise"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>詞條檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="search"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>全文檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="pronounciation" style="background-color: mediumpurple;border-color: #7700BB;" id="bopomofode"><span class="glyphicon glyphicon-search mr10"></span>音讀檢索</button>
+    </div>
+</form>
+
+<style>
+    tr td:first-child {
+        width: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="boPoMoFoKeyBoard" class="keyboardmain" style="display: none; width: 450px">
+    <div class="keyboardmenudiv">
+        <a href="#" id="btnOpenPinyin" onclick="OpenPinyin(); return false;">切換漢語拼音鍵盤</a>
+        <a href="#" id="btnOpenBopomo" style="display: none; max-width: 100%" onclick="OpenBopomo(); return false;">切換注音小鍵盤</a> |
+        <a href="#" id="btnClose">關閉</a>
+    </div>
+    <div style="margin-left: 50pt; color: red;">
+        小提醒：<br />
+        輸入完畢後請點選
+        <span style="background-color: #9471DE;border: 1px solid #8524B7 ;color: white; padding: 7px; margin: 0 4px; border-radius: 5px;">
+            <span class="glyphicon glyphicon-search"></span>
+            音讀檢索
+        </span>
+        進行搜尋
+    </div>
+    <div><p></p></div>
+    <div class="keyboardcontentdiv">
+        <div id="boPoMoFoKeyBoard2" align="center">
+            <div class="keyboardtr">
+                <input value="ㄅ" type="button" class="keyboarditem" />
+                <input value="ㄉ" type="button" class="keyboarditem" />
+                <input value="ㄍ" type="button" class="keyboarditem" />
+                <input value="ㄐ" type="button" class="keyboarditem" />
+                <input value="ㄓ" type="button" class="keyboarditem" />
+                <input value="ㄗ" type="button" class="keyboarditem" />
+                <input value="ㄧ" type="button" class="keyboarditem" />
+                <input value="ㄚ" type="button" class="keyboarditem" />
+                <input value="ㄞ" type="button" class="keyboarditem" />
+                <input value="ㄢ" type="button" class="keyboarditem" />
+                <input value="ㄦ" type="button" class="keyboarditem" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄆ" type="button" class="keyboarditem" />
+                <input value="ㄊ" type="button" class="keyboarditem" />
+                <input value="ㄎ" type="button" class="keyboarditem" />
+                <input value="ㄑ" type="button" class="keyboarditem" />
+                <input value="ㄔ" type="button" class="keyboarditem" />
+                <input value="ㄘ" type="button" class="keyboarditem" />
+                <input value="ㄨ" type="button" class="keyboarditem" />
+                <input value="ㄛ" type="button" class="keyboarditem" />
+                <input value="ㄟ" type="button" class="keyboarditem" />
+                <input value="ㄣ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄇ" type="button" class="keyboarditem" />
+                <input value="ㄋ" type="button" class="keyboarditem" />
+                <input value="ㄏ" type="button" class="keyboarditem" />
+                <input value="ㄒ" type="button" class="keyboarditem" />
+                <input value="ㄕ" type="button" class="keyboarditem" />
+                <input value="ㄙ" type="button" class="keyboarditem" />
+                <input value="ㄩ" type="button" class="keyboarditem" />
+                <input value="ㄜ" type="button" class="keyboarditem" />
+                <input value="ㄠ" type="button" class="keyboarditem" />
+                <input value="ㄤ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄈ" type="button" class="keyboarditem" />
+                <input value="ㄌ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄖ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄝ" type="button" class="keyboarditem" />
+                <input value="ㄡ" type="button" class="keyboarditem" />
+                <input value="ㄥ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ˊ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˇ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˋ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="˙" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="一聲/空格" type="button" class="keyboarditem4" style="background-color: #F8F8C0; font-family: 標楷體; width: 33%;" />
+                <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 24%;" />
+            </div>
+        </div>
+        <div id="boPoMoFoKeyBoard3" style="width: 100%; display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 40px;">
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3">聲母</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="b" type="button" class="keyboarditem" realvalue="ㄅ" />
+                                <input value="c" type="button" class="keyboarditem" realvalue="ㄘ" />
+                                <input value="d" type="button" class="keyboarditem" realvalue="ㄉ" />
+                                <input value="f" type="button" class="keyboarditem" realvalue="ㄈ" />
+                                <input value="g" type="button" class="keyboarditem" realvalue="ㄍ" />
+                                <input value="h" type="button" class="keyboarditem" realvalue="ㄏ" />
+                                <input value="j" type="button" class="keyboarditem" realvalue="ㄐ" />
+                                <input value="k" type="button" class="keyboarditem" realvalue="ㄎ" />
+                                <input value="l" type="button" class="keyboarditem" realvalue="ㄌ" />
+                                <input value="m" type="button" class="keyboarditem" realvalue="ㄇ" />
+                                <input value="n" type="button" class="keyboarditem" realvalue="ㄋ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="p" type="button" class="keyboarditem" realvalue="ㄆ" />
+                                <input value="q" type="button" class="keyboarditem" realvalue="ㄑ" />
+                                <input value="r" type="button" class="keyboarditem" realvalue="ㄖ" />
+                                <input value="s" type="button" class="keyboarditem" realvalue="ㄙ" />
+                                <input value="t" type="button" class="keyboarditem" realvalue="ㄊ" />
+                                <input value="w" type="button" class="keyboarditem" realvalue="ㄨ" />
+                                <input value="x" type="button" class="keyboarditem" realvalue="ㄒ" />
+                                <input value="y" type="button" class="keyboarditem" realvalue="ㄧ" />
+                                <input value="z" type="button" class="keyboarditem" realvalue="ㄗ" />
+                                <input value="ch" type="button" class="keyboarditem" realvalue="ㄔ" />
+                                <input value="sh" type="button" class="keyboarditem" realvalue="ㄕ" />
+                                <input value="zh" type="button" class="keyboarditem" realvalue="ㄓ" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3"><br /><br /><br />韻母<br /><br /><br /><br /></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="a" type="button" class="keyboarditem1" realvalue="ㄚ" />
+                                <input value="ai" type="button" class="keyboarditem1" realvalue="ㄞ" />
+                                <input value="an" type="button" class="keyboarditem1" realvalue="ㄢ" />
+                                <input value="ang" type="button" class="keyboarditem1" realvalue="ㄤ" />
+                                <input value="ao" type="button" class="keyboarditem1" realvalue="ㄠ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="e" type="button" class="keyboarditem1" realvalue="ㄜ" />
+                                <input value="ê" type="button" class="keyboarditem1" realvalue="ㄝ" />
+                                <input value="ei" type="button" class="keyboarditem1" realvalue="ㄟ" />
+                                <input value="en" type="button" class="keyboarditem1" realvalue="ㄣ" />
+                                <input value="eng" type="button" class="keyboarditem1" realvalue="ㄥ" />
+                                <input value="er" type="button" class="keyboarditem1" realvalue="ㄦ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="i" type="button" class="keyboarditem1" realvalue="" />
+                                <input value="ia" type="button" class="keyboarditem1" realvalue="ㄧㄚ" />
+                                <input value="ian" type="button" class="keyboarditem1" realvalue="ㄧㄢ" />
+                                <input value="iang" type="button" class="keyboarditem1" realvalue="ㄧㄤ" />
+                                <input value="iao" type="button" class="keyboarditem1" realvalue="ㄧㄠ" />
+                                <input value="ie" type="button" class="keyboarditem1" realvalue="ㄧㄝ" />
+                                <input value="in" type="button" class="keyboarditem1" realvalue="ㄧㄣ" />
+                                <input value="ing" type="button" class="keyboarditem1" realvalue="ㄧㄥ" />
+                                <input value="iong" type="button" class="keyboarditem1" realvalue="ㄩㄥ" />
+                                <input value="iu" type="button" class="keyboarditem1" realvalue="ㄧㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="o" type="button" class="keyboarditem1" realvalue="ㄛ" />
+                                <input value="ong" type="button" class="keyboarditem1" realvalue="ㄨㄥ" />
+                                <input value="ou" type="button" class="keyboarditem1" realvalue="ㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="u" type="button" class="keyboarditem1" realvalue="ㄨ" />
+                                <input value="ua" type="button" class="keyboarditem1" realvalue="ㄨㄚ" />
+                                <input value="uai" type="button" class="keyboarditem1" realvalue="ㄨㄞ" />
+                                <input value="uan" type="button" class="keyboarditem1" realvalue="ㄨㄢ" />
+                                <input value="uang" type="button" class="keyboarditem1" realvalue="ㄨㄤ" />
+                                <input value="ue" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ui" type="button" class="keyboarditem1" realvalue="ㄨㄟ" />
+                                <input value="un" type="button" class="keyboarditem1" realvalue="ㄨㄣ" />
+                                <input value="uo" type="button" class="keyboarditem1" realvalue="ㄨㄛ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="ü" type="button" class="keyboarditem1" realvalue="ㄩ" />
+                                <input value="üan" type="button" class="keyboarditem1" realvalue="ㄩㄢ" />
+                                <input value="üe" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ün" type="button" class="keyboarditem1" realvalue="ㄩㄣ" />
+                            </div>
+                        </div>
+                        <div class="keyboardtr">
+                            <input value="一" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="" />
+                            <input value="ˊ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˊ" />
+                            <input value="ˇ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˇ" />
+                            <input value="ˋ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˋ" />
+                            <input value="空白鍵" type="button" class="keyboarditem4" style="font-family: 標楷體; width: 100px;" realvalue=" " />
+                            <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 80px;" realvalue="重新輸入" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $input = undefined;
+    var $hiddenInput = undefined;
+
+    $(function () {
+        $input.autocomplete({
+            delay: 300,
+            minLength: 1,
+            source: function (request, response) {
+                window.$.ajax({
+                    url: "/Home/AutoCompleteQuery?q=" + $input.val(),
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== "") {
+                            response(data.split(","));
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    function OpenBopomo() {
+        window.$("#boPoMoFoKeyBoard2").show();
+        window.$("#boPoMoFoKeyBoard3").hide();
+
+        window.$("#btnOpenPinyin").show();
+        window.$("#btnOpenBopomo").hide();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenPinyin").focus();
+
+        return false;
+    }
+
+    function OpenPinyin() {
+
+        window.$("#boPoMoFoKeyBoard2").hide();
+        window.$("#boPoMoFoKeyBoard3").show();
+
+        window.$("#btnOpenPinyin").hide();
+        window.$("#btnOpenBopomo").show();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenBopomo").focus();
+
+        return false;
+    }
+
+    $("#btnClose").click(function () {
+
+        window.$("#boPoMoFoKeyBoard").hide();
+
+        return false;
+    });
+
+    $("#btnClose").on("keydown",
+        function (e) {
+
+            //避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$("#btnClose").click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val());
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val(), window.$(this).attr("realvalue"));
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    function UpdateInput(input, realvalue) {
+        if ($input === undefined ||
+            $hiddenInput === undefined) {
+            return;
+        }
+
+        if (input === "重新輸入") {
+            $input.val("");
+
+            $hiddenInput.val("");
+
+            return;
+        }
+
+        switch (input) {
+            case "一聲/空格":
+            case "空白鍵":
+                input = " ";
+                break;
+        }
+
+        const newInput = $input.val() + input;
+
+        $input.val(newInput);
+
+        if (realvalue === undefined || realvalue === null) {
+            $hiddenInput.val($input.val());
+        } else {
+            let newHiddenInput = $hiddenInput.val() + realvalue.toString();
+
+            if (newInput.includes('yi')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄧ', 'ㄧ');
+            }
+            if (newInput.includes('yong')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄨ', 'ㄩ');
+            }
+            if (newInput.includes('wu')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('wong')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('yü')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+
+            $hiddenInput.val(newHiddenInput);
+        }
+    }
+
+</script>
+
+
+<script>
+
+    $input = $("#searchInput");
+    $hiddenInput = $("#hiddenInput");
+
+    $(function () {
+        const mq = window.matchMedia("(min-width: 480px)");
+        if (mq.matches) {
+            $('[title]').each(function () {
+                const $this = $(this);
+                $this.data('title', $this.attr('title'));
+            });
+        }
+    });
+
+    // 開啟鍵盤
+    $("#keyboard-pop-a").click(function () {
+        OpenBopomo();
+
+        $("#boPoMoFoKeyBoard").show();
+
+        return false;
+    });
+
+    $("#keyboard-pop-a").on("keydown",
+        function (e) {
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            $("#keyboard-pop-a").click();
+
+            return false;
+        });
+
+</script>
+
+                <!-- 選擇顯示數量 -->
+                <div class="mt5">
+
+
+<div class="searchResult">
+    共 67 筆資料，每頁顯示 100 筆資料
+    <a href="#" data-toggle="modal" data-target="#pickListNumber" class="btn btn-primary btn-xs">變更</a>
+</div>
+
+<div class="pull-left">
+
+    <div class="modal fade" id="pickListNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">請選擇要顯示的數量</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="frmPageSize" action="/Home/list/1?search=&amp;#38309;&amp;amp;source=withPrimary&amp;amp;order=relevance" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="0RzeUE0WANo6qCFtgdmXG1_KAd_c3XxFPDAfPCGnF9SR09pYD_q_moFojY0-VZ-0sbuM1uCQ9skJf5zJ0onovmVRqwk2D3xd2hk230YQecc1" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">數量</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="size">
+                                    <option value="5">一頁 5 筆</option>
+                                    <option value="10">一頁 10 筆</option>
+                                    <option value="15">一頁 15 筆</option>
+                                    <option value="20">一頁 20 筆</option>
+                                    <option value="25">一頁 25 筆</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="javascript: window.location.href = '/Home/list/1?search=&#38309;&amp;source=withPrimary&amp;order=relevance' + '&size=' + $('select[name=size]').val();">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+                </div>
+                <span class="">
+                        資料庫查詢時間：234.0004 ms
+                </span>
+                <div id="counter" style="display:none"></div>
+            </div>
+
+
+
+            <!--Pop up window content-->
+            <div class="modal fade" id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="font-family: Microsoft JhengHei"><b>親愛的使用者您好</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-family: Microsoft JhengHei"><b>非常感謝您對教育百科的愛戴，為了能提供您更好的服務，請幫忙我們勾選您的身份與年級。現在登入的話就能立即體驗個人化收藏服務喔！</b></h5>
+                            <form id="survey" style="font-family: Microsoft JhengHei">
+                                <input name="__RequestVerificationToken" type="hidden" value="blJ5u3RPJDFwSWxHwBjCoMLk2mRKqRBa-EZzCaztlIKrtLmfie7ENd60FqsVBT3NhTLh1BJOWr_AZwqIR8uIu6MwrP5p04KKn2mEudxKOHY1" />
+                                <b>
+                                    <table style="width: 50%">
+                                        <tr>
+                                            <td style="width: 10%">身份:</td>
+                                            <td style="width: 7%"><input data-val="true" data-val-number="欄位 Identity 必須是數字。" id="Teacher" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="1" /><label for="Teacher">教師</label></td>
+                                            <td style="width: 7%"><input id="Student" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="2" /><label for="Student">學生</label></td>
+                                            <td style="width: 15%"><input id="Others" name="Identity" onclick="ischecked2()" placeholder="identity" type="radio" value="3" /><label for="Others">一般民眾</label></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width: 70%">
+                                        <tr>
+                                            <td>年級:</td>
+                                            <td>
+                                                <select data-val="true" data-val-number="欄位 Grade 必須是數字。" id="grade" name="Grade"><option value="-1">請選擇</option>
+<option value="1">一年級</option>
+<option value="2">二年級</option>
+<option value="3">三年級</option>
+<option value="4">四年級</option>
+<option value="5">五年級</option>
+<option value="6">六年級</option>
+<option value="7">七年級</option>
+<option value="8">八年級</option>
+<option value="9">九年級</option>
+<option value="0">無</option>
+</select><p id="dumb" style="color: red; font-size: small">*必填</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </b>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary pull-left" data-dismiss="modal" id="now" value="我要登入" style="background-color: #228B22;border-color: #228B22" />
+                            <input type="button" class="btn btn-primary pull-right" data-dismiss="modal" id="later" value="確定" style="width:82px;" />
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                        <script>
+                            //show by counter
+                            //var ischecked = $("#Others").prop('checked');
+                            $('#dumb').fadeOut();
+
+                            //一般民衆，年級選項鎖定
+                            function ischecked2() {
+                                $('#grade').prop('disabled', true);
+                                $('#grade').val('0');
+                            }
+                            //非一般民衆，年級選項解鎖
+                            function ischecked1() {
+                                $('#grade').prop('disabled', false);
+                                $('#grade').val('-1');
+                            }
+
+                            var n = localStorage.getItem('on_load_counter');
+                            if (n === null) {
+                                n = 0;
+                            }
+                            n++;
+                            localStorage.setItem("on_load_counter", n);
+                            document.getElementById('counter').innerHTML = n;
+
+                            $(document).ready(function () {
+                                //if (n == 2) {
+                                //    $('#poplogin').modal('show');
+                                //    localStorage.clear();
+                                //}
+
+                                //localStorage.clear();
+                                var strSearch = decodeURIComponent(window.location.search);
+                                if (strSearch.includes("&orgSearch=")) {
+                                    if (strSearch.includes("&search1=")) {
+                                        var parts = strSearch.replace('orgSearch=', '').replace('search1=', '').split('&');
+                                        strSearch = parts[parts.length - 2];
+                                        $("#searchInput1").val(parts[parts.length - 1]);
+                                    } else {
+                                        var parts = strSearch.replace('orgSearch=', '').split('&');
+                                        strSearch = parts[parts.length - 1];
+                                    }
+                                }
+                                else {
+                                    strSearch = strSearch.replace('?search=', '').split('&')[0];
+                                    if (strSearch.includes("&test=True")) {
+                                        strSearch = strSearch.replace('&test=True', '');
+                                    }
+                                }
+
+                                $('.multiInput').val(strSearch);
+                            });
+
+                            //show by 1 day
+                            //$(document).ready(function () {
+                            //    if ($.cookie('whenToShowDialog') == null) {
+
+                            //        // Create expiring cookie, 1 days from now:
+                            //        $.cookie('whenToShowDialog', 'yes', { expires: 1, path: '/' });
+
+                            //        // Show dialog
+                            //        $('#poplogin').modal('show');
+                            //    }
+                            //});
+
+                            //show by 10 minutes
+
+                            setTimeout(function () {
+                                $('#poplogin').modal('show');
+                            }, 600000);
+
+                            $(document).ready(function () {
+                                $("#later").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+                                    }
+
+                                })
+                                $("#now").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+
+                                        let current = window.location.href.toString();
+                                        current = "../SsoLogin/Home?statepage="+current;
+                                        window.location.href = current;
+                                    }
+                                })
+                            })
+
+                            //產生目前頁面網址，回傳
+                            var current = window.location.href.toString();
+                            $('#url').val(current);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="Keyword" value="閥" />
+<input type="hidden" id="Order" value="relevance" />
+<input type="hidden" id="Category" value="" />
+<input type="hidden" id="Source" value="withPrimary,withEOL,withMH,withConcise,withIdiom,withJunior,withRevised" />
+<input type="hidden" id="Size" value="100" />
+<input type="hidden" id="Token" />
+<div class="container">
+    <div id="wordListFilter" style="padding-bottom: 170px;">
+        <div>
+            <span id="wordListFilter_title">縮小搜尋結果範圍</span><span id="extend" class="glyphicon glyphicon-circle-arrow-down" style="padding-left: 5px;"> </span>
+        </div>
+        <div id="advanced" style="margin-top: 20px;">
+            <div>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 16px;"><label><input id="btnSelectAllArea" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 725px;"><label><input id="btnSelectAllMedia" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline" id="n-head1">．適用年級</p>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline; margin-left: 680px;" id="n-head2">．媒體形式</p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head1">．適用年級</p>
+                <br>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 20px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox1">
+                            <input class="cb" name="cballPrimary" type="checkbox" id="inlineCheckbox1" value="withPrimary" style="zoom: 1.2; font-size: 40px" />低年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox1" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox2">
+                            <input class="cb" type="checkbox" id="inlineCheckbox2" name="choose_Primary" value="withEOL" /> 國語小辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox3">
+                            <input class="cb" name="cballMH" type="checkbox" id="inlineCheckbox3" value="withMH" style="zoom: 1.2; font-size: 40px" /> 中高年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox3" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox4">
+                            <input class="cb" type="checkbox" id="inlineCheckbox4" name="choose_MH" value="withConcise"> 教育部辭典簡編本
+                        </label>
+                    </label>
+                    <label id="checkbox4" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox5">
+                            <input class="cb" type="checkbox" id="inlineCheckbox5" name="choose_MH" value="withMinnan"> 教育部閩南語辭典
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox5" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox6">
+                            <input class="cb" type="checkbox" id="inlineCheckbox6" name="choose_MH" value="withIdiom"> 教育部成語典
+                        </label>
+                    </label>
+                    <label id="checkbox6" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox7">
+                            <input class="cb" type="checkbox" id="inlineCheckbox7" name="choose_MH" value="withTaieol"> 中研院台灣生命大百科
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox7" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox8">
+                            <input class="cb" type="checkbox" id="inlineCheckbox8" name="choose_MH" value="withHakka"> 教育部客家語辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label id="checkbox8" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox9">
+                            <input class="cb" name="cballJunior" type="checkbox" value="withJunior" id="inlineCheckbox9" style="zoom: 1.2;"> 國中以上
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox9" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox10">
+                            <input class="cb" type="checkbox" id="inlineCheckbox10" name="choose_Junior" value="withRevised"> 教育部辭典修訂本書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox10" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox11">
+                            <input class="cb" type="checkbox" id="inlineCheckbox11" name="choose_Junior" value="withNMNS"> 自然科學博物館
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox11" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox12">
+                            <input class="cb" type="checkbox" id="inlineCheckbox12" name="choose_Junior" value="withGlossary"> 教育部國教院辭書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox12" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox13">
+                            <input class="cb" type="checkbox" id="inlineCheckbox13" name="choose_Junior" value="withEduWiki"> 教育 Wiki
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox13" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox14">
+                            <input class="cb" type="checkbox" id="inlineCheckbox14" name="choose_Junior" value="withFineart"> 視覺素養學習網
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox14" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox15">
+                            <input class="cb" type="checkbox" id="inlineCheckbox15" name="choose_Junior" value="withDeepsea"> 海洋生物百科
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withNpm"> 國立故宮博物院典藏精選
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withMusiciantw"> 臺灣音樂群像資料庫
+                        </label>
+                    </label>
+					<br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withTaiwanmusic"> 傳統民族樂器資料庫
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head2">．媒體形式</p>
+
+                <div class="checkbox, checkbox_rwd" style="margin-left: 60px">
+                    <label id="checkbox16" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox16">
+                            <input class="cb" type="checkbox" id="inlineCheckbox16" value="withAudio" style="zoom: 1.2;"> 音檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox17" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox17">
+                            <input class="cb" type="checkbox" id="inlineCheckbox17" value="withGraph" style="zoom: 1.2;"> 圖檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox18" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox18">
+                            <input class="cb" type="checkbox" id="inlineCheckbox18" value="withVideo" style="zoom: 1.2;"> 影片
+                        </label>
+                    </label>
+                </div>
+                <div><button id="filter_btn" type="button" class="btn btn-primary btn-sm" style="margin-left: 120px; margin-top: 50px">送出</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchlogo" style="padding-top: 20px; text-align: right">
+        排序方式：
+        <span id="order_title" style="cursor: pointer;">關鍵字</span> |
+        <span id="order_search" style="cursor: pointer;">搜尋次數</span> |
+        <span id="order_relate" style="cursor: pointer;">關聯性</span>
+    </div>
+
+
+        <!--  辭條列表 -->
+        <a style="color:#FFFFFF;" accesskey="R" href="#wordList" title="搜尋結果" id="searchResult-section">:::</a>
+        <span style="font-weight:bold">你是不是要搜尋以下結果</span>
+        <table id="wordList" class="table">
+            <tbody>
+
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="1" href="/Entry/Detail/?title=閥閱&search=閥"><span class="color-important">閥</span>閱</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=閥閱" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_28510">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_28510">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古代貼在門上的功狀，在左的稱為「<span class="color-important">閥</span>」，在右的稱為「閱」。</div>
+                            <div class="wordDefination">借指巨室世家。《幼學瓊林．卷三．宮室類》：「貴族稱為<span class="color-important">閥</span>閱，朱門乃豪之第。」也作「伐閱」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="2" href="/Entry/Detail/?title=軍閥&search=閥">軍<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=軍閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_49941">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_49941">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">泛指以武力割據地盤，把持政權，對抗政府，而握有雄厚勢力、自成一派的軍人。如民國初年的段祺瑞、吳佩孚、張作霖等。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="3" href="/Entry/Detail/?title=名閥&search=閥">名<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=名閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_1654">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_1654">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">有名望的門第。《新唐書．卷一六三．柳公綽傳》：「東都仁和里裴尚書寬子孫眾盛，實為名<span class="color-important">閥</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="4" href="/Entry/Detail/?title=武則天&search=閥">武則天</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=武則天" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73526">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73526">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">央集權，社會安定，經濟發展，上承“貞觀之治”，下啟“開元盛世”，革除時弊，發展生產，完善科舉，破除門<span class="color-important"><span class="color-important">閥</span></span>觀念，不拘一格任用賢才，順應歷史潮流，大刀闊斧改革的歷史功績相比，難以同日而語。歷史功績，昭昭於世。誠如宋慶齡對她的誠懇評價：武則天是“封建時代傑出的女政治家”。她的歷史功過，恰如她給自己立下的那塊“無字碑”一樣，只能由歷史去作出評論和判斷。 參考資料http://www.chiculture.net/php/frame.php?id=/cnsweb/html/0109http://zh.wikipedia.org/wi...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="5" href="/Entry/Detail/?title=閥&search=閥"><span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_28509">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_28509">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">功績、功勞。《新唐書．卷一三三．張守珪傳》：「（獻誠）子煦，積<span class="color-important">閥</span>亦至夏州節度使。」</div>
+                            <div class="wordDefination">家世地位、門第。如：「名<span class="color-important">閥</span>」、「世<span class="color-important">閥</span>」。《新唐書．卷一六三．柳公綽傳》：「子孫眾盛，實為名<span class="color-important">閥</span>。」</div>
+                            <div class="wordDefination">引申為擁有某種支配力量或勢力的人物或家族。如：「財<span class="color-important">閥</span>」、「學<span class="color-important">閥</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="6" href="/Entry/Detail/?title=制水閥&search=閥">制水<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=制水閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_133678">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_133678">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">在水道管線中為中斷水流或調節流量所裝設的控制<span class="color-important">閥</span>。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="7" href="/Entry/Detail/?title=財閥&search=閥">財<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=財閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_103024">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_103024">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">在金融、工商界具有壟斷或鉅大經濟勢力的人物或團體。如：「財<span class="color-important">閥</span>富商實應富而好禮，出錢出力，護持中華文化。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="8" href="/Entry/Detail/?title=北洋軍閥&search=閥">北洋軍<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北洋軍閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55997">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55997">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">甲午戰後，湘淮軍皆潰，清廷別創新軍，命袁世凱於天津附近小站練兵，是為北洋軍的由來。民國六年（西元1917）袁死，分為二派。直系以馮國璋為首，皖系以段祺瑞為首，爭權奪利，戰亂無已，時稱為「北洋軍<span class="color-important">閥</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="9" href="/Entry/Detail/?title=門閥&search=閥">門<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=門閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_26719">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_26719">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">家族的社會地位及聲望。《新唐書．卷一八二．鄭肅傳》：「仁表累擢起居郎，嘗以門<span class="color-important">閥</span>文章自高。」《初刻拍案驚奇》卷五：「如此小娘子，該配此才郎！況且年貌相等，門<span class="color-important">閥</span>相當。」也作「門楣」、「門第」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="10" href="/Entry/Detail/?title=閘閥&search=閥">閘<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=閘閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_120177">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_120177">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">利用圓形閘門的滑動來調節或中斷水流的制水<span class="color-important">閥</span>。自來水管線中最為常用。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="11" href="/Entry/Detail/?title=學閥&search=閥">學<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=學閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_158594">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_158594">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">譏稱以勢力把持學術界或教育機關的少數人。如：「自從學術機構的主管採任期制後，已難有學<span class="color-important">閥</span>的把持。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="12" href="/Entry/Detail/?title=黨閥&search=閥">黨<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=黨閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_52371">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_52371">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">政黨內專橫跋扈，操縱大權、自立宗派的頭目。如：「一個有組織、有作為的政黨，絕不容許黨<span class="color-important">閥</span>從中破壞操縱。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="13" href="/Entry/Detail/?title=空氣閥&search=閥">空氣<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=空氣閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_138685">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_138685">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">裝設於壓力水管高處的裝置，為使管線內的空氣排出避免壓力波動，或在管線洩水時，便利管外空氣吸入，避免管內產生過大負壓。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="14" href="/Entry/Detail/?title=官閥&search=閥">官<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=官閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_161416">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_161416">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">官爵門第。《聊齋志異．卷一．嬌娜》：「生以居單第，意為第主，即亦不審官<span class="color-important">閥</span>。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="15" href="/Entry/Detail/?title=安全閥&search=閥">安全<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=安全閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_159732">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_159732">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">水管水壓超過規定時，可自動排水以策安全的水<span class="color-important">閥</span>。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="16" href="/Entry/Detail/?title=排泥閥&search=閥">排泥<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=排泥閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_64536">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_64536">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">導送管線或配水系統於低凹處所設控制排水、排泥或沖洗的<span class="color-important">閥</span>。也稱為「沖洗<span class="color-important">閥</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="17" href="/Entry/Detail/?title=婚閥&search=閥">婚<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=婚閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_136168">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_136168">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">與顯貴人家締結婚姻。《舊唐書．卷一五一．王鍔傳》：「鍔附太原王翃為從子，以婚<span class="color-important">閥</span>自炫。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="18" href="/Entry/Detail/?title=減壓閥&search=閥">減壓<span class="color-important">閥</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=減壓閥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_131658">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_131658">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">減壓<span class="color-important">閥</span>是將進口壓力經過調節，減至某一需要的出口壓力的<span class="color-important">閥</span>門。例如高樓建築之低樓層用戶，因水壓過高，須裝設減壓<span class="color-important">閥</span>，使之變為較低之正常水壓。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="19" href="/Entry/Detail/?title=兩小無猜&search=閥">兩小無猜</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=兩小無猜" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_24466">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_24466">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">01.元．陳櫟〈賀汪溪金清父孫成婚啟〉：「自延陵之華<span class="color-important">閥</span>，兩小無猜；配滄洲之聞孫，二美允合。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="20" href="/Entry/Detail/?title=失之交臂&search=閥">失之交臂</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=失之交臂" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_78750">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_78750">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">02.清．梁啟超〈民國初年之幣制改革〉：「但是此時軍<span class="color-important">閥</span>們正無錢用，見有此存蓄，都想染指，所以百計破壞，將磅盈提用，這個千載一時的機會，便失之交臂。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="21" href="/Entry/Detail/?title=巧取豪奪&search=閥">巧取豪奪</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=巧取豪奪" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_32331">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_32331">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">用巧妙的手段騙取，或倚仗權勢強行奪取。多用以形容不擇手段的奪取權､財。如：軍<span class="color-important">閥</span>給人的印象，似乎多是巧取豪奪，不可一世。亦作巧偷豪奪。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="22" href="/Entry/Detail/?title=喇叭&search=閥">喇叭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=喇叭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_27045">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_27045">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">1.樂器名。屬吹奏樂器。多為銅製。上端小，身細長而漸大，尾端圓敞。軍中多用來傳達命令。可分為法國號、小號、中音號、低音號、長號等。【例】十九世紀時，有人利用<span class="color-important">閥</span>的特殊裝置來改變喇叭管身的長度，使其音色和性能日趨完美。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="23" href="/Entry/Detail/?title=門當戶對&search=閥">門當戶對</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=門當戶對" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_26673">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_26673">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">對」。見「門當戶對」條。	01.明．朱權《荊釵記．第四三齣》：「他八兩，你半斤，彼此為官居上品，論<span class="color-important">閥</span>閱戶對門當，真個好段姻緣。」	02.明．王玉峰《焚香記．第五齣》：「第三件，若少有不尷不尬，再尋箇戶對門當，不要怪我。」　參考詞語︰當門對戶注音︰ㄉㄤ　ㄇㄣˊ　ㄉㄨㄟˋ　ㄏㄨˋ漢語拼音︰dāng mén duì hù釋義︰即「門當戶對」。見「門當戶對」條。	01.《二刻拍案驚奇．卷六》：「金家兒子雖然聰明俊秀，卻是家道貧窮，豈是我家當門對戶！」　參考詞語︰對門當戶注音︰ㄉㄨㄟˋ　ㄇㄣˊ　ㄉㄤ　ㄏㄨˋ漢語拼音︰duì mén dāng hù釋義︰即「門當戶對」。見「門當戶對」條。	01.清...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="24" href="/Entry/Detail/?title=相當&search=閥">相當</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=相當" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_53244">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_53244">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">適宜、合適。如：「這工作還沒找到相當的人。」《三國演義》第五四回：「權曰：『年紀恐不相當。』」</div>
+                            <div class="wordDefination">雙方差不多。如：「旗鼓相當」。《儒林外史》第一一回：「門戶又相稱，才貌又相當，真是個『才子佳人，一雙兩好。』」</div>
+                            <div class="wordDefination">等於。如：「一公斤相當於二點二磅。」</div>
+                            <div class="wordDefination">達到某一程度、表示程度較高。如：「她才高一，英文卻講得相當好。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="25" href="/Entry/Detail/?title=呂布&search=閥">呂布</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=呂布" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_71836">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_71836">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">允的義女，及後更成為呂布之妻。董卓死後6個月，舊部攻入京城。呂布攜妻倉皇出逃。呂布出京後曾先後投靠軍<span class="color-important"><span class="color-important">閥</span></span>袁術、袁紹、張楊、張邈、劉備等。與當時的另一大軍<span class="color-important"><span class="color-important">閥</span></span>曹操多次作戰，由於呂布的驍勇善戰，數次打敗曹操。漢建安三年，曹操部隊攻打呂布的根據地—小沛，由於呂布剛腹自用，不聽謀士陳宮的建議，導致部下侯成、宋憲、魏續反叛，呂布被曹操擒殺於白門樓下。臨行刑前，呂布請求曹操留用而免死，劉備卻提醒曹操呂布為人無信，多次背叛。最後曹操還是將呂布處死。 流傳故事民間流傳...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="26" href="/Entry/Detail/?title=體罰&search=閥">體罰</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=體罰" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_50367">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_50367">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">股）在部隊裡曾經非常普遍，當時被稱為「肉刑」（係體罰的同意詞）。沈從文的《從文自傳》裡提到當年他在軍<span class="color-important"><span class="color-important">閥</span></span>部隊吃糧當兵的時候，上級就警告：「胡來亂為的，要打屁股。」沈從文所在的部隊「不作興挨打」，較常被打屁股只有伙夫，處罰的時候要脫褲子，露出屁股，打在光屁股上。肉刑也曾經是蘇區（1度成立中華蘇維埃共和國）紅軍的例行處罰方式。毛澤東在江西革命的時候，便非常關注這個問題，寫了〈廢止肉刑問題〉這篇著作（收在8卷本《毛澤東文集》第1卷）。毛澤東在這篇著作裡明白提出了肉刑發生的許多影響：「發現過3次自殺事件(排長1士兵2)」、「凡打人...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="27" href="/Entry/Detail/?title=門楣&search=閥">門楣</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=門楣" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_26650">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_26650">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">家族的社會地位及聲望。《初刻拍案驚奇》卷四：「我非宦家之女，門楣不對，他日必有悔，只可做妾。」《紅樓夢》第二回：「榮國府賈府中，可也不沾辱了先生的門楣了。」也作「門<span class="color-important">閥</span>」、「門第」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="28" href="/Entry/Detail/?title=土皇帝&search=閥">土皇帝</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=土皇帝" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_56519">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_56519">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">盤據一方的軍<span class="color-important">閥</span>或土豪劣紳等大惡霸。如：「他在地方上作威作福、橫行霸道，簡直就是一個土皇帝。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="29" href="/Entry/Detail/?title=地震&search=閥">地震</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=地震" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_58133">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_58133">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">：居家‧家中應準備救急箱及滅火器，並告知家人所儲放的地方，了解使用方法。‧知道瓦斯、自來水及電源安全<span class="color-important"><span class="color-important">閥</span></span>如何開關。‧家中高懸的物品應綁牢，櫥櫃門閂宜鎖緊。‧重物不要置於高架上，栓牢笨重家具。‧事先找好家中安全避難處。學校‧教師（尤其是中、小學校）應經常在課堂宣導防震常識並教導學生避難事宜，舉行防震演習。‧教室的照明燈具、實驗室的櫥櫃及圖書館的書架應加以固定。辦公室及公共場所‧經常檢驗防火和消防設備。‧規劃有關緊急計畫，並分別告知緊急情況時各人的任務以及應採取的行動。 2.當地震來時:室內‧保持鎮定並迅速關閉電源、瓦斯、自來...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="30" href="/Entry/Detail/?title=規行矩步&search=閥">規行矩步</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=規行矩步" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_80529">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_80529">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">比喻墨守成規，不知變通。《晉書．卷五五．張載傳》：「今士循常習故，規行矩步，積階級，累<span class="color-important">閥</span>閱，碌碌然以取世資。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="31" href="/Entry/Detail/?title=門第&search=閥">門第</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=門第" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_26685">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_26685">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">家族的社會地位及聲望。《西遊記》第二七回：「生了奴奴，欲扳門第，配嫁他人。」《紅樓夢》第二五回：「你瞧瞧，人物兒、門第配不上？根基配不上？家私配不上？」也作「門楣」、「門<span class="color-important">閥</span>」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="32" href="/Entry/Detail/?title=北伐&search=閥">北伐</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北伐" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55899">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55899">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">民國十五年，國民革命軍北進，討伐北洋軍<span class="color-important">閥</span>，至十七年統一全國，史稱為「北伐」。如：「北伐時期，軍民一心，國民革命軍終於獲得勝利。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="33" href="/Entry/Detail/?title=割據&search=閥">割據</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=割據" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_42892">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_42892">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">分割占據一方土地，形成分裂的局面。【例】民國初年由於軍<span class="color-important">閥</span>割據，國家陷於分裂而無法統一。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="34" href="/Entry/Detail/?title=世族&search=閥">世族</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=世族" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_71160">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_71160">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">定義世族指的是世代為官的名門望族，又稱門第、衣冠、門<span class="color-important"><span class="color-important">閥</span></span>、士族、勢族、世家、巨室等。目錄1 起源2 結構3 影響4 關鍵字5 參考資料 起源世族的基底源自於漢代的田莊。田地裡可以看到大麥、小麥，或大米、小米、大豆、小豆等作物，以及各種瓜果蔬菜。農民栽種桑竹桐柏等林木，餵養馬牛豬羊等牲畜，還闢有魚塘。手工業方面有製醬、釀酒、繅絲、織縑等作坊，還能打造農具和兵器，各種產品農閒時送到市場銷售。田莊裡設有學校，幼童學篇章，成童習五經。總之，食、衣、著、行、文化、教育都可以在田莊中解決，不需外求。 結構田莊是生產發達，經濟繁榮的產物...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="35" href="/Entry/Detail/?title=牛李黨爭&search=閥">牛李黨爭</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=牛李黨爭" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_41720">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_41720">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">宦官控制朝政，宰相大臣的晉升每由宦官引薦，而其罷黜往往也源於得罪宦官。但是，大臣官員之間，卻又出現派<span class="color-important"><span class="color-important">閥</span></span>，互相攻擊，形成朋黨之爭。這就是以牛僧孺、李德裕為首，前後延續約四十年的「牛李黨爭」。 牛黨牛黨士大夫多出生於進士，常於文學，風氣較為輕率放浪，詩人杜牧就是牛黨才子，就以喜好酒色聞名。 李黨李黨士大夫多出身於山東舊族，保有門風舊學，特別重視禮法。例如李德裕的父親名吉甫，他從不接見姓周的士子和下僚，因為，「周」字含有一個「吉」字，犯了他的家諱。 鬥爭李德裕主政，認為新及第的進士拜謁做主，並在曲江舉行宴會等都是浮薄的風俗，下...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="36" href="/Entry/Detail/?title=二極體&search=閥">二極體</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=二極體" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_71236">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_71236">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">許電流由單一方向通過（稱為順向偏壓），逆向時阻斷 （稱為逆向偏壓）。因此，二極體可以想成電子版的逆止<span class="color-important"><span class="color-important">閥</span></span>。然而實際上二極體並不會表現出如此完美的開與關的方向性，而是較為複雜的非線性電子特徵——這是由特定類型的二極體技術決定的。二極體使用上除了用做開關的方式之外還有很多其他的功能。早期的二極體包含「貓鬚晶體（"Cat's Whisker" Crystals）」以及真空管(英國稱為「熱游離<span class="color-important"><span class="color-important">閥</span></span>（Thermionic Valves）」)。現今最普遍的二極體大...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="37" href="/Entry/Detail/?title=魯迅&search=閥">魯迅</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=魯迅" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75731">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75731">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">的中篇小說《阿Ｑ正傳》﹐是中國現代文學史上的不朽傑作。1926年8月因支持北京學生愛國運動﹐為北洋軍<span class="color-important"><span class="color-important">閥</span></span>政府所通緝﹐南下到廈門大學任中文系主任。1927年1月﹐到當時的革命中心廣州﹐在中山大學任教務主任。1927年10月到達上海﹐開始與其學生許廣平同居。1929年﹐兒子周海嬰出世。1930年起﹐先後參加中國自由運動大同盟﹑中國左翼作家聯盟和中國民權保障同盟﹐反抗國民黨政府的獨裁統治和政治迫害。1927年到1936年﹐創作了歷史小說集《故事新編》中的大部分作品和大量的雜文﹐收輯在《而已集》﹑《三閒集》﹑《二心集》﹑《南腔北調...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="38" href="/Entry/Detail/?title=學府&search=閥">學府</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=學府" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_63109">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_63109">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">學問淵博的人。《南史．卷六○．列傳．傅昭》：「傅昭博極古今，尤善人物，魏晉以來，官宦簿<span class="color-important">閥</span>，姻通內外，舉而論之，無所遺失，世稱為學府。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="39" href="/Entry/Detail/?title=戶對門當&search=閥">戶對門當</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=戶對門當" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_84075">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_84075">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">雙方門第相當。明．朱權《荊釵記》第四三齣：「彼此為官上品，論<span class="color-important">閥</span>閱戶對門當，真個好段姻緣。」也作「門當戶對」、「當門對戶」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="40" href="/Entry/Detail/?title=老舍&search=閥">老舍</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=老舍" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_74545">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_74545">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">當膾炙人口。舒濟在演講中指出，1899年出生的老舍，成長於大時代動盪時期，清朝的敗亡、民國的成立、軍<span class="color-important"><span class="color-important">閥</span></span>的互相廝殺、日本入侵、國共戰爭，到最後1966年在文化大革命中遭迫害，最終不堪蹂躪，跳湖自盡。 觀點老舍深受五四運動的影響。他說：「『五四』給了我一個新的心靈，也給了我一個新的文學語言。……感謝『五四』，它叫我變成了作家」。1921年起，老舍在北京基督教倫敦會缸瓦市堂的英文夜校學習並參加宗教服務。1922年，接受洗禮。同年，在南開中學的一次講演中他說：「為了民主政治，為了國民的共同福利，我們每個人須負起兩個十字架——耶穌...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="41" href="/Entry/Detail/?title=蹈厲奮發&search=閥">蹈厲奮發</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=蹈厲奮發" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_40156">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_40156">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">精神振奮，行動積極。《民國演義》第一五九回：「當以全國鼎沸之日，吾父老子弟，尤當蹈厲奮發，為民前驅，掃除軍<span class="color-important">閥</span>，實現民治，在此一舉，其各勉旃毋忘。」也作「奮發蹈厲」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="42" href="/Entry/Detail/?title=直系&search=閥">直系</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=直系" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_53010">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_53010">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">民國初年由馮國璋、曹錕、吳佩孚等人所領導的北洋軍<span class="color-important">閥</span>派系之一。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="43" href="/Entry/Detail/?title=相等&search=閥">相等</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=相等" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_53248">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_53248">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">相同。《初刻拍案驚奇》卷五：「如此小娘子該配此才郎！況且年貌相等，門<span class="color-important">閥</span>相當。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="44" href="/Entry/Detail/?title=長征&search=閥">長征</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=長征" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75397">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75397">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">中國共產黨內部軍事路線錯誤，贏得第五次戰役並發動二萬五千里長距離追剿。中央軍追擊紅軍，進入西南各省軍<span class="color-important"><span class="color-important">閥</span></span>地盤，國民政府勢力自此進入雲貴及西川。對此，毛澤東在《中國革命戰爭的戰略問題》中寫到：首先在國民黨軍隊中提出在這個問題上的新意見的是國民黨的柳維垣將軍，後來有戴岳。最後他們的意見被蔣介石採納了。這就是蔣介石廬山軍官訓練團及其在第五次「圍剿」中施行的反動的新軍事原則產生的過程。但於1934年被迫放棄根據地。大約有十萬多人參加前往中國西部邊遠地區的長征，但當到達陝西時僅剩下兩萬多人。他們沿途攻佔了62座城市，翻閱18座高山，...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="45" href="/Entry/Detail/?title=循常習故&search=閥">循常習故</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=循常習故" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_90551">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_90551">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">遵循舊規，習於舊有的作風。指保守因循，不知變通。《後漢書．卷四十九．仲長統傳》：「又中世之選三公也，務於清慤謹慎，循常習故者。」《晉書．卷五十五．張載傳》：「今士循常習故，規行矩步，積階級，累<span class="color-important">閥</span>閱，碌碌然以取世資。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="46" href="/Entry/Detail/?title=右族&search=閥">右族</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=右族" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_167081">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_167081">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">有名望的大姓。《晉書．卷三三．石苞傳》：「歐陽建，字堅石，世為冀方右族。」唐．白居易〈唐故通議大夫和州刺史吳郡張公神道碑銘序〉：「或以人物著，或以<span class="color-important">閥</span>閱稱，迄今為江南右族。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="47" href="/Entry/Detail/?title=有始有卒&search=閥">有始有卒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=有始有卒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_87751">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_87751">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">有開頭，有結尾。比喻做事貫徹到底。《論語．子張》：「有始有卒者，其唯聖人乎！」《清史稿．卷二二五．列傳．額亦都》：「順治十一年，世祖命立碑旌功，親為製文，詳著其戰<span class="color-important">閥</span>，以為『忠勇忘身，有始有卒，開拓疆土，厥積懋焉。』」也作「有始有終」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="48" href="/Entry/Detail/?title=太平天國&search=閥">太平天國</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=太平天國" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_20840">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_20840">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">擴大，如1900年爆發的義和團，東南各省單獨締結了東南互保協定。而如湘軍的私家軍隊，也成為後來地方軍<span class="color-important"><span class="color-important">閥</span></span>起源。（註1） 參考書目註1 徐中約（2001）。中國近代史，頁226-234。香港中文大學出版社</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="49" href="/Entry/Detail/?title=聞一多&search=閥">聞一多</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=聞一多" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_74566">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_74566">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination"> 生平聞一多，生於一八九九年，卒於一九四六年，原名家驊，字友仙，筆名字仙，後更名多。湖北浠水人，現代著名的學者和新詩作家。清華大學畢業後赴美深造，攻讀美術及現代英美詩課程，回中國曾任武漢大學、西南聯合大學系主任、院長等職。由於軍<span class="color-important"><span class="color-important">閥</span></span>混戰，外敵環伺，他和清華留美校友出版大江季刊，揭示人權精神。抗日期間，因參與政治活動，為暴徒刺殺於昆明，死時四十八歲。 觀點他提出「相體裁衣」的理論，主張新詩的格律須以內容精神為依據，並由作者的意匠來加以創造。又主張新詩應具有建築美、繪畫美、音樂美的表現，以和散文區別。在新詩盲目的摸索過程中，他...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="50" href="/Entry/Detail/?title=慈幃&search=閥">慈幃</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=慈幃" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_112806">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_112806">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古時以皇后母儀天下，故稱皇后為「慈幃」。「幃」文獻異文作「闈」。宋．梁燾〈立皇后孟氏制〉：「明揚德<span class="color-important">閥</span>之懿，簡在慈闈之公。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="51" href="/Entry/Detail/?title=上品&search=閥">上品</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=上品" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_130119">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_130119">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">魏晉南北朝時，門<span class="color-important">閥</span>品位最高的世族。《晉書．卷四五．劉毅傳》：「是以上品無寒門，下品無勢族。」《文選．任昉．為蕭揚州薦士表》：「勢門上品，猶當格以清談；英俊下僚，不可限以位貌。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="52" href="/Entry/Detail/?title=門地&search=閥">門地</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=門地" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_118058">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_118058">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">門<span class="color-important">閥</span>及地位。《舊唐書．卷一七六．鄭肅傳》：「仁表文章尤稱俊拔，然恃才傲物，人士薄之。自謂門地、人物、文章具美。」《警世通言．卷二．莊子休鼓盆成大道》：「奴家亦是田宗之女，門地相當。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="53" href="/Entry/Detail/?title=腦袋搬家&search=閥">腦袋搬家</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=腦袋搬家" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_24083">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_24083">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">被殺。如：「軍<span class="color-important">閥</span>時代的獨裁者，總是動不動就要你腦袋搬家。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="54" href="/Entry/Detail/?title=士族&search=閥">士族</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=士族" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_106634">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_106634">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">南北朝重門<span class="color-important">閥</span>，縉紳之家，自成一特殊階級，以別於庶民，稱為「士族」。在政治、經濟各方面皆享有特權。《晉書．卷八○．王羲之傳》：「家世士族，而邁少恬靜，不慕仕進。」《北史．卷三八．裴佗傳》：「河東士族，京官不少，唯此家兄弟，全無鄉音。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="55" href="/Entry/Detail/?title=槍桿子裡出政權&search=閥">槍桿子裡出政權</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=槍桿子裡出政權" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_123369">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_123369">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">利用武裝暴動的方式來謀奪政權。如：「槍桿子裡出政權是違反時代潮流的觀念。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="56" href="/Entry/Detail/?title=豚兒&search=閥">豚兒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=豚兒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_7118">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_7118">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">對人謙稱自己的兒子。《聊齋志異．卷一．青鳳》：「叟呼：『孝兒！』俄少年自外入。叟曰：『此豚兒也。』揖而坐，略審門<span class="color-important">閥</span>。」也作「豚犬」、「小犬」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="57" href="/Entry/Detail/?title=摟財&search=閥">摟財</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=摟財" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_99271">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_99271">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">貪取錢財。如：「軍<span class="color-important">閥</span>到處摟財，全不顧民生疾苦。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="58" href="/Entry/Detail/?title=國民革命軍&search=閥">國民革命軍</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=國民革命軍" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_151149">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_151149">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">民國十三年，中國國民黨主政的廣州國民政府將轄下軍隊改編為國民革命軍，建軍之初以黃埔軍校為培育軍官人才的基地。國民革命軍為國民政府揮軍北伐的主要軍事力量，又稱國民政府軍，簡稱為「國府軍」、「國軍」，十七年完成北伐，統一中國。二十六年，第二次對日戰爭爆發，國民革命軍大幅擴編，抗戰八年，中國雖成為戰勝國，然軍士官兵傷亡亦極為慘重。三十六年，國民革命軍移交由行憲後的中華民國政府管轄，更名為中華民國國軍，簡稱為「國軍」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="59" href="/Entry/Detail/?title=南北和議&search=閥">南北和議</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=南北和議" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_60490">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_60490">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">清宣統三年（西元1911），武昌起義後，革命軍與清廷在上海談判，結果北洋軍<span class="color-important">閥</span>袁世凱趁勢要脅清帝退位，並取得政權。</div>
+                            <div class="wordDefination">民國七年北京政府徐世昌，南方軍政府岑春煊，雙方派人於上海開會議和，但遭到皖系軍<span class="color-important">閥</span>段祺瑞破壞，未能達成協議。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="60" href="/Entry/Detail/?title=賣身投靠&search=閥">賣身投靠</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=賣身投靠" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_15360">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_15360">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">出賣自己的人格，而投靠有權勢的人。如：民國初年，賣身投靠軍<span class="color-important">閥</span>之輩，是知識分子所瞧不起的。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="61" href="/Entry/Detail/?title=槍桿子&search=閥">槍桿子</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=槍桿子" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_31075">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_31075">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">2.泛指軍隊、武力。【例】民國初年，許多軍<span class="color-important">閥</span>靠槍桿子稱霸一方。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="62" href="/Entry/Detail/?title=北洋武備學堂&search=閥">北洋武備學堂</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北洋武備學堂" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55993">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55993">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">清末一所新式陸軍士官學校。光緒十二年（西元1886）由李鴻章於天津創辦，北洋軍<span class="color-important">閥</span>馮國璋、段祺瑞、王士珍、曹錕等均由該校畢業。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="63" href="/Entry/Detail/?title=文虎章&search=閥">文虎章</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=文虎章" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_118786">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_118786">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">民國初年，北洋軍<span class="color-important">閥</span>割據時期的勛章名。圖案作虎形，故稱為「文虎章」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="64" href="/Entry/Detail/?title=族望&search=閥">族望</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=族望" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_123694">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_123694">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">宗族或家族的聲望。《陳書．卷一三．周敷傳》：「迪素無簿<span class="color-important">閥</span>，恐失眾心，倚敷族望，深求交結。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="65" href="/Entry/Detail/?title=賣婚&search=閥">賣婚</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=賣婚" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_15291">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_15291">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">以錢財為目的的婚嫁。《新唐書．卷九五．高儉傳》：「太宗嘗以山東士人尚<span class="color-important">閥</span>閱，後雖衰，子孫猶負世望，嫁娶必多取貲，故人謂之賣昏。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="66" href="/Entry/Detail/?title=截門&search=閥">截門</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=截門" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_132458">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_132458">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種安裝在管道中間的<span class="color-important">閥</span>門，把手多呈環狀，旋緊時，可阻塞管道。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="67" href="/Entry/Detail/?title=美國之音&search=閥">美國之音</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=美國之音" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_64193">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_64193">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">西元一九四二年起美國設立於國外的廣播電臺。起初用來對抗納粹及日本軍<span class="color-important">閥</span>的國際宣傳，目前是美國對國外的國際宣傳。英文縮寫為VOA。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                <!-- 分頁 -->
+                <tr>
+                    <td>
+                                <div id="ask_search"><span><img alt="" src="/Content/img/asksearch.png" /></span>曾經查過此詞彙的人也經常查詢以下字詞：</div>
+                                <div id="ask_list">
+                                            <a href="/Entry/Detail/?title=%e9%96%a4&search=%e9%96%a5">閤</a>
+                                            <a href="/Entry/Detail/?title=%e9%96%a6&search=%e9%96%a5">閦</a>
+                                            <a href="/Entry/Detail/?title=%e8%a6%83&search=%e9%96%a5">覃</a>
+                                            <a href="/Entry/Detail/?title=%e8%91%a9&search=%e9%96%a5">葩</a>
+                                            <a href="/Entry/Detail/?title=%e9%87%a3%e5%90%8d%e6%b2%bd%e8%ad%bd&search=%e9%96%a5">釣名沽譽</a>
+                                            <a href="/Entry/Detail/?title=%e5%85%89%e6%80%aa%e9%99%b8%e9%9b%a2&search=%e9%96%a5">光怪陸離</a>
+                                            <a href="/Entry/Detail/?title=%e8%90%ac%e5%8a%ab%e4%b8%8d%e5%be%a9&search=%e9%96%a5">萬劫不復</a>
+                                </div>
+
+                                <div align="center">
+                                    <a style="color: #FFFFFF;" accesskey="P" href="#paging-section" title="分頁" id="paging-section">:::</a>
+                                    <ul class="floatCenter pagination"><li class="active"><a>1</a></li></ul>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contribute_word_rwd">
+            <hr size="1" style="height:0;border: 0 none;border:1px #322f32 dashed;" />
+            
+            
+
+        </div>
+</div>
+    <script language="javascript" type="text/javascript">
+
+        $(function (){
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var connectstringOut = new Array();
+
+        $('.cb').each(function () {
+            const name = $(this).attr("name");
+            if (location.search.includes($(this).val())) {
+                $(this).prop("checked", true);
+                //否則子filter會disabled
+                if (name == "cballPrimary")
+                    $("input[name='choose_Primary']").prop("disabled", false);
+                if (name == "cballMH")
+                    $("input[name='choose_MH']").prop("disabled", false);
+                if (name == "cballJunior")
+                    $("input[name='choose_Junior']").prop("disabled", false);
+            }
+            if ($(this).prop('checked') === true) {
+                connectstringOut.push($(this).val());
+            }
+        });
+
+        //點擊觸發全選或是全不選
+        //有三個選項的全選：低年級、中高年級、國中以上
+        $('.cb').click(function () {
+            const name = $(this).attr("name");
+            if ($(this).prop("checked")) {
+                connectstringOut.push($(this).val());
+                if (name == "cballPrimary") {
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballMH") {
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballJunior") {
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+            }
+            else {
+                index = connectstringOut.indexOf($(this).val());
+                if (index >= 0) {
+                    connectstringOut.splice(index, 1);
+                }
+                if (name === "cballPrimary")
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballMH")
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballJunior")
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+            }
+        });
+
+        $("#btnSelectAllArea").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", false);
+                $("input[name='choose_MH']").prop("disabled", false);
+                $("input[name='choose_Junior']").prop("disabled", false);
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", "disabled");
+                $("input[name='choose_MH']").prop("disabled", "disabled");
+                $("input[name='choose_Junior']").prop("disabled", "disabled");
+            }
+        });
+
+        $("#btnSelectAllMedia").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+            }
+        });
+
+        let isSelectAllArea = true;
+        let isSelectAllMedia = true;
+
+        $('.cb').each(function () {
+            if ($(this).val() !== "withAudio" &&
+                $(this).val() !== "withGraph" &&
+                $(this).val() !== "withVideo" &&
+                !$(this).prop("checked")) {
+                isSelectAllArea = false;
+            }
+
+            if (($(this).val() === "withAudio" ||
+                $(this).val() === "withGraph" ||
+                $(this).val() === "withVideo") &&
+                !$(this).prop("checked")) {
+                isSelectAllMedia = false;
+            }
+        });
+
+        if (isSelectAllArea) {
+            $("#btnSelectAllArea").prop("checked", "checked");
+        }
+
+        if (isSelectAllMedia) {
+            $("#btnSelectAllMedia").prop("checked", "checked");
+        }
+
+        if (location.href.includes("order=query")) {
+            $('#order_search').css("color", "#c80106");
+            $('#order_relate').css("color", "black");
+            $('#order_title').css("color", "black");
+        }
+        else if (location.href.includes("order=keyword_title")) {
+            $('#order_title').css("color", "#c80106");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "black");
+        } else {
+            $('#order_title').css("color", "black");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "#c80106");
+        }
+
+        $('#filter_btn').click(function () {
+            var strUrl = "/Home/List/1";
+
+            var order = "keyword_title";
+            var orgSearch = "";
+
+            if (location.search.split("order=").length > 1) {
+                order = location.search.split("order=")[1].split("&orgSearch=")[0];
+                orgSearch = location.search.split("order=")[1].split("&orgSearch=")[1];
+            }
+
+            connectstringOut = new Array();
+
+            $('.cb').each(function () {
+                if ($(this).prop('checked')) {
+                    connectstringOut.push($(this).val());
+                }
+            });
+
+            if (order === "query"){
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=query";
+            }
+            else if (order === "keyword_title") {
+                if (orgSearch && orgSearch.length > 0) {
+                    strUrl = "/Home/Search?submitButton=pronounciation&search=" + orgSearch + "&source=" + connectstringOut.join() + "&order=keyword_title&orgSearch=" + orgSearch;
+                } else {
+                    strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=keyword_title";
+                }
+            }
+            else{
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=relevance";
+            }
+
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI(connectstringOut.join()) +"&behavior=B026&URL="+encodeURIComponent(strUrl),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            window.location = strUrl;
+        });
+
+        $("#order_relate").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=relevance";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B027&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_search").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=query";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B028&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_title").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=keyword_title";
+
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B029&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#ask_list a").click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI($(this).text()) +"&behavior=B030&URL="+encodeURIComponent(location.origin + $(this).attr("href")),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        const lstIntWordTitleId = [28510,49941,1654,73526,28509,133678,103024,55997,26719,120177,158594,52371,138685,161416,159732,64536,136168,131658,24466,78750,32331,27045,26673,53244,71836,50367,26650,56519,58133,80529,26685,55899,42892,71160,41720,71236,75731,63109,84075,74545,40156,53010,53248,75397,90551,167081,87751,20840,74566,112806,130119,118058,24083,106634,123369,7118,99271,151149,60490,15360,31075,55993,118786,123694,15291,132458,64193];
+
+        for (let intIndex in lstIntWordTitleId)
+        {
+            $.ajax({
+                url: "/api/WordTitleReviewCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordViewCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            $.ajax({
+                url: "/api/WordBookmarkCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordSaveCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+    });
+
+    var i = 0;
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 768) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#n-head1").css("display", "none");
+            $("#m-head1").css("display", "inline");
+            $("#n-head2").css("display", "none");
+            $("#m-head2").css("display", "inline");
+        }
+        else {
+            $("#m-head1").css("display", "none");
+            $("#n-head1").css("display", "inline");
+            $("#m-head2").css("display", "none");
+            $("#n-head2").css("display", "inline");
+        }
+    });
+
+    $("#extend").click(function () {
+        i = i + 1;
+        if (i % 2 === 1) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".searchResultWord").click(function () {
+            $.ajax({
+                url: "/api/SearchHitApi/?id=" + $("#Token").val() +
+                    "&order=" + encodeURIComponent($("#Order").val()) +
+                    "&category=" + encodeURIComponent($("#Category").val()) +
+                    "&source=" + encodeURIComponent($("#Source").val()) +
+                    "&size=" + encodeURIComponent($("#Size").val()) +
+                    "&keyword=" + encodeURIComponent($("#Keyword").val()) +
+                    "&hitword=" + encodeURIComponent($(this).text()) +
+                    "&pageIndex=" + $(".pagination .active a").text() +
+                    "&hitIndex=" + $(this).attr("index"),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.extension').each(function () {
+            const oldUrl = $(this).attr('href'); // Get current url
+            const newUrl = oldUrl + "&order=keyword_title"; // Create new url
+            $(this).attr("href", newUrl); // Set herf value
+        });
+    });
+</script>
+            <div id="flex_block"></div>
+        </div>
+
+        <footer class="main-footer printhidden">
+            <a href="#Accesskey_Z" id="Accesskey_Z" accesskey="Z" title="下方選單連結區" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="footerblock footer_left">
+                    <a class="footer_link" href="/Home/WebsiteMap">網站導覽</a>
+                    <a class="footer_link" href="/Home/WebsiteIntro">服務簡介</a>
+                    <a class="footer_link" href="/Home/WebsiteContact">聯絡我們</a>
+                    <a class="footer_link" href="/Home/CopyRight">版權聲明</a>
+                    <a class="footer_link" href="/Home/OpenAPI">開放API使用說明</a>
+                    <a class="footer_link" href="/Home/Embed">內嵌搜尋欄位說明</a>
+                    <a class="footer_link" href="/Link/List">相關連結</a>
+                    <a class="footer_link" href="/WebsiteQA/List">常見問題</a>
+                    <a class="footer_link" href="/Home/Privacy">隱私權政策</a>
+
+                </div>
+                <div class="footerblock footer_img footer_right">
+                    <div class="logo_wrap">
+                        <a href="http://cloud.edu.tw/" title="前往教育雲入口網(另開新視窗)" target="_blank">
+                            <img src="/Content/img/footer_logo.png" alt="教育雲">
+                        </a>
+                        <a href="http://www.edu.tw/" title="前往教育部網站(另開新視窗)" target="_blank">
+                            <img src="/Content/img/edu_logo.png" class="edu_logo" alt="教育部">
+                        </a>
+                        <a href="https://www.handicap-free.nat.gov.tw/Applications/Detail?category=20191016081617" title="前往無障礙網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/f60e69ce-4174-4246-8f7a-5f806e5950b6.jpg" border="0" width="88" height="31" alt="通過A檢測等級無障礙網頁檢測">
+                        </a>
+                        <a href="https://www.twca.com.tw/" title="前往臺灣網路認證網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/MINI.gif" alt="臺灣網路認證" />
+                        </a>
+                    </div>
+
+                    <span class="footer_span">本網站內容豐富，雖經審查仍有可能疏漏， <br id="mobile_br"> 若有欠妥之處，請隨時與我們聯絡。</span>
+                    <span class="footer_span">Copyright©2014教育部 <br id="mobile_br">｜系統維運廠商：卡米爾有限公司</span>
+                    <br>
+                    <span class="footer_span">本站建議最佳瀏覽器版本為 <br id="mobile_br"> Chrome 29+、 Edge、 Firefox20+、Internet Explorer 11、及Safari</span>
+                    <br>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- Late Loading library to enhance speed -->
+<script src="/Scripts/cameo/initialize.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.animation.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.mask.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.form.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.browser.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.iframe.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.extend/popover.extend.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/Bootstrap-multiselect.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/easing.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/jquery.ui.totop.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/fileinput.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap-toggle.js"></script>
+<script src="/Scripts/jquery.bxslider.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.min.js"></script>
+<script src="/Scripts/superembed.min.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5928297cad6afe55"></script>
+     -->
+<!-- initialize JS & common JS (初始化及共用的 JS Code)-->
+
+<script src="/Scripts/lightbox.js"></script>
+<script src="/Scripts/lity.js"></script>
+<script type="text/javascript" src="/Scripts/html5_local_stoage.js"></script>
+<script>
+    $(function () {
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+        $('.navbar-brand').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B031&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#cloud').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B032&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        //Index rule(for example):original url + Bopomofo/Index/
+
+        $('#index_menu').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B033&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_category').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B034&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_character').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B035&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_withTaieol').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B036&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#submission').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B037&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#word_list').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B038&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.login_rigister').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B039&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    });
+</script>
+<noscript>您的瀏覽器不支援javascript</noscript>

@@ -1,0 +1,3541 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant-TW">
+<head>
+    <meta property="og:title" content="教育百科 | 教育雲線上字典" />
+    <title>郝 搜尋結果 - 教育百科 | 教育雲線上字典</title>
+    <link rel="icon" href="/Content/Images/icon/favicon.ico">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="教育百科,教育,edu, 辭典,字典,成語,教育部,同義詞,造句" />
+    <meta name="description" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="subject" content="教育部教育雲計畫教育百科" />
+    <meta name="copyright" content="卡米爾股份有限公司" />
+    <meta name="language" content="zh-TW" />
+    <meta name="abstract" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="topic" content="教育部教育雲計畫教育百科" />
+    <meta name="summary" content="教育百科為「教育雲」下專為教師與學生提供之跨知識庫檢索平臺，是線上字典，提供多元成語、字詞、同義詞、注音、解釋、造句、發音等各類型知識檢索" />
+    <meta name="author" content="教育部,卡米爾" />
+    <meta name="owner" content="教育部" />
+    <meta name="subtitle" content="教育雲端應用及平臺服務計畫" />
+    <meta charset="UTF-8" />
+
+    <link href="/Content/CSS/bootstrap.css?version=-710204471" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_common.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/customize_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap.lib/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/bootstrap-toggle.css" rel="stylesheet">
+    <link href="/Content/CSS/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.lib/ui.totop.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/lightbox.css" rel="stylesheet">
+    <link href="/Content/CSS/lity.css" rel="stylesheet">
+    <link href="/Content/CSS/fixed.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/index.css?version=541356109" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/style.css?version=1852324458" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search.css?version=651332762" rel="stylesheet" type="text/css" />
+    <link href="/Content/CSS/search_result.css?version=-787154487" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/Content/CSS/pdx.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .cookie_login {
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .header_mobile {
+                display: inline-block !important;
+            }
+
+            .cookie_register {
+                padding-left: 0px !important;
+            }
+        }
+
+        a:focus img {
+            border: 5px solid #900;
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+
+        a:focus {
+            background-color: rgba(249, 241, 155, 0.5);
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js" integrity="sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <noscript>您的瀏覽器不支援javascript</noscript>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-58889268-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script type="text/javascript">
+        var isLogin = false;
+
+        function addCookie() {
+            document.cookie = "lasturl=" + location.href + "; path=/";
+        }
+        function delCookie() {
+            document.cookie = "lasturl=; path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        $(document).ready(function () {
+            $(".cookie_login").click(function () {
+                addCookie();
+                var pathname = window.location.pathname; // Returns path only
+                var url      = window.location.href;     // Returns full URL
+                url = url.replace("https://pedia.cloud.edu.tw", "").replace("http://pedia.cloud.edu.tw", "").replace("http://localhost:50026", "");
+                location.href = "/SsoLogin/Home?statepage=" + url;
+            });
+
+            if (isLogin) {
+                var strLastUrl = getCookie("lasturl");
+                if (strLastUrl !== "") {
+                    delCookie();
+                    location.href = strLastUrl;
+                    return;
+                }
+            } else {
+                delCookie();
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <a href="#mainContent" title="跳到主要內容" tabindex="1" class="sr-only sr-only-focusable">跳到主要內容</a>
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="navbar navbar-inverse navbar-static-top header">
+            <a href="#Accesskey_U" id="Accesskey_U" accesskey="U" alt="教育百科瀏覽選單" title="上方選單連結區，此區塊列有本網站的主要連結" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- 在小 device-compatiple 用的, 勿刪-->
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand" style="margin-top: 0;">
+                        <a href="/">
+                            <img src="/Content/Images/logo/logo_small_white.png" width="100" alt="教育百科logo" />
+                        </a>
+                    </h1>
+                </div>
+
+                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                    <!-- 左邊 -->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a title="網站導覽" tabindex="2" class="dropdown" id="index_sitemap" href="/Home/WebsiteMap">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>網站導覽
+                            </a>
+                        </li>
+                        <li>
+                            <a title="前往教育雲入口網(另開新視窗)" class="dropdown" id="cloud" target="_blank" href="http://cloud.edu.tw/">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>教育雲入口網
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="index_menu" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>索引選單<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="index_category" href="/NavigateWord">分類索引</a></li>
+                                <li><a id="index_character" href="/Bopomofo">單字索引</a></li>
+                                <li><a id="index_withTaieol" href="/NavigateWord/Taieol">生命大百科索引</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown" id="submission" href="/Stroke/Advice">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>投稿區
+                            </a>
+                        </li>
+
+                        <li>
+                            <a title="國語各版本生字詞彙表" class="dropdown" id="word_list" href="/Bookmark/Textword">
+                                <span class="glyphicon glyphicon-bookmark mr10"></span>生字詞彙表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown" id="word_list" href="/NavigateWord">
+                                <font color="#FFFF00"> <span class="glyphicon glyphicon glyphicon-star mr10"></span>新上架資源</font>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 右邊 -->
+                    <ul id="loginSection" class="nav navbar-nav navbar-right" style="margin-right: -40px;">
+
+                            <li class="header_mobile">
+                                <a class="login_rigister" href="/SsoLogin/Home"><span class="glyphicon glyphicon-user mr10"></span>登入會員/註冊</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main-body">
+            <a id="mainContent" title="中間主要內容區 (Alt+C)" accesskey="C" href="#content" style="font-size: 1px;" class="printhidden_inline">:::</a>
+            
+
+<style>
+    .main-body {
+        background-color: #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        outline: none;
+    }
+</style>
+
+<div class="bgGrey-light border-grey-bottom" style="margin-bottom:-1px">
+    <div class="container pt20">
+        <!--  工具列  -->
+        <div class="toolBar">
+            <div class="floatLeft mt10 mb10" style="width:100%!important;">
+
+                <!-- search-->
+                
+
+<form id="frmMain" method="post" action="/Home/Search" class="form-search form-inline">
+    <input name="__RequestVerificationToken" type="hidden" value="o_ZK3ppTy7cNr3-vlBrZC9r_Qz6DTbMb3zso-ZTqK4Vwl5r2xZPP2nEgsFXO9i-jjpqU-IEggd4u_3eGmGOjriDplSjUykTZVccFEli1sNM1" />
+    <input id="hiddenInput" type="hidden" name="search1" />
+    <div class="input-append smallk">
+        <label for="searchInput" class="search-query search-input-rounded-corners-small" style="background: white;">
+            <input value="郝" accesskey="S" id="searchInput" type="text" name="search" placeholder="請輸入生字、詞語或注音" style="font-size: 11pt;width: 80%; border: 0px solid #aaa; border-radius: 4px; outline: none; margin: 3px; padding: 4px; box-sizing: border-box; transition: 0.3s;font-family: 標楷體" />
+            <a id="keyboard-pop-a" href="#search"><img alt="開啟鍵盤圖示" id="keyboard-pop" class="btn-keyboard" src="/Content/img/keyboard.png" /></a>
+        </label>
+        <button type="submit" id="prcisebtn" class="btn btn-primary btn-sm" name="submitButton" value="precise"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>詞條檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="search"><span class="glyphicon glyphicon-search mr10 btn_icon_rwd"></span>全文檢索</button>
+        <button type="submit" class="btn btn-success btn-sm" name="submitButton" value="pronounciation" style="background-color: mediumpurple;border-color: #7700BB;" id="bopomofode"><span class="glyphicon glyphicon-search mr10"></span>音讀檢索</button>
+    </div>
+</form>
+
+<style>
+    tr td:first-child {
+        width: 0;
+    }
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div id="boPoMoFoKeyBoard" class="keyboardmain" style="display: none; width: 450px">
+    <div class="keyboardmenudiv">
+        <a href="#" id="btnOpenPinyin" onclick="OpenPinyin(); return false;">切換漢語拼音鍵盤</a>
+        <a href="#" id="btnOpenBopomo" style="display: none; max-width: 100%" onclick="OpenBopomo(); return false;">切換注音小鍵盤</a> |
+        <a href="#" id="btnClose">關閉</a>
+    </div>
+    <div style="margin-left: 50pt; color: red;">
+        小提醒：<br />
+        輸入完畢後請點選
+        <span style="background-color: #9471DE;border: 1px solid #8524B7 ;color: white; padding: 7px; margin: 0 4px; border-radius: 5px;">
+            <span class="glyphicon glyphicon-search"></span>
+            音讀檢索
+        </span>
+        進行搜尋
+    </div>
+    <div><p></p></div>
+    <div class="keyboardcontentdiv">
+        <div id="boPoMoFoKeyBoard2" align="center">
+            <div class="keyboardtr">
+                <input value="ㄅ" type="button" class="keyboarditem" />
+                <input value="ㄉ" type="button" class="keyboarditem" />
+                <input value="ㄍ" type="button" class="keyboarditem" />
+                <input value="ㄐ" type="button" class="keyboarditem" />
+                <input value="ㄓ" type="button" class="keyboarditem" />
+                <input value="ㄗ" type="button" class="keyboarditem" />
+                <input value="ㄧ" type="button" class="keyboarditem" />
+                <input value="ㄚ" type="button" class="keyboarditem" />
+                <input value="ㄞ" type="button" class="keyboarditem" />
+                <input value="ㄢ" type="button" class="keyboarditem" />
+                <input value="ㄦ" type="button" class="keyboarditem" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄆ" type="button" class="keyboarditem" />
+                <input value="ㄊ" type="button" class="keyboarditem" />
+                <input value="ㄎ" type="button" class="keyboarditem" />
+                <input value="ㄑ" type="button" class="keyboarditem" />
+                <input value="ㄔ" type="button" class="keyboarditem" />
+                <input value="ㄘ" type="button" class="keyboarditem" />
+                <input value="ㄨ" type="button" class="keyboarditem" />
+                <input value="ㄛ" type="button" class="keyboarditem" />
+                <input value="ㄟ" type="button" class="keyboarditem" />
+                <input value="ㄣ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄇ" type="button" class="keyboarditem" />
+                <input value="ㄋ" type="button" class="keyboarditem" />
+                <input value="ㄏ" type="button" class="keyboarditem" />
+                <input value="ㄒ" type="button" class="keyboarditem" />
+                <input value="ㄕ" type="button" class="keyboarditem" />
+                <input value="ㄙ" type="button" class="keyboarditem" />
+                <input value="ㄩ" type="button" class="keyboarditem" />
+                <input value="ㄜ" type="button" class="keyboarditem" />
+                <input value="ㄠ" type="button" class="keyboarditem" />
+                <input value="ㄤ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ㄈ" type="button" class="keyboarditem" />
+                <input value="ㄌ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄖ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+                <input value="ㄝ" type="button" class="keyboarditem" />
+                <input value="ㄡ" type="button" class="keyboarditem" />
+                <input value="ㄥ" type="button" class="keyboarditem" />
+                <input value="　" type="button" class="keyboarditem" style="background-color: #ffffff" disabled="disabled" />
+            </div>
+            <div class="keyboardtr">
+                <input value="ˊ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˇ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="ˋ" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="˙" type="button" class="keyboarditem" style="background-color: #F8F8C0; font-family: 標楷體;" />
+                <input value="一聲/空格" type="button" class="keyboarditem4" style="background-color: #F8F8C0; font-family: 標楷體; width: 33%;" />
+                <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 24%;" />
+            </div>
+        </div>
+        <div id="boPoMoFoKeyBoard3" style="width: 100%; display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 40px;">
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3">聲母</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="b" type="button" class="keyboarditem" realvalue="ㄅ" />
+                                <input value="c" type="button" class="keyboarditem" realvalue="ㄘ" />
+                                <input value="d" type="button" class="keyboarditem" realvalue="ㄉ" />
+                                <input value="f" type="button" class="keyboarditem" realvalue="ㄈ" />
+                                <input value="g" type="button" class="keyboarditem" realvalue="ㄍ" />
+                                <input value="h" type="button" class="keyboarditem" realvalue="ㄏ" />
+                                <input value="j" type="button" class="keyboarditem" realvalue="ㄐ" />
+                                <input value="k" type="button" class="keyboarditem" realvalue="ㄎ" />
+                                <input value="l" type="button" class="keyboarditem" realvalue="ㄌ" />
+                                <input value="m" type="button" class="keyboarditem" realvalue="ㄇ" />
+                                <input value="n" type="button" class="keyboarditem" realvalue="ㄋ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="p" type="button" class="keyboarditem" realvalue="ㄆ" />
+                                <input value="q" type="button" class="keyboarditem" realvalue="ㄑ" />
+                                <input value="r" type="button" class="keyboarditem" realvalue="ㄖ" />
+                                <input value="s" type="button" class="keyboarditem" realvalue="ㄙ" />
+                                <input value="t" type="button" class="keyboarditem" realvalue="ㄊ" />
+                                <input value="w" type="button" class="keyboarditem" realvalue="ㄨ" />
+                                <input value="x" type="button" class="keyboarditem" realvalue="ㄒ" />
+                                <input value="y" type="button" class="keyboarditem" realvalue="ㄧ" />
+                                <input value="z" type="button" class="keyboarditem" realvalue="ㄗ" />
+                                <input value="ch" type="button" class="keyboarditem" realvalue="ㄔ" />
+                                <input value="sh" type="button" class="keyboarditem" realvalue="ㄕ" />
+                                <input value="zh" type="button" class="keyboarditem" realvalue="ㄓ" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="keyboardtr2a">
+                            <div class="keyboarditem3"><br /><br /><br />韻母<br /><br /><br /><br /></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="keyboardtr2b">
+                            <div class="keyboardtr">
+                                <input value="a" type="button" class="keyboarditem1" realvalue="ㄚ" />
+                                <input value="ai" type="button" class="keyboarditem1" realvalue="ㄞ" />
+                                <input value="an" type="button" class="keyboarditem1" realvalue="ㄢ" />
+                                <input value="ang" type="button" class="keyboarditem1" realvalue="ㄤ" />
+                                <input value="ao" type="button" class="keyboarditem1" realvalue="ㄠ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="e" type="button" class="keyboarditem1" realvalue="ㄜ" />
+                                <input value="ê" type="button" class="keyboarditem1" realvalue="ㄝ" />
+                                <input value="ei" type="button" class="keyboarditem1" realvalue="ㄟ" />
+                                <input value="en" type="button" class="keyboarditem1" realvalue="ㄣ" />
+                                <input value="eng" type="button" class="keyboarditem1" realvalue="ㄥ" />
+                                <input value="er" type="button" class="keyboarditem1" realvalue="ㄦ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="i" type="button" class="keyboarditem1" realvalue="" />
+                                <input value="ia" type="button" class="keyboarditem1" realvalue="ㄧㄚ" />
+                                <input value="ian" type="button" class="keyboarditem1" realvalue="ㄧㄢ" />
+                                <input value="iang" type="button" class="keyboarditem1" realvalue="ㄧㄤ" />
+                                <input value="iao" type="button" class="keyboarditem1" realvalue="ㄧㄠ" />
+                                <input value="ie" type="button" class="keyboarditem1" realvalue="ㄧㄝ" />
+                                <input value="in" type="button" class="keyboarditem1" realvalue="ㄧㄣ" />
+                                <input value="ing" type="button" class="keyboarditem1" realvalue="ㄧㄥ" />
+                                <input value="iong" type="button" class="keyboarditem1" realvalue="ㄩㄥ" />
+                                <input value="iu" type="button" class="keyboarditem1" realvalue="ㄧㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="o" type="button" class="keyboarditem1" realvalue="ㄛ" />
+                                <input value="ong" type="button" class="keyboarditem1" realvalue="ㄨㄥ" />
+                                <input value="ou" type="button" class="keyboarditem1" realvalue="ㄡ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="u" type="button" class="keyboarditem1" realvalue="ㄨ" />
+                                <input value="ua" type="button" class="keyboarditem1" realvalue="ㄨㄚ" />
+                                <input value="uai" type="button" class="keyboarditem1" realvalue="ㄨㄞ" />
+                                <input value="uan" type="button" class="keyboarditem1" realvalue="ㄨㄢ" />
+                                <input value="uang" type="button" class="keyboarditem1" realvalue="ㄨㄤ" />
+                                <input value="ue" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ui" type="button" class="keyboarditem1" realvalue="ㄨㄟ" />
+                                <input value="un" type="button" class="keyboarditem1" realvalue="ㄨㄣ" />
+                                <input value="uo" type="button" class="keyboarditem1" realvalue="ㄨㄛ" />
+                            </div>
+                            <div class="keyboardtr">
+                                <input value="ü" type="button" class="keyboarditem1" realvalue="ㄩ" />
+                                <input value="üan" type="button" class="keyboarditem1" realvalue="ㄩㄢ" />
+                                <input value="üe" type="button" class="keyboarditem1" realvalue="ㄩㄝ" />
+                                <input value="ün" type="button" class="keyboarditem1" realvalue="ㄩㄣ" />
+                            </div>
+                        </div>
+                        <div class="keyboardtr">
+                            <input value="一" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="" />
+                            <input value="ˊ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˊ" />
+                            <input value="ˇ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˇ" />
+                            <input value="ˋ" type="button" class="keyboarditem1" style="font-family: 標楷體;" realvalue="ˋ" />
+                            <input value="空白鍵" type="button" class="keyboarditem4" style="font-family: 標楷體; width: 100px;" realvalue=" " />
+                            <input value="重新輸入" type="button" class="keyboarditem2" style="background-color: #F8F8C0; width: 80px;" realvalue="重新輸入" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var $input = undefined;
+    var $hiddenInput = undefined;
+
+    $(function () {
+        $input.autocomplete({
+            delay: 300,
+            minLength: 1,
+            source: function (request, response) {
+                window.$.ajax({
+                    url: "/Home/AutoCompleteQuery?q=" + $input.val(),
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== "") {
+                            response(data.split(","));
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    function OpenBopomo() {
+        window.$("#boPoMoFoKeyBoard2").show();
+        window.$("#boPoMoFoKeyBoard3").hide();
+
+        window.$("#btnOpenPinyin").show();
+        window.$("#btnOpenBopomo").hide();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenPinyin").focus();
+
+        return false;
+    }
+
+    function OpenPinyin() {
+
+        window.$("#boPoMoFoKeyBoard2").hide();
+        window.$("#boPoMoFoKeyBoard3").show();
+
+        window.$("#btnOpenPinyin").hide();
+        window.$("#btnOpenBopomo").show();
+
+        // 為了無障礙加的鍵盤輸入功能
+        // 鍵盤按切換的時候停在這邊
+        window.$("#btnOpenBopomo").focus();
+
+        return false;
+    }
+
+    $("#btnClose").click(function () {
+
+        window.$("#boPoMoFoKeyBoard").hide();
+
+        return false;
+    });
+
+    $("#btnClose").on("keydown",
+        function (e) {
+
+            //避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$("#btnClose").click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val());
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard2").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("mousedown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            UpdateInput(window.$(this).val(), window.$(this).attr("realvalue"));
+
+            $input.focus();
+
+            e.preventDefault();
+
+            return false;
+        });
+
+    $("#boPoMoFoKeyBoard3").find("input").on("keydown",
+        function (e) {
+            if ($input === undefined ||
+                $hiddenInput === undefined) {
+                e.preventDefault();
+
+                return false;
+            }
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            window.$(this).click();
+
+            return false;
+        });
+
+    function UpdateInput(input, realvalue) {
+        if ($input === undefined ||
+            $hiddenInput === undefined) {
+            return;
+        }
+
+        if (input === "重新輸入") {
+            $input.val("");
+
+            $hiddenInput.val("");
+
+            return;
+        }
+
+        switch (input) {
+            case "一聲/空格":
+            case "空白鍵":
+                input = " ";
+                break;
+        }
+
+        const newInput = $input.val() + input;
+
+        $input.val(newInput);
+
+        if (realvalue === undefined || realvalue === null) {
+            $hiddenInput.val($input.val());
+        } else {
+            let newHiddenInput = $hiddenInput.val() + realvalue.toString();
+
+            if (newInput.includes('yi')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄧ', 'ㄧ');
+            }
+            if (newInput.includes('yong')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄨ', 'ㄩ');
+            }
+            if (newInput.includes('wu')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('wong')) {
+                newHiddenInput = newHiddenInput.replace('ㄨㄨ', 'ㄨ');
+            }
+            if (newInput.includes('yü')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+            if (newInput.includes('yu')) {
+                newHiddenInput = newHiddenInput.replace('ㄧㄩ', 'ㄩ');
+            }
+
+            $hiddenInput.val(newHiddenInput);
+        }
+    }
+
+</script>
+
+
+<script>
+
+    $input = $("#searchInput");
+    $hiddenInput = $("#hiddenInput");
+
+    $(function () {
+        const mq = window.matchMedia("(min-width: 480px)");
+        if (mq.matches) {
+            $('[title]').each(function () {
+                const $this = $(this);
+                $this.data('title', $this.attr('title'));
+            });
+        }
+    });
+
+    // 開啟鍵盤
+    $("#keyboard-pop-a").click(function () {
+        OpenBopomo();
+
+        $("#boPoMoFoKeyBoard").show();
+
+        return false;
+    });
+
+    $("#keyboard-pop-a").on("keydown",
+        function (e) {
+
+            // 避開 tab, shift 鍵
+            const code = e.keyCode || e.which;
+
+            if (code === 9 || code === 16) // 9:tab, 16:shift
+            {
+                return false;
+            }
+
+            $("#keyboard-pop-a").click();
+
+            return false;
+        });
+
+</script>
+
+                <!-- 選擇顯示數量 -->
+                <div class="mt5">
+
+
+<div class="searchResult">
+    共 71 筆資料，每頁顯示 100 筆資料
+    <a href="#" data-toggle="modal" data-target="#pickListNumber" class="btn btn-primary btn-xs">變更</a>
+</div>
+
+<div class="pull-left">
+
+    <div class="modal fade" id="pickListNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">請選擇要顯示的數量</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="frmPageSize" action="/Home/list/1?search=&amp;#37085;&amp;amp;source=withPrimary&amp;amp;order=relevance" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="NJNexPrgHQ_4jjk1q4-jXAsmscXTXB_YfWwg222RzIMnh4Bh2xg5cuvkq47t_0xfEMve-_6mS6Nv7LbTHGMQEhtHEx_duCj_Q6fbRnMcBXA1" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">數量</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="size">
+                                    <option value="5">一頁 5 筆</option>
+                                    <option value="10">一頁 10 筆</option>
+                                    <option value="15">一頁 15 筆</option>
+                                    <option value="20">一頁 20 筆</option>
+                                    <option value="25">一頁 25 筆</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="javascript: window.location.href = '/Home/list/1?search=&#37085;&amp;source=withPrimary&amp;order=relevance' + '&size=' + $('select[name=size]').val();">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+                </div>
+                <span class="">
+                        資料庫查詢時間：280.8005 ms
+                </span>
+                <div id="counter" style="display:none"></div>
+            </div>
+
+
+
+            <!--Pop up window content-->
+            <div class="modal fade" id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 style="font-family: Microsoft JhengHei"><b>親愛的使用者您好</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 style="font-family: Microsoft JhengHei"><b>非常感謝您對教育百科的愛戴，為了能提供您更好的服務，請幫忙我們勾選您的身份與年級。現在登入的話就能立即體驗個人化收藏服務喔！</b></h5>
+                            <form id="survey" style="font-family: Microsoft JhengHei">
+                                <input name="__RequestVerificationToken" type="hidden" value="dkIK7JaI90NzekG0V3LyXh-vrBSiLS3ITsSOr8Mb4wmWK4j07n4qchnDGm1kozbrILhntoGWCPdkkPIOKKw4trrNrYN5YjshbbeXKpHhgm01" />
+                                <b>
+                                    <table style="width: 50%">
+                                        <tr>
+                                            <td style="width: 10%">身份:</td>
+                                            <td style="width: 7%"><input data-val="true" data-val-number="欄位 Identity 必須是數字。" id="Teacher" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="1" /><label for="Teacher">教師</label></td>
+                                            <td style="width: 7%"><input id="Student" name="Identity" onclick="ischecked1()" placeholder="identity" type="radio" value="2" /><label for="Student">學生</label></td>
+                                            <td style="width: 15%"><input id="Others" name="Identity" onclick="ischecked2()" placeholder="identity" type="radio" value="3" /><label for="Others">一般民眾</label></td>
+                                        </tr>
+                                    </table>
+                                    <table style="width: 70%">
+                                        <tr>
+                                            <td>年級:</td>
+                                            <td>
+                                                <select data-val="true" data-val-number="欄位 Grade 必須是數字。" id="grade" name="Grade"><option value="-1">請選擇</option>
+<option value="1">一年級</option>
+<option value="2">二年級</option>
+<option value="3">三年級</option>
+<option value="4">四年級</option>
+<option value="5">五年級</option>
+<option value="6">六年級</option>
+<option value="7">七年級</option>
+<option value="8">八年級</option>
+<option value="9">九年級</option>
+<option value="0">無</option>
+</select><p id="dumb" style="color: red; font-size: small">*必填</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </b>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-primary pull-left" data-dismiss="modal" id="now" value="我要登入" style="background-color: #228B22;border-color: #228B22" />
+                            <input type="button" class="btn btn-primary pull-right" data-dismiss="modal" id="later" value="確定" style="width:82px;" />
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                        <script>
+                            //show by counter
+                            //var ischecked = $("#Others").prop('checked');
+                            $('#dumb').fadeOut();
+
+                            //一般民衆，年級選項鎖定
+                            function ischecked2() {
+                                $('#grade').prop('disabled', true);
+                                $('#grade').val('0');
+                            }
+                            //非一般民衆，年級選項解鎖
+                            function ischecked1() {
+                                $('#grade').prop('disabled', false);
+                                $('#grade').val('-1');
+                            }
+
+                            var n = localStorage.getItem('on_load_counter');
+                            if (n === null) {
+                                n = 0;
+                            }
+                            n++;
+                            localStorage.setItem("on_load_counter", n);
+                            document.getElementById('counter').innerHTML = n;
+
+                            $(document).ready(function () {
+                                //if (n == 2) {
+                                //    $('#poplogin').modal('show');
+                                //    localStorage.clear();
+                                //}
+
+                                //localStorage.clear();
+                                var strSearch = decodeURIComponent(window.location.search);
+                                if (strSearch.includes("&orgSearch=")) {
+                                    if (strSearch.includes("&search1=")) {
+                                        var parts = strSearch.replace('orgSearch=', '').replace('search1=', '').split('&');
+                                        strSearch = parts[parts.length - 2];
+                                        $("#searchInput1").val(parts[parts.length - 1]);
+                                    } else {
+                                        var parts = strSearch.replace('orgSearch=', '').split('&');
+                                        strSearch = parts[parts.length - 1];
+                                    }
+                                }
+                                else {
+                                    strSearch = strSearch.replace('?search=', '').split('&')[0];
+                                    if (strSearch.includes("&test=True")) {
+                                        strSearch = strSearch.replace('&test=True', '');
+                                    }
+                                }
+
+                                $('.multiInput').val(strSearch);
+                            });
+
+                            //show by 1 day
+                            //$(document).ready(function () {
+                            //    if ($.cookie('whenToShowDialog') == null) {
+
+                            //        // Create expiring cookie, 1 days from now:
+                            //        $.cookie('whenToShowDialog', 'yes', { expires: 1, path: '/' });
+
+                            //        // Show dialog
+                            //        $('#poplogin').modal('show');
+                            //    }
+                            //});
+
+                            //show by 10 minutes
+
+                            setTimeout(function () {
+                                $('#poplogin').modal('show');
+                            }, 600000);
+
+                            $(document).ready(function () {
+                                $("#later").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+                                    }
+
+                                })
+                                $("#now").click(function () {
+                                    $('#grade').removeAttr('disabled');
+                                    if ($("#grade").val() == -1) {
+                                        $('#dumb').fadeIn();
+                                    }
+                                    else {
+                                        const myformdata = $("#survey").serialize();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/list",
+                                            data: myformdata,
+                                            success: function () {
+                                                $("#poplogin").modal("hide");
+                                            }
+                                        })
+
+                                        let current = window.location.href.toString();
+                                        current = "../SsoLogin/Home?statepage="+current;
+                                        window.location.href = current;
+                                    }
+                                })
+                            })
+
+                            //產生目前頁面網址，回傳
+                            var current = window.location.href.toString();
+                            $('#url').val(current);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="Keyword" value="郝" />
+<input type="hidden" id="Order" value="relevance" />
+<input type="hidden" id="Category" value="" />
+<input type="hidden" id="Source" value="withPrimary,withEOL,withMH,withConcise,withIdiom,withJunior,withRevised" />
+<input type="hidden" id="Size" value="100" />
+<input type="hidden" id="Token" />
+<div class="container">
+    <div id="wordListFilter" style="padding-bottom: 170px;">
+        <div>
+            <span id="wordListFilter_title">縮小搜尋結果範圍</span><span id="extend" class="glyphicon glyphicon-circle-arrow-down" style="padding-left: 5px;"> </span>
+        </div>
+        <div id="advanced" style="margin-top: 20px;">
+            <div>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 16px;"><label><input id="btnSelectAllArea" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+                <p style="font-weight: bold; font-size: 18px; display: inline; margin-left: 725px;"><label><input id="btnSelectAllMedia" type="checkbox" style="zoom: 1.2; font-size: 50px" /> 全選</label></p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline" id="n-head1">．適用年級</p>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: inline; margin-left: 680px;" id="n-head2">．媒體形式</p>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head1">．適用年級</p>
+                <br>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 20px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox1">
+                            <input class="cb" name="cballPrimary" type="checkbox" id="inlineCheckbox1" value="withPrimary" style="zoom: 1.2; font-size: 40px" />低年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox1" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox2">
+                            <input class="cb" type="checkbox" id="inlineCheckbox2" name="choose_Primary" value="withEOL" /> 國語小辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox3">
+                            <input class="cb" name="cballMH" type="checkbox" id="inlineCheckbox3" value="withMH" style="zoom: 1.2; font-size: 40px" /> 中高年級
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox3" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox4">
+                            <input class="cb" type="checkbox" id="inlineCheckbox4" name="choose_MH" value="withConcise"> 教育部辭典簡編本
+                        </label>
+                    </label>
+                    <label id="checkbox4" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox5">
+                            <input class="cb" type="checkbox" id="inlineCheckbox5" name="choose_MH" value="withMinnan"> 教育部閩南語辭典
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox5" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox6">
+                            <input class="cb" type="checkbox" id="inlineCheckbox6" name="choose_MH" value="withIdiom"> 教育部成語典
+                        </label>
+                    </label>
+                    <label id="checkbox6" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox7">
+                            <input class="cb" type="checkbox" id="inlineCheckbox7" name="choose_MH" value="withTaieol"> 中研院台灣生命大百科
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox7" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox8">
+                            <input class="cb" type="checkbox" id="inlineCheckbox8" name="choose_MH" value="withHakka"> 教育部客家語辭典
+                        </label>
+                    </label>
+                </div>
+                <div class="checkbox, checkbox_rwd" style="margin-left: 30px">
+                    <label id="checkbox8" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox9">
+                            <input class="cb" name="cballJunior" type="checkbox" value="withJunior" id="inlineCheckbox9" style="zoom: 1.2;"> 國中以上
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox9" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox10">
+                            <input class="cb" type="checkbox" id="inlineCheckbox10" name="choose_Junior" value="withRevised"> 教育部辭典修訂本書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox10" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox11">
+                            <input class="cb" type="checkbox" id="inlineCheckbox11" name="choose_Junior" value="withNMNS"> 自然科學博物館
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox11" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox12">
+                            <input class="cb" type="checkbox" id="inlineCheckbox12" name="choose_Junior" value="withGlossary"> 教育部國教院辭書
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox12" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox13">
+                            <input class="cb" type="checkbox" id="inlineCheckbox13" name="choose_Junior" value="withEduWiki"> 教育 Wiki
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox13" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox14">
+                            <input class="cb" type="checkbox" id="inlineCheckbox14" name="choose_Junior" value="withFineart"> 視覺素養學習網
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox14" class="checkbox-inline" style="font-size: 16px;">
+                        <label for="inlineCheckbox15">
+                            <input class="cb" type="checkbox" id="inlineCheckbox15" name="choose_Junior" value="withDeepsea"> 海洋生物百科
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withNpm"> 國立故宮博物院典藏精選
+                        </label>
+                    </label>
+                    <br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withMusiciantw"> 臺灣音樂群像資料庫
+                        </label>
+                    </label>
+					<br>
+                    <label class="checkbox-inline" style="font-size: 16px;">
+                        <label>
+                            <input class="cb" type="checkbox" name="choose_Junior" value="withTaiwanmusic"> 傳統民族樂器資料庫
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p style="font-weight: bold; color: #6495ED; font-size: 18px; display: none;" id="m-head2">．媒體形式</p>
+
+                <div class="checkbox, checkbox_rwd" style="margin-left: 60px">
+                    <label id="checkbox16" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox16">
+                            <input class="cb" type="checkbox" id="inlineCheckbox16" value="withAudio" style="zoom: 1.2;"> 音檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox17" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox17">
+                            <input class="cb" type="checkbox" id="inlineCheckbox17" value="withGraph" style="zoom: 1.2;"> 圖檔
+                        </label>
+                    </label>
+                    <br>
+                    <label id="checkbox18" class="checkbox-inline" style="font-size: 16px; font-weight: bold">
+                        <label for="inlineCheckbox18">
+                            <input class="cb" type="checkbox" id="inlineCheckbox18" value="withVideo" style="zoom: 1.2;"> 影片
+                        </label>
+                    </label>
+                </div>
+                <div><button id="filter_btn" type="button" class="btn btn-primary btn-sm" style="margin-left: 120px; margin-top: 50px">送出</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchlogo" style="padding-top: 20px; text-align: right">
+        排序方式：
+        <span id="order_title" style="cursor: pointer;">關鍵字</span> |
+        <span id="order_search" style="cursor: pointer;">搜尋次數</span> |
+        <span id="order_relate" style="cursor: pointer;">關聯性</span>
+    </div>
+
+
+        <!--  辭條列表 -->
+        <a style="color:#FFFFFF;" accesskey="R" href="#wordList" title="搜尋結果" id="searchResult-section">:::</a>
+        <span style="font-weight:bold">你是不是要搜尋以下結果</span>
+        <table id="wordList" class="table">
+            <tbody>
+
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="1" href="/Entry/Detail/?title=惟&search=郝">惟</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=惟" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_14909">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_14909">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">希望、祈使。《孟子．梁惠王下》：「先王無流連之樂，荒亡之行，惟君所行也。」《新唐書．卷一一五．<span class="color-important">郝</span>處俊傳》：「處俊言可從，惟陛下不疑。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="2" href="/Entry/Detail/?title=郝隆晒書&search=郝"><span class="color-important">郝</span>隆晒書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=郝隆晒書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_105849">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_105849">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination"><span class="color-important">郝</span>隆於七月七日袒腹仰臥庭中，自稱晒腹中書。典出南朝宋．劉義慶《世說新語．排調》。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="3" href="/Entry/Detail/?title=郝&search=郝"><span class="color-important">郝</span></a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=郝" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_14851">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_14851">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">姓。如漢代有<span class="color-important">郝</span>賢。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="4" href="/Entry/Detail/?title=不屈不撓&search=郝">不屈不撓</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=不屈不撓" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_35392">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_35392">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">03.元．<span class="color-important">郝</span>徑〈擊蛇笏賦〉：「是仲之以直道詒厥子孫，俾萬世如矢者不屈不撓。拔邪樹正，賞善誅惡，無時而已也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="5" href="/Entry/Detail/?title=不遺餘力&search=郝">不遺餘力</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=不遺餘力" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_36563">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_36563">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">曰：「諾。」虞卿聞之，入見王，王以樓緩言告之。虞卿曰：「此飾說也。」秦既解邯鄲之圍，而趙王入朝，使趙<span class="color-important">郝</span>約事於秦，割六縣而講。王曰：「何謂也？」虞卿曰：「秦之攻趙也，倦而歸乎？王以其力尚能進，愛王而不攻乎？」王曰：「秦1>之攻我也，不遺餘力矣，必以倦而歸也。」虞卿曰：「秦以其力攻其所不能取，倦而歸。王又以其力之所不能攻以資之，是助秦自攻也。來年秦復攻王，王無以救矣。」……因發虞卿東見齊王，與之謀秦。虞卿未反，秦之使者已在趙矣。樓緩聞之，逃去。 〔注解〕	(1) 秦：周孝王封伯益之後於秦。孝公時定都咸陽，得商鞅變法圖強，積極東侵。惠王時重用張儀，以連橫政策離間六國。昭襄王用范雎採遠交近攻之策向東...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="6" href="/Entry/Detail/?title=烏合之眾&search=郝">烏合之眾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=烏合之眾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73756">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73756">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">04.《隋唐演義．第四一回》：「自此三人協力，還有都頭唐萬仞、樊建威二人幫助，殺了長白山賊王薄。平原賊<span class="color-important">郝</span>孝德、孫宜雅、裴長才，雖烏合之眾，亦連兵二十餘萬，虧他們數個英雄并力剿除。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="7" href="/Entry/Detail/?title=飄&search=郝">飄</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=飄" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_13291">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_13291">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">書名。美國作家宓西爾的小說名著《Gone with the Wind》的中文譯名。以美國南北戰爭為背景，透過女主角<span class="color-important">郝</span>思嘉的感情事件，穿插種族間的矛盾糾葛，頗能反映當時社會狀況。西元一九三九年拍成同名電影，中文譯名改為「亂世佳人」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="8" href="/Entry/Detail/?title=山窮水盡&search=郝">山窮水盡</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=山窮水盡" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_76374">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_76374">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">語拼音︰shuǐ jìn shān qióng釋義︰猶「山窮水盡」。見「山窮水盡」條。	01.明．<span class="color-important">郝</span>景春〈寄二子〉詩二首之二：「平生大節自操持，水盡山窮任所之。」　參考詞語︰水窮山盡注音︰ㄕㄨㄟˇ　ㄑㄩㄥˊ　ㄕㄢ　ㄐ｜ㄣˋ漢語拼音︰shuǐ qióng shān jìn釋義︰即「山窮水盡」。見「山窮水盡」條。	01.明．侯峒曾〈陶菴枉和除夕詩疊韻再呈〉詩二首之二：「顧此茫茫集百端，水窮山盡又年殘。」	02.《通俗常言疏證．貧富．水窮山盡》引《殺狗記》：「任你滿帆風使，終有個水窮山盡。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="9" href="/Entry/Detail/?title=鵟&search=郝">鵟</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=鵟" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_23724">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_23724">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">動物名：(1)夢鳥。鳳屬。具五彩羽毛，頭有冠。《玉篇．鳥部》：「鵟，鳥，有冠。」《爾雅．釋鳥》：「狂，夢鳥。」唐．陸德明《經典釋文．卷三○．爾雅音義下》：「鵟，本今作狂。」(2)貓頭鷹。《廣韻．平聲．陽韻》：「鵟，鴟屬。」《爾雅．釋鳥》：「狂，茅鴟。」清．<span class="color-important">郝</span>懿行．義疏：「茅鴟，即今貓兒頭，其頭似貓，大目，有毛角。……，揚州謂之夜貓。善笑，俗人聞其笑聲，云有凶禍也。」(3)一種狀似老鷹的鳥。羽毛褐色，尾部稍淡。常在高空飛翔。以鼠類為食，是田間的益鳥。俗稱為「土豹」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="10" href="/Entry/Detail/?title=呻吟&search=郝">呻吟</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=呻吟" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_101414">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_101414">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">因病痛或哀傷所發出的聲音。《三國演義》第九八回：「時<span class="color-important">郝</span>昭病危。當夜正呻吟之間，忽報蜀軍到城下了。」《紅樓夢》第四七回：「一齊來至馬前，只聽葦中有人呻吟。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="11" href="/Entry/Detail/?title=媾&search=郝">媾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=媾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_48851">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_48851">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">議和、講和。如：「媾和」。《史記．卷七六．平原君虞卿傳》：「秦既解邯鄲圍，而趙王入朝，使趙<span class="color-important">郝</span>約事於秦，割六縣而媾。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="12" href="/Entry/Detail/?title=傾倒&search=郝">傾倒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=傾倒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_12961">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_12961">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">全部倒出，指竭盡所有。宋．洪邁《夷堅志．卷十四．蔡<span class="color-important">郝</span>妻妾》：「其家多貲，悉傾倒以獻，僅得免。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="13" href="/Entry/Detail/?title=艱澀&search=郝">艱澀</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=艱澀" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_42866">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_42866">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">味澀難入口。元．<span class="color-important">郝</span>經〈橄欖〉詩：「齒牙噴艱澀，苦硬不可持。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="14" href="/Entry/Detail/?title=東市&search=郝">東市</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=東市" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_62618">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_62618">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">漢時長安道東西均有市場，處決犯人都在東市，後世遂用以稱刑場。南朝梁．丘遲〈與陳伯之書〉：「夫以慕容超之強，身送東市；姚泓之盛，面縛西都。」元．<span class="color-important">郝</span>經〈青城行〉：「當時築城為郊祀，卻與皇家作東市。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="15" href="/Entry/Detail/?title=泰山壓卵&search=郝">泰山壓卵</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=泰山壓卵" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_16132">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_16132">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">02.《元史．卷一五七．<span class="color-important">郝</span>經列傳》：「力無所用與無力同，勇無所施與不勇同，計不能行與無計同。泰山壓卵之勢，河海濯爇之舉，擁遏頓滯，盤桓而不得進，所謂強弩之末不能射魯縞者也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="16" href="/Entry/Detail/?title=楨&search=郝">楨</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=楨" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_24419">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_24419">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古代築牆時立在兩端的木柱。《爾雅．釋詁下》：「楨，榦也。」清．<span class="color-important">郝</span>懿行．義疏：「舍人曰：『楨，正也。築牆所立兩木也。』」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="17" href="/Entry/Detail/?title=盲人瞎馬&search=郝">盲人瞎馬</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=盲人瞎馬" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_52854">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_52854">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">02.清．毛奇齡《古文尚書冤詞．卷三》：「吾謂吳棫、蔡沈、吳澄、<span class="color-important">郝</span>敬輩，專以文體平險、詞旨厚薄，定時代先後，此真盲人瞎馬之論，大不足道。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="18" href="/Entry/Detail/?title=到底&search=郝">到底</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=到底" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_38651">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_38651">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">究竟。宋．張詠〈寄<span class="color-important">郝</span>太沖〉詩：「新編到底將何用？舊好如今更有誰！」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="19" href="/Entry/Detail/?title=鵂鶹&search=郝">鵂鶹</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=鵂鶹" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75749">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75749">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">：台灣野鳥圖誌152頁，何華仁著，常民文化1996年6月出版。註4：鳥羽，台灣野鳥羽毛圖鑑242頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。相關教學資源(教育部數位教學資源入口網)：https://isp.moe.edu.tw/resources/search_content.jsp?rno=1655315</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="20" href="/Entry/Detail/?title=左傳&search=郝">左傳</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=左傳" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_72533">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_72533">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">四；朱熹認為是楚左史倚相之後朱熹《朱子語錄卷八十三》；項安世認為是魏人所作；程端學認為是偽書。明朝的<span class="color-important"><span class="color-important">郝</span></span>敬認為是晉國人。清朝的紀昀在《四庫全書總目》中卻仍然認為是左丘明所著。劉逢祿《左氏春秋考證》認為是劉歆所作。康有為亦認為是劉歆所作《新學偽經考·漢書藝文志辨偽》。錢穆在《劉向歆父子年表》中指出不可能是劉歆的作品錢穆《劉向歆父子年表》：“劉向卒在成帝綏和元年，劉歆復領五經在二年，爭立古文經博士在哀帝建平元年，去向卒不逾二年，去歆領校五經才數月。謂歆遍偽群經，在向未死之前乎？將向既卒之後乎？向未死之前，歆已遍偽諸經，向何弗知...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="21" href="/Entry/Detail/?title=關羽&search=郝">關羽</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=關羽" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75431">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75431">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">並繪製毘沙門天王旗，以保佑戰爭勝利。至遲宋朝末年，民間供奉關羽的廟宇已經「郡國州縣、鄉邑間井皆有」（<span class="color-important"><span class="color-important">郝</span></span>經《陵川集》）。元代朝廷雖崇信藏傳佛教，但未箝制人民信仰，因此民間對關羽的崇信有增無減，元朝皇帝且曾遣使致祭。明朝，官方崇信的武神為中國的北方真武上帝，甚至以真武上帝的顯靈事蹟，代表明成祖即位的合法性。清以降，供奉關羽的廟宇不僅遍佈中國內地，且延伸至蒙古、西藏、朝鮮半島乃至海外。今日僅在老北京城裡，就有一百多座專供關公或兼供關公的廟宇。因為關羽不僅受到儒家的崇祀，同時又受到道教、佛家的膜拜，所以關羽是橫貫儒家、佛家、道教...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="22" href="/Entry/Detail/?title=爾雅&search=郝">爾雅</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=爾雅" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73792">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73792">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">書名。十九篇。相傳〈釋詁〉一篇，為周公所撰。其他或言為孔子、子夏、叔孫通、梁文所增補。基本上當是由漢初儒者綴輯舊文遞相增益而成，為中國最古訓詁名物的書。前三篇〈釋詁〉、〈釋言〉、〈釋訓〉解釋一般語詞，後十六篇專門解釋各種名物術語。《爾雅》的注釋有晉代郭璞注、宋代邢昺疏、清代邵晉涵的《爾雅正義》、清代<span class="color-important">郝</span>懿行的《爾雅義疏》，皆稱精博。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="23" href="/Entry/Detail/?title=生澀&search=郝">生澀</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=生澀" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_109620">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_109620">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">鈍鏽不利。元．<span class="color-important">郝</span>經〈冤鐍嘆〉詩：「鐵簧生澀深金苔，沴氣纏結埋陰霾。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="24" href="/Entry/Detail/?title=喜鵲&search=郝">喜鵲</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=喜鵲" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_28210">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_28210">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">2：台灣野鳥圖誌26頁，何華仁著，常民文化1996年6月出版。註3：鳥羽，台灣野鳥羽毛圖鑑292頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。註4：東北角野生鳥類195頁，徐兆泉等著，交通部觀光局東北角海岸風景特定區管理處1994年5月發行。相關教學資源(教育部數位教學資源入口網)：https://isp.moe.edu.tw/resources/search_content.jsp?rno=1583249</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="25" href="/Entry/Detail/?title=不留餘力&search=郝">不留餘力</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=不留餘力" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_83542">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_83542">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">曰：「諾。」虞卿聞之，入見王，王以樓緩言告之。虞卿曰：「此飾說也。」秦既解邯鄲之圍，而趙王入朝，使趙<span class="color-important">郝</span>約事於秦，割六縣而講。王曰：「何謂也？」虞卿曰：「秦之攻趙也，倦而歸乎？王以其力尚能進，愛王而不攻乎？」王曰：「秦1>之攻我也，不遺餘力矣，必以倦而歸也。」虞卿曰：「秦以其力攻其所不能取，倦而歸。王又以其力之所不能攻以資之，是助秦自攻也。來年秦復攻王，王無以救矣。」……因發虞卿東見齊王，與之謀秦。虞卿未反，秦之使者已在趙矣。樓緩聞之，逃去。 〔注解〕	(1) 秦：周孝王封伯益之後於秦。孝公時定都咸陽，得商鞅變法圖強，積極東侵。惠王時重用張儀，以連橫政策離間六國。昭襄王用范雎採遠交近攻之策向東...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="26" href="/Entry/Detail/?title=黑面琵鷺&search=郝">黑面琵鷺</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=黑面琵鷺" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_50087">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_50087">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">源207頁，張明財及林燕秋撰文，宜蘭縣政府1996年8月出版。註2：鳥羽，台灣野鳥羽毛圖鑑100頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。註3：台灣野鳥圖誌102頁，何華仁著，常民文化1996年6月出版。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="27" href="/Entry/Detail/?title=娣姒&search=郝">娣姒</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=娣姒" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_37938">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_37938">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">妯娌。《儀禮．喪服》：「《傳》曰：『娣姒婦者，弟長也。』」漢．鄭玄．注：「娣姒婦者，兄弟之妻相名也。長婦謂稚婦為娣婦，娣婦謂長婦為姒婦。」南朝宋．劉義慶《世說新語．賢媛》：「鍾、<span class="color-important">郝</span>為娣姒，雅相親重，鍾不以貴陵<span class="color-important">郝</span>，<span class="color-important">郝</span>亦不以賤下鍾。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="28" href="/Entry/Detail/?title=囋&search=郝">囋</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=囋" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_49654">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_49654">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">言語繁瑣無節制。《荀子．勸學》：「故不問而告謂之傲，問一而告二謂之囋。」王先謙集解引<span class="color-important">郝</span>懿行曰：「囋者，嘈囋謂語聲繁碎也。」宋．可旻〈漁家傲．我佛蓮華隨步踏〉詞：「水鳥樹林皆念法，聲嘈囋，空中零亂天華撒。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="29" href="/Entry/Detail/?title=魚鷹&search=郝">魚鷹</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=魚鷹" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75730">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75730">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">著，交通部觀光局東北角海岸風景特定區管理處1994年5月發行。註4：鳥羽，台灣野鳥羽毛圖鑑138頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="30" href="/Entry/Detail/?title=晒書&search=郝">晒書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=晒書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_135755">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_135755">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">將書籍曝晒於日光下。南朝宋．劉義慶《世說新語．排調》：「<span class="color-important">郝</span>隆七月七日出日中仰臥。人問其故？答曰：『我晒書。』」唐．杜牧〈西山草堂〉詩：「晒書秋日晚，洗藥石泉香。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="31" href="/Entry/Detail/?title=水盡山窮&search=郝">水盡山窮</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=水盡山窮" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_83141">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_83141">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">01.明．<span class="color-important">郝</span>景春〈寄二子〉詩二首之二：「平生大節自操持，水盡山窮任所之。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="32" href="/Entry/Detail/?title=鍾郝儀型&search=郝">鍾<span class="color-important">郝</span>儀型</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=鍾郝儀型" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_89802">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_89802">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">用於哀輓女性喪者通用的輓辭。「鍾<span class="color-important">郝</span>儀型」，形容喪者有鍾<span class="color-important">郝</span>之典型儀範。「鍾<span class="color-important">郝</span>」未知所指何人。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="33" href="/Entry/Detail/?title=朝貢&search=郝">朝貢</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=朝貢" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_152354">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_152354">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">諸侯或屬國定期朝拜天子，進獻地方特產。《後漢書．卷九○．烏桓鮮卑傳．烏桓傳》：「遼西烏桓大人<span class="color-important">郝</span>旦等九百二十二人率眾向化，詣闕朝貢，獻奴婢牛馬及弓虎豹貂皮。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="34" href="/Entry/Detail/?title=鄒衍&search=郝">鄒衍</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=鄒衍" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75312">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75312">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">目錄1 生平2 事蹟3 著作4 評價  生平 鄒衍（約公元前305年--公元前240年）是中國戰國時期陰陽家的代表人物。他是戰國末期齊國人，相傳墓地在今章丘相公庄鎮<span class="color-important"><span class="color-important">郝</span></span>庄。  事蹟 鄒衍是戰國時期陰陽家學派創始人，主要學說是「五德終始說」和「大九州說」，又是稷下學宮著名學者，因他「盡言天事」，當時人們稱他「談天衍」，又稱鄒子。他把春秋戰國時期流行的五行說應用到歷史觀點上，提出「五德始終」的歷史觀，即整個物質世界是由金、木、水、火、土構成的，事物發展變化是通過五行相剋相生來實現的；而人類社會歷史的發展是一種客觀必然，像自然一...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="35" href="/Entry/Detail/?title=提筆&search=郝">提筆</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=提筆" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_68042">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_68042">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">執筆。宋．王禹偁〈送<span class="color-important">郝</span>校書從事相州〉詩：「提筆從戎別帝鄉，官清兼領校書郎。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="36" href="/Entry/Detail/?title=燕鴴&search=郝">燕鴴</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=燕鴴" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_73785">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_73785">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">著，交通部觀光局東北角海岸風景特定區管理處1994年5月發行。註4：鳥羽，台灣野鳥羽毛圖鑑169頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。相關教學資源(教育部數位教學資源入口網)：https://isp.moe.edu.tw/resources/search_content.jsp?rno=1653764</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="37" href="/Entry/Detail/?title=舉業&search=郝">舉業</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=舉業" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_130034">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_130034">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">科舉時代的應試文字。《金史．卷一二六．文藝傳下．元德明傳》：「從陵州<span class="color-important">郝</span>晉卿學，不事舉業，淹貫經傳百家，六年而業成。」《儒林外史》第一三回：「卻也心裡想在學校中，想與幾個考高等的朋友談談舉業。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="38" href="/Entry/Detail/?title=防守&search=郝">防守</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=防守" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_38822">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_38822">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">防護守衛。《三國演義》第一九回：「操大怒，斬<span class="color-important">郝</span>萌於軍門，使人傳諭各寨，小心防守。」《西遊記》第五回：「我等且緊緊防守，飽食一頓，安心睡覺，養養精神。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="39" href="/Entry/Detail/?title=鶉鳥&search=郝">鶉鳥</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=鶉鳥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_118989">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_118989">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">相傳為一種鳳鳥。《山海經．西山經》：「西南四百里，曰昆侖之丘……。有鳥焉，其名曰鶉鳥，是司帝之百服。」清．<span class="color-important">郝</span>懿行．疏：「鶉鳥，鳳也；海內西經云：『昆侖開明西北皆有鳳皇。』此是也。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="40" href="/Entry/Detail/?title=殘喘&search=郝">殘喘</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=殘喘" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_161437">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_161437">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">比喻晚年、餘生。元．<span class="color-important">郝</span>經〈雲夢〉詩：「何時結茅屋，老吟寄殘喘。」《三國演義》第八○回：「朕願將天下禪於魏王，幸留殘喘，以終天年。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="41" href="/Entry/Detail/?title=圖畫書&search=郝">圖畫書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=圖畫書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55838">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55838">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">稱為「繪本」。因來自西方引進便以picture book直譯為「圖畫書」；來自日本則翻譯為「繪本」。<span class="color-important"><span class="color-important">郝</span></span>廣才：「繪本也可說是圖畫書，它是一種用圖畫來說故事的藝術，而且通常是用一組圖畫說一個故事。」（頁11）。楊茂秀在〈繪本詮釋與演奏〉：「繪本者，圖畫故事書也；詮釋者，賦予符號以意義也；演奏者，賦予意義以音樂性之表現也。」（第一版）。 相關文獻1.王淑娟(2003)。兒童圖畫書創造思考教學提升兒童創造力之行動研究。台南師範學院碩士論文。2.幸佳慧(1998)。兒童圖畫故事書的藝術探討。國立成功大學碩士論文。3.吳惠娟(200...</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="42" href="/Entry/Detail/?title=八色鳥&search=郝">八色鳥</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=八色鳥" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_24860">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_24860">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">：台灣野鳥圖誌124頁，何華仁著，常民文化1996年6月出版。註3：鳥羽，台灣野鳥羽毛圖鑑256頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。相關教學資源(教育部數位教學資源入口網)：https://isp.moe.edu.tw/resources/search_content.jsp?rno=1610233</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="43" href="/Entry/Detail/?title=長耳鴞&search=郝">長耳鴞</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=長耳鴞" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_75406">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_75406">0</span></span>
+        </div>
+    </div>
+            <div class="wordDefination">：台灣野鳥圖誌148頁，何華仁著，常民文化1996年6月出版。註4：鳥羽，台灣野鳥羽毛圖鑑214頁，<span class="color-important"><span class="color-important">郝</span></span>偉廉著，商周出版，家庭傳媒城邦分公司2006年2月發行。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="44" href="/Entry/Detail/?title=比目&search=郝">比目</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=比目" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_68330">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_68330">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種魚。即比目魚。因兩目比連於頭部的一側，故用以比喻恩愛夫妻。漢．班固〈西都賦〉：「招白鷴、下雙鵠、揄文竿、出比目。」元．<span class="color-important">郝</span>經〈巴陵女子韓希孟〉詩：「鴛鴦會雙飛，比目願長並。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="45" href="/Entry/Detail/?title=北七真&search=郝">北七真</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=北七真" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_55885">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_55885">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">道教全真道開山的七位祖師。分別為馬鈺、譚處端、劉處玄、丘處機、王處一、<span class="color-important">郝</span>大通、孫不二，都是王重陽的弟子。全真道被視為丹道北宗，即北宗七真。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="46" href="/Entry/Detail/?title=猘&search=郝">猘</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=猘" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_56169">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_56169">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">凶狠、蠻橫。元．<span class="color-important">郝</span>經〈青州山行〉：「初從霸國後，往往逞兇猘。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="47" href="/Entry/Detail/?title=謹嚴&search=郝">謹嚴</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=謹嚴" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_58504">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_58504">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">謹慎細密。唐．韓愈〈進學解〉：「春秋謹嚴，左氏浮誇。」《三國演義》第九七回：「內有一將<span class="color-important">郝</span>超守把，深溝高壘，遍排鹿角，十分謹嚴。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="48" href="/Entry/Detail/?title=山海經&search=郝">山海經</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=山海經" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_100799">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_100799">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">書名。中國古代的地理神話筆記。相傳為伯益所撰，但書中多有夏商地名，應成書於周秦之間。今本十八篇，晉郭璞注，清<span class="color-important">郝</span>懿行箋疏。記述古代傳說中的山川、部族、物產、草木、鳥獸、風俗等，內容多怪誕靈異，保存了不少古代神話傳說及史地材料。初時被列為地理書籍，清《四庫全書》則錄入小說家類。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="49" href="/Entry/Detail/?title=瀝血&search=郝">瀝血</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=瀝血" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_94444">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_94444">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">滴血、流血。元．<span class="color-important">郝</span>經〈趙邈齪伏虎圖行〉：「鐵鬚張磔疑有聲，赤吻瀝血猶帶腥。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="50" href="/Entry/Detail/?title=家去&search=郝">家去</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=家去" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_163275">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_163275">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">回家去。《儒林外史》第一九回：「潘三叫<span class="color-important">郝</span>老二：『跟我家去。』」《紅樓夢》第六三回：「快坐上那船家去罷，別多話了。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="51" href="/Entry/Detail/?title=蓲&search=郝">蓲</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=蓲" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_16229">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_16229">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">植物名：(1)即刺榆。榆科刺榆屬，落葉喬木。樹皮為條狀剝裂，呈灰色。枝條強韌，皮孔隆起顯著，具粗硬棘刺。葉橢圓形，鋸齒緣，脈胳明顯。花雜性，單生或二至四朵簇生葉腋。花被杯狀，四至五裂。小堅果斜卵圓形，背側頂部有狹翅。木材可供製造器具、農具。《山海經．海內南經》：「其實如欒，其大若蓲。」清．<span class="color-important">郝</span>懿行．疏：「蓲，刺榆也。」(2)禾本科芒屬，「荻」之古稱，參見「荻」條。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="52" href="/Entry/Detail/?title=室怒市色&search=郝">室怒市色</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=室怒市色" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_90439">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_90439">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">語本《左傳．昭公十九年》：「彼何罪？諺所謂室于怒，市于色者，楚之謂矣。」和家人生氣，卻以怒色對待市人。比喻遷怒。元．<span class="color-important">郝</span>經〈居庸行〉：「百年一僨老虎走，室怒市色還猖狂。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="53" href="/Entry/Detail/?title=費雯麗（Vivien Leigh）&search=郝">費雯麗（Vivien Leigh）</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=費雯麗（Vivien Leigh）" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_12874">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_12874">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">人名。（西元1913～1967）英國女演員。早年活躍於倫敦舞臺，西元一九三九年前往好萊塢主演亂世佳人一片中的<span class="color-important">郝</span>思嘉角色，而獲得奧斯卡金像獎最佳女主角獎。她不僅以美貌著稱，而且演技精湛。一九六七年死於肺結核。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="54" href="/Entry/Detail/?title=染指垂涎&search=郝">染指垂涎</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=染指垂涎" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_91194">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_91194">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">比喻急欲攫獲非分利益。《元史．卷一五七．<span class="color-important">郝</span>經傳》：「病民諸姦各持兩端，觀望所立，莫不覬覦神器，染指垂涎。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="55" href="/Entry/Detail/?title=亂世佳人&search=郝">亂世佳人</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=亂世佳人" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_139651">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_139651">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">有名的好萊塢電影。片名原名為Gone with The Wind，由美國作家瑪格麗特．宓契爾所寫的小說名著飄改編拍製。故事是以美國南北戰爭為背景，敘述女主角<span class="color-important">郝</span>思嘉在面臨惡劣的大環境時，如何勇敢奮鬥的生命歷程。男女主角為費雯麗及克拉克蓋博。場景偉大、情節動人，被譽為影壇經典之作。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="56" href="/Entry/Detail/?title=土木&search=郝">土木</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=土木" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_56485">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_56485">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">不加文飾。《新唐書．卷一一五．<span class="color-important">郝</span>處俊傳》：「處俊資約素，土木形骸，然臨事敢言，自秉政，在帝前議論諄諄，必傅經文。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="57" href="/Entry/Detail/?title=楰&search=郝">楰</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=楰" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_25406">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_25406">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">古書上記載的一種楸樹。即鼠梓。葉大如桐樹而黑。《爾雅．釋木》：「楰，鼠梓。」清．<span class="color-important">郝</span>懿行．義疏：「今一種楸，大葉如桐葉而黑，山中人謂檟楸。」《詩經．小雅．南山有臺》：「南山有枸，北山有楰。」唐．孔穎達．正義：「楰，鼠梓。……郭璞曰：『楸屬也。』陸璣．疏曰：『其樹葉、木理如楸，山楸之異者，今人謂之苦楸是也。』」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="58" href="/Entry/Detail/?title=他時&search=郝">他時</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=他時" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_50625">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_50625">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">將來、以後。宋．徐鉉〈送<span class="color-important">郝</span>郎中為浙西判官〉詩：「若許他時作閑伴，殷勤為買釣魚船。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="59" href="/Entry/Detail/?title=秦灰&search=郝">秦灰</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=秦灰" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_125899">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_125899">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">秦始皇焚書成灰。元．<span class="color-important">郝</span>經〈秋興〉詩：「六經依舊垂天地，千載秦灰散劫空。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="60" href="/Entry/Detail/?title=續後漢書&search=郝">續後漢書</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=續後漢書" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_140441">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_140441">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">書名：(1)宋蕭常撰。四十七卷。旨在更定陳壽《三國志》中帝魏黜蜀的觀念。義例精審，於諸傳多所增刪移易，取材則不出裴松之注。(2)元<span class="color-important">郝</span>經撰。九十卷。荀宗道注。大旨與蕭書同，所作八錄以補陳壽之闕，則蕭書所未及。論斷多慷慨激昂，有裨世教。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="61" href="/Entry/Detail/?title=有會&search=郝">有會</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=有會" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_150683">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_150683">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">有意味。南朝宋．劉義慶《世說新語．排調》：「桓公目謝而笑曰：『<span class="color-important">郝</span>參軍此過乃不惡，亦極有會。』」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="62" href="/Entry/Detail/?title=百索&search=郝">百索</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=百索" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_45480">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_45480">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">各種需求的物品。《荀子．王制》：「修火憲，養山林藪澤草木魚鱉百索。」清．<span class="color-important">郝</span>懿行．注：「索者、求也。百物供民求索皆是。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="63" href="/Entry/Detail/?title=瑚璉器&search=郝">瑚璉器</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=瑚璉器" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_98988">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_98988">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">比喻如瑚璉之高貴品格，或堪當大任的才能。元．<span class="color-important">郝</span>經〈巴陵女子韓希孟〉詩：「我本瑚璉器，安肯作溺皿。」也作「瑚璉之器」。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="64" href="/Entry/Detail/?title=六經皆史&search=郝">六經皆史</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=六經皆史" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_115880">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_115880">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">《易》、《書》、《詩》、《禮》、《樂》、《春秋》六經，皆應視為古代歷史文獻的一種理論。認為六經乃夏、商、周典章政教的歷史記錄，並非聖人為垂教立言而作。歷代皆有此說，如隋代王通，宋代陳傅良，元代<span class="color-important">郝</span>經，明代宋濂、王守仁、王世貞、李贄，清代袁枚、章學誠、汪中等。見明．王世貞《藝苑卮言》卷一及清．章學誠《文史通義．內篇一．易教上》。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="65" href="/Entry/Detail/?title=蘾&search=郝">蘾</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=蘾" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_39546">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_39546">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">一種水草。《爾雅．釋草》：「蘾，烏蕵。」清．<span class="color-important">郝</span>懿行．疏：「《爾雅》圖作莖歧出，葉如穗，華藥生葉間，在水石側。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="66" href="/Entry/Detail/?title=相機觀變&search=郝">相機觀變</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=相機觀變" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_87417">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_87417">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">等待機會，觀察變化。《東周列國志》第六○回：「元帥屯兵於<span class="color-important">郝</span>山磯，相機觀變，可以萬全。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="67" href="/Entry/Detail/?title=清桿運動&search=郝">清桿運動</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=清桿運動" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_129116">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_129116">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">民國八十一年八月，由行政院長<span class="color-important">郝</span>柏村主導的為期二個月的運動。旨在清除架設在電線桿上的有線電視電纜，讓臺灣的電線桿「恢復青天」。在民國八十二年底有線電視暫行條例通過以前，有線電視的經營一直處於『第四臺』的地下時代，政府屢有取締行動。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="68" href="/Entry/Detail/?title=桂窟&search=郝">桂窟</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=桂窟" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_97132">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_97132">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">相傳月中有桂樹，所以稱月為「桂窟」。元．<span class="color-important">郝</span>經〈三漢北城月榭玩月醉歌〉：「露華漲冷濯桂窟，氛露洗盡豁四旁。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="69" href="/Entry/Detail/?title=非七真&search=郝">非七真</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=非七真" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_61140">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_61140">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">道教全真道創始者王重陽的七大弟子，包括馬鈺、劉處玄、譚處端、丘處機、王處一、<span class="color-important">郝</span>大通、孫不二，元世祖至元六年皆封為真人。</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="70" href="/Entry/Detail/?title=叨沓&search=郝">叨沓</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=叨沓" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_69522">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_69522">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">既貪心又懈怠。《新唐書．卷一七一．列傳．李光進》：「初，田縉鎮夏州，以叨沓開邊隙，故党項引吐蕃圍涇州，<span class="color-important">郝</span>玭力戰破之。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                    <tr>
+                        <td>
+<div class="wordContent">
+    <div class="wordTitleBar">
+        <span class="wordTitle"><a class="searchResultWord" index="71" href="/Entry/Detail/?title=信禽&search=郝">信禽</a></span>
+        <span class="extend" style="display:none"><label class="btn btn-success btn-sm" style="width: 110px; height: 20px;border-radius: 5px; padding-top: 1px"><a style="color: white" href="/Home/list?search=信禽" class="extension">•延伸全文檢索</a></label></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wordRatingCollectCounter">
+            <span class="wordCount color-system"><span class="glyphicon glyphicon-user mr5"></span>瀏覽人次:<span id="spanWordViewCount_165644">0</span></span>
+            <span class="wordCount color-love"><span class="glyphicon glyphicon-heart mr5 ml20"></span>收藏人次:<span id="spanWordSaveCount_165644">0</span></span>
+        </div>
+    </div>
+                            <div class="wordDefination">來去有定時的候鳥。通常指雁而言。元．<span class="color-important">郝</span>經〈雁媒〉詩：「信禽法天運，斷不為炎涼。」</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        var flag = url.includes("test=True");
+        if (flag) {
+            //$(".extend").hide();
+            $(".extend").removeAttr("style");
+        }
+    })
+</script></td>
+                    </tr>
+                <!-- 分頁 -->
+                <tr>
+                    <td>
+                                <div id="ask_search"><span><img alt="" src="/Content/img/asksearch.png" /></span>曾經查過此詞彙的人也經常查詢以下字詞：</div>
+                                <div id="ask_list">
+                                            <a href="/Entry/Detail/?title=%e9%83%9c&search=%e9%83%9d">郜</a>
+                                            <a href="/Entry/Detail/?title=%e9%83%9f&search=%e9%83%9d">郟</a>
+                                            <a href="/Entry/Detail/?title=%e9%83%9d%e9%87%91%e6%96%af%ef%bc%8c%e8%89%be%e7%91%9e%e5%85%8b&search=%e9%83%9d">郝金斯，艾瑞克</a>
+                                            <a href="/Entry/Detail/?title=%e8%b5%a7&search=%e9%83%9d">赧</a>
+                                            <a href="/Entry/Detail/?title=%e8%a6%83&search=%e9%83%9d">覃</a>
+                                            <a href="/Entry/Detail/?title=%e8%91%a9&search=%e9%83%9d">葩</a>
+                                            <a href="/Entry/Detail/?title=%e9%87%a3%e5%90%8d%e6%b2%bd%e8%ad%bd&search=%e9%83%9d">釣名沽譽</a>
+                                            <a href="/Entry/Detail/?title=%e5%85%89%e6%80%aa%e9%99%b8%e9%9b%a2&search=%e9%83%9d">光怪陸離</a>
+                                            <a href="/Entry/Detail/?title=%e8%90%ac%e5%8a%ab%e4%b8%8d%e5%be%a9&search=%e9%83%9d">萬劫不復</a>
+                                </div>
+
+                                <div align="center">
+                                    <a style="color: #FFFFFF;" accesskey="P" href="#paging-section" title="分頁" id="paging-section">:::</a>
+                                    <ul class="floatCenter pagination"><li class="active"><a>1</a></li></ul>
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contribute_word_rwd">
+            <hr size="1" style="height:0;border: 0 none;border:1px #322f32 dashed;" />
+            
+            
+
+        </div>
+</div>
+    <script language="javascript" type="text/javascript">
+
+        $(function (){
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var connectstringOut = new Array();
+
+        $('.cb').each(function () {
+            const name = $(this).attr("name");
+            if (location.search.includes($(this).val())) {
+                $(this).prop("checked", true);
+                //否則子filter會disabled
+                if (name == "cballPrimary")
+                    $("input[name='choose_Primary']").prop("disabled", false);
+                if (name == "cballMH")
+                    $("input[name='choose_MH']").prop("disabled", false);
+                if (name == "cballJunior")
+                    $("input[name='choose_Junior']").prop("disabled", false);
+            }
+            if ($(this).prop('checked') === true) {
+                connectstringOut.push($(this).val());
+            }
+        });
+
+        //點擊觸發全選或是全不選
+        //有三個選項的全選：低年級、中高年級、國中以上
+        $('.cb').click(function () {
+            const name = $(this).attr("name");
+            if ($(this).prop("checked")) {
+                connectstringOut.push($(this).val());
+                if (name == "cballPrimary") {
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballMH") {
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+                if (name == "cballJunior") {
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", true);
+                        $(this).prop("disabled", false);
+                        connectstringOut.push($(this).val());
+                    });
+                }
+            }
+            else {
+                index = connectstringOut.indexOf($(this).val());
+                if (index >= 0) {
+                    connectstringOut.splice(index, 1);
+                }
+                if (name === "cballPrimary")
+                    $("input[name='choose_Primary']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballMH")
+                    $("input[name='choose_MH']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+                if (name === "cballJunior")
+                    $("input[name='choose_Junior']").each(function () {
+                        $(this).prop("checked", false);
+                        //$(this).prop("disabled", true);
+                        index = connectstringOut.indexOf($(this).val());
+                        if (index >= 0) {
+                            connectstringOut.splice(index, 1);
+                        }
+                    });
+            }
+        });
+
+        $("#btnSelectAllArea").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", false);
+                $("input[name='choose_MH']").prop("disabled", false);
+                $("input[name='choose_Junior']").prop("disabled", false);
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() !== "withAudio" &&
+                        $(this).val() !== "withGraph" &&
+                        $(this).val() !== "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+                $("input[name='choose_Primary']").prop("disabled", "disabled");
+                $("input[name='choose_MH']").prop("disabled", "disabled");
+                $("input[name='choose_Junior']").prop("disabled", "disabled");
+            }
+        });
+
+        $("#btnSelectAllMedia").click(function () {
+            if ($(this).prop("checked")) {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", "checked");
+                    }
+                });
+            } else {
+                $('.cb').each(function () {
+                    if ($(this).val() === "withAudio" ||
+                        $(this).val() === "withGraph" ||
+                        $(this).val() === "withVideo") {
+                        $(this).prop("checked", null);
+                    }
+                });
+            }
+        });
+
+        let isSelectAllArea = true;
+        let isSelectAllMedia = true;
+
+        $('.cb').each(function () {
+            if ($(this).val() !== "withAudio" &&
+                $(this).val() !== "withGraph" &&
+                $(this).val() !== "withVideo" &&
+                !$(this).prop("checked")) {
+                isSelectAllArea = false;
+            }
+
+            if (($(this).val() === "withAudio" ||
+                $(this).val() === "withGraph" ||
+                $(this).val() === "withVideo") &&
+                !$(this).prop("checked")) {
+                isSelectAllMedia = false;
+            }
+        });
+
+        if (isSelectAllArea) {
+            $("#btnSelectAllArea").prop("checked", "checked");
+        }
+
+        if (isSelectAllMedia) {
+            $("#btnSelectAllMedia").prop("checked", "checked");
+        }
+
+        if (location.href.includes("order=query")) {
+            $('#order_search').css("color", "#c80106");
+            $('#order_relate').css("color", "black");
+            $('#order_title').css("color", "black");
+        }
+        else if (location.href.includes("order=keyword_title")) {
+            $('#order_title').css("color", "#c80106");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "black");
+        } else {
+            $('#order_title').css("color", "black");
+            $('#order_search').css("color", "black");
+            $('#order_relate').css("color", "#c80106");
+        }
+
+        $('#filter_btn').click(function () {
+            var strUrl = "/Home/List/1";
+
+            var order = "keyword_title";
+            var orgSearch = "";
+
+            if (location.search.split("order=").length > 1) {
+                order = location.search.split("order=")[1].split("&orgSearch=")[0];
+                orgSearch = location.search.split("order=")[1].split("&orgSearch=")[1];
+            }
+
+            connectstringOut = new Array();
+
+            $('.cb').each(function () {
+                if ($(this).prop('checked')) {
+                    connectstringOut.push($(this).val());
+                }
+            });
+
+            if (order === "query"){
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=query";
+            }
+            else if (order === "keyword_title") {
+                if (orgSearch && orgSearch.length > 0) {
+                    strUrl = "/Home/Search?submitButton=pronounciation&search=" + orgSearch + "&source=" + connectstringOut.join() + "&order=keyword_title&orgSearch=" + orgSearch;
+                } else {
+                    strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=keyword_title";
+                }
+            }
+            else{
+                strUrl = strUrl + location.search.split("&")[0] + "&source=" + connectstringOut.join() + "&order=relevance";
+            }
+
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI(connectstringOut.join()) +"&behavior=B026&URL="+encodeURIComponent(strUrl),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            window.location = strUrl;
+        });
+
+        $("#order_relate").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=relevance";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B027&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_search").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=query";
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B028&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#order_title").click(function () {
+            const locationurl = location.href.replace("&"+location.search.split("&")[location.search.split("&").length - 1], "").split("&order=")[0] + "&order=keyword_title";
+
+                $.ajax({
+                    url: "/api/UserBehaviorApi/Index?behavior=B029&URL="+encodeURIComponent(locationurl),
+                    type: "Get",
+                    success: function (msg) {
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+                });
+                window.location = locationurl;
+        });
+
+        $("#ask_list a").click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?content=" + encodeURI($(this).text()) +"&behavior=B030&URL="+encodeURIComponent(location.origin + $(this).attr("href")),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        const lstIntWordTitleId = [14909,105849,14851,35392,36563,73756,13291,76374,23724,101414,48851,12961,42866,62618,16132,24419,52854,38651,75749,72533,75431,73792,109620,28210,83542,50087,37938,49654,75730,135755,83141,89802,152354,75312,68042,73785,130034,38822,118989,161437,55838,24860,75406,68330,55885,56169,58504,100799,94444,163275,16229,90439,12874,91194,139651,56485,25406,50625,125899,140441,150683,45480,98988,115880,39546,87417,129116,97132,61140,69522,165644];
+
+        for (let intIndex in lstIntWordTitleId)
+        {
+            $.ajax({
+                url: "/api/WordTitleReviewCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordViewCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+
+            $.ajax({
+                url: "/api/WordBookmarkCountApi/?intWordTitleId="+lstIntWordTitleId[intIndex],
+                type: "Get",
+                success: function (msg) {
+                    const strSpanId = "#spanWordSaveCount_"+this.url.substring(this.url.lastIndexOf("=") + 1, this.url.length);
+                    $(strSpanId).html(msg);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        }
+    });
+
+    var i = 0;
+    $(document).ready(function () {
+        const width = $(window).width();
+
+        if (width < 768) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    $(window).resize(function () {
+        const width = $(window).width();
+
+        if (width < 1000) {
+            $("#n-head1").css("display", "none");
+            $("#m-head1").css("display", "inline");
+            $("#n-head2").css("display", "none");
+            $("#m-head2").css("display", "inline");
+        }
+        else {
+            $("#m-head1").css("display", "none");
+            $("#n-head1").css("display", "inline");
+            $("#m-head2").css("display", "none");
+            $("#n-head2").css("display", "inline");
+        }
+    });
+
+    $("#extend").click(function () {
+        i = i + 1;
+        if (i % 2 === 1) {
+            $("#advanced").slideUp(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-down");
+        }
+        else {
+            $("#advanced").slideDown(500);
+            $("#extend").attr("class", "glyphicon glyphicon-circle-arrow-up");
+        }
+    });
+
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".searchResultWord").click(function () {
+            $.ajax({
+                url: "/api/SearchHitApi/?id=" + $("#Token").val() +
+                    "&order=" + encodeURIComponent($("#Order").val()) +
+                    "&category=" + encodeURIComponent($("#Category").val()) +
+                    "&source=" + encodeURIComponent($("#Source").val()) +
+                    "&size=" + encodeURIComponent($("#Size").val()) +
+                    "&keyword=" + encodeURIComponent($("#Keyword").val()) +
+                    "&hitword=" + encodeURIComponent($(this).text()) +
+                    "&pageIndex=" + $(".pagination .active a").text() +
+                    "&hitIndex=" + $(this).attr("index"),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.extension').each(function () {
+            const oldUrl = $(this).attr('href'); // Get current url
+            const newUrl = oldUrl + "&order=keyword_title"; // Create new url
+            $(this).attr("href", newUrl); // Set herf value
+        });
+    });
+</script>
+            <div id="flex_block"></div>
+        </div>
+
+        <footer class="main-footer printhidden">
+            <a href="#Accesskey_Z" id="Accesskey_Z" accesskey="Z" title="下方選單連結區" style="font-size: 1px;">:::</a>
+
+            <div class="container">
+
+                <div class="footerblock footer_left">
+                    <a class="footer_link" href="/Home/WebsiteMap">網站導覽</a>
+                    <a class="footer_link" href="/Home/WebsiteIntro">服務簡介</a>
+                    <a class="footer_link" href="/Home/WebsiteContact">聯絡我們</a>
+                    <a class="footer_link" href="/Home/CopyRight">版權聲明</a>
+                    <a class="footer_link" href="/Home/OpenAPI">開放API使用說明</a>
+                    <a class="footer_link" href="/Home/Embed">內嵌搜尋欄位說明</a>
+                    <a class="footer_link" href="/Link/List">相關連結</a>
+                    <a class="footer_link" href="/WebsiteQA/List">常見問題</a>
+                    <a class="footer_link" href="/Home/Privacy">隱私權政策</a>
+
+                </div>
+                <div class="footerblock footer_img footer_right">
+                    <div class="logo_wrap">
+                        <a href="http://cloud.edu.tw/" title="前往教育雲入口網(另開新視窗)" target="_blank">
+                            <img src="/Content/img/footer_logo.png" alt="教育雲">
+                        </a>
+                        <a href="http://www.edu.tw/" title="前往教育部網站(另開新視窗)" target="_blank">
+                            <img src="/Content/img/edu_logo.png" class="edu_logo" alt="教育部">
+                        </a>
+                        <a href="https://www.handicap-free.nat.gov.tw/Applications/Detail?category=20191016081617" title="前往無障礙網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/f60e69ce-4174-4246-8f7a-5f806e5950b6.jpg" border="0" width="88" height="31" alt="通過A檢測等級無障礙網頁檢測">
+                        </a>
+                        <a href="https://www.twca.com.tw/" title="前往臺灣網路認證網站(另開新視窗)" target="_blank">
+                            <img src="/Content/Images/MINI.gif" alt="臺灣網路認證" />
+                        </a>
+                    </div>
+
+                    <span class="footer_span">本網站內容豐富，雖經審查仍有可能疏漏， <br id="mobile_br"> 若有欠妥之處，請隨時與我們聯絡。</span>
+                    <span class="footer_span">Copyright©2014教育部 <br id="mobile_br">｜系統維運廠商：卡米爾有限公司</span>
+                    <br>
+                    <span class="footer_span">本站建議最佳瀏覽器版本為 <br id="mobile_br"> Chrome 29+、 Edge、 Firefox20+、Internet Explorer 11、及Safari</span>
+                    <br>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<!-- Late Loading library to enhance speed -->
+<script src="/Scripts/cameo/initialize.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.animation.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.mask.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.form.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.browser.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jsUtils/jquery.cameo.iframe.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.extend/popover.extend.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/Bootstrap-multiselect.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/easing.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/jquery.lib/jquery.ui.totop.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap.lib/fileinput.js"></script><noscript>您的瀏覽器不支援javascript</noscript>
+<script src="/Scripts/bootstrap-toggle.js"></script>
+<script src="/Scripts/jquery.bxslider.min.js"></script>
+<script src="/Scripts/bootstrap-dialog.min.js"></script>
+<script src="/Scripts/superembed.min.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5928297cad6afe55"></script>
+     -->
+<!-- initialize JS & common JS (初始化及共用的 JS Code)-->
+
+<script src="/Scripts/lightbox.js"></script>
+<script src="/Scripts/lity.js"></script>
+<script type="text/javascript" src="/Scripts/html5_local_stoage.js"></script>
+<script>
+    $(function () {
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+        $('.navbar-brand').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B031&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#cloud').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B032&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        //Index rule(for example):original url + Bopomofo/Index/
+
+        $('#index_menu').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B033&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_category').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B034&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_character').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B035&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#index_withTaieol').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B036&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#submission').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B037&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('#word_list').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B038&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+
+        $('.login_rigister').click(function () {
+            $.ajax({
+                url: "/api/UserBehaviorApi/Index?behavior=B039&URL=" + encodeURIComponent(location.href),
+                type: "Get",
+                success: function (msg) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }
+            });
+        });
+    });
+</script>
+<noscript>您的瀏覽器不支援javascript</noscript>

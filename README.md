@@ -1,24 +1,18 @@
-- mPredictionOn 決定要不要顯示候選區, 自創的輸入法才需要
-	if (mKeyboardState >= R.integer.keyboard_boshiamy) { ... }
-- mComposing 是未送出前的輸入字串
-	- 清空時
-```java
-	mComposing.setLength(0);
-	updateCandidates(0);
-```
-- setSuggestions() 用來設定候選區內容，只負責打開，不負責關閉
-	清空：setSuggestions(null, false, false)
-- commitTyped() 送出選字
-	- 按空白時如下
-```java
-	InputConnection ic = getCurrentInputConnection();
-	mComposing.append((char)27);
-	ic.commitText(mComposing, 0);
-	commitTyped(getCurrentInputConnection());
-	mComposing.setLength(0);
-	ic.finishComposingText();
-```
-- updateCandidates() 更新候選區，
-	- 內容是由 mComposing 從資料庫產生
-	- 第一筆就是輸入組字
-	- 呼叫時機: 初始化輸入框、打字、送出選字
+# 用法
+- 在設定區有些選項建議看看，當然用預設值是最符合我的想法的
+- 我的想法是用嘸蝦米輸入，目前它已經可以叫做混瞎輸入法
+	- 在鍵盤上有英、注、倉的符號，資料庫表格有嘸蝦米/注音/倉頡
+	- 在輸入時，先採用完全比對三個表格，
+	- 打 a : 候選區是 對 对 ㄇ 日 曰...
+		- 前2個是嘸蝦米，ㄇ 是注音, 後面是倉頡
+	- 之後用模糊湊足30個以上，所以不必完全打算就會出字
+- 按右上角的切換鍵（應該是『混』）可以切換輸入鍵盤
+- 這個輸入法是全鍵盤，
+	- 有 Tab / ESC 鍵可以用
+	- 甚至可以用 Ctrl-C, Ctrl-A, Ctrl-V, Ctrl-X
+	- 切到 Ctrl+切換鍵到『符號鍵盤』 可以有 F1, F2....
+	- 使用 Ctrl-C 複製後，可以到『剪貼簿』鍵盤直接輸入
+- 在混瞎狀態可以使用三種表格
+	- 在注音或倉頡就是專用表格
+- 長按可以輸入左上角的鍵，省得使用 shift 切換
+- 長按 Shift 可以制住 shift 模式
