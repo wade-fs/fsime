@@ -21,6 +21,10 @@
             android:defaultValue="@bool/use_cj"
             android:key="use_cj"
             android:title="@string/use_cj" />
+        <SwitchPreferenceCompat
+            android:defaultValue="@bool/use_army"
+            android:key="use_army"
+            android:title="@string/use_army" />
     </PreferenceCategory>
     <PreferenceCategory android:title="特性">
         <SwitchPreferenceCompat

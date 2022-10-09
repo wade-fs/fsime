@@ -11,8 +11,9 @@
     <bool name="top_row_actions">false</bool>
     <bool name="notification">false</bool>
     <bool name="use_bs">true</bool>
-    <bool name="use_ji">true</bool>
-    <bool name="use_cj">true</bool>
+    <bool name="use_ji">false</bool>
+    <bool name="use_cj">false</bool>
+    <bool name="use_army">false</bool>
     <integer name="theme">1</integer>
     <integer name="vibrate_length">1</integer>
     <integer name="max_match">30</integer>

@@ -43,6 +43,10 @@ public class KeyboardPreferences {
         return read("use_cj", res.getBoolean(R.bool.use_cj));
     }
 
+    public boolean useArmy() {
+        return read("use_army", res.getBoolean(R.bool.use_army));
+    }
+
     public boolean isSoundEnabled() {
         return read("sound", res.getBoolean(R.bool.sound));
     }
