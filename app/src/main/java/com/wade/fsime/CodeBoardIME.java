@@ -18,6 +18,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Vibrator;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.media.MediaPlayer; // for keypress sound
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -77,6 +79,265 @@ public class CodeBoardIME extends InputMethodService
     private int mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
 
     BDatabase bdatabase;
+
+    @Override
+    public View onCreateInputView() {
+        bdatabase  = new BDatabase(getApplicationContext());
+        if (mKeyboardUiFactory == null) {
+            mKeyboardUiFactory = new KeyboardUiFactory(this);
+        }
+        KeyboardPreferences sharedPreferences = new KeyboardPreferences(this);
+        setNotification(sharedPreferences.getNotification());
+        if (sharedPreferences.getCustomTheme()) {
+            mKeyboardUiFactory.theme = getDefaultThemeInfo();
+            mKeyboardUiFactory.theme.foregroundColor = sharedPreferences.getFgColor();
+            mKeyboardUiFactory.theme.backgroundColor = sharedPreferences.getBgColor();
+        } else {
+            mKeyboardUiFactory.theme = setThemeByIndex(sharedPreferences, sharedPreferences.getThemeIndex());
+        }
+        maxMatch = sharedPreferences.getMaxMatch();
+        // Keyboard Features
+        vibrateLength = sharedPreferences.getVibrateLength();
+        vibratorOn = sharedPreferences.isVibrateEnabled();
+        soundOn = sharedPreferences.isSoundEnabled();
+        disable_normal = sharedPreferences.isDisabledNormal();
+        use_bs = sharedPreferences.useBs();
+        use_ji = sharedPreferences.useJi();
+        use_cj = sharedPreferences.useCj();
+        use_army = sharedPreferences.useArmy();
+        mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
+        mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
+        mKeyboardUiFactory.theme.fontSize = sharedPreferences.getFontSizeAsSp();
+
+        int mSize = sharedPreferences.getPortraitSize();
+        int sizeLandscape = sharedPreferences.getLandscapeSize();
+        if (mCurKeyboard == R.integer.keyboard_army) {
+            mKeyboardUiFactory.theme.size = 0.1f;
+            mKeyboardUiFactory.theme.sizeLandscape = 0.1f;
+        } else {
+            mKeyboardUiFactory.theme.size = mSize / 100.0f;
+            mKeyboardUiFactory.theme.sizeLandscape = sizeLandscape / 100.0f;
+        }
+        if (sharedPreferences.getNavBarDark()) {
+            Objects.requireNonNull(getWindow().getWindow()).
+                    setNavigationBarColor(
+                            ColorUtils.blendARGB(mKeyboardUiFactory.theme.backgroundColor,
+                                    Color.BLACK, 0.2f));
+        } else if (sharedPreferences.getNavBar()) {
+            Objects.requireNonNull(getWindow().getWindow()).
+                    setNavigationBarColor(mKeyboardUiFactory.theme.backgroundColor);
+        }
+        //Key Layout
+        boolean mToprow = sharedPreferences.getTopRowActions();
+        String mCustomSymbolsMain2 = sharedPreferences.getCustomSymbolsMain2();
+        String mCustomSymbolsSym = sharedPreferences.getCustomSymbolsSym();
+        String mCustomSymbolsSym2 = sharedPreferences.getCustomSymbolsSym2();
+        String mCustomSymbolsSym3 = sharedPreferences.getCustomSymbolsSym3();
+        String mCustomSymbolsSym4 = sharedPreferences.getCustomSymbolsSym4();
+
+        //Need this to get resources for drawables
+        Definitions definitions = new Definitions(this);
+        Logi("onCreate "+kn());
+        try {
+            KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
+            builder.setBox(Box.create(0, 0, 1, 1));
+            // normal-0 -> bs-1 -> ji-2 -> cj-3
+            //    -> sym-4
+            // 若有 ctrl -> clipboard-5
+            if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+                    Definitions.addDigits(builder, true);
+                    if (!mCustomSymbolsMain2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
+                    }
+                    Definitions.addQwertyRows(builder);
+                    definitions.addCustomSpaceRow(builder, true, false);
+                } else { // 橫
+                    // 第一行
+                    Definitions.addQwertyRows1(builder, false);
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, false);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, false, true);
+                    }
+
+                    // 第二行
+                    Definitions.addQwertyRows2(builder, true);
+                    Definitions.addDigits(builder, false);
+
+                    // 第三行
+                    Definitions.addQwertyRows3(builder, true);
+                    definitions.addCustomSpaceRow(builder, false, true);
+                }
+            } else if (mCurKeyboard == R.integer.keyboard_army) { // 全營測地程式專用
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    definitions.addArmy(builder, true);
+                } else {
+                    definitions.addArmy(builder, false);
+                }
+            } else if (mCurKeyboard == R.integer.keyboard_sym) { // 符號，未處理橫放
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+
+                    if (!mCustomSymbolsSym.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
+                    }
+                    if (!mCustomSymbolsSym2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
+                    }
+                    if (!mCustomSymbolsSym3.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym3, "", true);
+                    }
+                    if (!mCustomSymbolsSym4.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym4, "", true);
+                    }
+                    if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
+                        definitions.addSymbolRows(builder);
+                    } else {
+                        definitions.addCustomSpaceRow(builder, true, false);
+                    }
+                } else {
+                    // 第一行左
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+                    definitions.addSymbolRows1(builder, false);
+
+                    // 第二行左
+                    if (!mCustomSymbolsSym.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
+                    }
+                    definitions.addSymbolRows2(builder, false);
+
+                    // 第三行左
+                    if (!mCustomSymbolsSym2.isEmpty()) {
+                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
+                    }
+                    definitions.addSymbolRows3(builder, false);
+                }
+            } else if (mCurKeyboard == R.integer.keyboard_clipboard) { // 剪貼簿
+                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+
+                    definitions.addClipboardActions(builder, true);
+
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard.hasPrimaryClip()
+                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
+                        ClipData pr = clipboard.getPrimaryClip();
+                        //Android only allows one item in Clipboard
+                        String s = pr.getItemAt(0).getText().toString();
+                        builder.newRow().addKey(s);
+                    } else {
+                        builder.newRow().addKey("Nothing copied").withOutputText("");
+                    }
+                    builder.addKey(sharedPreferences.getPin1());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin2())
+                            .addKey(sharedPreferences.getPin3());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin4())
+                            .addKey(sharedPreferences.getPin5());
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin6())
+                            .addKey(sharedPreferences.getPin7());
+                } else { // 橫
+                    // 第一行左
+                    if (mToprow) {
+                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
+                    } else {
+                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
+                    }
+                    definitions.addClipboardActions(builder,false);
+
+                    // 第二行左
+                    ClipboardManager clipboard = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (clipboard.hasPrimaryClip()
+                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
+                        ClipData pr = clipboard.getPrimaryClip();
+                        //Android only allows one item in Clipboard
+                        String s = pr.getItemAt(0).getText().toString();
+                        builder.newRow().addKey(s);
+                    } else {
+                        builder.newRow().addKey("Nothing copied").withOutputText("");
+                    }
+                    builder.addKey(sharedPreferences.getPin1());
+                    builder.addKey(sharedPreferences.getPin2()).withSize(0.9f)
+                            .addKey(sharedPreferences.getPin3()).withSize(0.9f);
+
+                    // 第三行左
+                    builder.newRow()
+                            .addKey(sharedPreferences.getPin4()).withSize(0.3f)
+                            .addKey(sharedPreferences.getPin5()).withSize(2.3f);
+                    builder.addKey(sharedPreferences.getPin6()).withSize(0.9f)
+                            .addKey(sharedPreferences.getPin7()).withSize(0.3f);
+                }
+            }
+
+            Collection<Key> keyboardLayout = builder.build();
+            mCurrentKeyboardLayoutView = mKeyboardUiFactory.createKeyboardView(this, keyboardLayout, mCurKeyboard);
+            return mCurrentKeyboardLayoutView;
+
+        } catch (KeyboardLayoutException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override public View onCreateCandidatesView() {
+        mCandidateView = new CandidateView(this);
+        mCandidateView.setService(this);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
+        } else {
+            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
+        }
+
+        return mCandidateView;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
+        }
+    }
+
+    @Override
+    public void onUpdateExtractingVisibility(EditorInfo ei) {
+        ei.imeOptions |= EditorInfo.IME_FLAG_NO_EXTRACT_UI;
+        super.onUpdateExtractingVisibility(ei);
+    }
+
+    @Override
+    public void onStartInputView(EditorInfo attribute, boolean restarting) {
+        super.onStartInputView(attribute, restarting);
+        setInputView(onCreateInputView());
+        sEditorInfo = attribute;
+        turnCandidateOff();
+    }
 
     private String kn() {
         switch (mCurKeyboard) {
@@ -488,7 +749,11 @@ public class CodeBoardIME extends InputMethodService
     }
 
     private void Logi(String msg) {
+        Logi(msg, false);
+    }
+    private void Logi(String msg, boolean dialog) {
         Log.i("FSIME", msg);
+        if (dialog) Toast.makeText(this.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
     /**
      * Update the list of available candidates from the current composing
@@ -539,265 +804,6 @@ public class CodeBoardIME extends InputMethodService
         if (mCandidateView != null) {
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
         }
-    }
-
-    @Override
-    public View onCreateInputView() {
-        bdatabase  = new BDatabase(getApplicationContext());
-        if (mKeyboardUiFactory == null) {
-            mKeyboardUiFactory = new KeyboardUiFactory(this);
-        }
-        KeyboardPreferences sharedPreferences = new KeyboardPreferences(this);
-        setNotification(sharedPreferences.getNotification());
-        if (sharedPreferences.getCustomTheme()) {
-            mKeyboardUiFactory.theme = getDefaultThemeInfo();
-            mKeyboardUiFactory.theme.foregroundColor = sharedPreferences.getFgColor();
-            mKeyboardUiFactory.theme.backgroundColor = sharedPreferences.getBgColor();
-        } else {
-            mKeyboardUiFactory.theme = setThemeByIndex(sharedPreferences, sharedPreferences.getThemeIndex());
-        }
-        maxMatch = sharedPreferences.getMaxMatch();
-        // Keyboard Features
-        vibrateLength = sharedPreferences.getVibrateLength();
-        vibratorOn = sharedPreferences.isVibrateEnabled();
-        soundOn = sharedPreferences.isSoundEnabled();
-        disable_normal = sharedPreferences.isDisabledNormal();
-        use_bs = sharedPreferences.useBs();
-        use_ji = sharedPreferences.useJi();
-        use_cj = sharedPreferences.useCj();
-        use_army = sharedPreferences.useArmy();
-        mKeyboardUiFactory.theme.enablePreview = sharedPreferences.isPreviewEnabled();
-        mKeyboardUiFactory.theme.enableBorder = sharedPreferences.isBorderEnabled();
-        mKeyboardUiFactory.theme.fontSize = sharedPreferences.getFontSizeAsSp();
-        int mSize = sharedPreferences.getPortraitSize();
-        int sizeLandscape = sharedPreferences.getLandscapeSize();
-        if (mCurKeyboard == R.integer.keyboard_army) {
-            mKeyboardUiFactory.theme.size = 0.1f;
-            mKeyboardUiFactory.theme.sizeLandscape = 0.1f;
-        } else {
-            mKeyboardUiFactory.theme.size = mSize / 100.0f;
-            mKeyboardUiFactory.theme.sizeLandscape = sizeLandscape / 100.0f;
-        }
-        if (sharedPreferences.getNavBarDark()) {
-            Objects.requireNonNull(getWindow().getWindow()).
-                    setNavigationBarColor(
-                            ColorUtils.blendARGB(mKeyboardUiFactory.theme.backgroundColor,
-                                    Color.BLACK, 0.2f));
-        } else if (sharedPreferences.getNavBar()) {
-            Objects.requireNonNull(getWindow().getWindow()).
-                    setNavigationBarColor(mKeyboardUiFactory.theme.backgroundColor);
-        }
-        //Key Layout
-        boolean mToprow = sharedPreferences.getTopRowActions();
-        String mCustomSymbolsMain2 = sharedPreferences.getCustomSymbolsMain2();
-        String mCustomSymbolsSym = sharedPreferences.getCustomSymbolsSym();
-        String mCustomSymbolsSym2 = sharedPreferences.getCustomSymbolsSym2();
-        String mCustomSymbolsSym3 = sharedPreferences.getCustomSymbolsSym3();
-        String mCustomSymbolsSym4 = sharedPreferences.getCustomSymbolsSym4();
-
-        //Need this to get resources for drawables
-        Definitions definitions = new Definitions(this);
-        Logi("onCreate "+kn());
-        try {
-            KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
-            builder.setBox(Box.create(0, 0, 1, 1));
-            // normal-0 -> bs-1 -> ji-2 -> cj-3
-            //    -> sym-4
-            // 若有 ctrl -> clipboard-5
-            if (mCurKeyboard == R.integer.keyboard_bs || mCurKeyboard == R.integer.keyboard_ji || mCurKeyboard == R.integer.keyboard_cj) {
-                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                    }
-                    Definitions.addDigits(builder, true);
-                    if (!mCustomSymbolsMain2.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsMain2, "", true);
-                    }
-                    Definitions.addQwertyRows(builder);
-                    definitions.addCustomSpaceRow(builder, true, false);
-                } else { // 橫
-                    // 第一行
-                    Definitions.addQwertyRows1(builder, false);
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, false);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, false, true);
-                    }
-
-                    // 第二行
-                    Definitions.addQwertyRows2(builder, true);
-                    Definitions.addDigits(builder, false);
-
-                    // 第三行
-                    Definitions.addQwertyRows3(builder, true);
-                    definitions.addCustomSpaceRow(builder, false, true);
-                }
-            } else if (mCurKeyboard == R.integer.keyboard_army) { // 全營測地程式專用
-                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
-                    definitions.addArmyPT1(builder);
-                    definitions.addArmyPT2(builder);
-                } else {
-                    definitions.addArmyLS(builder);
-                }
-            } else if (mCurKeyboard == R.integer.keyboard_sym) { // 符號，未處理橫放
-                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                    }
-
-                    if (!mCustomSymbolsSym.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
-                    }
-                    if (!mCustomSymbolsSym2.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
-                    }
-                    if (!mCustomSymbolsSym3.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym3, "", true);
-                    }
-                    if (!mCustomSymbolsSym4.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym4, "", true);
-                    }
-                    if (mCustomSymbolsSym3.isEmpty() && mCustomSymbolsSym4.isEmpty()) {
-                        definitions.addSymbolRows(builder);
-                    } else {
-                        definitions.addCustomSpaceRow(builder, true, false);
-                    }
-                } else {
-                    // 第一行左
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                    }
-                    definitions.addSymbolRows1(builder, false);
-
-                    // 第二行左
-                    if (!mCustomSymbolsSym.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym, "", true);
-                    }
-                    definitions.addSymbolRows2(builder, false);
-
-                    // 第三行左
-                    if (!mCustomSymbolsSym2.isEmpty()) {
-                        Definitions.addCustomRow(builder, mCustomSymbolsSym2, "", true);
-                    }
-                    definitions.addSymbolRows3(builder, false);
-                }
-            } else if (mCurKeyboard == R.integer.keyboard_clipboard) { // 剪貼簿
-                if (mPhoneOrientation == Configuration.ORIENTATION_PORTRAIT) { // 直
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                    }
-
-                    definitions.addClipboardActions(builder, true);
-
-                    ClipboardManager clipboard = (ClipboardManager)
-                            getSystemService(Context.CLIPBOARD_SERVICE);
-                    if (clipboard.hasPrimaryClip()
-                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
-                        ClipData pr = clipboard.getPrimaryClip();
-                        //Android only allows one item in Clipboard
-                        String s = pr.getItemAt(0).getText().toString();
-                        builder.newRow().addKey(s);
-                    } else {
-                        builder.newRow().addKey("Nothing copied").withOutputText("");
-                    }
-                    builder.addKey(sharedPreferences.getPin1());
-                    builder.newRow()
-                            .addKey(sharedPreferences.getPin2())
-                            .addKey(sharedPreferences.getPin3());
-                    builder.newRow()
-                            .addKey(sharedPreferences.getPin4())
-                            .addKey(sharedPreferences.getPin5());
-                    builder.newRow()
-                            .addKey(sharedPreferences.getPin6())
-                            .addKey(sharedPreferences.getPin7());
-                } else { // 橫
-                    // 第一行左
-                    if (mToprow) {
-                        definitions.addCopyPasteRow(builder, mCurKeyboard, true);
-                    } else {
-                        definitions.addArrowsRow(builder, mCurKeyboard, true, false);
-                    }
-                    definitions.addClipboardActions(builder,false);
-
-                    // 第二行左
-                    ClipboardManager clipboard = (ClipboardManager)
-                            getSystemService(Context.CLIPBOARD_SERVICE);
-                    if (clipboard.hasPrimaryClip()
-                            && clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN)) {
-                        ClipData pr = clipboard.getPrimaryClip();
-                        //Android only allows one item in Clipboard
-                        String s = pr.getItemAt(0).getText().toString();
-                        builder.newRow().addKey(s);
-                    } else {
-                        builder.newRow().addKey("Nothing copied").withOutputText("");
-                    }
-                    builder.addKey(sharedPreferences.getPin1());
-                    builder.addKey(sharedPreferences.getPin2()).withSize(0.9f)
-                           .addKey(sharedPreferences.getPin3()).withSize(0.9f);
-
-                    // 第三行左
-                    builder.newRow()
-                            .addKey(sharedPreferences.getPin4()).withSize(0.3f)
-                            .addKey(sharedPreferences.getPin5()).withSize(2.3f);
-                    builder.addKey(sharedPreferences.getPin6()).withSize(0.9f)
-                           .addKey(sharedPreferences.getPin7()).withSize(0.3f);
-                }
-            }
-
-            Collection<Key> keyboardLayout = builder.build();
-            mCurrentKeyboardLayoutView = mKeyboardUiFactory.createKeyboardView(this, keyboardLayout, mCurKeyboard);
-            return mCurrentKeyboardLayoutView;
-
-        } catch (KeyboardLayoutException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override public View onCreateCandidatesView() {
-        mCandidateView = new CandidateView(this);
-        mCandidateView.setService(this);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
-        } else {
-            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
-        }
-
-        return mCandidateView;
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mPhoneOrientation = Configuration.ORIENTATION_LANDSCAPE;
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            mPhoneOrientation = Configuration.ORIENTATION_PORTRAIT;
-        }
-    }
-
-    @Override
-    public void onUpdateExtractingVisibility(EditorInfo ei) {
-        ei.imeOptions |= EditorInfo.IME_FLAG_NO_EXTRACT_UI;
-        super.onUpdateExtractingVisibility(ei);
-    }
-
-    @Override
-    public void onStartInputView(EditorInfo attribute, boolean restarting) {
-        super.onStartInputView(attribute, restarting);
-        setInputView(onCreateInputView());
-        sEditorInfo = attribute;
-        turnCandidateOff();
     }
 
     public void controlKeyUpdateView() {
@@ -868,6 +874,16 @@ public class CodeBoardIME extends InputMethodService
             } else if (code == -1) {
                 nextKeyboard();
                 setInputView(onCreateInputView());
+            } else if (code == -100) { // 全營測地計算機
+                Intent intent = getPackageManager().getLaunchIntentForPackage("com.imobile.artillerybattalion");
+                if (intent != null) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } else {
+                    Logi("請安裝全營測地程式計算機", true);
+                }
+            } else if (ke < 0) {
+                keyDownUp(-ke, 0);
             } else {
                 ic.commitText("" + (char) code, 1);
             }

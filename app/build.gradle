@@ -8,8 +8,16 @@ android {
         applicationId "com.wade.fsime"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 829
-        versionName "8.2.0"
+        versionCode 221010
+        versionName "221010"
+    }
+    signingConfigs {
+        config {
+            keyAlias 'androidapk'
+            keyPassword 'jjchen'
+            storeFile file('/home/wade/.ssh/androidapk.jks')
+            storePassword 'jjchen'
+        }
     }
     buildTypes {
         release {

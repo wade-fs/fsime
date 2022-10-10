@@ -60,28 +60,7 @@ public class Definitions {
         }
     }
 
-    // 橫式只有一行
-    public void addArmyLS(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey('1').withLongPress("+")
-                .addKey('2').withLongPress("-")
-                .addKey('3').withLongPress("*")
-                .addKey('4').withLongPress("/")
-                .addKey('5').withLongPress("°")
-                .addKey('6').withLongPress("\"")
-                .addKey('7').withLongPress("'")
-                .addKey('8').withLongPress(".")
-                .addKey('9').withLongPress("(")
-                .addKey('0').withLongPress(")")
-                .addKey("測")
-                .addKey("計")
-                .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
-                .addEnterKey()
-                .addBackspaceKey().asRepeatable()
-                .addKey("數", CODE_SYMBOLS);
-    }
-    // 直式第一行
-    public void addArmyPT1(KeyboardLayoutBuilder keyboard) {
+    public void addArmy(KeyboardLayoutBuilder keyboard, boolean split) {
         keyboard.newRow()
                 .addKey('1').withLongPress("+")
                 .addKey('2').withLongPress("-")
@@ -93,16 +72,15 @@ public class Definitions {
                 .addKey('8').withLongPress(".")
                 .addKey('9').withLongPress("(")
                 .addKey('0').withLongPress(")");
-    }
-    // 直式第二行
-    public void addArmyPT2(KeyboardLayoutBuilder keyboard) {
-        keyboard.newRow()
-                .addKey("測")
-                .addKey("計")
+        if (split) {
+            keyboard.newRow();
+        }
+        keyboard.addTabKey()
+                .addKey("測", -100)
                 .addKey(context.getDrawable(R.drawable.ic_space_bar_24dp), 32).withSize(2f)
                 .addEnterKey()
                 .addBackspaceKey().asRepeatable()
-                .addKey("測", CODE_SYMBOLS);
+                .addKey("數", CODE_SYMBOLS);
     }
 
     // 續上，newRow 為真不同行，為假續行
