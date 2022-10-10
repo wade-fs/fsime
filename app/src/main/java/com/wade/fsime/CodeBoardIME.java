@@ -54,6 +54,10 @@ import java.util.TimerTask;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.tokenizer.UnknownFunctionOrVariableException;
+
 public class CodeBoardIME extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener {
     private static final String NOTIFICATION_CHANNEL_ID = "Codeboard";
@@ -137,7 +141,6 @@ public class CodeBoardIME extends InputMethodService
 
         //Need this to get resources for drawables
         Definitions definitions = new Definitions(this);
-        Logi("onCreate "+kn());
         try {
             KeyboardLayoutBuilder builder = new KeyboardLayoutBuilder(this);
             builder.setBox(Box.create(0, 0, 1, 1));
@@ -353,7 +356,6 @@ public class CodeBoardIME extends InputMethodService
     private void nextKeyboard() {
         if (ctrl) {
             mCurKeyboard = R.integer.keyboard_clipboard;
-            Logi(kn());
             return;
         }
         if (mCurKeyboard == R.integer.keyboard_clipboard) {
@@ -423,7 +425,6 @@ public class CodeBoardIME extends InputMethodService
         } else {
             mCurKeyboard = R.integer.keyboard_normal;
         }
-        Logi(kn());
     }
 
     private boolean processSpecialKey(int primaryCode) {
@@ -624,8 +625,8 @@ public class CodeBoardIME extends InputMethodService
             if (ctrl) {
                 meta = meta | KeyEvent.META_CTRL_ON;
             }
+
             int ke = primary2ke(primaryCode);
-            Logi("process "+primaryCode+ " code "+code + " ke "+ke);
             if (ke < 0) { // 特殊字，例如上下左右等等
                 keyDownUp(-ke, meta);
             } else if (ke != 0  || ",.[]".indexOf(code) >= 0) {
@@ -718,14 +719,27 @@ public class CodeBoardIME extends InputMethodService
 
     /**
      * 每次發送字之後，應關閉候選區
+     * index == 0 為 Enter, 否則是 Space
      */
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
+
+        // index = 0 要送去看是否為算式，如果是的話取值
+        if (index == 0 && res.length() > 0) {
+            try {
+                double r = new ExpressionBuilder(res)
+                        .build().evaluate();
+                res = res + "="+r;
+            } catch (UnknownFunctionOrVariableException e) {
+                Logi("expr "+ res + " : "+e.toString());
+            }
+        }
         if (res.length() > 0) {
             InputConnection ic = getCurrentInputConnection();
             CharSequence afterCursorText = ic.getTextAfterCursor(res.length()+1, 0);
             ic.commitText(res, res.length());
 
+            // Enter 送英文字需要倒退，不然位置會出錯
             if (index == 0) {
                 // 如果後面無字，不用退，
                 int after = afterCursorText.length();
@@ -748,13 +762,6 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
-    private void Logi(String msg) {
-        Logi(msg, false);
-    }
-    private void Logi(String msg, boolean dialog) {
-        Log.i("FSIME", msg);
-        if (dialog) Toast.makeText(this.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-    }
     /**
      * Update the list of available candidates from the current composing
      * text.  This will need to be filled in by however you are determining
@@ -779,15 +786,26 @@ public class CodeBoardIME extends InputMethodService
         if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
         ArrayList<String> list = new ArrayList<String>();
         String table = "b";
-		switch (mCurKeyboard) {
-		case R.integer.keyboard_ji: table = "z"; break;
-		case R.integer.keyboard_cj: table = "c"; break;
-		}
+        if (mCurKeyboard == R.integer.keyboard_ji) { table = "z"; }
+        else if (mCurKeyboard == R.integer.keyboard_cj) { table = "c"; }
         if (freq.length() > 0) {
             list = bdatabase.getF(freq, start, maxMatch);
         } else if (mComposing.length() > 0) {
             list = bdatabase.getWord(mComposing.toString(), start, maxMatch, table);
         }
+        if (list.size() == 1) {
+            try {
+                double r = new ExpressionBuilder(mComposing.toString())
+                        .build().evaluate();
+                list.add(""+r);
+                Logi("expr "+mComposing.toString() + " : "+r);
+            } catch (UnknownFunctionOrVariableException e) {
+                Logi("expr "+ mComposing.toString() + " : "+e.toString());
+            } catch (IllegalArgumentException e) {
+                Logi("expr "+ mComposing.toString() + " : "+e.toString());
+            }
+        }
+        Logi("updateCandidates "+mComposing.toString() + " " + list.toString());
         setSuggestions(list, true, true);
     }
 
@@ -861,7 +879,6 @@ public class CodeBoardIME extends InputMethodService
         if (swipe) {
             return;
         }
-        Logi("onKey "+code+" "+KeyCodes);
         if (mCurKeyboard != R.integer.keyboard_army) {
             processKey();
         } else {
@@ -1112,5 +1129,13 @@ public class CodeBoardIME extends InputMethodService
                 mToken = token;
             }
         }
+    }
+
+    private void Logi(String msg) {
+        Logi(msg, false);
+    }
+    private void Logi(String msg, boolean dialog) {
+        Log.i("FSIME", msg);
+        if (dialog) Toast.makeText(this.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 }

@@ -48,4 +48,5 @@ dependencies {
     implementation 'com.github.AppIntro:AppIntro:6.1.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
+    implementation 'net.objecthunter:exp4j:0.4.8'
 }
