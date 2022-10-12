@@ -723,7 +723,6 @@ public class CodeBoardIME extends InputMethodService
      */
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
-
         if (res.length() > 0) {
             InputConnection ic = getCurrentInputConnection();
             CharSequence afterCursorText = ic.getTextAfterCursor(res.length()+1, 0);
@@ -901,10 +900,19 @@ public class CodeBoardIME extends InputMethodService
     }
 
     public void onKeyLongPress(int keyCode) {
-        // Process long-click here
-        // This is following an onKey()
         InputConnection ic = getCurrentInputConnection();
         switch (keyCode) {
+            case -2: { // ESC
+                if (mCandidateView != null) {
+                    String w = mCandidateView.getSuggestion(0);
+                    if (mComposing.length() == 0 && w.length() == 1) {
+                        ArrayList<String> comp = bdatabase.getCompose(w);
+                        comp.add(0, w);
+                        setSuggestions(comp, true, true);
+                    }
+                }
+                break;
+            }
             case 16: { // Shift
                 shiftLock = !shiftLock;
                 if (shiftLock) {
