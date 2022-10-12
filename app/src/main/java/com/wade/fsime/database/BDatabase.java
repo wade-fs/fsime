@@ -63,7 +63,7 @@ public class BDatabase extends SQLiteAssetHelper {
         if (db == null) db=getWritableDatabase();
         ArrayList<String> composes = new ArrayList<>();
 
-        String q = "SELECT * FROM b WHERE ch = \"" + word + "\";";
+        String q = "SELECT * FROM b WHERE ch = '" + word + "';";
         Cursor cursor = db.rawQuery(q, null);
         boolean next = cursor.moveToFirst();
         while (next) {
@@ -89,10 +89,6 @@ public class BDatabase extends SQLiteAssetHelper {
             values.put("ch", ch);
             db.insert("b", null, values);
         }
-    }
-
-    private void Logi(String msg) {
-        Log.i("FSIME", msg);
     }
 
     @SuppressLint("Range")
@@ -124,7 +120,7 @@ public class BDatabase extends SQLiteAssetHelper {
             } else {
                 kk = k;
             }
-            String post = " WHERE eng = \"" + kk + "\" ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
+            String post = " WHERE eng = '" + kk + "' ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
             // 首先找完全比對的結果
             q = pre + t + post;
             cursor=db.rawQuery(q, null);
@@ -147,7 +143,7 @@ public class BDatabase extends SQLiteAssetHelper {
         kk = k;
         if (count < 30) { // 如果不足，再找更多比對結果
             start = start < count ? 0 : start - count;
-            q = "SELECT * FROM "+table+" WHERE eng LIKE \"" + kk + "%\" AND eng != \"" + kk + "\" ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
+            q = "SELECT * FROM "+table+" WHERE eng LIKE '" + kk + "%' AND eng != '" + kk + "' ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
             cursor = db.rawQuery(q, null);
             n = cursor.moveToFirst();
             while (n && count <= max) {
@@ -180,7 +176,7 @@ public class BDatabase extends SQLiteAssetHelper {
 
         String q; Cursor cursor; int count=0; boolean n;
         q = "select * from f where ";
-        q += "ch like \""+k+"%\" LIMIT "+max+" OFFSET "+start+";";
+        q += "ch like '"+k+"%' LIMIT "+max+" OFFSET "+start+";";
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){

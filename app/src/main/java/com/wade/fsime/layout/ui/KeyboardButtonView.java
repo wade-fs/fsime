@@ -64,9 +64,6 @@ public class KeyboardButtonView extends View {
     public String getCurrentLabel() {
         return currentLabel;
     }
-    private void Logi(String msg) {
-        Log.i("FSIME", msg);
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {

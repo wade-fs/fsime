@@ -724,16 +724,6 @@ public class CodeBoardIME extends InputMethodService
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
 
-        // index = 0 要送去看是否為算式，如果是的話取值
-        if (index == 0 && res.length() > 0) {
-            try {
-                double r = new ExpressionBuilder(res)
-                        .build().evaluate();
-                res = res + "="+r;
-            } catch (UnknownFunctionOrVariableException e) {
-                Logi("expr "+ res + " : "+e.toString());
-            }
-        }
         if (res.length() > 0) {
             InputConnection ic = getCurrentInputConnection();
             CharSequence afterCursorText = ic.getTextAfterCursor(res.length()+1, 0);
@@ -798,14 +788,12 @@ public class CodeBoardIME extends InputMethodService
                 double r = new ExpressionBuilder(mComposing.toString())
                         .build().evaluate();
                 list.add(""+r);
-                Logi("expr "+mComposing.toString() + " : "+r);
             } catch (UnknownFunctionOrVariableException e) {
                 Logi("expr "+ mComposing.toString() + " : "+e.toString());
             } catch (IllegalArgumentException e) {
                 Logi("expr "+ mComposing.toString() + " : "+e.toString());
             }
         }
-        Logi("updateCandidates "+mComposing.toString() + " " + list.toString());
         setSuggestions(list, true, true);
     }
 
@@ -1131,7 +1119,7 @@ public class CodeBoardIME extends InputMethodService
         }
     }
 
-    private void Logi(String msg) {
+    public void Logi(String msg) {
         Logi(msg, false);
     }
     private void Logi(String msg, boolean dialog) {

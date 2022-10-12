@@ -27,6 +27,9 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GestureDetectorCompat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +37,10 @@ import java.util.List;
  * This class will display candidate words based on some dictionary
  * (Feature currently not implemented!)
  */
-public class CandidateView extends View {
-
+public class CandidateView extends View implements GestureDetector.OnGestureListener {
     private static final int OUT_OF_BOUNDS = -1;
-
     private CodeBoardIME mService;
+    private Context mContext;
     private List<String> mSuggestions;
     private int mSelectedIndex;
     private int mTouchX = OUT_OF_BOUNDS;
@@ -68,6 +70,7 @@ public class CandidateView extends View {
      */
     public CandidateView(Context context) {
         super(context);
+        mContext = context;
         mSelectionHighlight = context.getDrawable(android.R.drawable.list_selector_background);
         mSelectionHighlight.setState(new int[] {
                 android.R.attr.state_enabled,
@@ -91,25 +94,26 @@ public class CandidateView extends View {
         mPaint.setTextSize(r.getDimensionPixelSize(R.dimen.candidate_font_height));
         mPaint.setStrokeWidth(0);
         
-        mGestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onScroll(MotionEvent e1, MotionEvent e2,
-                    float distanceX, float distanceY) {
-                mScrolled = true;
-                int sx = getScrollX();
-                sx += distanceX;
-                if (sx < 0) {
-                    sx = 0;
-                }
-                if (sx + getWidth() > mTotalWidth) {                    
-                    sx -= distanceX;
-                }
-                mTargetScrollX = sx;
-                scrollTo(sx, getScrollY());
-                invalidate();
-                return true;
-            }
-        });
+//        mGestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+//            @Override
+//            public boolean onScroll(MotionEvent e1, MotionEvent e2,
+//                    float distanceX, float distanceY) {
+//                mScrolled = true;
+//                int sx = getScrollX();
+//                sx += distanceX;
+//                if (sx < 0) {
+//                    sx = 0;
+//                }
+//                if (sx + getWidth() > mTotalWidth) {
+//                    sx -= distanceX;
+//                }
+//                mTargetScrollX = sx;
+//                scrollTo(sx, getScrollY());
+//                invalidate();
+//                return true;
+//            }
+//        });
+        mGestureDetector = new GestureDetector(mService,this);
         setHorizontalFadingEdgeEnabled(true);
         setWillNotDraw(false);
         setHorizontalScrollBarEnabled(false);
@@ -238,16 +242,13 @@ public class CandidateView extends View {
             scrollTo(0, 0);
             mTargetScrollX = 0;
         }
-        //onDraw(null); // TODO: 導致當掉
         invalidate();
-        requestLayout();
     }
 
     public void clear() {
         mSuggestions = EMPTY_LIST;
         mTouchX = OUT_OF_BOUNDS;
         mSelectedIndex = -1;
-//        invalidate();
     }
     
     @Override
@@ -265,21 +266,21 @@ public class CandidateView extends View {
         switch (action) {
         case MotionEvent.ACTION_DOWN:
             mScrolled = false;
-            invalidate();
             break;
         case MotionEvent.ACTION_MOVE:
             if (y <= 0) {
                 // Fling up!?
                 if (mSelectedIndex >= 0) {
+                    mService.Logi("onFling?? ");
                     mService.pickSuggestionManually(mSelectedIndex);
                     mSelectedIndex = -1;
                 }
             }
-            invalidate();
             break;
         case MotionEvent.ACTION_UP:
             if (!mScrolled) {
                 if (mSelectedIndex >= 0) {
+                    mService.Logi("pickup?? ");
                     mService.pickSuggestionManually(mSelectedIndex);
                 }
             }
@@ -298,4 +299,37 @@ public class CandidateView extends View {
     public int size() { return mSuggestions==null?0:mSuggestions.size(); }
     public String getSuggestion(int i) { if (mSuggestions.size() > i) return mSuggestions.get(i); else return ""; }
 
+    @Override
+    public boolean onDown(@NonNull MotionEvent motionEvent) {
+        mService.Logi("onDown: " + motionEvent.toString());
+        return false;
+    }
+
+    @Override
+    public void onShowPress(@NonNull MotionEvent motionEvent) {
+        mService.Logi("onShowPress: " + motionEvent.toString());
+    }
+
+    @Override
+    public boolean onSingleTapUp(@NonNull MotionEvent motionEvent) {
+        mService.Logi("onSingleTapUp: " + motionEvent.toString());
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
+        mService.Logi("onScroll: " + motionEvent.toString());
+        return false;
+    }
+
+    @Override
+    public void onLongPress(@NonNull MotionEvent motionEvent) {
+        mService.Logi("onLongPress: " + motionEvent.toString());
+    }
+
+    @Override
+    public boolean onFling(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
+        mService.Logi("onFling: " + motionEvent.toString());
+        return false;
+    }
 }
