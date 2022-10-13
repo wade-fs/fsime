@@ -103,9 +103,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         }
         return readableName;
     }
-    private void Logi(String msg) {
-        Log.i("FSIME", msg);
-    }
 
     @SuppressLint("RestrictedApi")
     @Override

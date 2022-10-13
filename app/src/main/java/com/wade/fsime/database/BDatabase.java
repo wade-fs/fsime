@@ -91,10 +91,6 @@ public class BDatabase extends SQLiteAssetHelper {
         }
     }
 
-    private void Logi(String msg) {
-        Log.i("FSIME", msg);
-    }
-
     @SuppressLint("Range")
     public ArrayList<String> getWord(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();

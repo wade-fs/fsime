@@ -788,14 +788,12 @@ public class CodeBoardIME extends InputMethodService
                 double r = new ExpressionBuilder(mComposing.toString())
                         .build().evaluate();
                 list.add(""+r);
-                Logi("expr "+mComposing.toString() + " : "+r);
             } catch (UnknownFunctionOrVariableException e) {
                 Logi("expr "+ mComposing.toString() + " : "+e.toString());
             } catch (IllegalArgumentException e) {
                 Logi("expr "+ mComposing.toString() + " : "+e.toString());
             }
         }
-        Logi("updateCandidates "+mComposing.toString() + " " + list.toString());
         setSuggestions(list, true, true);
     }
 
@@ -886,8 +884,6 @@ public class CodeBoardIME extends InputMethodService
                 if (intent != null) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                } else {
-                    Logi("請安裝全營測地程式計算機", true);
                 }
             } else if (ke < 0) {
                 keyDownUp(-ke, 0);

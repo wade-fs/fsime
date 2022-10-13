@@ -34,9 +34,6 @@ public class CustomTable extends Activity {
     int editPos = 0;
     BDatabase bdatabase;
     String backdir;
-    private void Logi(String msg) {
-        Log.i("FSIME", msg);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +47,7 @@ public class CustomTable extends Activity {
         if (!bkdir.exists()) {
             bkdir.mkdirs();
         }
-        if (!bkdir.exists()) {
-            Logi("Cannot mkdir "+backdir);
-        } else {
+        if (bkdir.exists()) {
             backdir = bkdir.getAbsolutePath();
         }
         listView = findViewById(R.id.list);
@@ -150,7 +145,6 @@ public class CustomTable extends Activity {
         try {
             File bkdir = new File(backdir);
             if (!bkdir.exists()) {
-                Logi("cannot found directory: "+backdir);
                 return;
             }
 
@@ -173,9 +167,7 @@ public class CustomTable extends Activity {
             fis.close();
             Toast.makeText(mContext, "備份至 "+backdir+"/b.db", Toast.LENGTH_LONG).show();
         } catch (FileNotFoundException e) {
-            Logi("Cannot found database "+ e.toString());
         } catch (IOException e) {
-            Logi("Cannot write database "+ e.toString());
         }
     }
 }
