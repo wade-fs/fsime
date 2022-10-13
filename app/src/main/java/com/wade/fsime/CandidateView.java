@@ -238,16 +238,13 @@ public class CandidateView extends View {
             scrollTo(0, 0);
             mTargetScrollX = 0;
         }
-        //onDraw(null); // TODO: 導致當掉
         invalidate();
-        // requestLayout();
     }
 
     public void clear() {
         mSuggestions = EMPTY_LIST;
         mTouchX = OUT_OF_BOUNDS;
         mSelectedIndex = -1;
-//        invalidate();
     }
     
     @Override
@@ -275,7 +272,6 @@ public class CandidateView extends View {
                     mSelectedIndex = -1;
                 }
             }
-            invalidate();
             break;
         case MotionEvent.ACTION_UP:
             if (!mScrolled) {
