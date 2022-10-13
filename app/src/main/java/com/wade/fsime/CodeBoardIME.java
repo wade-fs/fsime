@@ -723,6 +723,7 @@ public class CodeBoardIME extends InputMethodService
      */
     public void pickSuggestionManually(int index) {
         String res = mCandidateView.getSuggestion(index);
+
         if (res.length() > 0) {
             InputConnection ic = getCurrentInputConnection();
             CharSequence afterCursorText = ic.getTextAfterCursor(res.length()+1, 0);
@@ -883,8 +884,6 @@ public class CodeBoardIME extends InputMethodService
                 if (intent != null) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                } else {
-                    Logi("請安裝全營測地程式計算機", true);
                 }
             } else if (ke < 0) {
                 keyDownUp(-ke, 0);
@@ -913,6 +912,7 @@ public class CodeBoardIME extends InputMethodService
                 }
                 break;
             }
+
             case 16: { // Shift
                 shiftLock = !shiftLock;
                 if (shiftLock) {

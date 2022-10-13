@@ -47,8 +47,7 @@ public class CustomTable extends Activity {
         if (!bkdir.exists()) {
             bkdir.mkdirs();
         }
-        if (!bkdir.exists()) {
-        } else {
+        if (bkdir.exists()) {
             backdir = bkdir.getAbsolutePath();
         }
         listView = findViewById(R.id.list);
