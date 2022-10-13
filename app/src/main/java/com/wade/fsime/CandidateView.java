@@ -263,6 +263,7 @@ public class CandidateView extends View {
         switch (action) {
         case MotionEvent.ACTION_DOWN:
             mScrolled = false;
+			invalidate();
             break;
         case MotionEvent.ACTION_MOVE:
             if (y <= 0) {
