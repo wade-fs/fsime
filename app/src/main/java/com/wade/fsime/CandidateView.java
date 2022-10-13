@@ -240,7 +240,7 @@ public class CandidateView extends View {
         }
         //onDraw(null); // TODO: 導致當掉
         invalidate();
-        requestLayout();
+        // requestLayout();
     }
 
     public void clear() {
