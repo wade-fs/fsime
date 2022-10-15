@@ -779,7 +779,7 @@ public class CodeBoardIME extends InputMethodService
         if (mCurKeyboard == R.integer.keyboard_ji) { table = "z"; }
         else if (mCurKeyboard == R.integer.keyboard_cj) { table = "c"; }
         if (freq.length() > 0) {
-            list = bdatabase.getF(freq, start, maxMatch);
+            list = bdatabase.getF(freq, start, maxMatch, "f");
         } else if (mComposing.length() > 0) {
             list = bdatabase.getWord(mComposing.toString(), start, maxMatch, table);
         }

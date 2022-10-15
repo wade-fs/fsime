@@ -74,6 +74,7 @@ public class BDatabase extends SQLiteAssetHelper {
             }
             next = cursor.moveToNext();
         }
+        cursor.close();
         return composes;
     }
 
@@ -91,28 +92,65 @@ public class BDatabase extends SQLiteAssetHelper {
         }
     }
 
+    int FUZZY_EXACT = 0;
+    int FUZZY_PREFIX = 1;
+    int FUZZY_FULL = 2;
+    @SuppressLint("Range")
+    private ArrayList<B> query(String k, int start, int max, String table, String field, int fuzzy) {
+        ArrayList<B> list = new ArrayList<>();
+
+        String q;
+        Cursor cursor;
+        int count=0;
+        boolean n;
+        q = "select * from "+table+" where ";
+        if (fuzzy == FUZZY_EXACT) {
+            q += field + " = '" + k + "' LIMIT " + max + " OFFSET " + start + ";";
+        } else if (fuzzy == FUZZY_PREFIX) {
+            q += field + " like '" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
+        } else {
+            q += field +" like '%" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
+        }
+        cursor=db.rawQuery(q, null);
+        n = cursor.moveToFirst();
+        while(n && count <= max){
+            B b=new B();
+            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
+            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
+            Log.d("FSIME", "K="+k+":"+b.ch);
+            if (table == "f") {
+                int idx = b.ch.indexOf(k);
+                if (idx < b.ch.length()-1) {
+                    b.ch = b.ch.substring(idx+1, idx + 2);
+                }
+            }
+            if (!isIn(list, b)) {
+                list.add(b);
+                ++count;
+            }
+            n = cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
     @SuppressLint("Range")
     public ArrayList<String> getWord(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();
-		ArrayList<String> list = new ArrayList<>();
-		list.add(k);
+        if (k.length() == 0) return new ArrayList<>();
+
+        ArrayList<B> resExact=new ArrayList<>();
 
         k = k.toLowerCase(Locale.ENGLISH);
-        String q; Cursor cursor; int count=0; boolean n;
-        ArrayList<B> resExact=new ArrayList<>();
-        if (k.length() == 0) return list;
-		ArrayList<String> tables = new ArrayList<>();
 
+        ArrayList<String> tables = new ArrayList<>();
         if (table.equals("b")) { // mix
 			tables.add("b"); tables.add("z"); tables.add("c");
             max = max + max + max;
 		} else {
 			tables.add(table);
 		}
-        String pre = "SELECT * FROM ";
-        String kk = "";
 		for (String t : tables) {
-            kk = "";
+            String kk = "";
             if (t.equals("z")) {
                 for (String s : k.split("")) {
                     kk = kk + e2j.get(s);
@@ -120,48 +158,27 @@ public class BDatabase extends SQLiteAssetHelper {
             } else {
                 kk = k;
             }
-            String post = " WHERE eng = '" + kk + "' ORDER BY freq DESC LIMIT "+max+" OFFSET "+start+";";
-            // 首先找完全比對的結果
-            q = pre + t + post;
-            cursor=db.rawQuery(q, null);
-            n = cursor.moveToFirst();
-            while(n && count <= max){
-                B b=new B();
-                b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-                b.eng=cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-                b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-                b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-                if (ts == 1) { b.ch = TS.StoT(b.ch); }
-                else if (ts == 2) { b.ch = TS.TtoS(b.ch); }
-                if (!isIn(resExact, b)) {
-                    resExact.add(b);
-                    ++count;
-                }
-                n = cursor.moveToNext();
-            }
+            ArrayList<B> res = query(kk, start, max, t, "eng", FUZZY_EXACT);
+            resExact.addAll(res);
 		}
-        kk = k;
-        if (count < 30) { // 如果不足，再找更多比對結果
-            start = start < count ? 0 : start - count;
-            q = "SELECT * FROM "+table+" WHERE eng LIKE '" + kk + "%' AND eng != '" + kk + "' ORDER BY freq DESC LIMIT " + (max - count) + " OFFSET " + start + ";";
-            cursor = db.rawQuery(q, null);
-            n = cursor.moveToFirst();
-            while (n && count <= max) {
-                B b = new B();
-                b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-                b.eng = cursor.getString(cursor.getColumnIndex(BDatabase.ENG));
-                b.ch = cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-                b.freq = cursor.getDouble(cursor.getColumnIndex(BDatabase.FREQ));
-                if (ts == 1) b.ch = TS.StoT(b.ch);
-                else if (ts == 2) b.ch = TS.TtoS(b.ch);
-                if (!isIn(resExact, b)) {
-                    resExact.add(b);
-                    ++count;
+        if (resExact.size() < max) { // 如果不足，再找更多比對結果
+            start = start < resExact.size() ? 0 : start - resExact.size();
+            for (String t : tables) {
+                String kk = "";
+                if (t.equals("z")) {
+                    for (String s : k.split("")) {
+                        kk = kk + e2j.get(s);
+                    }
+                } else {
+                    kk = k;
                 }
-                n = cursor.moveToNext();
+                ArrayList<B> res = query(kk, start, max, t, "eng", FUZZY_PREFIX);
+                resExact.addAll(res);
             }
-            cursor.close();
         }
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add(k);
         for (B d : resExact) {
             list.add(d.ch);
         }
@@ -169,30 +186,20 @@ public class BDatabase extends SQLiteAssetHelper {
 	}
 
     @SuppressLint("Range")
-    public ArrayList<String> getF(String k, int start, int max){
+    public ArrayList<String> getF(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();
-		ArrayList<String> list = new ArrayList<>();
-		list.add(k.substring(0,1));
 
-        String q; Cursor cursor; int count=0; boolean n;
-        q = "select * from f where ";
-        q += "ch like '"+k+"%' LIMIT "+max+" OFFSET "+start+";";
-        cursor=db.rawQuery(q, null);
-        n = cursor.moveToFirst();
-        while(n && count <= max){
-            B b=new B();
-            b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
-            b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            if (ts == 1) b.ch = TS.StoT(b.ch);
-            else if (ts == 2) b.ch = TS.TtoS(b.ch);
-            b.ch = b.ch.substring(1,2);
+        ArrayList<B> resExact=new ArrayList<>();
+        ArrayList<B> res = query(k, start, max, table, "ch", FUZZY_PREFIX);
+        resExact.addAll(res);
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add(k.substring(0,1));
+        for (B b : resExact) {
             if (!isIn(list, b.ch)) {
                 list.add(b.ch);
-                ++count;
             }
-            n = cursor.moveToNext();
         }
-        cursor.close();
         return list;
     }
 }
