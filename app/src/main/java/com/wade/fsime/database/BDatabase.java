@@ -48,7 +48,7 @@ public class BDatabase extends SQLiteAssetHelper {
         if (db == null) db=getWritableDatabase();
         ArrayList<String> composes = new ArrayList<>();
 
-        String q = "SELECT * FROM b WHERE ch = '" + word + "';";
+        String q = "SELECT * FROM mix WHERE ch = '" + word + "';";
         Cursor cursor = db.rawQuery(q, null);
         boolean next = cursor.moveToFirst();
         while (next) {
