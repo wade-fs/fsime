@@ -24,21 +24,6 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
     private int ts = 0;
-    Map<String, String> e2j  = new HashMap<String, String>() {{
-        put("a", "ㄇ"); put("b", "ㄖ"); put("c", "ㄏ"); put("d", "ㄎ"); put("e", "ㄍ");
-        put("f", "ㄑ"); put("g", "ㄕ"); put("h", "ㄘ"); put("i", "ㄛ"); put("j", "ㄨ");
-        put("k", "ㄜ"); put("l", "ㄠ"); put("m", "ㄩ"); put("n", "ㄙ"); put("o", "ㄟ");
-        put("p", "ㄣ"); put("q", "ㄆ"); put("r", "ㄐ"); put("s", "ㄋ"); put("t", "ㄔ");
-        put("u", "ㄧ"); put("v", "ㄒ"); put("w", "ㄊ"); put("x", "ㄌ"); put("y", "ㄗ");
-        put("z", "ㄈ"); put("1", "ㄅ"); put("2", "ㄉ"); put("3", "ˇ"); put("4", "ˋ");
-        put("5", "ㄓ"); put("6", "ˊ"); put("7", "˙"); put("8", "ㄚ"); put("9", "ㄞ");
-        put("0", "ㄢ"); put("-", "ㄦ"); put(";", "ㄤ"); put(",", "ㄝ"); put(".", "ㄡ");
-        put("/", "ㄥ");
-    }};
-// A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
-// ㄇ ㄖ ㄏ ㄎ ㄍ ㄑ ㄕ ㄘ ㄛ ㄨ ㄜ ㄠ ㄩ ㄙ ㄟ ㄣ ㄆ ㄐ ㄋ ㄔ ㄧ ㄒ ㄊ ㄌ ㄗ ㄈ
-// 1  2  3 4 5  6 7 8  9  0  -  ;  ,  .  /
-// ㄅ ㄉ ˇ ˋ ㄓ ˊ ˙ ㄚ ㄞ ㄢ ㄦ ㄤ ㄝ ㄡ ㄥ
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -107,18 +92,20 @@ public class BDatabase extends SQLiteAssetHelper {
         if (fuzzy == FUZZY_EXACT) {
             q += field + " = '" + k + "' LIMIT " + max + " OFFSET " + start + ";";
         } else if (fuzzy == FUZZY_PREFIX) {
-            q += field + " like '" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
+            q += field + " like '" + k + "_%' LIMIT " + max + " OFFSET " + start + ";";
         } else {
             q += field +" like '%" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
         }
+        Log.d("FSIME", q);
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){
             B b=new B();
             b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
             b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
-            Log.d("FSIME", "K="+k+":"+b.ch);
-            if (table == "f") {
+            if (ts == 1) { b.ch = TS.StoT(b.ch); }
+            else if (ts == 2) { b.ch = TS.TtoS(b.ch); }
+            if (table == "vocabulary") {
                 int idx = b.ch.indexOf(k);
                 if (idx < b.ch.length()-1) {
                     b.ch = b.ch.substring(idx+1, idx + 2);
@@ -143,36 +130,20 @@ public class BDatabase extends SQLiteAssetHelper {
         k = k.toLowerCase(Locale.ENGLISH);
 
         ArrayList<String> tables = new ArrayList<>();
-        if (table.equals("b")) { // mix
-			tables.add("b"); tables.add("z"); tables.add("c");
+        if (table.equals("mix")) {
+			tables.add("mix"); tables.add("ji"); tables.add("cj");  tables.add("sym");
             max = max + max + max;
 		} else {
 			tables.add(table);
 		}
 		for (String t : tables) {
-            String kk = "";
-            if (t.equals("z")) {
-                for (String s : k.split("")) {
-                    kk = kk + e2j.get(s);
-                }
-            } else {
-                kk = k;
-            }
-            ArrayList<B> res = query(kk, start, max, t, "eng", FUZZY_EXACT);
+            ArrayList<B> res = query(k, start, max, t, "eng", FUZZY_EXACT);
             resExact.addAll(res);
 		}
         if (resExact.size() < max) { // 如果不足，再找更多比對結果
             start = start < resExact.size() ? 0 : start - resExact.size();
             for (String t : tables) {
-                String kk = "";
-                if (t.equals("z")) {
-                    for (String s : k.split("")) {
-                        kk = kk + e2j.get(s);
-                    }
-                } else {
-                    kk = k;
-                }
-                ArrayList<B> res = query(kk, start, max, t, "eng", FUZZY_PREFIX);
+                ArrayList<B> res = query(k, start, max, t, "eng", FUZZY_PREFIX);
                 resExact.addAll(res);
             }
         }

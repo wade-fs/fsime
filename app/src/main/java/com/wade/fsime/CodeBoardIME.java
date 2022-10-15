@@ -775,11 +775,11 @@ public class CodeBoardIME extends InputMethodService
 		}
         if (bdatabase == null) bdatabase = new BDatabase(getApplicationContext());
         ArrayList<String> list = new ArrayList<String>();
-        String table = "b";
-        if (mCurKeyboard == R.integer.keyboard_ji) { table = "z"; }
-        else if (mCurKeyboard == R.integer.keyboard_cj) { table = "c"; }
+        String table = "mix";
+        if (mCurKeyboard == R.integer.keyboard_ji) { table = "ji"; }
+        else if (mCurKeyboard == R.integer.keyboard_cj) { table = "cj"; }
         if (freq.length() > 0) {
-            list = bdatabase.getF(freq, start, maxMatch, "f");
+            list = bdatabase.getF(freq, start, maxMatch, "vocabulary");
         } else if (mComposing.length() > 0) {
             list = bdatabase.getWord(mComposing.toString(), start, maxMatch, table);
         }
