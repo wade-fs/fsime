@@ -131,7 +131,10 @@ public class BDatabase extends SQLiteAssetHelper {
 
         ArrayList<String> tables = new ArrayList<>();
         if (table.equals("mix")) {
-			tables.add("mix"); tables.add("ji"); tables.add("cj");  tables.add("sym");
+			tables.add("mix");
+            tables.add("sym");
+            tables.add("ji");
+            tables.add("cj");
             max = max + max + max;
 		} else {
 			tables.add(table);

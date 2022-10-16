@@ -8,8 +8,8 @@ android {
         applicationId "com.wade.fsime"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 221015
-        versionName "221015"
+        versionCode 221016
+        versionName "221016"
     }
     signingConfigs {
         config {
