@@ -77,6 +77,14 @@ public class KeyboardPreferences {
         return Integer.parseInt(safeRead("bg_colour_picker", String.valueOf(res.getInteger(R.integer.bg_color))));
     }
 
+    public String getAngleUnit() {
+        return read("angleUnit", res.getString(R.string.radian));
+    }
+
+    public void setAngleUnit(String unit) {
+        write("angleUnit", unit);
+    }
+
     public void setBgColor(String color) {
         write("bg_colour_picker", color);
     }

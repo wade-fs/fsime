@@ -27,6 +27,12 @@
             android:title="@string/use_army" />
     </PreferenceCategory>
     <PreferenceCategory android:title="特性">
+        <ListPreference
+            android:defaultValue="@string/radian"
+            android:entries="@array/AngleUnit"
+            android:entryValues="@array/AngleUnit"
+            android:key="angleUnit"
+            android:title="選擇角度單位"/>
         <SwitchPreferenceCompat
             android:defaultValue="@bool/sound"
             android:key="sound"

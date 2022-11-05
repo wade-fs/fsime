@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="Values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+    <string-array name="AngleUnit">
+        <item>度</item>
+        <item>徑</item>
+        <item>密</item>
     </string-array>
     <string-array name="Themes">
         <item>預設</item>

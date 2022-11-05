@@ -96,7 +96,6 @@ public class BDatabase extends SQLiteAssetHelper {
         } else {
             q += field +" like '%" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
         }
-        Log.d("FSIME", q);
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){
@@ -124,6 +123,8 @@ public class BDatabase extends SQLiteAssetHelper {
     public ArrayList<String> getWord(String k, int start, int max, String table){
         if (db == null) db = getWritableDatabase();
         if (k.length() == 0) return new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
+        list.add(k);
 
         ArrayList<B> resExact=new ArrayList<>();
 
@@ -151,8 +152,6 @@ public class BDatabase extends SQLiteAssetHelper {
             }
         }
 
-        ArrayList<String> list = new ArrayList<>();
-        list.add(k);
         for (B d : resExact) {
             list.add(d.ch);
         }

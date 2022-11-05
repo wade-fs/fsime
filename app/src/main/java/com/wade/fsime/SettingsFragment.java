@@ -80,6 +80,18 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
             }
         });
 
+        ListPreference angleUnitPreference = (ListPreference) getPreferenceManager().findPreference("angleUnit");
+        assert angleUnitPreference != null;
+        angleUnitPreference.setSummary(angleUnitPreference.getValue());
+        angleUnitPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+				setAngleUnit(newValue.toString());
+                preference.setSummary(newValue.toString());
+                return true;
+            }
+        });
+
         Bundle bundle = this.getArguments();
         if (bundle != null &&
                 (bundle.getInt("notification") == 1)) {
@@ -129,12 +141,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
                                     null)
                     );
                 }
-                break;
-            case "disable_normal":
-                break;
-            case "use_ji":
-                break;
-            case "use_cj":
                 break;
             case "restore_default":
                 confirmReset();
@@ -228,6 +234,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IOnFoc
         }
         keyboardPreferences.setBgColor(String.valueOf(themeInfo.backgroundColor));
         keyboardPreferences.setFgColor(String.valueOf(themeInfo.foregroundColor));
+    }
+
+    private void setAngleUnit(String unit) {
+        keyboardPreferences.setAngleUnit(unit);
     }
 
     @Override
