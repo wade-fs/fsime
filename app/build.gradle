@@ -8,8 +8,8 @@ android {
         applicationId "com.wade.fsime"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 221016
-        versionName "221016"
+        versionCode 221105
+        versionName "221105"
     }
     signingConfigs {
         config {
@@ -48,5 +48,4 @@ dependencies {
     implementation 'com.github.AppIntro:AppIntro:6.1.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
-    implementation 'net.objecthunter:exp4j:0.4.8'
 }

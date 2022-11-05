@@ -1,5 +1,9 @@
 package com.wade.fsime;
 
+import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
+import static com.wade.libs.Tools.POLd;
+import static com.wade.libs.Tools.REC;
+
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -13,12 +17,12 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.KeyboardView;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Vibrator;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,14 +30,12 @@ import android.view.ViewConfiguration;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
-import android.media.MediaPlayer; // for keypress sound
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.wade.fsime.database.B;
 import com.wade.fsime.database.BDatabase;
 import com.wade.fsime.layout.Box;
 import com.wade.fsime.layout.Definitions;
@@ -44,19 +46,17 @@ import com.wade.fsime.layout.ui.KeyboardLayoutView;
 import com.wade.fsime.layout.ui.KeyboardUiFactory;
 import com.wade.fsime.theme.ThemeDefinitions;
 import com.wade.fsime.theme.ThemeInfo;
+import com.wade.libs.arity.Function;
+import com.wade.libs.arity.Symbols;
+import com.wade.libs.arity.SyntaxException;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
-
-import net.objecthunter.exp4j.Expression;
-import net.objecthunter.exp4j.ExpressionBuilder;
-import net.objecthunter.exp4j.tokenizer.UnknownFunctionOrVariableException;
 
 public class CodeBoardIME extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener {
@@ -785,11 +785,54 @@ public class CodeBoardIME extends InputMethodService
         }
         if (list.size() == 1) {
             try {
-                double r = new ExpressionBuilder(mComposing.toString())
-                        .build().evaluate();
-                list.add(""+r);
-            } catch (UnknownFunctionOrVariableException e) {
-                Logi("expr "+ mComposing.toString() + " : "+e.toString());
+                String text = mComposing.toString();
+                if (text.toLowerCase().contains("pol(")) { // pol(x,y) to (r,Theta)
+                    String exp = text;
+                    exp = exp.trim().replaceAll("pol", "").replaceAll("[()]", "");
+                    String[] res = exp.split("[ ,]");
+                    if (res.length==2) {
+                        if (res[0].length() == 0) res[0] = "1";
+                        if (res[1].length() == 0) res[1] = "0";
+                        double dy = Double.parseDouble(res[0]);
+                        double dx = Double.parseDouble(res[1]);
+                        double[] ret = POLd(dy, dx);
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE, "距離=%.2f, 角度=%.3f度", ret[0], ret[1]));
+                    }
+                }
+                if (text.toLowerCase().contains("rec(")) { // rec(r,Theta) to (x,y)
+                    String exp = text;
+                    exp = exp.trim().replaceAll("rec", "").replaceAll("[()]", "");
+                    String[] res = exp.split("[ ,]");
+                    if (res.length==2) {
+                        if (res[0].length() == 0) res[0] = "0";
+                        if (res[1].length() == 0) res[1] = "0";
+                        double dy = Double.parseDouble(res[0]);
+                        double dx = Double.parseDouble(res[1]);
+                        double[] ret = REC(dy, dx);
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE, "X=%.3f, Y=%.3f", ret[0], ret[1]));
+                    }
+                }
+                ArrayList<Function> auxFuncs = new ArrayList<>();
+                Symbols symbols = new Symbols();
+                int end = -1;
+                do {
+                    text = text.substring(end + 1);
+                    end = text.indexOf(';');
+                    String slice = end == -1 ? text : text.substring(0, end);
+                    try {
+                        Function f = symbols.compile(slice);
+                        auxFuncs.add(f);
+                    } catch (SyntaxException e) {
+                    }
+                } while (end != -1);
+                int size = auxFuncs.size();
+                if (size == 1) {
+                    Function f = auxFuncs.get(0);
+                    int arity = f.arity();
+                    if (arity == 0) {
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE,  f.evalComplex().toString()));
+                    }
+                }
             } catch (IllegalArgumentException e) {
                 Logi("expr "+ mComposing.toString() + " : "+e.toString());
             }
