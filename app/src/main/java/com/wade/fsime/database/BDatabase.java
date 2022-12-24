@@ -88,14 +88,18 @@ public class BDatabase extends SQLiteAssetHelper {
         Cursor cursor;
         int count=0;
         boolean n;
+
+        if (k.indexOf('"') >= 0) return list;
+        k.replaceAll("\"", "\"\"");
         q = "select * from "+table+" where ";
         if (fuzzy == FUZZY_EXACT) {
-            q += field + " = '" + k + "' LIMIT " + max + " OFFSET " + start + ";";
+            q += field + " = \"" + k + "\" LIMIT " + max + " OFFSET " + start + ";";
         } else if (fuzzy == FUZZY_PREFIX) {
-            q += field + " like '" + k + "_%' LIMIT " + max + " OFFSET " + start + ";";
+            q += field + " like \"" + k + "_%\" LIMIT " + max + " OFFSET " + start + ";";
         } else {
-            q += field +" like '%" + k + "%' LIMIT " + max + " OFFSET " + start + ";";
+            q += field +" like \"%" + k + "%\" LIMIT " + max + " OFFSET " + start + ";";
         }
+        Log.i("fsime",q);
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){
