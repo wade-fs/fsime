@@ -1,0 +1,148 @@
+# maintainer files
+
+.dir-locals.el
+ID
+TAGS
+GTAGS
+GPATH
+GRTAGS
+GSYMS
+
+# autotools generated
+INSTALL
+Makefile
+Makefile.in
+aclocal.m4
+mkinstalldirs
+autom4te.cache
+build-aux/
+chewing.pc
+config.log
+config.status
+configure
+libchewing.spec
+libtool
+/m4/libtool.m4
+/m4/lt*.m4
+include/config.h.in~
+
+# compiling output
+*.dat
+*.exe
+*.la
+*.lo
+*.o
+.deps
+.libs
+
+data/gendata_stamp
+
+include/config.h
+include/config.h.in
+include/stamp-h1
+
+# cmake generated files
+config.h
+/libchewing.*
+/libsqlite3_library.a
+/libtesthelper.a
+/libuserphrase.a
+/Testing
+
+# test suite
+test/genkeystroke
+test/performance
+test/randkeystroke
+test/simulate
+test/stress
+test/testchewing
+test/test-bopomofo
+test/test-config
+test/test-easy-symbol
+test/test-error-handling
+test/test-fullshape
+test/test-key2pho
+test/test-keyboard
+test/test-keyboardless
+test/test-logger
+test/test-memory-fail
+test/test-mmap
+test/test-path
+test/test-reset
+test/test-regression
+test/test-symbol
+test/test-struct-size
+test/test-special-symbol
+test/test-userphrase
+test/test-utf8
+test/do-test.xml
+test/test.txt
+test/*.log
+test/*.trs
+test/chewing.sqlite3
+test/test.sqlite3
+thirdparty/sqlite-amalgamation/sqlite3
+
+# Generated tools/headers
+src/tools/init_database
+src/tools/dump_database
+
+# gcov output
+*.gcda
+*.gcno
+*.gcov
+/coverage.info
+/coveragereport
+
+# cscope output
+cscope.*
+
+# info doc
+doc/libchewing.info
+doc/stamp-vti
+doc/version.texi
+doc/libchewing.aux
+doc/libchewing.cp
+doc/libchewing.cps
+doc/libchewing.fn
+doc/libchewing.fns
+doc/libchewing.ky
+doc/libchewing.log
+doc/libchewing.pdf
+doc/libchewing.pg
+doc/libchewing.toc
+doc/libchewing.tp
+doc/libchewing.tps
+doc/libchewing.vr
+doc/libchewing.vrs
+
+# cmake
+/CTestTestfile.cmake
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+
+# Visual Studio
+*.pdb
+*.vcxproj*
+*.sln
+*.sdf
+*.suo
+*.dir
+*.ilk
+
+# indent backup
+*~
+
+# contrib directory
+contrib/simple-select
+contrib/test.sqlite3
+
+# vi
+*.swp
+
+# OS X
+.DS_Store
+
+# python
+*.pyc
