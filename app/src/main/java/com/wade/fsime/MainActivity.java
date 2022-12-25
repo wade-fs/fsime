@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import io.github.yawnoc.utilities.Contexty;
+import com.wade.utilities.Contexty;
 
 /*
   The main activity of the application.

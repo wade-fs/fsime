@@ -20,7 +20,6 @@
   <declare-styleable name="Row">
     <attr name="rowOffsetX" format="dimension|fraction" />
     <attr name="keysAreShiftable" />
-    <attr name="keysArePreviewable" />
     <attr name="keyWidth" />
     <attr name="keyHeight" />
     <attr name="keyFillColour" />

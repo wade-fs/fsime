@@ -5,7 +5,7 @@
   see LICENSE or <https://www.gnu.org/licenses/>.
 */
 
-package io.github.yawnoc.utilities;
+package com.wade.utilities;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

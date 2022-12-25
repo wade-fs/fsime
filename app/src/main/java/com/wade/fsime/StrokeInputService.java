@@ -35,9 +35,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import io.github.yawnoc.utilities.Contexty;
-import io.github.yawnoc.utilities.Mappy;
-import io.github.yawnoc.utilities.Stringy;
+import com.wade.utilities.Contexty;
+import com.wade.utilities.Mappy;
+import com.wade.utilities.Stringy;
 
 /*
   An InputMethodService for the Stroke Input Method (筆畫輸入法).

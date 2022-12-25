@@ -18,7 +18,7 @@
     Copyright 2005-2008 The Android Open Source Project
 */
 
-package io.github.yawnoc.utilities;
+package com.wade.utilities;
 
 import android.content.res.TypedArray;
 import android.util.DisplayMetrics;

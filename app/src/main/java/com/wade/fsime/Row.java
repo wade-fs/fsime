@@ -25,7 +25,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.Xml;
 
-import io.github.yawnoc.utilities.Valuey;
+import com.wade.utilities.Valuey;
 
 /*
   A row that holds keys.
@@ -40,7 +40,6 @@ public class Row
   
   // Key properties
   public final boolean keysAreShiftable;
-  public final boolean keysArePreviewable;
   public final int keyWidth;
   public final int keyHeight;
   public final int keyFillColour;
@@ -71,9 +70,7 @@ public class Row
     
     keysAreShiftable =
             attributesArray.getBoolean(R.styleable.Row_keysAreShiftable, parentKeyboard.keysAreShiftable);
-    keysArePreviewable =
-            attributesArray.getBoolean(R.styleable.Row_keysArePreviewable, parentKeyboard.keysArePreviewable);
-    
+
     keyWidth =
             Valuey.getDimensionOrFraction(
               attributesArray,

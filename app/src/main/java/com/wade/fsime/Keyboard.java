@@ -31,7 +31,7 @@ import android.util.Xml;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.yawnoc.utilities.Valuey;
+import com.wade.utilities.Valuey;
 
 /*
   A keyboard that holds rows of keys, to be declared in a layout XML.
