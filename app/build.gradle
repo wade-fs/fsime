@@ -1,51 +1,54 @@
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 33
-    buildToolsVersion '30.0.3'
-
-    defaultConfig {
-        applicationId "com.wade.fsime"
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 221224
-        versionName "221224"
-    }
-    signingConfigs {
-        config {
-            keyAlias 'androidapk'
-            keyPassword 'jjchen'
-            storeFile file('/home/wade/.ssh/androidapk.jks')
-            storePassword 'jjchen'
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        applicationVariants.all { variant ->
-            variant.outputs.all { output ->
-                project.ext { appName = android.defaultConfig.applicationId }
-                def newName = outputFileName
-                newName = newName.replace("app-", "$project.ext.appName-")
-                newName = newName.replace("release", android.defaultConfig.versionName)
-                outputFileName = newName
-            }
-        }
-    }
-    lint {
-        checkReleaseBuilds false
-    }
-    namespace 'com.wade.fsime'
+plugins
+{
+  id 'com.android.application'
 }
 
-dependencies {
-    api 'androidx.legacy:legacy-support-v13:1.0.0'
-    api 'androidx.preference:preference:1.2.0'
+android
+{
+  compileSdkVersion 33
+  buildToolsVersion "30.0.3"
+  defaultConfig
+  {
+    applicationId "com.wade.fsime"
+    minSdkVersion 24
+    targetSdkVersion 33
+    versionCode 221225
+    versionName "221225"
+  }
+  buildTypes
+  {
+    release
+    {
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            project.ext { appName = android.defaultConfig.applicationId }
+            def newName = outputFileName
+            newName = newName.replace("app-", "$project.ext.appName-")
+            newName = newName.replace("release", android.defaultConfig.versionName)
+            outputFileName = newName
+        }
+    }
+  }
+  compileOptions
+  {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  androidResources
+  {
+    ignoreAssetsPattern '*.cmd:*.cmdr'
+  }
+  lint {
+      checkReleaseBuilds false
+  }
+  namespace 'com.wade.fsime'
+}
 
-    implementation 'com.google.android.material:material:1.8.0-alpha01'
-    implementation 'com.github.AppIntro:AppIntro:6.1.0'
-    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
-    implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
+dependencies
+{
+  implementation 'com.google.android.material:material:1.7.0'
 }

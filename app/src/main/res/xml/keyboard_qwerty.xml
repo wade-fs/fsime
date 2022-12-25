@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  app:keyHeight="@dimen/key_height__qwerty"
+  app:keyWidth="@dimen/key_width__digit"
+  app:keyTextSize="@dimen/font_size__qwerty"
+  app:keyTextOffsetY="@dimen/baseline_correction__qwerty"
+  app:keyFillColour="@color/key_fill"
+>
+  <Row
+    app:keyTextOffsetY="@dimen/baseline_correction__qwerty_digit"
+  >
+    <!-- Digits -->
+    <Key app:keyValueText="1" />
+    <Key app:keyValueText="2" />
+    <Key app:keyValueText="3" />
+    <Key app:keyValueText="4" />
+    <Key app:keyValueText="5" />
+    <Key app:keyValueText="6" />
+    <Key app:keyValueText="7" />
+    <Key app:keyValueText="8" />
+    <Key app:keyValueText="9" />
+    <Key app:keyValueText="0" />
+  </Row>
+  <Row
+    app:keysAreShiftable="true"
+  >
+    <!-- Letters row 1 -->
+    <Key app:keyValueText="q" />
+    <Key app:keyValueText="w" />
+    <Key app:keyValueText="e" />
+    <Key app:keyValueText="r" />
+    <Key app:keyValueText="t" />
+    <Key app:keyValueText="y" />
+    <Key app:keyValueText="u" />
+    <Key app:keyValueText="i" />
+    <Key app:keyValueText="o" />
+    <Key app:keyValueText="p" />
+  </Row>
+  <Row
+    app:rowOffsetX="@dimen/horizontal_offset__qwerty_row_2"
+    app:keysAreShiftable="true"
+  >
+    <!-- Letters row 2 -->
+    <Key
+      app:keyValueText="a"
+      app:keyIsExtendedLeft="true"
+    />
+    <Key app:keyValueText="s" />
+    <Key app:keyValueText="d" />
+    <Key app:keyValueText="f" />
+    <Key app:keyValueText="g" />
+    <Key app:keyValueText="h" />
+    <Key app:keyValueText="j" />
+    <Key app:keyValueText="k" />
+    <Key
+      app:keyValueText="l"
+      app:keyIsExtendedRight="true"
+    />
+  </Row>
+  <Row
+    app:keysAreShiftable="true"
+  >
+    <!-- Shift key: U+21E7, U+2B06 -->
+    <Key
+      app:keyValueText="SHIFT"
+      app:keyDisplayText="⇧"
+      app:keyValueTextShifted="⬆"
+      app:keyWidth="@dimen/key_width__qwerty_shift"
+      app:keyIsPreviewable="false"
+    />
+    <!-- Letters row 3 -->
+    <Key app:keyValueText="z" />
+    <Key app:keyValueText="x" />
+    <Key app:keyValueText="c" />
+    <Key app:keyValueText="v" />
+    <Key app:keyValueText="b" />
+    <Key app:keyValueText="n" />
+    <Key app:keyValueText="m" />
+    <!-- Backspace -->
+    <Key
+      app:keyValueText="BACKSPACE"
+      app:keyDisplayText="@string/display_text__backspace"
+      app:keyIsRepeatable="true"
+      app:keyIsShiftable="false"
+      app:keyTextSize="@dimen/font_size__qwerty_backspace"
+      app:keyTextOffsetY="@dimen/baseline_correction__qwerty_backspace"
+      app:keyWidth="@dimen/key_width__qwerty_shift"
+      app:keyIsPreviewable="false"
+    />
+  </Row>
+  <Row
+    app:keyWidth="@dimen/key_width__strokes_stroke"
+  >
+    <!-- Switch to qwerty symbols keyboard -->
+    <Key
+      app:keyValueText="SWITCH_TO_QWERTY_SYMBOLS"
+      app:keyDisplayText="!@#"
+      app:keyTextSize="@dimen/font_size__switch_key"
+      app:keyTextOffsetY="@dimen/baseline_correction__switch_key"
+      app:keyIsPreviewable="false"
+    />
+    <!-- Comma -->
+    <Key
+      app:keyValueText="@string/value_text__qwerty_comma"
+      app:keyWidth="@dimen/key_width__digit"
+    />
+    <!-- Space bar -->
+    <Key
+      app:keyValueText="SPACE"
+      app:keyDisplayText="@string/display_text__qwerty_space_bar"
+      app:keyIsLongPressable="true"
+      app:keyIsSwipeable="true"
+      app:keyTextSize="@dimen/font_size__space_bar"
+      app:keyTextOffsetY="@dimen/baseline_correction__space_bar"
+      app:keyTextColour="@color/space_bar_text"
+      app:keyWidth="@dimen/key_width__space_bar"
+      app:keyIsPreviewable="false"
+    />
+    <!-- Full stop -->
+    <Key
+      app:keyValueText="@string/value_text__qwerty_full_stop"
+      app:keyWidth="@dimen/key_width__digit"
+    />
+    <!-- Enter key -->
+    <Key
+      app:keyValueText="ENTER"
+      app:keyTextSize="@dimen/font_size__enter_key"
+      app:keyFillColour="@color/enter_key_fill"
+      app:keyIsPreviewable="false"
+    />
+  </Row>
+</Keyboard>

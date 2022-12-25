@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="Keyboard">
+    <attr name="keyboardFillColour" format="color" />
+    <attr name="keysAreShiftable" format="boolean" />
+    <attr name="keysArePreviewable" format="boolean" />
+    <attr name="keyWidth" format="dimension|fraction" />
+    <attr name="keyHeight" format="dimension|fraction" />
+    <attr name="keyFillColour" format="color" />
+    <attr name="keyBorderColour" format="color" />
+    <attr name="keyBorderThickness" format="dimension" />
+    <attr name="keyTextColour" format="color" />
+    <attr name="keyTextSwipeColour" format="color" />
+    <attr name="keyTextSize" format="dimension" />
+    <attr name="keyTextOffsetX" format="dimension" />
+    <attr name="keyTextOffsetY" format="dimension" />
+    <attr name="keyPreviewMagnification" format="float" />
+    <attr name="keyPreviewMarginY" format="dimension" />
+  </declare-styleable>
+  <declare-styleable name="Row">
+    <attr name="rowOffsetX" format="dimension|fraction" />
+    <attr name="keysAreShiftable" />
+    <attr name="keysArePreviewable" />
+    <attr name="keyWidth" />
+    <attr name="keyHeight" />
+    <attr name="keyFillColour" />
+    <attr name="keyBorderColour" />
+    <attr name="keyBorderThickness" />
+    <attr name="keyTextColour" />
+    <attr name="keyTextSwipeColour" />
+    <attr name="keyTextSize" />
+    <attr name="keyTextOffsetX" />
+    <attr name="keyTextOffsetY" />
+    <attr name="keyPreviewMagnification" />
+    <attr name="keyPreviewMarginY" />
+  </declare-styleable>
+  <declare-styleable name="Key">
+    <attr name="keyIsLongPressable" format="boolean" />
+    <attr name="keyIsRepeatable" format="boolean" />
+    <attr name="keyIsSwipeable" format="boolean" />
+    <attr name="keyIsShiftable" format="boolean" />
+    <attr name="keyIsExtendedLeft" format="boolean" />
+    <attr name="keyIsExtendedRight" format="boolean" />
+    <attr name="keyIsPreviewable" format="boolean" />
+    <attr name="keyValueText" format="string" />
+    <attr name="keyDisplayText" format="string" />
+    <attr name="keyValueTextShifted" format="string" />
+    <attr name="keyWidth" />
+    <attr name="keyHeight" />
+    <attr name="keyFillColour" />
+    <attr name="keyBorderColour" />
+    <attr name="keyBorderThickness" />
+    <attr name="keyTextColour" />
+    <attr name="keyTextSwipeColour" />
+    <attr name="keyTextSize" />
+    <attr name="keyTextOffsetX" />
+    <attr name="keyTextOffsetY" />
+    <attr name="keyPreviewMagnification" />
+    <attr name="keyPreviewMarginY" />
+  </declare-styleable>
+</resources>

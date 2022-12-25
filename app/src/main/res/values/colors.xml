@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/* 
-**
-** Copyright 2008, The Android Open Source Project
-** Copyright (C) 2009 Alejandro Grijalba
-**
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-**
-**     http://www.apache.org/licenses/LICENSE-2.0 
-**
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-*/
--->
 <resources>
-    <color name="candidate_normal">#FFff0000</color>
-    <color name="candidate_recommended">#FFFFFF00</color>
-    <color name="candidate_other">#FFFFFFFF</color>
-    <color name="candidate_background">#FF000000</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="ic_launcher_background">#3CE2D4</color>
+  <!-- Theme -->
+  <color name="umbrella_yellow">#FFFFFF80</color>
+  <color name="yellow">#FFFFFF00</color>
+  <color name="umbrella_orange">#FFFFCE73</color>
+  <color name="orange">#FFFFA500</color>
+  <color name="umbrella_grey">#FFCECECE</color>
+  <color name="very_dark_grey">#FF222222</color>
+  <!-- Keyboard -->
+  <color name="stroke_key_text">@color/umbrella_yellow</color>
+  <color name="space_bar_text">#FFA3A3A3</color>
+  <color name="key_fill">#FF181818</color>
+  <color name="enter_key_fill">#FF00CE00</color>
+  <!-- Stroke sequence bar -->
+  <color name="stroke_sequence_bar_text">@color/umbrella_yellow</color>
+  <color name="stroke_sequence_bar_fill">#8D000000</color>
+  <color name="stroke_sequence_bar_fill_fullscreen">#FF666666</color>
+  <!-- Candidate button -->
+  <color name="candidate_button_text">@color/umbrella_orange</color>
+  <color name="candidate_button_fill">@android:color/black</color>
 </resources>

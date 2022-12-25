@@ -1,0 +1,98 @@
+:root{
+  --umbrella-orange: #FFCE73;
+  --umbrella-yellow: #FFFF80;
+  --key-fill: #181818;
+  --enter-key-fill: #00CE00;
+}
+
+@font-face {
+  font-family: 'Stroke Input Font';
+  src: url('StrokeInputFont.ttf') format('truetype');
+}
+
+body {
+  background: var(--key-fill);
+  color: white;
+  font-family: sans-serif;
+  font-size: 15px;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 1em;
+}
+
+body:lang(zh) {
+  font-size: 16px;
+}
+
+a {
+  color: var(--umbrella-orange);
+}
+
+footer {
+  border-top: 2px solid white;
+  margin-top: 1.5em;
+  padding-top: 0.75em;
+}
+
+h1 {
+  font-size: 1.6em;
+  margin-top: 0.3em;
+}
+h2 {
+  font-size: 1.4em;
+  margin-top: 1.5em;
+}
+h3 {
+  font-size: 1.1em;
+}
+h4 {
+  margin-bottom: 0;
+}
+
+html {
+  background: grey;
+  margin: 0 auto;
+  max-width: 44em;
+}
+
+kbd {
+  border: 2px grey solid;
+  display: inline-block;
+  margin: 0 0.15em;
+  min-width: 1em;
+  padding: 0.25em 0.3em 0.1em;
+  text-align: center;
+  vertical-align: middle;
+  white-space: pre;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  line-height: 1.4;
+}
+td, th {
+  border: 1px solid white;
+  padding: 0.5em;
+}
+
+.notice {
+  border: 1px solid white;
+  margin-top: 0.5em;
+  padding: 0.5em;
+}
+
+.stroke-key {
+  font-family: 'Stroke Input Font', sans-serif;
+  color: var(--umbrella-yellow);
+  font-weight: bold;
+}
+.space-bar {
+  font-size: 0.8em;
+}
+.enter-key {
+  background: var(--enter-key-fill);
+  font-size: 1.25em;
+  min-width: 2em;
+  padding: 0;
+}

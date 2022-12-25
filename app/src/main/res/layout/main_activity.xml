@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2021–2022 Conway
+  Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
+  This is free software with NO WARRANTY etc. etc.,
+  see LICENSE or <https://www.gnu.org/licenses/>.
+-->
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+>
+  <LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/padding__main_activity"
+  >
+    <TextView
+      style="@style/MainActivityText"
+      android:text="@string/text__main_activity__input_method_settings"
+      android:paddingTop="@dimen/padding_top__main_activity__text_first"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/input_method_settings_button"
+      android:text="@string/label__main_activity__input_method_settings_button"
+    />
+    <TextView
+      style="@style/MainActivityText"
+      android:text="@string/text__main_activity__change_keyboard"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/change_keyboard_button"
+      android:text="@string/label__main_activity__change_keyboard_button"
+    />
+    <TextView
+      style="@style/MainActivityText"
+      android:text="@string/text__main_activity__candidate_order"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/candidate_order_button"
+      android:text="@string/label__main_activity__traditional_first"
+    />
+    <EditText
+      style="@style/MainActivityInput"
+      android:id="@+id/test_input"
+      android:hint="@string/hint__main_activity__test_input"
+      android:importantForAutofill="no"
+      android:inputType="text"
+      android:layout_marginBottom="@dimen/margin_bottom__main_activity__input"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/source_code_button"
+      android:text="@string/label__main_activity__source_code_button"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/help_button"
+      android:text="@string/label__main_activity__help_button"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/about_button"
+      android:text="@string/label__main_activity__about_button"
+    />
+    <Button
+      style="@style/MainActivityButton"
+      android:id="@+id/privacy_button"
+      android:text="@string/label__main_activity__privacy_button"
+    />
+  </LinearLayout>
+</ScrollView>

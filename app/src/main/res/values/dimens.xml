@@ -1,26 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/* 
-**
-** Copyright 2008, The Android Open Source Project
-** Copyright (C) 2009 Alejandro Grijalba
-**
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-**
-**     http://www.apache.org/licenses/LICENSE-2.0 
-**
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-*/
--->
-
 <resources>
-    <!--<dimen name="key_height">50dip</dimen> -->
-    <dimen name="candidate_font_height">24sp</dimen>
-    <dimen name="candidate_vertical_padding">6sp</dimen>
+  <!-- Main activity -->
+  <dimen name="font_size__main_activity">16sp</dimen>
+  <dimen name="font_size__main_activity__button">13sp</dimen>
+  <dimen name="padding__main_activity">12dp</dimen>
+  <dimen name="padding_top__main_activity__text_first">0dp</dimen>
+  <dimen name="padding_top__main_activity__text">8dp</dimen>
+  <dimen name="padding_horizontal__main_activity__text">4dp</dimen>
+  <dimen name="padding_bottom__main_activity__text">4dp</dimen>
+  <dimen name="margin_bottom__main_activity__input">12dp</dimen>
+  <dimen name="inset_vertical__main_activity__button">4dp</dimen>
+  <dimen name="min_height__main_activity__button">48dp</dimen>
+  <dimen name="min_height__main_activity__input">48dp</dimen>
+  <!-- Candidate order dialog -->
+  <dimen name="padding__candidate_order_dialog">12dp</dimen>
+  <dimen name="font_size__dialog_button">18sp</dimen>
+  <dimen name="padding__dialog_button">4dp</dimen>
+  <!-- Error messages -->
+  <dimen name="font_size__error_message">16dp</dimen>
+  <dimen name="padding_horizontal__error_message">16dp</dimen>
+  <dimen name="padding_top__error_message">10dp</dimen>
+  <!-- Key height (strokes_digit + 2 * strokes + strokes_space_bar == 5 * qwerty) -->
+  <dimen name="key_height__strokes_digit">60dp</dimen>
+  <dimen name="key_height__strokes">70dp</dimen>
+  <dimen name="key_height__strokes_space_bar">60dp</dimen>
+  <dimen name="key_height__qwerty">52dp</dimen>
+  <!-- Key width -->
+  <dimen name="key_width__digit">10%</dimen>
+  <dimen name="key_width__space_bar">40%</dimen>
+  <dimen name="key_width__strokes_stroke">20%</dimen>
+  <dimen name="key_width__qwerty_shift">15%</dimen>
+  <!-- Key text font size -->
+  <dimen name="font_size__switch_key">20dp</dimen>
+  <dimen name="font_size__space_bar">18dp</dimen>
+  <dimen name="font_size__enter_key">36dp</dimen>
+  <dimen name="font_size__strokes">24dp</dimen>
+  <dimen name="font_size__strokes_digit">22dp</dimen>
+  <dimen name="font_size__strokes_stroke">30dp</dimen>
+  <dimen name="font_size__strokes_ditto_key">24dp</dimen>
+  <dimen name="font_size__strokes_backspace">32dp</dimen>
+  <dimen name="font_size__qwerty">22dp</dimen>
+  <dimen name="font_size__qwerty_backspace">30dp</dimen>
+  <!-- Key text baseline correction -->
+  <dimen name="baseline_correction__switch_key">0.75dp</dimen>
+  <dimen name="baseline_correction__space_bar">0.5dp</dimen>
+  <dimen name="baseline_correction__strokes">2dp</dimen>
+  <dimen name="baseline_correction__strokes_digit">0.75dp</dimen>
+  <dimen name="baseline_correction__strokes_enter_key">0.25dp</dimen>
+  <dimen name="baseline_correction__qwerty">0.75dp</dimen>
+  <dimen name="baseline_correction__qwerty_digit">1dp</dimen>
+  <dimen name="baseline_correction__qwerty_backspace">1.75dp</dimen>
+  <!-- Row horizontal offset -->
+  <dimen name="horizontal_offset__qwerty_row_2">5%</dimen>
+  <!-- Popup recess -->
+  <dimen name="height__popup_recess">30dp</dimen>
+  <!-- Stroke sequence bar -->
+  <dimen name="font_size__stroke_sequence_bar">15sp</dimen>
+  <dimen name="padding_top__stroke_sequence_bar">3dp</dimen>
+  <dimen name="padding_left__stroke_sequence_bar">5dp</dimen>
+  <dimen name="padding_right__stroke_sequence_bar">7dp</dimen>
+  <dimen name="padding_bottom__stroke_sequence_bar">2dp</dimen>
+  <!-- Candidates -->
+  <dimen name="font_size__candidate_button">20sp</dimen>
+  <dimen name="height__candidate_button">38dp</dimen>
+  <dimen name="min_width__candidate_button">0dp</dimen>
+  <dimen name="padding_horizontal__candidate_button">16dp</dimen>
 </resources>
