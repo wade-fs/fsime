@@ -114,9 +114,6 @@ public class StrokeInputService
   private static final int MAX_PREFIX_MATCH_COUNT = 30;
   private static final int MAX_PHRASE_LENGTH = 6;
   
-  Keyboard strokesSymbols1Keyboard;
-  Keyboard strokesSymbols2Keyboard;
-  Keyboard strokesSymbols3Keyboard;
   Keyboard qwertyKeyboard;
   Keyboard qwertySymbolsKeyboard;
   
@@ -169,16 +166,10 @@ public class StrokeInputService
   @Override
   public View onCreateInputView()
   {
-    strokesSymbols1Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_1);
-    strokesSymbols2Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_2);
-    strokesSymbols3Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_3);
     qwertyKeyboard = new Keyboard(this, R.xml.keyboard_qwerty);
     qwertySymbolsKeyboard = new Keyboard(this, R.xml.keyboard_qwerty_symbols);
     
     nameFromKeyboard = new HashMap<>();
-    nameFromKeyboard.put(strokesSymbols1Keyboard, STROKES_SYMBOLS_1_KEYBOARD_NAME);
-    nameFromKeyboard.put(strokesSymbols2Keyboard, STROKES_SYMBOLS_2_KEYBOARD_NAME);
-    nameFromKeyboard.put(strokesSymbols3Keyboard, STROKES_SYMBOLS_3_KEYBOARD_NAME);
     nameFromKeyboard.put(qwertyKeyboard, QWERTY_KEYBOARD_NAME);
     nameFromKeyboard.put(qwertySymbolsKeyboard, QWERTY_SYMBOLS_KEYBOARD_NAME);
     keyboardFromName = Mappy.invertMap(nameFromKeyboard);

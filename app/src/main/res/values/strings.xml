@@ -1,7 +1,7 @@
 <resources>
   <!-- Main activity -->
-  <string name="app_name">Stroke Input Method</string>
-  <string name="label__main_activity__welcome">Welcome to Stroke Input Method!</string>
+  <string name="app_name">Fantasy Space Input Method</string>
+  <string name="label__main_activity__welcome">Welcome to Fantasy Space Input Method!</string>
   <string name="text__main_activity__input_method_settings">
     1. If you have installed Stroke Input Method for the first time,
     you must manually enable it in the system settings before it can be used:
@@ -35,8 +35,7 @@
   <string name="value_text__qwerty_comma" translatable="false">,</string>
   <string name="value_text__strokes_comma" translatable="false">，</string>
   <!-- Space bar: U+25C0, U+25B6 (triangles) -->
-  <string name="display_text__qwerty_space_bar">◀ English ▶</string>
-  <string name="display_text__strokes_space_bar">◀ Chinese ▶</string>
+  <string name="display_text__qwerty_space_bar">◀ FS IME ▶</string>
   <!-- Full stop: U+002E FULL STOP, U+3002 IDEOGRAPHIC FULL STOP -->
   <string name="value_text__qwerty_full_stop" translatable="false">.</string>
   <string name="value_text__strokes_full_stop" translatable="false">。</string>

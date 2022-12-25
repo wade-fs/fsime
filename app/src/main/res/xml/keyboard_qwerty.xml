@@ -11,52 +11,48 @@
     app:keyTextOffsetY="@dimen/baseline_correction__qwerty_digit"
   >
     <!-- Digits -->
-    <Key app:keyValueText="1" />
-    <Key app:keyValueText="2" />
-    <Key app:keyValueText="3" />
-    <Key app:keyValueText="4" />
-    <Key app:keyValueText="5" />
-    <Key app:keyValueText="6" />
-    <Key app:keyValueText="7" />
-    <Key app:keyValueText="8" />
-    <Key app:keyValueText="9" />
-    <Key app:keyValueText="0" />
+    <Key app:keyValueText="1" app:keyValueTextShifted="!" />
+    <Key app:keyValueText="2" app:keyValueTextShifted="@" />
+    <Key app:keyValueText="3" app:keyValueTextShifted="#" />
+    <Key app:keyValueText="4" app:keyValueTextShifted="$" />
+    <Key app:keyValueText="5" app:keyValueTextShifted="%" />
+    <Key app:keyValueText="6" app:keyValueTextShifted="^" />
+    <Key app:keyValueText="7" app:keyValueTextShifted="&amp;" />
+    <Key app:keyValueText="8" app:keyValueTextShifted="*" />
+    <Key app:keyValueText="9" app:keyValueTextShifted="(" />
+    <Key app:keyValueText="0" app:keyValueTextShifted=")" />
   </Row>
   <Row
     app:keysAreShiftable="true"
   >
     <!-- Letters row 1 -->
-    <Key app:keyValueText="q" />
-    <Key app:keyValueText="w" />
-    <Key app:keyValueText="e" />
-    <Key app:keyValueText="r" />
-    <Key app:keyValueText="t" />
-    <Key app:keyValueText="y" />
-    <Key app:keyValueText="u" />
-    <Key app:keyValueText="i" />
-    <Key app:keyValueText="o" />
-    <Key app:keyValueText="p" />
+    <Key app:keyValueText="q" app:keyValueTextShifted="Q" app:cj="手" app:ji="ㄆ" />
+    <Key app:keyValueText="w" app:keyValueTextShifted="W" app:cj="田" app:ji="ㄊ" />
+    <Key app:keyValueText="e" app:keyValueTextShifted="E" app:cj="水" app:ji="ㄍ" />
+    <Key app:keyValueText="r" app:keyValueTextShifted="R" app:cj="口" app:ji="ㄐ" />
+    <Key app:keyValueText="t" app:keyValueTextShifted="T" app:cj="廿" app:ji="ㄔ" />
+    <Key app:keyValueText="y" app:keyValueTextShifted="Y" app:cj="卜" app:ji="ㄗ" />
+    <Key app:keyValueText="u" app:keyValueTextShifted="U" app:cj="山" app:ji="一" />
+    <Key app:keyValueText="i" app:keyValueTextShifted="I" app:cj="戈" app:ji="ㄛ" />
+    <Key app:keyValueText="o" app:keyValueTextShifted="O" app:cj="人" app:ji="ㄟ" />
+    <Key app:keyValueText="p" app:keyValueTextShifted="P" app:cj="心" app:ji="ㄣ" />
   </Row>
   <Row
     app:rowOffsetX="@dimen/horizontal_offset__qwerty_row_2"
     app:keysAreShiftable="true"
   >
     <!-- Letters row 2 -->
-    <Key
-      app:keyValueText="a"
-      app:keyIsExtendedLeft="true"
-    />
-    <Key app:keyValueText="s" />
-    <Key app:keyValueText="d" />
-    <Key app:keyValueText="f" />
-    <Key app:keyValueText="g" />
-    <Key app:keyValueText="h" />
-    <Key app:keyValueText="j" />
-    <Key app:keyValueText="k" />
-    <Key
-      app:keyValueText="l"
-      app:keyIsExtendedRight="true"
-    />
+    <Key app:keyValueText="a" app:keyIsExtendedLeft="true"
+                              app:keyValueTextShifted="A" app:cj="日" app:ji="ㄇ" />
+    <Key app:keyValueText="s" app:keyValueTextShifted="S" app:cj="尸" app:ji="ㄋ" />
+    <Key app:keyValueText="d" app:keyValueTextShifted="D" app:cj="木" app:ji="ㄎ" />
+    <Key app:keyValueText="f" app:keyValueTextShifted="F" app:cj="火" app:ji="ㄑ" />
+    <Key app:keyValueText="g" app:keyValueTextShifted="G" app:cj="土" app:ji="ㄕ" />
+    <Key app:keyValueText="h" app:keyValueTextShifted="H" app:cj="竹" app:ji="ㄘ" />
+    <Key app:keyValueText="j" app:keyValueTextShifted="J" app:cj="十" app:ji="ㄨ" />
+    <Key app:keyValueText="k" app:keyValueTextShifted="K" app:cj="大" app:ji="ㄜ" />
+    <Key app:keyValueText="l" app:keyIsExtendedRight="true"
+                              app:keyValueTextShifted="L" app:cj="中" app:ji="ㄠ" />
   </Row>
   <Row
     app:keysAreShiftable="true"
@@ -70,13 +66,13 @@
       app:keyIsPreviewable="false"
     />
     <!-- Letters row 3 -->
-    <Key app:keyValueText="z" />
-    <Key app:keyValueText="x" />
-    <Key app:keyValueText="c" />
-    <Key app:keyValueText="v" />
-    <Key app:keyValueText="b" />
-    <Key app:keyValueText="n" />
-    <Key app:keyValueText="m" />
+    <Key app:keyValueText="z" app:keyValueTextShifted="Z" app:cj="重" app:ji="ㄈ" />
+    <Key app:keyValueText="x" app:keyValueTextShifted="X" app:cj="難" app:ji="ㄌ" />
+    <Key app:keyValueText="c" app:keyValueTextShifted="C" app:cj="金" app:ji="ㄏ" />
+    <Key app:keyValueText="v" app:keyValueTextShifted="V" app:cj="女" app:ji="ㄒ" />
+    <Key app:keyValueText="b" app:keyValueTextShifted="B" app:cj="月" app:ji="ㄖ" />
+    <Key app:keyValueText="n" app:keyValueTextShifted="N" app:cj="弓" app:ji="ㄙ" />
+    <Key app:keyValueText="m" app:keyValueTextShifted="M" app:cj="一" app:ji="ㄩ" />
     <!-- Backspace -->
     <Key
       app:keyValueText="BACKSPACE"

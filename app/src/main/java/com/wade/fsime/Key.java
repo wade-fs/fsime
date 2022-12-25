@@ -23,6 +23,7 @@ package com.wade.fsime;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
+import android.util.Log;
 import android.util.Xml;
 
 import io.github.yawnoc.utilities.Valuey;
@@ -43,6 +44,7 @@ public class Key
   public String valueText;
   public String displayText; // overrides valueText drawn
   public String valueTextShifted; // overrides displayText drawn when shifted
+  public String cj, ji;
   
   // Key dimensions
   public int width;
@@ -88,7 +90,7 @@ public class Key
     
     final TypedArray attributesArray =
             resources.obtainAttributes(Xml.asAttributeSet(xmlResourceParser), R.styleable.Key);
-    
+
     isLongPressable = attributesArray.getBoolean(R.styleable.Key_keyIsLongPressable, false);
     isRepeatable = attributesArray.getBoolean(R.styleable.Key_keyIsRepeatable, false);
     isSwipeable = attributesArray.getBoolean(R.styleable.Key_keyIsSwipeable, false);
@@ -99,6 +101,11 @@ public class Key
     
     valueText = attributesArray.getString(R.styleable.Key_keyValueText);
     displayText = attributesArray.getString(R.styleable.Key_keyDisplayText);
+    cj = attributesArray.getString(R.styleable.Key_cj);
+    ji = attributesArray.getString(R.styleable.Key_ji);
+    Log.d("Key_attrs", valueText + "/"+cj+"/"+ji);
+
+
     if (displayText == null)
     {
       displayText = valueText;
