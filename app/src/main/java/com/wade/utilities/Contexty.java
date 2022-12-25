@@ -81,16 +81,4 @@ public final class Contexty
     inputMethodManager.showInputMethodPicker();
   }
   
-  public static void openInBrowser(final Context context, final String uri)
-  {
-    final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-    try
-    {
-      context.startActivity(browserIntent);
-    }
-    catch (Exception exception)
-    {
-      showErrorMessage(context, context.getString(R.string.message__error__browser, uri));
-    }
-  }
 }

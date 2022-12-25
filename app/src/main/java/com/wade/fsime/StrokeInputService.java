@@ -114,7 +114,6 @@ public class StrokeInputService
   private static final int MAX_PREFIX_MATCH_COUNT = 30;
   private static final int MAX_PHRASE_LENGTH = 6;
   
-  Keyboard strokesKeyboard;
   Keyboard strokesSymbols1Keyboard;
   Keyboard strokesSymbols2Keyboard;
   Keyboard strokesSymbols3Keyboard;
@@ -170,7 +169,6 @@ public class StrokeInputService
   @Override
   public View onCreateInputView()
   {
-    strokesKeyboard = new Keyboard(this, R.xml.keyboard_strokes);
     strokesSymbols1Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_1);
     strokesSymbols2Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_2);
     strokesSymbols3Keyboard = new Keyboard(this, R.xml.keyboard_strokes_symbols_3);
@@ -178,7 +176,6 @@ public class StrokeInputService
     qwertySymbolsKeyboard = new Keyboard(this, R.xml.keyboard_qwerty_symbols);
     
     nameFromKeyboard = new HashMap<>();
-    nameFromKeyboard.put(strokesKeyboard, STROKES_KEYBOARD_NAME);
     nameFromKeyboard.put(strokesSymbols1Keyboard, STROKES_SYMBOLS_1_KEYBOARD_NAME);
     nameFromKeyboard.put(strokesSymbols2Keyboard, STROKES_SYMBOLS_2_KEYBOARD_NAME);
     nameFromKeyboard.put(strokesSymbols3Keyboard, STROKES_SYMBOLS_3_KEYBOARD_NAME);
@@ -205,7 +202,7 @@ public class StrokeInputService
     }
     else
     {
-      return strokesKeyboard;
+      return qwertyKeyboard;
     }
   }
   
@@ -650,18 +647,16 @@ public class StrokeInputService
       {
         return;
       }
+      // TODO 這邊可以換鍵盤，暫時全部只有一種
       switch (keyboardName)
       {
         case STROKES_KEYBOARD_NAME:
         case STROKES_SYMBOLS_1_KEYBOARD_NAME:
         case STROKES_SYMBOLS_2_KEYBOARD_NAME:
         case STROKES_SYMBOLS_3_KEYBOARD_NAME:
-          inputContainer.setKeyboard(qwertyKeyboard);
-          break;
-        
         case QWERTY_KEYBOARD_NAME:
         case QWERTY_SYMBOLS_KEYBOARD_NAME:
-          inputContainer.setKeyboard(strokesKeyboard);
+          inputContainer.setKeyboard(qwertyKeyboard);
           break;
       }
     }

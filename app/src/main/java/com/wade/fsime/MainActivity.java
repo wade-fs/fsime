@@ -12,11 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -34,16 +32,10 @@ public class MainActivity
   public static final String CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST = "TRADITIONAL_FIRST";
   public static final String CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST = "SIMPLIFIED_FIRST";
   
-  private static final String ASSETS_DIRECTORY = "file:///android_asset/";
-  private static final String SOURCE_CODE_URI = "https://github.com/stroke-input/stroke-input-android";
-  private static final String PRIVACY_POLICY_URI =
-          "https://github.com/stroke-input/stroke-input-android/blob/master/PRIVACY.md#privacy-policy";
-  
+
   AlertDialog.Builder candidateOrderDialogBuilder;
   Dialog candidateOrderDialog;
-  AlertDialog.Builder htmlWebViewContainer;
-  WebView htmlWebView;
-  
+
   @Override
   protected void onCreate(final Bundle savedInstanceState)
   {
@@ -51,10 +43,6 @@ public class MainActivity
     setTitle(R.string.label__main_activity__welcome);
     setContentView(R.layout.main_activity);
     
-    findViewById(R.id.source_code_button).setOnClickListener(this);
-    findViewById(R.id.help_button).setOnClickListener(this);
-    findViewById(R.id.about_button).setOnClickListener(this);
-    findViewById(R.id.privacy_button).setOnClickListener(this);
     findViewById(R.id.input_method_settings_button).setOnClickListener(this);
     findViewById(R.id.change_keyboard_button).setOnClickListener(this);
     findViewById(R.id.candidate_order_button).setOnClickListener(this);
@@ -108,23 +96,7 @@ public class MainActivity
   public void onClick(final View view)
   {
     final int viewId = view.getId();
-    if (viewId == R.id.source_code_button)
-    {
-      Contexty.openInBrowser(this, SOURCE_CODE_URI);
-    }
-    else if (viewId == R.id.help_button)
-    {
-      showHtmlWebView(R.string.file_name__help_html);
-    }
-    else if (viewId == R.id.about_button)
-    {
-      showHtmlWebView(R.string.file_name__about_html);
-    }
-    else if (viewId == R.id.privacy_button)
-    {
-      Contexty.openInBrowser(this, PRIVACY_POLICY_URI);
-    }
-    else if (viewId == R.id.input_method_settings_button)
+    if (viewId == R.id.input_method_settings_button)
     {
       Contexty.showSystemInputMethodSettings(this);
     }
@@ -149,42 +121,7 @@ public class MainActivity
       candidateOrderDialog.dismiss();
     }
   }
-  
-  private void showHtmlWebView(final String uri)
-  {
-    if (htmlWebViewContainer == null)
-    {
-      htmlWebViewContainer = new AlertDialog.Builder(this, R.style.StrokeInputAlert);
-      htmlWebViewContainer.setPositiveButton(R.string.label__main_activity__return, null);
-    }
-    
-    try
-    {
-      if (htmlWebView == null)
-      {
-        htmlWebView = new WebView(this);
-        htmlWebView.setBackgroundColor(Color.TRANSPARENT);
-        htmlWebView.getSettings().setBuiltInZoomControls(true);
-        htmlWebView.getSettings().setDisplayZoomControls(false);
-      }
-      
-      htmlWebView.loadUrl(uri);
-      htmlWebViewContainer
-        .setView(htmlWebView)
-        .setOnDismissListener(dialog -> ((ViewGroup) htmlWebView.getParent()).removeView(htmlWebView))
-        .show();
-    }
-    catch (Exception exception)
-    {
-      Contexty.showErrorMessage(this, getString(R.string.message__error__webview));
-    }
-  }
-  
-  private void showHtmlWebView(final int fileNameResourceId)
-  {
-    showHtmlWebView(ASSETS_DIRECTORY + getString(fileNameResourceId));
-  }
-  
+
   private void showCandidateOrderDialog()
   {
     candidateOrderDialogBuilder = new AlertDialog.Builder(this, R.style.StrokeInputAlert);

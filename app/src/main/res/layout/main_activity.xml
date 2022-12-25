@@ -53,25 +53,5 @@
       android:inputType="text"
       android:layout_marginBottom="@dimen/margin_bottom__main_activity__input"
     />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/source_code_button"
-      android:text="@string/label__main_activity__source_code_button"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/help_button"
-      android:text="@string/label__main_activity__help_button"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/about_button"
-      android:text="@string/label__main_activity__about_button"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/privacy_button"
-      android:text="@string/label__main_activity__privacy_button"
-    />
   </LinearLayout>
 </ScrollView>
