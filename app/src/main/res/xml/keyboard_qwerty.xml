@@ -12,7 +12,7 @@
   >
     <!-- Digits -->
     <Key app:keyValueText="1" app:keyValueTextShifted="!" />
-    <Key app:keyValueText="2" app:keyValueTextShifted="@" />
+    <Key app:keyValueText="2" app:keyValueTextShifted="\@" />
     <Key app:keyValueText="3" app:keyValueTextShifted="#" />
     <Key app:keyValueText="4" app:keyValueTextShifted="$" />
     <Key app:keyValueText="5" app:keyValueTextShifted="%" />
@@ -23,9 +23,10 @@
     <Key app:keyValueText="0" app:keyValueTextShifted=")" />
   </Row>
   <Row
-    app:keysAreShiftable="true"
+    app:keysAreShiftable="true" app:keyWidth="8.33%"
   >
     <!-- Letters row 1 -->
+    <Key app:keyValueText="`" app:keyValueTextShifted="~" />
     <Key app:keyValueText="q" app:keyValueTextShifted="Q" app:cj="手" app:ji="ㄆ" />
     <Key app:keyValueText="w" app:keyValueTextShifted="W" app:cj="田" app:ji="ㄊ" />
     <Key app:keyValueText="e" app:keyValueTextShifted="E" app:cj="水" app:ji="ㄍ" />
@@ -36,14 +37,12 @@
     <Key app:keyValueText="i" app:keyValueTextShifted="I" app:cj="戈" app:ji="ㄛ" />
     <Key app:keyValueText="o" app:keyValueTextShifted="O" app:cj="人" app:ji="ㄟ" />
     <Key app:keyValueText="p" app:keyValueTextShifted="P" app:cj="心" app:ji="ㄣ" />
+    <Key app:keyValueText="[" app:keyValueTextShifted="{" />
   </Row>
-  <Row
-    app:rowOffsetX="@dimen/horizontal_offset__qwerty_row_2"
-    app:keysAreShiftable="true"
-  >
+  <Row app:keysAreShiftable="true" app:keyWidth="9.09%">
     <!-- Letters row 2 -->
-    <Key app:keyValueText="a" app:keyIsExtendedLeft="true"
-                              app:keyValueTextShifted="A" app:cj="日" app:ji="ㄇ" />
+    <Key app:keyValueText="\\" app:keyValueTextShifted="|" />
+    <Key app:keyValueText="a" app:keyValueTextShifted="A" app:cj="日" app:ji="ㄇ" />
     <Key app:keyValueText="s" app:keyValueTextShifted="S" app:cj="尸" app:ji="ㄋ" />
     <Key app:keyValueText="d" app:keyValueTextShifted="D" app:cj="木" app:ji="ㄎ" />
     <Key app:keyValueText="f" app:keyValueTextShifted="F" app:cj="火" app:ji="ㄑ" />
@@ -51,12 +50,10 @@
     <Key app:keyValueText="h" app:keyValueTextShifted="H" app:cj="竹" app:ji="ㄘ" />
     <Key app:keyValueText="j" app:keyValueTextShifted="J" app:cj="十" app:ji="ㄨ" />
     <Key app:keyValueText="k" app:keyValueTextShifted="K" app:cj="大" app:ji="ㄜ" />
-    <Key app:keyValueText="l" app:keyIsExtendedRight="true"
-                              app:keyValueTextShifted="L" app:cj="中" app:ji="ㄠ" />
+    <Key app:keyValueText="l" app:keyValueTextShifted="L" app:cj="中" app:ji="ㄠ" />
+    <Key app:keyValueText="]" app:keyValueTextShifted="}" />
   </Row>
-  <Row
-    app:keysAreShiftable="true"
-  >
+  <Row app:keysAreShiftable="true" app:keyWidth="8.33%">
     <!-- Shift key: U+21E7, U+2B06 -->
     <Key
       app:keyValueText="SHIFT"
@@ -73,25 +70,28 @@
     <Key app:keyValueText="b" app:keyValueTextShifted="B" app:cj="月" app:ji="ㄖ" />
     <Key app:keyValueText="n" app:keyValueTextShifted="N" app:cj="弓" app:ji="ㄙ" />
     <Key app:keyValueText="m" app:keyValueTextShifted="M" app:cj="一" app:ji="ㄩ" />
-    <!-- Backspace -->
-    <Key
-      app:keyValueText="BACKSPACE"
-      app:keyDisplayText="@string/display_text__backspace"
-      app:keyIsRepeatable="true"
-      app:keyIsShiftable="false"
-      app:keyTextSize="@dimen/font_size__qwerty_backspace"
-      app:keyTextOffsetY="@dimen/baseline_correction__qwerty_backspace"
-      app:keyWidth="@dimen/key_width__qwerty_shift"
-      app:keyIsPreviewable="false"
-    />
+    <Key app:keyValueText=";" app:keyValueTextShifted=":" />
+    <Key app:keyValueText="'" app:keyValueTextShifted='"' />
+
+    <!--    &lt;!&ndash; Backspace &ndash;&gt;-->
+<!--    <Key-->
+<!--      app:keyValueText="BACKSPACE"-->
+<!--      app:keyDisplayText="@string/display_text__backspace"-->
+<!--      app:keyIsRepeatable="true"-->
+<!--      app:keyIsShiftable="false"-->
+<!--      app:keyTextSize="@dimen/font_size__qwerty_backspace"-->
+<!--      app:keyTextOffsetY="@dimen/baseline_correction__qwerty_backspace"-->
+<!--      app:keyWidth="@dimen/key_width__qwerty_shift"-->
+<!--      app:keyIsPreviewable="false"-->
+<!--    />-->
   </Row>
   <Row
     app:keyWidth="@dimen/key_width__strokes_stroke"
   >
     <!-- Switch to qwerty symbols keyboard -->
     <Key
-      app:keyValueText="SWITCH_TO_QWERTY_SYMBOLS"
-      app:keyDisplayText="!@#"
+      app:keyValueText="CTRL"
+      app:keyDisplayText="Ctrl"
       app:keyTextSize="@dimen/font_size__switch_key"
       app:keyTextOffsetY="@dimen/baseline_correction__switch_key"
       app:keyIsPreviewable="false"

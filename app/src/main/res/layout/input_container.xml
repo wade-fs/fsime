@@ -19,24 +19,6 @@
     android:layout_gravity="bottom"
     android:orientation="vertical"
   >
-
-    <com.wade.fsime.StrokeSequenceBar
-      android:id="@+id/stroke_sequence_bar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:visibility="invisible"
-      android:textColor="@color/stroke_sequence_bar_text"
-      android:textSize="@dimen/font_size__stroke_sequence_bar"
-      android:ellipsize="start"
-      android:singleLine="true"
-      android:background="@color/stroke_sequence_bar_fill"
-      android:paddingTop="@dimen/padding_top__stroke_sequence_bar"
-      android:paddingLeft="@dimen/padding_left__stroke_sequence_bar"
-      android:paddingRight="@dimen/padding_right__stroke_sequence_bar"
-      android:paddingBottom="@dimen/padding_bottom__stroke_sequence_bar"
-      android:theme="@style/Theme.AppCompat"
-      tools:ignore="RtlHardcoded"
-    />
     <com.wade.fsime.CandidatesView
       android:id="@+id/candidates_view"
       android:layout_width="match_parent"

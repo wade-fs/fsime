@@ -52,20 +52,10 @@ public class StrokeInputService
   public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
   private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
   private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
-  
-  public static final String STROKE_DIGIT_1 = "1";
-  public static final String STROKE_DIGIT_2 = "2";
-  public static final String STROKE_DIGIT_3 = "3";
-  public static final String STROKE_DIGIT_4 = "4";
-  public static final String STROKE_DIGIT_5 = "5";
-  
+  private static final String CTRL_VALUE_TEXT = "CTRL";
+
   private static final String STROKE_KEY_VALUE_TEXT_PREFIX = "STROKE_";
-  private static final String STROKE_1_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + STROKE_DIGIT_1;
-  private static final String STROKE_2_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + STROKE_DIGIT_2;
-  private static final String STROKE_3_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + STROKE_DIGIT_3;
-  private static final String STROKE_4_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + STROKE_DIGIT_4;
-  private static final String STROKE_5_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + STROKE_DIGIT_5;
-  
+
   private static final String STROKES_KEYBOARD_NAME = "STROKES";
   private static final String STROKES_SYMBOLS_1_KEYBOARD_NAME = "STROKES_SYMBOLS_1";
   private static final String STROKES_SYMBOLS_2_KEYBOARD_NAME = "STROKES_SYMBOLS_2";
@@ -92,7 +82,7 @@ public class StrokeInputService
   
   private static final String SWITCH_TO_QWERTY_SYMBOLS_VALUE_TEXT =
           SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + QWERTY_SYMBOLS_KEYBOARD_NAME;
-  
+
   private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
   private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
   
@@ -478,15 +468,6 @@ public class StrokeInputService
     
     switch (valueText)
     {
-      case STROKE_1_VALUE_TEXT:
-      case STROKE_2_VALUE_TEXT:
-      case STROKE_3_VALUE_TEXT:
-      case STROKE_4_VALUE_TEXT:
-      case STROKE_5_VALUE_TEXT:
-        final String strokeDigit = Stringy.removePrefix(STROKE_KEY_VALUE_TEXT_PREFIX, valueText);
-        effectStrokeAppend(strokeDigit);
-        break;
-      
       case BACKSPACE_VALUE_TEXT:
         effectBackspace(inputConnection);
         break;
@@ -500,7 +481,8 @@ public class StrokeInputService
         final String keyboardName = Stringy.removePrefix(SWITCH_KEYBOARD_VALUE_TEXT_PREFIX, valueText);
         effectKeyboardSwitch(keyboardName);
         break;
-      
+      case CTRL_VALUE_TEXT:
+        break;
       case SPACE_BAR_VALUE_TEXT:
         effectSpaceKey(inputConnection);
         break;
