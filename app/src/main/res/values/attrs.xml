@@ -10,6 +10,9 @@
     <attr name="keyBorderColour" format="color" />
     <attr name="keyBorderThickness" format="dimension" />
     <attr name="keyTextColour" format="color" />
+    <attr name="keyTextShiftColour" format="color" />
+    <attr name="keyTextCjColour" format="color" />
+    <attr name="keyTextJiColour" format="color" />
     <attr name="keyTextSwipeColour" format="color" />
     <attr name="keyTextSize" format="dimension" />
     <attr name="keyTextOffsetX" format="dimension" />
@@ -26,6 +29,9 @@
     <attr name="keyBorderColour" />
     <attr name="keyBorderThickness" />
     <attr name="keyTextColour" />
+    <attr name="keyTextShiftColour" />
+    <attr name="keyTextCjColour" />
+    <attr name="keyTextJiColour" />
     <attr name="keyTextSwipeColour" />
     <attr name="keyTextSize" />
     <attr name="keyTextOffsetX" />
@@ -52,6 +58,9 @@
     <attr name="keyBorderColour" />
     <attr name="keyBorderThickness" />
     <attr name="keyTextColour" />
+    <attr name="keyTextShiftColour" />
+    <attr name="keyTextCjColour" />
+    <attr name="keyTextJiColour" />
     <attr name="keyTextSwipeColour" />
     <attr name="keyTextSize" />
     <attr name="keyTextOffsetX" />

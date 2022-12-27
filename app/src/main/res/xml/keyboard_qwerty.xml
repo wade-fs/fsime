@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
     app:keyFillColour="@color/key_fill"
+    app:keyTextColour="@color/umbrella_yellow"
+    app:keyTextShiftColour="@color/umbrella_grey"
+    app:keyTextCjColour="@color/umbrella_grey"
+    app:keyTextJiColour="@color/enter_key_fill"
     app:keyHeight="@dimen/key_height__qwerty"
     app:keyTextOffsetY="@dimen/baseline_correction__qwerty"
     app:keyTextSize="@dimen/font_size__qwerty"
@@ -9,34 +13,54 @@
         <!-- Digits -->
         <Key
             app:keyValueText="1"
-            app:keyValueTextShifted="!" />
+            app:keyValueTextShifted="!"
+            app:ji="ㄅ"
+            />
         <Key
             app:keyValueText="2"
-            app:keyValueTextShifted="\@" />
+            app:keyValueTextShifted="\@"
+            app:ji="ㄉ"
+            />
         <Key
             app:keyValueText="3"
-            app:keyValueTextShifted="#" />
+            app:keyValueTextShifted="#"
+            app:ji="ˇ"
+            />
         <Key
             app:keyValueText="4"
-            app:keyValueTextShifted="$" />
+            app:keyValueTextShifted="$"
+            app:ji="ˋ"
+            />
         <Key
             app:keyValueText="5"
-            app:keyValueTextShifted="%" />
+            app:keyValueTextShifted="%"
+            app:ji="ㄓ"
+            />
         <Key
             app:keyValueText="6"
-            app:keyValueTextShifted="^" />
+            app:keyValueTextShifted="^"
+            app:ji="ˊ"
+            />
         <Key
             app:keyValueText="7"
-            app:keyValueTextShifted="&amp;" />
+            app:keyValueTextShifted="&amp;"
+            app:ji="˙"
+            />
         <Key
             app:keyValueText="8"
-            app:keyValueTextShifted="*" />
+            app:keyValueTextShifted="*"
+            app:ji="ㄚ"
+            />
         <Key
             app:keyValueText="9"
-            app:keyValueTextShifted="(" />
+            app:keyValueTextShifted="("
+            app:ji="ㄞ"
+            />
         <Key
             app:keyValueText="0"
-            app:keyValueTextShifted=")" />
+            app:keyValueTextShifted=")"
+            app:ji="ㄢ"
+            />
         <Key
             app:keyDisplayText="\u232B"
             app:keyIsPreviewable="false"
@@ -243,7 +267,7 @@
             app:keyIsLongPressable="true"
             app:keyIsPreviewable="false"
             app:keyIsSwipeable="true"
-            app:keyTextColour="@color/umbrella_yellow"
+            app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
             app:keyWidth="18.18%" />
         <Key
