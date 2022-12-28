@@ -53,4 +53,11 @@
   <string name="display_text__send" translatable="false">➤</string>
   <!-- Enter key "return": U+23CE RETURN SYMBOL -->
   <string name="display_text__return" translatable="false">⏎</string>
+
+    <string name="btadd">"Add&gt; "</string>
+    <string name="btedit">"Edit&gt; "</string>
+    <string name="btsearch">"Search&gt; "</string>
+    <string name="btsave">"&lt;Save&gt; "</string>
+    <string name="btback">"&lt;Backup DB&gt; "</string>
+
 </resources>
