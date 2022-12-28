@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 
 import android.graphics.PointF;
 import android.util.Log;

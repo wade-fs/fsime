@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 
 /**
  * Created by wade on 2017/4/6.

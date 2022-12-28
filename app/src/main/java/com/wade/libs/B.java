@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 
 public class B{
   public int id;

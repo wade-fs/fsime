@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;

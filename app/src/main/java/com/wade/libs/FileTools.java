@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 
 import android.os.Environment;
 import android.util.Log;

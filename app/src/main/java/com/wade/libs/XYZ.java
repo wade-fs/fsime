@@ -1,6 +1,6 @@
 // 平均是 22.028
 // 計算公式是 (x/1000)^2 + (y/1000 - 2000)^2
-package com.wade.utilities;
+package com.wade.libs;
 
 import android.content.Context;
 import android.database.Cursor;

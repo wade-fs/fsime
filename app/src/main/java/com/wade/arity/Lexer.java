@@ -16,7 +16,7 @@
 
 package com.wade.arity;
 
-import com.wade.utilities.Tools;
+import com.wade.libs.Tools;
 
 class Lexer {
     static final int

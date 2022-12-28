@@ -23,7 +23,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import com.wade.fsime.R;
-import com.wade.utilities.BDatabase;
+import com.wade.libs.BDatabase;
 
 public class CustomTable extends Activity {
     Context mContext;

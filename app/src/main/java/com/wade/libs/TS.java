@@ -1,4 +1,4 @@
-package com.wade.utilities;
+package com.wade.libs;
 
 import java.util.HashMap;
 import java.util.Map;
