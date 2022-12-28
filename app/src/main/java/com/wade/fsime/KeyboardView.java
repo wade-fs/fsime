@@ -301,6 +301,7 @@ public class KeyboardView
             keyTextJiPaint.setColor(keyTextJiColour);
             keyTextJiPaint.setTextSize(key.textSize*5/10);
 
+            final boolean isPreviewable = key.isPreviewable;
             final String keyDisplayText = key.displayText;
             final String keyShiftText = key.shiftText;
             final String keyCjText = key.cjText;
@@ -312,7 +313,7 @@ public class KeyboardView
             canvas.drawRect(keyRectangle, keyFillPaint);
             canvas.drawRect(keyRectangle, keyBorderPaint);
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
-            if (keyShiftText.length() > 0) {
+            if (keyShiftText.length() > 0 && isPreviewable) {
                 canvas.drawText(keyShiftText, keyTextX-14, keyTextY-40, keyTextShiftPaint);
             }
             if (keyCjText.length() > 0) {

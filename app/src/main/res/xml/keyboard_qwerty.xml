@@ -236,6 +236,7 @@
             app:keyValueText="m"
             app:keyValueTextShifted="M" />
         <Key
+            app:ji="ㄤ"
             app:keyValueText=";"
             app:keyValueTextShifted=":" />
         <Key
@@ -256,6 +257,7 @@
             app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
         <Key
+            app:ji="ㄦ"
             app:keyValueText="-"
             app:keyValueTextShifted="_" />
         <Key
@@ -271,12 +273,15 @@
             app:keyValueText="SPACE"
             app:keyWidth="18.18%" />
         <Key
+            app:ji="ㄝ"
             app:keyValueText=","
             app:keyValueTextShifted="&lt;" />
         <Key
+            app:ji="ㄡ"
             app:keyValueText="."
             app:keyValueTextShifted="&gt;"  />
         <Key
+            app:ji="ㄥ"
             app:keyValueText="/"
             app:keyValueTextShifted="\u003F"  />
         <Key
