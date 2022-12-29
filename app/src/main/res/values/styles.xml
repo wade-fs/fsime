@@ -35,26 +35,26 @@
     <item name="android:paddingLeft">@dimen/padding_horizontal__candidate_button</item>
     <item name="android:paddingRight">@dimen/padding_horizontal__candidate_button</item>
   </style>
-  <style name="StrokeInputDialogButton" parent="Theme.StrokeInput">
+  <style name="InputDialogButton" parent="Theme.Fsime">
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">match_parent</item>
     <item name="android:textSize">@dimen/font_size__dialog_button</item>
     <item name="android:padding">@dimen/padding__dialog_button</item>
   </style>
-  <style name="StrokeInputAlert" parent="Theme.StrokeInput">
+  <style name="InputAlert" parent="Theme.Fsime">
     <item name="android:windowBackground">@color/very_dark_grey</item>
     <item name="android:backgroundDimEnabled">true</item>
   </style>
-  <style name="StrokeInputMessage" parent="Theme.StrokeInput">
+  <style name="InputMessage" parent="Theme.Fsime">
     <item name="android:textSize">@dimen/font_size__error_message</item>
     <item name="android:paddingLeft">@dimen/padding_horizontal__error_message</item>
     <item name="android:paddingRight">@dimen/padding_horizontal__error_message</item>
     <item name="android:paddingTop">@dimen/padding_top__error_message</item>
   </style>
-  <style name="StrokeInputText" parent="android:Widget.EditText">
+  <style name="InputText" parent="android:Widget.EditText">
     <item name="android:textColor">?android:textColor</item>
   </style>
-  <style name="StrokeInputToolbar" parent="Widget.MaterialComponents.Toolbar">
+  <style name="InputToolbar" parent="Widget.MaterialComponents.Toolbar">
     <item name="titleTextColor">?attr/colorOnPrimary</item>
   </style>
 </resources>

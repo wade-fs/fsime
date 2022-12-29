@@ -70,7 +70,7 @@
     />
   </Row>
   <Row
-    app:keyWidth="@dimen/key_width__strokes_stroke"
+    app:keyWidth="20%"
   >
     <!-- Switch to qwerty keyboard -->
     <Key

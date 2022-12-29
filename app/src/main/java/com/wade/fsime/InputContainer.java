@@ -52,7 +52,7 @@ public class InputContainer extends FrameLayout {
   {
     final int backgroundResourceId =
             (isFullscreen)
-              ? R.color.stroke_sequence_bar_fill_fullscreen
+              ? R.color.fill_fullscreen
               : 0; // none
     setBackgroundResource(backgroundResourceId);
   }

@@ -40,13 +40,13 @@ import com.wade.utilities.Mappy;
 import com.wade.utilities.Stringy;
 
 /*
-  An InputMethodService for the Stroke Input Method (筆畫輸入法).
+  An InputMethodService for the FS Input Method (混瞎輸入法).
 */
-public class StrokeInputService
+public class FsimeService
   extends InputMethodService
   implements CandidatesViewAdapter.CandidateListener, KeyboardView.KeyboardListener
 {
-  private static final String LOG_TAG = "StrokeInputService";
+  private static final String LOG_TAG = "FsimeService";
   
   public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
   public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
@@ -54,28 +54,10 @@ public class StrokeInputService
   private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
   private static final String CTRL_VALUE_TEXT = "CTRL";
 
-  private static final String STROKE_KEY_VALUE_TEXT_PREFIX = "STROKE_";
-
-  private static final String STROKES_KEYBOARD_NAME = "STROKES";
-  private static final String STROKES_SYMBOLS_1_KEYBOARD_NAME = "STROKES_SYMBOLS_1";
-  private static final String STROKES_SYMBOLS_2_KEYBOARD_NAME = "STROKES_SYMBOLS_2";
-  private static final String STROKES_SYMBOLS_3_KEYBOARD_NAME = "STROKES_SYMBOLS_3";
   private static final String QWERTY_KEYBOARD_NAME = "QWERTY";
   private static final String QWERTY_SYMBOLS_KEYBOARD_NAME = "QWERTY_SYMBOLS";
   
   private static final String SWITCH_KEYBOARD_VALUE_TEXT_PREFIX = "SWITCH_TO_";
-  
-  private static final String SWITCH_TO_STROKES_VALUE_TEXT =
-          SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + STROKES_KEYBOARD_NAME;
-  
-  private static final String SWITCH_TO_STROKES_SYMBOLS_1_VALUE_TEXT =
-          SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + STROKES_SYMBOLS_1_KEYBOARD_NAME;
-  
-  private static final String SWITCH_TO_STROKES_SYMBOLS_2_VALUE_TEXT =
-          SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + STROKES_SYMBOLS_2_KEYBOARD_NAME;
-  
-  private static final String SWITCH_TO_STROKES_SYMBOLS_3_VALUE_TEXT =
-          SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + STROKES_SYMBOLS_3_KEYBOARD_NAME;
   
   private static final String SWITCH_TO_QWERTY_VALUE_TEXT =
           SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + QWERTY_KEYBOARD_NAME;
@@ -472,10 +454,6 @@ public class StrokeInputService
         effectBackspace(inputConnection);
         break;
       
-      case SWITCH_TO_STROKES_VALUE_TEXT:
-      case SWITCH_TO_STROKES_SYMBOLS_1_VALUE_TEXT:
-      case SWITCH_TO_STROKES_SYMBOLS_2_VALUE_TEXT:
-      case SWITCH_TO_STROKES_SYMBOLS_3_VALUE_TEXT:
       case SWITCH_TO_QWERTY_VALUE_TEXT:
       case SWITCH_TO_QWERTY_SYMBOLS_VALUE_TEXT:
         final String keyboardName = Stringy.removePrefix(SWITCH_KEYBOARD_VALUE_TEXT_PREFIX, valueText);
@@ -623,10 +601,6 @@ public class StrokeInputService
       // TODO 這邊可以換鍵盤，暫時全部只有一種
       switch (keyboardName)
       {
-        case STROKES_KEYBOARD_NAME:
-        case STROKES_SYMBOLS_1_KEYBOARD_NAME:
-        case STROKES_SYMBOLS_2_KEYBOARD_NAME:
-        case STROKES_SYMBOLS_3_KEYBOARD_NAME:
         case QWERTY_KEYBOARD_NAME:
         case QWERTY_SYMBOLS_KEYBOARD_NAME:
           inputContainer.setKeyboard(qwertyKeyboard);

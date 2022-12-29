@@ -1,6 +1,6 @@
 <resources>
   <style
-    name="Theme.StrokeInput"
+    name="Theme.Fsime"
     parent="Theme.MaterialComponents.Light.DarkActionBar"
   >
     <!-- Base -->
@@ -16,7 +16,7 @@
     <item name="colorSecondaryVariant">@color/orange</item>
     <item name="colorOnSecondary">@android:color/black</item>
     <!-- Components -->
-    <item name="editTextStyle">@style/StrokeInputText</item>
-    <item name="toolbarStyle">@style/StrokeInputToolbar</item>
+    <item name="editTextStyle">@style/InputText</item>
+    <item name="toolbarStyle">@style/InputToolbar</item>
   </style>
 </resources>

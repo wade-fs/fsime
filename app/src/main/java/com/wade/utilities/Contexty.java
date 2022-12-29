@@ -53,11 +53,11 @@ public final class Contexty
   
   public static void showErrorMessage(final Context context, final String message)
   {
-    final TextView alertTextView = new TextView(new ContextThemeWrapper(context, R.style.StrokeInputMessage));
+    final TextView alertTextView = new TextView(new ContextThemeWrapper(context, R.style.InputMessage));
     alertTextView.setText(message);
     alertTextView.setTextIsSelectable(true);
     
-    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context, R.style.StrokeInputAlert);
+    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context, R.style.InputAlert);
     alertDialogBuilder
       .setPositiveButton(R.string.label__main_activity__return, null)
       .setView(alertTextView);

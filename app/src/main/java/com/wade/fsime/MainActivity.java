@@ -69,14 +69,14 @@ public class MainActivity
   public static String loadSavedCandidateOrderPreference(final Context context)
   {
     return
-      Contexty.loadPreferenceString(context, StrokeInputService.PREFERENCES_FILE_NAME, CANDIDATE_ORDER_PREFERENCE_KEY);
+      Contexty.loadPreferenceString(context, FsimeService.PREFERENCES_FILE_NAME, CANDIDATE_ORDER_PREFERENCE_KEY);
   }
   
   private void saveCandidateOrderPreference(final String candidateOrderPreference)
   {
     Contexty.savePreferenceString(
       getApplicationContext(),
-      StrokeInputService.PREFERENCES_FILE_NAME,
+      FsimeService.PREFERENCES_FILE_NAME,
       CANDIDATE_ORDER_PREFERENCE_KEY,
       candidateOrderPreference
     );
@@ -124,7 +124,7 @@ public class MainActivity
 
   private void showCandidateOrderDialog()
   {
-    candidateOrderDialogBuilder = new AlertDialog.Builder(this, R.style.StrokeInputAlert);
+    candidateOrderDialogBuilder = new AlertDialog.Builder(this, R.style.InputAlert);
     candidateOrderDialogBuilder
       .setTitle(R.string.label__main_activity__candidate_order)
       .setView(R.layout.candidate_order_dialog)

@@ -227,9 +227,6 @@ public class KeyboardView
         }
         keyboardRectangle.set(0, 0, keyboardWidth, keyboardHeight);
 
-        final int mainInputPlaneWidth = mainInputPlane.getMeasuredWidth();
-        final int mainInputPlaneHeight = mainInputPlane.getMeasuredHeight();
-
         setMeasuredDimension(keyboardWidth, keyboardHeight);
     }
 
@@ -248,7 +245,7 @@ public class KeyboardView
             if (
                     key == activeKey
                             ||
-                            key.valueText.equals(StrokeInputService.SHIFT_KEY_VALUE_TEXT) && (
+                            key.valueText.equals(FsimeService.SHIFT_KEY_VALUE_TEXT) && (
                                     shiftPointerId != NONEXISTENT_POINTER_ID
                                             ||
                                             shiftMode == SHIFT_PERSISTENT
@@ -597,7 +594,7 @@ public class KeyboardView
     }
 
     private boolean isShiftKey(final Key key) {
-        return key != null && key.valueText.equals(StrokeInputService.SHIFT_KEY_VALUE_TEXT);
+        return key != null && key.valueText.equals(FsimeService.SHIFT_KEY_VALUE_TEXT);
     }
 
     private boolean isSwipeableKey(final Key key) {

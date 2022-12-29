@@ -20,33 +20,20 @@
   <dimen name="font_size__error_message">16dp</dimen>
   <dimen name="padding_horizontal__error_message">16dp</dimen>
   <dimen name="padding_top__error_message">10dp</dimen>
-  <!-- Key height (strokes_digit + 2 * strokes + strokes_space_bar == 5 * qwerty) -->
-  <dimen name="key_height__strokes_digit">60dp</dimen>
-  <dimen name="key_height__strokes">70dp</dimen>
-  <dimen name="key_height__strokes_space_bar">60dp</dimen>
   <dimen name="key_height__qwerty">52dp</dimen>
   <!-- Key width -->
   <dimen name="key_width__digit">10%</dimen>
   <dimen name="key_width__space_bar">40%</dimen>
-  <dimen name="key_width__strokes_stroke">20%</dimen>
   <dimen name="key_width__qwerty_shift">15%</dimen>
   <!-- Key text font size -->
   <dimen name="font_size__switch_key">20dp</dimen>
   <dimen name="font_size__space_bar">18dp</dimen>
   <dimen name="font_size__enter_key">36dp</dimen>
-  <dimen name="font_size__strokes">24dp</dimen>
-  <dimen name="font_size__strokes_digit">22dp</dimen>
-  <dimen name="font_size__strokes_stroke">30dp</dimen>
-  <dimen name="font_size__strokes_ditto_key">24dp</dimen>
-  <dimen name="font_size__strokes_backspace">32dp</dimen>
   <dimen name="font_size__qwerty">22dp</dimen>
   <dimen name="font_size__qwerty_backspace">30dp</dimen>
   <!-- Key text baseline correction -->
   <dimen name="baseline_correction__switch_key">0.75dp</dimen>
   <dimen name="baseline_correction__space_bar">0.5dp</dimen>
-  <dimen name="baseline_correction__strokes">2dp</dimen>
-  <dimen name="baseline_correction__strokes_digit">0.75dp</dimen>
-  <dimen name="baseline_correction__strokes_enter_key">0.25dp</dimen>
   <dimen name="baseline_correction__qwerty">0.75dp</dimen>
   <dimen name="baseline_correction__qwerty_digit">1dp</dimen>
   <dimen name="baseline_correction__qwerty_backspace">1.75dp</dimen>
@@ -54,12 +41,6 @@
   <dimen name="horizontal_offset__qwerty_row_2">5%</dimen>
   <!-- Popup recess -->
   <dimen name="height__popup_recess">30dp</dimen>
-  <!-- Stroke sequence bar -->
-  <dimen name="font_size__stroke_sequence_bar">15sp</dimen>
-  <dimen name="padding_top__stroke_sequence_bar">3dp</dimen>
-  <dimen name="padding_left__stroke_sequence_bar">5dp</dimen>
-  <dimen name="padding_right__stroke_sequence_bar">7dp</dimen>
-  <dimen name="padding_bottom__stroke_sequence_bar">2dp</dimen>
   <!-- Candidates -->
   <dimen name="font_size__candidate_button">20sp</dimen>
   <dimen name="height__candidate_button">38dp</dimen>
