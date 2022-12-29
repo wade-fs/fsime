@@ -88,19 +88,29 @@ public class CPDB extends SQLiteAssetHelper {
         while (cps.size() < 3 && distance <= 50000) {
             cps = new ArrayList<>();
             if (l == 0) distance += 1000;
+
             String q = "select * from " + TABLE + " where " +
                     (x - distance) + " <= x and x <= " + (x + distance) + " and " +
                     (y - distance) + " <= y and y <= " + (y + distance);
+            int idIdx, tIdx, numberIdx, nameIdx, xIdx, yIdx, hIdx, infoIdx;
             Cursor cursor = db.rawQuery(q, null);
             while (cursor.moveToNext()) {
-                CP cp = new CP(cursor.getInt(cursor.getColumnIndex(ID)),
-                        cursor.getInt(cursor.getColumnIndex(T)),
-                        cursor.getString(cursor.getColumnIndex(Number)),
-                        cursor.getString(cursor.getColumnIndex(Name)),
-                        cursor.getDouble(cursor.getColumnIndex(X)),
-                        cursor.getDouble(cursor.getColumnIndex(Y)),
-                        cursor.getDouble(cursor.getColumnIndex(H)),
-                        cursor.getString(cursor.getColumnIndex(INFO))
+                idIdx = cursor.getColumnIndex(ID);          if (idIdx < 0) idIdx = 0;
+                tIdx = cursor.getColumnIndex(T);            if (tIdx < 0) tIdx = 0;
+                numberIdx = cursor.getColumnIndex(Number);  if (numberIdx < 0) numberIdx = 0;
+                nameIdx = cursor.getColumnIndex(Name);      if (nameIdx < 0) nameIdx = 0;
+                xIdx = cursor.getColumnIndex(X);            if (xIdx < 0) xIdx = 0;
+                yIdx = cursor.getColumnIndex(Y);            if (yIdx < 0) yIdx = 0;
+                hIdx = cursor.getColumnIndex(H);            if (hIdx < 0) hIdx = 0;
+                infoIdx = cursor.getColumnIndex(INFO);      if (infoIdx < 0) infoIdx = 0;
+                CP cp = new CP(cursor.getInt(idIdx),
+                        cursor.getInt(tIdx),
+                        cursor.getString(numberIdx),
+                        cursor.getString(nameIdx),
+                        cursor.getDouble(xIdx),
+                        cursor.getDouble(yIdx),
+                        cursor.getDouble(hIdx),
+                        cursor.getString(infoIdx)
                 );
                 if (len(cp.y - y, cp.x - x) <= distance) {
 //                    Log.d(TAG, "add CP : "+cp.id+", "+cp.number+","+cp.name+" for distance "+distance);
