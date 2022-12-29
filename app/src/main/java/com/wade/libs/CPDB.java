@@ -1,6 +1,6 @@
 // 平均是 22.028
 // 計算公式是 (x/1000)^2 + (y/1000 - 2000)^2
-package com.wade.utilities;
+package com.wade.libs;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -44,6 +44,7 @@ public class CPDB extends SQLiteAssetHelper {
             return null;
         }
 
+        int idIdx, tIdx, numberIdx, nameIdx, xIdx, yIdx, hIdx, infoIdx;
         // 先找出完整比對的結果
         Cursor cursor = db.rawQuery("select * from " + TABLE + " where "+
                 "number like '%"+number+"' or "+
@@ -53,14 +54,22 @@ public class CPDB extends SQLiteAssetHelper {
                 null);
         List<CP> cps = new ArrayList<>();
         while (cursor.moveToNext()) {
-            CP cp = new CP(cursor.getInt(cursor.getColumnIndex(ID)),
-                    cursor.getInt(cursor.getColumnIndex(T)),
-                    cursor.getString(cursor.getColumnIndex(Number)),
-                    cursor.getString(cursor.getColumnIndex(Name)),
-                    cursor.getDouble(cursor.getColumnIndex(X)),
-                    cursor.getDouble(cursor.getColumnIndex(Y)),
-                    cursor.getDouble(cursor.getColumnIndex(H)),
-                    cursor.getString(cursor.getColumnIndex(INFO))
+            idIdx = cursor.getColumnIndex(ID);          if (idIdx < 0) idIdx = 0;
+            tIdx = cursor.getColumnIndex(T);            if (tIdx < 0) tIdx = 0;
+            numberIdx = cursor.getColumnIndex(Number);  if (numberIdx < 0) numberIdx = 0;
+            nameIdx = cursor.getColumnIndex(Name);      if (nameIdx < 0) nameIdx = 0;
+            xIdx = cursor.getColumnIndex(X);            if (xIdx < 0) xIdx = 0;
+            yIdx = cursor.getColumnIndex(Y);            if (yIdx < 0) yIdx = 0;
+            hIdx = cursor.getColumnIndex(H);            if (hIdx < 0) hIdx = 0;
+            infoIdx = cursor.getColumnIndex(INFO);      if (infoIdx < 0) infoIdx = 0;
+            CP cp = new CP(cursor.getInt(idIdx),
+                    cursor.getInt(tIdx),
+                    cursor.getString(numberIdx),
+                    cursor.getString(nameIdx),
+                    cursor.getDouble(xIdx),
+                    cursor.getDouble(yIdx),
+                    cursor.getDouble(hIdx),
+                    cursor.getString(infoIdx)
             );
             cps.add(cp);
         }
@@ -103,21 +112,4 @@ public class CPDB extends SQLiteAssetHelper {
         return cps;
     }
     private double len(double dx, double dy) { return Math.sqrt(dx*dx + dy*dy); }
-    public class CP{
-        public int id, t;
-        public String number, name;
-        public double x, y, h;
-        public String info;
-        CP() {
-            id = t = -1;
-            x = y = h = 0;
-            info = "";
-        }
-        CP(int id, int t, String number, String name, double x, double y, double h, String info) {
-            this.id = id; this.t = t;
-            this.number = number; this.name = name;
-            this.x = x; this.y = y; this.h = h;
-            this.info = info;
-        }
-    }
 }
