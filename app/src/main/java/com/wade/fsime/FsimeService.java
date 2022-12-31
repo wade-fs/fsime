@@ -399,18 +399,17 @@ public class FsimeService
         }
 
         updateCandidateOrderPreference();
-        return bdatabase.getWord(mComposing, 0, 30, "stroke");
+        return bdatabase.getWord(mComposing, 0, 30, "mix");
     }
 
     private void effectStrokeAppend(final String key) {
-      Log.d("FSIME", "BEGIN effectStrokeAppend("+key+")");
         final String newInputSequence = mComposing + key;
         final List<String> newCandidateList = computeCandidateList(newInputSequence);
+        Log.d("fsime", "effectStrokeAppend("+key+") "+newCandidateList.toString());
         if (newCandidateList.size() > 0) {
             mComposing = newInputSequence;
             setCandidateList(newCandidateList);
         }
-        Log.d("FSIME", "END  effectStrokeAppend("+key+") "+mComposing);
     }
 
     private void effectBackspace(final InputConnection inputConnection) {

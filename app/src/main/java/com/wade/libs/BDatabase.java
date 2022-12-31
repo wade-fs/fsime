@@ -157,14 +157,22 @@ public class BDatabase extends SQLiteAssetHelper {
                         bb.ch = ch;
                         bb.eng = b.eng;
                         res.add(bb);
+                        max--;
                     }
                 } else {
                     res.add(b);
+                    max--;
+                }
+                if (max <= 0) {
+                    break;
                 }
             }
             resExact.addAll(res);
+            if (max <= 0) {
+                break;
+            }
 		}
-        if (resExact.size() < max) { // 如果不足，再找更多比對結果
+        if (max > 0) { // 如果不足，再找更多比對結果
             start = start < resExact.size() ? 0 : start - resExact.size();
             for (String t : tables) {
                 ArrayList<B> r = query(k, start, max, t, "eng", FUZZY_PREFIX);
@@ -177,12 +185,20 @@ public class BDatabase extends SQLiteAssetHelper {
                             bb.ch = ch;
                             bb.eng = b.eng;
                             res.add(bb);
+                            max--;
                         }
                     } else {
                         res.add(b);
+                        max--;
+                    }
+                    if (max <= 0) {
+                        break;
                     }
                 }
                 resExact.addAll(res);
+                if (max <= 0) {
+                    break;
+                }
             }
         }
 
