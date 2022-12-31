@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 import androidx.annotation.RequiresApi;
@@ -103,7 +104,7 @@ public class BDatabase extends SQLiteAssetHelper {
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){
-            B b=new B();
+            B b = new B();
             b.id = cursor.getInt(cursor.getColumnIndex(BDatabase.ID));
             b.ch=cursor.getString(cursor.getColumnIndex(BDatabase.CH));
             if (ts == 1) { b.ch = TS.StoT(b.ch); }
@@ -146,13 +147,41 @@ public class BDatabase extends SQLiteAssetHelper {
 			tables.add(table);
 		}
 		for (String t : tables) {
-            ArrayList<B> res = query(k, start, max, t, "eng", FUZZY_EXACT);
+            ArrayList<B> r = query(k, start, max, t, "eng", FUZZY_EXACT);
+            ArrayList<B> res = new ArrayList<>();
+            for (B b : r) {
+                if (b.ch.length() > 1) { // 多個中文字
+                    String[] s = b.ch.split("");
+                    for (String ch : Arrays.asList(s)) {
+                        B bb = new B();
+                        bb.ch = ch;
+                        bb.eng = b.eng;
+                        res.add(bb);
+                    }
+                } else {
+                    res.add(b);
+                }
+            }
             resExact.addAll(res);
 		}
         if (resExact.size() < max) { // 如果不足，再找更多比對結果
             start = start < resExact.size() ? 0 : start - resExact.size();
             for (String t : tables) {
-                ArrayList<B> res = query(k, start, max, t, "eng", FUZZY_PREFIX);
+                ArrayList<B> r = query(k, start, max, t, "eng", FUZZY_PREFIX);
+                ArrayList<B> res = new ArrayList<>();
+                for (B b : r) {
+                    if (b.ch.length() > 1) { // 多個中文字
+                        String[] s = b.ch.split("");
+                        for (String ch : Arrays.asList(s)) {
+                            B bb = new B();
+                            bb.ch = ch;
+                            bb.eng = b.eng;
+                            res.add(bb);
+                        }
+                    } else {
+                        res.add(b);
+                    }
+                }
                 resExact.addAll(res);
             }
         }
