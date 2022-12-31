@@ -54,6 +54,12 @@ public class FsimeService
   private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
   private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
   private static final String CTRL_VALUE_TEXT = "CTRL";
+  private static final String STROKE_KEY_VALUE_TEXT_PREFIX = "STROKE_";
+  private static final String STROKE_1_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + "1";
+  private static final String STROKE_2_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + "2";
+  private static final String STROKE_3_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + "3";
+  private static final String STROKE_4_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + "4";
+  private static final String STROKE_5_VALUE_TEXT = STROKE_KEY_VALUE_TEXT_PREFIX + "5";
 
   private static final String QWERTY_KEYBOARD_NAME = "QWERTY";
   private static final String QWERTY_SYMBOLS_KEYBOARD_NAME = "QWERTY_SYMBOLS";
@@ -401,7 +407,7 @@ public class FsimeService
     }
     
     inputConnection.commitText(candidate, 1);
-    setStrokeDigitSequence("");
+	mComposing = "";
     setPhraseCompletionCandidateList(inputConnection);
   }
   
@@ -416,6 +422,16 @@ public class FsimeService
     
     switch (valueText)
     {
+      // 保留給 stroke 鍵盤
+      case STROKE_1_VALUE_TEXT:
+      case STROKE_2_VALUE_TEXT:
+      case STROKE_3_VALUE_TEXT:
+      case STROKE_4_VALUE_TEXT:
+      case STROKE_5_VALUE_TEXT:
+        final String strokeDigit = Stringy.removePrefix(STROKE_KEY_VALUE_TEXT_PREFIX, valueText);
+        effectStrokeAppend(strokeDigit);
+        break;
+
       case BACKSPACE_VALUE_TEXT:
         effectBackspace(inputConnection);
         break;
@@ -446,7 +462,7 @@ public class FsimeService
     final List<String> newCandidateList = computeCandidateList(newStrokeDigitSequence);
     if (newCandidateList.size() > 0)
     {
-      setStrokeDigitSequence(newStrokeDigitSequence);
+      mComposing = newStrokeDigitSequence;
       setCandidateList(newCandidateList);
     }
   }
@@ -455,13 +471,12 @@ public class FsimeService
   {
     if (mComposing.length() > 0)
     {
-      final String newStrokeDigitSequence = Stringy.removeSuffixRegex("(?s).", mComposing);
-      final List<String> newCandidateList = computeCandidateList(newStrokeDigitSequence);
+      mComposing = Stringy.removeSuffixRegex("(?s).", mComposing);
+      final List<String> newCandidateList = computeCandidateList(mComposing);
       
-      setStrokeDigitSequence(newStrokeDigitSequence);
       setCandidateList(newCandidateList);
       
-      if (newStrokeDigitSequence.length() == 0)
+      if (mComposing.length() == 0)
       {
         setPhraseCompletionCandidateList(inputConnection);
       }
@@ -585,11 +600,6 @@ public class FsimeService
       KEYBOARD_NAME_PREFERENCE_KEY,
       keyboardName
     );
-  }
-  
-  private void setStrokeDigitSequence(final String mComposing)
-  {
-    this.mComposing = mComposing;
   }
   
   private void setCandidateList(final List<String> candidateList)

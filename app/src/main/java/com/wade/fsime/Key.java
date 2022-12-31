@@ -43,7 +43,7 @@ public class Key {
     public String valueText;
     public String displayText; // overrides valueText drawn
 //    public String valueTextShifted; // overrides displayText drawn when shifted
-    public String shiftText, cjText, jiText;
+    public String shiftText, cjText, jiText, strokeText;
 
     // Key dimensions
     public int width;
@@ -101,17 +101,23 @@ public class Key {
 
         valueText = attributesArray.getString(R.styleable.Key_keyValueText);
         displayText = attributesArray.getString(R.styleable.Key_keyDisplayText);
+        if (displayText == null) {
+            displayText = valueText;
+        }
+
         cjText = attributesArray.getString(R.styleable.Key_cj);
         if (cjText == null) {
             cjText = "";
         }
+
         jiText = attributesArray.getString(R.styleable.Key_ji);
         if (jiText == null) {
             jiText = "";
         }
 
-        if (displayText == null) {
-            displayText = valueText;
+        strokeText = attributesArray.getString(R.styleable.Key_stroke);
+        if (strokeText == null) {
+            strokeText = "";
         }
 
         shiftText = attributesArray.getString(R.styleable.Key_keyValueTextShifted);

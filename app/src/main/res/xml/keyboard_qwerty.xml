@@ -15,26 +15,31 @@
             app:keyValueText="1"
             app:keyValueTextShifted="!"
             app:ji="ㄅ"
+            app:stroke="一"
             />
         <Key
             app:keyValueText="2"
             app:keyValueTextShifted="\@"
             app:ji="ㄉ"
+            app:stroke="丨"
             />
         <Key
             app:keyValueText="3"
             app:keyValueTextShifted="#"
             app:ji="ˇ"
+            app:stroke="丿"
             />
         <Key
             app:keyValueText="4"
             app:keyValueTextShifted="$"
             app:ji="ˋ"
+            app:stroke="丶"
             />
         <Key
             app:keyValueText="5"
             app:keyValueTextShifted="%"
             app:ji="ㄓ"
+            app:stroke="乛"
             />
         <Key
             app:keyValueText="6"

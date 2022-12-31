@@ -303,6 +303,7 @@ public class KeyboardView
             final String keyShiftText = key.shiftText;
             final String keyCjText = key.cjText;
             final String keyJiText = key.jiText;
+            final String keyStrokeText = key.strokeText;
             final float keyTextX = key.width / 2f + key.textOffsetX;
             final float keyTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY;
 
@@ -310,19 +311,35 @@ public class KeyboardView
             canvas.drawRect(keyRectangle, keyFillPaint);
             canvas.drawRect(keyRectangle, keyBorderPaint);
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
+
+            final float keyShiftTextX = key.width / 2f + key.textOffsetX - 14f;
+            final float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
             if (keyShiftText.length() > 0 && isPreviewable) {
-                canvas.drawText(keyShiftText, keyTextX-14, keyTextY-40, keyTextShiftPaint);
+                canvas.drawText(keyShiftText, keyShiftTextX, keyShiftTextY, keyTextShiftPaint);
             }
+
+            final float keyStrokeTextX = key.width / 2f + key.textOffsetX + 34.0f;
+            final float keyStrokeTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
+            if (keyStrokeText.length() > 0) {
+                canvas.drawText(keyStrokeText, keyStrokeTextX, keyStrokeTextY, keyTextShiftPaint);
+            }
+
+            final float keyCjTextX = key.width / 2f + key.textOffsetX - 8.0f;
+            final float keyCjTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f;
             if (keyCjText.length() > 0) {
-                canvas.drawText(keyCjText, keyTextX-8, keyTextY+30, keyTextCjPaint);
+                canvas.drawText(keyCjText, keyCjTextX, keyCjTextY, keyTextCjPaint);
             }
+
+            final float keyJiTextX = key.width / 2f + key.textOffsetX + 8.0f;
+            final float keyJiTextYv = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 80f;
+            final float keyJiTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f;
             if (keyJiText.length() > 0) {
-                if ("ˊˇˋ˙".indexOf(keyJiText) >= 0) {
-                    keyTextJiPaint.setTextSize(key.textSize*5/3);
-                    canvas.drawText(keyJiText, keyTextX + 8, keyTextY + 80, keyTextJiPaint);
+                if ("ˊˇˋ˙".contains(keyJiText)) {
+                    keyTextJiPaint.setTextSize(key.textSize*5.0f/3.0f);
+                    canvas.drawText(keyJiText, keyJiTextX, keyJiTextYv, keyTextJiPaint);
                 } else {
-                    keyTextJiPaint.setTextSize(key.textSize*6/10);
-                    canvas.drawText(keyJiText, keyTextX + 8, keyTextY + 30, keyTextJiPaint);
+                    keyTextJiPaint.setTextSize(key.textSize*6.0f/10.0f);
+                    canvas.drawText(keyJiText, keyJiTextX, keyJiTextY, keyTextJiPaint);
                 }
             }
             canvas.translate(-key.x, -key.y);
