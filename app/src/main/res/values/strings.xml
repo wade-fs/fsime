@@ -1,35 +1,51 @@
 <resources>
-    <string name="custom">客製化與還原</string>
-    <string name="custom_table">客製化字碼</string>
-    <string name="btadd">"新增&gt; "</string>
-    <string name="btedit">"編輯&gt; "</string>
-    <string name="btsearch">"查詢&gt; "</string>
-    <string name="btsave">"&lt;儲存&gt; "</string>
-    <string name="btback">"&lt;備份資料庫&gt; "</string>
-    <string name="ime">檢視鍵盤</string>
-    <string name="app_name">狂想鍵盤</string>
-    <string name="fsime">狂想鍵盤</string>
-    <string name="subtype_en_US">fsime-%s</string>
-    <string name="subtype_zh_TW">狂想鍵盤-%s</string>
-    <string name="app_intro">狂想鍵盤 - 簡介</string>
-    <string name="change_keyboard">更改鍵盤</string>
-    <string name="reopen_hint">按此讓變更生效</string>
-    <string name="top_row_actions">用剪切/複製/粘貼快捷方式代替箭頭?</string>
-    <string name="preview">字符的彈出預覽</string>
-    <string name="sound_on_keypress">按鍵出聲</string>
-    <string name="vibrate_on_keypress">按鍵震動</string>
-    <string name="keyboard_size">鍵盤大小</string>
-    <string name="keyboard_size_landscape">鍵盤大小(橫式)</string>
-    <string name="borders">按鍵隔線</string>
-    <string name="disable_normal">用混合鍵盤代替英文鍵盤()</string>
-    <string name="use_bs">啟用混合鍵盤</string>
-    <string name="use_ji">啟用注音鍵盤</string>
-    <string name="use_cj">啟用倉頡鍵盤</string>
-    <string name="use_army">啟用測量鍵盤</string>
-    <string name="my_default_tile_label">打開鍵盤</string>
-    <string name="notification_channel_name">FsimeNotification</string>
-    <string name="notification_channel_description">允許強制打開鍵盤</string>
-    <string name="notification_action_open_keyboard">打開狂想鍵盤</string>
-    <string name="notification_action_settings">設定</string>
-    <string name="github_summary">本軟體是免費的，開源的，並且沒有讀取您的數據！ 您可以在 https://gitlab.com/wade_fs/fsime 上查看，自行修改和編譯.</string>
+  <!-- Main activity -->
+  <string name="app_name">Fantasy Space Input Method</string>
+  <string name="label__main_activity__welcome">Welcome to Fantasy Space Input Method!</string>
+  <string name="text__main_activity__input_method_settings">
+    1. If you have installed FS Input Method for the first time,
+    you must manually enable it in the system settings before it can be used:
+  </string>
+  <string name="label__main_activity__input_method_settings_button">Input method settings</string>
+  <string name="text__main_activity__change_keyboard">
+    2. If your existing input method provides no means of changing keyboards:
+  </string>
+  <string name="label__main_activity__change_keyboard_button">Change keyboard</string>
+  <string name="text__main_activity__candidate_order">
+    3. Candidate order:
+  </string>
+  <string name="label__main_activity__candidate_order">Candidate order</string>
+  <string name="label__main_activity__traditional_first">Traditional first</string>
+  <string name="label__main_activity__simplified_first">Simplified first</string>
+  <string name="hint__main_activity__test_input">4. Test input here</string>
+  <string name="label__main_activity__return">Return</string>
+  <!-- Backspace: U+232B ERASE TO THE LEFT -->
+  <string name="display_text__backspace" translatable="false">⌫</string>
+  <!-- Comma: U+002C COMMA, U+FF0C FULLWIDTH COMMA -->
+  <string name="value_text__qwerty_comma" translatable="false">,</string>
+  <!-- Space bar: U+25C0, U+25B6 (triangles) -->
+  <string name="display_text__qwerty_space_bar">◀ FS ▶</string>
+  <!-- Full stop: U+002E FULL STOP, U+3002 IDEOGRAPHIC FULL STOP -->
+  <string name="value_text__qwerty_full_stop" translatable="false">.</string>
+  <!-- Enter key "done": U+2713 CHECK MARK -->
+  <string name="display_text__done" translatable="false">✓</string>
+  <!-- Enter key "go": U+2B95 RIGHTWARDS BLACK ARROW -->
+  <string name="display_text__go" translatable="false">⮕</string>
+  <!-- Enter key "next": U+2398 NEXT PAGE -->
+  <string name="display_text__next" translatable="false">⎘</string>
+  <!-- Enter key "previous": U+2397 PREVIOUS PAGE -->
+  <string name="display_text__previous" translatable="false">⎗</string>
+  <!-- Enter key "search": U+1F50D LEFT-POINTING MAGNIFYING GLASS -->
+  <string name="display_text__search" translatable="false">🔍</string>
+  <!-- Enter key "send": U+27A4 BLACK RIGHTWARDS ARROWHEAD -->
+  <string name="display_text__send" translatable="false">➤</string>
+  <!-- Enter key "return": U+23CE RETURN SYMBOL -->
+  <string name="display_text__return" translatable="false">⏎</string>
+
+    <string name="btadd">"Add&gt; "</string>
+    <string name="btedit">"Edit&gt; "</string>
+    <string name="btsearch">"Search&gt; "</string>
+    <string name="btsave">"&lt;Save&gt; "</string>
+    <string name="btback">"&lt;Backup DB&gt; "</string>
+
 </resources>

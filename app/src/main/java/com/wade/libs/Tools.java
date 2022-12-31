@@ -5,8 +5,8 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.wade.libs.arity.Symbols;
-import com.wade.libs.arity.SyntaxException;
+import com.wade.arity.Symbols;
+import com.wade.arity.SyntaxException;
 
 import java.util.AbstractList;
 import java.util.ArrayList;

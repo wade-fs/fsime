@@ -14,7 +14,6 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  *        compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
  *        }
  */
-// 1. extends /home/wade/src/均利/APK/wade_libs/app/src/main/java/com/wade/libs/XYZ.java
 public class XYZ extends SQLiteAssetHelper {
     final static String TAG = "MyLog";
 
