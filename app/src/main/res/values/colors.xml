@@ -19,7 +19,7 @@
 
 
     <color name="candidate_normal">#FFff0000</color>
-    <color name="candidate_recommended">#FFFFFF00</color>
+    <color name="candidate_recommended">@color/yellow</color>
     <color name="candidate_other">#FFFFFFFF</color>
     <color name="candidate_background">#FF000000</color>
     <color name="colorPrimary">#3F51B5</color>

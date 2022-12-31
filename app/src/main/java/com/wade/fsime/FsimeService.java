@@ -110,7 +110,7 @@ public class FsimeService
   private Set<Integer> commonCodePointSet;
   private NavigableSet<String> phraseSet;
   
-  private String strokeDigitSequence = "";
+  private String mComposing = "";
   private List<String> candidateList = new ArrayList<>();
   private final List<Integer> phraseCompletionFirstCodePointList = new ArrayList<>();
   
@@ -194,9 +194,9 @@ public class FsimeService
         if (!isCommentLine(line))
         {
           final String[] sunderedLineArray = Stringy.sunder(line, "\t");
-          final String strokeDigitSequence = sunderedLineArray[0];
+          final String mComposing = sunderedLineArray[0];
           final String characters = sunderedLineArray[1];
-          charactersFromStrokeDigitSequence.put(strokeDigitSequence, characters);
+          charactersFromStrokeDigitSequence.put(mComposing, characters);
         }
       }
     }
@@ -476,7 +476,7 @@ public class FsimeService
   
   private void effectStrokeAppend(final String strokeDigit)
   {
-    final String newStrokeDigitSequence = strokeDigitSequence + strokeDigit;
+    final String newStrokeDigitSequence = mComposing + strokeDigit;
     final List<String> newCandidateList = computeCandidateList(newStrokeDigitSequence);
     if (newCandidateList.size() > 0)
     {
@@ -487,9 +487,9 @@ public class FsimeService
   
   private void effectBackspace(final InputConnection inputConnection)
   {
-    if (strokeDigitSequence.length() > 0)
+    if (mComposing.length() > 0)
     {
-      final String newStrokeDigitSequence = Stringy.removeSuffixRegex("(?s).", strokeDigitSequence);
+      final String newStrokeDigitSequence = Stringy.removeSuffixRegex("(?s).", mComposing);
       final List<String> newCandidateList = computeCandidateList(newStrokeDigitSequence);
       
       setStrokeDigitSequence(newStrokeDigitSequence);
@@ -542,7 +542,7 @@ public class FsimeService
   
   private void effectSpaceKey(final InputConnection inputConnection)
   {
-    if (strokeDigitSequence.length() > 0)
+    if (mComposing.length() > 0)
     {
       onCandidate(getFirstCandidate());
     }
@@ -554,7 +554,7 @@ public class FsimeService
   
   private void effectEnterKey(final InputConnection inputConnection)
   {
-    if (strokeDigitSequence.length() > 0)
+    if (mComposing.length() > 0)
     {
       onCandidate(getFirstCandidate());
     }
@@ -570,7 +570,7 @@ public class FsimeService
   
   private void effectOrdinaryKey(final InputConnection inputConnection, final String valueText)
   {
-    if (strokeDigitSequence.length() > 0)
+    if (mComposing.length() > 0)
     {
       onCandidate(getFirstCandidate());
     }
@@ -621,9 +621,9 @@ public class FsimeService
     );
   }
   
-  private void setStrokeDigitSequence(final String strokeDigitSequence)
+  private void setStrokeDigitSequence(final String mComposing)
   {
-    this.strokeDigitSequence = strokeDigitSequence;
+    this.mComposing = mComposing;
   }
   
   private void setCandidateList(final List<String> candidateList)
@@ -764,9 +764,9 @@ public class FsimeService
     return coarseRank + fineRank + penalty;
   }
   
-  private List<String> computeCandidateList(final String strokeDigitSequence)
+  private List<String> computeCandidateList(final String mComposing)
   {
-    if (strokeDigitSequence.length() == 0)
+    if (mComposing.length() == 0)
     {
       return Collections.emptyList();
     }
@@ -774,7 +774,7 @@ public class FsimeService
     updateCandidateOrderPreference();
     
     final List<String> exactMatchCandidateList;
-    final String exactMatchCharacters = charactersFromStrokeDigitSequence.get(strokeDigitSequence);
+    final String exactMatchCharacters = charactersFromStrokeDigitSequence.get(mComposing);
     if (exactMatchCharacters != null)
     {
       exactMatchCandidateList = Stringy.toCharacterList(exactMatchCharacters);
@@ -791,8 +791,8 @@ public class FsimeService
     final Collection<String> prefixMatchCharactersCollection =
             charactersFromStrokeDigitSequence
               .subMap(
-                strokeDigitSequence, false,
-                strokeDigitSequence + Character.MAX_VALUE, false
+                mComposing, false,
+                mComposing + Character.MAX_VALUE, false
               )
               .values();
     
