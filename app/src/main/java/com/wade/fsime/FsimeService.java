@@ -35,6 +35,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import com.wade.libs.BDatabase;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
 import com.wade.utilities.Stringy;
@@ -71,7 +72,6 @@ public class FsimeService
   public static final String PREFERENCES_FILE_NAME = "preferences.txt";
   private static final String KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName";
   
-  private static final String SEQUENCE_CHARACTERS_FILE_NAME = "sequence-characters.txt";
   private static final String CHARACTERS_FILE_NAME_TRADITIONAL = "characters-traditional.txt";
   private static final String CHARACTERS_FILE_NAME_SIMPLIFIED = "characters-simplified.txt";
   private static final String RANKING_FILE_NAME_TRADITIONAL = "ranking-traditional.txt";
@@ -95,7 +95,6 @@ public class FsimeService
   
   private InputContainer inputContainer;
   
-  private final NavigableMap<String, String> charactersFromStrokeDigitSequence = new TreeMap<>();
   private final Set<Integer> codePointSetTraditional = new HashSet<>();
   private final Set<Integer> codePointSetSimplified = new HashSet<>();
   private final Map<Integer, Integer> sortingRankFromCodePointTraditional = new HashMap<>();
@@ -117,13 +116,13 @@ public class FsimeService
   private int inputOptionsBits;
   private boolean enterKeyHasAction;
   private boolean inputIsPassword;
+  BDatabase bdatabase;
   
   @Override
   public void onCreate()
   {
     super.onCreate();
     
-    loadSequenceCharactersDataIntoMap(SEQUENCE_CHARACTERS_FILE_NAME, charactersFromStrokeDigitSequence);
     loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_TRADITIONAL, codePointSetTraditional);
     loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_SIMPLIFIED, codePointSetSimplified);
     loadRankingData(RANKING_FILE_NAME_TRADITIONAL, sortingRankFromCodePointTraditional, commonCodePointSetTraditional);
@@ -138,6 +137,7 @@ public class FsimeService
   @Override
   public View onCreateInputView()
   {
+    bdatabase  = new BDatabase(getApplicationContext());
     qwertyKeyboard = new Keyboard(this, R.xml.keyboard_qwerty);
     qwertySymbolsKeyboard = new Keyboard(this, R.xml.keyboard_qwerty_symbols);
     
@@ -173,40 +173,6 @@ public class FsimeService
   private static boolean isCommentLine(final String line)
   {
     return line.startsWith("#") || line.length() == 0;
-  }
-  
-  @SuppressWarnings("SameParameterValue")
-  private void loadSequenceCharactersDataIntoMap(
-    final String sequenceCharactersFileName,
-    final Map<String, String> charactersFromStrokeDigitSequence
-  )
-  {
-    final long startMilliseconds = System.currentTimeMillis();
-    
-    try
-    {
-      final InputStream inputStream = getAssets().open(sequenceCharactersFileName);
-      final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-      
-      String line;
-      while ((line = bufferedReader.readLine()) != null)
-      {
-        if (!isCommentLine(line))
-        {
-          final String[] sunderedLineArray = Stringy.sunder(line, "\t");
-          final String mComposing = sunderedLineArray[0];
-          final String characters = sunderedLineArray[1];
-          charactersFromStrokeDigitSequence.put(mComposing, characters);
-        }
-      }
-    }
-    catch (IOException exception)
-    {
-      exception.printStackTrace();
-    }
-    
-    final long endMilliseconds = System.currentTimeMillis();
-    sendLoadingTimeLog(sequenceCharactersFileName, startMilliseconds, endMilliseconds);
   }
   
   private void loadCharactersIntoCodePointSet(final String charactersFileName, final Set<Integer> codePointSet)
@@ -773,74 +739,7 @@ public class FsimeService
     
     updateCandidateOrderPreference();
     
-    final List<String> exactMatchCandidateList;
-    final String exactMatchCharacters = charactersFromStrokeDigitSequence.get(mComposing);
-    if (exactMatchCharacters != null)
-    {
-      exactMatchCandidateList = Stringy.toCharacterList(exactMatchCharacters);
-      exactMatchCandidateList.sort(
-        candidateComparator(unpreferredCodePointSet, sortingRankFromCodePoint, phraseCompletionFirstCodePointList)
-      );
-    }
-    else
-    {
-      exactMatchCandidateList = Collections.emptyList();
-    }
-    
-    final Set<Integer> prefixMatchCodePointSet = new HashSet<>();
-    final Collection<String> prefixMatchCharactersCollection =
-            charactersFromStrokeDigitSequence
-              .subMap(
-                mComposing, false,
-                mComposing + Character.MAX_VALUE, false
-              )
-              .values();
-    
-    final long addCodePointsStartMilliseconds = System.currentTimeMillis();
-    for (final String characters : prefixMatchCharactersCollection)
-    {
-      Stringy.addCodePointsToSet(characters, prefixMatchCodePointSet);
-    }
-    final long addCodePointsEndMilliseconds = System.currentTimeMillis();
-    if (BuildConfig.DEBUG)
-    {
-      final long durationMilliseconds = addCodePointsEndMilliseconds - addCodePointsStartMilliseconds;
-      Log.d(LOG_TAG, String.format("Added code points to set in %d ms", durationMilliseconds));
-    }
-    
-    if (prefixMatchCodePointSet.size() > LAG_PREVENTION_CODE_POINT_COUNT)
-    {
-      prefixMatchCodePointSet.retainAll(commonCodePointSet);
-    }
-    
-    final List<Integer> prefixMatchCandidateCodePointList = new ArrayList<>(prefixMatchCodePointSet);
-    final long sortPrefixMatchesStartMilliseconds = System.currentTimeMillis();
-    prefixMatchCandidateCodePointList.sort(
-      candidateCodePointComparator(
-        unpreferredCodePointSet,
-        sortingRankFromCodePoint,
-        phraseCompletionFirstCodePointList
-      )
-    );
-    final long sortPrefixMatchesEndMilliseconds = System.currentTimeMillis();
-    if (BuildConfig.DEBUG)
-    {
-      final long durationMilliseconds = sortPrefixMatchesEndMilliseconds - sortPrefixMatchesStartMilliseconds;
-      Log.d(LOG_TAG, String.format("Sorted prefix matches in %d ms", durationMilliseconds));
-    }
-    
-    final int prefixMatchCount = Math.min(prefixMatchCandidateCodePointList.size(), MAX_PREFIX_MATCH_COUNT);
-    final List<String> prefixMatchCandidateList = new ArrayList<>();
-    for (final int prefixMatchCodePoint : prefixMatchCandidateCodePointList.subList(0, prefixMatchCount))
-    {
-      prefixMatchCandidateList.add(Stringy.toString(prefixMatchCodePoint));
-    }
-    
-    final List<String> candidateList = new ArrayList<>();
-    candidateList.addAll(exactMatchCandidateList);
-    candidateList.addAll(prefixMatchCandidateList);
-    
-    return candidateList;
+    return bdatabase.getWord(mComposing.toString(), 0, 30, "stroke");
   }
   
   private String getFirstCandidate()

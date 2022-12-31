@@ -137,9 +137,10 @@ public class BDatabase extends SQLiteAssetHelper {
         ArrayList<String> tables = new ArrayList<>();
         if (table.equals("mix")) {
 			tables.add("mix");
-            tables.add("sym");
             tables.add("ji");
             tables.add("cj");
+            tables.add("stroke");
+            tables.add("sym");
             max = max + max + max;
 		} else {
 			tables.add(table);
@@ -163,11 +164,11 @@ public class BDatabase extends SQLiteAssetHelper {
 	}
 
     @SuppressLint("Range")
-    public ArrayList<String> getF(String k, int start, int max, String table){
+    public ArrayList<String> getVocabulary(String k, int start, int max){
         if (db == null) db = getWritableDatabase();
 
         ArrayList<B> resExact=new ArrayList<>();
-        ArrayList<B> res = query(k, start, max, table, "ch", FUZZY_PREFIX);
+        ArrayList<B> res = query(k, start, max, "vocabulary", "ch", FUZZY_PREFIX);
         resExact.addAll(res);
 
         ArrayList<String> list = new ArrayList<>();
