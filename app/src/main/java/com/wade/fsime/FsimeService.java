@@ -456,8 +456,10 @@ public class FsimeService
     }
 
     private void effectSpaceKey(final InputConnection inputConnection) {
-        if (mComposing.length() > 0) {
-            onCandidate(getFirstCandidate());
+        if (mComposing.length() > 0 && candidateList.size() > 1) {
+            onCandidate(getCandidate(1));
+        } else if (candidateList.size() > 0) {
+            onCandidate(getCandidate(0));
         } else {
             inputConnection.commitText(" ", 1);
         }
@@ -465,19 +467,12 @@ public class FsimeService
 
     private void effectEnterKey(final InputConnection inputConnection) {
         if (mComposing.length() > 0) {
-            onCandidate(getFirstCandidate());
+            onCandidate(getCandidate(0));
         } else if (enterKeyHasAction) {
             inputConnection.performEditorAction(inputOptionsBits);
         } else {
             inputConnection.commitText("\n", 1);
         }
-    }
-
-    private void effectOrdinaryKey(final InputConnection inputConnection, final String valueText) {
-        if (mComposing.length() > 0) {
-            onCandidate(getFirstCandidate());
-        }
-        inputConnection.commitText(valueText, 1);
     }
 
     @Override
@@ -643,9 +638,13 @@ public class FsimeService
         return coarseRank + fineRank + penalty;
     }
 
-    private String getFirstCandidate() {
+    private String getCandidate(int idx) {
         try {
-            return candidateList.get(0);
+            if (candidateList.size() > idx) {
+                return candidateList.get(idx);
+            } else {
+                return "";
+            }
         } catch (IndexOutOfBoundsException exception) {
             return "";
         }
