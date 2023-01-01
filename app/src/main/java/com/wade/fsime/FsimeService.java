@@ -45,8 +45,10 @@ public class FsimeService
         implements CandidatesViewAdapter.CandidateListener, KeyboardView.KeyboardListener {
     private static final String LOG_TAG = "FsimeService";
 
-    public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
     public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
+    public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
+    private static final String TAB_KEY_VALUE_TEXT = "TAB";
+    private static final String ESC_KEY_VALUE_TEXT = "ESC";
     private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
     private static final String CTRL_VALUE_TEXT = "CTRL";
@@ -348,6 +350,15 @@ public class FsimeService
         mComposing = "";
         setPhraseCompletionCandidateList(inputConnection);
     }
+    private void keyDownUp(int keyEventCode, int meta) {
+        InputConnection ic = getCurrentInputConnection();
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
+        ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
+    }
+    private void turnCandidateOff() {
+        mComposing = "";
+        inputContainer.setCandidateList(new ArrayList<>());
+    }
 
     @Override
     public void onKey(final String valueText) {
@@ -355,10 +366,16 @@ public class FsimeService
         if (inputConnection == null) {
             return;
         }
-
+        int meta = 0; // Ctrl+Shift 修飾子
         switch (valueText) {
             case BACKSPACE_VALUE_TEXT:
                 effectBackspace(inputConnection);
+                break;
+            case TAB_KEY_VALUE_TEXT:
+                keyDownUp(KeyEvent.KEYCODE_TAB, meta);
+                break;
+            case ESC_KEY_VALUE_TEXT:
+                turnCandidateOff();
                 break;
 
             case CTRL_VALUE_TEXT:
@@ -417,10 +434,8 @@ public class FsimeService
                 } else {
                     inputConnection.commitText("", 1);
                 }
-            } else // for apps like Termux
-            {
-                inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
-                inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+            } else { // for apps like Termux
+                keyDownUp(KeyEvent.KEYCODE_DEL, 0); // meta for shift+Ctrl
             }
 
             setPhraseCompletionCandidateList(inputConnection);

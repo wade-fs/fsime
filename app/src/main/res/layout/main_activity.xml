@@ -36,15 +36,6 @@
       android:id="@+id/change_keyboard_button"
       android:text="@string/label__main_activity__change_keyboard_button"
     />
-    <TextView
-      style="@style/MainActivityText"
-      android:text="@string/text__main_activity__candidate_order"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/candidate_order_button"
-      android:text="@string/label__main_activity__traditional_first"
-    />
     <EditText
       style="@style/MainActivityInput"
       android:id="@+id/test_input"

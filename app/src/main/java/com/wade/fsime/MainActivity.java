@@ -45,9 +45,7 @@ public class MainActivity
     
     findViewById(R.id.input_method_settings_button).setOnClickListener(this);
     findViewById(R.id.change_keyboard_button).setOnClickListener(this);
-    findViewById(R.id.candidate_order_button).setOnClickListener(this);
-    
-    setCandidateOrderButtonText(loadSavedCandidateOrderPreference());
+
     findViewById(R.id.test_input).requestFocus();
   }
   
@@ -81,17 +79,7 @@ public class MainActivity
       candidateOrderPreference
     );
   }
-  
-  private void setCandidateOrderButtonText(final String candidateOrderPreference)
-  {
-    final TextView candidateOrderButton = findViewById(R.id.candidate_order_button);
-    final String candidateOrderButtonText =
-            (isTraditionalPreferred(candidateOrderPreference))
-              ? getString(R.string.label__main_activity__traditional_first)
-              : getString(R.string.label__main_activity__simplified_first);
-    candidateOrderButton.setText(candidateOrderButtonText);
-  }
-  
+
   @Override
   public void onClick(final View view)
   {
@@ -104,49 +92,5 @@ public class MainActivity
     {
       Contexty.showSystemKeyboardChanger(this);
     }
-    else if (viewId == R.id.candidate_order_button)
-    {
-      showCandidateOrderDialog();
-    }
-    else if (viewId == R.id.traditional_first_button)
-    {
-      saveCandidateOrderPreference(CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST);
-      setCandidateOrderButtonText(CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST);
-      candidateOrderDialog.dismiss();
-    }
-    else if (viewId == R.id.simplified_first_button)
-    {
-      saveCandidateOrderPreference(CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST);
-      setCandidateOrderButtonText(CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST);
-      candidateOrderDialog.dismiss();
-    }
-  }
-
-  private void showCandidateOrderDialog()
-  {
-    candidateOrderDialogBuilder = new AlertDialog.Builder(this, R.style.InputAlert);
-    candidateOrderDialogBuilder
-      .setTitle(R.string.label__main_activity__candidate_order)
-      .setView(R.layout.candidate_order_dialog)
-      .setCancelable(true);
-    
-    candidateOrderDialog = candidateOrderDialogBuilder.create();
-    final int dialog_size = ViewGroup.LayoutParams.WRAP_CONTENT;
-    candidateOrderDialog.show();
-    candidateOrderDialog.getWindow().setLayout(dialog_size, dialog_size);
-    
-    final RadioGroup candidateOrderRadioGroup = candidateOrderDialog.findViewById(R.id.candidate_order_radio_group);
-    final Button traditionalFirstButton = candidateOrderDialog.findViewById(R.id.traditional_first_button);
-    final Button simplifiedFirstButton = candidateOrderDialog.findViewById(R.id.simplified_first_button);
-    
-    final boolean traditionalIsPreferred = isTraditionalPreferred(loadSavedCandidateOrderPreference());
-    final int savedCandidateOrderButtonId =
-            (traditionalIsPreferred)
-              ? R.id.traditional_first_button
-              : R.id.simplified_first_button;
-    candidateOrderRadioGroup.check(savedCandidateOrderButtonId);
-    
-    traditionalFirstButton.setOnClickListener(this);
-    simplifiedFirstButton.setOnClickListener(this);
   }
 }
