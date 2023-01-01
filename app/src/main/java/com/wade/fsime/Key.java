@@ -105,10 +105,6 @@ public class Key {
             displayText = valueText;
         }
 
-        if (valueText.equals("SPACE")) {
-            displayText = grandparentKeyboard.space;
-        }
-
         cjText = attributesArray.getString(R.styleable.Key_cj);
         if (cjText == null) {
             cjText = "";
@@ -117,11 +113,6 @@ public class Key {
         jiText = attributesArray.getString(R.styleable.Key_ji);
         if (jiText == null) {
             jiText = "";
-        }
-
-        strokeText = attributesArray.getString(R.styleable.Key_stroke);
-        if (strokeText == null) {
-            strokeText = "";
         }
 
         shiftText = attributesArray.getString(R.styleable.Key_keyValueTextShifted);

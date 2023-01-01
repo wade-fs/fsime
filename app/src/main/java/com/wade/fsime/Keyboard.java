@@ -93,33 +93,9 @@ public class Keyboard {
     private final int screenWidth;
     private final int screenHeight;
     public String name;
-    public String space;
 
-    public String getSpace() {
-        return space;
-    }
     public void setName(String name) {
         this.name = name;
-        switch (name) {
-            case "mix":
-                this.space = context.getString(R.string.display_text__fsime_space_bar);
-                break;
-            case "ji":
-                this.space = context.getString(R.string.display_text__ji_space_bar);
-                break;
-            case "cj":
-                this.space = context.getString(R.string.display_text__cj_space_bar);
-                break;
-            case "stroke":
-                this.space = context.getString(R.string.display_text__stroke_space_bar);
-                break;
-            case "symbols":
-                this.space = context.getString(R.string.display_text__symbols_space_bar);
-                break;
-            default:
-                this.space = context.getString(R.string.display_text__fsime_space_bar);
-                break;
-        }
     }
     public Keyboard(final Context context, final int layoutResourceId, String name) {
         this.context = context;

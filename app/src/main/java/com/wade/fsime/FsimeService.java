@@ -382,7 +382,7 @@ public class FsimeService
         }
 
         updateCandidateOrderPreference();
-        return bdatabase.getWord(mComposing, 0, 30, "mix");
+        return bdatabase.getWord(mComposing, 0, 30, inputContainer.getKeyboard().name);
     }
 
     private void effectStrokeAppend(final String key) {
@@ -463,8 +463,9 @@ public class FsimeService
     @Override
     public void onSwipe(final String valueText) {
         if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
+            String space = "";
             final Keyboard keyboard = inputContainer.getKeyboard();
-            final String keyboardName = nameFromKeyboard.get(keyboard);
+            final String keyboardName = keyboard.name;
 
             if (keyboardName == null) {
                 return;
@@ -472,10 +473,34 @@ public class FsimeService
             // TODO 這邊可以換鍵盤，暫時全部只有一種
             switch (keyboardName) {
                 case KEYBOARD_NAME_FSIME:
-//                    final Keyboard keyboard = keyboardFromName.get(keyboardName);
-//                    inputContainer.setKeyboard(fsimeKeyboard);
+                    keyboard.setName(KEYBOARD_NAME_JI);
+                    space = getString(R.string.display_text__ji_space_bar);
+                    break;
+                case KEYBOARD_NAME_JI:
+                    keyboard.setName(KEYBOARD_NAME_CJ);
+                    space = getString(R.string.display_text__cj_space_bar);
+                    break;
+                case KEYBOARD_NAME_CJ:
+                    keyboard.setName(KEYBOARD_NAME_STROKE);
+                    space = getString(R.string.display_text__stroke_space_bar);
+                    break;
+                case KEYBOARD_NAME_STROKE:
+                    keyboard.setName(KEYBOARD_NAME_SYMBOLS);
+                    space = getString(R.string.display_text__symbols_space_bar);
+                    break;
+                default:
+                    keyboard.setName(KEYBOARD_NAME_FSIME);
+                    space = getString(R.string.display_text__fsime_space_bar);
                     break;
             }
+
+            for (final Key key : keyboard.getKeyList()) {
+                if (key.valueText.equals(SPACE_BAR_VALUE_TEXT)) {
+                    key.displayText = space;
+                    break;
+                }
+            }
+            inputContainer.redrawKeyboard();
         }
     }
 

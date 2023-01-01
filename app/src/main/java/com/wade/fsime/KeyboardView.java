@@ -303,7 +303,6 @@ public class KeyboardView
             final String keyShiftText = key.shiftText;
             final String keyCjText = key.cjText;
             final String keyJiText = key.jiText;
-            final String keyStrokeText = key.strokeText;
             final float keyTextX = key.width / 2f + key.textOffsetX;
             final float keyTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY;
 
@@ -316,12 +315,6 @@ public class KeyboardView
             final float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
             if (keyShiftText.length() > 0 && isPreviewable) {
                 canvas.drawText(keyShiftText, keyShiftTextX, keyShiftTextY, keyTextShiftPaint);
-            }
-
-            final float keyStrokeTextX = key.width / 2f + key.textOffsetX + 34.0f;
-            final float keyStrokeTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
-            if (keyStrokeText.length() > 0) {
-                canvas.drawText(keyStrokeText, keyStrokeTextX, keyStrokeTextY, keyTextShiftPaint);
             }
 
             final float keyCjTextX = key.width / 2f + key.textOffsetX - 8.0f;
