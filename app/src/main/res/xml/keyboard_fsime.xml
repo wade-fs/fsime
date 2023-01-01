@@ -5,9 +5,9 @@
     app:keyTextShiftColour="@color/umbrella_grey"
     app:keyTextCjColour="@color/umbrella_grey"
     app:keyTextJiColour="@color/enter_key_fill"
-    app:keyHeight="@dimen/key_height__qwerty"
-    app:keyTextOffsetY="@dimen/baseline_correction__qwerty"
-    app:keyTextSize="@dimen/font_size__qwerty"
+    app:keyHeight="@dimen/key_height__fsime"
+    app:keyTextOffsetY="@dimen/baseline_correction__fsime"
+    app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
     <Row app:keyWidth="9.09%">
         <!-- Digits -->
@@ -250,7 +250,6 @@
 
     </Row>
     <Row app:keyWidth="9.09%">
-        <!-- Switch to qwerty symbols keyboard U+21B9 -->
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
@@ -270,7 +269,7 @@
             app:keyValueTextShifted="+"  />
         <!-- Space bar -->
         <Key
-            app:keyDisplayText="@string/display_text__qwerty_space_bar"
+            app:keyDisplayText="@string/display_text__fsime_space_bar"
             app:keyIsLongPressable="true"
             app:keyIsPreviewable="false"
             app:keyIsSwipeable="true"

@@ -503,8 +503,7 @@ public class KeyboardView
                 removeAllExtendedPressHandlerMessages();
                 shouldRedrawKeyboard = true;
             }
-        } else // move is a key change
-        {
+        } else { // move is a key change
             activeKey = key;
             removeAllExtendedPressHandlerMessages();
             sendAppropriateExtendedPressHandlerMessage(key);

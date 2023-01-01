@@ -26,6 +26,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.Xml;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ import com.wade.utilities.Valuey;
   A keyboard that holds rows of keys, to be declared in a layout XML.
 */
 public class Keyboard {
+    private Context context;
     private static final String KEYBOARD_TAG = "Keyboard";
     private static final String ROW_TAG = "Row";
     private static final String KEY_TAG = "Key";
@@ -90,8 +92,38 @@ public class Keyboard {
     // Screen properties
     private final int screenWidth;
     private final int screenHeight;
+    public String name;
+    public String space;
 
-    public Keyboard(final Context context, final int layoutResourceId) {
+    public String getSpace() {
+        return space;
+    }
+    public void setName(String name) {
+        this.name = name;
+        switch (name) {
+            case "mix":
+                this.space = context.getString(R.string.display_text__fsime_space_bar);
+                break;
+            case "ji":
+                this.space = context.getString(R.string.display_text__ji_space_bar);
+                break;
+            case "cj":
+                this.space = context.getString(R.string.display_text__cj_space_bar);
+                break;
+            case "stroke":
+                this.space = context.getString(R.string.display_text__stroke_space_bar);
+                break;
+            case "symbols":
+                this.space = context.getString(R.string.display_text__symbols_space_bar);
+                break;
+            default:
+                this.space = context.getString(R.string.display_text__fsime_space_bar);
+                break;
+        }
+    }
+    public Keyboard(final Context context, final int layoutResourceId, String name) {
+        this.context = context;
+        this.setName(name);
         final DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
 
         screenWidth = displayMetrics.widthPixels;

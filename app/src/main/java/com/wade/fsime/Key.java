@@ -105,6 +105,10 @@ public class Key {
             displayText = valueText;
         }
 
+        if (valueText.equals("SPACE")) {
+            displayText = grandparentKeyboard.space;
+        }
+
         cjText = attributesArray.getString(R.styleable.Key_cj);
         if (cjText == null) {
             cjText = "";

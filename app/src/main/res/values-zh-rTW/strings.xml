@@ -13,7 +13,11 @@
   <string name="hint__main_activity__test_input">4. 在此測試輸入</string>
   <string name="label__main_activity__return">回</string>
   <!-- Space bar display text (triangles: U+25C0, U+25B6) -->
-  <string name="display_text__qwerty_space_bar">◀混蝦▶</string>
+  <string name="display_text__fsime_space_bar">◀混蝦▶</string>
+  <string name="display_text__ji_space_bar">◀注音▶</string>
+  <string name="display_text__cj_space_bar">◀倉頡▶</string>
+  <string name="display_text__stroke_space_bar">◀筆劃▶</string>
+  <string name="display_text__symbols_space_bar">◀符號▶</string>
 
     <string name="btadd">"新增&gt; "</string>
     <string name="btedit">"編輯&gt; "</string>

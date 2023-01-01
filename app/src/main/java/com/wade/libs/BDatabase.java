@@ -138,13 +138,14 @@ public class BDatabase extends SQLiteAssetHelper {
         ArrayList<String> tables = new ArrayList<>();
         if (table.equals("mix")) {
 			tables.add("mix");
+            tables.add("sym");
             tables.add("ji");
             tables.add("cj");
             tables.add("stroke");
-            tables.add("sym");
             max = max + max + max;
 		} else {
 			tables.add(table);
+            tables.add("sym");
 		}
 		for (String t : tables) {
             ArrayList<B> r = query(k, start, max, t, "eng", FUZZY_EXACT);

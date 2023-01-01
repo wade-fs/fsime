@@ -22,17 +22,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.NavigableMap;
 import java.util.NavigableSet;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.wade.libs.BDatabase;
@@ -54,16 +51,11 @@ public class FsimeService
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
     private static final String CTRL_VALUE_TEXT = "CTRL";
 
-    private static final String QWERTY_KEYBOARD_NAME = "QWERTY";
-    private static final String QWERTY_SYMBOLS_KEYBOARD_NAME = "QWERTY_SYMBOLS";
-
-    private static final String SWITCH_KEYBOARD_VALUE_TEXT_PREFIX = "SWITCH_TO_";
-
-    private static final String SWITCH_TO_QWERTY_VALUE_TEXT =
-            SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + QWERTY_KEYBOARD_NAME;
-
-    private static final String SWITCH_TO_QWERTY_SYMBOLS_VALUE_TEXT =
-            SWITCH_KEYBOARD_VALUE_TEXT_PREFIX + QWERTY_SYMBOLS_KEYBOARD_NAME;
+    private static final String KEYBOARD_NAME_FSIME = "mix";
+    private static final String KEYBOARD_NAME_CJ = "cj";
+    private static final String KEYBOARD_NAME_JI = "ji";
+    private static final String KEYBOARD_NAME_STROKE = "stroke";
+    private static final String KEYBOARD_NAME_SYMBOLS = "SYMBOLS";
 
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
@@ -85,8 +77,7 @@ public class FsimeService
     private static final int MAX_PREFIX_MATCH_COUNT = 30;
     private static final int MAX_PHRASE_LENGTH = 6;
 
-    Keyboard qwertyKeyboard;
-    Keyboard qwertySymbolsKeyboard;
+    Keyboard fsimeKeyboard;
 
     private Map<Keyboard, String> nameFromKeyboard;
     private Map<String, Keyboard> keyboardFromName;
@@ -105,7 +96,6 @@ public class FsimeService
 
     private Set<Integer> unpreferredCodePointSet;
     private Map<Integer, Integer> sortingRankFromCodePoint;
-    private Set<Integer> commonCodePointSet;
     private NavigableSet<String> phraseSet;
 
     private String mComposing = "";
@@ -135,12 +125,10 @@ public class FsimeService
     @Override
     public View onCreateInputView() {
         bdatabase = new BDatabase(getApplicationContext());
-        qwertyKeyboard = new Keyboard(this, R.xml.keyboard_qwerty);
-        qwertySymbolsKeyboard = new Keyboard(this, R.xml.keyboard_qwerty_symbols);
+        fsimeKeyboard = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
 
         nameFromKeyboard = new HashMap<>();
-        nameFromKeyboard.put(qwertyKeyboard, QWERTY_KEYBOARD_NAME);
-        nameFromKeyboard.put(qwertySymbolsKeyboard, QWERTY_SYMBOLS_KEYBOARD_NAME);
+        nameFromKeyboard.put(fsimeKeyboard, KEYBOARD_NAME_FSIME);
         keyboardFromName = Mappy.invertMap(nameFromKeyboard);
         keyboardSet = nameFromKeyboard.keySet();
 
@@ -158,7 +146,7 @@ public class FsimeService
         if (savedKeyboard != null) {
             return savedKeyboard;
         } else {
-            return qwertyKeyboard;
+            return fsimeKeyboard;
         }
     }
 
@@ -373,11 +361,6 @@ public class FsimeService
                 effectBackspace(inputConnection);
                 break;
 
-            case SWITCH_TO_QWERTY_VALUE_TEXT:
-            case SWITCH_TO_QWERTY_SYMBOLS_VALUE_TEXT:
-                final String keyboardName = Stringy.removePrefix(SWITCH_KEYBOARD_VALUE_TEXT_PREFIX, valueText);
-                effectKeyboardSwitch(keyboardName);
-                break;
             case CTRL_VALUE_TEXT:
                 break;
             case SPACE_BAR_VALUE_TEXT:
@@ -450,11 +433,6 @@ public class FsimeService
         }
     }
 
-    private void effectKeyboardSwitch(final String keyboardName) {
-        final Keyboard keyboard = keyboardFromName.get(keyboardName);
-        inputContainer.setKeyboard(keyboard);
-    }
-
     private void effectSpaceKey(final InputConnection inputConnection) {
         if (mComposing.length() > 0 && candidateList.size() > 1) {
             onCandidate(getCandidate(1));
@@ -493,9 +471,9 @@ public class FsimeService
             }
             // TODO 這邊可以換鍵盤，暫時全部只有一種
             switch (keyboardName) {
-                case QWERTY_KEYBOARD_NAME:
-                case QWERTY_SYMBOLS_KEYBOARD_NAME:
-                    inputContainer.setKeyboard(qwertyKeyboard);
+                case KEYBOARD_NAME_FSIME:
+//                    final Keyboard keyboard = keyboardFromName.get(keyboardName);
+//                    inputContainer.setKeyboard(fsimeKeyboard);
                     break;
             }
         }
@@ -541,27 +519,6 @@ public class FsimeService
                         string ->
                                 computeCandidateRank(
                                         string,
-                                        unpreferredCodePointSet,
-                                        sortingRankFromCodePoint,
-                                        phraseCompletionFirstCodePointList
-                                )
-                );
-    }
-
-    /*
-      Candidate comparator for a code point.
-    */
-    private Comparator<Integer> candidateCodePointComparator(
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        return
-                Comparator.comparingInt(
-                        codePoint ->
-                                computeCandidateRank(
-                                        codePoint,
-                                        1,
                                         unpreferredCodePointSet,
                                         sortingRankFromCodePoint,
                                         phraseCompletionFirstCodePointList
@@ -704,12 +661,10 @@ public class FsimeService
         if (shouldPreferTraditional()) {
             unpreferredCodePointSet = codePointSetSimplified;
             sortingRankFromCodePoint = sortingRankFromCodePointTraditional;
-            commonCodePointSet = commonCodePointSetTraditional;
             phraseSet = phraseSetTraditional;
         } else {
             unpreferredCodePointSet = codePointSetTraditional;
             sortingRankFromCodePoint = sortingRankFromCodePointSimplified;
-            commonCodePointSet = commonCodePointSetSimplified;
             phraseSet = phraseSetSimplified;
         }
     }
