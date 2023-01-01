@@ -3,7 +3,6 @@
   <declare-styleable name="Keyboard">
     <attr name="keyboardFillColour" format="color" />
     <attr name="keysAreShiftable" format="boolean" />
-    <attr name="keysArePreviewable" format="boolean" />
     <attr name="keyWidth" format="dimension|fraction" />
     <attr name="keyHeight" format="dimension|fraction" />
     <attr name="keyFillColour" format="color" />

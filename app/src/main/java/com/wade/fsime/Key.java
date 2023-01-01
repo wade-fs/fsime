@@ -97,7 +97,7 @@ public class Key {
         isShiftable = attributesArray.getBoolean(R.styleable.Key_keyIsShiftable, parentRow.keysAreShiftable);
         isExtendedLeft = attributesArray.getBoolean(R.styleable.Key_keyIsExtendedLeft, false);
         isExtendedRight = attributesArray.getBoolean(R.styleable.Key_keyIsExtendedRight, false);
-        isPreviewable = attributesArray.getBoolean(R.styleable.Key_keyIsPreviewable, false);
+        isPreviewable = attributesArray.getBoolean(R.styleable.Key_keyIsPreviewable, true);
 
         valueText = attributesArray.getString(R.styleable.Key_keyValueText);
         displayText = attributesArray.getString(R.styleable.Key_keyDisplayText);
