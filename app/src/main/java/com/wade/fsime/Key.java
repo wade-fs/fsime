@@ -54,9 +54,7 @@ public class Key {
     public int borderColour;
     public int borderThickness;
     public int textColour;
-    public int textShiftColour;
-    public int textCjColour;
-    public int textJiColour;
+    public int otherColour;
     public int textSwipeColour;
     public int textSize;
     public int textOffsetX;
@@ -105,6 +103,18 @@ public class Key {
             displayText = valueText;
         }
 
+        shiftText = attributesArray.getString(R.styleable.Key_keyValueTextShifted);
+        if (isShiftable && shiftText == null) {
+            shiftText = displayText.toUpperCase();
+        } else if (shiftText == null) {
+            shiftText = "";
+        }
+
+        strokeText = attributesArray.getString(R.styleable.Key_stroke);
+        if (strokeText == null) {
+            strokeText = "";
+        }
+
         cjText = attributesArray.getString(R.styleable.Key_cj);
         if (cjText == null) {
             cjText = "";
@@ -113,13 +123,6 @@ public class Key {
         jiText = attributesArray.getString(R.styleable.Key_ji);
         if (jiText == null) {
             jiText = "";
-        }
-
-        shiftText = attributesArray.getString(R.styleable.Key_keyValueTextShifted);
-        if (isShiftable && shiftText == null) {
-            shiftText = displayText.toUpperCase();
-        } else if (shiftText == null) {
-            shiftText = "";
         }
 
         width = Valuey.getDimensionOrFraction(
@@ -143,9 +146,7 @@ public class Key {
                 attributesArray.getDimensionPixelSize(R.styleable.Key_keyBorderThickness, parentRow.keyBorderThickness);
 
         textColour = attributesArray.getColor(R.styleable.Key_keyTextColour, parentRow.keyTextColour);
-        textShiftColour = attributesArray.getColor(R.styleable.Key_keyTextShiftColour, parentRow.keyTextShiftColour);
-        textCjColour = attributesArray.getColor(R.styleable.Key_keyTextCjColour, parentRow.keyTextCjColour);
-        textJiColour = attributesArray.getColor(R.styleable.Key_keyTextJiColour, parentRow.keyTextJiColour);
+        otherColour = attributesArray.getColor(R.styleable.Key_keyOtherColour, parentRow.keyOtherColour);
         textSwipeColour = attributesArray.getColor(R.styleable.Key_keyTextSwipeColour, parentRow.keyTextSwipeColour);
         textSize = attributesArray.getDimensionPixelSize(R.styleable.Key_keyTextSize, parentRow.keyTextSize);
         textOffsetX = attributesArray.getDimensionPixelSize(R.styleable.Key_keyTextOffsetX, parentRow.keyTextOffsetX);

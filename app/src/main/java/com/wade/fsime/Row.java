@@ -45,9 +45,7 @@ public class Row {
     public final int keyBorderColour;
     public final int keyBorderThickness;
     public final int keyTextColour;
-    public final int keyTextShiftColour;
-    public final int keyTextCjColour;
-    public final int keyTextJiColour;
+    public final int keyOtherColour;
     public final int keyTextSwipeColour;
     public final int keyTextSize;
     public final int keyTextOffsetX;
@@ -98,9 +96,7 @@ public class Row {
                 );
 
         keyTextColour = attributesArray.getColor(R.styleable.Row_keyTextColour, parentKeyboard.keyTextColour);
-        keyTextShiftColour = attributesArray.getColor(R.styleable.Row_keyTextShiftColour, parentKeyboard.keyTextShiftColour);
-        keyTextCjColour = attributesArray.getColor(R.styleable.Row_keyTextCjColour, parentKeyboard.keyTextCjColour);
-        keyTextJiColour = attributesArray.getColor(R.styleable.Row_keyTextJiColour, parentKeyboard.keyTextJiColour);
+        keyOtherColour = attributesArray.getColor(R.styleable.Row_keyOtherColour, parentKeyboard.keyOtherColour);
         keyTextSwipeColour = attributesArray.getColor(R.styleable.Row_keyTextSwipeColour, parentKeyboard.keyTextSwipeColour);
         keyTextSize = attributesArray.getDimensionPixelSize(R.styleable.Row_keyTextSize, parentKeyboard.keyTextSize);
 

@@ -97,6 +97,7 @@ public class KeyboardView
     private Paint keyBorderPaint;
     private Paint keyTextPaint;
     private Paint keyTextShiftPaint;
+    private Paint keyTextStrokePaint;
     private Paint keyTextCjPaint;
     private Paint keyTextJiPaint;
 
@@ -155,6 +156,10 @@ public class KeyboardView
         keyTextShiftPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextShiftPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
         keyTextShiftPaint.setTextAlign(Paint.Align.RIGHT);
+
+        keyTextStrokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        keyTextStrokePaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
+        keyTextStrokePaint.setTextAlign(Paint.Align.RIGHT);
 
         keyTextCjPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextCjPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
@@ -263,44 +268,55 @@ public class KeyboardView
             keyBorderPaint.setStrokeWidth(key.borderThickness);
 
             final int keyTextColour;
+            final int keyOtherColour;
+            if (key == activeKey && swipeModeIsActivated) {
+                keyOtherColour = key.textSwipeColour;
+            } else {
+                keyOtherColour = key.otherColour;
+            }
+            keyTextPaint.setTextSize(key.textSize);
+            keyTextShiftPaint.setTextSize(key.textSize*6/10);
+            keyTextStrokePaint.setTextSize(key.textSize*6/10);
+            keyTextCjPaint.setTextSize(key.textSize*5/10);
+            keyTextJiPaint.setTextSize(key.textSize*5/10);
+
             if (key == activeKey && swipeModeIsActivated) {
                 keyTextColour = key.textSwipeColour;
-            } else {
+            } else if (!key.isPreviewable) {
                 keyTextColour = key.textColour;
+            } else {
+                keyTextColour = keyOtherColour;
             }
             keyTextPaint.setColor(keyTextColour);
-            keyTextPaint.setTextSize(key.textSize);
-
-            final int keyTextShiftColour;
-            if (key == activeKey && swipeModeIsActivated) {
-                keyTextShiftColour = key.textSwipeColour;
+            keyTextShiftPaint.setColor(keyOtherColour);
+            keyTextStrokePaint.setColor(keyOtherColour);
+            keyTextCjPaint.setColor(keyOtherColour);
+            keyTextJiPaint.setColor(keyOtherColour);
+            if (shiftMode > 0) {
+                keyTextShiftPaint.setColor(keyTextColour);
             } else {
-                keyTextShiftColour = key.textShiftColour;
+                switch (keyboard.name) {
+                    case "mix":
+                        if (key.isPreviewable) {
+                            keyTextPaint.setColor(key.textColour);
+                        }
+                        break;
+                    case "ji":
+                        keyTextJiPaint.setColor(key.textColour);
+                        break;
+                    case "cj":
+                        keyTextCjPaint.setColor(key.textColour);
+                        break;
+                    case "stroke":
+                        keyTextStrokePaint.setColor(key.textColour);
+                        break;
+                }
             }
-            keyTextShiftPaint.setColor(keyTextShiftColour);
-            keyTextShiftPaint.setTextSize(key.textSize*6/10);
-
-            final int keyTextCjColour;
-            if (key == activeKey && swipeModeIsActivated) {
-                keyTextCjColour = key.textSwipeColour;
-            } else {
-                keyTextCjColour = key.textCjColour;
-            }
-            keyTextCjPaint.setColor(keyTextCjColour);
-            keyTextCjPaint.setTextSize(key.textSize*5/10);
-
-            final int keyTextJiColour;
-            if (key == activeKey && swipeModeIsActivated) {
-                keyTextJiColour = key.textSwipeColour;
-            } else {
-                keyTextJiColour = key.textJiColour;
-            }
-            keyTextJiPaint.setColor(keyTextJiColour);
-            keyTextJiPaint.setTextSize(key.textSize*5/10);
 
             final boolean isPreviewable = key.isPreviewable;
             final String keyDisplayText = key.displayText;
             final String keyShiftText = key.shiftText;
+            final String keyStrokeText = key.strokeText;
             final String keyCjText = key.cjText;
             final String keyJiText = key.jiText;
             final float keyTextX = key.width / 2f + key.textOffsetX;
@@ -315,6 +331,12 @@ public class KeyboardView
             final float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
             if (keyShiftText.length() > 0 && isPreviewable) {
                 canvas.drawText(keyShiftText, keyShiftTextX, keyShiftTextY, keyTextShiftPaint);
+            }
+
+            final float keyStrokeTextX = key.width / 2f + key.textOffsetX + 34.0f;
+            final float keyStrokeTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
+            if (keyStrokeText.length() > 0) {
+                canvas.drawText(keyStrokeText, keyStrokeTextX, keyStrokeTextY, keyTextStrokePaint);
             }
 
             final float keyCjTextX = key.width / 2f + key.textOffsetX - 8.0f;

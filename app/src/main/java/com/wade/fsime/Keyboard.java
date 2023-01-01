@@ -79,9 +79,7 @@ public class Keyboard {
     public int keyBorderColour;
     public int keyBorderThickness;
     public int keyTextColour;
-    public int keyTextShiftColour;
-    public int keyTextCjColour;
-    public int keyTextJiColour;
+    public int keyOtherColour;
     public int keyTextSwipeColour;
     public int keyTextSize;
     public int keyTextOffsetX;
@@ -234,9 +232,7 @@ public class Keyboard {
         keyBorderThickness = attributesArray.getDimensionPixelSize(R.styleable.Keyboard_keyBorderThickness, defaultKeyBorderThicknessPx);
 
         keyTextColour = attributesArray.getColor(R.styleable.Keyboard_keyTextColour, DEFAULT_KEY_TEXT_COLOUR);
-        keyTextShiftColour = attributesArray.getColor(R.styleable.Keyboard_keyTextShiftColour, DEFAULT_KEY_TEXT_COLOUR);
-        keyTextCjColour = attributesArray.getColor(R.styleable.Keyboard_keyTextCjColour, DEFAULT_KEY_TEXT_COLOUR);
-        keyTextJiColour = attributesArray.getColor(R.styleable.Keyboard_keyTextJiColour, DEFAULT_KEY_TEXT_COLOUR);
+        keyOtherColour = attributesArray.getColor(R.styleable.Keyboard_keyOtherColour, DEFAULT_KEY_TEXT_COLOUR);
         keyTextSwipeColour = attributesArray.getColor(R.styleable.Keyboard_keyTextSwipeColour, DEFAULT_KEY_TEXT_SWIPE_COLOUR);
         keyTextSize = attributesArray.getDimensionPixelSize(R.styleable.Keyboard_keyTextSize, defaultKeyTextSizePx);
 

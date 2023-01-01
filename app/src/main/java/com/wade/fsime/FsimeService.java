@@ -484,10 +484,6 @@ public class FsimeService
                     keyboard.setName(KEYBOARD_NAME_STROKE);
                     space = getString(R.string.display_text__stroke_space_bar);
                     break;
-                case KEYBOARD_NAME_STROKE:
-                    keyboard.setName(KEYBOARD_NAME_SYMBOLS);
-                    space = getString(R.string.display_text__symbols_space_bar);
-                    break;
                 default:
                     keyboard.setName(KEYBOARD_NAME_FSIME);
                     space = getString(R.string.display_text__fsime_space_bar);

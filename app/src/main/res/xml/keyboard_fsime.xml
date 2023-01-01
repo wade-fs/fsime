@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
     app:keyFillColour="@color/key_fill"
-    app:keyTextColour="@color/umbrella_yellow"
-    app:keyTextShiftColour="@color/umbrella_grey"
-    app:keyTextCjColour="@color/umbrella_grey"
-    app:keyTextJiColour="@color/enter_key_fill"
+    app:keyTextColour="@color/green"
+    app:keyOtherColour="@color/umbrella_grey"
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
     app:keyTextSize="@dimen/font_size__fsime"
@@ -293,6 +291,6 @@
             app:keyIsPreviewable="false"
             app:keyValueText="ENTER"
             app:keyWidth="18.18%"
-            app:keyTextColour="@color/enter_key_fill" />
+            app:keyTextColour="@color/umbrella_orange" />
     </Row>
 </Keyboard>
