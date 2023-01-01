@@ -275,10 +275,10 @@ public class KeyboardView
                 keyOtherColour = key.otherColour;
             }
             keyTextPaint.setTextSize(key.textSize);
-            keyTextShiftPaint.setTextSize(key.textSize*6/10);
-            keyTextStrokePaint.setTextSize(key.textSize*6/10);
-            keyTextCjPaint.setTextSize(key.textSize*5/10);
-            keyTextJiPaint.setTextSize(key.textSize*5/10);
+            keyTextShiftPaint.setTextSize(key.textSize * 6 / 10);
+            keyTextStrokePaint.setTextSize(key.textSize * 6 / 10);
+            keyTextCjPaint.setTextSize(key.textSize * 5 / 10);
+            keyTextJiPaint.setTextSize(key.textSize * 5 / 10);
 
             if (key == activeKey && swipeModeIsActivated) {
                 keyTextColour = key.textSwipeColour;
@@ -350,10 +350,10 @@ public class KeyboardView
             final float keyJiTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f;
             if (keyJiText.length() > 0) {
                 if ("ˊˇˋ˙".contains(keyJiText)) {
-                    keyTextJiPaint.setTextSize(key.textSize*5.0f/3.0f);
+                    keyTextJiPaint.setTextSize(key.textSize * 5.0f / 3.0f);
                     canvas.drawText(keyJiText, keyJiTextX, keyJiTextYv, keyTextJiPaint);
                 } else {
-                    keyTextJiPaint.setTextSize(key.textSize*6.0f/10.0f);
+                    keyTextJiPaint.setTextSize(key.textSize * 6.0f / 10.0f);
                     canvas.drawText(keyJiText, keyJiTextX, keyJiTextY, keyTextJiPaint);
                 }
             }
