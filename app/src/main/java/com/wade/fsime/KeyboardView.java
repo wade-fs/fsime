@@ -293,7 +293,7 @@ public class KeyboardView
             keyTextCjPaint.setColor(keyOtherColour);
             keyTextJiPaint.setColor(keyOtherColour);
             if (shiftMode > 0) {
-                keyTextShiftPaint.setColor(keyTextColour);
+                keyTextShiftPaint.setColor(key.textColour);
             } else {
                 switch (keyboard.name) {
                     case "mix":
