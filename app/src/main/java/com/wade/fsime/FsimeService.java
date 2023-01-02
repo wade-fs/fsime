@@ -397,20 +397,17 @@ public class FsimeService
 
     @Override
     public void onLongPress(final String valueText) {
-        Log.d("fsime", "onLongPress "+valueText);
         switch (valueText) {
             case SPACE_BAR_VALUE_TEXT:
                 Contexty.showSystemKeyboardChanger(this);
                 break;
             case ESC_KEY_VALUE_TEXT:
-                String w = getCandidate(0);
-                if (mComposing.length() == 0 && w.length() == 1) {
-                    ArrayList<String> comp = bdatabase.getCompose(w);
+                final InputConnection inputConnection = getCurrentInputConnection();
+                String w = getTextBeforeCursor(inputConnection, 1);
+                if (w.length() > 0) {
+                    ArrayList<String> comp = bdatabase.getCompose(w.substring(0,1));
                     comp.add(0, w);
-                    Log.d("fsime", "setCandidateList "+valueText + ":"+ comp.toString());
                     setCandidateList(comp);
-                } else {
-                    Log.d("fsime", "setCandidateList ???");
                 }
                 break;
         }
