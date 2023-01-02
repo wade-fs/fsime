@@ -19,25 +19,30 @@ import java.util.ArrayList;
   A view that holds candidates.
 */
 public class CandidatesView
-        extends RecyclerView {
-    private CandidatesViewAdapter candidatesViewAdapter;
+  extends RecyclerView
+{
+  private CandidatesViewAdapter candidatesViewAdapter;
 
-    public CandidatesView(final Context context, final AttributeSet attributes) {
-        super(context, attributes);
-        initialiseCandidatesViewAdapter(context);
-    }
+  public CandidatesView(final Context context, final AttributeSet attributes)
+  {
+    super(context, attributes);
+    initialiseCandidatesViewAdapter(context);
+  }
 
-    public CandidatesViewAdapter getCandidatesViewAdapter() {
-        return candidatesViewAdapter;
-    }
+  public CandidatesViewAdapter getCandidatesViewAdapter()
+  {
+    return candidatesViewAdapter;
+  }
 
-    private void initialiseCandidatesViewAdapter(final Context context) {
-        candidatesViewAdapter = new CandidatesViewAdapter(context, new ArrayList<>());
-        setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        setAdapter(candidatesViewAdapter);
-    }
+  private void initialiseCandidatesViewAdapter(final Context context)
+  {
+    candidatesViewAdapter = new CandidatesViewAdapter(context, new ArrayList<>());
+    setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+    setAdapter(candidatesViewAdapter);
+  }
 
-    public void setCandidateListener(final CandidatesViewAdapter.CandidateListener candidateListener) {
-        candidatesViewAdapter.setCandidateListener(candidateListener);
-    }
+  public void setCandidateListener(final CandidatesViewAdapter.CandidateListener candidateListener)
+  {
+    candidatesViewAdapter.setCandidateListener(candidateListener);
+  }
 }

@@ -67,6 +67,7 @@
         <Key
             app:keyDisplayText="\u232B"
             app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
             app:keyValueText="BACKSPACE"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
@@ -251,11 +252,13 @@
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
             app:keyValueText="ESC"
             app:keyTextColour="@color/umbrella_orange" />
         <Key
             app:keyDisplayText="\u21B9"
             app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
             app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
         <Key

@@ -16,12 +16,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -393,6 +395,67 @@ public class FsimeService
         }
     }
 
+    @Override
+    public void onLongPress(final String valueText) {
+        Log.d("fsime", "onLongPress "+valueText);
+        switch (valueText) {
+            case SPACE_BAR_VALUE_TEXT:
+                Contexty.showSystemKeyboardChanger(this);
+                break;
+            case ESC_KEY_VALUE_TEXT:
+                String w = getCandidate(0);
+                if (mComposing.length() == 0 && w.length() == 1) {
+                    ArrayList<String> comp = bdatabase.getCompose(w);
+                    comp.add(0, w);
+                    Log.d("fsime", "setCandidateList "+valueText + ":"+ comp.toString());
+                    setCandidateList(comp);
+                } else {
+                    Log.d("fsime", "setCandidateList ???");
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onSwipe(final String valueText) {
+        if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
+            String space = "";
+            final Keyboard keyboard = inputContainer.getKeyboard();
+            final String keyboardName = keyboard.name;
+
+            if (keyboardName == null) {
+                return;
+            }
+            // TODO 這邊可以換鍵盤，暫時全部只有一種
+            switch (keyboardName) {
+                case KEYBOARD_NAME_FSIME:
+                    keyboard.setName(KEYBOARD_NAME_JI);
+                    space = getString(R.string.display_text__ji_space_bar);
+                    break;
+                case KEYBOARD_NAME_JI:
+                    keyboard.setName(KEYBOARD_NAME_CJ);
+                    space = getString(R.string.display_text__cj_space_bar);
+                    break;
+                case KEYBOARD_NAME_CJ:
+                    keyboard.setName(KEYBOARD_NAME_STROKE);
+                    space = getString(R.string.display_text__stroke_space_bar);
+                    break;
+                default:
+                    keyboard.setName(KEYBOARD_NAME_FSIME);
+                    space = getString(R.string.display_text__fsime_space_bar);
+                    break;
+            }
+
+            for (final Key key : keyboard.getKeyList()) {
+                if (key.valueText.equals(SPACE_BAR_VALUE_TEXT)) {
+                    key.displayText = space;
+                    break;
+                }
+            }
+            inputContainer.redrawKeyboard();
+        }
+    }
+
     private List<String> computeCandidateList(final String mComposing) {
         if (mComposing.length() == 0) {
             return Collections.emptyList();
@@ -405,7 +468,6 @@ public class FsimeService
     private void effectStrokeAppend(final String key) {
         final String newInputSequence = mComposing + key;
         final List<String> newCandidateList = computeCandidateList(newInputSequence);
-        Log.d("fsime", "effectStrokeAppend("+key+") "+newCandidateList.toString());
         if (newCandidateList.size() > 0) {
             mComposing = newInputSequence;
             setCandidateList(newCandidateList);
@@ -465,53 +527,6 @@ public class FsimeService
             inputConnection.performEditorAction(inputOptionsBits);
         } else {
             inputConnection.commitText("\n", 1);
-        }
-    }
-
-    @Override
-    public void onLongPress(final String valueText) {
-        if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-            Contexty.showSystemKeyboardChanger(this);
-        }
-    }
-
-    @Override
-    public void onSwipe(final String valueText) {
-        if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-            String space = "";
-            final Keyboard keyboard = inputContainer.getKeyboard();
-            final String keyboardName = keyboard.name;
-
-            if (keyboardName == null) {
-                return;
-            }
-            // TODO 這邊可以換鍵盤，暫時全部只有一種
-            switch (keyboardName) {
-                case KEYBOARD_NAME_FSIME:
-                    keyboard.setName(KEYBOARD_NAME_JI);
-                    space = getString(R.string.display_text__ji_space_bar);
-                    break;
-                case KEYBOARD_NAME_JI:
-                    keyboard.setName(KEYBOARD_NAME_CJ);
-                    space = getString(R.string.display_text__cj_space_bar);
-                    break;
-                case KEYBOARD_NAME_CJ:
-                    keyboard.setName(KEYBOARD_NAME_STROKE);
-                    space = getString(R.string.display_text__stroke_space_bar);
-                    break;
-                default:
-                    keyboard.setName(KEYBOARD_NAME_FSIME);
-                    space = getString(R.string.display_text__fsime_space_bar);
-                    break;
-            }
-
-            for (final Key key : keyboard.getKeyList()) {
-                if (key.valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-                    key.displayText = space;
-                    break;
-                }
-            }
-            inputContainer.redrawKeyboard();
         }
     }
 
