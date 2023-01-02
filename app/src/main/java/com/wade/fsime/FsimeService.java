@@ -396,7 +396,15 @@ public class FsimeService
     }
 
     @Override
-    public void onLongPress(final String valueText) {
+    public void onLongPress(final String inputText) {
+        String valueText, shiftText;
+        if (inputText.length() > 1) {
+            valueText = inputText.substring(0, 1);
+            shiftText = inputText.substring(1, 2);
+        } else {
+            valueText = inputText;
+            shiftText = "";
+        }
         switch (valueText) {
             case SPACE_BAR_VALUE_TEXT:
                 Contexty.showSystemKeyboardChanger(this);
@@ -410,6 +418,12 @@ public class FsimeService
                     setCandidateList(comp);
                 }
                 break;
+            default:
+                if (shiftText.length() > 0) {
+                    effectStrokeAppend(shiftText);
+                } else {
+                    effectStrokeAppend(valueText);
+                }
         }
     }
 

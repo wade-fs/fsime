@@ -123,7 +123,7 @@ public class KeyboardView
                                     break;
 
                                 case MESSAGE_LONG_PRESS:
-                                    keyboardListener.onLongPress(activeKey.valueText);
+                                    keyboardListener.onLongPress(activeKey.valueText+activeKey.shiftText);
                                     activeKey = null;
                                     activePointerId = NONEXISTENT_POINTER_ID;
                                     invalidate();

@@ -89,7 +89,7 @@ public class Key {
         final TypedArray attributesArray =
                 resources.obtainAttributes(Xml.asAttributeSet(xmlResourceParser), R.styleable.Key);
 
-        isLongPressable = attributesArray.getBoolean(R.styleable.Key_keyIsLongPressable, false);
+        isLongPressable = attributesArray.getBoolean(R.styleable.Key_keyIsLongPressable, true);
         isRepeatable = attributesArray.getBoolean(R.styleable.Key_keyIsRepeatable, false);
         isSwipeable = attributesArray.getBoolean(R.styleable.Key_keyIsSwipeable, false);
         isShiftable = attributesArray.getBoolean(R.styleable.Key_keyIsShiftable, parentRow.keysAreShiftable);
