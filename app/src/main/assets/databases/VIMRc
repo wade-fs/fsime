@@ -23,7 +23,7 @@ set encoding=utf8
 set nomodeline
 set noautoindent
 map <F2> :AnsiEsc<CR>
-nnoremap <Up> u
+nnoremap <Left> u
 nnoremap 1 1ddzt<c-G>
 nnoremap 2 2ddzt<c-G>
 nnoremap 3 3ddzt<c-G>
