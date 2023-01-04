@@ -1,5 +1,0 @@
-OrdinaryDictionaryReplacement: #.typography.typography
-- queue_position: BEFORE #whitespace
-- apply_mode: SIMULTANEOUS
-* ~ --> &nbsp;
-* -- --> –
