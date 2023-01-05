@@ -364,6 +364,7 @@ public class FsimeService
 
     @Override
     public void onKey(final String valueText) {
+        Log.d("fsime", "onKey("+valueText+")");
         final InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection == null) {
             return;
@@ -398,13 +399,14 @@ public class FsimeService
     @Override
     public void onLongPress(final String inputText) {
         String valueText, shiftText;
-        if (inputText.length() > 1) {
+        if (inputText.length() == 2) {
             valueText = inputText.substring(0, 1);
             shiftText = inputText.substring(1, 2);
         } else {
             valueText = inputText;
             shiftText = "";
         }
+        Log.d("fsime", "onLongPress("+inputText+") "+valueText+": '"+shiftText+"'");
         switch (valueText) {
             case SPACE_BAR_VALUE_TEXT:
                 Contexty.showSystemKeyboardChanger(this);
