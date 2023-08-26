@@ -369,13 +369,13 @@ public class FsimeService
         if (inputConnection == null) {
             return;
         }
-        int meta = 0; // Ctrl+Shift 修飾子
         switch (valueText) {
             case BACKSPACE_VALUE_TEXT:
+            case "⌫":
                 effectBackspace(inputConnection);
                 break;
             case TAB_KEY_VALUE_TEXT:
-                keyDownUp(KeyEvent.KEYCODE_TAB, meta);
+                keyDownUp(KeyEvent.KEYCODE_TAB, 0);
                 break;
             case ESC_KEY_VALUE_TEXT:
                 turnCandidateOff();
