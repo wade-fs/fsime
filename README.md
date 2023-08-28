@@ -14,3 +14,5 @@
 	- 甚至可以用 Ctrl-C, Ctrl-A, Ctrl-V, Ctrl-X
 - 長按可以輸入 Shift 的鍵值，省得使用 shift 切換
 - 按 Shift 可以切換 shift 模式
+
+# app 下載: app/release/com.wade.fsime-230828.apk
