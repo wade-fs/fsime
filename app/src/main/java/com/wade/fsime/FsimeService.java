@@ -7,6 +7,9 @@
 
 package com.wade.fsime;
 
+import static com.wade.libs.Tools.POLd;
+import static com.wade.libs.Tools.REC;
+
 import android.annotation.SuppressLint;
 import android.inputmethodservice.InputMethodService;
 import android.text.InputType;
@@ -29,11 +32,15 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.wade.arity.Function;
+import com.wade.arity.Symbols;
+import com.wade.arity.SyntaxException;
 import com.wade.libs.BDatabase;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
@@ -480,11 +487,62 @@ public class FsimeService
 
     private void effectStrokeAppend(final String key) {
         final String newInputSequence = mComposing + key;
-        final List<String> newCandidateList = computeCandidateList(newInputSequence);
-        if (newCandidateList.size() > 0) {
-            mComposing = newInputSequence;
-            setCandidateList(newCandidateList);
+        final List<String> list = computeCandidateList(newInputSequence);
+        if (list.size() == 1) {
+            try {
+                String text = newInputSequence;
+                if (text.toLowerCase().contains("pol(")) { // pol(x,y) to (r,Theta)
+                    String exp = text;
+                    exp = exp.trim().replaceAll("pol", "").replaceAll("[()]", "");
+                    String[] res = exp.split("[ ,]");
+                    if (res.length==2) {
+                        if (res[0].length() == 0) res[0] = "1";
+                        if (res[1].length() == 0) res[1] = "0";
+                        double dy = Double.parseDouble(res[0]);
+                        double dx = Double.parseDouble(res[1]);
+                        double[] ret = POLd(dy, dx);
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE, "距離=%.2f, 角度=%.3f度", ret[0], ret[1]));
+                    }
+                }
+                if (text.toLowerCase().contains("rec(")) { // rec(r,Theta) to (x,y)
+                    String exp = text;
+                    exp = exp.trim().replaceAll("rec", "").replaceAll("[()]", "");
+                    String[] res = exp.split("[ ,]");
+                    if (res.length==2) {
+                        if (res[0].length() == 0) res[0] = "0";
+                        if (res[1].length() == 0) res[1] = "0";
+                        double dy = Double.parseDouble(res[0]);
+                        double dx = Double.parseDouble(res[1]);
+                        double[] ret = REC(dy, dx);
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE, "X=%.3f, Y=%.3f", ret[0], ret[1]));
+                    }
+                }
+                ArrayList<Function> auxFuncs = new ArrayList<>();
+                Symbols symbols = new Symbols();
+                int end = -1;
+                do {
+                    text = text.substring(end + 1);
+                    end = text.indexOf(';');
+                    String slice = end == -1 ? text : text.substring(0, end);
+                    try {
+                        Function f = symbols.compile(slice);
+                        auxFuncs.add(f);
+                    } catch (SyntaxException e) {
+                    }
+                } while (end != -1);
+                int size = auxFuncs.size();
+                if (size == 1) {
+                    Function f = auxFuncs.get(0);
+                    int arity = f.arity();
+                    if (arity == 0) {
+                        list.add(String.format(Locale.TRADITIONAL_CHINESE,  f.evalComplex().toString()));
+                    }
+                }
+            } catch (IllegalArgumentException e) {
+            }
         }
+        mComposing = newInputSequence;
+        setCandidateList(list);
     }
 
     private void effectBackspace(final InputConnection inputConnection) {
