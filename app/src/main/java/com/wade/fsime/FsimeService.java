@@ -493,7 +493,8 @@ public class FsimeService
 //            }
             ExpressionParser parser = new ExpressionParser();
             try {
-                Double res = parser.evaluate(list.get(0), 3);
+                String expr = list.get(0).toUpperCase();
+                Double res = parser.evaluate(expr, 12);
                 list.add(Double.toString(res));
             } catch (Exception e) {
 

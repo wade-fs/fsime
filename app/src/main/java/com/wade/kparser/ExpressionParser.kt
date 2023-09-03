@@ -109,7 +109,7 @@ class ExpressionParser {
             if (currChar in "0123456789.") {
                 // check for implicit multiply
                 if (i != 0 &&
-                    (expression[i - 1] == ')' || expression[i - 1] == 'e' ||
+                    (expression[i - 1] == ')' || expression[i - 1] == 'E' ||
                             (i >= 2 && expression.substring(i - 2, i) == "PI"))
                 ) {
                     performSafePushToStack(numString, "*")
@@ -148,7 +148,7 @@ class ExpressionParser {
                 }
                 numStack.push(PI)
                 i += 2
-            } else if (expression[i] == 'e' &&
+            } else if (expression[i] == 'E' &&
                 (i + 1 == expression.length || (i + 1) < expression.length && expression[i + 1] != 'x')
             ) {
                 // check for implicit multiply

@@ -11,21 +11,21 @@ enum class NormalOperators(val sign: String, val precedence: Int) {
 }
 
 enum class FunctionalOperators(val func: String) {
-    sin("sin("),
-    cos("cos("),
-    tan("tan("),
-    asin("asin("),
-    acos("acos("),
-    atan("atan("),
-    sinh("sinh("),
-    cosh("cosh("),
-    tanh("tanh("),
-    log2("log2("),
-    log10("log10("),
-    ln("ln("),
-    logx("log"),
-    sqrt("sqrt("),
-    exp("exp(")
+    sin("SIN("),
+    cos("COS("),
+    tan("TAN("),
+    asin("ASIN("),
+    acos("ACOS("),
+    atan("ATAN("),
+    sinh("SINH("),
+    cosh("COSH("),
+    tanh("TANH("),
+    log2("LOG2("),
+    log10("LOG10("),
+    ln("LN("),
+    logx("LOG"),
+    sqrt("SQRT("),
+    exp("EXP(")
 
 }
 
