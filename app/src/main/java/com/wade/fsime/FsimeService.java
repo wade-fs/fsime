@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import com.wade.exprk.ExpressionException;
 import com.wade.exprk.Expressions;
 import com.wade.libs.BDatabase;
 import com.wade.utilities.Contexty;
@@ -484,8 +485,11 @@ public class FsimeService
         if (list.size() == 1) {
             // TODO 要用數學運算式
             Expressions exp = new Expressions();
-            BigDecimal res = exp.eval("(5+5)*10");
-            list.add(res.toString());
+            try {
+                BigDecimal res = exp.eval(list.get(0));
+                list.add(Double.toString(res.doubleValue()));
+            } catch (ExpressionException e) {
+            }
         }
         mComposing = newInputSequence;
         setCandidateList(list);
