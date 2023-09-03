@@ -13,24 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.wade.arity
 
-package com.wade.arity;
-
-class ByteStack {
-    private byte[] data = new byte[8];
-    private int size = 0;
-
-    void clear() {
-        size = 0;
+internal class ByteStack {
+    private var data = ByteArray(8)
+    private var size = 0
+    fun clear() {
+        size = 0
     }
 
-    void push(byte b) {
-        if (size >= data.length) {
-            byte[] newData = new byte[data.length << 1];
-            System.arraycopy(data, 0, newData, 0, data.length);
-            data = newData;
+    fun push(b: Byte) {
+        if (size >= data.size) {
+            val newData = ByteArray(data.size shl 1)
+            System.arraycopy(data, 0, newData, 0, data.size)
+            data = newData
         }
-        data[size++] = b;
+        data[size++] = b
     }
 
     /*
@@ -38,14 +36,13 @@ class ByteStack {
         size -= cnt;
     }
     */
-
-    byte pop() {
-        return data[--size];
+    fun pop(): Byte {
+        return data[--size]
     }
 
-    byte[] toArray() {
-        byte[] trimmed = new byte[size];
-        System.arraycopy(data, 0, trimmed, 0, size);
-        return trimmed;
+    fun toArray(): ByteArray {
+        val trimmed = ByteArray(size)
+        System.arraycopy(data, 0, trimmed, 0, size)
+        return trimmed
     }
 }

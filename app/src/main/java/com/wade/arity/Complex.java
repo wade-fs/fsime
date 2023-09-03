@@ -18,6 +18,8 @@ package com.wade.arity;
 
 import android.util.Log;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
     A complex value, composed of the real part (re) and the imaginary part (im).
 
@@ -601,5 +603,15 @@ public class Complex {
     /** sqrt(1-x^2) */
     private final Complex sqrt1z() {
         return set(1 - re*re + im*im, -2*re*im).sqrt();
+    }
+
+    public void set(double d, @NotNull Number number) {
+        re = d;
+        im = number.doubleValue();
+    }
+
+    public void set(@NotNull Number number, double d) {
+        re = number.doubleValue();
+        im = d;
     }
 }

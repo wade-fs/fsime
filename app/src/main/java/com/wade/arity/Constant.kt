@@ -13,38 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.wade.arity;
+package com.wade.arity
 
 /**
-   A constant presented as a function, always evaluates to the same value.
+ * A constant presented as a function, always evaluates to the same value.
  */
-public class Constant extends Function {
-    private Complex value;
+class Constant(o: Complex?) : Function() {
+    private val value: Complex
 
-    public Constant(Complex o) {
-        value = new Complex(o);
+    init {
+        value = Complex(o)
     }
-
     //@Override
-    /** Returns the complex constant. */
-    public Complex evalComplex() {
-        return value;
+    /** Returns the complex constant.  */
+    override fun evalComplex(): Complex {
+        return value
     }
-
     //@Override
-    /** Returns the complex constant as a real value. 
-        @see Complex.asReas()
+    /** Returns the complex constant as a real value.
+     * @see Complex.asReas
      */
-    public double eval() {
-        return value.asReal();
+    override fun eval(): Double {
+        return value.asReal()
     }
 
-    public String toString() {
-        return value.toString();
+    override fun toString(): String {
+        return value.toString()
     }
-    
-    public int arity() {
-        return 0;
+
+    override fun arity(): Int {
+        return 0
     }
 }

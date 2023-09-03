@@ -13,20 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.wade.arity
 
-package com.wade.arity;
-
-/** 
-    Thrown when a {@link Function} is evaluated with a wrong number of arguments 
-    (when the number of arguments is not equal to the function's arity).
-*/
-
-public class ArityException extends RuntimeException {
-    public ArityException(String mes) {
-        super(mes);
-    }
-
-    public ArityException(int nArgs) {
-        this("Didn't expect " + nArgs + " arguments");
-    }
+/**
+ * Thrown when a [Function] is evaluated with a wrong number of arguments
+ * (when the number of arguments is not equal to the function's arity).
+ */
+class ArityException(mes: String?) : RuntimeException(mes) {
+    constructor(nArgs: Int) : this("Didn't expect $nArgs arguments")
 }
