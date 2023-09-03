@@ -19,6 +19,7 @@ import android.view.inputmethod.InputConnection;
 
 import com.wade.exprk.ExpressionException;
 import com.wade.exprk.Expressions;
+import com.wade.kparser.ExpressionParser;
 import com.wade.libs.BDatabase;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
@@ -483,12 +484,19 @@ public class FsimeService
         final String newInputSequence = mComposing + key;
         final List<String> list = computeCandidateList(newInputSequence);
         if (list.size() == 1) {
-            // TODO 要用數學運算式
-            Expressions exp = new Expressions();
+//            // TODO 要用數學運算式
+//            Expressions exp = new Expressions();
+//            try {
+//                BigDecimal res = exp.eval(list.get(0));
+//                list.add(Double.toString(res.doubleValue()));
+//            } catch (ExpressionException e) {
+//            }
+            ExpressionParser parser = new ExpressionParser();
             try {
-                BigDecimal res = exp.eval(list.get(0));
-                list.add(Double.toString(res.doubleValue()));
-            } catch (ExpressionException e) {
+                Double res = parser.evaluate(list.get(0), 3);
+                list.add(Double.toString(res));
+            } catch (Exception e) {
+
             }
         }
         mComposing = newInputSequence;
