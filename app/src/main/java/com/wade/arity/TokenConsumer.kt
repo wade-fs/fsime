@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.wade.arity
 
-package com.wade.arity;
-
-abstract class TokenConsumer {
-    void start() {
-    }
-
-    abstract void push(Token token) throws SyntaxException;
+internal abstract class TokenConsumer {
+    open fun start() {}
+    @Throws(SyntaxException::class)
+    abstract fun push(token: Token?)
 }

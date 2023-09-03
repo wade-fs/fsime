@@ -34,14 +34,14 @@ class DeclarationParser extends TokenConsumer {
     }
 
     //@Override
-    void start() {
+    public void start() {
         name = null;
         arity = UNKNOWN_ARITY;
         args.setSize(0);
     }
 
     //@Override
-    void push(Token token) throws SyntaxException {
+    public void push(Token token) throws SyntaxException {
         switch (token.id) {
         case Lexer.CALL:
             if (name == null) {

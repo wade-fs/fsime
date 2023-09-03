@@ -40,7 +40,7 @@ class RPN extends TokenConsumer {
     }
 
     //@Override
-    void start() {
+    public void start() {
         stack.removeAllElements();
         prevTokenId = 0;
         consumer.start();
@@ -69,7 +69,7 @@ class RPN extends TokenConsumer {
             id == Lexer.PERCENT;
     }
 
-    void push(Token token) throws SyntaxException {
+    public void push(Token token) throws SyntaxException {
         int priority = token.priority;
         int id = token.id;
         switch (id) {

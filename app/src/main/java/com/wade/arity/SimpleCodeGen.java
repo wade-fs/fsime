@@ -44,7 +44,7 @@ class SimpleCodeGen extends TokenConsumer {
     }
 
     //@Override
-    void start() {
+    public void start() {
         code.clear();
         consts.clear();
         funcs.clear();
@@ -73,7 +73,7 @@ class SimpleCodeGen extends TokenConsumer {
         return symbol;
     }
 
-    void push(Token token) throws SyntaxException {
+    public void push(Token token) throws SyntaxException {
         byte op;
         switch (token.id) {
         case Lexer.NUMBER:

@@ -41,7 +41,7 @@ class OptCodeGen extends SimpleCodeGen {
     }
 
     //@Override
-    void start() {
+    public void start() {
         super.start();
         sp = -1;
         intrinsicArity = 0;
@@ -49,7 +49,7 @@ class OptCodeGen extends SimpleCodeGen {
     }
 
     //@Override
-    void push(Token token) throws SyntaxException {
+    public void push(Token token) throws SyntaxException {
         // System.err.println("state " + getFun(0) + "; token " + token);
         final boolean prevWasPercent = isPercent;
         isPercent = false;
