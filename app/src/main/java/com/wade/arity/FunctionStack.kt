@@ -13,24 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.wade.arity
 
-package com.wade.arity;
-
-class FunctionStack {
-    private Function[] data = new Function[8];
-    private int size = 0;
-
-    void clear() {
-        size = 0;
+internal class FunctionStack {
+    private var data = arrayOfNulls<Function>(8)
+    private var size = 0
+    fun clear() {
+        size = 0
     }
 
-    void push(Function b) {
-        if (size >= data.length) {
-            Function[] newData = new Function[data.length << 1];
-            System.arraycopy(data, 0, newData, 0, data.length);
-            data = newData;
+    fun push(b: Function?) {
+        if (size >= data.size) {
+            val newData = arrayOfNulls<Function>(data.size shl 1)
+            System.arraycopy(data, 0, newData, 0, data.size)
+            data = newData
         }
-        data[size++] = b;
+        data[size++] = b
     }
 
     /*
@@ -38,14 +36,13 @@ class FunctionStack {
         size -= cnt;
     }
     */
-
-    Function pop() {
-        return data[--size];
+    fun pop(): Function? {
+        return data[--size]
     }
 
-    Function[] toArray() {
-        Function[] trimmed = new Function[size];
-        System.arraycopy(data, 0, trimmed, 0, size);
-        return trimmed;
+    fun toArray(): Array<Function?> {
+        val trimmed = arrayOfNulls<Function>(size)
+        System.arraycopy(data, 0, trimmed, 0, size)
+        return trimmed
     }
 }
