@@ -5,13 +5,10 @@
   This is free software with NO WARRANTY etc. etc.,
   see LICENSE or <https://www.gnu.org/licenses/>.
 -->
-<com.wade.fsime.InputContainer
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:orientation="vertical"
->
+<com.wade.fsime.InputContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
   <LinearLayout
     android:id="@+id/main_input_plane"
     android:layout_width="match_parent"

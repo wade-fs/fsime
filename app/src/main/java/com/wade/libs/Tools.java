@@ -3,18 +3,9 @@ package com.wade.libs;
 import android.graphics.PointF;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.wade.arity.Symbols;
-import com.wade.arity.SyntaxException;
-
-import java.util.AbstractList;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by wade on 2017/2/20.

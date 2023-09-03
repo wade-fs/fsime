@@ -1,54 +1,58 @@
 plugins
-{
-  id 'com.android.application'
-}
+        {
+            id('com.android.application')
+            id("org.jetbrains.kotlin.android")
+        }
 
 android
-{
-    compileSdk 33
-  defaultConfig
-  {
-    applicationId "com.wade.fsime"
-    minSdkVersion 24
-    targetSdkVersion 33
-    versionCode 230828
-    versionName "230828"
-  }
-  buildTypes
-  {
-    release
-    {
-      minifyEnabled true
-      shrinkResources true
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-    }
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            project.ext { appName = android.defaultConfig.applicationId }
-            def newName = outputFileName
-            newName = newName.replace("app-", "$project.ext.appName-")
-            newName = newName.replace("release", android.defaultConfig.versionName)
-            outputFileName = newName
+        {
+            compileSdk 33
+            defaultConfig
+                    {
+                        applicationId "com.wade.fsime"
+                        minSdkVersion 26
+                        targetSdkVersion 33
+                        versionCode 230828
+                        versionName "230828"
+                    }
+            buildTypes
+                    {
+                        release
+                                {
+                                    minifyEnabled true
+                                    shrinkResources true
+                                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                                }
+                        applicationVariants.all { variant ->
+                            variant.outputs.all { output ->
+                                project.ext { appName = android.defaultConfig.applicationId }
+                                def newName = outputFileName
+                                newName = newName.replace("app-", "$project.ext.appName-")
+                                newName = newName.replace("release", android.defaultConfig.versionName)
+                                outputFileName = newName
+                            }
+                        }
+                    }
+            compileOptions
+                    {
+                        sourceCompatibility JavaVersion.VERSION_17
+                        targetCompatibility JavaVersion.VERSION_17
+                    }
+            kotlinOptions {
+                jvmTarget = '17'
+            }
+            androidResources
+                    {
+                        ignoreAssetsPattern '*.cmd:*.cmdr'
+                    }
+            lint {
+                checkReleaseBuilds false
+            }
+            namespace 'com.wade.fsime'
         }
-    }
-  }
-  compileOptions
-  {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-  androidResources
-  {
-    ignoreAssetsPattern '*.cmd:*.cmdr'
-  }
-  lint {
-      checkReleaseBuilds false
-  }
-  namespace 'com.wade.fsime'
-}
 
 dependencies
-{
-  implementation 'com.google.android.material:material:1.9.0'
-  implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
-}
+        {
+            implementation('com.google.android.material:material:1.9.0')
+            implementation('com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1')
+        }

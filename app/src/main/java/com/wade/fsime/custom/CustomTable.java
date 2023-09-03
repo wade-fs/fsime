@@ -2,17 +2,16 @@ package com.wade.fsime.custom;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-import androidx.annotation.RequiresApi;
+
+import com.wade.fsime.R;
+import com.wade.libs.BDatabase;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,9 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-
-import com.wade.fsime.R;
-import com.wade.libs.BDatabase;
 
 public class CustomTable extends Activity {
     Context mContext;

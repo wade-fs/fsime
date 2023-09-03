@@ -23,7 +23,6 @@ package com.wade.fsime;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
-import android.util.Log;
 import android.util.Xml;
 
 import com.wade.utilities.Valuey;

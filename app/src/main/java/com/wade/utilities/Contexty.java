@@ -12,7 +12,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.provider.Settings;
 import android.view.ContextThemeWrapper;
 import android.view.ViewGroup;

@@ -26,13 +26,12 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.Xml;
+
+import com.wade.utilities.Valuey;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.wade.utilities.Valuey;
 
 /*
   A keyboard that holds rows of keys, to be declared in a layout XML.

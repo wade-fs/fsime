@@ -1,20 +1,17 @@
 package com.wade.libs;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.util.Log;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Locale;
-import androidx.annotation.RequiresApi;
-
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class BDatabase extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "b.db";
