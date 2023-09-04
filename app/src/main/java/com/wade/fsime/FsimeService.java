@@ -488,7 +488,7 @@ public class FsimeService
                 for (int i=0; i<exps.length-1; i++) {
                     parser.addExpression(exps[i]);
                 }
-                Double res = parser.parse(exps[exps.length-1]);
+                double res = parser.parse(exps[exps.length-1]);
                 list.add(Double.toString(res));
             } catch (Exception e) {
 

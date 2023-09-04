@@ -255,7 +255,16 @@ public class Functions {
         integration.gaussQuad((int) Math.abs(glPoints));
         return integration.getIntegralSum();
     }
+    public static double lcm(Double... x) {
+        double result = 1;
+        for (double value : x)
+            result = lcm(value, result);
+        return result;
+    }
 
+    public static double lcm(double a, double b) {
+        return a * b / gcd(a, b);
+    }
     public static double gcd(Double... x) {
         double result = 0;
         for (double value : x)
