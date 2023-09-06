@@ -54,6 +54,7 @@ public class FsimeService
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
     private static final String CTRL_VALUE_TEXT = "CTRL";
 
+    private static final String KEYBOARD_NAME_MIL = "mil";
     private static final String KEYBOARD_NAME_FSIME = "mix";
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
@@ -80,7 +81,7 @@ public class FsimeService
     private static final int MAX_PREFIX_MATCH_COUNT = 30;
     private static final int MAX_PHRASE_LENGTH = 6;
 
-    Keyboard fsimeKeyboard;
+    Keyboard fsimeKeyboard, milKeyboard;
 
     private Map<Keyboard, String> nameFromKeyboard;
     private Map<String, Keyboard> keyboardFromName;
@@ -129,9 +130,11 @@ public class FsimeService
     public View onCreateInputView() {
         bdatabase = new BDatabase(getApplicationContext());
         fsimeKeyboard = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
+        milKeyboard = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
 
         nameFromKeyboard = new HashMap<>();
         nameFromKeyboard.put(fsimeKeyboard, KEYBOARD_NAME_FSIME);
+        nameFromKeyboard.put(milKeyboard, KEYBOARD_NAME_MIL);
         keyboardFromName = Mappy.invertMap(nameFromKeyboard);
         keyboardSet = nameFromKeyboard.keySet();
 
