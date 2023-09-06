@@ -54,13 +54,13 @@ public class FsimeService
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
     private static final String CTRL_VALUE_TEXT = "CTRL";
 
-    private static final String KEYBOARD_NAME_MIL = "mil";
     private static final String KEYBOARD_NAME_FSIME = "mix";
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
     private static final String KEYBOARD_NAME_STROKE = "stroke";
-    private static final String KEYBOARD_NAME_SYMBOLS = "SYMBOLS";
+    private static final String KEYBOARD_NAME_MIL = "mil";
 
+    Keyboard fsimeKeyboard, jiKeyboard, cjKeyboard, strokeKeyboard, milKeyboard;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
 
@@ -80,8 +80,6 @@ public class FsimeService
     private static final int RANKING_PENALTY_UNPREFERRED = 10 * LARGISH_SORTING_RANK;
     private static final int MAX_PREFIX_MATCH_COUNT = 30;
     private static final int MAX_PHRASE_LENGTH = 6;
-
-    Keyboard fsimeKeyboard, milKeyboard;
 
     private Map<Keyboard, String> nameFromKeyboard;
     private Map<String, Keyboard> keyboardFromName;
@@ -130,10 +128,16 @@ public class FsimeService
     public View onCreateInputView() {
         bdatabase = new BDatabase(getApplicationContext());
         fsimeKeyboard = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
+        jiKeyboard = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
+        cjKeyboard = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
+        strokeKeyboard = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
         milKeyboard = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
 
         nameFromKeyboard = new HashMap<>();
         nameFromKeyboard.put(fsimeKeyboard, KEYBOARD_NAME_FSIME);
+        nameFromKeyboard.put(jiKeyboard, KEYBOARD_NAME_JI);
+        nameFromKeyboard.put(cjKeyboard, KEYBOARD_NAME_CJ);
+        nameFromKeyboard.put(strokeKeyboard, KEYBOARD_NAME_STROKE);
         nameFromKeyboard.put(milKeyboard, KEYBOARD_NAME_MIL);
         keyboardFromName = Mappy.invertMap(nameFromKeyboard);
         keyboardSet = nameFromKeyboard.keySet();
@@ -434,8 +438,7 @@ public class FsimeService
     @Override
     public void onSwipe(final String valueText) {
         if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-            String space = "";
-            final Keyboard keyboard = inputContainer.getKeyboard();
+            Keyboard keyboard = inputContainer.getKeyboard();
             final String keyboardName = keyboard.name;
 
             if (keyboardName == null) {
@@ -444,29 +447,22 @@ public class FsimeService
             // TODO 這邊可以換鍵盤，暫時全部只有一種
             switch (keyboardName) {
                 case KEYBOARD_NAME_FSIME:
-                    keyboard.setName(KEYBOARD_NAME_JI);
-                    space = getString(R.string.display_text__ji_space_bar);
+                    keyboard = keyboardFromName.get(KEYBOARD_NAME_JI);
                     break;
                 case KEYBOARD_NAME_JI:
-                    keyboard.setName(KEYBOARD_NAME_CJ);
-                    space = getString(R.string.display_text__cj_space_bar);
+                    keyboard = keyboardFromName.get(KEYBOARD_NAME_CJ);
                     break;
                 case KEYBOARD_NAME_CJ:
-                    keyboard.setName(KEYBOARD_NAME_STROKE);
-                    space = getString(R.string.display_text__stroke_space_bar);
+                    keyboard = keyboardFromName.get(KEYBOARD_NAME_STROKE);
+                    break;
+                case KEYBOARD_NAME_STROKE:
+                    keyboard = keyboardFromName.get(KEYBOARD_NAME_MIL);
                     break;
                 default:
-                    keyboard.setName(KEYBOARD_NAME_FSIME);
-                    space = getString(R.string.display_text__fsime_space_bar);
+                    keyboard = keyboardFromName.get(KEYBOARD_NAME_FSIME);
                     break;
             }
-
-            for (final Key key : keyboard.getKeyList()) {
-                if (key.valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-                    key.displayText = space;
-                    break;
-                }
-            }
+            inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
         }
     }

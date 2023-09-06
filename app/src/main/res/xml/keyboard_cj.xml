@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:keyFillColour="@color/key_fill"
+    app:keyTextColour="@color/green"
+    app:keyOtherColour="@color/umbrella_grey"
+    app:keyHeight="@dimen/key_height__fsime"
+    app:keyTextOffsetY="@dimen/baseline_correction__fsime"
+    app:keyTextSize="@dimen/font_size__fsime"
+    app:keyWidth="@dimen/key_width__digit">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+        <!-- Digits -->
+        <Key
+            app:keyValueText="1"
+            app:keyValueTextShifted="!"
+            />
+        <Key
+            app:keyValueText="2"
+            app:keyValueTextShifted="\@"
+            />
+        <Key
+            app:keyValueText="3"
+            app:keyValueTextShifted="#"
+            />
+        <Key
+            app:keyValueText="4"
+            app:keyValueTextShifted="$"
+            />
+        <Key
+            app:keyValueText="5"
+            app:keyValueTextShifted="%"
+            />
+        <Key
+            app:keyValueText="6"
+            app:keyValueTextShifted="^"
+            />
+        <Key
+            app:keyValueText="7"
+            app:keyValueTextShifted="&amp;"
+            />
+        <Key
+            app:keyValueText="8"
+            app:keyValueTextShifted="*"
+            />
+        <Key
+            app:keyValueText="9"
+            app:keyValueTextShifted="("
+            />
+        <Key
+            app:keyValueText="0"
+            app:keyValueTextShifted=")"
+            />
+        <Key
+            app:keyDisplayText="\u232B"
+            app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
+            app:keyValueText="BACKSPACE"
+            app:keyTextColour="@color/umbrella_orange" />
+    </Row>
+    <Row
+        app:keyWidth="8.33%"
+        app:keysAreShiftable="true">
+        <!-- Letters row 1 -->
+        <Key
+            app:keyValueText="`"
+            app:keyValueTextShifted="~" />
+        <Key
+            app:cj="手"
+            app:keyValueText="q"
+            app:keyValueTextShifted="Q" />
+        <Key
+            app:cj="田"
+            app:keyValueText="w"
+            app:keyValueTextShifted="W" />
+        <Key
+            app:cj="水"
+            app:keyValueText="e"
+            app:keyValueTextShifted="E" />
+        <Key
+            app:cj="口"
+            app:keyValueText="r"
+            app:keyValueTextShifted="R" />
+        <Key
+            app:cj="廿"
+            app:keyValueText="t"
+            app:keyValueTextShifted="T" />
+        <Key
+            app:cj="卜"
+            app:keyValueText="y"
+            app:keyValueTextShifted="Y" />
+        <Key
+            app:cj="山"
+            app:keyValueText="u"
+            app:keyValueTextShifted="U" />
+        <Key
+            app:cj="戈"
+            app:keyValueText="i"
+            app:keyValueTextShifted="I" />
+        <Key
+            app:cj="人"
+            app:keyValueText="o"
+            app:keyValueTextShifted="O" />
+        <Key
+            app:cj="心"
+            app:keyValueText="p"
+            app:keyValueTextShifted="P" />
+        <Key
+            app:keyValueText="["
+            app:keyValueTextShifted="{" />
+    </Row>
+    <Row
+        app:keyWidth="9.09%"
+        app:keysAreShiftable="true">
+        <!-- Letters row 2 -->
+        <Key
+            app:keyValueText="\\"
+            app:keyValueTextShifted="|" />
+        <Key
+            app:cj="日"
+            app:keyValueText="a"
+            app:keyValueTextShifted="A" />
+        <Key
+            app:cj="尸"
+            app:keyValueText="s"
+            app:keyValueTextShifted="S" />
+        <Key
+            app:cj="木"
+            app:keyValueText="d"
+            app:keyValueTextShifted="D" />
+        <Key
+            app:cj="火"
+            app:keyValueText="f"
+            app:keyValueTextShifted="F" />
+        <Key
+            app:cj="土"
+            app:keyValueText="g"
+            app:keyValueTextShifted="G" />
+        <Key
+            app:cj="竹"
+            app:keyValueText="h"
+            app:keyValueTextShifted="H" />
+        <Key
+            app:cj="十"
+            app:keyValueText="j"
+            app:keyValueTextShifted="J" />
+        <Key
+            app:cj="大"
+            app:keyValueText="k"
+            app:keyValueTextShifted="K" />
+        <Key
+            app:cj="中"
+            app:keyValueText="l"
+            app:keyValueTextShifted="L" />
+        <Key
+            app:keyValueText="]"
+            app:keyValueTextShifted="}" />
+    </Row>
+    <Row
+        app:keyWidth="9.09%"
+        app:keysAreShiftable="true">
+        <!-- Shift key: U+21E7, U+2B06 -->
+        <Key
+            app:keyDisplayText="⇧"
+            app:keyIsPreviewable="false"
+            app:keyValueText="SHIFT"
+            app:keyValueTextShifted="⬆"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u2303"
+            app:keyIsPreviewable="false"
+            app:keyValueText="CTRL"
+            app:keyTextColour="@color/umbrella_orange" />
+        <!-- Letters row 3 -->
+        <Key
+            app:cj="重"
+            app:keyValueText="z"
+            app:keyValueTextShifted="Z" />
+        <Key
+            app:cj="難"
+            app:keyValueText="x"
+            app:keyValueTextShifted="X" />
+        <Key
+            app:cj="金"
+            app:keyValueText="c"
+            app:keyValueTextShifted="C" />
+        <Key
+            app:cj="女"
+            app:keyValueText="v"
+            app:keyValueTextShifted="V" />
+        <Key
+            app:cj="月"
+            app:keyValueText="b"
+            app:keyValueTextShifted="B" />
+        <Key
+            app:cj="弓"
+            app:keyValueText="n"
+            app:keyValueTextShifted="N" />
+        <Key
+            app:cj="一"
+            app:keyValueText="m"
+            app:keyValueTextShifted="M" />
+        <Key
+            app:keyValueText=";"
+            app:keyValueTextShifted=":" />
+        <Key
+            app:keyValueText="'"
+            app:keyValueTextShifted='"' />
+
+    </Row>
+    <Row app:keyWidth="9.09%">
+        <Key
+            app:keyDisplayText="\u238B"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="ESC"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u21B9"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="TAB"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyValueText="-"
+            app:keyValueTextShifted="_" />
+        <Key
+            app:keyValueText="="
+            app:keyValueTextShifted="+"  />
+        <!-- Space bar -->
+        <Key
+            app:keyDisplayText="@string/display_text__cj_space_bar"
+            app:keyIsLongPressable="true"
+            app:keyIsPreviewable="false"
+            app:keyIsSwipeable="true"
+            app:keyTextColour="@color/umbrella_orange"
+            app:keyValueText="SPACE"
+            app:keyWidth="18.18%" />
+        <Key
+            app:keyValueText=","
+            app:keyValueTextShifted="&lt;" />
+        <Key
+            app:keyValueText="."
+            app:keyValueTextShifted="&gt;"  />
+        <Key
+            app:keyValueText="/"
+            app:keyValueTextShifted="\u003F"  />
+        <Key
+            app:keyDisplayText="\u23CE"
+            app:keyIsPreviewable="false"
+            app:keyValueText="ENTER"
+            app:keyWidth="18.18%"
+            app:keyTextColour="@color/umbrella_orange" />
+    </Row>
+</Keyboard>

@@ -8,7 +8,7 @@
     app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
 	<!-- Row 1 -->
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="∠" app:keyValueTextShifted="Deg" app:keysAreShiftable="false" />
         <Key app:keyValueText="角換" app:keyValueTextShifted="" />
         <Key app:keyValueText="坐換" app:keyValueTextShifted="" />
@@ -26,7 +26,7 @@
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
 	<!-- Row 2 -->
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="^" app:keyValueTextShifted="√" />
         <Key app:keyValueText="pol" app:keyValueTextShifted="rec" />
         <Key app:keyValueText="天體" app:keysAreShiftable="false" />
@@ -39,7 +39,7 @@
         <Key app:keyValueText="三角" app:keyValueTextShifted="" />
     </Row>
 	<!-- Row 3 -->
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="sin" app:keyValueTextShifted="asin" />
         <Key app:keyValueText="cos" app:keyValueTextShifted="acos" />
         <Key app:keyValueText="tan" app:keyValueTextShifted="atan" />
@@ -52,7 +52,7 @@
         <Key app:keyValueText="三邊" app:keyValueTextShifted="" />
     </Row>
 	<!-- Row 4 -->
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key
             app:keyDisplayText="⇧"
             app:keyIsPreviewable="false"
@@ -71,7 +71,7 @@
 
     </Row>
 	<!-- Row 5 -->
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
@@ -87,20 +87,20 @@
         <Key app:keyValueText="." app:keyValueTextShifted="!" />
         <Key app:keyValueText="0" app:keyValueTextShifted=""  />
         <Key
-            app:keyDisplayText="@string/display_text__fsime_space_bar"
+            app:keyDisplayText="@string/display_text__mil_space_bar"
             app:keyIsLongPressable="true"
             app:keyIsPreviewable="false"
             app:keyIsSwipeable="true"
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
-            app:keyWidth="18.18%" />
+            app:keyWidth="20%" />
         <Key app:keyValueText="(" app:keyValueTextShifted=""  />
         <Key app:keyValueText=")" app:keyValueTextShifted=""  />
         <Key
             app:keyDisplayText="\u23CE"
             app:keyIsPreviewable="false"
             app:keyValueText="ENTER"
-            app:keyWidth="18.18%"
+            app:keyWidth="20%"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
 </Keyboard>
