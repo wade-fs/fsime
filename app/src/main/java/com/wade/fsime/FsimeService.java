@@ -398,12 +398,17 @@ public class FsimeService
                 break;
 
             default:
-                effectStrokeAppend(valueText);
+                if (!inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
+                    effectStrokeAppend(valueText);
+                }
         }
     }
 
     @Override
     public void onLongPress(final String inputText) {
+        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
+            return;
+        }
         String valueText, shiftText;
         if (inputText.length() == 2) {
             valueText = inputText.substring(0, 1);
@@ -468,7 +473,7 @@ public class FsimeService
     }
 
     private List<String> computeCandidateList(final String mComposing) {
-        if (mComposing.length() == 0) {
+        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL) || mComposing.length() == 0) {
             return Collections.emptyList();
         }
 
