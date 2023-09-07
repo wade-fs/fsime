@@ -7,6 +7,8 @@
 
 package com.wade.fsime;
 
+import static java.util.Map.entry;
+
 import android.annotation.SuppressLint;
 import android.inputmethodservice.InputMethodService;
 import android.text.InputType;
@@ -28,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -404,9 +407,40 @@ public class FsimeService
         }
     }
 
+    private void showMilMessage(String inputText) {
+        Map<String, String> funcMsg = Map.ofEntries(
+                entry("∠Deg", "設定角度模式: 角度、度分秒、密位、徑度"),
+                entry("GPS", "GPS三角測量"),
+                entry("POL", "直角坐標(X,Y)轉換成極坐標(長，角度)"),
+                entry("REC", "極坐標(長，角度)轉換成直角坐標(X,Y)"),
+                entry("PADS", "方位確認系統"),
+                entry("角換", "各種內角換算"),
+                entry("坐換", "坐標系統及高程基準轉換"),
+                entry("前交", "前方交會法"),
+                entry("導線", "導線法"),
+                entry("天體", "天體觀測"),
+                entry("方距", "方位角、距離計算"),
+                entry("內角", "內角換算"),
+                entry("三角", "三角測量"),
+                entry("方格", "方格統一計算"),
+                entry("標高", "標高計算"),
+                entry("三邊", "三邊測量"),
+                entry("一反", "一點反交會"),
+                entry("二反", "二點反交會"),
+                entry("三反", "三點反交會")
+        );
+        if (funcMsg.get(inputText) != null) {
+            final List<String> list = Collections.singletonList(funcMsg.get(inputText));
+            setCandidateList(list);
+        } else {
+            final List<String> list = Collections.singletonList(inputText);
+            setCandidateList(list);
+        }
+    }
     @Override
     public void onLongPress(final String inputText) {
         if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
+            showMilMessage(inputText);
             return;
         }
         String valueText, shiftText;

@@ -5,13 +5,13 @@
     app:keyOtherColour="@color/umbrella_grey"
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
-    app:keyTextSize="@dimen/font_size__fsime"
+    app:keyTextSize="@dimen/font_size__mil"
     app:keyWidth="@dimen/key_width__digit">
 	<!-- Row 1 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="∠" app:keyValueTextShifted="Deg" app:keysAreShiftable="false" />
+        <Key app:keyValueText="GPS" app:keyValueTextShifted="" />
         <Key app:keyValueText="角換" app:keyValueTextShifted="" />
-        <Key app:keyValueText="坐換" app:keyValueTextShifted="" />
         <Key app:keyValueText="°" app:keyValueTextShifted="" />
         <Key app:keyValueText="'" app:keyValueTextShifted="" />
         <Key app:keyValueText="\u0022" app:keyValueTextShifted="" />
@@ -27,9 +27,9 @@
     </Row>
 	<!-- Row 2 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="^" app:keyValueTextShifted="√" />
-        <Key app:keyValueText="pol" app:keyValueTextShifted="rec" />
-        <Key app:keyValueText="天體" app:keysAreShiftable="false" />
+        <Key app:keyValueText="POL" app:keyValueTextShifted="" />
+        <Key app:keyValueText="REC" app:keyValueTextShifted="" />
+        <Key app:keyValueText="坐換" app:keyValueTextShifted="" app:keysAreShiftable="false" />
         <Key app:keyValueText="7" app:keyValueTextShifted="" />
         <Key app:keyValueText="8" app:keyValueTextShifted="" />
         <Key app:keyValueText="9" app:keyValueTextShifted="" />
@@ -40,9 +40,9 @@
     </Row>
 	<!-- Row 3 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="sin" app:keyValueTextShifted="asin" />
-        <Key app:keyValueText="cos" app:keyValueTextShifted="acos" />
-        <Key app:keyValueText="tan" app:keyValueTextShifted="atan" />
+        <Key app:keyValueText="" app:keyValueTextShifted="" />
+        <Key app:keyValueText="PADS" app:keyValueTextShifted="" />
+        <Key app:keyValueText="天體" app:keyValueTextShifted="" />
         <Key app:keyValueText="4" app:keyValueTextShifted="" />
         <Key app:keyValueText="5" app:keyValueTextShifted="" />
         <Key app:keyValueText="6" app:keyValueTextShifted="" />
@@ -84,7 +84,7 @@
             app:keyIsLongPressable="true"
             app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="." app:keyValueTextShifted="!" />
+        <Key app:keyValueText="." app:keyValueTextShifted="" />
         <Key app:keyValueText="0" app:keyValueTextShifted=""  />
         <Key
             app:keyDisplayText="@string/display_text__mil_space_bar"

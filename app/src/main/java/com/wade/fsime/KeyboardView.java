@@ -99,7 +99,7 @@ public class KeyboardView
     private Paint keyTextShiftPaint;
     private Paint keyTextStrokePaint;
     private Paint keyTextCjPaint;
-    private Paint keyTextJiPaint;
+    private Paint keyTextJiPaint, keyTextMilPaint;
 
     public KeyboardView(final Context context, final AttributeSet attributes) {
         super(context, attributes);
@@ -168,6 +168,10 @@ public class KeyboardView
         keyTextJiPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextJiPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
         keyTextJiPaint.setTextAlign(Paint.Align.LEFT);
+
+        keyTextMilPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        keyTextMilPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
+        keyTextMilPaint.setTextAlign(Paint.Align.LEFT);
     }
 
     /*
@@ -276,10 +280,6 @@ public class KeyboardView
             }
             keyTextPaint.setTextSize(key.textSize);
             keyTextShiftPaint.setTextSize(key.textSize * 6 / 10);
-            keyTextStrokePaint.setTextSize(key.textSize * 6 / 10);
-            keyTextCjPaint.setTextSize(key.textSize * 5 / 10);
-            keyTextJiPaint.setTextSize(key.textSize * 5 / 10);
-
             if (key == activeKey && swipeModeIsActivated) {
                 keyTextColour = key.textSwipeColour;
             } else if (!key.isPreviewable) {
@@ -289,6 +289,11 @@ public class KeyboardView
             }
             keyTextPaint.setColor(keyTextColour);
             keyTextShiftPaint.setColor(keyOtherColour);
+
+            keyTextStrokePaint.setTextSize(key.textSize * 6 / 10);
+            keyTextCjPaint.setTextSize(key.textSize * 5 / 10);
+            keyTextJiPaint.setTextSize(key.textSize * 5 / 10);
+
             keyTextStrokePaint.setColor(keyOtherColour);
             keyTextCjPaint.setColor(keyOtherColour);
             keyTextJiPaint.setColor(keyOtherColour);
@@ -310,6 +315,9 @@ public class KeyboardView
                     case "stroke":
                         keyTextStrokePaint.setColor(key.textColour);
                         break;
+                    case "mil":
+                        keyTextMilPaint.setColor(key.textColour);
+                        break;
                 }
             }
 
@@ -327,8 +335,11 @@ public class KeyboardView
             canvas.drawRect(keyRectangle, keyBorderPaint);
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
 
-            final float keyShiftTextX = key.width / 2f + key.textOffsetX - 14f;
-            final float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
+            float keyShiftTextX = key.width / 2f + key.textOffsetX - 14f;
+            float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
+            if (keyboard.name.equals("mil")) {
+                keyShiftTextX = keyShiftTextX + 14f;
+            }
             if (keyShiftText.length() > 0 && isPreviewable) {
                 canvas.drawText(keyShiftText, keyShiftTextX, keyShiftTextY, keyTextShiftPaint);
             }

@@ -5,7 +5,7 @@
     app:keyOtherColour="@color/umbrella_grey"
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
-    app:keyTextSize="@dimen/font_size__fsime"
+    app:keyTextSize="@dimen/font_size__ji"
     app:keyWidth="@dimen/key_width__digit">
     <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <!-- Digits -->
