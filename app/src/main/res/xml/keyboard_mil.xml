@@ -11,7 +11,7 @@
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="∠" app:keyValueTextShifted="Deg" app:keysAreShiftable="false" />
         <Key app:keyValueText="GPS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
-        <Key app:keyValueText="角換" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="PADS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="°" app:keyValueTextShifted="" />
         <Key app:keyValueText="'" app:keyValueTextShifted="" />
         <Key app:keyValueText="\u0022" app:keyValueTextShifted="" />
@@ -41,7 +41,7 @@
 	<!-- Row 3 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="" app:keyValueTextShifted="" />
-        <Key app:keyValueText="PADS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="rad" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="天體" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="4" app:keyValueTextShifted="" />
         <Key app:keyValueText="5" app:keyValueTextShifted="" />

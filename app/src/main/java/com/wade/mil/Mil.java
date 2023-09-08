@@ -1,4 +1,4 @@
-package com.wade.fsime;
+package com.wade.mil;
 
 import static java.util.Map.entry;
 
@@ -8,11 +8,13 @@ import java.util.Objects;
 public class Mil {
     Map<String, String> btnMsg = Map.ofEntries(
             entry("∠Deg", "設定角度模式: 角度、度分秒、密位、徑度"),
+            entry("rad", "徑度轉角度"),
+            entry("dms", "度分秒轉角度"),
+            entry("mil", "密位轉角度"),
             entry("GPS", "GPS三角測量"),
             entry("POL", "直角坐標(X,Y)轉換成極坐標(長，角度)"),
             entry("REC", "極坐標(長，角度)轉換成直角坐標(X,Y)"),
             entry("PADS", "方位確認系統"),
-            entry("角換", "各種內角換算"),
             entry("坐換", "坐標系統及高程基準轉換"),
             entry("前交", "前方交會法"),
             entry("導線", "導線法"),

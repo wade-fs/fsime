@@ -251,7 +251,7 @@ public class Tools {
 
     private static int lastAutoDegreeMode=0;
     public static int getLastAutoDegreeMode() { return lastAutoDegreeMode; }
-    private static double parseDMS(String exp) { // 保須保證4位數
+    public static double parseDMS(String exp) { // 保須保證4位數
         String deg = FIX(exp);
         String frac = FRAC(exp);
         String m = LEFTS(frac, 2);
@@ -261,7 +261,7 @@ public class Tools {
         double d = Math.abs(parseDouble(deg)) + M / 60.0 + S / 3600.0;
         return SGN(exp) * d;
     }
-    private static double parseDMS2(String exp) {
+    public static double parseDMS2(String exp) {
         double d=0, m=0, s=0, sgn=SGN(exp);
         if (exp.charAt(0) == '+' || exp.charAt(0) == '-') exp = exp.substring(1, exp.length()-1);
         String D, M, S;
@@ -313,7 +313,7 @@ public class Tools {
         if (exp.equals("+") || exp.equals("-") || exp.equals(".")) return "";
         return exp;
     }
-    private static double autoDeg(String exp, int degreeMode) {
+    public static double autoDeg(String exp, int degreeMode) {
         if (exp.indexOf('\'') > 0 || exp.indexOf('"') > 0 || exp.indexOf('^') > 0 || exp.indexOf('°') > 0) return parseDMS2(exp);
         else if (degreeMode == 3 || exp.indexOf('M') == (exp.length()-1) || exp.indexOf('m') == (exp.length()-1)) {
             return parseMil(exp);
