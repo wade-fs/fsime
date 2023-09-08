@@ -5,19 +5,19 @@
     app:keyOtherColour="@color/umbrella_grey"
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
-    app:keyTextSize="@dimen/font_size__mil"
+    app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
 	<!-- Row 1 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="∠" app:keyValueTextShifted="Deg" app:keysAreShiftable="false" />
-        <Key app:keyValueText="GPS" app:keyValueTextShifted="" />
-        <Key app:keyValueText="角換" app:keyValueTextShifted="" />
+        <Key app:keyValueText="GPS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="角換" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="°" app:keyValueTextShifted="" />
         <Key app:keyValueText="'" app:keyValueTextShifted="" />
         <Key app:keyValueText="\u0022" app:keyValueTextShifted="" />
         <Key app:keyValueText="+" app:keyValueTextShifted="" />
-        <Key app:keyValueText="前交" app:keyValueTextShifted="" />
-        <Key app:keyValueText="導線" app:keyValueTextShifted="" />
+        <Key app:keyValueText="前交" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="導線" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key
             app:keyDisplayText="\u232B"
             app:keyIsPreviewable="false"
@@ -27,29 +27,29 @@
     </Row>
 	<!-- Row 2 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="POL" app:keyValueTextShifted="" />
-        <Key app:keyValueText="REC" app:keyValueTextShifted="" />
-        <Key app:keyValueText="坐換" app:keyValueTextShifted="" app:keysAreShiftable="false" />
+        <Key app:keyValueText="POL" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="REC" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="坐換" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="7" app:keyValueTextShifted="" />
         <Key app:keyValueText="8" app:keyValueTextShifted="" />
         <Key app:keyValueText="9" app:keyValueTextShifted="" />
         <Key app:keyValueText="-" app:keyValueTextShifted="" />
-        <Key app:keyValueText="方距" app:keyValueTextShifted="" />
-        <Key app:keyValueText="內角" app:keyValueTextShifted="" />
-        <Key app:keyValueText="三角" app:keyValueTextShifted="" />
+        <Key app:keyValueText="方距" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="內角" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="三角" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
     </Row>
 	<!-- Row 3 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
         <Key app:keyValueText="" app:keyValueTextShifted="" />
-        <Key app:keyValueText="PADS" app:keyValueTextShifted="" />
-        <Key app:keyValueText="天體" app:keyValueTextShifted="" />
+        <Key app:keyValueText="PADS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="天體" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="4" app:keyValueTextShifted="" />
         <Key app:keyValueText="5" app:keyValueTextShifted="" />
         <Key app:keyValueText="6" app:keyValueTextShifted="" />
         <Key app:keyValueText="*" app:keyValueTextShifted="" />
-        <Key app:keyValueText="方格" app:keyValueTextShifted="" />
-        <Key app:keyValueText="標高" app:keyValueTextShifted="" />
-        <Key app:keyValueText="三邊" app:keyValueTextShifted="" />
+        <Key app:keyValueText="方格" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="標高" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="三邊" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
     </Row>
 	<!-- Row 4 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
@@ -59,15 +59,15 @@
             app:keyValueText="SHIFT"
             app:keyValueTextShifted="⬆"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="dms" app:keyValueTextShifted="" />
-        <Key app:keyValueText="mil" app:keyValueTextShifted="" />
+        <Key app:keyValueText="dms" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="mil" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="1" app:keyValueTextShifted="" />
         <Key app:keyValueText="2" app:keyValueTextShifted="" />
         <Key app:keyValueText="3" app:keyValueTextShifted="" />
         <Key app:keyValueText="/" app:keyValueTextShifted="" />
-        <Key app:keyValueText="一反" app:keyValueTextShifted="" />
-        <Key app:keyValueText="二反" app:keyValueTextShifted="" />
-        <Key app:keyValueText="三反" app:keyValueTextShifted=";" />
+        <Key app:keyValueText="一反" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="二反" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
+        <Key app:keyValueText="三反" app:keyValueTextShifted=";" app:keyTextSize="@dimen/font_size__mil" />
 
     </Row>
 	<!-- Row 5 -->

@@ -111,6 +111,7 @@ public class FsimeService
     private boolean enterKeyHasAction;
     private boolean inputIsPassword;
     BDatabase bdatabase;
+    private Mil mil;
 
     @Override
     public void onCreate() {
@@ -124,6 +125,7 @@ public class FsimeService
         loadPhrasesIntoSet(PHRASES_FILE_NAME_SIMPLIFIED, phraseSetSimplified);
 
         updateCandidateOrderPreference();
+        mil = new Mil();
     }
 
     @SuppressLint("InflateParams")
@@ -263,25 +265,16 @@ public class FsimeService
         final int inputVariationBits = inputTypeBits & InputType.TYPE_MASK_VARIATION;
 
         switch (inputClassBits) {
-            case InputType.TYPE_CLASS_NUMBER:
-                inputIsPassword = inputVariationBits == InputType.TYPE_NUMBER_VARIATION_PASSWORD;
-                break;
-
-            case InputType.TYPE_CLASS_TEXT:
+            case InputType.TYPE_CLASS_NUMBER ->
+                    inputIsPassword = inputVariationBits == InputType.TYPE_NUMBER_VARIATION_PASSWORD;
+            case InputType.TYPE_CLASS_TEXT -> {
                 switch (inputVariationBits) {
-                    case InputType.TYPE_TEXT_VARIATION_PASSWORD:
-                    case InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD:
-                    case InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD:
-                        inputIsPassword = true;
-                        break;
-
-                    default:
-                        inputIsPassword = false;
+                    case InputType.TYPE_TEXT_VARIATION_PASSWORD, InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD, InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD ->
+                            inputIsPassword = true;
+                    default -> inputIsPassword = false;
                 }
-                break;
-
-            default:
-                inputIsPassword = false;
+            }
+            default -> inputIsPassword = false;
         }
     }
 
@@ -299,32 +292,15 @@ public class FsimeService
     }
 
     private void setEnterKeyDisplayText() {
-        String enterKeyDisplayText = null;
-        switch (inputOptionsBits & EditorInfo.IME_MASK_ACTION) {
-            case EditorInfo.IME_ACTION_DONE:
-                enterKeyDisplayText = getString(R.string.display_text__done);
-                break;
-
-            case EditorInfo.IME_ACTION_GO:
-                enterKeyDisplayText = getString(R.string.display_text__go);
-                break;
-
-            case EditorInfo.IME_ACTION_NEXT:
-                enterKeyDisplayText = getString(R.string.display_text__next);
-                break;
-
-            case EditorInfo.IME_ACTION_PREVIOUS:
-                enterKeyDisplayText = getString(R.string.display_text__previous);
-                break;
-
-            case EditorInfo.IME_ACTION_SEARCH:
-                enterKeyDisplayText = getString(R.string.display_text__search);
-                break;
-
-            case EditorInfo.IME_ACTION_SEND:
-                enterKeyDisplayText = getString(R.string.display_text__send);
-                break;
-        }
+        String enterKeyDisplayText = switch (inputOptionsBits & EditorInfo.IME_MASK_ACTION) {
+            case EditorInfo.IME_ACTION_DONE -> getString(R.string.display_text__done);
+            case EditorInfo.IME_ACTION_GO -> getString(R.string.display_text__go);
+            case EditorInfo.IME_ACTION_NEXT -> getString(R.string.display_text__next);
+            case EditorInfo.IME_ACTION_PREVIOUS -> getString(R.string.display_text__previous);
+            case EditorInfo.IME_ACTION_SEARCH -> getString(R.string.display_text__search);
+            case EditorInfo.IME_ACTION_SEND -> getString(R.string.display_text__send);
+            default -> null;
+        };
         if (!enterKeyHasAction || enterKeyDisplayText == null) {
             enterKeyDisplayText = getString(R.string.display_text__return);
         }
@@ -370,10 +346,7 @@ public class FsimeService
         mComposing = "";
         inputContainer.setCandidateList(new ArrayList<>());
     }
-
-    @Override
-    public void onKey(final String valueText) {
-        Log.d("fsime", "onKey("+valueText+")");
+    public void onKeyMil(final String valueText) {
         final InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection == null) {
             return;
@@ -401,36 +374,51 @@ public class FsimeService
                 break;
 
             default:
-                if (!inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
-                    effectStrokeAppend(valueText);
-                }
+                effectStrokeAppend(valueText);
+        }
+    }
+    @Override
+    public void onKey(final String valueText) {
+        if (!inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
+            onKeyMil(valueText);
+            return;
+        }
+
+        final InputConnection inputConnection = getCurrentInputConnection();
+        if (inputConnection == null) {
+            return;
+        }
+        switch (valueText) {
+            case BACKSPACE_VALUE_TEXT:
+            case "⌫":
+                effectBackspace(inputConnection);
+                break;
+            case TAB_KEY_VALUE_TEXT:
+                keyDownUp(KeyEvent.KEYCODE_TAB, 0);
+                break;
+            case ESC_KEY_VALUE_TEXT:
+                turnCandidateOff();
+                break;
+
+            case CTRL_VALUE_TEXT:
+                break;
+            case SPACE_BAR_VALUE_TEXT:
+                effectSpaceKey(inputConnection);
+                break;
+
+            case ENTER_KEY_VALUE_TEXT:
+                effectEnterKey(inputConnection);
+                break;
+
+            default:
+                effectStrokeAppend(valueText);
         }
     }
 
     private void showMilMessage(String inputText) {
-        Map<String, String> funcMsg = Map.ofEntries(
-                entry("∠Deg", "設定角度模式: 角度、度分秒、密位、徑度"),
-                entry("GPS", "GPS三角測量"),
-                entry("POL", "直角坐標(X,Y)轉換成極坐標(長，角度)"),
-                entry("REC", "極坐標(長，角度)轉換成直角坐標(X,Y)"),
-                entry("PADS", "方位確認系統"),
-                entry("角換", "各種內角換算"),
-                entry("坐換", "坐標系統及高程基準轉換"),
-                entry("前交", "前方交會法"),
-                entry("導線", "導線法"),
-                entry("天體", "天體觀測"),
-                entry("方距", "方位角、距離計算"),
-                entry("內角", "內角換算"),
-                entry("三角", "三角測量"),
-                entry("方格", "方格統一計算"),
-                entry("標高", "標高計算"),
-                entry("三邊", "三邊測量"),
-                entry("一反", "一點反交會"),
-                entry("二反", "二點反交會"),
-                entry("三反", "三點反交會")
-        );
-        if (funcMsg.get(inputText) != null) {
-            final List<String> list = Collections.singletonList(funcMsg.get(inputText));
+        String btnMsg = mil.getBtnMsg(inputText);
+        if (btnMsg.length() > 0) {
+            final List<String> list = Collections.singletonList(btnMsg);
             setCandidateList(list);
         } else {
             final List<String> list = Collections.singletonList(inputText);
@@ -451,26 +439,24 @@ public class FsimeService
             valueText = inputText;
             shiftText = "";
         }
-        Log.d("fsime", "onLongPress("+inputText+") "+valueText+": '"+shiftText+"'");
         switch (valueText) {
-            case SPACE_BAR_VALUE_TEXT:
-                Contexty.showSystemKeyboardChanger(this);
-                break;
-            case ESC_KEY_VALUE_TEXT:
+            case SPACE_BAR_VALUE_TEXT -> Contexty.showSystemKeyboardChanger(this);
+            case ESC_KEY_VALUE_TEXT -> {
                 final InputConnection inputConnection = getCurrentInputConnection();
                 String w = getTextBeforeCursor(inputConnection, 1);
                 if (w.length() > 0) {
-                    ArrayList<String> comp = bdatabase.getCompose(w.substring(0,1));
+                    ArrayList<String> comp = bdatabase.getCompose(w.substring(0, 1));
                     comp.add(0, w);
                     setCandidateList(comp);
                 }
-                break;
-            default:
+            }
+            default -> {
                 if (shiftText.length() > 0) {
                     effectStrokeAppend(shiftText);
                 } else {
                     effectStrokeAppend(valueText);
                 }
+            }
         }
     }
 
@@ -484,23 +470,13 @@ public class FsimeService
                 return;
             }
             // TODO 這邊可以換鍵盤，暫時全部只有一種
-            switch (keyboardName) {
-                case KEYBOARD_NAME_FSIME:
-                    keyboard = keyboardFromName.get(KEYBOARD_NAME_JI);
-                    break;
-                case KEYBOARD_NAME_JI:
-                    keyboard = keyboardFromName.get(KEYBOARD_NAME_CJ);
-                    break;
-                case KEYBOARD_NAME_CJ:
-                    keyboard = keyboardFromName.get(KEYBOARD_NAME_STROKE);
-                    break;
-                case KEYBOARD_NAME_STROKE:
-                    keyboard = keyboardFromName.get(KEYBOARD_NAME_MIL);
-                    break;
-                default:
-                    keyboard = keyboardFromName.get(KEYBOARD_NAME_FSIME);
-                    break;
-            }
+            keyboard = switch (keyboardName) {
+                case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
+                case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
+                case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
+                default -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+            };
             inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
         }
