@@ -2,7 +2,7 @@ package com.wade.mil;
 
 import com.wade.libs.Tools;
 
-public class Field {
+class Field {
     String name;
     String desc;
     boolean isAngle;
@@ -24,33 +24,54 @@ public class Field {
     double toRad() {
         return degree * Math.PI / 180.0;
     }
-    private boolean cantainsDMS(String v) {
+    private boolean cantainDMS(String v) {
         if (v.indexOf('°') >= 0) return true;
         if (v.indexOf('\'') >= 0) return true;
         if (v.indexOf('"') >= 0) return true;
         return false;
     }
-    public Field(String n, String d, boolean a, String v) {
-        this(n,d,a,v,0);
+    Field(String n, String d) {
+        this(n,d,false,"",0);
     }
-    public Field(String n, String d, boolean a, String v, int m) {
+    Field(String n, String d, boolean a) {
+        this(n,d,a,"",0);
+    }
+    Field(String n, String d, boolean a, int m) {
+        this(n,d,a,"",m);
+    }
+    Field(String n, String d, boolean a, String v, int m) {
         name = n;
         desc = d;
         isAngle = a;
+        setValue(v, m);
+    }
+    double getValue() {
         if (isAngle) {
-            if (cantainsDMS(v)) {
-                degree = Tools.parseDMS2(v);
-                return;
-            }
+            return degree;
+        }
+        return Tools.parseDouble(value);
+    }
+    void setValue(String v) {
+        value = v;
+    }
+    void setValue(String v, int m) {
+        value = v;
+        setMode(m);
+    }
+    void setMode(int m) {
+        if (!isAngle) return;
+        if (cantainDMS(value)) {
+            degree = Tools.parseDMS2(value);
+        } else {
             degree = switch (m) {
-                case 1 -> // degree
-                        Double.parseDouble(v);
-                case 2 -> // dms
-                        Tools.parseDMS(v);
-                case 3 -> // mil
-                        Tools.parseDouble(v) * 9.0 / 160.0;
+                case Const.MODE_DEGREE -> // degree
+                        Double.parseDouble(value);
+                case Const.MODE_DMS -> // dms
+                        Tools.parseDMS(value);
+                case Const.MODE_MIL -> // mil
+                        Tools.parseDouble(value) * 9.0 / 160.0;
                 default -> // auto
-                        Tools.autoDeg(v, 0);
+                        Tools.autoDeg(value, 0);
             };
         }
     }
