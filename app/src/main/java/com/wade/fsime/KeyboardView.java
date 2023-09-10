@@ -31,10 +31,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
 import java.util.List;
@@ -67,7 +69,6 @@ public class KeyboardView
 
     // View properties
     private KeyboardListener keyboardListener;
-    private LinearLayout mainInputPlane;
     private Keyboard keyboard;
     private List<Key> keyList;
 
@@ -81,7 +82,7 @@ public class KeyboardView
 
     // Horizontal swipes
     private int pointerDownX;
-    private boolean swipeModeIsActivated = false;
+    private int swipeModeIsActivated = 0; // 0: false, 1: right, 2: left
 
     // Shift key
     private int shiftPointerId = NONEXISTENT_POINTER_ID;
@@ -114,20 +115,19 @@ public class KeyboardView
         extendedPressHandler =
                 new Handler(Looper.getMainLooper()) {
                     @Override
-                    public void handleMessage(Message message) {
+                    public void handleMessage(@NonNull Message message) {
                         if (activeKey != null) {
                             switch (message.what) {
-                                case MESSAGE_KEY_REPEAT:
+                                case MESSAGE_KEY_REPEAT -> {
                                     keyboardListener.onKey(activeKey.valueText);
                                     sendExtendedPressHandlerMessage(MESSAGE_KEY_REPEAT, keyRepeatIntervalMilliseconds);
-                                    break;
-
-                                case MESSAGE_LONG_PRESS:
-                                    keyboardListener.onLongPress(activeKey.valueText+activeKey.shiftText);
+                                }
+                                case MESSAGE_LONG_PRESS -> {
+                                    keyboardListener.onLongPress(activeKey.valueText + activeKey.shiftText);
                                     activeKey = null;
                                     activePointerId = NONEXISTENT_POINTER_ID;
                                     invalidate();
-                                    break;
+                                }
                             }
                         }
                     }
@@ -192,7 +192,6 @@ public class KeyboardView
     }
 
     public void setMainInputPlane(final LinearLayout mainInputPlane) {
-        this.mainInputPlane = mainInputPlane;
     }
 
     public Keyboard getKeyboard() {
@@ -206,6 +205,11 @@ public class KeyboardView
         keyboardFillPaint.setColor(keyboard.fillColour);
         if (shiftMode != SHIFT_PERSISTENT) {
             shiftMode = SHIFT_DISABLED;
+        }
+        if (shiftMode != SHIFT_DISABLED) {
+            keyboard.shiftMode = keyboard.shiftMode | KeyEvent.META_SHIFT_MASK;
+        } else {
+            keyboard.shiftMode = keyboard.shiftMode & ~KeyEvent.META_SHIFT_MASK;
         }
         requestLayout();
     }
@@ -273,14 +277,14 @@ public class KeyboardView
 
             final int keyTextColour;
             final int keyOtherColour;
-            if (key == activeKey && swipeModeIsActivated) {
+            if (key == activeKey && swipeModeIsActivated > 0) {
                 keyOtherColour = key.textSwipeColour;
             } else {
                 keyOtherColour = key.otherColour;
             }
             keyTextPaint.setTextSize(key.textSize);
-            keyTextShiftPaint.setTextSize(key.textSize * 6 / 10);
-            if (key == activeKey && swipeModeIsActivated) {
+            keyTextShiftPaint.setTextSize(key.textSize * 6.0f / 10.0f);
+            if (key == activeKey && swipeModeIsActivated > 0) {
                 keyTextColour = key.textSwipeColour;
             } else if (!key.isPreviewable) {
                 keyTextColour = key.textColour;
@@ -290,9 +294,9 @@ public class KeyboardView
             keyTextPaint.setColor(keyTextColour);
             keyTextShiftPaint.setColor(keyOtherColour);
 
-            keyTextStrokePaint.setTextSize(key.textSize * 6 / 10);
-            keyTextCjPaint.setTextSize(key.textSize * 5 / 10);
-            keyTextJiPaint.setTextSize(key.textSize * 5 / 10);
+            keyTextStrokePaint.setTextSize(key.textSize * 6.0f / 10.0f);
+            keyTextCjPaint.setTextSize(key.textSize * 5.0f / 10.0f);
+            keyTextJiPaint.setTextSize(key.textSize * 5.0f / 10.0f);
 
             keyTextStrokePaint.setColor(keyOtherColour);
             keyTextCjPaint.setColor(keyOtherColour);
@@ -301,23 +305,15 @@ public class KeyboardView
                 keyTextShiftPaint.setColor(key.textColour);
             } else {
                 switch (keyboard.name) {
-                    case "mix":
+                    case "mix" -> {
                         if (key.isPreviewable) {
                             keyTextPaint.setColor(key.textColour);
                         }
-                        break;
-                    case "ji":
-                        keyTextJiPaint.setColor(key.textColour);
-                        break;
-                    case "cj":
-                        keyTextCjPaint.setColor(key.textColour);
-                        break;
-                    case "stroke":
-                        keyTextStrokePaint.setColor(key.textColour);
-                        break;
-                    case "mil":
-                        keyTextMilPaint.setColor(key.textColour);
-                        break;
+                    }
+                    case "ji" -> keyTextJiPaint.setColor(key.textColour);
+                    case "cj" -> keyTextCjPaint.setColor(key.textColour);
+                    case "stroke" -> keyTextStrokePaint.setColor(key.textColour);
+                    case "mil" -> keyTextMilPaint.setColor(key.textColour);
                 }
             }
 
@@ -412,28 +408,22 @@ public class KeyboardView
 
         touchLogic:
         switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_POINTER_DOWN:
-
+            case MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> {
                 final int downPointerIndex = event.getActionIndex();
                 final int downPointerId = event.getPointerId(downPointerIndex);
                 final int downPointerX = (int) event.getX(downPointerIndex);
                 final int downPointerY = (int) event.getY(downPointerIndex);
                 final Key downKey = getKeyAtPoint(downPointerX, downPointerY);
-
                 if (isShiftKey(downKey)) {
                     sendShiftDownEvent(downPointerId);
                     break;
                 }
-
                 if (activePointerId != NONEXISTENT_POINTER_ID) {
                     sendUpEvent(activeKey, false);
                 }
                 sendDownEvent(downKey, downPointerId, downPointerX);
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-
+            }
+            case MotionEvent.ACTION_MOVE -> {
                 for (int index = 0; index < eventPointerCount; index++) {
                     final int movePointerId = event.getPointerId(index);
                     final int movePointerX = (int) event.getX(index);
@@ -461,31 +451,22 @@ public class KeyboardView
                         }
                     }
                 }
-                break;
-
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_POINTER_UP:
-
+            }
+            case MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
                 final int upPointerIndex = event.getActionIndex();
                 final int upPointerId = event.getPointerId(upPointerIndex);
                 final int upPointerX = (int) event.getX(upPointerIndex);
                 final int upPointerY = (int) event.getY(upPointerIndex);
                 final Key upKey = getKeyAtPoint(upPointerX, upPointerY);
-
                 if ((upPointerId == shiftPointerId || isShiftKey(upKey)) && !isSwipeableKey(activeKey)) {
                     sendShiftUpEvent(true);
                     break;
                 }
-
                 if (upPointerId == activePointerId) {
                     sendUpEvent(upKey, true);
-                    break;
                 }
-                break;
-
-            case MotionEvent.ACTION_CANCEL:
-                sendCancelEvent();
-                break;
+            }
+            case MotionEvent.ACTION_CANCEL -> sendCancelEvent();
         }
 
         return true;
@@ -502,7 +483,8 @@ public class KeyboardView
         if (isSwipeableKey(key)) {
             pointerDownX = x;
         }
-        swipeModeIsActivated = false;
+        swipeModeIsActivated = 0;
+        keyboard.swipeDir = swipeModeIsActivated;
 
         if (shiftPointerId != NONEXISTENT_POINTER_ID) {
             shiftMode = SHIFT_HELD;
@@ -518,14 +500,20 @@ public class KeyboardView
     private void sendMoveEvent(final Key key, final int pointerId, final int x) {
         boolean shouldRedrawKeyboard = false;
 
-        if (swipeModeIsActivated) {
+        if (swipeModeIsActivated > 0) {
             if (Math.abs(x - pointerDownX) < SWIPE_ACTIVATION_DISTANCE) {
-                swipeModeIsActivated = false;
+                swipeModeIsActivated = 0;
+                keyboard.swipeDir = swipeModeIsActivated;
                 shouldRedrawKeyboard = true;
             }
         } else if (key == activeKey && isSwipeableKey(key)) {
             if (Math.abs(x - pointerDownX) > SWIPE_ACTIVATION_DISTANCE) {
-                swipeModeIsActivated = true;
+                if (x > pointerDownX) {
+                    swipeModeIsActivated = 1;
+                } else {
+                    swipeModeIsActivated = 2;
+                }
+                keyboard.swipeDir = swipeModeIsActivated;
                 removeAllExtendedPressHandlerMessages();
                 shouldRedrawKeyboard = true;
             }
@@ -545,7 +533,7 @@ public class KeyboardView
     }
 
     private void sendUpEvent(final Key key, final boolean shouldRedrawKeyboard) {
-        if (swipeModeIsActivated) {
+        if (swipeModeIsActivated > 0) {
             keyboardListener.onSwipe(activeKey.valueText);
         } else if (key != null) {
             if (shiftMode != SHIFT_DISABLED && key.isShiftable) {
@@ -605,21 +593,20 @@ public class KeyboardView
 
     private void sendShiftUpEvent(boolean shouldRedrawKeyboard) {
         switch (shiftMode) {
-            case SHIFT_SINGLE:
+            case SHIFT_SINGLE -> {
                 shiftMode = SHIFT_PERSISTENT;
-                break;
-
-            case SHIFT_INITIATED:
+                keyboard.shiftMode = keyboard.shiftMode | KeyEvent.META_SHIFT_MASK;
+            }
+            case SHIFT_INITIATED -> {
                 shiftMode = SHIFT_SINGLE;
-                break;
-
-            case SHIFT_PERSISTENT:
-            case SHIFT_HELD:
+                keyboard.shiftMode = keyboard.shiftMode | KeyEvent.META_SHIFT_MASK;
+            }
+            case SHIFT_PERSISTENT, SHIFT_HELD -> {
                 shiftMode = SHIFT_DISABLED;
-                break;
+                keyboard.shiftMode = keyboard.shiftMode & ~KeyEvent.META_SHIFT_MASK;
+            }
         }
         shiftPointerId = NONEXISTENT_POINTER_ID;
-
         if (shouldRedrawKeyboard) {
             invalidate();
         }

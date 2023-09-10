@@ -82,8 +82,9 @@
         <Key
             app:keyDisplayText="\u21B9"
             app:keyIsPreviewable="false"
-            app:keyIsLongPressable="true"
+            app:keyIsLongPressable="false"
             app:keyValueText="TAB"
+            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
         <Key app:keyValueText="." app:keyValueTextShifted="" />
         <Key app:keyValueText="0" app:keyValueTextShifted=""  />

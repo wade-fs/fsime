@@ -49,6 +49,7 @@ public class FsimeService
     public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
     public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
     private static final String TAB_KEY_VALUE_TEXT = "TAB";
+    private static final String TAB_SHIFT_KEY_VALUE_TEXT = "↹";
     private static final String ESC_KEY_VALUE_TEXT = "ESC";
     private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
@@ -361,23 +362,18 @@ public class FsimeService
         }
         switch (valueText) {
             case BACKSPACE_VALUE_TEXT:
-            case "⌫":
                 effectBackspace(inputConnection);
                 break;
-            case TAB_KEY_VALUE_TEXT:
-                keyDownUp(KeyEvent.KEYCODE_TAB, 0);
+            case TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT: // 下一欄
                 break;
-            case ESC_KEY_VALUE_TEXT:
+            case ESC_KEY_VALUE_TEXT: // 從第一個欄位開始
                 turnCandidateOff();
                 break;
-
-            case CTRL_VALUE_TEXT:
-                break;
-            case SPACE_BAR_VALUE_TEXT:
+            case SPACE_BAR_VALUE_TEXT: // 下一欄與計算
                 effectSpaceKey(inputConnection);
                 break;
 
-            case ENTER_KEY_VALUE_TEXT:
+            case ENTER_KEY_VALUE_TEXT: // 無條件送出
                 effectEnterKey(inputConnection);
                 break;
 
@@ -387,7 +383,7 @@ public class FsimeService
     }
     @Override
     public void onKey(final String valueText) {
-        if (!inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
+        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
             onKeyMil(valueText);
             return;
         }
@@ -397,28 +393,13 @@ public class FsimeService
             return;
         }
         switch (valueText) {
-            case BACKSPACE_VALUE_TEXT:
-                effectBackspace(inputConnection);
-                break;
-            case TAB_KEY_VALUE_TEXT:
-                keyDownUp(KeyEvent.KEYCODE_TAB, 0);
-                break;
-            case ESC_KEY_VALUE_TEXT:
-                turnCandidateOff();
-                break;
-
-            case CTRL_VALUE_TEXT:
-                break;
-            case SPACE_BAR_VALUE_TEXT:
-                effectSpaceKey(inputConnection);
-                break;
-
-            case ENTER_KEY_VALUE_TEXT:
-                effectEnterKey(inputConnection);
-                break;
-
-            default:
-                effectStrokeAppend(valueText);
+            case BACKSPACE_VALUE_TEXT -> effectBackspace(inputConnection);
+            case TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT ->
+                    keyDownUp(KeyEvent.KEYCODE_TAB, inputContainer.getKeyboard().shiftMode);
+            case ESC_KEY_VALUE_TEXT -> turnCandidateOff();
+            case SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection);
+            case ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection);
+            default -> effectStrokeAppend(valueText);
         }
     }
     @Override
@@ -465,14 +446,23 @@ public class FsimeService
             if (keyboardName == null) {
                 return;
             }
-            // TODO 這邊可以換鍵盤，暫時全部只有一種
-            keyboard = switch (keyboardName) {
-                case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_JI);
-                case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
-                case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
-                case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                default -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
-            };
+            if (keyboard.swipeDir == 1) { // right fsime > ji > cj > stroke > mil
+                keyboard = switch (keyboardName) {
+                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
+                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
+                    case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
+                    default -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                };
+            } else { // left  fsime > mil > stroke > cj > ji
+                keyboard = switch (keyboardName) {
+                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_MIL);
+                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_CJ);
+                    default -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
+                };
+            }
             inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
         }
@@ -531,7 +521,7 @@ public class FsimeService
                     inputConnection.commitText("", 1);
                 }
             } else { // for apps like Termux
-                keyDownUp(KeyEvent.KEYCODE_DEL, 0); // meta for shift+Ctrl
+                keyDownUp(KeyEvent.KEYCODE_DEL, inputContainer.getKeyboard().shiftMode);
             }
 
             setPhraseCompletionCandidateList(inputConnection);
