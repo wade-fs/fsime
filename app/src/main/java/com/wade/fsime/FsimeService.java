@@ -343,6 +343,17 @@ public class FsimeService
         mComposing = "";
         inputContainer.setCandidateList(new ArrayList<>());
     }
+
+    private void showMilMessage(String inputText) {
+        String btnMsg = mil.getBtnMsg(inputText);
+        if (btnMsg.length() > 0) {
+            final List<String> list = Collections.singletonList(btnMsg);
+            setCandidateList(list);
+        } else {
+            final List<String> list = Collections.singletonList(inputText);
+            setCandidateList(list);
+        }
+    }
     public void onKeyMil(final String valueText) {
         final InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection == null) {
@@ -387,7 +398,6 @@ public class FsimeService
         }
         switch (valueText) {
             case BACKSPACE_VALUE_TEXT:
-            case "⌫":
                 effectBackspace(inputConnection);
                 break;
             case TAB_KEY_VALUE_TEXT:
@@ -409,17 +419,6 @@ public class FsimeService
 
             default:
                 effectStrokeAppend(valueText);
-        }
-    }
-
-    private void showMilMessage(String inputText) {
-        String btnMsg = mil.getBtnMsg(inputText);
-        if (btnMsg.length() > 0) {
-            final List<String> list = Collections.singletonList(btnMsg);
-            setCandidateList(list);
-        } else {
-            final List<String> list = Collections.singletonList(inputText);
-            setCandidateList(list);
         }
     }
     @Override

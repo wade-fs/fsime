@@ -54,6 +54,7 @@
             app:keyIsPreviewable="false"
             app:keyIsRepeatable="true"
             app:keyValueText="BACKSPACE"
+            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row
