@@ -9,7 +9,7 @@
     app:keyWidth="@dimen/key_width__digit">
 	<!-- Row 1 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="∠" app:keyValueTextShifted="Deg" app:keysAreShiftable="false" />
+        <Key app:keyValueText="∠" app:keyValueTextShifted="度" app:keysAreShiftable="false" />
         <Key app:keyValueText="GPS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="PADS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="°" app:keyValueTextShifted="" />

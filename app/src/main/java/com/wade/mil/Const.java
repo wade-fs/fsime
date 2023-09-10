@@ -33,4 +33,10 @@ public class Const {
             entry("二反", "二點反交會"),
             entry("三反", "三點反交會")
     );
+    final static Map<Integer, String>modeText = Map.ofEntries(
+        entry(MODE_AUTO, "自動"),
+        entry(MODE_DEGREE, "度"),
+        entry(MODE_DMS, "度分秒"),
+        entry(MODE_MIL, "密位")
+    );
 }

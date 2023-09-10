@@ -118,6 +118,15 @@ public class Keyboard {
     public List<Key> getKeyList() {
         return keyList;
     }
+    public void setShiftText(String vt, String st) {
+        for (final Key key : keyList) {
+            if (key.valueText.equals(vt)) {
+                key.shiftText = st;
+                break;
+            }
+        }
+
+    }
 
     public int getWidth() {
         return width;

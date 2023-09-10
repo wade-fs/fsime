@@ -46,6 +46,7 @@ public class FsimeService
         implements CandidatesViewAdapter.CandidateListener, KeyboardView.KeyboardListener {
     private static final String LOG_TAG = "FsimeService";
 
+    public static final String ANGLE_KEY_VALUE_TEXT = "∠";
     public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
     public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
     private static final String TAB_KEY_VALUE_TEXT = "TAB";
@@ -380,6 +381,10 @@ public class FsimeService
 
             case ENTER_KEY_VALUE_TEXT: // 無條件送出
                 effectEnterKey(inputConnection);
+                break;
+            case ANGLE_KEY_VALUE_TEXT:
+                String text = mil.nextMode();
+                inputContainer.getKeyboard().setShiftText(ANGLE_KEY_VALUE_TEXT, text);
                 break;
             default: // TODO: 功能鍵
         }

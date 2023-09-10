@@ -35,6 +35,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
@@ -332,7 +333,11 @@ public class KeyboardView
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
 
             float keyShiftTextX = key.width / 2f + key.textOffsetX - 14f;
+            if (keyboard.name.equals("mil")) {
+                keyShiftTextX = key.width*0.8f;
+            }
             float keyShiftTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
+
             if (keyboard.name.equals("mil")) {
                 keyShiftTextX = keyShiftTextX + 14f;
             }
