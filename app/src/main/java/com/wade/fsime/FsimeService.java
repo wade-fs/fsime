@@ -378,7 +378,7 @@ public class FsimeService
                 break;
 
             default:
-                effectStrokeAppend(valueText);
+                effectStrokeAppendMil(valueText);
         }
     }
     @Override
@@ -476,10 +476,31 @@ public class FsimeService
         updateCandidateOrderPreference();
         return bdatabase.getWord(mComposing, 0, 30, inputContainer.getKeyboard().name);
     }
+    private void effectStrokeAppendMil(final String key) {
+        final String exp = mComposing + key;
+        final MathParser parser = MathParser.create();
+        final List<String> list = new ArrayList<>();
+        list.add(exp);
+        String[] exps = exp.split(";");
+        try {
+            for (int i=0; i<exps.length-1; i++) {
+                parser.addExpression(exps[i]);
+            }
+            double res = parser.parse(exps[exps.length-1]);
+            list.add(Double.toString(res));
+            Log.d("fsime", "res: "+res+" list: "+list.toString());
+        } catch (Exception e) {
+            Log.d("fsime", "exp: "+exps[exps.length-1]+" exception: "+e.toString());
+        }
+        mComposing = exp;
+        Log.d("fsime", "exp: "+exp+" list: "+list.toString());
+        setCandidateList(list);
+    }
 
     private void effectStrokeAppend(final String key) {
         final String newInputSequence = mComposing + key;
         final List<String> list = computeCandidateList(newInputSequence);
+        Log.d("fsime", newInputSequence+": "+list.toString());
         if (list.size() == 1) {
             MathParser parser = MathParser.create();
             try {
@@ -497,7 +518,6 @@ public class FsimeService
         mComposing = newInputSequence;
         setCandidateList(list);
     }
-
     private void effectBackspace(final InputConnection inputConnection) {
         if (mComposing.length() > 0) {
             mComposing = Stringy.removeSuffixRegex("(?s).", mComposing);
