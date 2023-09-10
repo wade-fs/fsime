@@ -360,6 +360,11 @@ public class FsimeService
         if (inputConnection == null) {
             return;
         }
+        if (valueText.matches("[0123456789\\+\\-\\*/°'\"()\\.]")) {
+            effectStrokeAppendMil(valueText);
+            return;
+        }
+
         switch (valueText) {
             case BACKSPACE_VALUE_TEXT:
                 effectBackspace(inputConnection);
@@ -376,9 +381,7 @@ public class FsimeService
             case ENTER_KEY_VALUE_TEXT: // 無條件送出
                 effectEnterKey(inputConnection);
                 break;
-
-            default:
-                effectStrokeAppendMil(valueText);
+            default: // TODO: 功能鍵
         }
     }
     @Override
