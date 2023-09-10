@@ -1,3 +1,4 @@
+# 原始來源: [筆劃輸入法][1]
 # 用法
 - 我的想法是用嘸蝦米輸入，目前它已經可以叫做混瞎輸入法
 	- 在鍵盤上有英、注、倉、筆劃輸入法四種的符號，
@@ -16,3 +17,5 @@
 - 按 Shift 可以切換 shift 模式
 
 # app 下載: app/release/com.wade.fsime-230828.apk
+
+[1]: https://github.com/stroke-input/stroke-input-android
