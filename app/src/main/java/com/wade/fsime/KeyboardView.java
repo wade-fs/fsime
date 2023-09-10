@@ -35,12 +35,12 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
 import java.util.List;
+import com.wade.mil.Mil;
 
 /*
   A view that holds a keyboard.
@@ -271,7 +271,9 @@ public class KeyboardView
             ) {
                 keyFillColour = toPressedColour(keyFillColour);
             }
-
+            if (keyboard.name.equals("mil") && key.valueText == Mil.appName) {
+                keyFillColour = toPressedColour(keyFillColour);
+            }
             keyFillPaint.setColor(keyFillColour);
             keyBorderPaint.setColor(key.borderColour);
             keyBorderPaint.setStrokeWidth(key.borderThickness);

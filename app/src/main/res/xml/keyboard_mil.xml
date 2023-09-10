@@ -9,7 +9,7 @@
     app:keyWidth="@dimen/key_width__digit">
 	<!-- Row 1 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="∠" app:keyValueTextShifted="度" app:keysAreShiftable="false" />
+        <Key app:keyValueText="∠" app:keyValueTextShifted="自動" app:keysAreShiftable="false" />
         <Key app:keyValueText="GPS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="PADS" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="°" app:keyValueTextShifted="" />
@@ -54,12 +54,7 @@
     </Row>
 	<!-- Row 4 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key
-            app:keyDisplayText="⇧"
-            app:keyIsPreviewable="false"
-            app:keyValueText="SHIFT"
-            app:keyValueTextShifted="⬆"
-            app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="" app:keyValueTextShifted="" />
         <Key app:keyValueText="dms" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="mil" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="1" app:keyValueTextShifted="" />
