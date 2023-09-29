@@ -12,6 +12,7 @@ import android.inputmethodservice.InputMethodService;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -412,7 +413,22 @@ public class FsimeService
             case SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection);
             case ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection);
             default -> {
-                effectStrokeAppend(valueText);
+                if (inputContainer.getKeyboard().ctrlMode != 0) {
+                    KeyCharacterMap mKeyCharacterMap = KeyCharacterMap.load(KeyCharacterMap.VIRTUAL_KEYBOARD);
+                    KeyEvent[] events = mKeyCharacterMap.getEvents(valueText.toCharArray());
+
+                    for (KeyEvent event2 : events) {
+                        // We get key events for both UP and DOWN actions,
+                        // so we may just need one.
+                        if (event2.getAction() == 0) {
+                            int keycode = event2.getKeyCode();
+                            keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                        }
+                        break;
+                    }
+                } else {
+                    effectStrokeAppend(valueText);
+                }
             }
         }
     }
