@@ -217,6 +217,7 @@ public class KeyboardView
             keyboard.shiftMode = keyboard.shiftMode & ~KeyEvent.META_SHIFT_MASK;
         }
         ctrlMode = CTRL_DISABLED;
+        keyboard.ctrlMode = ctrlMode;
         requestLayout();
     }
 
@@ -273,7 +274,7 @@ public class KeyboardView
                                             ||
                                             shiftMode == SHIFT_HELD
                             ) ||
-                            key.valueText.equals(FsimeService.CTRL_KEY_VALUE_TEXT) && ctrlMode == CTRL_SINGLE
+                            key.valueText.equals(FsimeService.CTRL_KEY_VALUE_TEXT) && ctrlMode != CTRL_DISABLED
             ) { // 畫黃底
                 keyFillColour = toPressedColour(keyFillColour);
             }
@@ -530,7 +531,7 @@ public class KeyboardView
         if (ctrlPointerId != NONEXISTENT_POINTER_ID) {
             ctrlMode = CTRL_HELD;
         }
-
+        keyboard.ctrlMode = ctrlMode;
         activeKey = key;
         activePointerId = pointerId;
 
@@ -589,6 +590,8 @@ public class KeyboardView
 
             if (ctrlMode == CTRL_SINGLE) {
                 ctrlMode = CTRL_DISABLED;
+                keyboard.ctrlMode = ctrlMode;
+                ctrlPointerId = NONEXISTENT_POINTER_ID;
             }
         }
 
@@ -659,7 +662,7 @@ public class KeyboardView
 
     private void sendCtrlMoveFromEvent(final Key key, final int pointerId) {
         sendCtrlUpEvent(false);
-
+        ctrlPointerId = NONEXISTENT_POINTER_ID;
         activeKey = key;
         activePointerId = pointerId;
 
@@ -696,7 +699,7 @@ public class KeyboardView
                 ctrlMode = CTRL_DISABLED;
                 keyboard.ctrlMode = keyboard.ctrlMode & ~KeyEvent.META_CTRL_MASK;
             }
-            case CTRL_INITIATED -> {
+            case CTRL_DISABLED, CTRL_INITIATED -> {
                 ctrlMode = CTRL_SINGLE;
                 keyboard.ctrlMode = keyboard.ctrlMode | KeyEvent.META_CTRL_MASK;
             }
