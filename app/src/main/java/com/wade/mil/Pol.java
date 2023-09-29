@@ -9,12 +9,16 @@ public class Pol {
     int step;
     int mode;
     double d, a;
-    Pol(int m) {
+    Pol() {
         step = 0;
-        mode = m;
+        mode = Const.MODE_AUTO;
         app[0] = new Field("x", "橫坐標", false);
         app[1] = new Field("y", "縱坐標", false);
         d = a = 0.0;
+    }
+    Pol(int m) {
+        super();
+        mode = m;
     }
     void setMode(int m) {
         mode = m;
