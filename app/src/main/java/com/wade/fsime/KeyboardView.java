@@ -64,6 +64,10 @@ public class KeyboardView
     private static final int SHIFT_PERSISTENT = 2;
     private static final int SHIFT_INITIATED = 3;
     private static final int SHIFT_HELD = 4;
+    private static final int CTRL_DISABLED = 0;
+    private static final int CTRL_SINGLE = 1;
+    private static final int CTRL_INITIATED = 3;
+    private static final int CTRL_HELD = 4;
 
     public static final String KEYBOARD_FONT_FILE_NAME = "StrokeInputFont.ttf";
     private static final float COLOUR_LIGHTNESS_CUTOFF = 0.7f;
@@ -86,8 +90,8 @@ public class KeyboardView
     private int swipeModeIsActivated = 0; // 0: false, 1: right, 2: left
 
     // Shift key
-    private int shiftPointerId = NONEXISTENT_POINTER_ID;
-    private int shiftMode;
+    private int shiftPointerId = NONEXISTENT_POINTER_ID, ctrlPointerId = NONEXISTENT_POINTER_ID;
+    private int shiftMode, ctrlMode;
 
     // Keyboard drawing
     private Rect keyboardRectangle;
@@ -212,6 +216,7 @@ public class KeyboardView
         } else {
             keyboard.shiftMode = keyboard.shiftMode & ~KeyEvent.META_SHIFT_MASK;
         }
+        ctrlMode = CTRL_DISABLED;
         requestLayout();
     }
 
@@ -267,11 +272,12 @@ public class KeyboardView
                                             shiftMode == SHIFT_INITIATED
                                             ||
                                             shiftMode == SHIFT_HELD
-                            )
-            ) {
+                            ) ||
+                            key.valueText.equals(FsimeService.CTRL_KEY_VALUE_TEXT) && ctrlMode == CTRL_SINGLE
+            ) { // 畫黃底
                 keyFillColour = toPressedColour(keyFillColour);
             }
-            if (keyboard.name.equals("mil") && key.valueText == Mil.appName) {
+            if (keyboard.name.equals("mil") && key.valueText == Mil.appName) { // 畫黃底
                 keyFillColour = toPressedColour(keyFillColour);
             }
             keyFillPaint.setColor(keyFillColour);
@@ -423,6 +429,15 @@ public class KeyboardView
                 final Key downKey = getKeyAtPoint(downPointerX, downPointerY);
                 if (isShiftKey(downKey)) {
                     sendShiftDownEvent(downPointerId);
+                    if (shiftMode != SHIFT_DISABLED && shiftMode != SHIFT_PERSISTENT) {
+                        downKey.displayText = "⬆";
+                    } else {
+                        downKey.displayText = "⇧";
+                    }
+                    break;
+                }
+                if (isCtrlKey(downKey)) {
+                    sendCtrlDownEvent(downPointerId);
                     break;
                 }
                 if (activePointerId != NONEXISTENT_POINTER_ID) {
@@ -442,6 +457,10 @@ public class KeyboardView
                             sendShiftMoveToEvent(movePointerId);
                             break touchLogic;
                         }
+                        if (isCtrlKey(moveKey) && !isSwipeableKey(activeKey)) {
+                            sendCtrlMoveToEvent(movePointerId);
+                            break touchLogic;
+                        }
 
                         if (moveKey != activeKey || isSwipeableKey(activeKey)) {
                             sendMoveEvent(moveKey, movePointerId, movePointerX);
@@ -457,6 +476,12 @@ public class KeyboardView
                             break touchLogic;
                         }
                     }
+                    if (movePointerId == ctrlPointerId) {
+                        if (!isCtrlKey(moveKey)) {
+                            sendCtrlMoveFromEvent(moveKey, movePointerId);
+                            break touchLogic;
+                        }
+                    }
                 }
             }
             case MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
@@ -467,6 +492,10 @@ public class KeyboardView
                 final Key upKey = getKeyAtPoint(upPointerX, upPointerY);
                 if ((upPointerId == shiftPointerId || isShiftKey(upKey)) && !isSwipeableKey(activeKey)) {
                     sendShiftUpEvent(true);
+                    break;
+                }
+                if ((upPointerId == ctrlPointerId || isCtrlKey(upKey)) && !isSwipeableKey(activeKey)) {
+                    sendCtrlUpEvent(true);
                     break;
                 }
                 if (upPointerId == activePointerId) {
@@ -481,6 +510,7 @@ public class KeyboardView
 
     private void sendCancelEvent() {
         shiftPointerId = NONEXISTENT_POINTER_ID;
+        ctrlPointerId = NONEXISTENT_POINTER_ID;
         activeKey = null;
         activePointerId = NONEXISTENT_POINTER_ID;
         invalidate();
@@ -495,6 +525,10 @@ public class KeyboardView
 
         if (shiftPointerId != NONEXISTENT_POINTER_ID) {
             shiftMode = SHIFT_HELD;
+        }
+
+        if (ctrlPointerId != NONEXISTENT_POINTER_ID) {
+            ctrlMode = CTRL_HELD;
         }
 
         activeKey = key;
@@ -552,6 +586,10 @@ public class KeyboardView
             if (shiftMode == SHIFT_SINGLE) {
                 shiftMode = SHIFT_DISABLED;
             }
+
+            if (ctrlMode == CTRL_SINGLE) {
+                ctrlMode = CTRL_DISABLED;
+            }
         }
 
         activeKey = null;
@@ -566,12 +604,22 @@ public class KeyboardView
 
     private void sendShiftDownEvent(final int pointerId) {
         if (shiftMode == SHIFT_DISABLED) {
-            shiftMode =
-                    (activeKey == null)
-                            ? SHIFT_INITIATED
-                            : SHIFT_HELD;
+            shiftMode = (activeKey == null)
+                    ? SHIFT_INITIATED
+                    : SHIFT_HELD;
         }
         shiftPointerId = pointerId;
+        invalidate();
+    }
+
+    private void sendCtrlDownEvent(final int pointerId) {
+        if (ctrlMode == SHIFT_DISABLED) {
+            ctrlMode =
+                    (activeKey == null)
+                            ? CTRL_INITIATED
+                            : CTRL_HELD;
+        }
+        ctrlPointerId = pointerId;
         invalidate();
     }
 
@@ -588,6 +636,29 @@ public class KeyboardView
 
     private void sendShiftMoveFromEvent(final Key key, final int pointerId) {
         sendShiftUpEvent(false);
+
+        activeKey = key;
+        activePointerId = pointerId;
+
+        removeAllExtendedPressHandlerMessages();
+        sendAppropriateExtendedPressHandlerMessage(key);
+        resetKeyRepeatIntervalMilliseconds();
+        invalidate();
+    }
+
+    private void sendCtrlMoveToEvent(final int pointerId) {
+        ctrlMode = CTRL_HELD;
+        ctrlPointerId = pointerId;
+
+        activeKey = null;
+        activePointerId = NONEXISTENT_POINTER_ID;
+
+        removeAllExtendedPressHandlerMessages();
+        invalidate();
+    }
+
+    private void sendCtrlMoveFromEvent(final Key key, final int pointerId) {
+        sendCtrlUpEvent(false);
 
         activeKey = key;
         activePointerId = pointerId;
@@ -619,6 +690,23 @@ public class KeyboardView
         }
     }
 
+    private void sendCtrlUpEvent(boolean shouldRedrawKeyboard) {
+        switch (ctrlMode) {
+            case CTRL_SINGLE, CTRL_HELD -> {
+                ctrlMode = CTRL_DISABLED;
+                keyboard.ctrlMode = keyboard.ctrlMode & ~KeyEvent.META_CTRL_MASK;
+            }
+            case CTRL_INITIATED -> {
+                ctrlMode = CTRL_SINGLE;
+                keyboard.ctrlMode = keyboard.ctrlMode | KeyEvent.META_CTRL_MASK;
+            }
+        }
+        ctrlPointerId = NONEXISTENT_POINTER_ID;
+        if (shouldRedrawKeyboard) {
+            invalidate();
+        }
+    }
+
     private Key getKeyAtPoint(final int x, final int y) {
         for (final Key key : keyList) {
             if (key.containsPoint(x, y)) {
@@ -631,6 +719,10 @@ public class KeyboardView
 
     private boolean isShiftKey(final Key key) {
         return key != null && key.valueText.equals(FsimeService.SHIFT_KEY_VALUE_TEXT);
+    }
+
+    private boolean isCtrlKey(final Key key) {
+        return key != null && key.valueText.equals(FsimeService.CTRL_KEY_VALUE_TEXT);
     }
 
     private boolean isSwipeableKey(final Key key) {

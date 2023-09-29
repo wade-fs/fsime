@@ -49,13 +49,12 @@ public class FsimeService
     public static final String ANGLE_KEY_VALUE_TEXT = "∠";
     public static final String ENTER_KEY_VALUE_TEXT = "ENTER";
     public static final String SHIFT_KEY_VALUE_TEXT = "SHIFT";
+    public static final String CTRL_KEY_VALUE_TEXT = "CTRL";
     private static final String TAB_KEY_VALUE_TEXT = "TAB";
     private static final String TAB_SHIFT_KEY_VALUE_TEXT = "↹";
     private static final String ESC_KEY_VALUE_TEXT = "ESC";
     private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
-    private static final String CTRL_VALUE_TEXT = "CTRL";
-
     private static final String KEYBOARD_NAME_FSIME = "mix";
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
@@ -80,7 +79,6 @@ public class FsimeService
     private static final int LARGISH_SORTING_RANK = 3000;
     private static final int RANKING_PENALTY_PER_CHAR = 2 * LARGISH_SORTING_RANK;
     private static final int RANKING_PENALTY_UNPREFERRED = 10 * LARGISH_SORTING_RANK;
-    private static final int MAX_PREFIX_MATCH_COUNT = 30;
     private static final int MAX_PHRASE_LENGTH = 6;
 
     private Map<Keyboard, String> nameFromKeyboard;
@@ -383,6 +381,9 @@ public class FsimeService
                 mil.setApp(valueText);
         }
     }
+    public void onCtrlKey(final String valueText) {
+
+    }
     @Override
     public void onKey(final String valueText) {
         if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
@@ -410,7 +411,9 @@ public class FsimeService
             case ESC_KEY_VALUE_TEXT -> turnCandidateOff();
             case SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection);
             case ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection);
-            default -> effectStrokeAppend(valueText);
+            default -> {
+                effectStrokeAppend(valueText);
+            }
         }
     }
     @Override

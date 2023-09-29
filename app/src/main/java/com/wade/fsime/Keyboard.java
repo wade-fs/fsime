@@ -90,7 +90,7 @@ public class Keyboard {
     private final int screenWidth;
     private final int screenHeight;
     public String name;
-    public int shiftMode = 0;
+    public int shiftMode = 0, ctrlMode = 0;
     public int swipeDir = 0;
 
     public void setName(String name) {
