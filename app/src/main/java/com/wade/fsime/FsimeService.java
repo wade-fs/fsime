@@ -394,7 +394,16 @@ public class FsimeService
         if (inputConnection == null) {
             return;
         }
+
         switch (valueText) {
+            case "⇱" -> keyDownUp(KeyEvent.KEYCODE_MOVE_HOME, 0);
+            case "⇲" -> keyDownUp(KeyEvent.KEYCODE_MOVE_END, 0);
+            case "⇞" -> keyDownUp(KeyEvent.KEYCODE_PAGE_UP, 0);
+            case "⇟" -> keyDownUp(KeyEvent.KEYCODE_PAGE_DOWN, 0);
+            case "←" -> keyDownUp(KeyEvent.KEYCODE_DPAD_LEFT, 0);
+            case "↑" -> keyDownUp(KeyEvent.KEYCODE_DPAD_UP, 0);
+            case "↓" -> keyDownUp(KeyEvent.KEYCODE_DPAD_DOWN, 0);
+            case "→" -> keyDownUp(KeyEvent.KEYCODE_DPAD_RIGHT, 0);
             case BACKSPACE_VALUE_TEXT -> effectBackspace(inputConnection);
             case TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT ->
                     keyDownUp(KeyEvent.KEYCODE_TAB, inputContainer.getKeyboard().shiftMode);
