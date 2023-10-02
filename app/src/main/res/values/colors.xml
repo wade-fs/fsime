@@ -2,10 +2,12 @@
 <resources>
   <!-- Theme -->
   <color name="umbrella_yellow">#FFFFFF80</color>
-  <color name="yellow">#FFFFFF00</color>
   <color name="umbrella_orange">#FFFFCE73</color>
-  <color name="orange">#FFFFA500</color>
   <color name="umbrella_grey">#FFCECECE</color>
+  <color name="umbrella_blue">#FF08AFFC</color>
+  <color name="umbrella_red">#FFEF1B26</color>
+  <color name="orange">#FFFFA500</color>
+  <color name="yellow">#FFFFFF00</color>
   <color name="very_dark_grey">#FF222222</color>
   <!-- Keyboard -->
   <color name="key_text">@color/umbrella_yellow</color>

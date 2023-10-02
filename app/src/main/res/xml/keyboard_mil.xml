@@ -5,29 +5,49 @@
     app:keyOtherColour="@color/umbrella_grey"
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
-    app:keyTextSize="@dimen/font_size__fsime"
+    app:keyTextSize="@dimen/font_size__mil"
     app:keyWidth="@dimen/key_width__digit">
-    <Row app:keyWidth="10.0%" app:keysAreShiftable="false">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
             app:keyIsLongPressable="true"
             app:keyValueText="ESC"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key
-            app:keyDisplayText="\u21B9"
+        <Key app:keyValueText="⎆"
             app:keyIsPreviewable="false"
-            app:keyIsLongPressable="true"
-            app:keyValueText="TAB"
+			app:keyTextColour="@color/umbrella_red" />
+        <Key app:keyValueText="⇱" 
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="⇲"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="⇞"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="⇟" 
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="←"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↑"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↓"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="→"
+            app:keyIsPreviewable="false"
+			app:keyTextColour="@color/umbrella_yellow" />
+        <Key
+            app:keyDisplayText="\u232B"
+            app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
+            app:keyValueText="BACKSPACE"
+            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="⇱" />
-        <Key app:keyValueText="⇲" />
-        <Key app:keyValueText="⇞" />
-        <Key app:keyValueText="⇟" />
-        <Key app:keyValueText="←" />
-        <Key app:keyValueText="↑" />
-        <Key app:keyValueText="↓" />
-        <Key app:keyValueText="→" />
     </Row>
 	<!-- Row 1 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
@@ -40,13 +60,6 @@
         <Key app:keyValueText="+" app:keyValueTextShifted="" />
         <Key app:keyValueText="前交" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="導線" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
-        <Key
-            app:keyDisplayText="\u232B"
-            app:keyIsPreviewable="false"
-            app:keyIsRepeatable="true"
-            app:keyValueText="BACKSPACE"
-            app:keysAreShiftable="false"
-            app:keyTextColour="@color/umbrella_orange" />
     </Row>
 	<!-- Row 2 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
@@ -63,7 +76,12 @@
     </Row>
 	<!-- Row 3 -->
     <Row app:keyWidth="10%" app:keysAreShiftable="true">
-        <Key app:keyValueText="" app:keyValueTextShifted="" />
+        <Key
+            app:keyDisplayText="\u21B9"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="TAB"
+            app:keyTextColour="@color/umbrella_orange" />
         <Key app:keyValueText="rad" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="天體" app:keyValueTextShifted="" app:keyTextSize="@dimen/font_size__mil" />
         <Key app:keyValueText="4" app:keyValueTextShifted="" />
@@ -100,13 +118,13 @@
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
             app:keyWidth="40%" />
+        <Key app:keyValueText="(" app:keyValueTextShifted=""  />
+        <Key app:keyValueText=")" app:keyValueTextShifted=""  />
         <Key
             app:keyDisplayText="\u23CE"
             app:keyIsPreviewable="false"
             app:keyValueText="ENTER"
             app:keyWidth="20%"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="(" app:keyValueTextShifted=""  />
-        <Key app:keyValueText=")" app:keyValueTextShifted=""  />
     </Row>
 </Keyboard>

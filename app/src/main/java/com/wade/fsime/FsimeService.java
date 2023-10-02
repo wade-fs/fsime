@@ -340,6 +340,15 @@ public class FsimeService
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCode, 0, meta));
     }
+    private void keyDownUps(int[] keyEventCodes, int meta) {
+        InputConnection ic = getCurrentInputConnection();
+        for (int i=0; i<keyEventCodes.length; i++) {
+            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCodes[i], 0, meta));
+        }
+        for (int i=keyEventCodes.length-1; i>=0; i--) {
+            ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP, keyEventCodes[i], 0, meta));
+        }
+    }
     private void turnCandidateOff() {
         mComposing = "";
         inputContainer.setCandidateList(new ArrayList<>());
@@ -398,6 +407,7 @@ public class FsimeService
         }
 
         switch (valueText) {
+            case "⎆" -> keyDownUps(new int[]{KeyEvent.KEYCODE_CTRL_LEFT, KeyEvent.KEYCODE_ALT_LEFT, KeyEvent.KEYCODE_DEL}, 0);
             case "⇱" -> keyDownUp(KeyEvent.KEYCODE_MOVE_HOME, 0);
             case "⇲" -> keyDownUp(KeyEvent.KEYCODE_MOVE_END, 0);
             case "⇞" -> keyDownUp(KeyEvent.KEYCODE_PAGE_UP, 0);

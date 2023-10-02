@@ -1,6 +1,6 @@
 # 原始來源: [筆劃輸入法][1]
 # 用法
-- 我的想法是用嘸蝦米輸入，目前它已經可以叫做混瞎輸入法
+- 想法是用全英文鍵盤來進行嘸蝦米＋注音＋倉頡＋筆劃...輸入，所以稱之為混瞎輸入法
 	- 在鍵盤上有英、注、倉、筆劃輸入法四種的符號，
 	- 同樣的，在資料庫表格有嘸蝦米/注音/倉頡/筆劃/符號等表格資訊
 	- 在輸入時，先採用完全比對各個表格，
@@ -11,11 +11,15 @@
 	- 譬如向右（左）滑切換到注音，只查注音表格
 	- 持續滑動可以切回混瞎模式
 - 這個輸入法是全鍵盤，
-	- 有 Tab / ESC 鍵可以用
+	- 有 Tab / ESC / Ctrl-Alt-Del 鍵可以用
 	- 甚至可以用 Ctrl-C, Ctrl-A, Ctrl-V, Ctrl-X
 - 長按可以輸入 Shift 的鍵值，省得使用 shift 切換
 - 按 Shift 可以切換 shift 模式
+- 可以從 Shift 或 Ctrl 滑動到英文鍵，以便輸入大寫或 Ctrl- 鍵
+	- 例如：從 Shift 按下後滑到 a 會輸出 A
+	- 例如：從 Ctrl 按下後，滑到 c 會輸出 Ctrl-C
+- ESC 旁邊紅色按鍵是 Ctrl-Alt-Delete
 
-# app 下載: app/release/com.wade.fsime-230828.apk
+# app 下載: app/release/com.wade.fsime-231002.apk
 
 [1]: https://github.com/stroke-input/stroke-input-android
