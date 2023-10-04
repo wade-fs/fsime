@@ -6,7 +6,7 @@
   <string name="label__main_activity__input_method_settings_button">輸入法設定</string>
   <string name="text__main_activity__change_keyboard">2. 更換鍵盤：</string>
   <string name="label__main_activity__change_keyboard_button">更換鍵盤</string>
-  <string name="hint__main_activity__test_input">4. 在此測試輸入</string>
+  <string name="hint__main_activity__test_input">3. 在此測試輸入</string>
   <string name="label__main_activity__return">回</string>
   <!-- Space bar display text (triangles: U+25C0, U+25B6) -->
   <string name="display_text__fsime_space_bar">◀混瞎▶</string>
@@ -21,4 +21,5 @@
     <string name="btsave">"&lt;儲存&gt; "</string>
     <string name="btback">"&lt;備份資料庫&gt; "</string>
     <string name="subtype_zh">%s 菠蘿麵包</string>
+ <string name="hotkey">熱鍵</string>
 </resources>

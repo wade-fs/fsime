@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/hotkey">
+		<EditTextPreference android:defaultValue="" android:key="Ctrl1" android:title="^1" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl2" android:title="^2" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl3" android:title="^3" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl4" android:title="^4" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl5" android:title="^5" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl6" android:title="^6" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl7" android:title="^7" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl8" android:title="^8" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl9" android:title="^9" />
+		<EditTextPreference android:defaultValue="" android:key="Ctrl0" android:title="^0" />
+	</PreferenceCategory>
+</PreferenceScreen>

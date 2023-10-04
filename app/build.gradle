@@ -12,8 +12,8 @@ android
                         applicationId "com.wade.fsime"
                         minSdkVersion 26
                         targetSdkVersion 33
-                        versionCode 231002
-                        versionName "231002"
+                        versionCode 231004
+                        versionName "231004"
                     }
             buildTypes
                     {
@@ -55,4 +55,5 @@ dependencies
         {
             implementation('com.google.android.material:material:1.9.0')
             implementation('com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1')
+            implementation 'androidx.preference:preference:1.2.1'
         }

@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.wade.utilities.Contexty;
 
@@ -22,7 +25,7 @@ import com.wade.utilities.Contexty;
 */
 public class MainActivity
   extends AppCompatActivity
-  implements View.OnClickListener
+  implements View.OnClickListener, PreferenceFragmentCompat.OnPreferenceStartFragmentCallback
 {
   public static final String CANDIDATE_ORDER_PREFERENCE_KEY = "candidateOrderPreference";
   public static final String CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST = "TRADITIONAL_FIRST";
@@ -44,11 +47,25 @@ public class MainActivity
 
     findViewById(R.id.test_input).requestFocus();
   }
-  
+  @Override
+  public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
+    // Instantiate the new Fragment
+    final Bundle args = pref.getExtras();
+    final Fragment fragment = getSupportFragmentManager().getFragmentFactory().instantiate(
+            getClassLoader(),
+            pref.getFragment());
+    fragment.setArguments(args);
+    fragment.setTargetFragment(caller, 0);
+    // Replace the existing Fragment with the new Fragment
+    getSupportFragmentManager().beginTransaction()
+            .replace(R.id.settings_container, fragment)
+            .addToBackStack(null)
+            .commit();
+    return true;
+  }
   public static boolean isTraditionalPreferred(final String candidateOrderPreference)
   {
-    if (candidateOrderPreference == null)
-    {
+    if (candidateOrderPreference == null) {
       return true;
     }
     

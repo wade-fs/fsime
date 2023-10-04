@@ -44,5 +44,11 @@
       android:inputType="text"
       android:layout_marginBottom="@dimen/margin_bottom__main_activity__input"
     />
+    <FrameLayout
+        android:id="@+id/settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
   </LinearLayout>
 </ScrollView>
