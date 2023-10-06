@@ -1,28 +1,11 @@
 package com.wade.fsime;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.InputType;
-import android.util.Log;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.preference.EditTextPreference;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
-import static android.provider.Settings.Secure.DEFAULT_INPUT_METHOD;
-import com.wade.fsime.custom.CustomTable;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     KeyboardPreferences keyboardPreferences;

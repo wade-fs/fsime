@@ -46,6 +46,14 @@ public class MainActivity
     findViewById(R.id.change_keyboard_button).setOnClickListener(this);
 
     findViewById(R.id.test_input).requestFocus();
+    Bundle extras = getIntent().getExtras();
+    SettingsFragment frag = new SettingsFragment();
+    frag.setArguments(extras);
+    getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.settings_container, frag)
+            .commit();
+
   }
   @Override
   public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {

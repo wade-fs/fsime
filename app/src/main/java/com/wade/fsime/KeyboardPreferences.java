@@ -3,8 +3,6 @@ package com.wade.fsime;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
 import androidx.preference.PreferenceManager;
 

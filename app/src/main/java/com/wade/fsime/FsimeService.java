@@ -20,6 +20,7 @@ import android.view.inputmethod.InputConnection;
 
 import com.wade.MathParser.MathParser;
 import com.wade.libs.BDatabase;
+import com.wade.mil.Mil;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
 import com.wade.utilities.Stringy;
@@ -38,7 +39,6 @@ import java.util.Map;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
-import com.wade.mil.Mil;
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
 */
