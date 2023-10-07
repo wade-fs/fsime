@@ -20,7 +20,6 @@ import android.view.inputmethod.InputConnection;
 
 import com.wade.MathParser.MathParser;
 import com.wade.libs.BDatabase;
-import com.wade.mil.Mil;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
 import com.wade.utilities.Stringy;
@@ -39,6 +38,7 @@ import java.util.Map;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
+import com.wade.mil.Mil;
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
 */
@@ -110,6 +110,8 @@ public class FsimeService
     private boolean inputIsPassword;
     BDatabase bdatabase;
     private Mil mil;
+    KeyboardPreferences sharedPreferences;
+    Map<Integer,String> codeMaps = new HashMap<Integer, String>();
 
     @Override
     public void onCreate() {
@@ -124,6 +126,16 @@ public class FsimeService
 
         updateCandidateOrderPreference();
         mil = new Mil();
+        codeMaps.put(KeyEvent.KEYCODE_0, "Ctrl0");
+        codeMaps.put(KeyEvent.KEYCODE_1, "Ctrl1");
+        codeMaps.put(KeyEvent.KEYCODE_2, "Ctrl2");
+        codeMaps.put(KeyEvent.KEYCODE_3, "Ctrl3");
+        codeMaps.put(KeyEvent.KEYCODE_4, "Ctrl4");
+        codeMaps.put(KeyEvent.KEYCODE_5, "Ctrl5");
+        codeMaps.put(KeyEvent.KEYCODE_6, "Ctrl6");
+        codeMaps.put(KeyEvent.KEYCODE_7, "Ctrl7");
+        codeMaps.put(KeyEvent.KEYCODE_8, "Ctrl8");
+        codeMaps.put(KeyEvent.KEYCODE_9, "Ctrl9");
     }
 
     @SuppressLint("InflateParams")
@@ -149,6 +161,7 @@ public class FsimeService
         inputContainer.initialiseCandidatesView(this);
         inputContainer.initialiseKeyboardView(this, loadSavedKeyboard());
 
+        sharedPreferences = new KeyboardPreferences(this);
         return inputContainer;
     }
 
@@ -428,11 +441,15 @@ public class FsimeService
                     KeyEvent[] events = mKeyCharacterMap.getEvents(valueText.toCharArray());
 
                     for (KeyEvent event2 : events) {
-                        // We get key events for both UP and DOWN actions,
-                        // so we may just need one.
+                        // 其實只做一次
                         if (event2.getAction() == 0) {
                             int keycode = event2.getKeyCode();
-                            keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                            String hk = sharedPreferences.getHotkey(codeMaps.get(keycode));
+                            if (hk.length() > 0) {
+                                effectStrokeAppend(hk);
+                            } else {
+                                keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                            }
                         }
                         break;
                     }

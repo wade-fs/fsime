@@ -19,6 +19,7 @@
 	- 例如：從 Shift 按下後滑到 a 會輸出 A
 	- 例如：從 Ctrl 按下後，滑到 c 會輸出 Ctrl-C
 - ESC 旁邊紅色按鍵是 Ctrl-Alt-Delete
+- Hotkey 目前支援 Ctrl-0 至 Ctrl-9, 未設定時（空字串）以 Ctrl-KEY 送出
 
 # app 下載: app/release/com.wade.fsime-231002.apk
 

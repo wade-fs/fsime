@@ -4,17 +4,17 @@
     parent="Theme.MaterialComponents.Light.DarkActionBar"
   >
     <!-- Base -->
-    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textColor">@android:color/black</item>
     <item name="android:textColorHint">@color/umbrella_grey</item>
-    <item name="android:windowBackground">@color/very_dark_grey</item>
+    <item name="android:windowBackground">@android:color/white</item>
     <!-- Primary -->
-    <item name="colorPrimary">@color/umbrella_yellow</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryVariant">@color/yellow</item>
-    <item name="colorOnPrimary">@android:color/black</item>
+    <item name="colorOnPrimary">@color/yellow</item>
     <!-- Secondary -->
-    <item name="colorSecondary">@color/umbrella_orange</item>
+    <item name="colorSecondary">@color/colorPrimary</item>
     <item name="colorSecondaryVariant">@color/orange</item>
-    <item name="colorOnSecondary">@android:color/black</item>
+    <item name="colorOnSecondary">@android:color/white</item>
     <!-- Components -->
     <item name="editTextStyle">@style/InputText</item>
     <item name="toolbarStyle">@style/InputToolbar</item>

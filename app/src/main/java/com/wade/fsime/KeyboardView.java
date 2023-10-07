@@ -39,9 +39,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
-import com.wade.mil.Mil;
-
 import java.util.List;
+import com.wade.mil.Mil;
 
 /*
   A view that holds a keyboard.
