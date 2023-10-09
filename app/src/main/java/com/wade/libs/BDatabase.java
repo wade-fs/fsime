@@ -122,7 +122,7 @@ public class BDatabase extends SQLiteAssetHelper {
         return list;
     }
     @SuppressLint("Range")
-    public ArrayList<String> getWord(String k, int start, int max, String table){
+    public ArrayList<String> getWord(String k, int start, int max, String table) {
         if (db == null) db = getWritableDatabase();
         if (k.length() == 0) return new ArrayList<>();
         ArrayList<String> list = new ArrayList<>();
@@ -133,6 +133,10 @@ public class BDatabase extends SQLiteAssetHelper {
         k = k.toLowerCase(Locale.ENGLISH);
 
         ArrayList<String> tables = new ArrayList<>();
+        if (!(table.equals("mix") || table.equals("ji") || table.equals("cj") ||
+            table.equals("stroke") ||table.equals("sym"))) {
+            table = "mix";
+        }
         if (table.equals("mix")) {
 			tables.add("mix");
             tables.add("sym");
