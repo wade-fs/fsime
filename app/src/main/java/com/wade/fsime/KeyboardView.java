@@ -315,7 +315,7 @@ public class KeyboardView
                 keyTextShiftPaint.setColor(key.textColour);
             } else {
                 switch (keyboard.name) {
-                    case "mix" -> {
+                    case "mix","pure", "full" -> {
                         if (key.isPreviewable) {
                             keyTextPaint.setColor(key.textColour);
                         }

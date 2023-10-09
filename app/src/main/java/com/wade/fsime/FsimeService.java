@@ -56,13 +56,15 @@ public class FsimeService
     private static final String ESC_KEY_VALUE_TEXT = "ESC";
     private static final String BACKSPACE_VALUE_TEXT = "BACKSPACE";
     private static final String SPACE_BAR_VALUE_TEXT = "SPACE";
+    private static final String KEYBOARD_NAME_FULL = "full";
     private static final String KEYBOARD_NAME_FSIME = "mix";
+    private static final String KEYBOARD_NAME_PURE = "pure";
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
     private static final String KEYBOARD_NAME_STROKE = "stroke";
     private static final String KEYBOARD_NAME_MIL = "mil";
 
-    Keyboard fsimeKeyboard, jiKeyboard, cjKeyboard, strokeKeyboard, milKeyboard;
+    Keyboard fullKB, fsimeKB, pureKB, jiKB, cjKB, strokeKB, milKB;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
 
@@ -142,18 +144,22 @@ public class FsimeService
     @Override
     public View onCreateInputView() {
         bdatabase = new BDatabase(getApplicationContext());
-        fsimeKeyboard = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
-        jiKeyboard = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
-        cjKeyboard = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
-        strokeKeyboard = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
-        milKeyboard = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
+        fullKB = new Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL);
+        fsimeKB = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
+        pureKB = new Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE);
+        jiKB = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
+        cjKB = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
+        strokeKB = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
+        milKB = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
 
         nameFromKeyboard = new HashMap<>();
-        nameFromKeyboard.put(fsimeKeyboard, KEYBOARD_NAME_FSIME);
-        nameFromKeyboard.put(jiKeyboard, KEYBOARD_NAME_JI);
-        nameFromKeyboard.put(cjKeyboard, KEYBOARD_NAME_CJ);
-        nameFromKeyboard.put(strokeKeyboard, KEYBOARD_NAME_STROKE);
-        nameFromKeyboard.put(milKeyboard, KEYBOARD_NAME_MIL);
+        nameFromKeyboard.put(fullKB, KEYBOARD_NAME_FULL);
+        nameFromKeyboard.put(fsimeKB, KEYBOARD_NAME_FSIME);
+        nameFromKeyboard.put(pureKB, KEYBOARD_NAME_PURE);
+        nameFromKeyboard.put(jiKB, KEYBOARD_NAME_JI);
+        nameFromKeyboard.put(cjKB, KEYBOARD_NAME_CJ);
+        nameFromKeyboard.put(strokeKB, KEYBOARD_NAME_STROKE);
+        nameFromKeyboard.put(milKB, KEYBOARD_NAME_MIL);
         keyboardFromName = Mappy.invertMap(nameFromKeyboard);
         keyboardSet = nameFromKeyboard.keySet();
 
@@ -172,7 +178,7 @@ public class FsimeService
         if (savedKeyboard != null) {
             return savedKeyboard;
         } else {
-            return fsimeKeyboard;
+            return fullKB;
         }
     }
 
@@ -503,18 +509,22 @@ public class FsimeService
             if (keyboardName == null) {
                 return;
             }
-            if (keyboard.swipeDir == 1) { // right fsime > ji > cj > stroke > mil
+            if (keyboard.swipeDir == 1) {
                 keyboard = switch (keyboardName) {
-                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_PURE);
+                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_JI);
                     case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
                     case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                    default -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    default -> keyboardFromName.get(KEYBOARD_NAME_FULL);
                 };
             } else { // left  fsime > mil > stroke > cj > ji
                 keyboard = switch (keyboardName) {
-                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_MIL);
+                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_FULL);
+                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_PURE);
                     case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_JI);
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_CJ);
                     default -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
@@ -545,19 +555,15 @@ public class FsimeService
             }
             double res = parser.parse(exps[exps.length-1]);
             list.add(Double.toString(res));
-            Log.d("fsime", "res: "+res+" list: "+list.toString());
         } catch (Exception e) {
-            Log.d("fsime", "exp: "+exps[exps.length-1]+" exception: "+e.toString());
         }
         mComposing = exp;
-        Log.d("fsime", "exp: "+exp+" list: "+list.toString());
         setCandidateList(list);
     }
 
     private void effectStrokeAppend(final String key) {
         final String newInputSequence = mComposing + key;
         final List<String> list = computeCandidateList(newInputSequence);
-        Log.d("fsime", newInputSequence+": "+list.toString());
         if (list.size() == 1) {
             MathParser parser = MathParser.create();
             try {

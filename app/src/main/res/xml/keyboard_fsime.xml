@@ -7,52 +7,8 @@
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
     app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
-        <Key
-            app:keyDisplayText="\u238B"
-            app:keyIsPreviewable="false"
-            app:keyIsLongPressable="true"
-            app:keyValueText="ESC"
-            app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="⎆"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_red" />
-        <Key app:keyValueText="⇱" 
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key app:keyValueText="⇲"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key app:keyValueText="⇞"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_blue" />
-        <Key app:keyValueText="⇟" 
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_blue" />
-        <Key app:keyValueText="←"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key app:keyValueText="↑"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key app:keyValueText="↓"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key app:keyValueText="→"
-            app:keyIsPreviewable="false"
-			app:keyTextColour="@color/umbrella_yellow" />
-        <Key
-            app:keyDisplayText="\u232B"
-            app:keyIsPreviewable="false"
-            app:keyIsRepeatable="true"
-            app:keyValueText="BACKSPACE"
-            app:keysAreShiftable="false"
-            app:keyTextColour="@color/umbrella_orange" />
-    </Row>
     <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
-        <Key
-            app:keyValueText="`"
-            app:keyValueTextShifted="~" />
+        <!-- Digits -->
         <Key
             app:keyValueText="1"
             app:keyValueTextShifted="!"
@@ -108,16 +64,21 @@
             app:keyValueTextShifted=")"
             app:ji="ㄢ"
             />
+        <Key
+            app:keyDisplayText="\u232B"
+            app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
+            app:keyValueText="BACKSPACE"
+            app:keysAreShiftable="false"
+            app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row
         app:keyWidth="8.33%"
         app:keysAreShiftable="true">
+        <!-- Letters row 1 -->
         <Key
-            app:keyDisplayText="\u21B9"
-            app:keyIsPreviewable="false"
-            app:keyIsLongPressable="true"
-            app:keyValueText="TAB"
-            app:keyTextColour="@color/umbrella_orange" />
+            app:keyValueText="`"
+            app:keyValueTextShifted="~" />
         <Key
             app:cj="手"
             app:ji="ㄆ"
@@ -237,7 +198,11 @@
             app:keyIsPreviewable="false"
             app:keyValueText="SHIFT"
             app:keyValueTextShifted="⬆"
-            app:keyWidth="18.18%"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u2303"
+            app:keyIsPreviewable="false"
+            app:keyValueText="CTRL"
             app:keyTextColour="@color/umbrella_orange" />
         <!-- Letters row 3 -->
         <Key
@@ -286,9 +251,16 @@
     </Row>
     <Row app:keyWidth="9.09%">
         <Key
-            app:keyDisplayText="\u2303"
+            app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
-            app:keyValueText="CTRL"
+            app:keyIsLongPressable="true"
+            app:keyValueText="ESC"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u21B9"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
         <Key
             app:ji="ㄦ"
@@ -305,7 +277,7 @@
             app:keyIsSwipeable="true"
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
-            app:keyWidth="27.27%" />
+            app:keyWidth="18.18%" />
         <Key
             app:ji="ㄝ"
             app:keyValueText=","
