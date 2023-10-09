@@ -44,6 +44,10 @@
     <attr name="keyValueText" format="string" />
     <attr name="keyDisplayText" format="string" />
     <attr name="keyValueTextShifted" format="string" />
+    <attr name="up" format="string" />
+    <attr name="down" format="string" />
+    <attr name="left" format="string" />
+    <attr name="right" format="string" />
     <attr name="cj" format="string" />
     <attr name="ji" format="string" />
     <attr name="stroke" format="string" />

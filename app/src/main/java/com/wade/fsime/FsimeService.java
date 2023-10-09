@@ -59,12 +59,13 @@ public class FsimeService
     private static final String KEYBOARD_NAME_FULL = "full";
     private static final String KEYBOARD_NAME_FSIME = "mix";
     private static final String KEYBOARD_NAME_PURE = "pure";
+    private static final String KEYBOARD_NAME_DIGIT= "digit";
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
     private static final String KEYBOARD_NAME_STROKE = "stroke";
     private static final String KEYBOARD_NAME_MIL = "mil";
 
-    Keyboard fullKB, fsimeKB, pureKB, jiKB, cjKB, strokeKB, milKB;
+    Keyboard fullKB, fsimeKB, pureKB, digitKB, jiKB, cjKB, strokeKB, milKB;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
 
@@ -147,6 +148,7 @@ public class FsimeService
         fullKB = new Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL);
         fsimeKB = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
         pureKB = new Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE);
+        digitKB = new Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT);
         jiKB = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
         cjKB = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
         strokeKB = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
@@ -156,6 +158,7 @@ public class FsimeService
         nameFromKeyboard.put(fullKB, KEYBOARD_NAME_FULL);
         nameFromKeyboard.put(fsimeKB, KEYBOARD_NAME_FSIME);
         nameFromKeyboard.put(pureKB, KEYBOARD_NAME_PURE);
+        nameFromKeyboard.put(digitKB, KEYBOARD_NAME_DIGIT);
         nameFromKeyboard.put(jiKB, KEYBOARD_NAME_JI);
         nameFromKeyboard.put(cjKB, KEYBOARD_NAME_CJ);
         nameFromKeyboard.put(strokeKB, KEYBOARD_NAME_STROKE);
@@ -513,7 +516,8 @@ public class FsimeService
                 keyboard = switch (keyboardName) {
                     case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
                     case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_PURE);
-                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_DIGIT);
+                    case KEYBOARD_NAME_DIGIT -> keyboardFromName.get(KEYBOARD_NAME_JI);
                     case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
                     case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
@@ -521,13 +525,14 @@ public class FsimeService
                 };
             } else { // left  fsime > mil > stroke > cj > ji
                 keyboard = switch (keyboardName) {
-                    case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_FULL);
-                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
-                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_PURE);
-                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_MIL -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_CJ);
-                    default -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
+                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_JI);
+                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_DIGIT);
+                    case KEYBOARD_NAME_DIGIT -> keyboardFromName.get(KEYBOARD_NAME_PURE);
+                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
+                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_FULL);
+                    default -> keyboardFromName.get(KEYBOARD_NAME_MIL);
                 };
             }
             inputContainer.setKeyboard(keyboard);

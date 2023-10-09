@@ -41,8 +41,8 @@ public class Key {
     public boolean isPreviewable;
     public String valueText;
     public String displayText; // overrides valueText drawn
-//    public String valueTextShifted; // overrides displayText drawn when shifted
     public String shiftText, cjText, jiText, strokeText;
+    public String upText, downText, leftText, rightText;
 
     // Key dimensions
     public int width;
@@ -120,9 +120,16 @@ public class Key {
         }
 
         jiText = attributesArray.getString(R.styleable.Key_ji);
-        if (jiText == null) {
-            jiText = "";
-        }
+        if (jiText == null) { jiText = ""; }
+
+        upText = attributesArray.getString(R.styleable.Key_up);
+        if (upText == null) { upText = ""; }
+        downText = attributesArray.getString(R.styleable.Key_down);
+        if (downText == null) { downText = ""; }
+        leftText = attributesArray.getString(R.styleable.Key_left);
+        if (leftText == null) { leftText = ""; }
+        rightText = attributesArray.getString(R.styleable.Key_right);
+        if (rightText == null) { rightText = ""; }
 
         width = Valuey.getDimensionOrFraction(
                 attributesArray,
