@@ -124,10 +124,13 @@ public class Key {
 
         upText = attributesArray.getString(R.styleable.Key_up);
         if (upText == null) { upText = ""; }
+
         downText = attributesArray.getString(R.styleable.Key_down);
         if (downText == null) { downText = ""; }
+
         leftText = attributesArray.getString(R.styleable.Key_left);
         if (leftText == null) { leftText = ""; }
+
         rightText = attributesArray.getString(R.styleable.Key_right);
         if (rightText == null) { rightText = ""; }
 

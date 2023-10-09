@@ -7,7 +7,7 @@
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
     app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
         <Key
             app:keyValueText="1"
             app:up="!"
@@ -52,7 +52,7 @@
             />
         <Key
             app:keyValueText="7"
-            app:up="\U0026"
+            app:up="\u0026"
             app:right="u"
             app:left="j"
             app:down="m"
@@ -86,9 +86,7 @@
             app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
-    <Row
-        app:keyWidth="9.09%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
