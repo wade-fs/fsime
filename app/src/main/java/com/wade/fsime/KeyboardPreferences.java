@@ -38,5 +38,5 @@ public class KeyboardPreferences {
 
 //    private void write(String key, boolean value) { preferences.edit().putBoolean(key, value).apply(); }
 //    private void write(String key, int value) { preferences.edit().putInt(key, value).apply(); }
-//    private void write(String key, String value) { preferences.edit().putString(key, value).apply(); }
+    void write(String key, String value) { preferences.edit().putString(key, value).apply(); }
 }

@@ -11,6 +11,14 @@
     2. If your existing input method provides no means of changing keyboards:
   </string>
   <string name="label__main_activity__change_keyboard_button">Change keyboard</string>
+
+  <string name="text__main_activity__candidate_order">
+    3. Candidate order:
+  </string>
+  <string name="label__main_activity__candidate_order">Candidate order</string>
+  <string name="label__main_activity__traditional_first">Traditional first</string>
+  <string name="label__main_activity__simplified_first">Simplified first</string>
+
   <string name="hint__main_activity__test_input">3. Test input here</string>
   <string name="label__main_activity__return">Return</string>
   <!-- Backspace: U+232B ERASE TO THE LEFT -->
@@ -48,7 +56,29 @@
     <string name="btsearch">"Search&gt; "</string>
     <string name="btsave">"&lt;Save&gt; "</string>
     <string name="btback">"&lt;Backup DB&gt; "</string>
-    <string name="subtype_en_US">%s by wade</string>
+    <string name="subtype_en_US">%s by Wade</string>
+    <string name="subtype_zh">%s by Wade</string>
 
- <string name="hotkey">Hotkey</string>
+    <string name="hotkey">Hotkey</string>
+    <string name="hotkey_value">Hotkey string</string>
+    <string name="hk_ctrl_1">^1</string>
+    <string name="hk_ctrl_2">^2</string>
+    <string name="hk_ctrl_3">^3</string>
+    <string name="hk_ctrl_4">^4</string>
+    <string name="hk_ctrl_5">^5</string>
+    <string name="hk_ctrl_6">^6</string>
+    <string name="hk_ctrl_7">^7</string>
+    <string name="hk_ctrl_8">^8</string>
+    <string name="hk_ctrl_9">^9</string>
+    <string name="hk_ctrl_0">^0</string>
+    <string name="hk_ctrl_q">^q</string>
+    <string name="hk_ctrl_w">^w</string>
+    <string name="hk_ctrl_e">^e</string>
+    <string name="hk_ctrl_r">^r</string>
+    <string name="hk_ctrl_t">^t</string>
+    <string name="hk_ctrl_y">^y</string>
+    <string name="hk_ctrl_u">^u</string>
+    <string name="hk_ctrl_i">^i</string>
+    <string name="hk_ctrl_o">^o</string>
+    <string name="hk_ctrl_p">^p</string>
 </resources>

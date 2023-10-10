@@ -40,6 +40,16 @@
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">match_parent</item>
   </style>
+  <style name="StrokeInputDialogButton" parent="Theme.Fsime">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:textSize">@dimen/font_size__dialog_button</item>
+    <item name="android:padding">@dimen/padding__dialog_button</item>
+  </style>
+  <style name="StrokeInputAlert" parent="Theme.Fsime">
+    <item name="android:windowBackground">@color/very_dark_grey</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
   <style name="InputAlert" parent="Theme.Fsime">
     <item name="android:windowBackground">@color/very_dark_grey</item>
     <item name="android:backgroundDimEnabled">true</item>

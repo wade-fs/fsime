@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import com.readystatesoftware.android.sqliteassethelper.BuildConfig;
 import com.wade.MathParser.MathParser;
 import com.wade.libs.BDatabase;
 import com.wade.utilities.Contexty;
@@ -140,6 +141,16 @@ public class FsimeService
         codeMaps.put(KeyEvent.KEYCODE_7, "Ctrl7");
         codeMaps.put(KeyEvent.KEYCODE_8, "Ctrl8");
         codeMaps.put(KeyEvent.KEYCODE_9, "Ctrl9");
+        codeMaps.put(KeyEvent.KEYCODE_Q, "CtrlQ");
+        codeMaps.put(KeyEvent.KEYCODE_W, "CtrlW");
+        codeMaps.put(KeyEvent.KEYCODE_E, "CtrlE");
+        codeMaps.put(KeyEvent.KEYCODE_R, "CtrlR");
+        codeMaps.put(KeyEvent.KEYCODE_T, "CtrlT");
+        codeMaps.put(KeyEvent.KEYCODE_Y, "CtrlY");
+        codeMaps.put(KeyEvent.KEYCODE_U, "CtrlU");
+        codeMaps.put(KeyEvent.KEYCODE_I, "CtrlI");
+        codeMaps.put(KeyEvent.KEYCODE_O, "CtrlO");
+        codeMaps.put(KeyEvent.KEYCODE_P, "CtrlP");
     }
 
     @SuppressLint("InflateParams")
