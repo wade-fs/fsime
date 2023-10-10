@@ -23,10 +23,7 @@ import com.wade.utilities.Contexty;
 /*
   The main activity of the application.
 */
-public class MainActivity
-  extends AppCompatActivity
-  implements View.OnClickListener, PreferenceFragmentCompat.OnPreferenceStartFragmentCallback
-{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
   public static final String CANDIDATE_ORDER_PREFERENCE_KEY = "candidateOrderPreference";
   public static final String CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST = "TRADITIONAL_FIRST";
   public static final String CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST = "SIMPLIFIED_FIRST";
@@ -53,23 +50,6 @@ public class MainActivity
             .beginTransaction()
             .replace(R.id.settings_container, frag)
             .commit();
-
-  }
-  @Override
-  public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
-    // Instantiate the new Fragment
-    final Bundle args = pref.getExtras();
-    final Fragment fragment = getSupportFragmentManager().getFragmentFactory().instantiate(
-            getClassLoader(),
-            pref.getFragment());
-    fragment.setArguments(args);
-    fragment.setTargetFragment(caller, 0);
-    // Replace the existing Fragment with the new Fragment
-    getSupportFragmentManager().beginTransaction()
-            .replace(R.id.settings_container, fragment)
-            .addToBackStack(null)
-            .commit();
-    return true;
   }
   public static boolean isTraditionalPreferred(final String candidateOrderPreference)
   {
