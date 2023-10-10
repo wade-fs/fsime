@@ -12,5 +12,8 @@
 		<EditTextPreference android:defaultValue="" android:key="Ctrl8" android:title="^8" />
 		<EditTextPreference android:defaultValue="" android:key="Ctrl9" android:title="^9" />
 		<EditTextPreference android:defaultValue="" android:key="Ctrl0" android:title="^0" />
+		<EditTextPreference android:defaultValue="" android:key="CtrlQ" android:title="^q" />
+		<EditTextPreference android:defaultValue="" android:key="CtrlW" android:title="^w" />
+		<EditTextPreference android:defaultValue="" android:key="CtrlE" android:title="^e" />
 	</PreferenceCategory>
 </PreferenceScreen>

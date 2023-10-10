@@ -8,70 +8,70 @@
     app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
     <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="1"
             app:up="!"
             app:right="q"
             app:left="a"
             app:down="z"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="2"
             app:up="@"
             app:right="w"
             app:left="s"
             app:down="x"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="3"
             app:up="#"
             app:right="e"
             app:left="d"
             app:down="c"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="4"
             app:up="$"
             app:right="r"
             app:left="f"
             app:down="v"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="5"
             app:up="%"
             app:right="t"
             app:left="g"
             app:down="b"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="6"
             app:up="^"
             app:right="y"
             app:left="h"
             app:down="n"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="7"
             app:up="\u0026"
             app:right="u"
             app:left="j"
             app:down="m"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="8"
             app:up="*"
             app:right="i"
             app:left="k"
             app:down=""
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="9"
             app:up="("
             app:right="o"
             app:left="["
             app:down="l"
             />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="0"
             app:up=")"
             app:right="p"
@@ -109,7 +109,7 @@
             app:keyIsPreviewable="false"
             app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="="
             app:up="+"
             app:right="-"
@@ -123,25 +123,25 @@
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
 			app:keyWidth="18.18%" />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText=","
             app:up="&lt;"
             app:right=":"
             app:left="\\"
             app:down=";" />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="."
             app:up=">"
             app:right="?"
             app:left=","
             app:down="\u0022" />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyValueText="~"
             app:up="`"
             app:right="°"
             app:left="√"
             app:down="∫" />
-        <Key
+        <Key app:keyIsSwipeable="true"
             app:keyDisplayText="\u23CE"
             app:keyIsPreviewable="false"
             app:keyValueText="ENTER"

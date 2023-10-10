@@ -115,6 +115,7 @@ public class FsimeService
     private Mil mil;
     KeyboardPreferences sharedPreferences;
     Map<Integer,String> codeMaps = new HashMap<Integer, String>();
+    final int SWIPE_NONE=0, SWIPE_RIGHT=1, SWIPE_LEFT=2, SWIPE_UP=3, SWIPE_DOWN=4;
 
     @Override
     public void onCreate() {
@@ -505,14 +506,14 @@ public class FsimeService
 
     @Override
     public void onSwipe(final String valueText) {
-        if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-            Keyboard keyboard = inputContainer.getKeyboard();
-            final String keyboardName = keyboard.name;
+        Keyboard keyboard = inputContainer.getKeyboard();
+        String keyboardName = keyboard.name;
 
+        if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
             if (keyboardName == null) {
                 return;
             }
-            if (keyboard.swipeDir == 1) {
+            if (keyboard.swipeDir == SWIPE_RIGHT || keyboard.swipeDir == SWIPE_DOWN) {
                 keyboard = switch (keyboardName) {
                     case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
                     case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_PURE);
@@ -523,7 +524,7 @@ public class FsimeService
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
                     default -> keyboardFromName.get(KEYBOARD_NAME_FULL);
                 };
-            } else { // left  fsime > mil > stroke > cj > ji
+            } else if (keyboard.swipeDir == SWIPE_LEFT || keyboard.swipeDir == SWIPE_UP) { // left  fsime > mil > stroke > cj > ji
                 keyboard = switch (keyboardName) {
                     case KEYBOARD_NAME_MIL -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
                     case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_CJ);
@@ -537,6 +538,9 @@ public class FsimeService
             }
             inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
+            return;
+        } else {
+            effectStrokeAppend(valueText);
         }
     }
 

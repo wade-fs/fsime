@@ -31,6 +31,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -57,7 +58,8 @@ public class KeyboardView
     private static final int KEY_REPEAT_START_MILLISECONDS = 500;
     private static final int KEY_LONG_PRESS_MILLISECONDS = 750;
 
-    private static final int SWIPE_ACTIVATION_DISTANCE = 40;
+    private static final int SWIPE_MX = 40;
+    private static final int SWIPE_MY = 10;
 
     public static final int SHIFT_DISABLED = 0;
     private static final int SHIFT_SINGLE = 1;
@@ -86,8 +88,9 @@ public class KeyboardView
     private int keyRepeatIntervalMilliseconds;
 
     // Horizontal swipes
-    private int pointerDownX;
-    private int swipeModeIsActivated = 0; // 0: false, 1: right, 2: left
+    private int pointerDownX, pointerDownY;
+    final int SWIPE_NONE=0, SWIPE_RIGHT=1, SWIPE_LEFT=2, SWIPE_UP=3, SWIPE_DOWN=4;
+    private int swipeDir = SWIPE_NONE; // 0: false, 1: right, 2: left, 3: up, 4: down
 
     // Shift key
     private int shiftPointerId = NONEXISTENT_POINTER_ID, ctrlPointerId = NONEXISTENT_POINTER_ID;
@@ -302,13 +305,13 @@ public class KeyboardView
             keyBorderPaint.setStrokeWidth(key.borderThickness);
 
             final int keyOtherColour;
-            if (key == activeKey && swipeModeIsActivated > 0) {
+            if (key == activeKey && swipeDir != SWIPE_NONE) {
                 keyOtherColour = key.textSwipeColour;
             } else {
                 keyOtherColour = key.otherColour;
             }
             final int keyTextColour;
-            if (key == activeKey && swipeModeIsActivated > 0) { keyTextColour = key.textSwipeColour;
+            if (key == activeKey && swipeDir != SWIPE_NONE) { keyTextColour = key.textSwipeColour;
             } else if (!key.isPreviewable) { keyTextColour = key.textColour;
             } else { keyTextColour = keyOtherColour; }
 
@@ -472,7 +475,7 @@ public class KeyboardView
                 if (activePointerId != NONEXISTENT_POINTER_ID) {
                     sendUpEvent(activeKey, false);
                 }
-                sendDownEvent(downKey, downPointerId, downPointerX);
+                sendDownEvent(downKey, downPointerId, downPointerX, downPointerY);
             }
             case MotionEvent.ACTION_MOVE -> {
                 for (int index = 0; index < eventPointerCount; index++) {
@@ -492,7 +495,7 @@ public class KeyboardView
                         }
 
                         if (moveKey != activeKey || isSwipeableKey(activeKey)) {
-                            sendMoveEvent(moveKey, movePointerId, movePointerX);
+                            sendMoveEvent(moveKey, movePointerId, movePointerX, movePointerY);
                             break touchLogic;
                         }
 
@@ -545,12 +548,13 @@ public class KeyboardView
         invalidate();
     }
 
-    private void sendDownEvent(final Key key, final int pointerId, final int x) {
+    private void sendDownEvent(final Key key, final int pointerId, final int x, final int y) {
         if (isSwipeableKey(key)) {
             pointerDownX = x;
+            pointerDownY = y;
         }
-        swipeModeIsActivated = 0;
-        keyboard.swipeDir = swipeModeIsActivated;
+        swipeDir = SWIPE_NONE;
+        keyboard.swipeDir = swipeDir;
 
         if (shiftPointerId != NONEXISTENT_POINTER_ID) {
             shiftMode = SHIFT_HELD;
@@ -567,25 +571,46 @@ public class KeyboardView
         invalidate();
     }
 
-    private void sendMoveEvent(final Key key, final int pointerId, final int x) {
+    private String swipe_dir(int sd) {
+        return switch (sd) {
+            case SWIPE_NONE -> "NONE";
+            case SWIPE_UP -> "UP";
+            case SWIPE_DOWN -> "DOWN";
+            case SWIPE_LEFT -> "LEFT";
+            case SWIPE_RIGHT -> "RIGHT";
+            default -> "UNKNOWN";
+        };
+    }
+    private void sendMoveEvent(final Key key, final int pointerId, final int x, final int y) {
         boolean shouldRedrawKeyboard = false;
-
-        if (swipeModeIsActivated > 0) {
-            if (Math.abs(x - pointerDownX) < SWIPE_ACTIVATION_DISTANCE) {
-                swipeModeIsActivated = 0;
-                keyboard.swipeDir = swipeModeIsActivated;
+        int dx = Math.abs(x - pointerDownX);
+        int dy = Math.abs(y - pointerDownY);
+        Log.d("KB", "swipeDir from "+swipe_dir(swipeDir)+" ("+dx+", "+dy+")");
+        if (swipeDir != SWIPE_NONE) {
+            if (dx < SWIPE_MX && dy < SWIPE_MY) {
+                swipeDir = SWIPE_NONE;
+                keyboard.swipeDir = swipeDir;
                 shouldRedrawKeyboard = true;
             }
         } else if (key == activeKey && isSwipeableKey(key)) {
-            if (Math.abs(x - pointerDownX) > SWIPE_ACTIVATION_DISTANCE) {
-                if (x > pointerDownX) {
-                    swipeModeIsActivated = 1;
+            if (dx >= SWIPE_MX || dy >= SWIPE_MY) {
+                if (x >= pointerDownX) {
+                    if (y >= pointerDownY) {
+                        swipeDir = SWIPE_DOWN;
+                    } else {
+                        swipeDir = SWIPE_RIGHT;
+                    }
                 } else {
-                    swipeModeIsActivated = 2;
+                    if (y >= pointerDownY) {
+                        swipeDir = SWIPE_LEFT;
+                    } else {
+                        swipeDir = SWIPE_UP;
+                    }
                 }
-                keyboard.swipeDir = swipeModeIsActivated;
+                keyboard.swipeDir = swipeDir;
                 removeAllExtendedPressHandlerMessages();
                 shouldRedrawKeyboard = true;
+                Log.d("KB", "swipeDir to "+swipe_dir(swipeDir));
             }
         } else { // move is a key change
             activeKey = key;
@@ -603,8 +628,25 @@ public class KeyboardView
     }
 
     private void sendUpEvent(final Key key, final boolean shouldRedrawKeyboard) {
-        if (swipeModeIsActivated > 0) {
-            keyboardListener.onSwipe(activeKey.valueText);
+        if (swipeDir != SWIPE_NONE) {
+            if (activeKey.upText.length() > 0) {
+                switch (swipeDir) {
+                    case SWIPE_UP:
+                        keyboardListener.onSwipe(activeKey.upText);
+                        break;
+                    case SWIPE_DOWN:
+                        keyboardListener.onSwipe(activeKey.downText);
+                        break;
+                    case SWIPE_LEFT:
+                        keyboardListener.onSwipe(activeKey.leftText);
+                        break;
+                    case SWIPE_RIGHT:
+                        keyboardListener.onSwipe(activeKey.rightText);
+                        break;
+                }
+            } else {
+                keyboardListener.onSwipe(activeKey.valueText);
+            }
         } else if (key != null) {
             if (shiftMode != SHIFT_DISABLED && key.isShiftable) {
                 keyboardListener.onKey(key.shiftText);

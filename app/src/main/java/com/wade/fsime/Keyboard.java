@@ -91,7 +91,7 @@ public class Keyboard {
     private final int screenHeight;
     public String name;
     public int shiftMode = 0, ctrlMode = 0;
-    public int swipeDir = 0;
+    public int swipeDir = 0; // 0:None 1:右 2:左 3:上 4:下
 
     public void setName(String name) {
         this.name = name;
