@@ -21,10 +21,11 @@
 - ESC 旁邊紅色按鍵是 Ctrl-Alt-Delete
 - Hotkey 目前支援 Ctrl-0 至 Ctrl-9, 未設定時（空字串）以 Ctrl-KEY 送出
 - 支援數字鍵盤，只有二行，用滑動的
+- 支援 根號 √(a,b) 運算
 
 # app 下載: app/release/com.wade.fsime-231009.apk
 # History
-- 231010: 支援數字鍵盤，只有二行，用滑動的
+- 231010: 支援數字鍵盤，只有二行，用滑動的, 支援 根號 √(a,b) 運算
 - 231009: 分開全瞎(含數字、方向)+混瞎(數字)+純瞎(無數字)
 
 [1]: https://github.com/stroke-input/stroke-input-android

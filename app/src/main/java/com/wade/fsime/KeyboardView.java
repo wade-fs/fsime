@@ -401,10 +401,10 @@ public class KeyboardView
             if (keyUpText.length() > 0) { canvas.drawText(keyUpText, keyLeftTextX-20, keyUpTextY, keyTextUpPaint); }
 
 			// Ji
-            if (keyDownText.length() > 0) { canvas.drawText(keyDownText, keyRightTextX-20, keyDownTextY, keyTextDownPaint); }
+            if (keyDownText.length() > 0) { canvas.drawText(keyDownText, keyRightTextX-20, keyDownTextY-5, keyTextDownPaint); }
 
 			// Cj
-            if (keyLeftText.length() > 0) { canvas.drawText(keyLeftText, keyLeftTextX-20, keyDownTextY, keyTextLeftPaint); }
+            if (keyLeftText.length() > 0) { canvas.drawText(keyLeftText, keyLeftTextX-20, keyDownTextY-5, keyTextLeftPaint); }
 
 			// Stroke
             if (keyRightText.length() > 0) { canvas.drawText(keyRightText, keyRightTextX-20, keyUpTextY, keyTextRightPaint); }

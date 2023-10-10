@@ -53,8 +53,8 @@ public class Functions {
                     String.class, String.class, double.class, double.class), "∫"));
             functions.add(MathFunction.wrap(Functions.class.getMethod("integral", MathParser.class,
                     String.class, String.class, double.class, double.class, double.class), "∫"));
-            functions.add(MathFunction.wrap(Functions.class.getMethod("radical",
-                    double.class), "√"));
+            functions.add(MathFunction.wrap(Functions.class.getMethod("radical", double.class), "√"));
+            functions.add(MathFunction.wrap(Functions.class.getMethod("radical", double.class, double.class), "√"));
             functions.add(MathFunction.wrap(Functions.class.getMethod("sigma", MathParser.class, String.class,
                     String.class, double.class, double.class), "Σ"));
             functions.add(MathFunction.wrap(Functions.class.getMethod("sigma", MathParser.class, String.class,
