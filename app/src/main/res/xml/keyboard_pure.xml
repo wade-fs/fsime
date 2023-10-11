@@ -11,13 +11,6 @@
         app:keyWidth="8.33%"
         app:keysAreShiftable="true">
         <Key
-            app:keyDisplayText="\u232B"
-            app:keyIsPreviewable="false"
-            app:keyIsRepeatable="true"
-            app:keyValueText="BACKSPACE"
-            app:keysAreShiftable="false"
-            app:keyTextColour="@color/umbrella_orange" />
-        <Key
             app:cj="手"
             app:ji="ㄆ"
             app:keyValueText="q"
@@ -70,6 +63,13 @@
         <Key
             app:keyValueText="["
             app:keyValueTextShifted="{" />
+        <Key
+            app:keyDisplayText="\u232B"
+            app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
+            app:keyValueText="BACKSPACE"
+            app:keysAreShiftable="false"
+            app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row
         app:keyWidth="9.09%"

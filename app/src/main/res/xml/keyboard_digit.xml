@@ -59,7 +59,7 @@
             />
         <Key app:keyIsSwipeable="true"
             app:keyValueText="8"
-            app:up="*"
+            app:up="|"
             app:right="i"
             app:left="k"
             app:down="{"
@@ -133,7 +133,7 @@
             app:keyValueText="."
             app:up=">"
             app:right="?"
-            app:left=","
+            app:left="'"
             app:down="\u0022" />
         <Key app:keyIsSwipeable="true"
             app:keyValueText="~"
