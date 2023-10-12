@@ -23,7 +23,7 @@ import com.wade.MathParser.MathParser;
 import com.wade.libs.BDatabase;
 import com.wade.mil.Mil;
 import com.wade.utilities.Contexty;
-import com.wade.utilities.Mappy;
+import com.wade.utilities.MappyKt;
 import com.wade.utilities.Stringy;
 
 import java.io.BufferedReader;
@@ -175,7 +175,7 @@ public class FsimeService
         nameFromKeyboard.put(cjKB, KEYBOARD_NAME_CJ);
         nameFromKeyboard.put(strokeKB, KEYBOARD_NAME_STROKE);
         nameFromKeyboard.put(milKB, KEYBOARD_NAME_MIL);
-        keyboardFromName = Mappy.invertMap(nameFromKeyboard);
+        keyboardFromName = MappyKt.invertMap(nameFromKeyboard);
         keyboardSet = nameFromKeyboard.keySet();
 
         inputContainer = (InputContainer) getLayoutInflater().inflate(R.layout.input_container, null);
