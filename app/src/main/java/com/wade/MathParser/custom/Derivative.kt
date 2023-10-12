@@ -1,16 +1,15 @@
-package com.wade.MathParser.custom;
+package com.wade.MathParser.custom
 
-import com.wade.MathParser.exception.MathParserException;
+import com.wade.MathParser.exception.MathParserException
 
 // https://github.com/allusai/calculus-solver/blob/master/Calculus.java
-public class Derivative {
+object Derivative {
     /*
      *These constants can modified to change the accuracy of approximation
      *A smaller epsilon/step size uses more memory but yields a more
      *accurate approximation of the derivative/integral respectively
      */
-    private final static double EPSILON = 0.0000001;
-
+    private const val EPSILON = 0.0000001
 
     /**
      * Calculates the derivative around a certain point using
@@ -19,12 +18,12 @@ public class Derivative {
      * @param x the x-coordinate at which to approximate the derivative
      * @return double  the derivative at the specified point
      */
-    public static double getDerivative(FunctionWrapper function, double x) throws MathParserException {
+    @JvmStatic
+    @Throws(MathParserException::class)
+    fun getDerivative(function: FunctionWrapper, x: Double): Double {
         //The y-coordinates of the points close to the specified x-coordinates
-        double yOne = function.apply(x - EPSILON);
-        double yTwo = function.apply(x + EPSILON);
-
-        return (yTwo - yOne) / (2 * EPSILON);
+        val yOne = function.apply(x - EPSILON)
+        val yTwo = function.apply(x + EPSILON)
+        return (yTwo - yOne) / (2 * EPSILON)
     }
-
 }
