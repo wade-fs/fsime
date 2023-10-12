@@ -28,7 +28,7 @@ import java.util.Locale
 /*
   An individual key.
 */
-class Key(parentRow: Row) {
+class Key(parentRow: Row2) {
     // Key behaviour
     @JvmField
     var isLongPressable = false
@@ -108,7 +108,7 @@ class Key(parentRow: Row) {
     }
 
     constructor(
-        parentRow: Row,
+        parentRow: Row2,
         x: Int,
         y: Int,
         resources: Resources,

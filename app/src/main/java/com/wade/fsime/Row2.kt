@@ -27,7 +27,7 @@ import com.wade.utilities.Valuey.getDimensionOrFraction
 /*
   A row that holds keys.
 */
-class Row(// Row properties
+class Row2(// Row properties
     @JvmField val parentKeyboard: Keyboard, resources: Resources, xmlResourceParser: XmlResourceParser?
 ) {
     @JvmField
