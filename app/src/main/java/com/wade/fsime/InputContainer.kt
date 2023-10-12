@@ -48,7 +48,7 @@ class InputContainer(context: Context?, attributes: AttributeSet?) : FrameLayout
         setBackgroundResource(backgroundResourceId)
     }
 
-    fun setCandidateList(candidateList: List<String?>?) {
+    fun setCandidateList(candidateList: List<String>?) {
         candidatesViewAdapter!!.updateCandidateList(candidateList)
         candidatesView!!.scrollToPosition(0)
     }
