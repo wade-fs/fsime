@@ -51,7 +51,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     private var keyboardSet: Set<Keyboard>? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
-    private var candidateList: List<String?> = ArrayList()
+    private var candidateList: List<String> = ArrayList()
     private val phraseCompletionFirstCodePointList: List<Int> = ArrayList()
     private var inputOptionsBits = 0
     private var enterKeyHasAction = false
@@ -101,17 +101,18 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         cjKB = Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ)
         strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
         milKB = Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL)
-        nameFromKeyboard = HashMap()
-        nameFromKeyboard[fullKB!!] = KEYBOARD_NAME_FULL
-        nameFromKeyboard[fsimeKB!!] = KEYBOARD_NAME_FSIME
-        nameFromKeyboard[pureKB!!] = KEYBOARD_NAME_PURE
-        nameFromKeyboard[digitKB!!] = KEYBOARD_NAME_DIGIT
-        nameFromKeyboard[jiKB!!] = KEYBOARD_NAME_JI
-        nameFromKeyboard[cjKB!!] = KEYBOARD_NAME_CJ
-        nameFromKeyboard[strokeKB!!] = KEYBOARD_NAME_STROKE
-        nameFromKeyboard[milKB!!] = KEYBOARD_NAME_MIL
-        keyboardFromName = invertMap(nameFromKeyboard)
-        keyboardSet = nameFromKeyboard.keys
+        var nfk: HashMap<Keyboard, String?> = HashMap()
+        nfk[fullKB!!] = KEYBOARD_NAME_FULL
+        nfk[fsimeKB!!] = KEYBOARD_NAME_FSIME
+        nfk[pureKB!!] = KEYBOARD_NAME_PURE
+        nfk[digitKB!!] = KEYBOARD_NAME_DIGIT
+        nfk[jiKB!!] = KEYBOARD_NAME_JI
+        nfk[cjKB!!] = KEYBOARD_NAME_CJ
+        nfk[strokeKB!!] = KEYBOARD_NAME_STROKE
+        nfk[milKB!!] = KEYBOARD_NAME_MIL
+        nameFromKeyboard = nfk
+        keyboardFromName = invertMap(nfk)
+        keyboardSet = nfk.keys
         inputContainer = layoutInflater.inflate(R.layout.input_container, null) as InputContainer
         inputContainer!!.initialiseCandidatesView(this)
         inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
@@ -302,7 +303,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     private fun showMilMessage(inputText: String) {
         val btnMsg = mil!!.getBtnMsg(inputText)
         if (btnMsg.length > 0) {
-            val list: List<String?> = listOf(btnMsg)
+            val list: List<String> = listOf(btnMsg)
             setCandidateList(list)
         }
     }
@@ -405,7 +406,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
                 val inputConnection = currentInputConnection
                 val w = getTextBeforeCursor(inputConnection, 1)
                 if (w.length > 0) {
-                    val comp: ArrayList<String?> = bdatabase!!.getCompose(w.substring(0, 1))
+                    val comp: ArrayList<String> = bdatabase!!.getCompose(w.substring(0, 1))
                     comp.add(0, w)
                     setCandidateList(comp)
                 }
@@ -459,7 +460,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
     }
 
-    private fun computeCandidateList(mComposing: String): List<String?> {
+    private fun computeCandidateList(mComposing: String): List<String> {
         return if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_MIL || mComposing.length == 0) {
             emptyList<String>()
         } else bdatabase!!.getWord(
@@ -473,7 +474,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     private fun effectStrokeAppendMil(key: String) {
         val exp = mComposing + key
         val parser = MathParser.create()
-        val list: MutableList<String?> = ArrayList()
+        val list: MutableList<String> = ArrayList()
         list.add(exp)
         val exps = exp.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         try {
@@ -490,7 +491,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
 
     private fun effectStrokeAppend(key: String) {
         val newInputSequence = mComposing + key
-        val list = computeCandidateList(newInputSequence)
+        var list = computeCandidateList(newInputSequence)
         if (list.size == 1) {
             val parser = MathParser.create()
             try {
@@ -500,7 +501,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
                     parser.addExpression(exps[i])
                 }
                 val res = parser.parse(exps[exps.size - 1])
-                list.add(java.lang.Double.toString(res))
+                list += java.lang.Double.toString(res)
+                // list.add(java.lang.Double.toString(res))
             } catch (e: Exception) {
             }
         }
@@ -564,7 +566,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         )
     }
 
-    private fun setCandidateList(candidateList: List<String?>) {
+    private fun setCandidateList(candidateList: List<String>) {
         this.candidateList = candidateList
         inputContainer!!.setCandidateList(candidateList)
     }

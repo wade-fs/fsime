@@ -34,7 +34,7 @@ class CandidatesViewAdapter internal constructor(
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateCandidateList(candidateList: List<String>?) {
+    fun updateCandidateList(candidateList: List<String>) {
         this.candidateList.clear()
         val cl = candidateList!!.toList()
         this.candidateList.addAll(cl)

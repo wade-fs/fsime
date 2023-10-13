@@ -122,14 +122,14 @@ class BDatabase(context: Context?) :
     }
 
     @SuppressLint("Range")
-    fun getWord(k: String, start: Int, max: Int, table: String): ArrayList<String?> {
+    fun getWord(k: String, start: Int, max: Int, table: String): ArrayList<String> {
         var k = k
         var start = start
         var max = max
         var table = table
         if (db == null) db = writableDatabase
         if (k.length == 0) return ArrayList()
-        val list = ArrayList<String?>()
+        val list = ArrayList<String>()
         list.add(k)
         val resExact = ArrayList<B>()
         k = k.lowercase()
@@ -205,7 +205,7 @@ class BDatabase(context: Context?) :
             }
         }
         for (d in resExact) {
-            list.add(d.ch)
+            list.add(d.ch!!)
         }
         return list
     }
