@@ -91,20 +91,6 @@ public class FsimeService
     private Set<Keyboard> keyboardSet;
 
     private InputContainer inputContainer;
-
-    private final Set<Integer> codePointSetTraditional = new HashSet<>();
-    private final Set<Integer> codePointSetSimplified = new HashSet<>();
-    private final Map<Integer, Integer> sortingRankFromCodePointTraditional = new HashMap<>();
-    private final Map<Integer, Integer> sortingRankFromCodePointSimplified = new HashMap<>();
-    private final Set<Integer> commonCodePointSetTraditional = new HashSet<>();
-    private final Set<Integer> commonCodePointSetSimplified = new HashSet<>();
-    private final NavigableSet<String> phraseSetTraditional = new TreeSet<>();
-    private final NavigableSet<String> phraseSetSimplified = new TreeSet<>();
-
-    private Set<Integer> unpreferredCodePointSet;
-    private Map<Integer, Integer> sortingRankFromCodePoint;
-    private NavigableSet<String> phraseSet;
-
     private String mComposing = "";
     private List<String> candidateList = new ArrayList<>();
     private final List<Integer> phraseCompletionFirstCodePointList = new ArrayList<>();
@@ -122,14 +108,6 @@ public class FsimeService
     public void onCreate() {
         super.onCreate();
 
-        loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_TRADITIONAL, codePointSetTraditional);
-        loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_SIMPLIFIED, codePointSetSimplified);
-        loadRankingData(RANKING_FILE_NAME_TRADITIONAL, sortingRankFromCodePointTraditional, commonCodePointSetTraditional);
-        loadRankingData(RANKING_FILE_NAME_SIMPLIFIED, sortingRankFromCodePointSimplified, commonCodePointSetSimplified);
-        loadPhrasesIntoSet(PHRASES_FILE_NAME_TRADITIONAL, phraseSetTraditional);
-        loadPhrasesIntoSet(PHRASES_FILE_NAME_SIMPLIFIED, phraseSetSimplified);
-
-        updateCandidateOrderPreference();
         mil = new Mil();
         codeMaps.put(KeyEvent.KEYCODE_0, "Ctrl0");
         codeMaps.put(KeyEvent.KEYCODE_1, "Ctrl1");
@@ -367,7 +345,6 @@ public class FsimeService
 
         inputConnection.commitText(candidate, 1);
         mComposing = "";
-        setPhraseCompletionCandidateList(inputConnection);
     }
     private void keyDownUp(int keyEventCode, int meta) {
         InputConnection ic = getCurrentInputConnection();
@@ -560,7 +537,6 @@ public class FsimeService
             return Collections.emptyList();
         }
 
-        updateCandidateOrderPreference();
         return bdatabase.getWord(mComposing, 0, 30, inputContainer.getKeyboard().name);
     }
     private void effectStrokeAppendMil(final String key) {
@@ -608,10 +584,6 @@ public class FsimeService
 
             setCandidateList(newCandidateList);
 
-            if (mComposing.length() == 0) {
-                setPhraseCompletionCandidateList(inputConnection);
-            }
-
             inputContainer.setKeyRepeatIntervalMilliseconds(BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8);
         } else {
             final String upToOneCharacterBeforeCursor = getTextBeforeCursor(inputConnection, 1);
@@ -626,8 +598,6 @@ public class FsimeService
             } else { // for apps like Termux
                 keyDownUp(KeyEvent.KEYCODE_DEL, inputContainer.getKeyboard().shiftMode);
             }
-
-            setPhraseCompletionCandidateList(inputConnection);
 
             final int nextBackspaceIntervalMilliseconds =
                     (Stringy.isAscii(upToOneCharacterBeforeCursor))
@@ -673,106 +643,6 @@ public class FsimeService
         inputContainer.setCandidateList(candidateList);
     }
 
-    private void setPhraseCompletionCandidateList(final InputConnection inputConnection) {
-        List<String> phraseCompletionCandidateList = computePhraseCompletionCandidateList(inputConnection);
-
-        phraseCompletionFirstCodePointList.clear();
-        for (final String phraseCompletionCandidate : phraseCompletionCandidateList) {
-            phraseCompletionFirstCodePointList.add(Stringy.getFirstCodePoint(phraseCompletionCandidate));
-        }
-
-        setCandidateList(phraseCompletionCandidateList);
-    }
-
-    /*
-      Candidate comparator for a string.
-    */
-    private Comparator<String> candidateComparator(
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        return
-                Comparator.comparingInt(
-                        string ->
-                                computeCandidateRank(
-                                        string,
-                                        unpreferredCodePointSet,
-                                        sortingRankFromCodePoint,
-                                        phraseCompletionFirstCodePointList
-                                )
-                );
-    }
-
-    /*
-      Compute the candidate rank for a string.
-    */
-    private int computeCandidateRank(
-            final String string,
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        final int firstCodePoint = Stringy.getFirstCodePoint(string);
-        final int stringLength = string.length();
-
-        return
-                computeCandidateRank(
-                        firstCodePoint,
-                        stringLength,
-                        unpreferredCodePointSet,
-                        sortingRankFromCodePoint,
-                        phraseCompletionFirstCodePointList
-                );
-    }
-
-    /*
-      Compute the candidate rank for a string with a given first code point and length.
-    */
-    private int computeCandidateRank(
-            final int firstCodePoint,
-            final int stringLength,
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        final int coarseRank;
-        final int fineRank;
-        final int penalty;
-
-        final boolean phraseCompletionListIsEmpty = phraseCompletionFirstCodePointList.size() == 0;
-        final int phraseCompletionIndex = phraseCompletionFirstCodePointList.indexOf(firstCodePoint);
-        final boolean firstCodePointMatchesPhraseCompletionCandidate = phraseCompletionIndex > 0;
-
-        final Integer sortingRank = sortingRankFromCodePoint.get(firstCodePoint);
-        final int sortingRankNonNull =
-                (sortingRank != null)
-                        ? sortingRank
-                        : LARGISH_SORTING_RANK;
-
-        final int lengthPenalty = (stringLength - 1) * RANKING_PENALTY_PER_CHAR;
-        final int unpreferredPenalty =
-                (unpreferredCodePointSet.contains(firstCodePoint))
-                        ? RANKING_PENALTY_UNPREFERRED
-                        : 0;
-
-        if (phraseCompletionListIsEmpty) {
-            coarseRank = Integer.MIN_VALUE;
-            fineRank = sortingRankNonNull;
-            penalty = lengthPenalty + unpreferredPenalty;
-        } else if (firstCodePointMatchesPhraseCompletionCandidate) {
-            coarseRank = Integer.MIN_VALUE;
-            fineRank = phraseCompletionIndex;
-            penalty = lengthPenalty;
-        } else {
-            coarseRank = 0;
-            fineRank = sortingRankNonNull;
-            penalty = lengthPenalty + unpreferredPenalty;
-        }
-
-        return coarseRank + fineRank + penalty;
-    }
-
     private String getCandidate(int idx) {
         try {
             if (candidateList.size() > idx) {
@@ -783,42 +653,6 @@ public class FsimeService
         } catch (IndexOutOfBoundsException exception) {
             return "";
         }
-    }
-
-    /*
-      Compute the phrase completion candidate list.
-      Longer matches with the text before the cursor are ranked earlier.
-    */
-    private List<String> computePhraseCompletionCandidateList(final InputConnection inputConnection) {
-        updateCandidateOrderPreference();
-
-        final List<String> phraseCompletionCandidateList = new ArrayList<>();
-
-        for (
-                String phrasePrefix = getTextBeforeCursor(inputConnection, MAX_PHRASE_LENGTH - 1);
-                phrasePrefix.length() > 0;
-                phrasePrefix = Stringy.removePrefixRegex("(?s).", phrasePrefix)
-        ) {
-            final Set<String> prefixMatchPhraseCandidateSet =
-                    phraseSet.subSet(
-                            phrasePrefix, false,
-                            phrasePrefix + Character.MAX_VALUE, false
-                    );
-            final List<String> prefixMatchPhraseCompletionList = new ArrayList<>();
-
-            for (final String phraseCandidate : prefixMatchPhraseCandidateSet) {
-                final String phraseCompletion = Stringy.removePrefix(phrasePrefix, phraseCandidate);
-                if (!phraseCompletionCandidateList.contains(phraseCompletion)) {
-                    prefixMatchPhraseCompletionList.add(phraseCompletion);
-                }
-            }
-            prefixMatchPhraseCompletionList.sort(
-                    candidateComparator(unpreferredCodePointSet, sortingRankFromCodePoint, Collections.emptyList())
-            );
-            phraseCompletionCandidateList.addAll(prefixMatchPhraseCompletionList);
-        }
-
-        return phraseCompletionCandidateList;
     }
 
     private String getTextBeforeCursor(final InputConnection inputConnection, final int characterCount) {
@@ -833,23 +667,5 @@ public class FsimeService
         } else {
             return "";
         }
-    }
-
-    private void updateCandidateOrderPreference() {
-        if (shouldPreferTraditional()) {
-            unpreferredCodePointSet = codePointSetSimplified;
-            sortingRankFromCodePoint = sortingRankFromCodePointTraditional;
-            phraseSet = phraseSetTraditional;
-        } else {
-            unpreferredCodePointSet = codePointSetTraditional;
-            sortingRankFromCodePoint = sortingRankFromCodePointSimplified;
-            phraseSet = phraseSetSimplified;
-        }
-    }
-
-    private boolean shouldPreferTraditional() {
-        final String savedCandidateOrderPreference =
-                MainActivity.loadSavedCandidateOrderPreference(getApplicationContext());
-        return MainActivity.isTraditionalPreferred(savedCandidateOrderPreference);
     }
 }
