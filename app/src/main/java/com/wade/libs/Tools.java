@@ -1,7 +1,6 @@
 package com.wade.libs;
 
 import android.graphics.PointF;
-import android.util.Log;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -12,8 +11,6 @@ import java.util.Locale;
  */
 
 public class Tools {
-    final static String TAG = "MyLog";
-
     /* 底下一堆 Casio FX880P 提供的 Basic 裡的函數 */
     public static double INT(double d) {
         if (d > 0) return FIX(d);
@@ -210,14 +207,12 @@ public class Tools {
     public static double Dms2Rad(String exp) { return Deg2Rad(Dms2Deg(exp)); }
     public static double Dms2Mil(String exp) { return Deg2Mil(Dms2Deg(exp)); }
     public static String Dms2Deg(String D, String M, String S) {
-//        Log.d(TAG, "Dms2Deg("+D+","+M+","+S+")");
         double d = parseDouble(D);
         double m = parseDouble(M);
         double s = parseDouble(S);
         return String.format("%f", d+(m/60.0)+(s/3600.0));
     }
     public static double Dms2Deg(String exp) { // 度.分秒　轉成 ##.## 度
-//        Log.d(TAG, "Dms2Deg("+exp+")");
         if (exp.indexOf('\'') >= 0 || exp.indexOf('"') >= 0 || exp.indexOf('°') >= 0 || exp.indexOf('^') >= 0) {
             lastAutoDegreeMode = 2;
             String[] res = exp.split("['^\"°]");
@@ -292,7 +287,6 @@ public class Tools {
         return sgn*(d + m/60 + s/3600);
     }
     private static double parseMil(String exp) {
-//        Log.d(TAG, "parseMil("+exp+")");
         exp = exp.replaceAll("M", "");
         return parseDouble(exp) * 9 / 160;
     }
@@ -323,7 +317,6 @@ public class Tools {
             else while (FRAC(exp).length() < 4) exp += "0";
             if (FRAC(exp).length() > 4) {
                 exp = exp.substring(0, exp.indexOf('.') + 5);
-                Log.d(TAG, "\t" + exp);
             }
             return parseDMS(exp);
         }
@@ -457,7 +450,6 @@ public class Tools {
         if (45.0 < olv && olv <= 135) olv = (90.0-olv+360)%360;
         if (45.0 < orv && orv <= 135) orv = (90.0-orv+360)%360;
         if (l <= 0 || r <= 0) {
-            Log.d(TAG, String.format(Locale.CHINESE, "請檢查各項數值，尤其與角度有關的部份, l=%.2f, r=%.2f", l, r));
             return null;
         }
         double[] resr, resl;

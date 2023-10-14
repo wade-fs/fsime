@@ -5,7 +5,6 @@ package com.wade.libs;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -13,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CPDB extends SQLiteAssetHelper {
-    final static String TAG = "MyLog";
-
     private static final String DATABASE_NAME = "cp.db";
     private static final int DATABASE_VERSION = 1;
     private static final String ID="id";
@@ -36,7 +33,6 @@ public class CPDB extends SQLiteAssetHelper {
     public List<CP> getCpByNumber(String number){
         if (db == null) db=getWritableDatabase();
         if (db == null) {
-            Log.d(TAG, "Not connect cp.db");
             return null;
         }
 
@@ -74,7 +70,6 @@ public class CPDB extends SQLiteAssetHelper {
     public List<CP> getCp(double x, double y, double l){
         if (db == null) db=getWritableDatabase();
         if (db == null) {
-            Log.d(TAG, "Not connect cp.db");
             return null;
         }
 
@@ -109,7 +104,6 @@ public class CPDB extends SQLiteAssetHelper {
                         cursor.getString(infoIdx)
                 );
                 if (len(cp.y - y, cp.x - x) <= distance) {
-//                    Log.d(TAG, "add CP : "+cp.id+", "+cp.number+","+cp.name+" for distance "+distance);
                     cps.add(cp);
                 }
             }

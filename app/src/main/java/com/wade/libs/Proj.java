@@ -10,7 +10,6 @@ package com.wade.libs;
  */
 
 public class Proj {
-    private final static String TAG="MyLog";
     private final static double LONG0TW=121.0;
     private final static double LONG0PH=119.0;
     private final static double deg2rad = Math.PI / 180.0;

@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -28,7 +27,6 @@ public class BDatabase extends SQLiteAssetHelper {
 
     public void setTs(int t) {
         ts = t;
-        Log.d("BDatabase", "setTs="+t);
     }
 
     private boolean isIn(ArrayList<B> res, B b) {
@@ -100,7 +98,6 @@ public class BDatabase extends SQLiteAssetHelper {
         } else {
             q += field +" like \"%" + k + "%\" LIMIT " + max + " OFFSET " + start + ";";
         }
-        Log.i("fsime",q);
         cursor=db.rawQuery(q, null);
         n = cursor.moveToFirst();
         while(n && count <= max){

@@ -1,7 +1,5 @@
 package com.wade.libs;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,7 +38,6 @@ public class FileTools {
             f.close();
             return text;
         } catch (IOException e) {
-            Log.d("MyLog", "'"+fileName + "' 讀檔錯誤: "+e.getMessage());
         }
         return "";
     }
@@ -61,7 +58,6 @@ public class FileTools {
             bufferedWriter.close();
             f.close();
         } catch (IOException e) {
-            Log.d("MyLog", "'"+fileName + "' 寫檔錯誤: "+e.getMessage());
         }
     }
 
@@ -70,7 +66,6 @@ public class FileTools {
     }
     public void append(String buf) {
         write(buf, true);
-        Log.d("MyLog", "append: '"+buf.trim()+"'");
     }
     public void empty() {
         write("", false);
