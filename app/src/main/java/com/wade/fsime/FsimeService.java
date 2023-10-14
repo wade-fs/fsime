@@ -364,17 +364,21 @@ public class FsimeService
                     KeyEvent[] events = mKeyCharacterMap.getEvents(valueText.toCharArray());
 
                     for (KeyEvent event2 : events) {
-                        // 其實只做一次
-                        if (event2.getAction() == 0) {
-                            int keycode = event2.getKeyCode();
-                            String hk = sharedPreferences.getHotkey(codeMaps.get(keycode));
-                            if (hk.length() > 0) {
-                                effectStrokeAppend(hk);
-                            } else {
-                                keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                        int keycode = event2.getKeyCode();
+                        if (event2.getAction() == 0 && keycode != KeyEvent.KEYCODE_SHIFT_LEFT) {
+                            if (codeMaps.containsKey(keycode)) {
+                                String hk = sharedPreferences.getHotkey(codeMaps.get(keycode));
+                                if (hk.length() > 0) {
+                                    effectStrokeAppend(hk);
+                                } else if (inputContainer.getKeyboard().shiftMode != 0) {
+                                    keyDownUp(keycode, KeyEvent.META_CTRL_ON + KeyEvent.META_SHIFT_ON);
+                                }
+                                break;
                             }
+                            keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                            turnCandidateOff();
+                            return;
                         }
-                        break;
                     }
                 } else {
                     effectStrokeAppend(valueText);
@@ -520,8 +524,10 @@ public class FsimeService
                 } else {
                     inputConnection.commitText("", 1);
                 }
-            } else { // for apps like Termux
-                keyDownUp(KeyEvent.KEYCODE_DEL, inputContainer.getKeyboard().shiftMode);
+            } else if (inputContainer.getKeyboard().shiftMode != 0) {
+                keyDownUp(KeyEvent.KEYCODE_DEL, KeyEvent.META_SHIFT_ON);
+            } else {
+                keyDownUp(KeyEvent.KEYCODE_DEL, 0);
             }
 
             final int nextBackspaceIntervalMilliseconds =
