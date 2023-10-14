@@ -1,172 +1,350 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2021–2022 Conway
   Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
   This is free software with NO WARRANTY etc. etc.,
   see LICENSE or <https://www.gnu.org/licenses/>.
 -->
-<ScrollView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
->
-  <LinearLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="@dimen/padding__main_activity"
-  >
-    <TextView
-      style="@style/MainActivityText"
-      android:text="@string/text__main_activity__input_method_settings"
-      android:paddingTop="@dimen/padding_top__main_activity__text_first"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/input_method_settings_button"
-      android:text="@string/label__main_activity__input_method_settings_button"
-    />
-    <TextView
-      style="@style/MainActivityText"
-      android:text="@string/text__main_activity__change_keyboard"
-    />
-    <Button
-      style="@style/MainActivityButton"
-      android:id="@+id/change_keyboard_button"
-      android:text="@string/label__main_activity__change_keyboard_button"
-    />
-    <!-- TextView
-        style="@style/MainActivityText"
-        android:text="@string/text__main_activity__candidate_order"
-        />
-    <Button
-        style="@style/MainActivityButton"
-        android:id="@+id/candidate_order_button"
-        android:text="@string/label__main_activity__traditional_first"
-        / -->
-    <EditText
-      style="@style/MainActivityInput"
-      android:id="@+id/test_input"
-      android:hint="@string/hint__main_activity__test_input"
-      android:importantForAutofill="no"
-      android:inputType="text"
-      android:layout_marginBottom="@dimen/margin_bottom__main_activity__input"
-    />
-    <TableLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns = "1,3">
-      <TableRow>
-        <TextView android:text="@string/hotkey" android:padding="3dip"
-            android:background="#b0b0b0"/>
-        <TextView android:text="@string/hotkey_value" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hotkey" android:padding="3dip"
-            android:background="#b0b0b0"/>
-        <TextView android:text="@string/hotkey_value" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_1" android:padding="3dip" android:background="#b0b0b0" />
-        <EditText android:id="@+id/Ctrl1" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_q" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlQ" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_2" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl2" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_w" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlW" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_3" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl3" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_e" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlE" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_4" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl4" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_r" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlR" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_5" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl5" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_t" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlT" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_6" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl6" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_y" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlY" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_7" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl7" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_u" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlU" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_8" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl8" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_i" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlI" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_9" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl9" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_o" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlO" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-      <TableRow>
-        <TextView android:text="@string/hk_ctrl_0" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/Ctrl0" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-        <TextView android:text="@string/hk_ctrl_p" android:padding="3dip" android:background="#b0b0b0"/>
-        <EditText android:id="@+id/CtrlP" android:layout_width="20dp"
-            android:text="" android:padding="3dip"
-            android:background="#00b0FF"/>
-      </TableRow>
-    </TableLayout>
-  </LinearLayout>
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/padding__main_activity">
+
+        <Button
+            android:id="@+id/input_method_settings_button"
+            style="@style/MainActivityButton"
+            android:text="@string/label__main_activity__input_method_settings_button" />
+
+        <Button
+            android:id="@+id/change_keyboard_button"
+            style="@style/MainActivityButton"
+            android:text="@string/label__main_activity__change_keyboard_button" />
+
+        <TextView
+            style="@style/MainActivityText"
+            android:gravity="start"
+            android:text="@string/text__main_activity__candidate_order" />
+
+        <Button
+            android:id="@+id/candidate_order_button"
+            style="@style/MainActivityButton"
+            android:focusable="true"
+            android:text="@string/traditional_only" />
+
+        <EditText
+            android:id="@+id/test_input"
+            style="@style/MainActivityInput"
+            android:layout_marginBottom="@dimen/margin_bottom__main_activity__input"
+            android:hint="@string/hint__main_activity__test_input"
+            android:importantForAutofill="no"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/MainActivityText"
+            android:text="@string/text__main_activity__hotkey" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1,3">
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hotkey" />
+
+                <TextView
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="@string/hotkey_value" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hotkey" />
+
+                <TextView
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="@string/hotkey_value" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_1" />
+
+                <EditText
+                    android:id="@+id/Ctrl1"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_q" />
+
+                <EditText
+                    android:id="@+id/CtrlQ"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_2" />
+
+                <EditText
+                    android:id="@+id/Ctrl2"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_w" />
+
+                <EditText
+                    android:id="@+id/CtrlW"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_3" />
+
+                <EditText
+                    android:id="@+id/Ctrl3"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_e" />
+
+                <EditText
+                    android:id="@+id/CtrlE"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_4" />
+
+                <EditText
+                    android:id="@+id/Ctrl4"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_r" />
+
+                <EditText
+                    android:id="@+id/CtrlR"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_5" />
+
+                <EditText
+                    android:id="@+id/Ctrl5"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_t" />
+
+                <EditText
+                    android:id="@+id/CtrlT"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_6" />
+
+                <EditText
+                    android:id="@+id/Ctrl6"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_y" />
+
+                <EditText
+                    android:id="@+id/CtrlY"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_7" />
+
+                <EditText
+                    android:id="@+id/Ctrl7"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_u" />
+
+                <EditText
+                    android:id="@+id/CtrlU"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_8" />
+
+                <EditText
+                    android:id="@+id/Ctrl8"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_i" />
+
+                <EditText
+                    android:id="@+id/CtrlI"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_9" />
+
+                <EditText
+                    android:id="@+id/Ctrl9"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_o" />
+
+                <EditText
+                    android:id="@+id/CtrlO"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_0" />
+
+                <EditText
+                    android:id="@+id/Ctrl0"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:background="#b0b0b0"
+                    android:padding="3dip"
+                    android:text="@string/hk_ctrl_p" />
+
+                <EditText
+                    android:id="@+id/CtrlP"
+                    android:layout_width="20dp"
+                    android:background="#00b0FF"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
 </ScrollView>

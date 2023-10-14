@@ -6,34 +6,28 @@
 */
 package com.wade.fsime
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.wade.utilities.Contexty.loadPreferenceString
-import com.wade.utilities.Contexty.savePreferenceString
 import com.wade.utilities.Contexty.showSystemInputMethodSettings
 import com.wade.utilities.Contexty.showSystemKeyboardChanger
+
 
 /*
   The main activity of the application.
 */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var candidateOrderDialogBuilder: AlertDialog.Builder? = null
-    var candidateOrderDialog: Dialog? = null
     var sharedPreferences: KeyboardPreferences? = null
     var id2Key: MutableMap<Int, String> = HashMap()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        loadSavedCandidateOrderPreference()
         findViewById<View>(R.id.input_method_settings_button).setOnClickListener(this)
         findViewById<View>(R.id.change_keyboard_button).setOnClickListener(this)
-        //    findViewById(R.id.candidate_order_button).setOnClickListener(this);
+        findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
         val hkIds = intArrayOf(
@@ -64,65 +58,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun loadSavedCandidateOrderPreference(): String? {
-        return loadSavedCandidateOrderPreference(applicationContext)
-    }
-
-    private fun setCandidateOrderButtonText(candidateOrderPreference: String) {
-//    final TextView candidateOrderButton = findViewById(R.id.candidate_order_button);
-//    final String candidateOrderButtonText =
-//            (isTraditionalPreferred(candidateOrderPreference))
-//                    ? getString(R.string.label__main_activity__traditional_first)
-//                    : getString(R.string.label__main_activity__simplified_first);
-//    candidateOrderButton.setText(candidateOrderButtonText);
-    }
-
-    private fun saveCandidateOrderPreference(candidateOrderPreference: String) {
-        savePreferenceString(
-            applicationContext,
-            FsimeService.PREFERENCES_FILE_NAME,
-            CANDIDATE_ORDER_PREFERENCE_KEY,
-            candidateOrderPreference
+    private fun setCandidateOrderButtonText() {
+        val candidateOrderButton = findViewById<TextView>(R.id.candidate_order_button)
+        val candidateOrder = sharedPreferences!!.candidateOrder()
+        val candidateOrderButtonText = getString(
+            when (candidateOrder) {
+                "TraditionalOnly" -> R.string.traditional_only
+                "SimplifiedOnly" -> R.string.simplified_only
+                else -> R.string.chinese_both
+            }
         )
+        candidateOrderButton.text = candidateOrderButtonText
+    }
+    private fun setNextCandidateOrder() {
+        val candidateOrder = sharedPreferences!!.candidateOrder()
+        val nextCandidateOrder = when (candidateOrder) {
+            "TraditionalOnly" -> "SimplifiedOnly"
+            "SimplifiedOnly" -> "ChineseBoth"
+            else -> "TraditionalOnly"
+        }
+        sharedPreferences!!.write("candidateOrder", nextCandidateOrder)
+        setCandidateOrderButtonText()
     }
 
     override fun onClick(view: View) {
         val viewId = view.id
-        if (viewId == R.id.input_method_settings_button) {
-            showSystemInputMethodSettings(this)
-        } else if (viewId == R.id.change_keyboard_button) {
-            showSystemKeyboardChanger(this)
-            //    } else if (viewId == R.id.candidate_order_button) {
-//      showCandidateOrderDialog();
-        } else if (viewId == R.id.traditional_first_button) {
-            saveCandidateOrderPreference(CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST)
-            setCandidateOrderButtonText(CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST)
-            candidateOrderDialog!!.dismiss()
-        } else if (viewId == R.id.simplified_first_button) {
-            saveCandidateOrderPreference(CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST)
-            setCandidateOrderButtonText(CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST)
-            candidateOrderDialog!!.dismiss()
-        }
-    }
-
-    companion object {
-        const val CANDIDATE_ORDER_PREFERENCE_KEY = "candidateOrderPreference"
-        const val CANDIDATE_ORDER_PREFER_TRADITIONAL_FIRST = "TRADITIONAL_FIRST"
-        const val CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST = "SIMPLIFIED_FIRST"
-        @JvmStatic
-        fun isTraditionalPreferred(candidateOrderPreference: String?): Boolean {
-            return if (candidateOrderPreference == null) {
-                true
-            } else candidateOrderPreference != CANDIDATE_ORDER_PREFER_SIMPLIFIED_FIRST
-        }
-
-        @JvmStatic
-        fun loadSavedCandidateOrderPreference(context: Context?): String? {
-            return loadPreferenceString(
-                context!!,
-                FsimeService.PREFERENCES_FILE_NAME,
-                CANDIDATE_ORDER_PREFERENCE_KEY
-            )
+        when (viewId) {
+            R.id.input_method_settings_button -> showSystemInputMethodSettings(this)
+            R.id.change_keyboard_button -> showSystemKeyboardChanger(this)
+            R.id.candidate_order_button -> {
+                setNextCandidateOrder()
+                view.requestFocusFromTouch()
+            }
         }
     }
 }

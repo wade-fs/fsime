@@ -52,7 +52,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
     private var candidateList: List<String> = ArrayList()
-    private val phraseCompletionFirstCodePointList: List<Int> = ArrayList()
     private var inputOptionsBits = 0
     private var enterKeyHasAction = false
     private var inputIsPassword = false
@@ -93,6 +92,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     @SuppressLint("InflateParams")
     override fun onCreateInputView(): View {
         bdatabase = BDatabase(applicationContext)
+
         fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
         pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
@@ -119,7 +119,16 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         sharedPreferences = KeyboardPreferences(this)
         return inputContainer!!
     }
-
+    private fun setCandidateOrder() {
+        val candidateOrder: String = sharedPreferences!!.candidateOrder()
+        bdatabase!!.setTs(
+            when (candidateOrder) {
+                "TraditionalOnly" -> 1
+                "SimplifiedOnly" -> 2
+                else -> 0
+            }
+        )
+    }
     private fun loadSavedKeyboard(): Keyboard? {
         val savedKeyboardName = loadPreferenceString(
             applicationContext,
@@ -128,87 +137,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         )
         val savedKeyboard = keyboardFromName!![savedKeyboardName]
         return savedKeyboard ?: fullKB
-    }
-
-    private fun loadCharactersIntoCodePointSet(
-        charactersFileName: String,
-        codePointSet: MutableSet<Int>
-    ) {
-        val startMilliseconds = System.currentTimeMillis()
-        try {
-            val inputStream = assets.open(charactersFileName)
-            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-            var line: String
-            while (bufferedReader.readLine().also { line = it } != null) {
-                if (!isCommentLine(line)) {
-                    codePointSet.add(getFirstCodePoint(line))
-                }
-            }
-        } catch (exception: IOException) {
-            exception.printStackTrace()
-        }
-        val endMilliseconds = System.currentTimeMillis()
-        sendLoadingTimeLog(charactersFileName, startMilliseconds, endMilliseconds)
-    }
-
-    private fun loadRankingData(
-        rankingFileName: String,
-        sortingRankFromCodePoint: MutableMap<Int, Int>,
-        commonCodePointSet: MutableSet<Int>
-    ) {
-        val startMilliseconds = System.currentTimeMillis()
-        try {
-            val inputStream = assets.open(rankingFileName)
-            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-            var currentRank = 0
-            var line: String
-            while (bufferedReader.readLine().also { line = it } != null) {
-                if (!isCommentLine(line)) {
-                    for (codePoint in toCodePointList(line)) {
-                        currentRank++
-                        if (!sortingRankFromCodePoint.containsKey(codePoint)) {
-                            sortingRankFromCodePoint[codePoint] = currentRank
-                        }
-                        if (currentRank < LAG_PREVENTION_CODE_POINT_COUNT) {
-                            commonCodePointSet.add(codePoint)
-                        }
-                    }
-                }
-            }
-        } catch (exception: IOException) {
-            exception.printStackTrace()
-        }
-        val endMilliseconds = System.currentTimeMillis()
-        sendLoadingTimeLog(rankingFileName, startMilliseconds, endMilliseconds)
-    }
-
-    private fun loadPhrasesIntoSet(phrasesFileName: String, phraseSet: MutableSet<String>) {
-        val startMilliseconds = System.currentTimeMillis()
-        try {
-            val inputStream = assets.open(phrasesFileName)
-            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-            var line: String
-            while (bufferedReader.readLine().also { line = it } != null) {
-                if (!isCommentLine(line)) {
-                    phraseSet.add(line)
-                }
-            }
-        } catch (exception: IOException) {
-            exception.printStackTrace()
-        }
-        val endMilliseconds = System.currentTimeMillis()
-        sendLoadingTimeLog(phrasesFileName, startMilliseconds, endMilliseconds)
-    }
-
-    private fun sendLoadingTimeLog(
-        fileName: String,
-        startMilliseconds: Long,
-        endMilliseconds: Long
-    ) {
-        if (BuildConfig.DEBUG) {
-            val durationMilliseconds = endMilliseconds - startMilliseconds
-            Log.d(LOG_TAG, String.format("Loaded %s in %d ms", fileName, durationMilliseconds))
-        }
     }
 
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
@@ -238,6 +166,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.setBackground(isFullscreen)
         inputContainer!!.setCandidateList(candidateList)
         setEnterKeyDisplayText()
+        setCandidateOrder()
     }
 
     private fun setEnterKeyDisplayText() {

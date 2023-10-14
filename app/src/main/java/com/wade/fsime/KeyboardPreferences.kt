@@ -13,16 +13,19 @@ class KeyboardPreferences(contextWrapper: ContextWrapper) {
         res = contextWrapper.resources
         preferences = PreferenceManager.getDefaultSharedPreferences(contextWrapper)
     }
+    fun candidateOrder(): String {
+        return safeRead("candidateOrder", "TraditionalOnly")
+    }
 
     fun getHotkey(k: String): String {
         return safeRead(k, "")
     }
 
-    fun resetAllToDefault() {
-        val editor = preferences.edit()
-        editor.clear()
-        editor.apply()
-    }
+//    fun resetAllToDefault() {
+//        val editor = preferences.edit()
+//        editor.clear()
+//        editor.apply()
+//    }
 
     //    private boolean read(String key, boolean defaultValue) { return preferences.getBoolean(key, defaultValue); }
     //    private int read(String key, int defaultValue) { return preferences.getInt(key, defaultValue); }

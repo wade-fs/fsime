@@ -1,25 +1,19 @@
 <resources>
   <!-- Main activity -->
   <string name="app_name">FS IME</string>
-  <string name="label__main_activity__welcome">Fantasy Space Input Method!</string>
-  <string name="text__main_activity__input_method_settings">
-    1. If you have installed FS Input Method for the first time,
-    you must manually enable it in the system settings before it can be used:
-  </string>
-  <string name="label__main_activity__input_method_settings_button">Input method settings</string>
-  <string name="text__main_activity__change_keyboard">
-    2. If your existing input method provides no means of changing keyboards:
-  </string>
-  <string name="label__main_activity__change_keyboard_button">Change keyboard</string>
+  <string name="label__main_activity__input_method_settings_button">Enable FS IME</string>
+  <string name="label__main_activity__change_keyboard_button">Use FS IME</string>
 
   <string name="text__main_activity__candidate_order">
-    3. Candidate order:
+    Candidate for traditional or simplified chinese:
   </string>
   <string name="label__main_activity__candidate_order">Candidate order</string>
-  <string name="label__main_activity__traditional_first">Traditional first</string>
-  <string name="label__main_activity__simplified_first">Simplified first</string>
+  <string name="traditional_only">Traditional only</string>
+  <string name="simplified_only">Simplified only</string>
+  <string name="chinese_both">Traditional + Simplified</string>
 
-  <string name="hint__main_activity__test_input">3. Test input here</string>
+  <string name="hint__main_activity__test_input">Test input here</string>
+  <string name="text__main_activity__hotkey">Setting Hotkeys</string>
   <string name="label__main_activity__return">Return</string>
   <!-- Backspace: U+232B ERASE TO THE LEFT -->
   <string name="display_text__backspace" translatable="false">⌫</string>
