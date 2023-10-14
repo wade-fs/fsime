@@ -10,6 +10,7 @@ import android.annotation.SuppressLint
 import android.inputmethodservice.InputMethodService
 import android.text.InputType
 import android.text.TextUtils
+import android.util.Log
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
@@ -32,6 +33,7 @@ import com.wade.utilities.invertMap
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
+import java.util.Arrays
 
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
@@ -296,16 +298,26 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
                     val events = mKeyCharacterMap.getEvents(valueText.toCharArray())
                     for (event2 in events) {
                         // 其實只做一次
-                        if (event2.action == 0) {
+                        if (event2.action == 0 && event2.keyCode != KeyEvent.KEYCODE_SHIFT_LEFT) {
                             val keycode = event2.keyCode
-                            val hk = sharedPreferences!!.getHotkey(codeMaps[keycode]!!)
-                            if (hk.length > 0) {
-                                effectStrokeAppend(hk)
-                            } else {
-                                keyDownUp(keycode, KeyEvent.META_CTRL_ON)
+                            if (codeMaps.containsKey(keycode)) {
+                                val hk = sharedPreferences!!.getHotkey(codeMaps.get(keycode)!!)
+                                if (hk.length > 0) {
+                                    effectStrokeAppend(hk)
+                                    break
+                                } else {
+                                    if (inputContainer!!.keyboard!!.shiftMode != 0) {
+                                        keyDownUp(
+                                            keycode,
+                                            KeyEvent.META_CTRL_ON + KeyEvent.META_SHIFT_ON
+                                        )
+                                        break
+                                    }
+                                }
                             }
+                            keyDownUp(keycode, KeyEvent.META_CTRL_ON)
+                            break
                         }
-                        break
                     }
                 } else {
                     effectStrokeAppend(valueText)
@@ -455,8 +467,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
                 } else {
                     inputConnection.commitText("", 1)
                 }
-            } else { // for apps like Termux
-                keyDownUp(KeyEvent.KEYCODE_DEL, inputContainer!!.keyboard!!.shiftMode)
+            } else if (inputContainer!!.keyboard!!.shiftMode != 0) {
+                keyDownUp(KeyEvent.KEYCODE_DEL, KeyEvent.META_SHIFT_ON)
+            } else {
+                keyDownUp(KeyEvent.KEYCODE_DEL, 0)
             }
             val nextBackspaceIntervalMilliseconds =
                 if (isAscii(upToOneCharacterBeforeCursor)) BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII else BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8
