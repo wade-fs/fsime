@@ -15,7 +15,18 @@ public class KeyboardPreferences {
         this.preferences =
                 PreferenceManager.getDefaultSharedPreferences(contextWrapper);
     }
-
+    public boolean isTraditionalOnly() {
+        return safeRead("candidateOrder", "TraditionalOnly").equals("TraditionalOnly");
+    }
+    public boolean isSimplifiedOnly() {
+        return safeRead("candidateOrder", "TraditionalOnly").equals("SimplifiedOnly");
+    }
+    public boolean isChineseBoth() {
+        return safeRead("candidateOrder", "TraditionalOnly").equals("ChineseBoth");
+    }
+    public String candidateOrder() {
+        return safeRead("candidateOrder", "TraditionalOnly");
+    }
     public String getHotkey(String k) {
         return safeRead(k, "");
     }

@@ -21,12 +21,15 @@ public class BDatabase extends SQLiteAssetHelper {
     private static final String CH="ch";
     private static final String FREQ="freq";
     private SQLiteDatabase db = null;
-    private int ts = 0;
+    private int ts = 0; // 1: 僅正體, 2: 僅簡體
     public BDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public void setTs(int t) { ts = t; }
+    public void setTs(int t) {
+        ts = t;
+        Log.d("BDatabase", "setTs="+t);
+    }
 
     private boolean isIn(ArrayList<B> res, B b) {
         for (B bb : res) {

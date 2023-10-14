@@ -1,19 +1,18 @@
 <resources>
   <!-- Main activity -->
   <string name="app_name">混瞎輸入法</string>
-  <string name="label__main_activity__welcome">歡迎使用混瞎輸入法！</string>
-  <string name="text__main_activity__input_method_settings">1. 首次使用請啟用混瞎輸入法</string>
-  <string name="label__main_activity__input_method_settings_button">輸入法設定</string>
-  <string name="text__main_activity__change_keyboard">2. 更換鍵盤</string>
-  <string name="label__main_activity__change_keyboard_button">更換鍵盤</string>
+  <string name="label__main_activity__input_method_settings_button">啟用混瞎輸入法</string>
+  <string name="label__main_activity__change_keyboard_button">使用混瞎輸入法</string>
   <string name="text__main_activity__candidate_order">
-    3. 簡正出字順序:
+    正體/簡体輸出:
   </string>
   <string name="label__main_activity__candidate_order">簡正出字順序</string>
-  <string name="label__main_activity__traditional_first">正體優先</string>
-  <string name="label__main_activity__simplified_first">簡體優先</string>
+  <string name="traditional_only">僅正體</string>
+  <string name="simplified_only">僅简体</string>
+  <string name="chinese_both">正體＋简体</string>
 
-  <string name="hint__main_activity__test_input">3. 在此測試輸入</string>
+  <string name="hint__main_activity__test_input">在此測試輸入</string>
+  <string name="text__main_activity__hotkey">設定熱鍵</string>
   <string name="label__main_activity__return">回</string>
   <!-- Space bar display text (triangles: U+25C0, U+25B6) -->
   <string name="display_text__full_space_bar">◀全瞎▶</string>

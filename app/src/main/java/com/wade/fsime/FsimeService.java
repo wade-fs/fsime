@@ -93,7 +93,6 @@ public class FsimeService
     private InputContainer inputContainer;
     private String mComposing = "";
     private List<String> candidateList = new ArrayList<>();
-    private final List<Integer> phraseCompletionFirstCodePointList = new ArrayList<>();
 
     private int inputOptionsBits;
     private boolean enterKeyHasAction;
@@ -164,6 +163,14 @@ public class FsimeService
         return inputContainer;
     }
 
+    private void setCandidateOrder() {
+        final String candidateOrder = sharedPreferences.candidateOrder();
+        bdatabase.setTs(switch (candidateOrder) {
+            case "TraditionalOnly" -> 1;
+            case "SimplifiedOnly" -> 2;
+            default -> 0;
+        });
+    }
     private Keyboard loadSavedKeyboard() {
         final String savedKeyboardName =
                 Contexty.loadPreferenceString(getApplicationContext(), PREFERENCES_FILE_NAME, KEYBOARD_NAME_PREFERENCE_KEY);
@@ -178,89 +185,6 @@ public class FsimeService
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private static boolean isCommentLine(final String line) {
         return line.startsWith("#") || line.length() == 0;
-    }
-
-    private void loadCharactersIntoCodePointSet(final String charactersFileName, final Set<Integer> codePointSet) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(charactersFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    codePointSet.add(Stringy.getFirstCodePoint(line));
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(charactersFileName, startMilliseconds, endMilliseconds);
-    }
-
-    private void loadRankingData(
-            final String rankingFileName,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final Set<Integer> commonCodePointSet
-    ) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(rankingFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            int currentRank = 0;
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    for (final int codePoint : Stringy.toCodePointList(line)) {
-                        currentRank++;
-                        if (!sortingRankFromCodePoint.containsKey(codePoint)) {
-                            sortingRankFromCodePoint.put(codePoint, currentRank);
-                        }
-                        if (currentRank < LAG_PREVENTION_CODE_POINT_COUNT) {
-                            commonCodePointSet.add(codePoint);
-                        }
-                    }
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(rankingFileName, startMilliseconds, endMilliseconds);
-    }
-
-    private void loadPhrasesIntoSet(final String phrasesFileName, final Set<String> phraseSet) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(phrasesFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    phraseSet.add(line);
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(phrasesFileName, startMilliseconds, endMilliseconds);
-    }
-
-    private void sendLoadingTimeLog(final String fileName, final long startMilliseconds, final long endMilliseconds) {
-        if (BuildConfig.DEBUG) {
-            final long durationMilliseconds = endMilliseconds - startMilliseconds;
-            Log.d(LOG_TAG, String.format("Loaded %s in %d ms", fileName, durationMilliseconds));
-        }
     }
 
     @Override
@@ -299,6 +223,7 @@ public class FsimeService
         inputContainer.setCandidateList(candidateList);
 
         setEnterKeyDisplayText();
+        setCandidateOrder();
     }
 
     private void setEnterKeyDisplayText() {
