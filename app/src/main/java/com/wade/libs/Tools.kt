@@ -1,7 +1,6 @@
 package com.wade.libs
 
 import android.graphics.PointF
-import android.util.Log
 import android.widget.EditText
 import java.util.Locale
 
@@ -290,7 +289,6 @@ object Tools {
     }
 
     fun Dms2Deg(D: String, M: String, S: String): String {
-//        Log.d(TAG, "Dms2Deg("+D+","+M+","+S+")");
         val d = parseDouble(D)
         val m = parseDouble(M)
         val s = parseDouble(S)
@@ -298,7 +296,6 @@ object Tools {
     }
 
     fun Dms2Deg(exp: String): Double { // 度.分秒　轉成 ##.## 度
-//        Log.d(TAG, "Dms2Deg("+exp+")");
         return if (exp.indexOf('\'') >= 0 || exp.indexOf('"') >= 0 || exp.indexOf('°') >= 0 || exp.indexOf(
                 '^'
             ) >= 0
@@ -426,7 +423,6 @@ object Tools {
     }
 
     private fun parseMil(exp: String): Double {
-//        Log.d(TAG, "parseMil("+exp+")");
         var exp = exp
         exp = exp.replace("M".toRegex(), "")
         return parseDouble(exp) * 9 / 160
@@ -467,7 +463,6 @@ object Tools {
                 "$exp.0000" else while (FRAC(exp).length < 4) exp += "0"
             if (FRAC(exp).length > 4) {
                 exp = exp.substring(0, exp.indexOf('.') + 5)
-                Log.d(TAG, "\t" + exp)
             }
             parseDMS(exp)
         } else if (degreeMode == 1) parseDouble(exp) else if (degreeMode == 0) {
@@ -644,15 +639,6 @@ object Tools {
         if (45.0 < olv && olv <= 135) olv = (90.0 - olv + 360) % 360
         if (45.0 < orv && orv <= 135) orv = (90.0 - orv + 360) % 360
         if (l <= 0 || r <= 0) {
-            Log.d(
-                TAG,
-                String.format(
-                    Locale.CHINESE,
-                    "請檢查各項數值，尤其與角度有關的部份, l=%.2f, r=%.2f",
-                    l,
-                    r
-                )
-            )
             return null
         }
         val resr: DoubleArray

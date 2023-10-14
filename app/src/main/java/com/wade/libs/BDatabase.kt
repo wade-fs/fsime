@@ -5,7 +5,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 import com.wade.libs.TS.StoT
 import com.wade.libs.TS.TtoS
@@ -17,7 +16,6 @@ class BDatabase(context: Context?) :
     private var ts = 0
     fun setTs(t: Int) {
         ts = t
-        Log.d("BDatabase", "setTs="+ts)
     }
 
     private fun isIn(res: ArrayList<B>, b: B): Boolean {

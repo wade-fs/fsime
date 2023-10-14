@@ -1,6 +1,5 @@
 package com.wade.libs
 
-import android.util.Log
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.File
@@ -45,7 +44,6 @@ class FileTools {
             f.close()
             return text
         } catch (e: IOException) {
-            Log.d("MyLog", "'" + fileName + "' 讀檔錯誤: " + e.message)
         }
         return ""
     }
@@ -65,7 +63,6 @@ class FileTools {
             bufferedWriter.close()
             f.close()
         } catch (e: IOException) {
-            Log.d("MyLog", "'" + fileName + "' 寫檔錯誤: " + e.message)
         }
     }
 
@@ -75,7 +72,6 @@ class FileTools {
 
     fun append(buf: String) {
         write(buf, true)
-        Log.d("MyLog", "append: '" + buf.trim { it <= ' ' } + "'")
     }
 
     fun empty() {

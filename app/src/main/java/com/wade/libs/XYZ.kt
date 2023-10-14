@@ -4,7 +4,6 @@ package com.wade.libs
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
 /* 0 在 app/build.gradle 中要加 dependence
@@ -19,7 +18,6 @@ class XYZ  // 2. constructor super(....)
 // 3. getWritableDatabase()
         if (db == null) db = writableDatabase
         if (db == null) {
-            Log.d(TAG, "Not connect Data.db")
             return (-10000).toDouble()
         }
 
@@ -28,11 +26,6 @@ class XYZ  // 2. constructor super(....)
         val blu: B = B()
         val bld: B = B()
         val brd: B = B()
-        Log.d(
-            TAG,
-            "LU select * from " + TABLE + " where X <= " + x + " and Y >= " + y + " and L=" + l + " order by x desc, y asc limit 1;",
-            null
-        )
         // 4. use Cursor to retrieve rows
         val clu = db!!.rawQuery(
             "select * from " + TABLE + " where X <= " + x + " and Y >= " + y + " and L=" + l + " order by x desc, y asc limit 1;",
@@ -43,13 +36,8 @@ class XYZ  // 2. constructor super(....)
             blu.x = clu.getDouble(clu.getColumnIndex(X))
             blu.y = clu.getDouble(clu.getColumnIndex(Y))
             blu.z = clu.getDouble(clu.getColumnIndex(H))
-            Log.d(TAG, String.format(" LU(%.2f,%.2f) : %.3f", blu.x, blu.y, blu.z))
-        } else Log.d(TAG, "No LU")
+        }
         // 6. XYZ xyz = new XYZ(context); // 這個定義在 Activity 中
-        Log.d(
-            TAG,
-            "RU select * from " + TABLE + " where X >= " + x + " and Y >= " + y + " and L=" + l + " order by x asc, y asc limit 1;"
-        )
         val cru = db!!.rawQuery(
             "select * from " + TABLE + " where X >= " + x + " and Y >= " + y + " and L=" + l + " order by x asc, y asc limit 1;",
             null
@@ -58,12 +46,7 @@ class XYZ  // 2. constructor super(....)
             bru.x = cru.getDouble(cru.getColumnIndex(X))
             bru.y = cru.getDouble(cru.getColumnIndex(Y))
             bru.z = cru.getDouble(cru.getColumnIndex(H))
-            Log.d(TAG, String.format(" RU(%.2f,%.2f) : %.3f", bru.x, bru.y, bru.z))
-        } else Log.d(TAG, "No RU")
-        Log.d(
-            TAG,
-            "LD select * from " + TABLE + " where X <= " + x + " and Y <= " + y + " and L=" + l + " order by x desc, y desc limit 1;"
-        )
+        }
         val cld = db!!.rawQuery(
             "select * from " + TABLE + " where X <= " + x + " and Y <= " + y + " and L=" + l + " order by x desc, y desc limit 1;",
             null
@@ -72,12 +55,7 @@ class XYZ  // 2. constructor super(....)
             bld.x = cld.getDouble(cld.getColumnIndex(X))
             bld.y = cld.getDouble(cld.getColumnIndex(Y))
             bld.z = cld.getDouble(cld.getColumnIndex(H))
-            Log.d(TAG, String.format(" LD(%.2f,%.2f) : %.3f", bld.x, bld.y, bld.z))
-        } else Log.d(TAG, "No LD")
-        Log.d(
-            TAG,
-            "RD select * from " + TABLE + " where X >= " + x + " and Y <= " + y + " and L=" + l + " order by x asc, y desc limit 1;"
-        )
+        }
         val crd = db!!.rawQuery(
             "select * from " + TABLE + " where X >= " + x + " and Y <= " + y + " and L=" + l + " order by x asc, y desc limit 1;",
             null
@@ -86,21 +64,18 @@ class XYZ  // 2. constructor super(....)
             brd.x = crd.getDouble(crd.getColumnIndex(X))
             brd.y = crd.getDouble(crd.getColumnIndex(Y))
             brd.z = crd.getDouble(crd.getColumnIndex(H))
-            Log.d(TAG, String.format(" RD(%.2f,%.2f) : %.3f", brd.x, brd.y, brd.z))
-        } else Log.d(TAG, "No RD")
+        }
         var h = 0.0
         var r = 100000000.0
         if (blu.x > 0) {
             r = sqr(x - blu.x, y - blu.y)
             h = blu.z
-            Log.d(TAG, String.format("*LU(%.2f,%.2f) : %.3f", blu.x, blu.y, blu.z))
         }
         if (bru.x > 0) {
             val r1 = sqr(x - bru.x, y - bru.y)
             if (r1 < r) {
                 h = bru.z
                 r = r1
-                Log.d(TAG, String.format("*RU(%.2f,%.2f) : %.3f", bru.x, bru.y, bru.z))
             }
         }
         if (bld.x > 0) {
@@ -108,13 +83,11 @@ class XYZ  // 2. constructor super(....)
             if (r1 < r) {
                 h = bld.z
                 r = r1
-                Log.d(TAG, String.format("*LD(%.2f,%.2f) : %.3f", bld.x, bld.y, bld.z))
             }
         }
         if (brd.x > 0) {
             if (sqr(x - brd.x, y - brd.y) < r) {
                 h = brd.z
-                Log.d(TAG, String.format("*RD(%.2f,%.2f) : %.3f", brd.x, brd.y, brd.z))
             }
         }
         return h

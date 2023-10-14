@@ -10,7 +10,6 @@ import android.annotation.SuppressLint
 import android.inputmethodservice.InputMethodService
 import android.text.InputType
 import android.text.TextUtils
-import android.util.Log
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View

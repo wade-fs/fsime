@@ -4,7 +4,6 @@ package com.wade.libs
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
 class CPDB(context: Context?) : SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -12,7 +11,6 @@ class CPDB(context: Context?) : SQLiteAssetHelper(context, DATABASE_NAME, null, 
     fun getCpByNumber(number: String): List<CP>? {
         if (db == null) db = writableDatabase
         if (db == null) {
-            Log.d(TAG, "Not connect cp.db")
             return null
         }
         var idIdx: Int
@@ -68,7 +66,6 @@ class CPDB(context: Context?) : SQLiteAssetHelper(context, DATABASE_NAME, null, 
     fun getCp(x: Double, y: Double, l: Double): List<CP?>? {
         if (db == null) db = writableDatabase
         if (db == null) {
-            Log.d(TAG, "Not connect cp.db")
             return null
         }
 
@@ -118,7 +115,6 @@ class CPDB(context: Context?) : SQLiteAssetHelper(context, DATABASE_NAME, null, 
                     cursor.getString(infoIdx)
                 )
                 if (len(cp.y - y, cp.x - x) <= distance) {
-//                    Log.d(TAG, "add CP : "+cp.id+", "+cp.number+","+cp.name+" for distance "+distance);
                     cps.add(cp)
                 }
             }
