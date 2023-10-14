@@ -359,7 +359,10 @@ public class KeyboardView
             }
 
             final boolean isPreviewable = key.isPreviewable;
-            final String keyDisplayText = key.displayText;
+            final String keyDisplayText =  (key.valueText.equals(FsimeService.ENTER_KEY_VALUE_TEXT))
+                    ? key.displayText
+                    : key.shiftAwareDisplayText(shiftMode);
+
             final String keyShiftText = key.shiftText;
             final String keyStrokeText = key.strokeText;
             final String keyCjText = key.cjText;
@@ -461,11 +464,6 @@ public class KeyboardView
                 final Key downKey = getKeyAtPoint(downPointerX, downPointerY);
                 if (isShiftKey(downKey)) {
                     sendShiftDownEvent(downPointerId);
-                    if (shiftMode != SHIFT_DISABLED && shiftMode != SHIFT_PERSISTENT) {
-                        downKey.displayText = "⬆";
-                    } else {
-                        downKey.displayText = "⇧";
-                    }
                     break;
                 }
                 if (isCtrlKey(downKey)) {
