@@ -25,8 +25,9 @@
 - 支援 根號 √(a,b) 運算
 - 支援只輸出正體中文或簡體中文
 
-# app 下載: app/release/com.wade.fsime-231009.apk
+# app 下載: app/release/com.wade.fsime-231014.apk(稍舊)
 # History
+- 231016: 小修送字後的處理，原先砍掉後不會出字
 - 231014: 修正 shift key 的顯示，允許 Ctrl-Shift-KEY
 - 231014: 支援只輸出正體中文或簡體中文
 - 231013: 移除原筆劃輸入法用到的繁簡優先、片語等載入判斷，因為沒用到
