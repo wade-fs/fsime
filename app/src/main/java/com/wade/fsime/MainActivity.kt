@@ -7,8 +7,10 @@
 package com.wade.fsime
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.OnFocusChangeListener
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +24,7 @@ import com.wade.utilities.Contexty.showSystemKeyboardChanger
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var sharedPreferences: KeyboardPreferences? = null
     var id2Key: MutableMap<Int, String> = HashMap()
+    var id2Use: MutableMap<Int, String> = HashMap()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -55,6 +58,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     sharedPreferences!!.write(id2Key[et.id], et.text.toString())
                 }
             }
+        }
+        val useIds = intArrayOf(R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckMil)
+        val useKeys = arrayOf("ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil")
+        for (i in useIds.indices) {
+            id2Use[useIds[i]] = useKeys[i]
+        }
+        for (id in useIds) {
+            val ck = findViewById<CheckBox>(id)
+            val useKb = sharedPreferences!!.getUseKb(id2Use[ck.id]!!)
+            ck.setChecked(useKb)
+            ck.setOnClickListener(View.OnClickListener { v ->
+                val ckb = v as CheckBox
+                sharedPreferences!!.write(id2Use[ck.id], ck.isChecked)
+                Log.d("CHECK", "check "+id2Use[ck.id]+" "+ck.isChecked)
+            })
         }
     }
 

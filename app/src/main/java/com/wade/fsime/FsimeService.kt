@@ -303,6 +303,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
                             if (codeMaps.containsKey(keycode)) {
                                 val hk = sharedPreferences!!.getHotkey(codeMaps.get(keycode)!!)
                                 if (hk.length > 0) {
+                                    mComposing = ""
                                     effectStrokeAppend(hk)
                                     break
                                 } else {

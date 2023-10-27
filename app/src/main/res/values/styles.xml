@@ -66,4 +66,12 @@
   <style name="InputToolbar" parent="Widget.MaterialComponents.Toolbar">
     <item name="titleTextColor">?attr/colorOnPrimary</item>
   </style>
+  <style name="MainActivityCheckbox">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:textSize">@dimen/font_size__main_activity__button</item>
+    <item name="android:insetTop">@dimen/inset_vertical__main_activity__button</item>
+    <item name="android:insetBottom">@dimen/inset_vertical__main_activity__button</item>
+    <item name="android:minHeight">@dimen/min_height__main_activity__button</item>
+  </style>
 </resources>
