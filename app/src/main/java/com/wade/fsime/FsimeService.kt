@@ -47,9 +47,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     var cjKB: Keyboard? = null
     var strokeKB: Keyboard? = null
     var milKB: Keyboard? = null
-    private var nameFromKeyboard: MutableMap<Keyboard, String?>? = null
-    private var keyboardFromName: Map<String?, Keyboard>? = null
-    private var keyboardSet: Set<Keyboard>? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
     private var candidateList: List<String> = ArrayList()
@@ -67,6 +64,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     val SWIPE_RD = 8
     override fun onCreate() {
         super.onCreate()
+        sharedPreferences = KeyboardPreferences(this)
+
         mil = Mil()
         codeMaps[KeyEvent.KEYCODE_0] = "Ctrl0"
         codeMaps[KeyEvent.KEYCODE_1] = "Ctrl1"
@@ -88,11 +87,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         codeMaps[KeyEvent.KEYCODE_I] = "CtrlI"
         codeMaps[KeyEvent.KEYCODE_O] = "CtrlO"
         codeMaps[KeyEvent.KEYCODE_P] = "CtrlP"
-    }
 
-    @SuppressLint("InflateParams")
-    override fun onCreateInputView(): View {
-        bdatabase = BDatabase(applicationContext)
 
         fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
@@ -102,22 +97,14 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         cjKB = Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ)
         strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
         milKB = Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL)
-        var nfk: HashMap<Keyboard, String?> = HashMap()
-        nfk[fullKB!!] = KEYBOARD_NAME_FULL
-        nfk[fsimeKB!!] = KEYBOARD_NAME_FSIME
-        nfk[pureKB!!] = KEYBOARD_NAME_PURE
-        nfk[digitKB!!] = KEYBOARD_NAME_DIGIT
-        nfk[jiKB!!] = KEYBOARD_NAME_JI
-        nfk[cjKB!!] = KEYBOARD_NAME_CJ
-        nfk[strokeKB!!] = KEYBOARD_NAME_STROKE
-        nfk[milKB!!] = KEYBOARD_NAME_MIL
-        nameFromKeyboard = nfk
-        keyboardFromName = invertMap(nfk)
-        keyboardSet = nfk.keys
+    }
+
+    @SuppressLint("InflateParams")
+    override fun onCreateInputView(): View {
+        bdatabase = BDatabase(applicationContext)
         inputContainer = layoutInflater.inflate(R.layout.input_container, null) as InputContainer
         inputContainer!!.initialiseCandidatesView(this)
         inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
-        sharedPreferences = KeyboardPreferences(this)
         return inputContainer!!
     }
     private fun setCandidateOrder() {
@@ -136,12 +123,35 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             PREFERENCES_FILE_NAME,
             KEYBOARD_NAME_PREFERENCE_KEY
         )
-        val savedKeyboard = keyboardFromName!![savedKeyboardName]
-        return savedKeyboard ?: fullKB
+        val keyboardSet = initKeyboardSet()
+        keyboardSet.forEach { k ->
+            if (k.name == savedKeyboardName) return k
+        }
+        return fullKB
     }
 
+    private fun initKeyboardSet() : Array<Keyboard> {
+        var keyboardSet = arrayOf<Keyboard>()
+        keyboardSet += fullKB!!
+        keyboardSet += fsimeKB!!
+        keyboardSet += pureKB!!
+        keyboardSet += digitKB!!
+
+        // "ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil"
+        if (sharedPreferences!!.getUseKb("ck_use_cj"))
+            keyboardSet += cjKB!!
+        if (sharedPreferences!!.getUseKb("ck_use_ji"))
+            keyboardSet += jiKB!!
+        if (sharedPreferences!!.getUseKb("ck_use_stroke"))
+            keyboardSet += strokeKB!!
+        if (sharedPreferences!!.getUseKb("ck_use_mil"))
+            keyboardSet += milKB!!
+        Log.d("KEYBOARDSET", "KeyboardSet size="+keyboardSet.size)
+        return keyboardSet.clone()
+    }
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
         super.onStartInput(editorInfo, isRestarting)
+
         inputOptionsBits = editorInfo.imeOptions
         enterKeyHasAction = inputOptionsBits and EditorInfo.IME_FLAG_NO_ENTER_ACTION == 0
         val inputTypeBits = editorInfo.inputType
@@ -183,7 +193,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         if (!enterKeyHasAction || enterKeyDisplayText == null) {
             enterKeyDisplayText = getString(R.string.display_text__return)
         }
-        for (keyboard in keyboardSet!!) {
+        val keyboardSet = initKeyboardSet()
+        for (keyboard in keyboardSet) {
             for (key in keyboard.getKeyList()) {
                 if (key.valueText == ENTER_KEY_VALUE_TEXT) {
                     key.displayText = enterKeyDisplayText
@@ -364,36 +375,23 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     override fun onSwipe(valueText: String) {
-        var keyboard = inputContainer!!.keyboard
-        val keyboardName = keyboard!!.name
         if (valueText == SPACE_BAR_VALUE_TEXT) {
-            if (keyboardName == null) {
+            val keyboardSet = initKeyboardSet()
+            if (keyboardSet.isEmpty()) {
+                Log.d("KEYBOARDSET", "KeyboardSet size="+keyboardSet.size)
+                return
+            }
+            var keyboard = inputContainer!!.keyboard
+            if (keyboard!!.name == null) {
                 return
             }
             if (keyboard.swipeDir and (SWIPE_RU or SWIPE_RD) > 0) { // right full > fsime > pure > digit > ji > cj > stroke > mil
-                keyboard = when (keyboardName) {
-                    KEYBOARD_NAME_FULL -> keyboardFromName!![KEYBOARD_NAME_FSIME]
-                    KEYBOARD_NAME_FSIME -> keyboardFromName!![KEYBOARD_NAME_PURE]
-                    KEYBOARD_NAME_PURE -> keyboardFromName!![KEYBOARD_NAME_DIGIT]
-                    KEYBOARD_NAME_DIGIT -> keyboardFromName!![KEYBOARD_NAME_JI]
-                    KEYBOARD_NAME_JI -> keyboardFromName!![KEYBOARD_NAME_CJ]
-                    KEYBOARD_NAME_CJ -> keyboardFromName!![KEYBOARD_NAME_STROKE]
-                    KEYBOARD_NAME_STROKE -> keyboardFromName!![KEYBOARD_NAME_MIL]
-                    else -> keyboardFromName!![KEYBOARD_NAME_FULL]
-                }
+                var next = (keyboardSet.indexOf(keyboard)+1) % keyboardSet.size
+                inputContainer!!.keyboard  = keyboardSet.get(next)
             } else if (keyboard.swipeDir and (SWIPE_LD or SWIPE_LU) > 0) { // left  mil > stroke > cj > ji > digit > pure > fsime > full
-                keyboard = when (keyboardName) {
-                    KEYBOARD_NAME_MIL -> keyboardFromName!![KEYBOARD_NAME_STROKE]
-                    KEYBOARD_NAME_STROKE -> keyboardFromName!![KEYBOARD_NAME_CJ]
-                    KEYBOARD_NAME_CJ -> keyboardFromName!![KEYBOARD_NAME_JI]
-                    KEYBOARD_NAME_JI -> keyboardFromName!![KEYBOARD_NAME_DIGIT]
-                    KEYBOARD_NAME_DIGIT -> keyboardFromName!![KEYBOARD_NAME_PURE]
-                    KEYBOARD_NAME_PURE -> keyboardFromName!![KEYBOARD_NAME_FSIME]
-                    KEYBOARD_NAME_FSIME -> keyboardFromName!![KEYBOARD_NAME_FULL]
-                    else -> keyboardFromName!![KEYBOARD_NAME_MIL]
-                }
+                var next = (keyboardSet.indexOf(keyboard)+keyboardSet.size-1) % keyboardSet.size
+                inputContainer!!.keyboard  = keyboardSet.get(next)
             }
-            inputContainer!!.keyboard = keyboard
             inputContainer!!.redrawKeyboard()
             return
         } else {
@@ -500,12 +498,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     override fun saveKeyboard(keyboard: Keyboard) {
-        val keyboardName = nameFromKeyboard!![keyboard]
         savePreferenceString(
             applicationContext,
             PREFERENCES_FILE_NAME,
             KEYBOARD_NAME_PREFERENCE_KEY,
-            keyboardName
+            keyboard.name!!
         )
     }
 

@@ -10,10 +10,10 @@ android
             defaultConfig
                     {
                         applicationId "com.wade.fsime"
-                        minSdkVersion 26
+                        minSdkVersion 33
                         targetSdkVersion 33
-                        versionCode 231027
-                        versionName "231027-kt"
+                        versionCode 231028
+                        versionName "231028-kt"
                     }
             buildTypes
                     {
