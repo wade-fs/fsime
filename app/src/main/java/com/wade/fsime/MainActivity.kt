@@ -7,7 +7,6 @@
 package com.wade.fsime
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.widget.CheckBox
@@ -71,7 +70,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ck.setOnClickListener(View.OnClickListener { v ->
                 val ckb = v as CheckBox
                 sharedPreferences!!.write(id2Use[ck.id], ck.isChecked)
-                Log.d("CHECK", "check "+id2Use[ck.id]+" "+ck.isChecked)
             })
         }
     }

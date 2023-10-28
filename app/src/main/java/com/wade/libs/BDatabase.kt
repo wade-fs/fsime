@@ -25,7 +25,7 @@ class BDatabase(context: Context?) :
         return false
     }
 
-    private fun isIn(res: ArrayList<String?>, b: String?): Boolean {
+    private fun isIn(res: ArrayList<String>, b: String?): Boolean {
         for (bb in res) {
             if (bb == b) return true
         }
@@ -211,16 +211,16 @@ class BDatabase(context: Context?) :
     }
 
     @SuppressLint("Range")
-    fun getVocabulary(k: String, start: Int, max: Int): ArrayList<String?> {
+    fun getVocabulary(k: String, start: Int, max: Int): ArrayList<String> {
         if (db == null) db = writableDatabase
         val resExact = ArrayList<B>()
         val res = query(k, start, max, "vocabulary", "ch", FUZZY_PREFIX)
         resExact.addAll(res)
-        val list = ArrayList<String?>()
+        val list = ArrayList<String>()
         list.add(k.substring(0, 1))
         for (b in resExact) {
             if (!isIn(list, b.ch)) {
-                list.add(b.ch)
+                list.add(b.ch!!)
             }
         }
         return list

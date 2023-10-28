@@ -146,7 +146,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             keyboardSet += strokeKB!!
         if (sharedPreferences!!.getUseKb("ck_use_mil"))
             keyboardSet += milKB!!
-        Log.d("KEYBOARDSET", "KeyboardSet size="+keyboardSet.size)
         return keyboardSet.clone()
     }
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
@@ -218,6 +217,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         val inputConnection = currentInputConnection ?: return
         inputConnection.commitText(candidate, 1)
         mComposing = ""
+        updateRelative(candidate!!)
     }
 
     private fun keyDownUp(keyEventCode: Int, meta: Int) {
@@ -378,7 +378,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         if (valueText == SPACE_BAR_VALUE_TEXT) {
             val keyboardSet = initKeyboardSet()
             if (keyboardSet.isEmpty()) {
-                Log.d("KEYBOARDSET", "KeyboardSet size="+keyboardSet.size)
                 return
             }
             var keyboard = inputContainer!!.keyboard
@@ -477,24 +476,37 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
     }
 
+    private fun updateRelative(sel: String) {
+        val list = bdatabase!!.getVocabulary(
+            sel,
+            0,
+            30
+        )
+        setCandidateList(list)
+    }
     private fun effectSpaceKey(inputConnection: InputConnection) {
-        if (mComposing.length > 0 && candidateList.size > 1) {
-            onCandidate(getCandidate(1))
-        } else if (candidateList.size > 0) {
-            onCandidate(getCandidate(0))
+        if (mComposing.length > 0) {
+            var sel = ""
+            if (candidateList.size > 1) {
+                sel = getCandidate(1)
+            } else if (candidateList.size > 0) {
+                sel = getCandidate(0)
+            }
+            onCandidate(sel)
         } else {
             inputConnection.commitText(" ", 1)
         }
     }
 
     private fun effectEnterKey(inputConnection: InputConnection) {
-        if (mComposing.length > 0) {
-            onCandidate(getCandidate(0))
-        } else if (enterKeyHasAction) {
+        if (enterKeyHasAction) {
             inputConnection.performEditorAction(inputOptionsBits)
+        } else if (mComposing.length > 0) {
+            onCandidate(getCandidate(0))
         } else {
             inputConnection.commitText("\n", 1)
         }
+        setCandidateList(emptyList<String>())
     }
 
     override fun saveKeyboard(keyboard: Keyboard) {
@@ -511,7 +523,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.setCandidateList(candidateList)
     }
 
-    private fun getCandidate(idx: Int): String? {
+    private fun getCandidate(idx: Int): String {
         return try {
             if (candidateList.size > idx) {
                 candidateList[idx]
