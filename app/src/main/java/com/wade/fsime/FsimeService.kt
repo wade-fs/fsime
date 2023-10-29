@@ -499,10 +499,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun effectEnterKey(inputConnection: InputConnection) {
-        if (enterKeyHasAction) {
-            inputConnection.performEditorAction(inputOptionsBits)
-        } else if (mComposing.length > 0) {
+        if (mComposing.length > 0) {
             onCandidate(getCandidate(0))
+        } else if (enterKeyHasAction) {
+            inputConnection.performEditorAction(inputOptionsBits)
         } else {
             inputConnection.commitText("\n", 1)
         }
