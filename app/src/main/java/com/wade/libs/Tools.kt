@@ -2,7 +2,6 @@ package com.wade.libs
 
 import android.graphics.PointF
 import android.widget.EditText
-import java.util.Locale
 
 /**
  * Created by wade on 2017/2/20.

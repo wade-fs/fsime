@@ -10,13 +10,11 @@ import android.annotation.SuppressLint
 import android.inputmethodservice.InputMethodService
 import android.text.InputType
 import android.text.TextUtils
-import android.util.Log
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
-import com.readystatesoftware.android.sqliteassethelper.BuildConfig
 import com.wade.MathParser.MathParser
 import com.wade.fsime.CandidatesViewAdapter.CandidateListener
 import com.wade.fsime.KeyboardView.KeyboardListener
@@ -25,15 +23,8 @@ import com.wade.mil.Mil
 import com.wade.utilities.Contexty.loadPreferenceString
 import com.wade.utilities.Contexty.savePreferenceString
 import com.wade.utilities.Contexty.showSystemKeyboardChanger
-import com.wade.utilities.Stringy.getFirstCodePoint
 import com.wade.utilities.Stringy.isAscii
 import com.wade.utilities.Stringy.removeSuffixRegex
-import com.wade.utilities.Stringy.toCodePointList
-import com.wade.utilities.invertMap
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStreamReader
-import java.util.Arrays
 
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
