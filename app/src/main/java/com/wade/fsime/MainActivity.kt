@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        val useIds = intArrayOf(R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckMil)
-        val useKeys = arrayOf("ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil")
+        val useIds = intArrayOf(R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckMil, R.id.ckPhrase)
+        val useKeys = arrayOf("ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil", "ck_phrase")
         for (i in useIds.indices) {
             id2Use[useIds[i]] = useKeys[i]
         }

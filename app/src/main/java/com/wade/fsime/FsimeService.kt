@@ -53,6 +53,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     val SWIPE_LD = 2
     val SWIPE_LU = 4
     val SWIPE_RD = 8
+	private var usePhrase = false
     override fun onCreate() {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
@@ -137,6 +138,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             keyboardSet += strokeKB!!
         if (sharedPreferences!!.getUseKb("ck_use_mil"))
             keyboardSet += milKB!!
+        if (sharedPreferences!!.getUseKb("ck_phrase"))
+            usePhrase = true
+		else usePhrase = false
         return keyboardSet.clone()
     }
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
@@ -468,7 +472,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun updateRelative(sel: String) {
-        val list = bdatabase!!.getVocabulary(
+        var tb = "vocabulary"
+        if (usePhrase) tb = "phrase"
+        val list = bdatabase!!.getPhrase(tb,
             sel,
             0,
             30
