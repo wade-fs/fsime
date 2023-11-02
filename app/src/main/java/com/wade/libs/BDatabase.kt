@@ -220,7 +220,7 @@ class BDatabase(context: Context?) :
         list.add(k.substring(0, 1))
         for (b in resExact) {
             if (!isIn(list, b.ch)) {
-                list.add(b.ch!!)
+                list.add(b.ch!!.substring(1))
             }
         }
         return list
