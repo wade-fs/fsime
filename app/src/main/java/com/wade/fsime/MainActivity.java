@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     KeyboardPreferences sharedPreferences;
 
     Map<Integer, String> id2Key = new HashMap<Integer, String>();
+    Map<Integer, String> id2Use = new HashMap<Integer, String>();
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -75,6 +77,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
+
+        int useIds[] = {R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckMil, R.id.ckPhrase};
+        String useKeys[] = {"ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil", "ck_phrase"};
+        for (int i = 0; i<useIds.length; i++) {
+            id2Use.put(useIds[i], useKeys[i]);
+        }
+
+        for (int id: useIds) {
+            CheckBox ck = findViewById(id);
+            Boolean useKb = sharedPreferences.getUseKb(id2Use.get(ck.getId()));
+            ck.setChecked(useKb);
+            ck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckBox ckb = (CheckBox) v;
+                    sharedPreferences.write(id2Use.get(ckb.getId()), ck.isChecked());
+                }
+            });
+        }
+
     }
     private void setCandidateOrderButtonText() {
         final TextView candidateOrderButton = findViewById(R.id.candidate_order_button);

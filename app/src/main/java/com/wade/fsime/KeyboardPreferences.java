@@ -30,15 +30,13 @@ public class KeyboardPreferences {
     public String getHotkey(String k) {
         return safeRead(k, "");
     }
-    public void resetAllToDefault() {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
-        editor.apply();
+    public Boolean getUseKb(String k) {
+        return read(k, false);
     }
-
 //    private boolean read(String key, boolean defaultValue) { return preferences.getBoolean(key, defaultValue); }
 //    private int read(String key, int defaultValue) { return preferences.getInt(key, defaultValue); }
     private String read(String key, String defaultValue) { return preferences.getString(key, defaultValue); }
+    private Boolean read(String key, Boolean defaultValue) { return preferences.getBoolean(key, defaultValue); }
     private String safeRead(String key, String defaultValue) {
         String s = read(key, defaultValue);
         if (s == null) {
@@ -50,4 +48,5 @@ public class KeyboardPreferences {
 //    private void write(String key, boolean value) { preferences.edit().putBoolean(key, value).apply(); }
 //    private void write(String key, int value) { preferences.edit().putInt(key, value).apply(); }
     void write(String key, String value) { preferences.edit().putString(key, value).apply(); }
+    void write(String key, Boolean value) { preferences.edit().putBoolean(key, value).apply(); }
 }

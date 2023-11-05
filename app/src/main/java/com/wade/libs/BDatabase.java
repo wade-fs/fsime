@@ -211,18 +211,18 @@ public class BDatabase extends SQLiteAssetHelper {
 	}
 
     @SuppressLint("Range")
-    public ArrayList<String> getVocabulary(String k, int start, int max){
+    public ArrayList<String> getPhrase(String tb, String k, int start, int max){
         if (db == null) db = getWritableDatabase();
 
         ArrayList<B> resExact=new ArrayList<>();
-        ArrayList<B> res = query(k, start, max, "vocabulary", "ch", FUZZY_PREFIX);
+        ArrayList<B> res = query(k, start, max, tb, "ch", FUZZY_PREFIX);
         resExact.addAll(res);
 
         ArrayList<String> list = new ArrayList<>();
         list.add(k.substring(0,1));
         for (B b : resExact) {
             if (!isIn(list, b.ch)) {
-                list.add(b.ch);
+                list.add(b.ch.substring(1));
             }
         }
         return list;

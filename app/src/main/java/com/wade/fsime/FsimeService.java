@@ -86,28 +86,9 @@ public class FsimeService
     private static final int RANKING_PENALTY_UNPREFERRED = 10 * LARGISH_SORTING_RANK;
     private static final int MAX_PHRASE_LENGTH = 6;
 
-    private Map<Keyboard, String> nameFromKeyboard;
-    private Map<String, Keyboard> keyboardFromName;
-    private Set<Keyboard> keyboardSet;
-
     private InputContainer inputContainer;
-
-    private final Set<Integer> codePointSetTraditional = new HashSet<>();
-    private final Set<Integer> codePointSetSimplified = new HashSet<>();
-    private final Map<Integer, Integer> sortingRankFromCodePointTraditional = new HashMap<>();
-    private final Map<Integer, Integer> sortingRankFromCodePointSimplified = new HashMap<>();
-    private final Set<Integer> commonCodePointSetTraditional = new HashSet<>();
-    private final Set<Integer> commonCodePointSetSimplified = new HashSet<>();
-    private final NavigableSet<String> phraseSetTraditional = new TreeSet<>();
-    private final NavigableSet<String> phraseSetSimplified = new TreeSet<>();
-
-    private Set<Integer> unpreferredCodePointSet;
-    private Map<Integer, Integer> sortingRankFromCodePoint;
-    private NavigableSet<String> phraseSet;
-
     private String mComposing = "";
     private List<String> candidateList = new ArrayList<>();
-    private final List<Integer> phraseCompletionFirstCodePointList = new ArrayList<>();
 
     private int inputOptionsBits;
     private boolean enterKeyHasAction;
@@ -117,19 +98,22 @@ public class FsimeService
     KeyboardPreferences sharedPreferences;
     Map<Integer,String> codeMaps = new HashMap<Integer, String>();
     final int SWIPE_NONE=0, SWIPE_RU=1, SWIPE_LD=2, SWIPE_LU=4, SWIPE_RD=8;
+    private Boolean usePhrase = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_TRADITIONAL, codePointSetTraditional);
-        loadCharactersIntoCodePointSet(CHARACTERS_FILE_NAME_SIMPLIFIED, codePointSetSimplified);
-        loadRankingData(RANKING_FILE_NAME_TRADITIONAL, sortingRankFromCodePointTraditional, commonCodePointSetTraditional);
-        loadRankingData(RANKING_FILE_NAME_SIMPLIFIED, sortingRankFromCodePointSimplified, commonCodePointSetSimplified);
-        loadPhrasesIntoSet(PHRASES_FILE_NAME_TRADITIONAL, phraseSetTraditional);
-        loadPhrasesIntoSet(PHRASES_FILE_NAME_SIMPLIFIED, phraseSetSimplified);
+        sharedPreferences = new KeyboardPreferences(this);
+        fullKB = new Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL);
+        fsimeKB = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
+        pureKB = new Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE);
+        digitKB = new Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT);
+        jiKB = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
+        cjKB = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
+        strokeKB = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
+        milKB = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
 
-        updateCandidateOrderPreference();
         mil = new Mil();
         codeMaps.put(KeyEvent.KEYCODE_0, "Ctrl0");
         codeMaps.put(KeyEvent.KEYCODE_1, "Ctrl1");
@@ -157,133 +141,57 @@ public class FsimeService
     @Override
     public View onCreateInputView() {
         bdatabase = new BDatabase(getApplicationContext());
-        fullKB = new Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL);
-        fsimeKB = new Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME);
-        pureKB = new Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE);
-        digitKB = new Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT);
-        jiKB = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
-        cjKB = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
-        strokeKB = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
-        milKB = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
-
-        nameFromKeyboard = new HashMap<>();
-        nameFromKeyboard.put(fullKB, KEYBOARD_NAME_FULL);
-        nameFromKeyboard.put(fsimeKB, KEYBOARD_NAME_FSIME);
-        nameFromKeyboard.put(pureKB, KEYBOARD_NAME_PURE);
-        nameFromKeyboard.put(digitKB, KEYBOARD_NAME_DIGIT);
-        nameFromKeyboard.put(jiKB, KEYBOARD_NAME_JI);
-        nameFromKeyboard.put(cjKB, KEYBOARD_NAME_CJ);
-        nameFromKeyboard.put(strokeKB, KEYBOARD_NAME_STROKE);
-        nameFromKeyboard.put(milKB, KEYBOARD_NAME_MIL);
-        keyboardFromName = Mappy.invertMap(nameFromKeyboard);
-        keyboardSet = nameFromKeyboard.keySet();
 
         inputContainer = (InputContainer) getLayoutInflater().inflate(R.layout.input_container, null);
         inputContainer.initialiseCandidatesView(this);
         inputContainer.initialiseKeyboardView(this, loadSavedKeyboard());
 
-        sharedPreferences = new KeyboardPreferences(this);
         return inputContainer;
+    }
+    private void setCandidateOrder() {
+        String candidateOrder = sharedPreferences.candidateOrder();
+        bdatabase.setTs(
+            switch (candidateOrder) {
+                case "TraditionalOnly" -> 1;
+                case "SimplifiedOnly" -> 2;
+                default -> 0;
+            }
+        );
     }
 
     private Keyboard loadSavedKeyboard() {
         final String savedKeyboardName =
                 Contexty.loadPreferenceString(getApplicationContext(), PREFERENCES_FILE_NAME, KEYBOARD_NAME_PREFERENCE_KEY);
-        final Keyboard savedKeyboard = keyboardFromName.get(savedKeyboardName);
-        if (savedKeyboard != null) {
-            return savedKeyboard;
-        } else {
-            return fullKB;
-        }
-    }
-
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    private static boolean isCommentLine(final String line) {
-        return line.startsWith("#") || line.length() == 0;
-    }
-
-    private void loadCharactersIntoCodePointSet(final String charactersFileName, final Set<Integer> codePointSet) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(charactersFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    codePointSet.add(Stringy.getFirstCodePoint(line));
-                }
+        ArrayList<Keyboard>keyboardSet = initKeyboardSet();
+        Keyboard saveedKeyboard = fullKB;
+        for (Keyboard k: keyboardSet) {
+            if (k.name.equals(savedKeyboardName)) {
+                saveedKeyboard = k;
+                break;
             }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(charactersFileName, startMilliseconds, endMilliseconds);
+        };
+        return saveedKeyboard;
     }
+    private ArrayList<Keyboard>  initKeyboardSet() {
+        ArrayList<Keyboard> keyboardSet = new ArrayList<Keyboard>();
+        keyboardSet.add(fullKB);
+        keyboardSet.add(fsimeKB);
+        keyboardSet.add(pureKB);
+        keyboardSet.add(digitKB);
 
-    private void loadRankingData(
-            final String rankingFileName,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final Set<Integer> commonCodePointSet
-    ) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(rankingFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            int currentRank = 0;
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    for (final int codePoint : Stringy.toCodePointList(line)) {
-                        currentRank++;
-                        if (!sortingRankFromCodePoint.containsKey(codePoint)) {
-                            sortingRankFromCodePoint.put(codePoint, currentRank);
-                        }
-                        if (currentRank < LAG_PREVENTION_CODE_POINT_COUNT) {
-                            commonCodePointSet.add(codePoint);
-                        }
-                    }
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(rankingFileName, startMilliseconds, endMilliseconds);
-    }
-
-    private void loadPhrasesIntoSet(final String phrasesFileName, final Set<String> phraseSet) {
-        final long startMilliseconds = System.currentTimeMillis();
-
-        try {
-            final InputStream inputStream = getAssets().open(phrasesFileName);
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!isCommentLine(line)) {
-                    phraseSet.add(line);
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        final long endMilliseconds = System.currentTimeMillis();
-        sendLoadingTimeLog(phrasesFileName, startMilliseconds, endMilliseconds);
-    }
-
-    private void sendLoadingTimeLog(final String fileName, final long startMilliseconds, final long endMilliseconds) {
-        if (BuildConfig.DEBUG) {
-            final long durationMilliseconds = endMilliseconds - startMilliseconds;
-            Log.d(LOG_TAG, String.format("Loaded %s in %d ms", fileName, durationMilliseconds));
-        }
-    }
+        if (sharedPreferences.getUseKb("ck_use_cj"))
+            keyboardSet.add(cjKB);
+        if (sharedPreferences.getUseKb("ck_use_ji"))
+            keyboardSet.add(jiKB);
+        if (sharedPreferences.getUseKb("ck_use_stroke"))
+            keyboardSet.add(strokeKB);
+        if (sharedPreferences.getUseKb("ck_use_mil"))
+            keyboardSet.add(milKB);
+        if (sharedPreferences.getUseKb("ck_phrase"))
+            usePhrase = true;
+        else usePhrase = false;
+       return keyboardSet;
+     }
 
     @Override
     public void onStartInput(final EditorInfo editorInfo, final boolean isRestarting) {
@@ -321,6 +229,7 @@ public class FsimeService
         inputContainer.setCandidateList(candidateList);
 
         setEnterKeyDisplayText();
+        setCandidateOrder();
     }
 
     private void setEnterKeyDisplayText() {
@@ -336,7 +245,7 @@ public class FsimeService
         if (!enterKeyHasAction || enterKeyDisplayText == null) {
             enterKeyDisplayText = getString(R.string.display_text__return);
         }
-
+        ArrayList<Keyboard>keyboardSet = initKeyboardSet();
         for (final Keyboard keyboard : keyboardSet) {
             for (final Key key : keyboard.getKeyList()) {
                 if (key.valueText.equals(ENTER_KEY_VALUE_TEXT)) {
@@ -367,8 +276,15 @@ public class FsimeService
 
         inputConnection.commitText(candidate, 1);
         mComposing = "";
-        setPhraseCompletionCandidateList(inputConnection);
+        updateRelative(candidate);
     }
+    private void updateRelative(String sel) {
+        String tb = "vocabulary";
+        if (usePhrase) tb = "phrase";
+        ArrayList<String> list = bdatabase.getPhrase(tb, sel, 0, 30);
+        setCandidateList(list);
+    }
+
     private void keyDownUp(int keyEventCode, int meta) {
         InputConnection ic = getCurrentInputConnection();
         ic.sendKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyEventCode, 0, meta));
@@ -462,15 +378,23 @@ public class FsimeService
                     KeyEvent[] events = mKeyCharacterMap.getEvents(valueText.toCharArray());
 
                     for (KeyEvent event2 : events) {
-                        // 其實只做一次
-                        if (event2.getAction() == 0) {
-                            int keycode = event2.getKeyCode();
-                            String hk = sharedPreferences.getHotkey(codeMaps.get(keycode));
-                            if (hk.length() > 0) {
-                                effectStrokeAppend(hk);
-                            } else {
-                                keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                        int keycode = event2.getKeyCode();
+                        if (event2.getAction() == 0 && keycode != KeyEvent.KEYCODE_SHIFT_LEFT) {
+                            if (codeMaps.containsKey(keycode)) {
+                                String hk = sharedPreferences.getHotkey(codeMaps.get(keycode));
+                                if (hk.length() > 0) {
+                                    mComposing = "";
+                                    effectStrokeAppend(hk);
+                                    break;
+                                } else {
+                                    if (inputContainer.getKeyboard().shiftMode != 0) {
+                                        keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                                        break;
+                                    }
+                                }
                             }
+                            keyDownUp(keycode, KeyEvent.META_CTRL_ON);
+                            break;
                         }
                         break;
                     }
@@ -517,35 +441,17 @@ public class FsimeService
 
     @Override
     public void onSwipe(final String valueText) {
-        Keyboard keyboard = inputContainer.getKeyboard();
-        String keyboardName = keyboard.name;
-
         if (valueText.equals(SPACE_BAR_VALUE_TEXT)) {
-            if (keyboardName == null) {
-                return;
-            }
+            ArrayList<Keyboard>keyboardSet = initKeyboardSet();
+            if (keyboardSet.isEmpty()) return;
+            Keyboard keyboard = inputContainer.getKeyboard();
+            if (keyboard.name.isEmpty()) return;
             if ((keyboard.swipeDir & (SWIPE_RU | SWIPE_RD)) > 0) { // right full > fsime > pure > digit > ji > cj > stroke > mil
-                keyboard = switch (keyboardName) {
-                    case KEYBOARD_NAME_FULL -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
-                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_PURE);
-                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_DIGIT);
-                    case KEYBOARD_NAME_DIGIT -> keyboardFromName.get(KEYBOARD_NAME_JI);
-                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_CJ);
-                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
-                    case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                    default -> keyboardFromName.get(KEYBOARD_NAME_FULL);
-                };
+                int next = (keyboardSet.indexOf(keyboard)+1) % keyboardSet.size();
+                keyboard = keyboardSet.get(next);
             } else if ((keyboard.swipeDir & (SWIPE_LD | SWIPE_LU)) > 0) { // left  mil > stroke > cj > ji > digit > pure > fsime > full
-                keyboard = switch (keyboardName) {
-                    case KEYBOARD_NAME_MIL -> keyboardFromName.get(KEYBOARD_NAME_STROKE);
-                    case KEYBOARD_NAME_STROKE -> keyboardFromName.get(KEYBOARD_NAME_CJ);
-                    case KEYBOARD_NAME_CJ -> keyboardFromName.get(KEYBOARD_NAME_JI);
-                    case KEYBOARD_NAME_JI -> keyboardFromName.get(KEYBOARD_NAME_DIGIT);
-                    case KEYBOARD_NAME_DIGIT -> keyboardFromName.get(KEYBOARD_NAME_PURE);
-                    case KEYBOARD_NAME_PURE -> keyboardFromName.get(KEYBOARD_NAME_FSIME);
-                    case KEYBOARD_NAME_FSIME -> keyboardFromName.get(KEYBOARD_NAME_FULL);
-                    default -> keyboardFromName.get(KEYBOARD_NAME_MIL);
-                };
+                int next = (keyboardSet.indexOf(keyboard)-1) % keyboardSet.size();
+                keyboard = keyboardSet.get(next);
             }
             inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
@@ -560,7 +466,6 @@ public class FsimeService
             return Collections.emptyList();
         }
 
-        updateCandidateOrderPreference();
         return bdatabase.getWord(mComposing, 0, 30, inputContainer.getKeyboard().name);
     }
     private void effectStrokeAppendMil(final String key) {
@@ -608,10 +513,6 @@ public class FsimeService
 
             setCandidateList(newCandidateList);
 
-            if (mComposing.length() == 0) {
-                setPhraseCompletionCandidateList(inputConnection);
-            }
-
             inputContainer.setKeyRepeatIntervalMilliseconds(BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8);
         } else {
             final String upToOneCharacterBeforeCursor = getTextBeforeCursor(inputConnection, 1);
@@ -623,11 +524,11 @@ public class FsimeService
                 } else {
                     inputConnection.commitText("", 1);
                 }
-            } else { // for apps like Termux
-                keyDownUp(KeyEvent.KEYCODE_DEL, inputContainer.getKeyboard().shiftMode);
+            } else if (inputContainer.getKeyboard().shiftMode != 0) {
+                keyDownUp(KeyEvent.KEYCODE_DEL, KeyEvent.META_SHIFT_ON);
+            } else {
+                keyDownUp(KeyEvent.KEYCODE_DEL, 0);
             }
-
-            setPhraseCompletionCandidateList(inputConnection);
 
             final int nextBackspaceIntervalMilliseconds =
                     (Stringy.isAscii(upToOneCharacterBeforeCursor))
@@ -638,10 +539,14 @@ public class FsimeService
     }
 
     private void effectSpaceKey(final InputConnection inputConnection) {
-        if (mComposing.length() > 0 && candidateList.size() > 1) {
-            onCandidate(getCandidate(1));
-        } else if (candidateList.size() > 0) {
-            onCandidate(getCandidate(0));
+        if (mComposing.length() > 0) {
+            String sel = "";
+            if (candidateList.size() > 1) {
+                sel = getCandidate(1);
+            } else if (candidateList.size() > 0) {
+                sel = getCandidate(0);
+            }
+            onCandidate(sel);
         } else {
             inputConnection.commitText(" ", 1);
         }
@@ -655,33 +560,22 @@ public class FsimeService
         } else {
             inputConnection.commitText("\n", 1);
         }
+        setCandidateList(new ArrayList<String>());
     }
 
     @Override
     public void saveKeyboard(final Keyboard keyboard) {
-        final String keyboardName = nameFromKeyboard.get(keyboard);
         Contexty.savePreferenceString(
                 getApplicationContext(),
                 PREFERENCES_FILE_NAME,
                 KEYBOARD_NAME_PREFERENCE_KEY,
-                keyboardName
+                keyboard.name
         );
     }
 
     private void setCandidateList(final List<String> candidateList) {
         this.candidateList = candidateList;
         inputContainer.setCandidateList(candidateList);
-    }
-
-    private void setPhraseCompletionCandidateList(final InputConnection inputConnection) {
-        List<String> phraseCompletionCandidateList = computePhraseCompletionCandidateList(inputConnection);
-
-        phraseCompletionFirstCodePointList.clear();
-        for (final String phraseCompletionCandidate : phraseCompletionCandidateList) {
-            phraseCompletionFirstCodePointList.add(Stringy.getFirstCodePoint(phraseCompletionCandidate));
-        }
-
-        setCandidateList(phraseCompletionCandidateList);
     }
 
     /*
@@ -785,42 +679,6 @@ public class FsimeService
         }
     }
 
-    /*
-      Compute the phrase completion candidate list.
-      Longer matches with the text before the cursor are ranked earlier.
-    */
-    private List<String> computePhraseCompletionCandidateList(final InputConnection inputConnection) {
-        updateCandidateOrderPreference();
-
-        final List<String> phraseCompletionCandidateList = new ArrayList<>();
-
-        for (
-                String phrasePrefix = getTextBeforeCursor(inputConnection, MAX_PHRASE_LENGTH - 1);
-                phrasePrefix.length() > 0;
-                phrasePrefix = Stringy.removePrefixRegex("(?s).", phrasePrefix)
-        ) {
-            final Set<String> prefixMatchPhraseCandidateSet =
-                    phraseSet.subSet(
-                            phrasePrefix, false,
-                            phrasePrefix + Character.MAX_VALUE, false
-                    );
-            final List<String> prefixMatchPhraseCompletionList = new ArrayList<>();
-
-            for (final String phraseCandidate : prefixMatchPhraseCandidateSet) {
-                final String phraseCompletion = Stringy.removePrefix(phrasePrefix, phraseCandidate);
-                if (!phraseCompletionCandidateList.contains(phraseCompletion)) {
-                    prefixMatchPhraseCompletionList.add(phraseCompletion);
-                }
-            }
-            prefixMatchPhraseCompletionList.sort(
-                    candidateComparator(unpreferredCodePointSet, sortingRankFromCodePoint, Collections.emptyList())
-            );
-            phraseCompletionCandidateList.addAll(prefixMatchPhraseCompletionList);
-        }
-
-        return phraseCompletionCandidateList;
-    }
-
     private String getTextBeforeCursor(final InputConnection inputConnection, final int characterCount) {
         if (inputIsPassword) {
             return ""; // don't read passwords
@@ -833,11 +691,5 @@ public class FsimeService
         } else {
             return "";
         }
-    }
-
-    private void updateCandidateOrderPreference() {
-        unpreferredCodePointSet = codePointSetSimplified;
-        sortingRankFromCodePoint = sortingRankFromCodePointTraditional;
-        phraseSet = phraseSetTraditional;
     }
 }
