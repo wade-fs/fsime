@@ -21,7 +21,6 @@ import android.view.inputmethod.InputConnection;
 import com.readystatesoftware.android.sqliteassethelper.BuildConfig;
 import com.wade.MathParser.MathParser;
 import com.wade.libs.BDatabase;
-import com.wade.mil.Mil;
 import com.wade.utilities.Contexty;
 import com.wade.utilities.Mappy;
 import com.wade.utilities.Stringy;
@@ -64,7 +63,6 @@ public class FsimeService
     private static final String KEYBOARD_NAME_CJ = "cj";
     private static final String KEYBOARD_NAME_JI = "ji";
     private static final String KEYBOARD_NAME_STROKE = "stroke";
-    private static final String KEYBOARD_NAME_MIL = "mil";
 
     Keyboard fullKB, fsimeKB, pureKB, digitKB, jiKB, cjKB, strokeKB, milKB;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
@@ -94,7 +92,6 @@ public class FsimeService
     private boolean enterKeyHasAction;
     private boolean inputIsPassword;
     BDatabase bdatabase;
-    private Mil mil;
     KeyboardPreferences sharedPreferences;
     Map<Integer,String> codeMaps = new HashMap<Integer, String>();
     final int SWIPE_NONE=0, SWIPE_RU=1, SWIPE_LD=2, SWIPE_LU=4, SWIPE_RD=8;
@@ -112,9 +109,7 @@ public class FsimeService
         jiKB = new Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI);
         cjKB = new Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ);
         strokeKB = new Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE);
-        milKB = new Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL);
 
-        mil = new Mil();
         codeMaps.put(KeyEvent.KEYCODE_0, "Ctrl0");
         codeMaps.put(KeyEvent.KEYCODE_1, "Ctrl1");
         codeMaps.put(KeyEvent.KEYCODE_2, "Ctrl2");
@@ -303,54 +298,11 @@ public class FsimeService
         mComposing = "";
         inputContainer.setCandidateList(new ArrayList<>());
     }
-    private void showMilMessage(String inputText) {
-        String btnMsg = mil.getBtnMsg(inputText);
-        if (btnMsg.length() > 0) {
-            final List<String> list = Collections.singletonList(btnMsg);
-            setCandidateList(list);
-        }
-    }
-    public void onKeyMil(final String valueText) {
-        final InputConnection inputConnection = getCurrentInputConnection();
-        if (inputConnection == null) return;
-        if (valueText.matches("[0123456789\\+\\-\\*/°'\"()\\.]")) {
-            effectStrokeAppendMil(valueText);
-            return;
-        }
-
-        switch (valueText) {
-            case BACKSPACE_VALUE_TEXT:
-                effectBackspace(inputConnection);
-                break;
-            case TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT: // 下一欄
-                break;
-            case ESC_KEY_VALUE_TEXT: // 從第一個欄位開始
-                turnCandidateOff();
-                break;
-            case SPACE_BAR_VALUE_TEXT: // 下一欄與計算
-                effectSpaceKey(inputConnection);
-                break;
-
-            case ENTER_KEY_VALUE_TEXT: // 無條件送出
-                effectEnterKey(inputConnection);
-                break;
-            case ANGLE_KEY_VALUE_TEXT:
-                inputContainer.getKeyboard().setShiftText(ANGLE_KEY_VALUE_TEXT, mil.nextMode());
-                break;
-            default: // TODO: 功能鍵
-                mil.setApp(valueText);
-        }
-    }
     public void onCtrlKey(final String valueText) {
 
     }
     @Override
     public void onKey(final String valueText) {
-        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
-            onKeyMil(valueText);
-            return;
-        }
-
         final InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection == null) {
             return;
@@ -406,10 +358,6 @@ public class FsimeService
     }
     @Override
     public void onLongPress(final String inputText) {
-        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL)) {
-            showMilMessage(inputText);
-            return;
-        }
         String valueText, shiftText;
         if (inputText.length() == 2) {
             valueText = inputText.substring(0, 1);
@@ -446,44 +394,26 @@ public class FsimeService
             if (keyboardSet.isEmpty()) return;
             Keyboard keyboard = inputContainer.getKeyboard();
             if (keyboard.name.isEmpty()) return;
-            if ((keyboard.swipeDir & (SWIPE_RU | SWIPE_RD)) > 0) { // right full > fsime > pure > digit > ji > cj > stroke > mil
+            if ((keyboard.swipeDir & (SWIPE_RU | SWIPE_RD)) > 0) {
                 int next = (keyboardSet.indexOf(keyboard)+1) % keyboardSet.size();
                 keyboard = keyboardSet.get(next);
-            } else if ((keyboard.swipeDir & (SWIPE_LD | SWIPE_LU)) > 0) { // left  mil > stroke > cj > ji > digit > pure > fsime > full
+            } else if ((keyboard.swipeDir & (SWIPE_LD | SWIPE_LU)) > 0) {
                 int next = (keyboardSet.indexOf(keyboard)-1) % keyboardSet.size();
                 keyboard = keyboardSet.get(next);
             }
             inputContainer.setKeyboard(keyboard);
             inputContainer.redrawKeyboard();
-            return;
         } else {
             effectStrokeAppend(valueText);
         }
     }
 
     private List<String> computeCandidateList(final String mComposing) {
-        if (inputContainer.getKeyboard().name.equals(KEYBOARD_NAME_MIL) || mComposing.length() == 0) {
+        if (mComposing.length() == 0) {
             return Collections.emptyList();
         }
 
         return bdatabase.getWord(mComposing, 0, 30, inputContainer.getKeyboard().name);
-    }
-    private void effectStrokeAppendMil(final String key) {
-        final String exp = mComposing + key;
-        final MathParser parser = MathParser.create();
-        final List<String> list = new ArrayList<>();
-        list.add(exp);
-        String[] exps = exp.split(";");
-        try {
-            for (int i=0; i<exps.length-1; i++) {
-                parser.addExpression(exps[i]);
-            }
-            double res = parser.parse(exps[exps.length-1]);
-            list.add(Double.toString(res));
-        } catch (Exception e) {
-        }
-        mComposing = exp;
-        setCandidateList(list);
     }
 
     private void effectStrokeAppend(final String key) {
@@ -560,7 +490,7 @@ public class FsimeService
         } else {
             inputConnection.commitText("\n", 1);
         }
-        setCandidateList(new ArrayList<String>());
+        setCandidateList(new ArrayList<>());
     }
 
     @Override
@@ -576,95 +506,6 @@ public class FsimeService
     private void setCandidateList(final List<String> candidateList) {
         this.candidateList = candidateList;
         inputContainer.setCandidateList(candidateList);
-    }
-
-    /*
-      Candidate comparator for a string.
-    */
-    private Comparator<String> candidateComparator(
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        return
-                Comparator.comparingInt(
-                        string ->
-                                computeCandidateRank(
-                                        string,
-                                        unpreferredCodePointSet,
-                                        sortingRankFromCodePoint,
-                                        phraseCompletionFirstCodePointList
-                                )
-                );
-    }
-
-    /*
-      Compute the candidate rank for a string.
-    */
-    private int computeCandidateRank(
-            final String string,
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        final int firstCodePoint = Stringy.getFirstCodePoint(string);
-        final int stringLength = string.length();
-
-        return
-                computeCandidateRank(
-                        firstCodePoint,
-                        stringLength,
-                        unpreferredCodePointSet,
-                        sortingRankFromCodePoint,
-                        phraseCompletionFirstCodePointList
-                );
-    }
-
-    /*
-      Compute the candidate rank for a string with a given first code point and length.
-    */
-    private int computeCandidateRank(
-            final int firstCodePoint,
-            final int stringLength,
-            final Set<Integer> unpreferredCodePointSet,
-            final Map<Integer, Integer> sortingRankFromCodePoint,
-            final List<Integer> phraseCompletionFirstCodePointList
-    ) {
-        final int coarseRank;
-        final int fineRank;
-        final int penalty;
-
-        final boolean phraseCompletionListIsEmpty = phraseCompletionFirstCodePointList.size() == 0;
-        final int phraseCompletionIndex = phraseCompletionFirstCodePointList.indexOf(firstCodePoint);
-        final boolean firstCodePointMatchesPhraseCompletionCandidate = phraseCompletionIndex > 0;
-
-        final Integer sortingRank = sortingRankFromCodePoint.get(firstCodePoint);
-        final int sortingRankNonNull =
-                (sortingRank != null)
-                        ? sortingRank
-                        : LARGISH_SORTING_RANK;
-
-        final int lengthPenalty = (stringLength - 1) * RANKING_PENALTY_PER_CHAR;
-        final int unpreferredPenalty =
-                (unpreferredCodePointSet.contains(firstCodePoint))
-                        ? RANKING_PENALTY_UNPREFERRED
-                        : 0;
-
-        if (phraseCompletionListIsEmpty) {
-            coarseRank = Integer.MIN_VALUE;
-            fineRank = sortingRankNonNull;
-            penalty = lengthPenalty + unpreferredPenalty;
-        } else if (firstCodePointMatchesPhraseCompletionCandidate) {
-            coarseRank = Integer.MIN_VALUE;
-            fineRank = phraseCompletionIndex;
-            penalty = lengthPenalty;
-        } else {
-            coarseRank = 0;
-            fineRank = sortingRankNonNull;
-            penalty = lengthPenalty + unpreferredPenalty;
-        }
-
-        return coarseRank + fineRank + penalty;
     }
 
     private String getCandidate(int idx) {

@@ -220,11 +220,19 @@ public class BDatabase extends SQLiteAssetHelper {
 
         ArrayList<String> list = new ArrayList<>();
         list.add(k.substring(0,1));
-        for (B b : resExact) {
-            if (!isIn(list, b.ch)) {
-                list.add(b.ch.substring(1));
-            }
-        }
+		if (tb == "phrase") {
+        	for (B b : resExact) {
+        	    if (!isIn(list, b.ch)) {
+        	        list.add(b.ch.substring(1));
+        	    }
+        	}
+		} else {
+        	for (B b : resExact) {
+        	    if (!isIn(list, b.ch)) {
+        	        list.add(b.ch);
+        	    }
+        	}
+		}
         return list;
     }
 }

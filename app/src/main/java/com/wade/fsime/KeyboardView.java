@@ -39,8 +39,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
-import com.wade.mil.Mil;
-
 import java.util.List;
 
 /*
@@ -297,9 +295,6 @@ public class KeyboardView
             ) { // 畫黃底
                 keyFillColour = toPressedColour(keyFillColour);
             }
-            if (keyboard.name.equals("mil") && key.valueText == Mil.appName) { // 畫黃底
-                keyFillColour = toPressedColour(keyFillColour);
-            }
             keyFillPaint.setColor(keyFillColour);
             keyBorderPaint.setColor(key.borderColour);
             keyBorderPaint.setStrokeWidth(key.borderThickness);
@@ -354,7 +349,6 @@ public class KeyboardView
                     case "ji" -> keyTextJiPaint.setColor(key.textColour);
                     case "cj" -> keyTextCjPaint.setColor(key.textColour);
                     case "stroke" -> keyTextStrokePaint.setColor(key.textColour);
-                    case "mil" -> keyTextMilPaint.setColor(key.textColour);
                 }
             }
 
@@ -380,7 +374,6 @@ public class KeyboardView
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
 
             float keyLeftTextX = key.width / 2f + key.textOffsetX - 14f;
-            if (keyboard.name.equals("mil")) { keyLeftTextX = key.width*0.8f + 14.0f; }
             float keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f;
             float keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
             float keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f;
