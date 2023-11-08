@@ -19,7 +19,6 @@ import com.wade.MathParser.MathParser
 import com.wade.fsime.CandidatesViewAdapter.CandidateListener
 import com.wade.fsime.KeyboardView.KeyboardListener
 import com.wade.libs.BDatabase
-import com.wade.mil.Mil
 import com.wade.utilities.Contexty.loadPreferenceString
 import com.wade.utilities.Contexty.savePreferenceString
 import com.wade.utilities.Contexty.showSystemKeyboardChanger
@@ -37,7 +36,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     var jiKB: Keyboard? = null
     var cjKB: Keyboard? = null
     var strokeKB: Keyboard? = null
-    var milKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
     private var candidateList: List<String> = ArrayList()
@@ -45,7 +43,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     private var enterKeyHasAction = false
     private var inputIsPassword = false
     var bdatabase: BDatabase? = null
-    private var mil: Mil? = null
     var sharedPreferences: KeyboardPreferences? = null
     var codeMaps: MutableMap<Int, String> = HashMap()
     val SWIPE_NONE = 0
@@ -58,7 +55,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
 
-        mil = Mil()
         codeMaps[KeyEvent.KEYCODE_0] = "Ctrl0"
         codeMaps[KeyEvent.KEYCODE_1] = "Ctrl1"
         codeMaps[KeyEvent.KEYCODE_2] = "Ctrl2"
@@ -88,7 +84,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         jiKB = Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI)
         cjKB = Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ)
         strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
-        milKB = Keyboard(this, R.xml.keyboard_mil, KEYBOARD_NAME_MIL)
     }
 
     @SuppressLint("InflateParams")
@@ -129,15 +124,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         keyboardSet += pureKB!!
         keyboardSet += digitKB!!
 
-        // "ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil"
+        // "ck_use_cj", "ck_use_ji", "ck_use_stroke"
         if (sharedPreferences!!.getUseKb("ck_use_cj"))
             keyboardSet += cjKB!!
         if (sharedPreferences!!.getUseKb("ck_use_ji"))
             keyboardSet += jiKB!!
         if (sharedPreferences!!.getUseKb("ck_use_stroke"))
             keyboardSet += strokeKB!!
-        if (sharedPreferences!!.getUseKb("ck_use_mil"))
-            keyboardSet += milKB!!
         if (sharedPreferences!!.getUseKb("ck_phrase"))
             usePhrase = true
 		else usePhrase = false
@@ -236,41 +229,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.setCandidateList(ArrayList())
     }
 
-    private fun showMilMessage(inputText: String) {
-        val btnMsg = mil!!.getBtnMsg(inputText)
-        if (btnMsg.length > 0) {
-            val list: List<String> = listOf(btnMsg)
-            setCandidateList(list)
-        }
-    }
-
-    fun onKeyMil(valueText: String) {
-        val inputConnection = currentInputConnection ?: return
-        if (valueText.matches("[0123456789\\+\\-\\*/°'\"()\\.]".toRegex())) {
-            effectStrokeAppendMil(valueText)
-            return
-        }
-        when (valueText) {
-            BACKSPACE_VALUE_TEXT -> effectBackspace(inputConnection)
-            TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT -> {}
-            ESC_KEY_VALUE_TEXT -> turnCandidateOff()
-            SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection)
-            ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection)
-            ANGLE_KEY_VALUE_TEXT -> inputContainer!!.keyboard!!.setShiftText(
-                ANGLE_KEY_VALUE_TEXT,
-                mil!!.nextMode()
-            )
-
-            else -> mil!!.setApp(valueText)
-        }
-    }
-
     fun onCtrlKey(valueText: String?) {}
     override fun onKey(valueText: String) {
-        if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_MIL) {
-            onKeyMil(valueText)
-            return
-        }
         val inputConnection = currentInputConnection ?: return
         when (valueText) {
             "⎆" -> keyDownUps(
@@ -334,10 +294,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     override fun onLongPress(inputText: String) {
-        if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_MIL) {
-            showMilMessage(inputText)
-            return
-        }
         val valueText: String
         val shiftText: String
         if (inputText.length == 2) {
@@ -379,10 +335,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             if (keyboard!!.name == null) {
                 return
             }
-            if (keyboard.swipeDir and (SWIPE_RU or SWIPE_RD) > 0) { // right full > fsime > pure > digit > ji > cj > stroke > mil
+            if (keyboard.swipeDir and (SWIPE_RU or SWIPE_RD) > 0) {
                 var next = (keyboardSet.indexOf(keyboard)+1) % keyboardSet.size
                 inputContainer!!.keyboard  = keyboardSet.get(next)
-            } else if (keyboard.swipeDir and (SWIPE_LD or SWIPE_LU) > 0) { // left  mil > stroke > cj > ji > digit > pure > fsime > full
+            } else if (keyboard.swipeDir and (SWIPE_LD or SWIPE_LU) > 0) {
                 var next = (keyboardSet.indexOf(keyboard)+keyboardSet.size-1) % keyboardSet.size
                 inputContainer!!.keyboard  = keyboardSet.get(next)
             }
@@ -394,7 +350,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun computeCandidateList(mComposing: String): List<String> {
-        return if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_MIL || mComposing.length == 0) {
+        return if (mComposing.length == 0) {
             emptyList<String>()
         } else bdatabase!!.getWord(
             mComposing,
@@ -402,24 +358,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             30,
             inputContainer!!.keyboard!!.name!!
         )
-    }
-
-    private fun effectStrokeAppendMil(key: String) {
-        val exp = mComposing + key
-        val parser = MathParser.create()
-        val list: MutableList<String> = ArrayList()
-        list.add(exp)
-        val exps = exp.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        try {
-            for (i in 0 until exps.size - 1) {
-                parser.addExpression(exps[i])
-            }
-            val res = parser.parse(exps[exps.size - 1])
-            list.add(java.lang.Double.toString(res))
-        } catch (e: Exception) {
-        }
-        mComposing = exp
-        setCandidateList(list)
     }
 
     private fun effectStrokeAppend(key: String) {
@@ -558,13 +496,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         private const val KEYBOARD_NAME_CJ = "cj"
         private const val KEYBOARD_NAME_JI = "ji"
         private const val KEYBOARD_NAME_STROKE = "stroke"
-        private const val KEYBOARD_NAME_MIL = "mil"
-        private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50
-        private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100
         const val PREFERENCES_FILE_NAME = "preferences.txt"
         private const val KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName"
-        private const val LAG_PREVENTION_CODE_POINT_COUNT = 1400
-        private const val LARGISH_SORTING_RANK = 3000
+        private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50
+        private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100
         private fun isCommentLine(line: String): Boolean {
             return line.startsWith("#") || line.length == 0
         }

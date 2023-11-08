@@ -35,12 +35,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
-
-import com.wade.mil.Mil;
-
 import java.util.List;
 
 /*
@@ -295,9 +291,6 @@ public class KeyboardView
                             ) ||
                             key.valueText.equals(FsimeService.CTRL_KEY_VALUE_TEXT) && ctrlMode != CTRL_DISABLED
             ) { // 畫黃底
-                keyFillColour = toPressedColour(keyFillColour);
-            }
-            if (keyboard.name.equals("mil") && key.valueText == Mil.appName) { // 畫黃底
                 keyFillColour = toPressedColour(keyFillColour);
             }
             keyFillPaint.setColor(keyFillColour);

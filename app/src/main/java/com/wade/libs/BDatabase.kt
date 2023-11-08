@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 import com.wade.libs.TS.StoT
 import com.wade.libs.TS.TtoS
@@ -218,9 +219,17 @@ class BDatabase(context: Context?) :
         resExact.addAll(res)
         val list = ArrayList<String>()
         list.add(k.substring(0, 1))
-        for (b in resExact) {
-            if (!isIn(list, b.ch)) {
-                list.add(b.ch!!.substring(1))
+        if (tb == "phrase") {
+            for (b in resExact) {
+                if (!isIn(list, b.ch)) {
+                    list.add(b.ch!!.substring(1))
+                }
+            }
+        } else {
+            for (b in resExact) {
+                if (!isIn(list, b.ch)) {
+                    list.add(b.ch!!)
+                }
             }
         }
         return list
