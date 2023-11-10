@@ -64,7 +64,7 @@ public class FsimeService
     private static final String KEYBOARD_NAME_JI = "ji";
     private static final String KEYBOARD_NAME_STROKE = "stroke";
 
-    Keyboard fullKB, fsimeKB, pureKB, digitKB, jiKB, cjKB, strokeKB, milKB;
+    Keyboard fullKB, fsimeKB, pureKB, digitKB, jiKB, cjKB, strokeKB;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50;
     private static final int BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100;
 
@@ -180,8 +180,6 @@ public class FsimeService
             keyboardSet.add(jiKB);
         if (sharedPreferences.getUseKb("ck_use_stroke"))
             keyboardSet.add(strokeKB);
-        if (sharedPreferences.getUseKb("ck_use_mil"))
-            keyboardSet.add(milKB);
         if (sharedPreferences.getUseKb("ck_phrase"))
             usePhrase = true;
         else usePhrase = false;

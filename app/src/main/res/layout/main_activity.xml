@@ -67,16 +67,6 @@
         	android:text="@string/ck_use_stroke"/>
 
 		<CheckBox
-        	android:id="@+id/ckMil"
-            style="@style/MainActivityCheckbox"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-            android:button="@android:drawable/btn_star_big_on"
-            android:background="@color/design_default_color_primary"
-            android:textColor="@color/candidate_recommended"
-        	android:text="@string/ck_use_mil"/>
-
-		<CheckBox
         	android:id="@+id/ckPhrase"
             style="@style/MainActivityCheckbox"
         	android:layout_width="wrap_content"

@@ -105,7 +105,7 @@ public class KeyboardView
     private Paint keyTextPaint;
     private Paint keyTextShiftPaint;
     private Paint keyTextStrokePaint;
-    private Paint keyTextCjPaint, keyTextJiPaint, keyTextMilPaint;
+    private Paint keyTextCjPaint, keyTextJiPaint;
     private Paint keyTextUpPaint, keyTextDownPaint, keyTextLeftPaint, keyTextRightPaint;
 
     public KeyboardView(final Context context, final AttributeSet attributes) {
@@ -175,9 +175,6 @@ public class KeyboardView
         keyTextJiPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
         keyTextJiPaint.setTextAlign(Paint.Align.LEFT);
 
-        keyTextMilPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        keyTextMilPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
-        keyTextMilPaint.setTextAlign(Paint.Align.LEFT);
 
         keyTextUpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextUpPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));

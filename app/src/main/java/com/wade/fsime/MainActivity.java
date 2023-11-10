@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
         }
 
-        int useIds[] = {R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckMil, R.id.ckPhrase};
-        String useKeys[] = {"ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_use_mil", "ck_phrase"};
+        int useIds[] = {R.id.ckCj, R.id.ckJi, R.id.ckStroke, R.id.ckPhrase};
+        String useKeys[] = {"ck_use_cj", "ck_use_ji", "ck_use_stroke", "ck_phrase"};
         for (int i = 0; i<useIds.length; i++) {
             id2Use.put(useIds[i], useKeys[i]);
         }
