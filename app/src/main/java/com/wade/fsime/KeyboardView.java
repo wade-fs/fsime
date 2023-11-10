@@ -103,7 +103,7 @@ public class KeyboardView
     private Paint keyTextPaint;
     private Paint keyTextShiftPaint;
     private Paint keyTextStrokePaint;
-    private Paint keyTextCjPaint, keyTextJiPaint, keyTextMilPaint;
+    private Paint keyTextCjPaint, keyTextJiPaint;
     private Paint keyTextUpPaint, keyTextDownPaint, keyTextLeftPaint, keyTextRightPaint;
 
     public KeyboardView(final Context context, final AttributeSet attributes) {
@@ -172,10 +172,6 @@ public class KeyboardView
         keyTextJiPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextJiPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
         keyTextJiPaint.setTextAlign(Paint.Align.LEFT);
-
-        keyTextMilPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        keyTextMilPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
-        keyTextMilPaint.setTextAlign(Paint.Align.LEFT);
 
         keyTextUpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextUpPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
@@ -347,7 +343,6 @@ public class KeyboardView
                     case "ji" -> keyTextJiPaint.setColor(key.textColour);
                     case "cj" -> keyTextCjPaint.setColor(key.textColour);
                     case "stroke" -> keyTextStrokePaint.setColor(key.textColour);
-                    case "mil" -> keyTextMilPaint.setColor(key.textColour);
                 }
             }
 
@@ -373,7 +368,6 @@ public class KeyboardView
             canvas.drawText(keyDisplayText, keyTextX, keyTextY, keyTextPaint);
 
             float keyLeftTextX = key.width / 2f + key.textOffsetX - 14f;
-            if (keyboard.name.equals("mil")) { keyLeftTextX = key.width*0.8f + 14.0f; }
             float keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f;
             float keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f;
             float keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f;
