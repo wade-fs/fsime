@@ -35,10 +35,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
-
 import java.util.List;
 
 /*
@@ -174,7 +172,6 @@ public class KeyboardView
         keyTextJiPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextJiPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));
         keyTextJiPaint.setTextAlign(Paint.Align.LEFT);
-
 
         keyTextUpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         keyTextUpPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), KEYBOARD_FONT_FILE_NAME));

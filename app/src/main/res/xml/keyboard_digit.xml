@@ -79,7 +79,7 @@
             app:down="}"
             />
         <Key
-            app:keyDisplayText="\u232B"
+            app:keyDisplayText="←"
             app:keyValueText="BACKSPACE"
             app:keyIsPreviewable="false"
             app:keyIsRepeatable="true"
@@ -88,7 +88,7 @@
     </Row>
     <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
         <Key
-            app:keyDisplayText="\u238B"
+            app:keyDisplayText="⎋"
             app:keyIsPreviewable="false"
             app:keyIsLongPressable="true"
             app:keyValueText="ESC"
@@ -100,12 +100,12 @@
             app:keyValueTextShifted="⬆"
             app:keyTextColour="@color/umbrella_orange" />
         <Key
-            app:keyDisplayText="\u2303"
+            app:keyDisplayText="⌃"
             app:keyIsPreviewable="false"
             app:keyValueText="CTRL"
             app:keyTextColour="@color/umbrella_orange" />
         <Key
-            app:keyDisplayText="\u21B9"
+            app:keyDisplayText="↹"
             app:keyIsPreviewable="false"
             app:keyValueText="TAB"
             app:keyTextColour="@color/umbrella_orange" />
@@ -142,7 +142,7 @@
             app:left="√"
             app:down="∫" />
         <Key app:keyIsSwipeable="true"
-            app:keyDisplayText="\u23CE"
+            app:keyDisplayText="⏎"
             app:keyIsPreviewable="false"
             app:keyValueText="ENTER"
             app:keyTextColour="@color/umbrella_orange" />

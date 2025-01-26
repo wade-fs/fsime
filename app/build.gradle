@@ -1,7 +1,7 @@
 plugins
         {
             id('com.android.application')
-            id("org.jetbrains.kotlin.android")
+            id('org.jetbrains.kotlin.android')
         }
 
 android
@@ -10,10 +10,10 @@ android
             defaultConfig
                     {
                         applicationId "com.wade.fsime"
-                        minSdkVersion 26
+                        minSdkVersion 33
                         targetSdkVersion 33
-                        versionCode 231110
-                        versionName "231110"
+                        versionCode 250125
+                        versionName "250125-kt"
                     }
             buildTypes
                     {
