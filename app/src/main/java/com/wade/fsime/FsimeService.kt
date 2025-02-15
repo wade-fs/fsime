@@ -10,6 +10,7 @@ import android.annotation.SuppressLint
 import android.inputmethodservice.InputMethodService
 import android.text.InputType
 import android.text.TextUtils
+import android.util.Log
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
@@ -229,9 +230,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.setCandidateList(ArrayList())
     }
 
-    fun onCtrlKey(valueText: String?) {}
     override fun onKey(valueText: String) {
         val inputConnection = currentInputConnection ?: return
+        Log.i(LOG_TAG, "onKey: $valueText")
         when (valueText) {
             "⎆" -> keyDownUps(
                 intArrayOf(
@@ -249,7 +250,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             "↑" -> keyDownUp(KeyEvent.KEYCODE_DPAD_UP, 0)
             "↓" -> keyDownUp(KeyEvent.KEYCODE_DPAD_DOWN, 0)
             "→" -> keyDownUp(KeyEvent.KEYCODE_DPAD_RIGHT, 0)
-            BACKSPACE_VALUE_TEXT -> effectBackspace(inputConnection)
+            BACKSPACE_VALUE_TEXT, "⌫" -> effectBackspace(inputConnection)
             TAB_KEY_VALUE_TEXT, TAB_SHIFT_KEY_VALUE_TEXT -> keyDownUp(
                 KeyEvent.KEYCODE_TAB,
                 inputContainer!!.keyboard!!.shiftMode

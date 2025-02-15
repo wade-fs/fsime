@@ -7,7 +7,7 @@
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
     app:keyTextSize="@dimen/font_size__cj"
     app:keyWidth="@dimen/key_width__digit">
-    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <Key
             app:keyDisplayText="\u238B"
             app:keyIsPreviewable="false"
@@ -46,7 +46,6 @@
             app:keyIsPreviewable="false"
             app:keyIsRepeatable="true"
             app:keyValueText="BACKSPACE"
-            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
@@ -94,9 +93,7 @@
             app:keyValueTextShifted=")"
             />
     </Row>
-    <Row
-        app:keyWidth="8.33%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="8.33%" app:keysAreShiftable="true">
         <Key
             app:keyDisplayText="\u21B9"
             app:keyIsPreviewable="false"
@@ -147,9 +144,7 @@
             app:keyValueText="["
             app:keyValueTextShifted="{" />
     </Row>
-    <Row
-        app:keyWidth="9.09%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <!-- Letters row 2 -->
         <Key
             app:keyValueText="\\"
@@ -194,9 +189,7 @@
             app:keyValueText="]"
             app:keyValueTextShifted="}" />
     </Row>
-    <Row
-        app:keyWidth="9.09%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <Key
             app:keyDisplayText="⇧"
             app:keyIsPreviewable="false"

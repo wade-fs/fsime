@@ -69,12 +69,9 @@
             app:keyIsPreviewable="false"
             app:keyIsRepeatable="true"
             app:keyValueText="BACKSPACE"
-            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
-    <Row
-        app:keyWidth="8.33%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="8.33%" app:keysAreShiftable="true">
         <!-- Letters row 1 -->
         <Key
             app:keyValueText="`"
@@ -133,9 +130,7 @@
             app:keyValueText="["
             app:keyValueTextShifted="{" />
     </Row>
-    <Row
-        app:keyWidth="9.09%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <!-- Letters row 2 -->
         <Key
             app:keyValueText="\\"
@@ -189,9 +184,7 @@
             app:keyValueText="]"
             app:keyValueTextShifted="}" />
     </Row>
-    <Row
-        app:keyWidth="9.09%"
-        app:keysAreShiftable="true">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
         <!-- Shift key: U+21E7, U+2B06 -->
         <Key
             app:keyDisplayText="⇧"

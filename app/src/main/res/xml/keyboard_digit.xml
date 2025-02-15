@@ -83,7 +83,6 @@
             app:keyValueText="BACKSPACE"
             app:keyIsPreviewable="false"
             app:keyIsRepeatable="true"
-            app:keysAreShiftable="false"
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
