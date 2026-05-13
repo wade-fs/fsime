@@ -101,15 +101,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(final View view) {
         final int viewId = view.getId();
-        switch (viewId) {
-            case R.id.input_method_settings_button -> Contexty.showSystemInputMethodSettings(this);
-            case R.id.change_keyboard_button -> Contexty.showSystemKeyboardChanger(this);
-            case R.id.candidate_order_button -> {
-                setNextCandidateOrder();
-                view.requestFocusFromTouch();
+        if (viewId == R.id.input_method_settings_button) {
+            Contexty.showSystemInputMethodSettings(this);
+        } else if (viewId == R.id.change_keyboard_button) {
+            Contexty.showSystemKeyboardChanger(this);
+        } else if (viewId == R.id.candidate_order_button) {
+            setNextCandidateOrder();
+            view.requestFocusFromTouch();
 //                view.requestPointerCapture();
-            }
         }
-
     }
 }
