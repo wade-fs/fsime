@@ -1,8 +1,8 @@
 <resources>
   <!-- Main activity -->
-  <string name="app_name">混瞎輸入法</string>
-  <string name="label__main_activity__input_method_settings_button">啟用混瞎輸入法</string>
-  <string name="label__main_activity__change_keyboard_button">使用混瞎輸入法</string>
+  <string name="app_name">狂想輸入法</string>
+  <string name="label__main_activity__input_method_settings_button">啟用狂想輸入法</string>
+  <string name="label__main_activity__change_keyboard_button">使用狂想輸入法</string>
   <string name="text__main_activity__candidate_order">
     正體/簡体輸出:
   </string>
@@ -15,9 +15,9 @@
   <string name="text__main_activity__hotkey">設定熱鍵</string>
   <string name="label__main_activity__return">回</string>
   <!-- Space bar display text (triangles: U+25C0, U+25B6) -->
-  <string name="display_text__full_space_bar">◀全瞎▶</string>
-  <string name="display_text__fsime_space_bar">◀混瞎▶</string>
-  <string name="display_text__pure_space_bar">◀純瞎▶</string>
+  <string name="display_text__full_space_bar">◀狂想▶</string>
+  <string name="display_text__fsime_space_bar">◀好瞎▶</string>
+  <string name="display_text__pure_space_bar">◀真瞎▶</string>
   <string name="display_text__digit_space_bar">◀數▶</string>
   <string name="display_text__ji_space_bar">◀注音▶</string>
   <string name="display_text__cj_space_bar">◀倉頡▶</string>
@@ -54,4 +54,9 @@
     <string name="hk_ctrl_i">^i</string>
     <string name="hk_ctrl_o">^o</string>
     <string name="hk_ctrl_p">^p</string>
+	<string name="ck_use_cj">使用倉頡鍵盤</string>
+	<string name="ck_use_ji">使用注音鍵盤</string>
+	<string name="ck_use_stroke">使用筆劃鍵盤</string>
+	<string name="ck_use_mil">使用測地程式</string>
+	<string name="ck_phrase">使用關聯詞庫</string>
 </resources>
