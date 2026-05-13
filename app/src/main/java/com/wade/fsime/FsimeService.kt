@@ -25,6 +25,9 @@ import android.widget.Toast
 import com.wade.MathParser.MathParser
 import com.wade.fsime.CandidatesViewAdapter.CandidateListener
 import com.wade.fsime.KeyboardView.KeyboardListener
+import com.google.mlkit.common.model.DownloadConditions
+import com.google.mlkit.common.model.RemoteModelManager
+import com.google.mlkit.vision.digitalink.*
 import com.wade.libs.BDatabase
 import com.wade.utilities.Contexty.loadPreferenceString
 import com.wade.utilities.Contexty.savePreferenceString
@@ -36,7 +39,7 @@ import java.util.*
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
 */
-class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
+class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, HandwritingView.HandwritingListener {
     var fullKB: Keyboard? = null
     var fsimeKB: Keyboard? = null
     var pureKB: Keyboard? = null
@@ -54,6 +57,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     var sharedPreferences: KeyboardPreferences? = null
     var codeMaps: MutableMap<Int, String> = HashMap()
     private var speechRecognizer: SpeechRecognizer? = null
+    
+    private var recognizer: DigitalInkRecognizer? = null
+    private var model: DigitalInkRecognitionModel? = null
+
     val SWIPE_NONE = 0
     val SWIPE_RU = 1
     val SWIPE_LD = 2
@@ -65,6 +72,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
         initSpeechRecognizer()
+        initHandwritingRecognizer()
 
         codeMaps[KeyEvent.KEYCODE_0] = "Ctrl0"
         codeMaps[KeyEvent.KEYCODE_1] = "Ctrl1"
@@ -166,12 +174,64 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
     }
 
+    private fun initHandwritingRecognizer() {
+        val modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag("zh-Hant")
+        if (modelIdentifier == null) {
+            Log.e(LOG_TAG, "Model identifier not found for zh-Hant")
+            return
+        }
+        model = DigitalInkRecognitionModel.builder(modelIdentifier).build()
+        val remoteModelManager = RemoteModelManager.getInstance()
+        
+        remoteModelManager.isModelDownloaded(model!!)
+            .addOnSuccessListener { isDownloaded ->
+                if (isDownloaded) {
+                    recognizer = DigitalInkRecognition.getClient(
+                        DigitalInkRecognizerOptions.builder(model!!).build()
+                    )
+                } else {
+                    Toast.makeText(this, "正在下載手寫辨識模型...", Toast.LENGTH_SHORT).show()
+                    remoteModelManager.download(model!!, DownloadConditions.Builder().build())
+                        .addOnSuccessListener {
+                            recognizer = DigitalInkRecognition.getClient(
+                                DigitalInkRecognizerOptions.builder(model!!).build()
+                            )
+                            Toast.makeText(this, "手寫辨識模型下載完成", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e(LOG_TAG, "Error downloading model", e)
+                            Toast.makeText(this, "手寫辨識模型下載失敗", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
+    }
+
+    override fun onInkFinished(ink: Ink) {
+        if (recognizer == null) {
+            Toast.makeText(this, "手寫辨識尚未就緒", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        recognizer?.recognize(ink)
+            ?.addOnSuccessListener { result ->
+                val candidates = result.candidates.map { it.text }
+                if (candidates.isNotEmpty()) {
+                    setCandidateList(candidates)
+                    inputContainer?.clearHandwriting()
+                }
+            }
+            ?.addOnFailureListener { e ->
+                Log.e(LOG_TAG, "Error during recognition", e)
+            }
+    }
+
     @SuppressLint("InflateParams")
     override fun onCreateInputView(): View {
         bdatabase = BDatabase(applicationContext)
         inputContainer = layoutInflater.inflate(R.layout.input_container, null) as InputContainer
         inputContainer!!.initialiseCandidatesView(this)
         inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
+        inputContainer!!.setHandwritingListener(this)
         return inputContainer!!
     }
 
@@ -345,6 +405,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
 
         when (valueText) {
             "VOICE" -> startVoiceInput()
+            "HANDWRITING" -> inputContainer?.showHandwriting(true)
             "⎆" -> keyDownUps(
                 intArrayOf(
                     KeyEvent.KEYCODE_CTRL_LEFT,
@@ -380,15 +441,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         when (valueText) {
             SPACE_BAR_VALUE_TEXT -> showSystemKeyboardChanger(this)
             ESC_KEY_VALUE_TEXT -> {
-                val inputConnection = currentInputConnection
-                val w = getTextBeforeCursor(inputConnection, 1)
-                if (w.isNotEmpty()) {
-                    val comp: ArrayList<String> = bdatabase!!.getCompose(w.substring(0, 1))
-                    comp.add(0, w)
-                    setCandidateList(comp)
-                }
+                inputContainer?.showHandwriting(true)
             }
-
+            "VOICE" -> {
+                inputContainer?.showHandwriting(true)
+            }
             else -> {
                 if (shiftText.isNotEmpty()) {
                     effectStrokeAppend(shiftText)

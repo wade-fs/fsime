@@ -8,6 +8,7 @@ package com.wade.fsime
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.FrameLayout
 import com.wade.fsime.CandidatesViewAdapter.CandidateListener
 import com.wade.fsime.KeyboardView.KeyboardListener
@@ -25,6 +26,9 @@ class InputContainer(context: Context?, attributes: AttributeSet?) : FrameLayout
     private var candidatesView: CandidatesView? = null
     private var candidatesViewAdapter: CandidatesViewAdapter? = null
     private var keyboardView: KeyboardView? = null
+    private var handwritingView: HandwritingView? = null
+    private var handwritingContainer: View? = null
+
     fun initialiseCandidatesView(candidateListener: CandidateListener?) {
         val cv : CandidatesView = findViewById(R.id.candidates_view)
         cv.setCandidateListener(candidateListener)
@@ -41,6 +45,37 @@ class InputContainer(context: Context?, attributes: AttributeSet?) : FrameLayout
         kv.setMainInputPlane(findViewById(R.id.main_input_plane))
         kv.keyboard = keyboard
         keyboardView = kv
+        handwritingView = findViewById<HandwritingView>(R.id.handwriting_view)
+        handwritingContainer = findViewById<View>(R.id.handwriting_container)
+        findViewById<View>(R.id.btn_close_handwriting).setOnClickListener {
+            showHandwriting(false)
+        }
+        findViewById<View>(R.id.btn_clear_handwriting).setOnClickListener {
+            clearHandwriting()
+        }
+    }
+
+    fun setHandwritingListener(listener: HandwritingView.HandwritingListener) {
+        handwritingView?.setHandwritingListener(listener)
+    }
+
+    fun showHandwriting(show: Boolean) {
+        if (show) {
+            keyboardView?.visibility = View.GONE
+            handwritingContainer?.visibility = View.VISIBLE
+        } else {
+            keyboardView?.visibility = View.VISIBLE
+            handwritingContainer?.visibility = View.GONE
+            handwritingView?.clear()
+        }
+    }
+
+    fun isHandwritingVisible(): Boolean {
+        return handwritingContainer?.visibility == View.VISIBLE
+    }
+
+    fun clearHandwriting() {
+        handwritingView?.clear()
     }
 
     fun setBackground(isFullscreen: Boolean) {

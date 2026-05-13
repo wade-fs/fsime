@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -24,6 +26,11 @@ class HandwritingView(context: Context, attrs: AttributeSet?) : View(context, at
     private var strokeBuilder = Ink.Stroke.builder()
     private val currentPath = Path()
     private var callback: HandwritingListener? = null
+    
+    private val recognitionHandler = Handler(Looper.getMainLooper())
+    private val recognitionRunnable = Runnable {
+        callback?.onInkFinished(inkBuilder.build())
+    }
 
     interface HandwritingListener {
         fun onInkFinished(ink: Ink)
@@ -34,6 +41,7 @@ class HandwritingView(context: Context, attrs: AttributeSet?) : View(context, at
     }
 
     fun clear() {
+        recognitionHandler.removeCallbacks(recognitionRunnable)
         inkBuilder = Ink.builder()
         strokeBuilder = Ink.Stroke.builder()
         currentPath.reset()
@@ -52,6 +60,7 @@ class HandwritingView(context: Context, attrs: AttributeSet?) : View(context, at
 
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
+                recognitionHandler.removeCallbacks(recognitionRunnable)
                 strokeBuilder = Ink.Stroke.builder()
                 strokeBuilder.addPoint(Ink.Point.create(x, y, t))
                 currentPath.moveTo(x, y)
@@ -64,7 +73,7 @@ class HandwritingView(context: Context, attrs: AttributeSet?) : View(context, at
                 strokeBuilder.addPoint(Ink.Point.create(x, y, t))
                 currentPath.lineTo(x, y)
                 inkBuilder.addStroke(strokeBuilder.build())
-                callback?.onInkFinished(inkBuilder.build())
+                recognitionHandler.postDelayed(recognitionRunnable, 600)
             }
         }
         invalidate()

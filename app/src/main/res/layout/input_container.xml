@@ -22,10 +22,50 @@
       android:layout_height="@dimen/height__candidate_button"
       android:background="@color/candidate_button_fill"
     />
-    <com.wade.fsime.KeyboardView
-      android:id="@+id/keyboard_view"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-    />
+    <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <com.wade.fsime.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      />
+      <RelativeLayout
+        android:id="@+id/handwriting_container"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:visibility="gone">
+        <com.wade.fsime.HandwritingView
+          android:id="@+id/handwriting_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#222222"
+        />
+        <Button
+          android:id="@+id/btn_clear_handwriting"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentEnd="true"
+          android:text="🧹"
+          android:minWidth="40dp"
+          android:minHeight="40dp"
+          android:background="#44000000"
+          android:textColor="#FFFFFF"
+        />
+        <Button
+          android:id="@+id/btn_close_handwriting"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentEnd="true"
+          android:text="✕"
+          android:minWidth="40dp"
+          android:minHeight="40dp"
+          android:background="#44000000"
+          android:textColor="#FFFFFF"
+        />
+      </RelativeLayout>
+    </FrameLayout>
   </LinearLayout>
 </com.wade.fsime.InputContainer>
