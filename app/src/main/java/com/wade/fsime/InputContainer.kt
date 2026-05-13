@@ -53,10 +53,18 @@ class InputContainer(context: Context?, attributes: AttributeSet?) : FrameLayout
         findViewById<View>(R.id.btn_clear_handwriting).setOnClickListener {
             clearHandwriting()
         }
+        findViewById<View>(R.id.btn_recognize_handwriting).setOnClickListener {
+            val ink = handwritingView?.getCurrentInk()
+            if (ink != null && !ink.strokes.isEmpty()) {
+                handwritingListener?.onInkFinished(ink)
+            }
+        }
     }
 
+    private var handwritingListener: HandwritingView.HandwritingListener? = null
     fun setHandwritingListener(listener: HandwritingView.HandwritingListener) {
         handwritingView?.setHandwritingListener(listener)
+        handwritingListener = listener
     }
 
     fun showHandwriting(show: Boolean) {

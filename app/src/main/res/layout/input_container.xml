@@ -42,6 +42,18 @@
           android:background="#222222"
         />
         <Button
+          android:id="@+id/btn_recognize_handwriting"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_alignParentEnd="true"
+          android:text="✓"
+          android:minWidth="40dp"
+          android:minHeight="40dp"
+          android:background="#44000000"
+          android:textColor="#FFFFFF"
+        />
+        <Button
           android:id="@+id/btn_clear_handwriting"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

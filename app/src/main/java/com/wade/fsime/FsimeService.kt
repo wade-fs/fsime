@@ -175,9 +175,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun initHandwritingRecognizer() {
-        val modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag("zh-Hant")
+        val modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag("zh-Hani-TW")
         if (modelIdentifier == null) {
-            Log.e(LOG_TAG, "Model identifier not found for zh-Hant")
+            Log.e(LOG_TAG, "Model identifier not found for zh-Hani-TW")
             return
         }
         model = DigitalInkRecognitionModel.builder(modelIdentifier).build()
@@ -190,17 +190,17 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                         DigitalInkRecognizerOptions.builder(model!!).build()
                     )
                 } else {
-                    Toast.makeText(this, "正在下載手寫辨識模型...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "手寫辨識模型下載中...", Toast.LENGTH_SHORT).show()
                     remoteModelManager.download(model!!, DownloadConditions.Builder().build())
                         .addOnSuccessListener {
                             recognizer = DigitalInkRecognition.getClient(
                                 DigitalInkRecognizerOptions.builder(model!!).build()
                             )
-                            Toast.makeText(this, "手寫辨識模型下載完成", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "手寫辨識就緒", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener { e ->
                             Log.e(LOG_TAG, "Error downloading model", e)
-                            Toast.makeText(this, "手寫辨識模型下載失敗", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "下載失敗：請確認網路連線", Toast.LENGTH_SHORT).show()
                         }
                 }
             }
