@@ -14,8 +14,9 @@
             app:keyIsLongPressable="true"
             app:keyValueText="ESC"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="⎆"
+        <Key app:keyDisplayText="🎙"
             app:keyIsPreviewable="false"
+            app:keyValueText="VOICE"
 			app:keyTextColour="@color/umbrella_red" />
         <Key app:keyValueText="⇱" 
             app:keyIsPreviewable="false"

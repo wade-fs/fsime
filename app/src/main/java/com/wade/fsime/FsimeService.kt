@@ -7,7 +7,12 @@
 package com.wade.fsime
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.inputmethodservice.InputMethodService
+import android.os.Bundle
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.text.InputType
 import android.text.TextUtils
 import android.util.Log
@@ -16,6 +21,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
+import android.widget.Toast
 import com.wade.MathParser.MathParser
 import com.wade.fsime.CandidatesViewAdapter.CandidateListener
 import com.wade.fsime.KeyboardView.KeyboardListener
@@ -25,6 +31,7 @@ import com.wade.utilities.Contexty.savePreferenceString
 import com.wade.utilities.Contexty.showSystemKeyboardChanger
 import com.wade.utilities.Stringy.isAscii
 import com.wade.utilities.Stringy.removeSuffixRegex
+import java.util.*
 
 /*
   An InputMethodService for the FS Input Method (混瞎輸入法).
@@ -46,15 +53,18 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     var bdatabase: BDatabase? = null
     var sharedPreferences: KeyboardPreferences? = null
     var codeMaps: MutableMap<Int, String> = HashMap()
+    private var speechRecognizer: SpeechRecognizer? = null
     val SWIPE_NONE = 0
     val SWIPE_RU = 1
     val SWIPE_LD = 2
     val SWIPE_LU = 4
     val SWIPE_RD = 8
-	private var usePhrase = false
+    private var usePhrase = false
+
     override fun onCreate() {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
+        initSpeechRecognizer()
 
         codeMaps[KeyEvent.KEYCODE_0] = "Ctrl0"
         codeMaps[KeyEvent.KEYCODE_1] = "Ctrl1"
@@ -77,7 +87,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         codeMaps[KeyEvent.KEYCODE_O] = "CtrlO"
         codeMaps[KeyEvent.KEYCODE_P] = "CtrlP"
 
-
         fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
         pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
@@ -85,6 +94,62 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         jiKB = Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI)
         cjKB = Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ)
         strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        speechRecognizer?.destroy()
+    }
+
+    private fun initSpeechRecognizer() {
+        if (!SpeechRecognizer.isRecognitionAvailable(this)) {
+            Log.e(LOG_TAG, "Speech recognition not available")
+            return
+        }
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
+        speechRecognizer?.setRecognitionListener(object : RecognitionListener {
+            override fun onReadyForSpeech(params: Bundle?) {
+                Toast.makeText(applicationContext, "Listening...", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(rmsdB: Float) {}
+            override fun onBufferReceived(buffer: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+            override fun onError(error: Int) {
+                val message = when (error) {
+                    SpeechRecognizer.ERROR_AUDIO -> "Audio recording error"
+                    SpeechRecognizer.ERROR_CLIENT -> "Client side error"
+                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Insufficient permissions"
+                    SpeechRecognizer.ERROR_NETWORK -> "Network error"
+                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Network timeout"
+                    SpeechRecognizer.ERROR_NO_MATCH -> "No match found"
+                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Recognition service busy"
+                    SpeechRecognizer.ERROR_SERVER -> "Server error"
+                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No speech input"
+                    else -> "Unknown error"
+                }
+                Toast.makeText(applicationContext, "Voice Error: $message", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResults(results: Bundle?) {
+                val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                if (!matches.isNullOrEmpty()) {
+                    currentInputConnection?.commitText(matches[0], 1)
+                }
+            }
+
+            override fun onPartialResults(partialResults: Bundle?) {}
+            override fun onEvent(eventType: Int, params: Bundle?) {}
+        })
+    }
+
+    private fun startVoiceInput() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        }
+        speechRecognizer?.startListening(intent)
     }
 
     @SuppressLint("InflateParams")
@@ -95,6 +160,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
         return inputContainer!!
     }
+
     private fun setCandidateOrder() {
         val candidateOrder: String = sharedPreferences!!.candidateOrder()
         bdatabase!!.setTs(
@@ -105,6 +171,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             }
         )
     }
+
     private fun loadSavedKeyboard(): Keyboard? {
         val savedKeyboardName = loadPreferenceString(
             applicationContext,
@@ -118,7 +185,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         return fullKB
     }
 
-    private fun initKeyboardSet() : Array<Keyboard> {
+    private fun initKeyboardSet(): Array<Keyboard> {
         var keyboardSet = arrayOf<Keyboard>()
         keyboardSet += fullKB!!
         keyboardSet += fsimeKB!!
@@ -134,9 +201,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             keyboardSet += strokeKB!!
         if (sharedPreferences!!.getUseKb("ck_phrase"))
             usePhrase = true
-		else usePhrase = false
+        else usePhrase = false
         return keyboardSet.clone()
     }
+
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
         super.onStartInput(editorInfo, isRestarting)
 
@@ -238,7 +306,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             key.valueText ?: ""
 
         Log.i(LOG_TAG, "onKey: $valueText")
-        
+
         if (inputContainer!!.keyboard!!.ctrlMode != 0) {
             val keyCode = if (key.keyCode != 0) key.keyCode else {
                 // Fallback for keys without keyCode defined in XML
@@ -262,6 +330,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
 
         when (valueText) {
+            "VOICE" -> startVoiceInput()
             "⎆" -> keyDownUps(
                 intArrayOf(
                     KeyEvent.KEYCODE_CTRL_LEFT,
@@ -361,8 +430,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun computeCandidateList(mComposing: String): List<String> {
-        return if (mComposing.length == 0) {
-            emptyList<String>()
+        return if (mComposing.isEmpty()) {
+            emptyList()
         } else bdatabase!!.getWord(
             mComposing,
             0,
@@ -378,13 +447,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             val parser = MathParser.create()
             try {
                 val exp = list[0]
-                val exps = exp!!.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val exps = exp.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 for (i in 0 until exps.size - 1) {
                     parser.addExpression(exps[i])
                 }
                 val res = parser.parse(exps[exps.size - 1])
-                list += java.lang.Double.toString(res)
-                // list.add(java.lang.Double.toString(res))
+                list = list.toMutableList().apply { add(res.toString()) }
             } catch (e: Exception) {
             }
         }
@@ -393,7 +461,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun effectBackspace(inputConnection: InputConnection) {
-        if (mComposing.length > 0) {
+        if (mComposing.isNotEmpty()) {
             mComposing = removeSuffixRegex("(?s).", mComposing)
             val newCandidateList = computeCandidateList(mComposing)
             setCandidateList(newCandidateList)
@@ -402,7 +470,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             )
         } else {
             val upToOneCharacterBeforeCursor = getTextBeforeCursor(inputConnection, 1)
-            if (upToOneCharacterBeforeCursor.length > 0) {
+            if (upToOneCharacterBeforeCursor.isNotEmpty()) {
                 val selection = inputConnection.getSelectedText(0)
                 if (TextUtils.isEmpty(selection)) {
                     inputConnection.deleteSurroundingTextInCodePoints(1, 0)
@@ -421,23 +489,19 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun updateRelative(sel: String) {
-        var tb = "vocabulary"
-        if (usePhrase) tb = "phrase"
-        val list = bdatabase!!.getPhrase(tb,
+        val tb = if (usePhrase) "phrase" else "vocabulary"
+        val list = bdatabase!!.getPhrase(
+            tb,
             sel,
             0,
             30
         )
         setCandidateList(list)
     }
+
     private fun effectSpaceKey(inputConnection: InputConnection) {
-        if (mComposing.length > 0) {
-            var sel = ""
-            if (candidateList.size > 1) {
-                sel = getCandidate(1)
-            } else if (candidateList.size > 0) {
-                sel = getCandidate(0)
-            }
+        if (mComposing.isNotEmpty()) {
+            val sel = if (candidateList.size > 1) getCandidate(1) else getCandidate(0)
             onCandidate(sel)
         } else {
             inputConnection.commitText(" ", 1)
@@ -445,14 +509,14 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun effectEnterKey(inputConnection: InputConnection) {
-        if (mComposing.length > 0) {
+        if (mComposing.isNotEmpty()) {
             onCandidate(getCandidate(0))
         } else if (enterKeyHasAction) {
             inputConnection.performEditorAction(inputOptionsBits)
         } else {
             inputConnection.commitText("\n", 1)
         }
-        setCandidateList(emptyList<String>())
+        setCandidateList(emptyList())
     }
 
     override fun saveKeyboard(keyboard: Keyboard) {
@@ -471,20 +535,14 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
 
     private fun getCandidate(idx: Int): String {
         return try {
-            if (candidateList.size > idx) {
-                candidateList[idx]
-            } else {
-                ""
-            }
+            if (candidateList.size > idx) candidateList[idx] else ""
         } catch (exception: IndexOutOfBoundsException) {
             ""
         }
     }
 
     private fun getTextBeforeCursor(inputConnection: InputConnection, characterCount: Int): String {
-        if (inputIsPassword) {
-            return "" // don't read passwords
-        }
+        if (inputIsPassword) return ""
         val textBeforeCursor = inputConnection.getTextBeforeCursor(characterCount, 0) as String?
         return textBeforeCursor ?: ""
     }
@@ -511,8 +569,5 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         private const val KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName"
         private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50
         private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100
-        private fun isCommentLine(line: String): Boolean {
-            return line.startsWith("#") || line.length == 0
-        }
     }
 }
