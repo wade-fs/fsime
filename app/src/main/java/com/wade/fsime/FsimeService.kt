@@ -347,6 +347,19 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
     }
 
+    override fun onGlobalSwipe(direction: Int) {
+        val inputConnection = currentInputConnection ?: return
+        when (direction) {
+            SWIPE_LD -> { // Left swipe
+                effectBackspace(inputConnection)
+            }
+
+            SWIPE_RU -> { // Right swipe
+                inputConnection.commitText(" ", 1)
+            }
+        }
+    }
+
     private fun computeCandidateList(mComposing: String): List<String> {
         return if (mComposing.length == 0) {
             emptyList<String>()

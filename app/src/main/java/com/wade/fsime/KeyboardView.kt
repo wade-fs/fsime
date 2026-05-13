@@ -79,6 +79,11 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
     private var shiftPointerId = NONEXISTENT_POINTER_ID
     private var ctrlPointerId = NONEXISTENT_POINTER_ID
 
+    // Global gesture tracking
+    private var isGlobalGesture = false
+    private var pointerStartX = 0
+    private var pointerStartY = 0
+
     // Keyboard drawing
     private lateinit var keyboardRectangle: Rect
     private lateinit var keyboardFillPaint: Paint
@@ -178,6 +183,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         fun onKey(key: Key)
         fun onLongPress(key: Key)
         fun onSwipe(key: Key, swipeDir: Int)
+        fun onGlobalSwipe(direction: Int)
         fun saveKeyboard(keyboard: Keyboard)
     }
 
@@ -213,114 +219,118 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         canvas.drawRect(keyboardRectangle, keyboardFillPaint)
 
         for (key in list) {
-            keyRectangle.set(0, 0, key.width, key.height)
-            var keyFillColour = key.fillColour
-            if (key === activeKey ||
-                (key.valueText == FsimeService.SHIFT_KEY_VALUE_TEXT && (shiftPointerId != NONEXISTENT_POINTER_ID || kb.shiftState != Keyboard.ModifierState.DISABLED)) ||
-                (key.valueText == FsimeService.CTRL_KEY_VALUE_TEXT && kb.ctrlState != Keyboard.ModifierState.DISABLED)
-            ) {
-                keyFillColour = toPressedColour(keyFillColour)
-            }
-            keyFillPaint.color = keyFillColour
-            keyBorderPaint.color = key.borderColour
-            keyBorderPaint.strokeWidth = key.borderThickness.toFloat()
-
-            val keyOtherColour = if (key === activeKey && swipeDir != SWIPE_NONE) key.textSwipeColour else key.otherColour
-            val keyTextColour = if (key === activeKey && swipeDir != SWIPE_NONE) key.textSwipeColour else if (!key.isPreviewable) key.textColour else keyOtherColour
-
-            keyTextPaint.apply {
-                textSize = key.textSize.toFloat()
-                color = keyTextColour
-            }
-            keyTextShiftPaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextStrokePaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextCjPaint.apply {
-                textSize = key.textSize * 5.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextJiPaint.apply {
-                textSize = key.textSize * 5.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextUpPaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextDownPaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextLeftPaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-            keyTextRightPaint.apply {
-                textSize = key.textSize * 6.0f / 10.0f
-                color = keyOtherColour
-            }
-
-            if (kb.shiftState != Keyboard.ModifierState.DISABLED) {
-                keyTextShiftPaint.color = key.textColour
-            } else {
-                when (kb.name) {
-                    "mix", "pure", "full", "digit" -> if (key.isPreviewable) keyTextPaint.color = key.textColour
-                    "ji" -> keyTextJiPaint.color = key.textColour
-                    "cj" -> keyTextCjPaint.color = key.textColour
-                    "stroke" -> keyTextStrokePaint.color = key.textColour
-                }
-            }
-
-            val isPreviewable = key.isPreviewable
-            val keyDisplayText = key.displayText
-            val keyShiftText = key.shiftText ?: ""
-            val keyStrokeText = key.strokeText ?: ""
-            val keyCjText = key.cjText ?: ""
-            val keyJiText = key.jiText ?: ""
-            val keyUpText = key.upText ?: ""
-            val keyDownText = key.downText ?: ""
-            val keyLeftText = key.leftText ?: ""
-            val keyRightText = key.rightText ?: ""
-            val keyTextX = key.width / 2f + key.textOffsetX
-            val keyTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY
-
-            canvas.translate(key.x.toFloat(), key.y.toFloat())
-            canvas.drawRect(keyRectangle, keyFillPaint)
-            canvas.drawRect(keyRectangle, keyBorderPaint)
-            canvas.drawText(keyDisplayText ?: "", keyTextX, keyTextY, keyTextPaint)
-
-            val keyLeftTextX = key.width / 2f + key.textOffsetX - 14f
-            val keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f
-            val keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
-            val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
-
-            if (keyShiftText.isNotEmpty() && isPreviewable) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
-            if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX, keyUpTextY, keyTextStrokePaint)
-            if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyLeftTextX, keyDownTextY, keyTextCjPaint)
-
-            val keyJiTextYv = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 80f
-            if (keyJiText.isNotEmpty()) {
-                if ("ˊˇˋ˙".contains(keyJiText)) {
-                    keyTextJiPaint.textSize = key.textSize * 5.0f / 3.0f
-                    canvas.drawText(keyJiText, keyRightTextX, keyJiTextYv, keyTextJiPaint)
-                } else {
-                    keyTextJiPaint.textSize = key.textSize * 6.0f / 10.0f
-                    canvas.drawText(keyJiText, keyRightTextX - 20, keyDownTextY, keyTextJiPaint)
-                }
-            }
-
-            if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
-            if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
-            if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
-            if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
-
-            canvas.translate((-key.x).toFloat(), (-key.y).toFloat())
+            drawKey(canvas, key, kb)
         }
+    }
+
+    private fun drawKey(canvas: Canvas, key: Key, kb: Keyboard) {
+        keyRectangle.set(0, 0, key.width, key.height)
+        var keyFillColour = key.fillColour
+        if (key === activeKey ||
+            (key.valueText == FsimeService.SHIFT_KEY_VALUE_TEXT && (shiftPointerId != NONEXISTENT_POINTER_ID || kb.shiftState != Keyboard.ModifierState.DISABLED)) ||
+            (key.valueText == FsimeService.CTRL_KEY_VALUE_TEXT && kb.ctrlState != Keyboard.ModifierState.DISABLED)
+        ) {
+            keyFillColour = toPressedColour(keyFillColour)
+        }
+        keyFillPaint.color = keyFillColour
+        keyBorderPaint.color = key.borderColour
+        keyBorderPaint.strokeWidth = key.borderThickness.toFloat()
+
+        val keyOtherColour = if (key === activeKey && swipeDir != SWIPE_NONE) key.textSwipeColour else key.otherColour
+        val keyTextColour = if (key === activeKey && swipeDir != SWIPE_NONE) key.textSwipeColour else if (!key.isPreviewable) key.textColour else keyOtherColour
+
+        keyTextPaint.apply {
+            textSize = key.textSize.toFloat()
+            color = keyTextColour
+        }
+        keyTextShiftPaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextStrokePaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextCjPaint.apply {
+            textSize = key.textSize * 5.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextJiPaint.apply {
+            textSize = key.textSize * 5.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextUpPaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextDownPaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextLeftPaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+        keyTextRightPaint.apply {
+            textSize = key.textSize * 6.0f / 10.0f
+            color = keyOtherColour
+        }
+
+        if (kb.shiftState != Keyboard.ModifierState.DISABLED) {
+            keyTextShiftPaint.color = key.textColour
+        } else {
+            when (kb.name) {
+                "mix", "pure", "full", "digit" -> if (key.isPreviewable) keyTextPaint.color = key.textColour
+                "ji" -> keyTextJiPaint.color = key.textColour
+                "cj" -> keyTextCjPaint.color = key.textColour
+                "stroke" -> keyTextStrokePaint.color = key.textColour
+            }
+        }
+
+        val isPreviewable = key.isPreviewable
+        val keyDisplayText = key.displayText
+        val keyShiftText = key.shiftText ?: ""
+        val keyStrokeText = key.strokeText ?: ""
+        val keyCjText = key.cjText ?: ""
+        val keyJiText = key.jiText ?: ""
+        val keyUpText = key.upText ?: ""
+        val keyDownText = key.downText ?: ""
+        val keyLeftText = key.leftText ?: ""
+        val keyRightText = key.rightText ?: ""
+        val keyTextX = key.width / 2f + key.textOffsetX
+        val keyTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY
+
+        canvas.translate(key.x.toFloat(), key.y.toFloat())
+        canvas.drawRect(keyRectangle, keyFillPaint)
+        canvas.drawRect(keyRectangle, keyBorderPaint)
+        canvas.drawText(keyDisplayText ?: "", keyTextX, keyTextY, keyTextPaint)
+
+        val keyLeftTextX = key.width / 2f + key.textOffsetX - 14f
+        val keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f
+        val keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
+        val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
+
+        if (keyShiftText.isNotEmpty() && isPreviewable) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
+        if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX, keyUpTextY, keyTextStrokePaint)
+        if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyLeftTextX, keyDownTextY, keyTextCjPaint)
+
+        val keyJiTextYv = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 80f
+        if (keyJiText.isNotEmpty()) {
+            if ("ˊˇˋ˙".contains(keyJiText)) {
+                keyTextJiPaint.textSize = key.textSize * 5.0f / 3.0f
+                canvas.drawText(keyJiText, keyRightTextX, keyJiTextYv, keyTextJiPaint)
+            } else {
+                keyTextJiPaint.textSize = key.textSize * 6.0f / 10.0f
+                canvas.drawText(keyJiText, keyRightTextX - 20, keyDownTextY, keyTextJiPaint)
+            }
+        }
+
+        if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+        if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
+        if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+        if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
+
+        canvas.translate((-key.x).toFloat(), (-key.y).toFloat())
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -338,6 +348,13 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                 val downPointerId = event.getPointerId(downPointerIndex)
                 val downPointerX = event.getX(downPointerIndex).toInt()
                 val downPointerY = event.getY(downPointerIndex).toInt()
+                
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    pointerStartX = downPointerX
+                    pointerStartY = downPointerY
+                    isGlobalGesture = false
+                }
+
                 val downKey = getKeyAtPoint(downPointerX, downPointerY)
                 if (isShiftKey(downKey)) {
                     sendShiftDownEvent(downPointerId)
@@ -357,6 +374,21 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                     val movePointerId = event.getPointerId(index)
                     val movePointerX = event.getX(index).toInt()
                     val movePointerY = event.getY(index).toInt()
+
+                    if (!isGlobalGesture && movePointerId == activePointerId) {
+                        val dx = movePointerX - pointerStartX
+                        val dy = movePointerY - pointerStartY
+                        if (Math.abs(dx) > GLOBAL_SWIPE_THRESHOLD && Math.abs(dy) < GLOBAL_SWIPE_THRESHOLD / 2) {
+                            isGlobalGesture = true
+                            activeKey = null
+                            activePointerId = NONEXISTENT_POINTER_ID
+                            removeAllExtendedPressHandlerMessages()
+                            swipeDir = if (dx > 0) SWIPE_RU else SWIPE_LD // Using existing RU/LD as R/L placeholders for now
+                            invalidate()
+                            return true
+                        }
+                    }
+
                     val moveKey = getKeyAtPoint(movePointerX, movePointerY)
                     if (movePointerId == activePointerId) {
                         activeKey?.let { ak ->
@@ -399,6 +431,15 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                 val upPointerX = event.getX(upPointerIndex).toInt()
                 val upPointerY = event.getY(upPointerIndex).toInt()
                 val upKey = getKeyAtPoint(upPointerX, upPointerY)
+
+                if (isGlobalGesture) {
+                    keyboardListener?.onGlobalSwipe(swipeDir)
+                    isGlobalGesture = false
+                    swipeDir = SWIPE_NONE
+                    invalidate()
+                    return true
+                }
+
                 if ((upPointerId == shiftPointerId || isShiftKey(upKey)) && !isSwipeableKey(activeKey)) {
                     sendShiftUpEvent(true)
                     return true
@@ -615,6 +656,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         private const val KEY_LONG_PRESS_MILLISECONDS = 750
         private const val SWIPE_MX = 40
         private const val SWIPE_MY = 10
+        private const val GLOBAL_SWIPE_THRESHOLD = 150
         const val KEYBOARD_FONT_FILE_NAME = "StrokeInputFont.ttf"
         private const val COLOUR_LIGHTNESS_CUTOFF = 0.7f
 
