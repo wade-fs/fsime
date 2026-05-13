@@ -65,5 +65,6 @@
     <attr name="keyPreviewMagnification" />
     <attr name="keyPreviewMarginY" />
     <attr name="keyIsPreviewable" format="boolean" />
+    <attr name="keyCode" format="integer" />
   </declare-styleable>
 </resources>

@@ -230,9 +230,37 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         inputContainer!!.setCandidateList(ArrayList())
     }
 
-    override fun onKey(valueText: String) {
+    override fun onKey(key: Key) {
         val inputConnection = currentInputConnection ?: return
+        val valueText = if (inputContainer!!.keyboard!!.shiftState != Keyboard.ModifierState.DISABLED && key.isShiftable)
+            key.shiftText ?: ""
+        else
+            key.valueText ?: ""
+
         Log.i(LOG_TAG, "onKey: $valueText")
+        
+        if (inputContainer!!.keyboard!!.ctrlMode != 0) {
+            val keyCode = if (key.keyCode != 0) key.keyCode else {
+                // Fallback for keys without keyCode defined in XML
+                val mKeyCharacterMap = KeyCharacterMap.load(KeyCharacterMap.VIRTUAL_KEYBOARD)
+                val events = mKeyCharacterMap.getEvents(key.valueText?.toCharArray())
+                events?.firstOrNull { it.action == KeyEvent.ACTION_DOWN && it.keyCode != KeyEvent.KEYCODE_SHIFT_LEFT }?.keyCode ?: 0
+            }
+
+            if (keyCode != 0) {
+                if (codeMaps.containsKey(keyCode)) {
+                    val hk = sharedPreferences!!.getHotkey(codeMaps[keyCode]!!)
+                    if (hk.isNotEmpty()) {
+                        mComposing = ""
+                        effectStrokeAppend(hk)
+                        return
+                    }
+                }
+                keyDownUp(keyCode, inputContainer!!.keyboard!!.metaState)
+                return
+            }
+        }
+
         when (valueText) {
             "⎆" -> keyDownUps(
                 intArrayOf(
@@ -259,57 +287,19 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             ESC_KEY_VALUE_TEXT -> turnCandidateOff()
             SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection)
             ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection)
-            else -> {
-                if (inputContainer!!.keyboard!!.ctrlMode != 0) {
-                    val mKeyCharacterMap = KeyCharacterMap.load(KeyCharacterMap.VIRTUAL_KEYBOARD)
-                    val events = mKeyCharacterMap.getEvents(valueText.toCharArray())
-                    for (event2 in events) {
-                        // 其實只做一次
-                        if (event2.action == 0 && event2.keyCode != KeyEvent.KEYCODE_SHIFT_LEFT) {
-                            val keycode = event2.keyCode
-                            if (codeMaps.containsKey(keycode)) {
-                                val hk = sharedPreferences!!.getHotkey(codeMaps.get(keycode)!!)
-                                if (hk.length > 0) {
-                                    mComposing = ""
-                                    effectStrokeAppend(hk)
-                                    break
-                                } else {
-                                    if (inputContainer!!.keyboard!!.shiftMode != 0) {
-                                        keyDownUp(
-                                            keycode,
-                                            KeyEvent.META_CTRL_ON + KeyEvent.META_SHIFT_ON
-                                        )
-                                        break
-                                    }
-                                }
-                            }
-                            keyDownUp(keycode, KeyEvent.META_CTRL_ON)
-                            break
-                        }
-                    }
-                } else {
-                    effectStrokeAppend(valueText)
-                }
-            }
+            else -> effectStrokeAppend(valueText)
         }
     }
 
-    override fun onLongPress(inputText: String) {
-        val valueText: String
-        val shiftText: String
-        if (inputText.length == 2) {
-            valueText = inputText.substring(0, 1)
-            shiftText = inputText.substring(1, 2)
-        } else {
-            valueText = inputText
-            shiftText = ""
-        }
+    override fun onLongPress(key: Key) {
+        val valueText = key.valueText ?: ""
+        val shiftText = key.shiftText ?: ""
         when (valueText) {
             SPACE_BAR_VALUE_TEXT -> showSystemKeyboardChanger(this)
             ESC_KEY_VALUE_TEXT -> {
                 val inputConnection = currentInputConnection
                 val w = getTextBeforeCursor(inputConnection, 1)
-                if (w.length > 0) {
+                if (w.isNotEmpty()) {
                     val comp: ArrayList<String> = bdatabase!!.getCompose(w.substring(0, 1))
                     comp.add(0, w)
                     setCandidateList(comp)
@@ -317,7 +307,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             }
 
             else -> {
-                if (shiftText.length > 0) {
+                if (shiftText.isNotEmpty()) {
                     effectStrokeAppend(shiftText)
                 } else {
                     effectStrokeAppend(valueText)
@@ -326,27 +316,34 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         }
     }
 
-    override fun onSwipe(valueText: String) {
-        if (valueText == SPACE_BAR_VALUE_TEXT) {
+    override fun onSwipe(key: Key, swipeDir: Int) {
+        if (key.valueText == SPACE_BAR_VALUE_TEXT) {
             val keyboardSet = initKeyboardSet()
             if (keyboardSet.isEmpty()) {
                 return
             }
-            var keyboard = inputContainer!!.keyboard
+            val keyboard = inputContainer!!.keyboard
             if (keyboard!!.name == null) {
                 return
             }
-            if (keyboard.swipeDir and (SWIPE_RU or SWIPE_RD) > 0) {
-                var next = (keyboardSet.indexOf(keyboard)+1) % keyboardSet.size
-                inputContainer!!.keyboard  = keyboardSet.get(next)
-            } else if (keyboard.swipeDir and (SWIPE_LD or SWIPE_LU) > 0) {
-                var next = (keyboardSet.indexOf(keyboard)+keyboardSet.size-1) % keyboardSet.size
-                inputContainer!!.keyboard  = keyboardSet.get(next)
+            if (swipeDir and (SWIPE_RU or SWIPE_RD) > 0) {
+                val next = (keyboardSet.indexOf(keyboard) + 1) % keyboardSet.size
+                inputContainer!!.keyboard = keyboardSet[next]
+            } else if (swipeDir and (SWIPE_LD or SWIPE_LU) > 0) {
+                val next = (keyboardSet.indexOf(keyboard) + keyboardSet.size - 1) % keyboardSet.size
+                inputContainer!!.keyboard = keyboardSet[next]
             }
             inputContainer!!.redrawKeyboard()
             return
         } else {
-            effectStrokeAppend(valueText)
+            val swipeText = when (swipeDir) {
+                SWIPE_LU -> key.upText
+                SWIPE_RD -> key.downText
+                SWIPE_LD -> key.leftText
+                SWIPE_RU -> key.rightText
+                else -> key.valueText
+            }
+            effectStrokeAppend(swipeText ?: "")
         }
     }
 

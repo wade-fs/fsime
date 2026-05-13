@@ -43,6 +43,8 @@ class Key(parentRow: Row2) {
     @JvmField
     var isPreviewable = false
     @JvmField
+    var keyCode = 0
+    @JvmField
     var valueText: String? = null
     @JvmField
     var displayText: String? = null // overrides valueText drawn
@@ -126,6 +128,7 @@ class Key(parentRow: Row2) {
         isExtendedLeft = attributesArray.getBoolean(R.styleable.Key_keyIsExtendedLeft, false)
         isExtendedRight = attributesArray.getBoolean(R.styleable.Key_keyIsExtendedRight, false)
         isPreviewable = attributesArray.getBoolean(R.styleable.Key_keyIsPreviewable, true)
+        keyCode = attributesArray.getInt(R.styleable.Key_keyCode, 0)
         valueText = attributesArray.getString(R.styleable.Key_keyValueText)
         displayText = attributesArray.getString(R.styleable.Key_keyDisplayText)
         if (displayText == null) {
@@ -225,10 +228,13 @@ class Key(parentRow: Row2) {
     }
 
     fun shiftAwareDisplayText(shiftMode: Int): String? {
-        return if (shiftMode == KeyboardView.SHIFT_DISABLED) {
+        return if (shiftMode == 0) { // Using 0 for SHIFT_DISABLED
             displayText
         } else {
             shiftText
         }
     }
+
+    val isModifier: Boolean
+        get() = valueText == FsimeService.SHIFT_KEY_VALUE_TEXT || valueText == FsimeService.CTRL_KEY_VALUE_TEXT
 }

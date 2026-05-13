@@ -67,12 +67,78 @@ class Keyboard(private val context: Context, layoutResourceId: Int, name: String
     val screenHeight: Int
     @JvmField
     var name: String? = null
+    
+    enum class ModifierState {
+        DISABLED, SINGLE, PERSISTENT, INITIATED, HELD
+    }
+
+    @JvmField
+    var shiftState = ModifierState.DISABLED
+    @JvmField
+    var ctrlState = ModifierState.DISABLED
+
     @JvmField
     var shiftMode = 0
     @JvmField
     var ctrlMode = 0
     @JvmField
     var swipeDir = 0 // 0:None 1:右 2:左 3:上 4:下
+
+    fun onModifierDown(isShift: Boolean, hasActiveKey: Boolean) {
+        if (isShift) {
+            if (shiftState == ModifierState.DISABLED) {
+                shiftState = if (hasActiveKey) ModifierState.HELD else ModifierState.INITIATED
+            }
+        } else {
+            if (ctrlState == ModifierState.DISABLED) {
+                ctrlState = if (hasActiveKey) ModifierState.HELD else ModifierState.INITIATED
+            }
+        }
+        updateModes()
+    }
+
+    fun onModifierUp(isShift: Boolean) {
+        if (isShift) {
+            shiftState = when (shiftState) {
+                ModifierState.SINGLE -> ModifierState.PERSISTENT
+                ModifierState.INITIATED -> ModifierState.SINGLE
+                ModifierState.PERSISTENT, ModifierState.HELD -> ModifierState.DISABLED
+                else -> ModifierState.DISABLED
+            }
+        } else {
+            ctrlState = when (ctrlState) {
+                ModifierState.SINGLE, ModifierState.HELD -> ModifierState.DISABLED
+                else -> ModifierState.SINGLE
+            }
+        }
+        updateModes()
+    }
+
+    fun onModifierMoveTo(isShift: Boolean) {
+        if (isShift) shiftState = ModifierState.HELD
+        else ctrlState = ModifierState.HELD
+        updateModes()
+    }
+
+    fun resetModifiers() {
+        shiftState = ModifierState.DISABLED
+        ctrlState = ModifierState.DISABLED
+        updateModes()
+    }
+
+    private fun updateModes() {
+        shiftMode = if (shiftState != ModifierState.DISABLED) android.view.KeyEvent.META_SHIFT_MASK else 0
+        ctrlMode = if (ctrlState != ModifierState.DISABLED) android.view.KeyEvent.META_CTRL_MASK else 0
+    }
+
+    val metaState: Int
+        get() {
+            var meta = 0
+            if (shiftState != ModifierState.DISABLED) meta = meta or android.view.KeyEvent.META_SHIFT_ON or android.view.KeyEvent.META_SHIFT_MASK
+            if (ctrlState != ModifierState.DISABLED) meta = meta or android.view.KeyEvent.META_CTRL_ON or android.view.KeyEvent.META_CTRL_MASK
+            return meta
+        }
+
     fun setName(name: String?) {
         this.name = name
     }
