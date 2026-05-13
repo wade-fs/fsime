@@ -638,7 +638,7 @@ public class KeyboardView
                 keyboardListener.onSwipe(activeKey.valueText);
             }
         } else if (key != null) {
-            if (shiftMode != SHIFT_DISABLED && key.isShiftable) {
+            if (shiftMode != SHIFT_DISABLED && key.isShiftable && !isSpecialKey(key)) {
                 keyboardListener.onKey(key.shiftText);
             } else {
                 keyboardListener.onKey(key.valueText);
@@ -663,6 +663,21 @@ public class KeyboardView
         if (shouldRedrawKeyboard) {
             invalidate();
         }
+    }
+
+    private boolean isSpecialKey(final Key key) {
+        if (key == null) return false;
+        String v = key.valueText;
+        return v.equals(FsimeService.SHIFT_KEY_VALUE_TEXT) ||
+               v.equals(FsimeService.CTRL_KEY_VALUE_TEXT) ||
+               v.equals("BACKSPACE") ||
+               v.equals("ENTER") ||
+               v.equals("SPACE") ||
+               v.equals("TAB") ||
+               v.equals("ESC") ||
+               v.equals("←") || v.equals("↑") || v.equals("↓") || v.equals("→") ||
+               v.equals("⇱") || v.equals("⇲") || v.equals("⇞") || v.equals("⇟") ||
+               v.equals("⎆");
     }
 
     private void sendShiftDownEvent(final int pointerId) {
