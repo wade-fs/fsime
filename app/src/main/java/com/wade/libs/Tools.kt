@@ -434,7 +434,7 @@ object Tools {
     }
 
     private fun cleanString(exp: String): String? {
-        var exp = exp ?: return ""
+        var exp = exp
         exp = exp.trim { it <= ' ' }.replace(" ".toRegex(), "")
         if (exp.isEmpty()) return ""
         while (exp.length > 1 && (exp.lastIndexOf('+') == exp.length - 1 || exp.lastIndexOf('-') == exp.length - 1 || exp.lastIndexOf(

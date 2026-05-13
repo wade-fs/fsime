@@ -24,7 +24,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     // 處理 button 事件，例如要叫出客製化輸入表格
     @SuppressLint("RestrictedApi")
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        if (preference == null || preference.key == null) {
+        if (preference.key == null) {
             //Run Intent
             return false
         }

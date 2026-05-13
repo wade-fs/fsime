@@ -26,7 +26,7 @@ object Stringy {
 
     @JvmStatic
     fun removePrefix(prefix: String?, string: String): String {
-        return removePrefixRegex(Pattern.quote(prefix), string)
+        return if (prefix == null) string else removePrefixRegex(Pattern.quote(prefix), string)
     }
 
     /*

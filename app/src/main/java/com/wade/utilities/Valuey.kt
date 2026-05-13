@@ -35,7 +35,7 @@ object Valuey {
 
     @JvmStatic
     fun pxFromSp(sp: Float, displayMetrics: DisplayMetrics): Float {
-        return sp * displayMetrics.scaledDensity
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, displayMetrics)
     }
 
     @JvmStatic

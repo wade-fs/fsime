@@ -109,7 +109,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
         speechRecognizer?.setRecognitionListener(object : RecognitionListener {
             override fun onReadyForSpeech(params: Bundle?) {
-                Toast.makeText(applicationContext, "Listening...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "🎤 請開始說話...", Toast.LENGTH_SHORT).show()
             }
 
             override fun onBeginningOfSpeech() {}
@@ -118,18 +118,18 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
             override fun onEndOfSpeech() {}
             override fun onError(error: Int) {
                 val message = when (error) {
-                    SpeechRecognizer.ERROR_AUDIO -> "Audio recording error"
-                    SpeechRecognizer.ERROR_CLIENT -> "Client side error"
-                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Insufficient permissions"
-                    SpeechRecognizer.ERROR_NETWORK -> "Network error"
-                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Network timeout"
-                    SpeechRecognizer.ERROR_NO_MATCH -> "No match found"
-                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Recognition service busy"
-                    SpeechRecognizer.ERROR_SERVER -> "Server error"
-                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No speech input"
-                    else -> "Unknown error"
+                    SpeechRecognizer.ERROR_AUDIO -> "錄音失敗"
+                    SpeechRecognizer.ERROR_CLIENT -> "客戶端錯誤"
+                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "權限不足，請開啟錄音權限"
+                    SpeechRecognizer.ERROR_NETWORK -> "網路連接錯誤"
+                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "網路逾時"
+                    SpeechRecognizer.ERROR_NO_MATCH -> "聽不清楚，請再試一次"
+                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "語音服務忙碌中"
+                    SpeechRecognizer.ERROR_SERVER -> "伺服器錯誤"
+                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "無語音輸入"
+                    else -> "語音辨識錯誤: $error"
                 }
-                Toast.makeText(applicationContext, "Voice Error: $message", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResults(results: Bundle?) {
@@ -145,11 +145,25 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
     }
 
     private fun startVoiceInput() {
+        if (speechRecognizer == null) {
+            Toast.makeText(applicationContext, "此裝置不支援語音辨識", Toast.LENGTH_LONG).show()
+            initSpeechRecognizer() // 嘗試再次初始化
+            return
+        }
+        
+        Toast.makeText(applicationContext, "語音啟動中...", Toast.LENGTH_SHORT).show()
+        
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+            putExtra(RecognizerIntent.EXTRA_PROMPT, "請說話...")
         }
-        speechRecognizer?.startListening(intent)
+        
+        try {
+            speechRecognizer?.startListening(intent)
+        } catch (e: Exception) {
+            Toast.makeText(applicationContext, "無法啟動語音：${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     @SuppressLint("InflateParams")

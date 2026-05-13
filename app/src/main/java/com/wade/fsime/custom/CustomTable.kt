@@ -129,7 +129,8 @@ class CustomTable : Activity() {
             if (!bkdir.exists()) {
                 return
             }
-            val dbFile = File(getDatabasePath("b.db").absolutePath)
+            val dbPath = getDatabasePath("b.db")?.absolutePath ?: return
+            val dbFile = File(dbPath)
             val fis = FileInputStream(dbFile) // /data/user/0/com.wade.fsime/databases/b.db
             val outFileName = "$backdir/b.db"
             // Open the empty db as the output stream
