@@ -228,7 +228,7 @@ class Key(parentRow: Row2) {
     }
 
     fun shiftAwareDisplayText(shiftMode: Int): String? {
-        return if (shiftMode == 0) { // Using 0 for SHIFT_DISABLED
+        return if (shiftMode == 0 || !isShiftable) { // 0: SHIFT_DISABLED
             displayText
         } else {
             shiftText
@@ -237,4 +237,18 @@ class Key(parentRow: Row2) {
 
     val isModifier: Boolean
         get() = valueText == FsimeService.SHIFT_KEY_VALUE_TEXT || valueText == FsimeService.CTRL_KEY_VALUE_TEXT
+
+    val isControlKey: Boolean
+        get() {
+            val v = valueText ?: return false
+            return isModifier ||
+                    v == "BACKSPACE" || v == "⌫" ||
+                    v == "ENTER" ||
+                    v == "SPACE" ||
+                    v == "TAB" || v == "↹" ||
+                    v == "ESC" ||
+                    v == "←" || v == "↑" || v == "↓" || v == "→" ||
+                    v == "⇱" || v == "⇲" || v == "⇞" || v == "⇟" ||
+                    v == "⎆"
+        }
 }

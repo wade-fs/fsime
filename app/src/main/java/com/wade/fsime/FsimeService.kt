@@ -232,7 +232,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener {
 
     override fun onKey(key: Key) {
         val inputConnection = currentInputConnection ?: return
-        val valueText = if (inputContainer!!.keyboard!!.shiftState != Keyboard.ModifierState.DISABLED && key.isShiftable)
+        val valueText = if (inputContainer!!.keyboard!!.shiftState != Keyboard.ModifierState.DISABLED && key.isShiftable && !key.isControlKey)
             key.shiftText ?: ""
         else
             key.valueText ?: ""

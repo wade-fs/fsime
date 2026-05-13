@@ -277,7 +277,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             }
 
             val isPreviewable = key.isPreviewable
-            val keyDisplayText = if (key.valueText == FsimeService.ENTER_KEY_VALUE_TEXT) key.displayText else key.shiftAwareDisplayText(kb.shiftMode)
+            val keyDisplayText = key.displayText
             val keyShiftText = key.shiftText ?: ""
             val keyStrokeText = key.strokeText ?: ""
             val keyCjText = key.cjText ?: ""
