@@ -58,20 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        val useIds = intArrayOf(R.id.ckStroke, R.id.ckPhrase)
-        val useKeys = arrayOf("ck_use_stroke", "ck_phrase")
-        for (i in useIds.indices) {
-            id2Use[useIds[i]] = useKeys[i]
-        }
-        for (id in useIds) {
-            val ck = findViewById<CheckBox>(id)
-            val useKb = sharedPreferences!!.getUseKb(id2Use[ck.id]!!)
-            ck.setChecked(useKb)
-            ck.setOnClickListener(View.OnClickListener { v ->
-                val ckb = v as CheckBox
-                sharedPreferences!!.write(id2Use[ck.id], ck.isChecked)
-            })
-        }
+        setCandidateOrderButtonText()
     }
 
     private fun setCandidateOrderButtonText() {
