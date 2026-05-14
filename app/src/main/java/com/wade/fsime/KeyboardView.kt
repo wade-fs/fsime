@@ -269,12 +269,15 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
         val isPreviewable = key.isPreviewable
         val keyDisplayText = key.displayText
-        val keyShiftText = key.shiftText ?: ""
+        val keyShiftText = key.shiftAwareDisplayText(kb.shiftMode) ?: ""
         val keyStrokeText = key.strokeText ?: ""
-        val keyUpText = key.upText ?: ""
-        val keyDownText = key.downText ?: ""
-        val keyLeftText = key.leftText ?: ""
-        val keyRightText = key.rightText ?: ""
+        val keyJiText = key.jiText ?: ""
+        val keyCjText = key.cjText ?: ""
+        val keyUpText = if (key.upText?.isNotEmpty() == true) key.upText else ""
+        val keyDownText = if (key.downText?.isNotEmpty() == true) key.downText else ""
+        val keyLeftText = if (key.leftText?.isNotEmpty() == true) key.leftText else ""
+        val keyRightText = if (key.rightText?.isNotEmpty() == true) key.rightText else ""
+        
         val keyTextX = key.width / 2f + key.textOffsetX
         val keyTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY
 
@@ -288,13 +291,20 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
         val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
-        if (keyShiftText.isNotEmpty() && isPreviewable) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
+        if (keyShiftText.isNotEmpty() && isPreviewable && keyShiftText != keyDisplayText) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
         if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX, keyUpTextY, keyTextStrokePaint)
 
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+        else if (keyShiftText.isNotEmpty() && keyShiftText != keyDisplayText) canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+        
         if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
+        else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
+        
         if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+        else if (keyJiText.isNotEmpty()) canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+        
         if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
+        else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
 
         canvas.translate((-key.x).toFloat(), (-key.y).toFloat())
     }
@@ -471,11 +481,11 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                 shouldRedrawKeyboard = true
             }
         } else if (key != null && key === activeKey && isSwipeableKey(key)) {
-            if (dx >= SWIPE_MX) {
-                swipeDir = if (x >= pointerDownX) {
-                    if (y >= pointerDownY) SWIPE_RD else SWIPE_RU
+            if (dx >= SWIPE_MX || dy >= SWIPE_MY) {
+                if (dx >= dy) {
+                    swipeDir = if (x >= pointerDownX) SWIPE_RU else SWIPE_LD
                 } else {
-                    if (y >= pointerDownY) SWIPE_LD else SWIPE_LU
+                    swipeDir = if (y >= pointerDownY) SWIPE_RD else SWIPE_LU
                 }
                 keyboard?.swipeDir = swipeDir
                 removeAllExtendedPressHandlerMessages()
@@ -612,7 +622,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         private const val KEY_REPEAT_START_MILLISECONDS = 500
         private const val KEY_LONG_PRESS_MILLISECONDS = 750
         private const val SWIPE_MX = 40
-        private const val SWIPE_MY = 10
+        private const val SWIPE_MY = 40
         private const val GLOBAL_SWIPE_THRESHOLD = 150
         const val KEYBOARD_FONT_FILE_NAME = "StrokeInputFont.ttf"
         private const val COLOUR_LIGHTNESS_CUTOFF = 0.7f

@@ -124,15 +124,16 @@ class CustomTable : Activity() {
     }
 
     private fun exportDB() {
+        val currentBackdir = backdir ?: return
         try {
-            val bkdir = File(backdir)
+            val bkdir = File(currentBackdir)
             if (!bkdir.exists()) {
                 return
             }
             val dbPath = getDatabasePath("b.db")?.absolutePath ?: return
             val dbFile = File(dbPath)
             val fis = FileInputStream(dbFile) // /data/user/0/com.wade.fsime/databases/b.db
-            val outFileName = "$backdir/b.db"
+            val outFileName = "$currentBackdir/b.db"
             // Open the empty db as the output stream
             val output: OutputStream =
                 FileOutputStream(outFileName) // /storage/emulated/0/Android/data/com.wade.fsime/files/fsime/b.db

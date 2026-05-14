@@ -472,11 +472,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 inputContainer?.showHandwriting(true)
             }
             else -> {
-                if (shiftText.isNotEmpty()) {
-                    effectStrokeAppend(shiftText)
-                } else {
-                    effectStrokeAppend(valueText)
-                }
+                effectStrokeAppend(valueText)
             }
         }
     }
@@ -491,10 +487,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             return
         } else {
             val swipeText = when (swipeDir) {
-                SWIPE_LU -> key.upText
-                SWIPE_RD -> key.downText
-                SWIPE_LD -> key.leftText
-                SWIPE_RU -> key.rightText
+                SWIPE_LU -> if (key.upText?.isNotEmpty() == true) key.upText else key.shiftText
+                SWIPE_RD -> if (key.downText?.isNotEmpty() == true) key.downText else key.cjText
+                SWIPE_LD -> if (key.leftText?.isNotEmpty() == true) key.leftText else key.jiText
+                SWIPE_RU -> if (key.rightText?.isNotEmpty() == true) key.rightText else key.strokeText
                 else -> key.valueText
             }
             effectStrokeAppend(swipeText ?: "")
