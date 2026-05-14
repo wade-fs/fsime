@@ -233,28 +233,30 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             textSize = key.textSize.toFloat()
             color = keyTextColour
         }
+        val cornerTextScale = if (kb.name == "symbol") 0.5f else 0.6f
+        
         keyTextShiftPaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
         keyTextStrokePaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
         keyTextUpPaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
         keyTextDownPaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
         keyTextLeftPaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
         keyTextRightPaint.apply {
-            textSize = key.textSize * 6.0f / 10.0f
+            textSize = key.textSize * cornerTextScale
             color = keyOtherColour
         }
 
@@ -289,10 +291,10 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val labelToDraw = key.shiftAwareDisplayText(kb.shiftMode) ?: ""
         canvas.drawText(labelToDraw, keyTextX, keyTextY, keyTextPaint)
 
-        val keyLeftTextX = key.width / 2f + key.textOffsetX - 14f
-        val keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f
-        val keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
-        val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
+        val keyLeftTextX = if (kb.name == "symbol") key.width / 2f + key.textOffsetX - 20f else key.width / 2f + key.textOffsetX - 14f
+        val keyRightTextX = if (kb.name == "symbol") key.width / 2f + key.textOffsetX + 30f else key.width / 2f + key.textOffsetX + 34.0f
+        val keyUpTextY = if (kb.name == "symbol") (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 35f else (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
+        val keyDownTextY = if (kb.name == "symbol") (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 25f else (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
         else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) {
