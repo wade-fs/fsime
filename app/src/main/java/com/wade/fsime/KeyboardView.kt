@@ -296,22 +296,28 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyUpTextY = if (kb.name == "symbol") (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 35f else (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
         val keyDownTextY = if (kb.name == "symbol") (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 25f else (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
-        if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
-        else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) {
-            // Only draw shiftText in the corner if it's not a single letter (uppercase A-Z)
-            if (!(keyShiftText.length == 1 && keyShiftText[0] in 'A'..'Z')) {
+        if (kb.name == "digit") {
+            if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) {
                 canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
             }
+        } else {
+            if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+            else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) {
+                // Only draw shiftText in the corner if it's not a single letter (uppercase A-Z)
+                if (!(keyShiftText.length == 1 && keyShiftText[0] in 'A'..'Z')) {
+                    canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+                }
+            }
+            
+            if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
+            else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
+            
+            if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+            else if (keyJiText.isNotEmpty() && kb.name != "pure") canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+            
+            if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
+            else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
         }
-        
-        if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
-        else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
-        
-        if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
-        else if (keyJiText.isNotEmpty() && kb.name != "pure") canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
-        
-        if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
-        else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
 
         canvas.translate((-key.x).toFloat(), (-key.y).toFloat())
     }
