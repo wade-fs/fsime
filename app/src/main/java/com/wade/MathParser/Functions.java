@@ -123,6 +123,10 @@ public class Functions {
         return Math.log(a);
     }
 
+    public static double percentage(double a) {
+        return a / 100.0;
+    }
+
     public static double radical(double a) {
         return Math.sqrt(a);
     }

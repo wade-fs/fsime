@@ -205,13 +205,28 @@ public class MathParser implements Cloneable {
      */
     private String firstSimplify(String expression) {
         expression = Utils.realTrim(expression);
+        expression = expression.replace("²", "^2");
+        expression = expression.replace("³", "^3");
+        expression = expression.replace("×", "*");
+        expression = expression.replace("÷", "/");
+        expression = expression.replace("π", "pi");
+        expression = expression.replace("Π", "pi");
         expression = fixDegrees(expression);
         expression = fixFactorial(expression);
+        expression = fixPercentage(expression);
         expression = fixDoubleType(expression);
         expression = fixBinary(expression);
         expression = fixHexadecimal(expression);
         expression = fixOctal(expression);
         return expression;
+    }
+
+    /**
+     * Makes percentage readable
+     * x% => (x/100)
+     */
+    private String fixPercentage(String src) {
+        return fix(src, "percentage", '%');
     }
 
     /**
