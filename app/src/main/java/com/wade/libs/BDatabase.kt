@@ -70,6 +70,26 @@ class BDatabase(context: Context?) :
         }
     }
 
+    fun reverseLookup(word: String): ArrayList<String> {
+        if (db == null) db = writableDatabase
+        val codes = ArrayList<String>()
+        // Query the 'mix' table for the English code (eng) corresponding to the character (ch)
+        // Ordering by length(eng) ASC so shorter codes appear first
+        val q = "SELECT eng FROM mix WHERE ch = ? ORDER BY length(eng) ASC;"
+        val cursor = db!!.rawQuery(q, arrayOf(word))
+        val engIdx = cursor.getColumnIndex(ENG)
+        if (engIdx != -1) {
+            while (cursor.moveToNext()) {
+                val code = cursor.getString(engIdx)
+                if (!codes.contains(code)) {
+                    codes.add(code)
+                }
+            }
+        }
+        cursor.close()
+        return codes
+    }
+
     var FUZZY_EXACT = 0
     var FUZZY_PREFIX = 1
     var FUZZY_FULL = 2

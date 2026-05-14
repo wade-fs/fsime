@@ -220,6 +220,41 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     @SuppressLint("InflateParams")
+    override fun onUpdateSelection(
+        oldSelStart: Int, oldSelEnd: Int,
+        newSelStart: Int, newSelEnd: Int,
+        candidatesStart: Int, candidatesEnd: Int
+    ) {
+        super.onUpdateSelection(
+            oldSelStart, oldSelEnd,
+            newSelStart, newSelEnd,
+            candidatesStart, candidatesEnd
+        )
+
+        // If selection is not empty (i.e., text is selected)
+        if (newSelStart != newSelEnd) {
+            val ic = currentInputConnection
+            if (ic != null) {
+                val selectedText = ic.getSelectedText(0)?.toString()
+                if (!selectedText.isNullOrEmpty()) {
+                    val db = bdatabase
+                    if (db != null) {
+                        // Only perform reverse lookup for the FIRST character of the selection
+                        val firstChar = selectedText[0].toString()
+                        val codes = db.reverseLookup(firstChar)
+                        
+                        if (codes.isNotEmpty()) {
+                            setCandidateList(codes)
+                        }
+                    }
+                }
+            }
+        } else if (mComposing.isEmpty()) {
+            // Clear candidates only if we are not currently composing
+            // setCandidateList(emptyList())
+        }
+    }
+
     override fun onCreateInputView(): View {
         bdatabase = BDatabase(applicationContext)
         inputContainer = layoutInflater.inflate(R.layout.input_container, null) as InputContainer
