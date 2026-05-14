@@ -13,31 +13,26 @@
             app:keyValueText="1"
             app:keyValueTextShifted="!"
             app:ji="ㄅ"
-            app:stroke="一"
             />
         <Key
             app:keyValueText="2"
             app:keyValueTextShifted="\@"
             app:ji="ㄉ"
-            app:stroke="丨"
             />
         <Key
             app:keyValueText="3"
             app:keyValueTextShifted="#"
             app:ji="ˇ"
-            app:stroke="丿"
             />
         <Key
             app:keyValueText="4"
             app:keyValueTextShifted="$"
             app:ji="ˋ"
-            app:stroke="丶"
             />
         <Key
             app:keyValueText="5"
             app:keyValueTextShifted="%"
             app:ji="ㄓ"
-            app:stroke="乛"
             />
         <Key
             app:keyValueText="6"
@@ -201,26 +196,31 @@
         <Key
             app:cj="重"
             app:ji="ㄈ"
+            app:stroke="一"
             app:keyValueText="z"
             app:keyValueTextShifted="Z" />
         <Key
             app:cj="難"
             app:ji="ㄌ"
+            app:stroke="丨"
             app:keyValueText="x"
             app:keyValueTextShifted="X" />
         <Key
             app:cj="金"
             app:ji="ㄏ"
+            app:stroke="丿"
             app:keyValueText="c"
             app:keyValueTextShifted="C" />
         <Key
             app:cj="女"
             app:ji="ㄒ"
+            app:stroke="丶"
             app:keyValueText="v"
             app:keyValueTextShifted="V" />
         <Key
             app:cj="月"
             app:ji="ㄖ"
+            app:stroke="乛"
             app:keyValueText="b"
             app:keyValueTextShifted="B" />
         <Key

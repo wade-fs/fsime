@@ -486,12 +486,21 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
             return
         } else {
-            val swipeText = when (swipeDir) {
+            var swipeText = when (swipeDir) {
                 SWIPE_LU -> if (key.upText?.isNotEmpty() == true) key.upText else key.shiftText
                 SWIPE_RD -> if (key.downText?.isNotEmpty() == true) key.downText else key.cjText
                 SWIPE_LD -> if (key.leftText?.isNotEmpty() == true) key.leftText else key.jiText
                 SWIPE_RU -> if (key.rightText?.isNotEmpty() == true) key.rightText else key.strokeText
                 else -> key.valueText
+            }
+            // Map stroke symbols to their database codes
+            swipeText = when (swipeText) {
+                "一" -> "z"
+                "丨" -> "x"
+                "丿" -> "c"
+                "丶" -> "v"
+                "乛" -> "b"
+                else -> swipeText
             }
             effectStrokeAppend(swipeText ?: "")
         }

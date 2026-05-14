@@ -291,9 +291,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyUpTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY - 40f
         val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
-        if (keyShiftText.isNotEmpty() && isPreviewable && keyShiftText != keyDisplayText) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
-        if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX, keyUpTextY, keyTextStrokePaint)
-
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
         else if (keyShiftText.isNotEmpty() && keyShiftText != keyDisplayText) canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
         
