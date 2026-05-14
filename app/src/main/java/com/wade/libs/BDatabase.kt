@@ -109,22 +109,17 @@ class BDatabase(context: Context?) :
         var n: Boolean
         if (k.indexOf('"') >= 0) return list
         k.replace("\"".toRegex(), "\"\"")
-        val useFreq = table == "vocabulary" || table == "phrase"
+        val useFreq = table == "ngram"
         val orderBy = if (useFreq) " ORDER BY freq DESC" else ""
         
-        if (fuzzy == FUZZY_FULL && useFreq && (table == "phrase" || table == "vocabulary")) {
-            // Use FTS5 for fast substring/prefix matching
-            q = "SELECT t.* FROM $table t JOIN ${table}_fts f ON t.id = f.rowid WHERE f.ch MATCH '$k*' $orderBy LIMIT $max OFFSET $start;"
+        q = "select * from $table where "
+        q += if (fuzzy == FUZZY_EXACT) {
+            "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
+        } else if (fuzzy == FUZZY_PREFIX) {
+            val pattern = if (useFreq) "$k%" else k + "_%"
+            "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
         } else {
-            q = "select * from $table where "
-            q += if (fuzzy == FUZZY_EXACT) {
-                "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
-            } else if (fuzzy == FUZZY_PREFIX) {
-                val pattern = if (useFreq) "$k%" else k + "_%"
-                "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
-            } else {
-                "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
-            }
+            "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
         }
         cursor = db!!.rawQuery(q, null)
         n = cursor.moveToFirst()
@@ -144,13 +139,6 @@ class BDatabase(context: Context?) :
                     b.ch = StoT(_ch)
                 } else if (ts == 2) {
                     b.ch = TtoS(_ch)
-                }
-            }
-            if (table === "vocabulary") {
-                val idx = b.ch!!.indexOf(k)
-                if (idx >= 0 && idx < b.ch!!.length - 1) {
-                    // Return the portion following k
-                    b.ch = b.ch!!.substring(idx + k.length)
                 }
             }
             if (!isIn(list, b)) {
