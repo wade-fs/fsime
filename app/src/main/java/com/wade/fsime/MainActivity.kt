@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.change_keyboard_button).setOnClickListener(this)
         findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
         findViewById<View>(R.id.practice_button).setOnClickListener(this)
+        findViewById<View>(R.id.digit_guide_button).setOnClickListener(this)
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
         val hkIds = intArrayOf(
@@ -93,6 +94,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.change_keyboard_button -> showSystemKeyboardChanger(this)
             R.id.practice_button -> {
                 startActivity(Intent(this, PracticeActivity::class.java))
+            }
+            R.id.digit_guide_button -> {
+                androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle(R.string.label_digit_keyboard_guide)
+                    .setMessage(R.string.digit_keyboard_guide_text)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
             }
             R.id.candidate_order_button -> {
                 setNextCandidateOrder()

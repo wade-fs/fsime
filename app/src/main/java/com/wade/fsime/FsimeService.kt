@@ -481,7 +481,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
             else -> {
                 if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_DIGIT && shiftText.isNotEmpty()) {
-                    currentInputConnection?.commitText(shiftText, 1)
+                    effectStrokeAppend(shiftText)
                 } else if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
                     currentInputConnection?.commitText(valueText, 1)
                 } else {

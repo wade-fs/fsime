@@ -18,7 +18,7 @@
   <string name="display_text__full_space_bar">◀狂想▶</string>
   <string name="display_text__fsime_space_bar">◀好瞎▶</string>
   <string name="display_text__pure_space_bar">◀真瞎▶</string>
-  <string name="display_text__digit_space_bar">◀計算▶</string>
+  <string name="display_text__digit_space_bar">◀簡易計算機▶</string>
   <string name="display_text__ji_space_bar">◀注音▶</string>
   <string name="display_text__cj_space_bar">◀倉頡▶</string>
   <string name="display_text__stroke_space_bar">◀筆劃▶</string>
@@ -64,4 +64,12 @@
 	<string name="label_speed">速度: %1$.2f wpm</string>
 	<string name="label_errors">錯誤: %1$d</string>
 	<string name="label_reset_stats">重置統計</string>
+  <string name="label_digit_keyboard_guide">數字鍵盤使用說明</string>
+  <string name="digit_keyboard_guide_text">數字鍵盤使用說明：
+
+1. 長按按鍵可輸入右上角的 Shift 符號。
+2. ( ) 括號為主要輸入，{ } 為 Shift 輸入。
+3. 長按 ESC 可開啟手寫辨識。
+4. 長按 SHIFT 可開啟語音輸入。
+5. 在預測字列點擊可輸入對應中文字。</string>
 	</resources>
