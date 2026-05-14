@@ -44,7 +44,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     var fsimeKB: Keyboard? = null
     var pureKB: Keyboard? = null
     var digitKB: Keyboard? = null
-    var strokeKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
     private var candidateList: List<String> = ArrayList()
@@ -97,7 +96,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
         pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
         digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
-        strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
     }
 
     override fun onDestroy() {
@@ -261,7 +259,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         keyboardSet += fsimeKB!!
         keyboardSet += pureKB!!
         keyboardSet += digitKB!!
-        keyboardSet += strokeKB!!
 
         if (sharedPreferences!!.getUseKb("ck_phrase"))
             usePhrase = true
@@ -645,7 +642,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val KEYBOARD_NAME_FSIME = "mix"
         private const val KEYBOARD_NAME_PURE = "pure"
         private const val KEYBOARD_NAME_DIGIT = "digit"
-        private const val KEYBOARD_NAME_STROKE = "stroke"
         const val PREFERENCES_FILE_NAME = "preferences.txt"
         private const val KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName"
         private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50
