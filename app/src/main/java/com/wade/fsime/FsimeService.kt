@@ -430,6 +430,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             ESC_KEY_VALUE_TEXT -> {
                 inputContainer?.showHandwriting(true)
             }
+            SHIFT_KEY_VALUE_TEXT -> {
+                startVoiceInput()
+            }
             "VOICE" -> {
                 inputContainer?.showHandwriting(true)
             }
