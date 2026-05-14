@@ -269,13 +269,7 @@ class BDatabase(context: Context?) :
             }
         }
 
-        // Always add the current text as the first option if it's not empty
-        if (k.isNotEmpty()) {
-            list.add(k.substring(0, 1)) // original code behavior? Wait.
-            // Actually, the original code had list.add(k.substring(0, 1)). 
-            // Let's keep it for compatibility if needed, but it seems strange.
-        }
-
+        // Predictions gathered, now format the result list
         for (b in predictions) {
             val suggestion = b.ch ?: ""
             if (suggestion.isNotEmpty() && !list.contains(suggestion)) {
