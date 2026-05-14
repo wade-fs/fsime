@@ -16,8 +16,8 @@
         <Key app:keyValueText="6" app:keyValueTextShifted="^" />
         <Key app:keyValueText="7" app:keyValueTextShifted="&amp;" />
         <Key app:keyValueText="8" app:keyValueTextShifted="*" />
-        <Key app:keyValueText="9" app:keyValueTextShifted="(" />
-        <Key app:keyValueText="0" app:keyValueTextShifted=")" />
+        <Key app:keyValueText="9" app:keyValueTextShifted="~" />
+        <Key app:keyValueText="0" app:keyValueTextShifted="`" />
         <Key
             app:keyDisplayText="\u232B"
             app:keyIsPreviewable="false"
@@ -31,8 +31,8 @@
         <Key app:keyValueText="*" app:keyValueTextShifted="×" />
         <Key app:keyValueText="/" app:keyValueTextShifted="÷" />
         <Key app:keyValueText="=" app:keyValueTextShifted="≈" />
-        <Key app:keyValueText="{" app:keyValueTextShifted="(" />
-        <Key app:keyValueText="}" app:keyValueTextShifted=")" />
+        <Key app:keyValueText="(" app:keyValueTextShifted="{" />
+        <Key app:keyValueText=")" app:keyValueTextShifted="}" />
         <Key app:keyValueText="^" app:keyValueTextShifted="²" />
         <Key app:keyValueText="√" app:keyValueTextShifted="∛" />
         <Key app:keyValueText="!" app:keyValueTextShifted="¡" />
@@ -76,12 +76,8 @@
             app:keyIsSwipeable="true"
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
-            app:keyWidth="36.36%" />
+            app:keyWidth="45.45%" />
         <Key app:keyValueText="&lt;" app:keyValueTextShifted="&lt;" />
         <Key app:keyValueText="&gt;" app:keyValueTextShifted="&gt;" />
-        <Key app:keyDisplayText="✎"
-            app:keyIsPreviewable="false"
-            app:keyValueText="HANDWRITING"
-            app:keyTextColour="@color/umbrella_blue" />
     </Row>
 </Keyboard>
