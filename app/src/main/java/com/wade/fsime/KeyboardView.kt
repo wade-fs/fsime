@@ -295,7 +295,12 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
-        else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+        else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) {
+            // Only draw shiftText in the corner if it's not a single letter (uppercase A-Z)
+            if (!(keyShiftText.length == 1 && keyShiftText[0] in 'A'..'Z')) {
+                canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+            }
+        }
         
         if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
         else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
