@@ -36,26 +36,6 @@
             android:focusable="true"
             android:text="@string/traditional_only" />
 
-        <CheckBox
-            android:id="@+id/ckCj"
-            style="@style/MainActivityCheckbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
-            android:button="@android:drawable/btn_star_big_on"
-            android:text="@string/ck_use_cj"
-            android:textColor="@color/candidate_recommended" />
-
-		<CheckBox
-        	android:id="@+id/ckJi"
-            style="@style/MainActivityCheckbox"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-            android:button="@android:drawable/btn_star_big_on"
-            android:background="@color/design_default_color_primary"
-            android:textColor="@color/candidate_recommended"
-        	android:text="@string/ck_use_ji"/>
-
 		<CheckBox
         	android:id="@+id/ckStroke"
             style="@style/MainActivityCheckbox"

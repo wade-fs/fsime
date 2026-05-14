@@ -44,8 +44,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     var fsimeKB: Keyboard? = null
     var pureKB: Keyboard? = null
     var digitKB: Keyboard? = null
-    var jiKB: Keyboard? = null
-    var cjKB: Keyboard? = null
     var strokeKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
@@ -99,8 +97,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
         pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
         digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
-        jiKB = Keyboard(this, R.xml.keyboard_ji, KEYBOARD_NAME_JI)
-        cjKB = Keyboard(this, R.xml.keyboard_cj, KEYBOARD_NAME_CJ)
         strokeKB = Keyboard(this, R.xml.keyboard_stroke, KEYBOARD_NAME_STROKE)
     }
 
@@ -265,14 +261,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         keyboardSet += fsimeKB!!
         keyboardSet += pureKB!!
         keyboardSet += digitKB!!
+        keyboardSet += strokeKB!!
 
-        // "ck_use_cj", "ck_use_ji", "ck_use_stroke"
-        if (sharedPreferences!!.getUseKb("ck_use_cj"))
-            keyboardSet += cjKB!!
-        if (sharedPreferences!!.getUseKb("ck_use_ji"))
-            keyboardSet += jiKB!!
-        if (sharedPreferences!!.getUseKb("ck_use_stroke"))
-            keyboardSet += strokeKB!!
         if (sharedPreferences!!.getUseKb("ck_phrase"))
             usePhrase = true
         else usePhrase = false
@@ -458,22 +448,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     override fun onSwipe(key: Key, swipeDir: Int) {
         if (key.valueText == SPACE_BAR_VALUE_TEXT) {
-            val keyboardSet = initKeyboardSet()
-            if (keyboardSet.isEmpty()) {
-                return
-            }
-            val keyboard = inputContainer!!.keyboard
-            if (keyboard!!.name == null) {
-                return
-            }
             if (swipeDir and (SWIPE_RU or SWIPE_RD) > 0) {
-                val next = (keyboardSet.indexOf(keyboard) + 1) % keyboardSet.size
-                inputContainer!!.keyboard = keyboardSet[next]
+                switchKeyboard(true)
             } else if (swipeDir and (SWIPE_LD or SWIPE_LU) > 0) {
-                val next = (keyboardSet.indexOf(keyboard) + keyboardSet.size - 1) % keyboardSet.size
-                inputContainer!!.keyboard = keyboardSet[next]
+                switchKeyboard(false)
             }
-            inputContainer!!.redrawKeyboard()
             return
         } else {
             val swipeText = when (swipeDir) {
@@ -497,7 +476,37 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             SWIPE_RU -> { // Right swipe
                 inputConnection.commitText(" ", 1)
             }
+
+            SWIPE_LU -> { // Up swipe
+                switchKeyboard(false)
+            }
+
+            SWIPE_RD -> { // Down swipe
+                switchKeyboard(true)
+            }
         }
+    }
+
+    private fun switchKeyboard(next: Boolean) {
+        val keyboardSet = initKeyboardSet()
+        if (keyboardSet.isEmpty()) {
+            return
+        }
+        val keyboard = inputContainer!!.keyboard
+        if (keyboard!!.name == null) {
+            return
+        }
+        val currentIndex = keyboardSet.indexOf(keyboard)
+        if (currentIndex == -1) return
+
+        val nextIndex = if (next) {
+            (currentIndex + 1) % keyboardSet.size
+        } else {
+            (currentIndex + keyboardSet.size - 1) % keyboardSet.size
+        }
+        inputContainer!!.keyboard = keyboardSet[nextIndex]
+        inputContainer!!.redrawKeyboard()
+        saveKeyboard(keyboardSet[nextIndex])
     }
 
     private fun computeCandidateList(mComposing: String): List<String> {
@@ -633,8 +642,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val KEYBOARD_NAME_FSIME = "mix"
         private const val KEYBOARD_NAME_PURE = "pure"
         private const val KEYBOARD_NAME_DIGIT = "digit"
-        private const val KEYBOARD_NAME_CJ = "cj"
-        private const val KEYBOARD_NAME_JI = "ji"
         private const val KEYBOARD_NAME_STROKE = "stroke"
         const val PREFERENCES_FILE_NAME = "preferences.txt"
         private const val KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName"

@@ -387,6 +387,15 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                             invalidate()
                             return true
                         }
+                        if (Math.abs(dy) > GLOBAL_SWIPE_THRESHOLD && Math.abs(dx) < GLOBAL_SWIPE_THRESHOLD / 2) {
+                            isGlobalGesture = true
+                            activeKey = null
+                            activePointerId = NONEXISTENT_POINTER_ID
+                            removeAllExtendedPressHandlerMessages()
+                            swipeDir = if (dy > 0) SWIPE_RD else SWIPE_LU // Using existing RD/LU as D/U placeholders for now
+                            invalidate()
+                            return true
+                        }
                     }
 
                     val moveKey = getKeyAtPoint(movePointerX, movePointerY)
