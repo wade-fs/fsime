@@ -386,7 +386,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                                 return true
                             }
                             if (moveKey != ak || isSwipeableKey(ak)) {
-                                if (ak.valueText?.length == 1) {
+                                if (isSwipeableKey(ak)) {
                                     sendMoveEvent(ak, movePointerId, movePointerX, movePointerY)
                                 } else {
                                     sendMoveEvent(moveKey, movePointerId, movePointerX, movePointerY)
@@ -592,7 +592,8 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
     }
 
     private fun isSwipeableKey(key: Key?): Boolean {
-        return key?.isSwipeable ?: false
+        if (key == null) return false
+        return key.isSwipeable || (!key.isModifier && !key.isRepeatable)
     }
 
     private fun sendAppropriateExtendedPressHandlerMessage(key: Key?) {
