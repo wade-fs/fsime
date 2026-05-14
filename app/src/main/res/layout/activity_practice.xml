@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center">
+        android:gravity="top|center_horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,6 +30,39 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/speed_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_speed"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/errors_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_errors"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:padding="8dp"
+                android:text="@string/label_reset_stats"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <TextView
@@ -59,37 +92,6 @@
             android:inputType="text"
             android:imeOptions="actionNext"
             android:textSize="28sp"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/speed_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_speed"
-                android:textSize="14sp"
-                android:layout_marginEnd="16dp" />
-
-            <TextView
-                android:id="@+id/errors_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_errors"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/reset_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_reset_stats"
-            android:layout_marginTop="16dp" />
-
+            android:gravity="center" />
     </LinearLayout>
 </ScrollView>
