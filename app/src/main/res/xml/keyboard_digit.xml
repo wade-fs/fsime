@@ -53,7 +53,7 @@
         <Key app:keyValueText="," app:up=";" />
         <Key app:keyValueText="|" app:up="\\" />
         <Key app:keyValueText="°" app:up="'" app:right="\u0022" />
-        <Key app:keyValueText="∠" />
+        <Key app:keyValueText="π" />
         <Key
             app:keyDisplayText="⏎"
             app:keyIsPreviewable="false"
@@ -66,7 +66,6 @@
             app:keyIsPreviewable="false"
             app:keyValueText="SHIFT"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="π" />
         <Key app:keyValueText="e" />
         <Key app:keyValueText="Σ" app:up="∫" />
         <Key app:keyValueText="lim" app:up="derivative" />
@@ -77,7 +76,7 @@
             app:keyIsSwipeable="true"
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
-            app:keyWidth="27.27%" />
+            app:keyWidth="36.36%" />
         <Key app:keyValueText="&lt;" app:up="«" />
         <Key app:keyValueText="&gt;" app:up="»" />
         <Key app:keyDisplayText="✎"
