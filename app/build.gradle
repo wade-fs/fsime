@@ -5,40 +5,40 @@ plugins
 
 android
         {
-            compileSdk 35
+            compileSdk = 35
             defaultConfig
                     {
-                        applicationId "com.wade.fsime"
-                        minSdkVersion 33
-                        targetSdkVersion 35
-                        versionCode 260514
-                        versionName "260514-kt"
+                        applicationId = "com.wade.fsime"
+                        minSdkVersion = 33
+                        targetSdkVersion = 35
+                        versionCode = 260514
+                        versionName = "260514-kt"
                     }
             buildTypes
                     {
                         release
                                 {
-                                    minifyEnabled true
-                                    shrinkResources true
+                                    minifyEnabled = true
+                                    shrinkResources = true
                                     proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
                                 }
                     }
-            namespace 'com.wade.fsime'
+            namespace = 'com.wade.fsime'
             buildFeatures {
                 buildConfig = true
             }
             compileOptions
                     {
-                        sourceCompatibility JavaVersion.VERSION_17
-                        targetCompatibility JavaVersion.VERSION_17
+                        sourceCompatibility = JavaVersion.VERSION_17
+                        targetCompatibility = JavaVersion.VERSION_17
                     }
             androidResources
                     {
-                        ignoreAssetsPattern '*.cmd:*.cmdr'
+                        ignoreAssetsPattern = '*.cmd:*.cmdr'
                     }
             lint {
-                checkReleaseBuilds false
-                abortOnError false
+                checkReleaseBuilds = false
+                abortOnError = false
             }
         }
 
