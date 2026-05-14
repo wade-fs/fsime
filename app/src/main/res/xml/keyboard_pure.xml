@@ -11,51 +11,71 @@
         <Key
             app:cj="手"
             app:ji="ㄆ"
+            app:up="1"
+            app:right="!"
             app:keyValueText="q"
             app:keyValueTextShifted="Q" />
         <Key
             app:cj="田"
             app:ji="ㄊ"
+            app:up="2"
+            app:right="\@"
             app:keyValueText="w"
             app:keyValueTextShifted="W" />
         <Key
             app:cj="水"
             app:ji="ㄍ"
+            app:up="3"
+            app:right="#"
             app:keyValueText="e"
             app:keyValueTextShifted="E" />
         <Key
             app:cj="口"
             app:ji="ㄐ"
+            app:up="4"
+            app:right="$"
             app:keyValueText="r"
             app:keyValueTextShifted="R" />
         <Key
             app:cj="廿"
             app:ji="ㄔ"
+            app:up="5"
+            app:right="%"
             app:keyValueText="t"
             app:keyValueTextShifted="T" />
         <Key
             app:cj="卜"
             app:ji="ㄗ"
+            app:up="6"
+            app:right="^"
             app:keyValueText="y"
             app:keyValueTextShifted="Y" />
         <Key
             app:cj="山"
             app:ji="一"
+            app:up="7"
+            app:right="&amp;"
             app:keyValueText="u"
             app:keyValueTextShifted="U" />
         <Key
             app:cj="戈"
             app:ji="ㄛ"
+            app:up="8"
+            app:right="*"
             app:keyValueText="i"
             app:keyValueTextShifted="I" />
         <Key
             app:cj="人"
             app:ji="ㄟ"
+            app:up="9"
+            app:right="("
             app:keyValueText="o"
             app:keyValueTextShifted="O" />
         <Key
             app:cj="心"
             app:ji="ㄣ"
+            app:up="0"
+            app:right=")"
             app:keyValueText="p"
             app:keyValueTextShifted="P" />
         <Key

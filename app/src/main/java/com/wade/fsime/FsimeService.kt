@@ -44,6 +44,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     var fsimeKB: Keyboard? = null
     var pureKB: Keyboard? = null
     var digitKB: Keyboard? = null
+    var symbolKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
     private var mComposing = ""
     private var candidateList: List<String> = ArrayList()
@@ -96,6 +97,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
         pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
         digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
+        symbolKB = Keyboard(this, R.xml.keyboard_symbol, KEYBOARD_NAME_SYMBOL)
     }
 
     override fun onDestroy() {
@@ -294,6 +296,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         keyboardSet += fsimeKB!!
         keyboardSet += pureKB!!
         keyboardSet += digitKB!!
+        keyboardSet += symbolKB!!
 
         if (sharedPreferences!!.getUseKb("ck_phrase"))
             usePhrase = true
@@ -425,6 +428,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
         }
 
+        if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL && !key.isControlKey) {
+            inputConnection.commitText(valueText, 1)
+            return
+        }
+
         when (valueText) {
             "VOICE" -> startVoiceInput()
             "HANDWRITING" -> inputContainer?.showHandwriting(true)
@@ -472,7 +480,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 inputContainer?.showHandwriting(true)
             }
             else -> {
-                effectStrokeAppend(valueText)
+                if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
+                    currentInputConnection?.commitText(valueText, 1)
+                } else {
+                    effectStrokeAppend(valueText)
+                }
             }
         }
     }
@@ -502,7 +514,11 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 "乛" -> "b"
                 else -> swipeText
             }
-            effectStrokeAppend(swipeText ?: "")
+            if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
+                currentInputConnection?.commitText(swipeText, 1)
+            } else {
+                effectStrokeAppend(swipeText ?: "")
+            }
         }
     }
 
@@ -685,6 +701,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val KEYBOARD_NAME_FSIME = "mix"
         private const val KEYBOARD_NAME_PURE = "pure"
         private const val KEYBOARD_NAME_DIGIT = "digit"
+        private const val KEYBOARD_NAME_SYMBOL = "symbol"
         const val PREFERENCES_FILE_NAME = "preferences.txt"
         private const val KEYBOARD_NAME_PREFERENCE_KEY = "keyboardName"
         private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_ASCII = 50
