@@ -64,12 +64,47 @@
 	<string name="label_speed">速度: %1$.2f wpm</string>
 	<string name="label_errors">錯誤: %1$d</string>
 	<string name="label_reset_stats">重置統計</string>
-  <string name="label_digit_keyboard_guide">數字鍵盤使用說明</string>
-  <string name="digit_keyboard_guide_text">數字鍵盤使用說明：
 
-1. 長按按鍵可輸入右上角的 Shift 符號。
-2. ( ) 括號為主要輸入，{ } 為 Shift 輸入。
-3. 長按 ESC 可開啟手寫辨識。
-4. 長按 SHIFT 可開啟語音輸入。
-5. 在預測字列點擊可輸入對應中文字。</string>
-	</resources>
+      <string name="label_digit_keyboard_guide">狂想輸入法使用說明</string>
+      <string name="digit_keyboard_guide_text">
+【鍵盤切換與手勢操作】\n
+• 全域手勢：\n
+  - 向左滑：退格鍵 (⌫)\n
+  - 向右滑：空格鍵 (Space)\n
+  - 向上滑：切換至上一個鍵盤\n
+  - 向下滑：切換至下一個鍵盤\n
+• 長按空格鍵：呼叫系統輸入法切換器\n\n
+
+【Shift 模式切換】\n
+• 點擊 Shift：循環切換：單次大寫 → 持續大寫 → 關閉\n
+• 滑動輸入：從 Shift 或 Ctrl 按下後滑動到字母鍵，可輸入大寫或組合鍵 (如 Shift-A, Ctrl-C)\n\n
+
+【語音與手寫輸入】\n
+• 點擊 🎙 鍵：啟動語音輸入\n
+• 長按 SHIFT 鍵：啟動語音輸入\n
+• 長按 ESC 鍵：啟動手寫辨識模式 (支援繁體中文)\n\n
+
+【關聯詞與預測】\n
+• 支援 ngram 預測，輸入後自動顯示可能的下一個字\n
+• 可在設定中選擇「關聯詞優先」\n\n
+
+【豐富的鍵盤功能】\n
+• 提供 Full (全功能)、FS (混瞎)、Pure (純瞎)、Math (數字/運算)、Stroke (筆劃) 等多種模式\n
+• 支援全功能鍵：Tab, ESC, Ctrl, Alt, Del, PageUp/Down, Home/End, 方向鍵等\n
+• 支援客製化熱鍵：Ctrl-0~9, Ctrl-Q/W/E 等，可自定義輸出字串\n\n
+
+【數字鍵盤與數學運算】\n
+• 支援 √(a,b) 運算\n
+• 進階運算規範：\n
+  1. Σ (總和)：Σ(變數, 算式, 起始, 結束) -> 範例：Σ(i, i^2, 1, 5)\n
+  2. ∫ (積分)：∫(變數, 算式, 下限, 上限) -> 範例：∫(x, x^2, 0, 1)\n
+  3. lim (極限)：lim(變數->目標值, 算式) -> 範例：lim(x->2, x^2 + 3x)\n
+  4. derivative (微分)：derivative(變數, 算式, 點) -> 範例：derivative(x, x^3, 2)\n\n
+
+【其他支援】\n
+• 支援輸出純繁體、純簡體或繁簡混合\n
+• 真瞎練習 (Blind Practice)：內建打字練習功能\n
+  - 支援多種難度與拆碼提示\n
+  - 提供即時 WPM 與錯誤率統計
+      </string>
+</resources>

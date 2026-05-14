@@ -86,12 +86,34 @@
 	<string name="label_speed">Speed: %1$.2f wpm</string>
 	<string name="label_errors">Errors: %1$d</string>
 	<string name="label_reset_stats">Reset Stats</string>
-  <string name="label_digit_keyboard_guide">Digit Keyboard Guide</string>
-  <string name="digit_keyboard_guide_text">Digit Keyboard Guide:
 
-1. Long press a key to input the Shift symbol in the corner.
-2. ( ) brackets are main input, { } are Shift input.
-3. Long press ESC to open handwriting recognition.
-4. Long press SHIFT to open voice input.
-5. Click candidates to input Chinese characters.</string>
-	</resources>
+      <string name="label_digit_keyboard_guide">User Guide</string>
+      <string name="digit_keyboard_guide_text">
+[Gestures &amp; Switching]\n
+• Global Gestures:\n
+  - Swipe Left: Backspace (⌫)\n
+  - Swipe Right: Space\n
+  - Swipe Up/Down: Switch Keyboard\n
+• Long Press Space: System IME Switcher\n\n
+
+[Shift Modes]\n
+• Click Shift: Toggle Single → Caps Lock → Disabled\n
+• Slide Input: Slide from Shift/Ctrl to a key for modifiers (e.g., Shift-A)\n\n
+
+[Voice &amp; Handwriting]\n
+• Click 🎙 or Long Press SHIFT: Voice Input\n
+• Long Press ESC: Handwriting Recognition\n\n
+
+[Predictive Text]\n
+• Supports ngram next-word prediction\n\n
+
+[Math &amp; Advanced Calculus]\n
+• Σ (Sum): Σ(var, expr, start, end) -> Σ(i, i^2, 1, 5)\n
+• ∫ (Integral): ∫(var, expr, low, high) -> ∫(x, x^2, 0, 1)\n
+• lim (Limit): lim(var->target, expr) -> lim(x->2, x^2 + 3x)\n
+• derivative: derivative(var, expr, point) -> derivative(x, x^3, 2)\n\n
+
+[Blind Practice]\n
+• Built-in practice for coding/typing skills with WPM &amp; error stats.
+      </string>
+</resources>
