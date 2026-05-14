@@ -300,9 +300,26 @@ class BDatabase(context: Context?) :
         return list
     }
 
+    fun getRandomWordForLevel(level: Int): String? {
+        return getRandomWordForLevels(listOf(level))
+    }
+
+    fun getRandomWordForLevels(levels: List<Int>): String? {
+        if (db == null) db = writableDatabase
+        val placeholders = levels.joinToString(",") { "?" }
+        val q = "SELECT ch FROM practice_levels WHERE level IN ($placeholders) ORDER BY RANDOM() LIMIT 1;"
+        val cursor = db!!.rawQuery(q, levels.map { it.toString() }.toTypedArray())
+        var word: String? = null
+        if (cursor.moveToFirst()) {
+            word = cursor.getString(0)
+        }
+        cursor.close()
+        return word
+    }
+
     companion object {
         private const val DATABASE_NAME = "b.db"
-        private const val DATABASE_VERSION = 5
+        private const val DATABASE_VERSION = 6
         private const val ID = "id"
         private const val ENG = "eng"
         private const val CH = "ch"

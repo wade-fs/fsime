@@ -6,6 +6,7 @@
 */
 package com.wade.fsime
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnFocusChangeListener
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.input_method_settings_button).setOnClickListener(this)
         findViewById<View>(R.id.change_keyboard_button).setOnClickListener(this)
         findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
+        findViewById<View>(R.id.practice_button).setOnClickListener(this)
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
         val hkIds = intArrayOf(
@@ -89,6 +91,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (viewId) {
             R.id.input_method_settings_button -> showSystemInputMethodSettings(this)
             R.id.change_keyboard_button -> showSystemKeyboardChanger(this)
+            R.id.practice_button -> {
+                startActivity(Intent(this, PracticeActivity::class.java))
+            }
             R.id.candidate_order_button -> {
                 setNextCandidateOrder()
                 view.requestFocusFromTouch()

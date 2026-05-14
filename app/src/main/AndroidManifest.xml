@@ -43,5 +43,9 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity
+      android:name=".PracticeActivity"
+      android:label="@string/label_practice"
+      android:windowSoftInputMode="stateVisible|adjustResize" />
   </application>
 </manifest>

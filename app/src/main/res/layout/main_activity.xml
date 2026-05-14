@@ -25,6 +25,11 @@
             style="@style/MainActivityButton"
             android:text="@string/label__main_activity__change_keyboard_button" />
 
+        <Button
+            android:id="@+id/practice_button"
+            style="@style/MainActivityButton"
+            android:text="@string/label_practice" />
+
         <TextView
             style="@style/MainActivityText"
             android:gravity="start"
