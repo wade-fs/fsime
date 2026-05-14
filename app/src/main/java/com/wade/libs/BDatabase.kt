@@ -84,13 +84,17 @@ class BDatabase(context: Context?) :
         var n: Boolean
         if (k.indexOf('"') >= 0) return list
         k.replace("\"".toRegex(), "\"\"")
+        val useFreq = table == "vocabulary" || table == "phrase"
+        val orderBy = if (useFreq) " ORDER BY freq DESC" else ""
+        
         q = "select * from $table where "
         q += if (fuzzy == FUZZY_EXACT) {
-            "$field = \"$k\" LIMIT $max OFFSET $start;"
+            "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
         } else if (fuzzy == FUZZY_PREFIX) {
-            field + " like \"" + k + "_%\" LIMIT " + max + " OFFSET " + start + ";"
+            val pattern = if (useFreq) "$k%" else k + "_%"
+            "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
         } else {
-            "$field like \"%$k%\" LIMIT $max OFFSET $start;"
+            "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
         }
         cursor = db!!.rawQuery(q, null)
         n = cursor.moveToFirst()
@@ -98,6 +102,9 @@ class BDatabase(context: Context?) :
             val b = B()
             b.id = cursor.getInt(cursor.getColumnIndex(ID))
             b.ch = cursor.getString(cursor.getColumnIndex(CH))
+            if (useFreq) {
+                b.freq = cursor.getDouble(cursor.getColumnIndex(FREQ))
+            }
             val _ch : String? = b.ch
             if (_ch != null) {
                 if (ts == 1) {
@@ -108,8 +115,9 @@ class BDatabase(context: Context?) :
             }
             if (table === "vocabulary") {
                 val idx = b.ch!!.indexOf(k)
-                if (idx < b.ch!!.length - 1) {
-                    b.ch = b.ch!!.substring(idx + 1, idx + 2)
+                if (idx >= 0 && idx < b.ch!!.length - 1) {
+                    // Return the portion following k
+                    b.ch = b.ch!!.substring(idx + k.length)
                 }
             }
             if (!isIn(list, b)) {
@@ -237,7 +245,7 @@ class BDatabase(context: Context?) :
 
     companion object {
         private const val DATABASE_NAME = "b.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
         private const val ID = "id"
         private const val ENG = "eng"
         private const val CH = "ch"

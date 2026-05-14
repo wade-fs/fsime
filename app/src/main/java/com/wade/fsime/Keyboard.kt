@@ -77,10 +77,10 @@ class Keyboard(private val context: Context, layoutResourceId: Int, name: String
     @JvmField
     var ctrlState = ModifierState.DISABLED
 
-    @JvmField
     var shiftMode = 0
-    @JvmField
+        private set
     var ctrlMode = 0
+        private set
     @JvmField
     var swipeDir = 0 // 0:None 1:右 2:左 3:上 4:下
 
@@ -110,6 +110,16 @@ class Keyboard(private val context: Context, layoutResourceId: Int, name: String
                 ModifierState.SINGLE, ModifierState.HELD -> ModifierState.DISABLED
                 else -> ModifierState.SINGLE
             }
+        }
+        updateModes()
+    }
+
+    fun onKeyUp(key: Key) {
+        if (shiftState == ModifierState.SINGLE) {
+            shiftState = ModifierState.DISABLED
+        }
+        if (ctrlState == ModifierState.SINGLE) {
+            ctrlState = ModifierState.DISABLED
         }
         updateModes()
     }
@@ -198,7 +208,7 @@ class Keyboard(private val context: Context, layoutResourceId: Int, name: String
 
                             KEY_TAG -> {
                                 inKey = true
-                                key = Key(row!!, x, y, resources, xmlResourceParser)
+                                key = Key.fromXml(row!!, x, y, resources, xmlResourceParser)
                                 keyList.add(key)
                             }
                         }

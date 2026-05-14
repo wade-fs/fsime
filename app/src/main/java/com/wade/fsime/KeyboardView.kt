@@ -95,8 +95,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
     private lateinit var keyTextPaint: Paint
     private lateinit var keyTextShiftPaint: Paint
     private lateinit var keyTextStrokePaint: Paint
-    private lateinit var keyTextCjPaint: Paint
-    private lateinit var keyTextJiPaint: Paint
     private lateinit var keyTextUpPaint: Paint
     private lateinit var keyTextDownPaint: Paint
     private lateinit var keyTextLeftPaint: Paint
@@ -152,14 +150,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         keyTextStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             this.typeface = typeface
             textAlign = Paint.Align.RIGHT
-        }
-        keyTextCjPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            this.typeface = typeface
-            textAlign = Paint.Align.RIGHT
-        }
-        keyTextJiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            this.typeface = typeface
-            textAlign = Paint.Align.LEFT
         }
         keyTextUpPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             this.typeface = typeface
@@ -227,8 +217,8 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         keyRectangle.set(0, 0, key.width, key.height)
         var keyFillColour = key.fillColour
         if (key === activeKey ||
-            (key.valueText == FsimeService.SHIFT_KEY_VALUE_TEXT && (shiftPointerId != NONEXISTENT_POINTER_ID || kb.shiftState != Keyboard.ModifierState.DISABLED)) ||
-            (key.valueText == FsimeService.CTRL_KEY_VALUE_TEXT && kb.ctrlState != Keyboard.ModifierState.DISABLED)
+            (key.isShiftKey && (shiftPointerId != NONEXISTENT_POINTER_ID || kb.shiftState != Keyboard.ModifierState.DISABLED)) ||
+            (key.isCtrlKey && kb.ctrlState != Keyboard.ModifierState.DISABLED)
         ) {
             keyFillColour = toPressedColour(keyFillColour)
         }
@@ -249,14 +239,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         }
         keyTextStrokePaint.apply {
             textSize = key.textSize * 6.0f / 10.0f
-            color = keyOtherColour
-        }
-        keyTextCjPaint.apply {
-            textSize = key.textSize * 5.0f / 10.0f
-            color = keyOtherColour
-        }
-        keyTextJiPaint.apply {
-            textSize = key.textSize * 5.0f / 10.0f
             color = keyOtherColour
         }
         keyTextUpPaint.apply {
@@ -281,8 +263,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         } else {
             when (kb.name) {
                 "mix", "pure", "full", "digit" -> if (key.isPreviewable) keyTextPaint.color = key.textColour
-                "ji" -> keyTextJiPaint.color = key.textColour
-                "cj" -> keyTextCjPaint.color = key.textColour
                 "stroke" -> keyTextStrokePaint.color = key.textColour
             }
         }
@@ -291,8 +271,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyDisplayText = key.displayText
         val keyShiftText = key.shiftText ?: ""
         val keyStrokeText = key.strokeText ?: ""
-        val keyCjText = key.cjText ?: ""
-        val keyJiText = key.jiText ?: ""
         val keyUpText = key.upText ?: ""
         val keyDownText = key.downText ?: ""
         val keyLeftText = key.leftText ?: ""
@@ -312,18 +290,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
         if (keyShiftText.isNotEmpty() && isPreviewable) canvas.drawText(keyShiftText, keyLeftTextX, keyUpTextY, keyTextShiftPaint)
         if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX, keyUpTextY, keyTextStrokePaint)
-        if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyLeftTextX, keyDownTextY, keyTextCjPaint)
-
-        val keyJiTextYv = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 80f
-        if (keyJiText.isNotEmpty()) {
-            if ("ˊˇˋ˙".contains(keyJiText)) {
-                keyTextJiPaint.textSize = key.textSize * 5.0f / 3.0f
-                canvas.drawText(keyJiText, keyRightTextX, keyJiTextYv, keyTextJiPaint)
-            } else {
-                keyTextJiPaint.textSize = key.textSize * 6.0f / 10.0f
-                canvas.drawText(keyJiText, keyRightTextX - 20, keyDownTextY, keyTextJiPaint)
-            }
-        }
 
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
         if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
@@ -356,11 +322,11 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                 }
 
                 val downKey = getKeyAtPoint(downPointerX, downPointerY)
-                if (isShiftKey(downKey)) {
+                if (downKey?.isShiftKey == true) {
                     sendShiftDownEvent(downPointerId)
                     return true
                 }
-                if (isCtrlKey(downKey)) {
+                if (downKey?.isCtrlKey == true) {
                     sendCtrlDownEvent(downPointerId)
                     return true
                 }
@@ -401,11 +367,11 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                     val moveKey = getKeyAtPoint(movePointerX, movePointerY)
                     if (movePointerId == activePointerId) {
                         activeKey?.let { ak ->
-                            if (isShiftKey(moveKey) && !isSwipeableKey(ak)) {
+                            if (moveKey?.isShiftKey == true && !isSwipeableKey(ak)) {
                                 sendShiftMoveToEvent(movePointerId)
                                 return true
                             }
-                            if (isCtrlKey(moveKey) && !isSwipeableKey(ak)) {
+                            if (moveKey?.isCtrlKey == true && !isSwipeableKey(ak)) {
                                 sendCtrlMoveToEvent(movePointerId)
                                 return true
                             }
@@ -421,13 +387,13 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                         return true
                     }
                     if (movePointerId == shiftPointerId) {
-                        if (!isShiftKey(moveKey)) {
+                        if (moveKey?.isShiftKey == false) {
                             sendShiftMoveFromEvent(moveKey, movePointerId)
                             return true
                         }
                     }
                     if (movePointerId == ctrlPointerId) {
-                        if (!isCtrlKey(moveKey)) {
+                        if (moveKey?.isCtrlKey == false) {
                             sendCtrlMoveFromEvent(moveKey, movePointerId)
                             return true
                         }
@@ -449,11 +415,11 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
                     return true
                 }
 
-                if ((upPointerId == shiftPointerId || isShiftKey(upKey)) && !isSwipeableKey(activeKey)) {
+                if ((upPointerId == shiftPointerId || upKey?.isShiftKey == true) && !isSwipeableKey(activeKey)) {
                     sendShiftUpEvent(true)
                     return true
                 }
-                if ((upPointerId == ctrlPointerId || isCtrlKey(upKey)) && !isSwipeableKey(activeKey)) {
+                if ((upPointerId == ctrlPointerId || upKey?.isCtrlKey == true) && !isSwipeableKey(activeKey)) {
                     sendCtrlUpEvent(true)
                     return true
                 }
@@ -533,17 +499,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             activeKey?.let { keyboardListener?.onSwipe(it, swipeDir) }
         } else if (key != null) {
             keyboardListener?.onKey(key)
-            keyboard?.let { kb ->
-                if (kb.shiftState == Keyboard.ModifierState.SINGLE) {
-                    kb.shiftState = Keyboard.ModifierState.DISABLED
-                    kb.shiftMode = 0
-                }
-                if (kb.ctrlState == Keyboard.ModifierState.SINGLE) {
-                    kb.ctrlState = Keyboard.ModifierState.DISABLED
-                    kb.ctrlMode = 0
-                    ctrlPointerId = NONEXISTENT_POINTER_ID
-                }
-            }
+            keyboard?.onKeyUp(key)
         }
         activeKey = null
         activePointerId = NONEXISTENT_POINTER_ID
@@ -623,14 +579,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
     private fun getKeyAtPoint(x: Int, y: Int): Key? {
         return keyList?.firstOrNull { it.containsPoint(x, y) }
-    }
-
-    private fun isShiftKey(key: Key?): Boolean {
-        return key?.valueText == FsimeService.SHIFT_KEY_VALUE_TEXT
-    }
-
-    private fun isCtrlKey(key: Key?): Boolean {
-        return key?.valueText == FsimeService.CTRL_KEY_VALUE_TEXT
     }
 
     private fun isSwipeableKey(key: Key?): Boolean {
