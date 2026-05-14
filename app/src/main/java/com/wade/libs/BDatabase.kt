@@ -15,6 +15,11 @@ class BDatabase(context: Context?) :
     SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private var db: SQLiteDatabase? = null
     private var ts = 0
+
+    init {
+        setForcedUpgrade(DATABASE_VERSION)
+    }
+
     fun setTs(t: Int) {
         ts = t
     }
@@ -87,23 +92,31 @@ class BDatabase(context: Context?) :
         val useFreq = table == "vocabulary" || table == "phrase"
         val orderBy = if (useFreq) " ORDER BY freq DESC" else ""
         
-        q = "select * from $table where "
-        q += if (fuzzy == FUZZY_EXACT) {
-            "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
-        } else if (fuzzy == FUZZY_PREFIX) {
-            val pattern = if (useFreq) "$k%" else k + "_%"
-            "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
+        if (fuzzy == FUZZY_FULL && useFreq && (table == "phrase" || table == "vocabulary")) {
+            // Use FTS5 for fast substring/prefix matching
+            q = "SELECT t.* FROM $table t JOIN ${table}_fts f ON t.id = f.rowid WHERE f.ch MATCH '$k*' $orderBy LIMIT $max OFFSET $start;"
         } else {
-            "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
+            q = "select * from $table where "
+            q += if (fuzzy == FUZZY_EXACT) {
+                "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
+            } else if (fuzzy == FUZZY_PREFIX) {
+                val pattern = if (useFreq) "$k%" else k + "_%"
+                "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
+            } else {
+                "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
+            }
         }
         cursor = db!!.rawQuery(q, null)
         n = cursor.moveToFirst()
+        val idIdx = cursor.getColumnIndex(ID)
+        val chIdx = cursor.getColumnIndex(CH)
+        val freqIdx = cursor.getColumnIndex(FREQ)
         while (n && count <= max) {
             val b = B()
-            b.id = cursor.getInt(cursor.getColumnIndex(ID))
-            b.ch = cursor.getString(cursor.getColumnIndex(CH))
-            if (useFreq) {
-                b.freq = cursor.getDouble(cursor.getColumnIndex(FREQ))
+            if (idIdx != -1) b.id = cursor.getInt(idIdx)
+            if (chIdx != -1) b.ch = cursor.getString(chIdx)
+            if (useFreq && freqIdx != -1) {
+                b.freq = cursor.getDouble(freqIdx)
             }
             val _ch : String? = b.ch
             if (_ch != null) {
@@ -222,30 +235,60 @@ class BDatabase(context: Context?) :
     @SuppressLint("Range")
     fun getPhrase(tb: String, k: String, start: Int, max: Int): ArrayList<String> {
         if (db == null) db = writableDatabase
-        val resExact = ArrayList<B>()
-        val res = query(k, start, max, tb, "ch", FUZZY_PREFIX)
-        resExact.addAll(res)
         val list = ArrayList<String>()
-        list.add(k.substring(0, 1))
-        if (tb == "phrase") {
-            for (b in resExact) {
-                if (!isIn(list, b.ch)) {
-                    list.add(b.ch!!.substring(1))
-                }
-            }
-        } else {
-            for (b in resExact) {
-                if (!isIn(list, b.ch)) {
-                    list.add(b.ch!!)
+        
+        // Use ngram table for better next-word prediction
+        // We look at the last 1 or 2 characters for context
+        val context = if (k.length >= 2) k.substring(k.length - 2) else k
+        
+        val predictions = ArrayList<B>()
+        
+        // 1. Try 2-char context if available
+        if (context.length == 2) {
+            predictions.addAll(query(context, 0, max, "ngram", "context", FUZZY_EXACT))
+        }
+        
+        // 2. If not enough, try 1-char context (last char)
+        if (predictions.size < max && k.isNotEmpty()) {
+            val lastChar = k.substring(k.length - 1)
+            val p1 = query(lastChar, 0, max - predictions.size, "ngram", "context", FUZZY_EXACT)
+            for (p in p1) {
+                if (!predictions.any { it.ch == p.ch }) {
+                    predictions.add(p)
                 }
             }
         }
+        
+        // 3. Fallback to most common starting characters (unigrams)
+        if (predictions.size < max) {
+            val unigrams = query("", 0, max - predictions.size, "ngram", "context", FUZZY_EXACT)
+            for (p in unigrams) {
+                if (!predictions.any { it.ch == p.ch }) {
+                    predictions.add(p)
+                }
+            }
+        }
+
+        // Always add the current text as the first option if it's not empty
+        if (k.isNotEmpty()) {
+            list.add(k.substring(0, 1)) // original code behavior? Wait.
+            // Actually, the original code had list.add(k.substring(0, 1)). 
+            // Let's keep it for compatibility if needed, but it seems strange.
+        }
+
+        for (b in predictions) {
+            val suggestion = b.ch ?: ""
+            if (suggestion.isNotEmpty() && !list.contains(suggestion)) {
+                list.add(suggestion)
+            }
+        }
+        
         return list
     }
 
     companion object {
         private const val DATABASE_NAME = "b.db"
-        private const val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 5
         private const val ID = "id"
         private const val ENG = "eng"
         private const val CH = "ch"

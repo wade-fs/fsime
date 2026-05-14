@@ -510,9 +510,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun computeCandidateList(mComposing: String): List<String> {
+        val db = bdatabase ?: return emptyList()
         return if (mComposing.isEmpty()) {
             emptyList()
-        } else bdatabase!!.getWord(
+        } else db.getWord(
             mComposing,
             0,
             30,
@@ -569,10 +570,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun updateRelative(sel: String) {
+        val inputConnection = currentInputConnection ?: return
+        val context = getTextBeforeCursor(inputConnection, 2)
         val tb = if (usePhrase) "phrase" else "vocabulary"
         val list = bdatabase!!.getPhrase(
             tb,
-            sel,
+            context,
             0,
             30
         )
