@@ -269,7 +269,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
         val isPreviewable = key.isPreviewable
         val keyDisplayText = key.displayText
-        val keyShiftText = key.shiftAwareDisplayText(kb.shiftMode) ?: ""
+        val keyShiftText = key.shiftText ?: ""
         val keyStrokeText = key.strokeText ?: ""
         val keyJiText = key.jiText ?: ""
         val keyCjText = key.cjText ?: ""
@@ -284,7 +284,10 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         canvas.translate(key.x.toFloat(), key.y.toFloat())
         canvas.drawRect(keyRectangle, keyFillPaint)
         canvas.drawRect(keyRectangle, keyBorderPaint)
-        canvas.drawText(keyDisplayText ?: "", keyTextX, keyTextY, keyTextPaint)
+        
+        // Draw the main label, taking shift state into account
+        val labelToDraw = key.shiftAwareDisplayText(kb.shiftMode) ?: ""
+        canvas.drawText(labelToDraw, keyTextX, keyTextY, keyTextPaint)
 
         val keyLeftTextX = key.width / 2f + key.textOffsetX - 14f
         val keyRightTextX = key.width / 2f + key.textOffsetX + 34.0f
@@ -292,13 +295,13 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyDownTextY = (key.height - keyTextPaint.ascent() - keyTextPaint.descent()) / 2f + key.textOffsetY + 30f
 
         if (keyUpText.isNotEmpty()) canvas.drawText(keyUpText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
-        else if (keyShiftText.isNotEmpty() && keyShiftText != keyDisplayText) canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
+        else if (keyShiftText.isNotEmpty() && keyShiftText != labelToDraw) canvas.drawText(keyShiftText, keyLeftTextX - 20, keyUpTextY, keyTextUpPaint)
         
         if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
         else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
         
         if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
-        else if (keyJiText.isNotEmpty()) canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+        else if (keyJiText.isNotEmpty() && kb.name != "pure") canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
         
         if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
         else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
