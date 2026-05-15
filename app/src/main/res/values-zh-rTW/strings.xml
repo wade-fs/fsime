@@ -59,6 +59,24 @@
 	<string name="ck_phrase">使用關聯詞庫</string>
 
 	<string name="label_practice">真瞎練習</string>
+    <string name="label_db_management">資料庫管理</string>
+    <string name="tab_backup">備份</string>
+    <string name="tab_batch">批次</string>
+    <string name="tab_edit">編輯</string>
+    <string name="label_export_db">匯出 b.db 到 /sdcard</string>
+    <string name="label_import_db">從 /sdcard 匯入 b.db</string>
+    <string name="label_batch_import_mix">批次匯入 Mix (中 英)</string>
+    <string name="label_edit_mix">按中文字編輯 Mix</string>
+    <string name="msg_export_success">已匯出至 %s</string>
+    <string name="msg_export_fail">匯出失敗</string>
+    <string name="msg_import_success">匯入成功，請重啟應用程式</string>
+    <string name="msg_import_fail">匯入失敗</string>
+    <string name="msg_import_no_file">找不到來源檔案</string>
+    <string name="hint_mix_batch">輸入「中 英」對，每行一對</string>
+    <string name="hint_char_to_edit">要編輯的中文字</string>
+    <string name="btn_import">匯入</string>
+    <string name="btn_save">儲存</string>
+    <string name="btn_search">查詢</string>
 	<string name="label_level">難度等級</string>
 	<string name="label_stats">統計</string>
 	<string name="label_speed">速度: %1$.2f wpm</string>

@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.change_keyboard_button).setOnClickListener(this)
         findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
         findViewById<View>(R.id.practice_button).setOnClickListener(this)
+        findViewById<View>(R.id.db_management_button).setOnClickListener(this)
         findViewById<View>(R.id.digit_guide_button).setOnClickListener(this)
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
@@ -94,6 +95,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.change_keyboard_button -> showSystemKeyboardChanger(this)
             R.id.practice_button -> {
                 startActivity(Intent(this, PracticeActivity::class.java))
+            }
+            R.id.db_management_button -> {
+                startActivity(Intent(this, DatabaseManagementActivity::class.java))
             }
             R.id.digit_guide_button -> {
                 androidx.appcompat.app.AlertDialog.Builder(this)

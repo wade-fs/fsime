@@ -32,6 +32,11 @@
             android:text="@string/label_practice" />
 
         <Button
+            android:id="@+id/db_management_button"
+            style="@style/MainActivityButton"
+            android:text="@string/label_db_management" />
+
+        <Button
             android:id="@+id/digit_guide_button"
             style="@style/MainActivityButton"
             android:text="@string/label_digit_keyboard_guide" />
