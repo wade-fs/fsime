@@ -69,8 +69,25 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onCreate() {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
-        initSpeechRecognizer()
-        initHandwritingRecognizer()
+
+        // Initialize keyboards first to ensure they are available even if recognizers fail
+        fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
+        fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
+        pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
+        digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
+        symbolKB = Keyboard(this, R.xml.keyboard_symbol, KEYBOARD_NAME_SYMBOL)
+
+        try {
+            initSpeechRecognizer()
+        } catch (e: Exception) {
+            Log.e(LOG_TAG, "Failed to initialize SpeechRecognizer: ${e.message}")
+        }
+
+        try {
+            initHandwritingRecognizer()
+        } catch (e: Exception) {
+            Log.e(LOG_TAG, "Failed to initialize HandwritingRecognizer: ${e.message}")
+        }
 
         codeMaps[KeyEvent.KEYCODE_0] = "Ctrl0"
         codeMaps[KeyEvent.KEYCODE_1] = "Ctrl1"
@@ -92,12 +109,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         codeMaps[KeyEvent.KEYCODE_I] = "CtrlI"
         codeMaps[KeyEvent.KEYCODE_O] = "CtrlO"
         codeMaps[KeyEvent.KEYCODE_P] = "CtrlP"
-
-        fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
-        fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
-        pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
-        digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
-        symbolKB = Keyboard(this, R.xml.keyboard_symbol, KEYBOARD_NAME_SYMBOL)
     }
 
     override fun onDestroy() {
@@ -176,21 +187,22 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             Log.e(LOG_TAG, "Model identifier not found for zh-Hani-TW")
             return
         }
-        model = DigitalInkRecognitionModel.builder(modelIdentifier).build()
+        val m = DigitalInkRecognitionModel.builder(modelIdentifier).build()
+        model = m
         val remoteModelManager = RemoteModelManager.getInstance()
-        
-        remoteModelManager.isModelDownloaded(model!!)
+
+        remoteModelManager.isModelDownloaded(m)
             .addOnSuccessListener { isDownloaded ->
                 if (isDownloaded) {
                     recognizer = DigitalInkRecognition.getClient(
-                        DigitalInkRecognizerOptions.builder(model!!).build()
+                        DigitalInkRecognizerOptions.builder(m).build()
                     )
                 } else {
                     Toast.makeText(this, "手寫辨識模型下載中...", Toast.LENGTH_SHORT).show()
-                    remoteModelManager.download(model!!, DownloadConditions.Builder().build())
+                    remoteModelManager.download(m, DownloadConditions.Builder().build())
                         .addOnSuccessListener {
                             recognizer = DigitalInkRecognition.getClient(
-                                DigitalInkRecognizerOptions.builder(model!!).build()
+                                DigitalInkRecognizerOptions.builder(m).build()
                             )
                             Toast.makeText(this, "手寫辨識就緒", Toast.LENGTH_SHORT).show()
                         }
@@ -201,7 +213,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 }
             }
     }
-
     override fun onInkFinished(ink: Ink) {
         if (recognizer == null) {
             Toast.makeText(this, "手寫辨識尚未就緒", Toast.LENGTH_SHORT).show()
@@ -260,15 +271,15 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onCreateInputView(): View {
         bdatabase = BDatabase(applicationContext)
         inputContainer = layoutInflater.inflate(R.layout.input_container, null) as InputContainer
-        inputContainer!!.initialiseCandidatesView(this)
-        inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
-        inputContainer!!.setHandwritingListener(this)
-        return inputContainer!!
+        inputContainer?.initialiseCandidatesView(this)
+        inputContainer?.initialiseKeyboardView(this, loadSavedKeyboard())
+        inputContainer?.setHandwritingListener(this)
+        return inputContainer ?: View(this)
     }
 
     private fun setCandidateOrder() {
-        val candidateOrder: String = sharedPreferences!!.candidateOrder()
-        bdatabase!!.setTs(
+        val candidateOrder: String = sharedPreferences?.candidateOrder() ?: "TraditionalOnly"
+        bdatabase?.setTs(
             when (candidateOrder) {
                 "TraditionalOnly" -> 1
                 "SimplifiedOnly" -> 2
@@ -291,17 +302,17 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun initKeyboardSet(): Array<Keyboard> {
-        var keyboardSet = arrayOf<Keyboard>()
-        keyboardSet += fullKB!!
-        keyboardSet += fsimeKB!!
-        keyboardSet += pureKB!!
-        keyboardSet += digitKB!!
-        keyboardSet += symbolKB!!
+        val list = mutableListOf<Keyboard>()
+        fullKB?.let { list.add(it) }
+        fsimeKB?.let { list.add(it) }
+        pureKB?.let { list.add(it) }
+        digitKB?.let { list.add(it) }
+        symbolKB?.let { list.add(it) }
 
-        if (sharedPreferences!!.getUseKb("ck_phrase"))
+        if (sharedPreferences?.getUseKb("ck_phrase") == true)
             usePhrase = true
         else usePhrase = false
-        return keyboardSet.clone()
+        return list.toTypedArray()
     }
 
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
@@ -329,8 +340,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         super.onStartInputView(editorInfo, isRestarting)
         updateFullscreenMode() // needed in API level 31+ so that fullscreen works after rotate whilst keyboard showing
         val isFullscreen = isFullscreenMode
-        inputContainer!!.setBackground(isFullscreen)
-        inputContainer!!.setCandidateList(candidateList)
+        inputContainer?.setBackground(isFullscreen)
+        inputContainer?.setCandidateList(candidateList)
         setEnterKeyDisplayText()
         setCandidateOrder()
     }
@@ -356,14 +367,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 }
             }
         }
-        inputContainer!!.redrawKeyboard()
+        inputContainer?.redrawKeyboard()
     }
 
     override fun onComputeInsets(insets: Insets) {
         super.onComputeInsets(insets)
-        if (inputContainer != null) // check needed in API level 30
-        {
-            val candidatesViewTop = inputContainer!!.candidatesViewTop
+        inputContainer?.let {
+            val candidatesViewTop = it.candidatesViewTop
             insets.visibleTopInsets = candidatesViewTop
             insets.contentTopInsets = candidatesViewTop
         }
@@ -550,11 +560,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         if (keyboardSet.isEmpty()) {
             return
         }
-        val keyboard = inputContainer!!.keyboard
-        if (keyboard!!.name == null) {
+        val currentKeyboard = inputContainer?.keyboard
+        if (currentKeyboard?.name == null) {
+            inputContainer?.keyboard = fullKB
             return
         }
-        val currentIndex = keyboardSet.indexOf(keyboard)
+        val currentIndex = keyboardSet.indexOf(currentKeyboard)
         if (currentIndex == -1) return
 
         val nextIndex = if (next) {
@@ -562,20 +573,22 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         } else {
             (currentIndex + keyboardSet.size - 1) % keyboardSet.size
         }
-        inputContainer!!.keyboard = keyboardSet[nextIndex]
-        inputContainer!!.redrawKeyboard()
-        saveKeyboard(keyboardSet[nextIndex])
+        val nextKeyboard = keyboardSet[nextIndex]
+        inputContainer?.keyboard = nextKeyboard
+        inputContainer?.redrawKeyboard()
+        saveKeyboard(nextKeyboard)
     }
 
     private fun computeCandidateList(mComposing: String): List<String> {
         val db = bdatabase ?: return emptyList()
+        val keyboard = inputContainer?.keyboard ?: return emptyList()
         return if (mComposing.isEmpty()) {
             emptyList()
         } else db.getWord(
             mComposing,
             0,
             30,
-            inputContainer!!.keyboard!!.name!!
+            keyboard.name ?: KEYBOARD_NAME_FULL
         )
     }
 

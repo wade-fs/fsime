@@ -27,7 +27,7 @@ android {
     buildTypes {
         release {
             minifyEnabled = true
-            shrinkResources = true
+            shrinkResources = false
             // 必須加入這一行，release 編譯才會進行簽署
             signingConfig = signingConfigs.release
             

@@ -36,3 +36,21 @@
 # Room
 -keep class * extends androidx.room.RoomDatabase
 -keep class androidx.room.RoomDatabase_Impl { *; }
+
+# SQLiteAssetHelper
+-keep class com.readystatesoftware.sqliteasset.** { *; }
+
+# ML Kit Digital Ink Recognition
+-keep class com.google.mlkit.vision.digitalink.** { *; }
+-keep class com.google.android.gms.internal.mlkit_vision_digital_ink_bom.** { *; }
+
+# Keep all project classes to avoid reflection issues (MathParser) and database access issues
+-keep class com.wade.** { *; }
+-keep interface com.wade.** { *; }
+-keepclassmembers class com.wade.** { *; }
+
+# Keep androidx.preference classes
+-keep class androidx.preference.** { *; }
+
+-dontobfuscate
+-dontoptimize
