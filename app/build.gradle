@@ -1,55 +1,83 @@
-plugins
-        {
-            id('com.android.application')
-        }
+plugins {
+    id 'com.android.application'
+}
 
-android
-        {
-            compileSdk = 35
-            defaultConfig
-                    {
-                        applicationId = "com.wade.fsime"
-                        minSdkVersion = 33
-                        targetSdkVersion = 35
-                        versionCode = 260514
-                        versionName = "260514-kt"
-                    }
-            buildTypes
-                    {
-                        release
-                                {
-                                    minifyEnabled = true
-                                    shrinkResources = true
-                                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-                                }
-                    }
-            namespace = 'com.wade.fsime'
-            buildFeatures {
-                buildConfig = true
-            }
-            compileOptions
-                    {
-                        sourceCompatibility = JavaVersion.VERSION_17
-                        targetCompatibility = JavaVersion.VERSION_17
-                    }
-            androidResources
-                    {
-                        ignoreAssetsPattern = '*.cmd:*.cmdr'
-                    }
-            lint {
-                checkReleaseBuilds = false
-                abortOnError = false
+android {
+    namespace = 'com.wade.fsime'
+    compileSdk = 35
+
+    // 定義簽署設定
+    signingConfigs {
+        release {
+            keyAlias = 'androidapk'
+            keyPassword = 'jjchen'
+            storeFile = file('/home/wade/.ssh/androidapk.jks')
+            storePassword = 'jjchen'
+        }
+    }
+
+    defaultConfig {
+        applicationId = "com.wade.fsime"
+        minSdkVersion = 33
+        targetSdkVersion = 35
+        versionCode = 260515
+        versionName = "26-05-15"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+            // 必須加入這一行，release 編譯才會進行簽署
+            signingConfig = signingConfigs.release
+            
+            // 使用陣列方式設定 Proguard 檔案
+            setProguardFiles([getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'])
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    // 修正原本導致 'val' 錯誤的區塊
+    androidComponents {
+        onVariants(selector().all()) { variant ->
+            variant.outputs.each { output ->
+                // 在 Groovy 中定義變數使用 'def'
+                def appID = android.defaultConfig.applicationId
+                def vName = android.defaultConfig.versionName
+                def newName = "${appID}-${vName}.apk"
+                
+                // 使用 .set() 是現代 Gradle Property API 的標準作法
+                output.outputFileName.set(newName)
             }
         }
+    }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    androidResources {
+        ignoreAssetsPattern = '*.cmd:*.cmdr'
+    }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
+}
+
+// 設定基礎檔案名稱
 base {
     archivesName = "com.wade.fsime-${android.defaultConfig.versionName}"
 }
 
-dependencies
-        {
-            implementation('com.google.android.material:material:1.12.0')
-            implementation('com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1')
-            implementation 'androidx.preference:preference-ktx:1.2.1'
-            implementation 'com.google.mlkit:digital-ink-recognition:18.1.0'
-        }
+dependencies {
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
+    implementation 'com.google.mlkit:digital-ink-recognition:18.1.0'
+}

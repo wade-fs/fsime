@@ -19,3 +19,20 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# WorkManager
+-keep class androidx.work.impl.WorkDatabase_Impl { *; }
+-keep class androidx.work.impl.background.systemalarm.RescheduleReceiver { *; }
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy { *; }
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy { *; }
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy { *; }
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy { *; }
+-keep class androidx.work.impl.background.systemjob.SystemJobService { *; }
+-keep class androidx.work.impl.foreground.SystemForegroundService { *; }
+-keep class androidx.work.impl.diagnostics.DiagnosticsReceiver { *; }
+-keep class * extends androidx.work.Worker { *; }
+-keep class * extends androidx.work.ListenableWorker { *; }
+
+# Room
+-keep class * extends androidx.room.RoomDatabase
+-keep class androidx.room.RoomDatabase_Impl { *; }
