@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_backup" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_batch" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_edit" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Tab 1: Backup -->
+        <ScrollView
+            android:id="@+id/layout_backup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/btn_export_db"
+                    style="@style/MainActivityButton"
+                    android:layout_width="match_parent"
+                    android:text="@string/label_export_db" />
+
+                <Button
+                    android:id="@+id/btn_import_db"
+                    style="@style/MainActivityButton"
+                    android:layout_width="match_parent"
+                    android:text="@string/label_import_db" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Tab 2: Batch -->
+        <ScrollView
+            android:id="@+id/layout_batch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/MainActivityText"
+                    android:text="@string/label_batch_import_mix" />
+
+                <EditText
+                    android:id="@+id/et_mix_batch"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:gravity="top"
+                    android:hint="@string/hint_mix_batch"
+                    android:inputType="textMultiLine" />
+
+                <Button
+                    android:id="@+id/btn_batch_import"
+                    style="@style/MainActivityButton"
+                    android:layout_width="match_parent"
+                    android:text="@string/btn_import" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Tab 3: Edit -->
+        <ScrollView
+            android:id="@+id/layout_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/MainActivityText"
+                    android:text="@string/label_edit_mix" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_char_to_edit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/hint_char_to_edit"
+                        android:maxLength="1" />
+
+                    <Button
+                        android:id="@+id/btn_search_char"
+                        style="@style/MainActivityButton"
+                        android:text="@string/btn_search" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_char_eng_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:gravity="top"
+                    android:hint="Eng codes (one per line)"
+                    android:inputType="textMultiLine" />
+
+                <Button
+                    android:id="@+id/btn_save_char_mix"
+                    style="@style/MainActivityButton"
+                    android:layout_width="match_parent"
+                    android:text="@string/btn_save" />
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</LinearLayout>

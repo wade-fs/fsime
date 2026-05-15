@@ -61,13 +61,49 @@ class BDatabase(context: Context?) :
             return
         }
         if (db == null) db = writableDatabase
-        db!!.delete("b", "ch=?", arrayOf(ch))
-        for (item in composes) {
-            val values = ContentValues()
-            values.put("eng", item)
-            values.put("ch", ch)
-            db!!.insert("b", null, values)
+        db!!.beginTransaction()
+        try {
+            db!!.delete("mix", "ch=?", arrayOf(ch))
+            for (item in composes) {
+                val values = ContentValues()
+                values.put("eng", item)
+                values.put("ch", ch)
+                db!!.insert("mix", null, values)
+            }
+            db!!.setTransactionSuccessful()
+        } finally {
+            db!!.endTransaction()
         }
+    }
+
+    fun batchImportMix(lines: List<String>): Int {
+        if (db == null) db = writableDatabase
+        var count = 0
+        db!!.beginTransaction()
+        try {
+            for (line in lines) {
+                val parts = line.split(Regex("\\s+")).filter { it.isNotEmpty() }
+                if (parts.size >= 2) {
+                    val ch = parts[0]
+                    val eng = parts[1]
+                    // Check if exists
+                    val cursor = db!!.rawQuery("SELECT 1 FROM mix WHERE ch=? AND eng=?", arrayOf(ch, eng))
+                    val exists = cursor.count > 0
+                    cursor.close()
+                    if (!exists) {
+                        val values = ContentValues()
+                        values.put("ch", ch)
+                        values.put("eng", eng)
+                        db!!.insert("mix", null, values)
+                        count++
+                    }
+                }
+            }
+            db!!.setTransactionSuccessful()
+        } finally {
+            db!!.endTransaction()
+        }
+        return count
     }
 
     fun reverseLookup(word: String): ArrayList<String> {

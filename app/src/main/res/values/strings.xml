@@ -81,6 +81,24 @@
 	<string name="ck_phrase">phrase first</string>
 
 	<string name="label_practice">Blind Practice</string>
+    <string name="label_db_management">Database Management</string>
+    <string name="tab_backup">Backup</string>
+    <string name="tab_batch">Batch</string>
+    <string name="tab_edit">Edit</string>
+    <string name="label_export_db">Export b.db to /sdcard</string>
+    <string name="label_import_db">Import b.db from /sdcard</string>
+    <string name="label_batch_import_mix">Batch Import Mix (ch en)</string>
+    <string name="label_edit_mix">Edit Mix by Character</string>
+    <string name="msg_export_success">Exported to %s</string>
+    <string name="msg_export_fail">Export failed</string>
+    <string name="msg_import_success">Imported successfully. Please restart app.</string>
+    <string name="msg_import_fail">Import failed</string>
+    <string name="msg_import_no_file">Source file not found</string>
+    <string name="hint_mix_batch">Enter "ch en" pairs, one per line</string>
+    <string name="hint_char_to_edit">Character to edit</string>
+    <string name="btn_import">Import</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_search">Search</string>
 	<string name="label_level">Level</string>
 	<string name="label_stats">Stats</string>
 	<string name="label_speed">Speed: %1$.2f wpm</string>
