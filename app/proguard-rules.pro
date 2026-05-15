@@ -51,6 +51,3 @@
 
 # Keep androidx.preference classes
 -keep class androidx.preference.** { *; }
-
--dontobfuscate
--dontoptimize
