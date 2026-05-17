@@ -154,6 +154,11 @@ class BDatabase(context: Context?) :
         val engIdx = cursor.getColumnIndex(ENG)
         val freqIdx = cursor.getColumnIndex(FREQ)
         
+        if (ts != 0) {
+            val mapping = getTSMapping()
+            TS.initMapping(mapping["UTF8T"] ?: "", mapping["UTF8S"] ?: "")
+        }
+        
         while (cursor.moveToNext() && list.size < max) {
             val b = B()
             if (idIdx != -1) b.id = cursor.getInt(idIdx)
@@ -309,6 +314,21 @@ class BDatabase(context: Context?) :
         }
         cursor.close()
         return word
+    }
+
+    fun getTSMapping(): Map<String, String> {
+        val db = readableDatabase
+        val mapping = mutableMapOf<String, String>()
+        val cursor = db.rawQuery("SELECT key, value FROM ts_mapping", null)
+        val keyIdx = cursor.getColumnIndex("key")
+        val valIdx = cursor.getColumnIndex("value")
+        if (keyIdx != -1 && valIdx != -1) {
+            while (cursor.moveToNext()) {
+                mapping[cursor.getString(keyIdx)] = cursor.getString(valIdx)
+            }
+        }
+        cursor.close()
+        return mapping
     }
 
     companion object {
