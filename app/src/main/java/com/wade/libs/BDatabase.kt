@@ -41,7 +41,7 @@ class BDatabase(context: Context?) :
     fun getCompose(word: String): ArrayList<String> {
         if (db == null) db = writableDatabase
         val composes = ArrayList<String>()
-        val q = "SELECT * FROM mix WHERE ch = '$word';"
+        val q = "SELECT * FROM boshiamy WHERE ch = '$word';"
         val cursor = db!!.rawQuery(q, null)
         var next = cursor.moveToFirst()
         while (next) {
@@ -63,12 +63,12 @@ class BDatabase(context: Context?) :
         if (db == null) db = writableDatabase
         db!!.beginTransaction()
         try {
-            db!!.delete("mix", "ch=?", arrayOf(ch))
+            db!!.delete("boshiamy", "ch=?", arrayOf(ch))
             for (item in composes) {
                 val values = ContentValues()
                 values.put("eng", item)
                 values.put("ch", ch)
-                db!!.insert("mix", null, values)
+                db!!.insert("boshiamy", null, values)
             }
             db!!.setTransactionSuccessful()
         } finally {
@@ -87,14 +87,14 @@ class BDatabase(context: Context?) :
                     val ch = parts[0]
                     val eng = parts[1]
                     // Check if exists
-                    val cursor = db!!.rawQuery("SELECT 1 FROM mix WHERE ch=? AND eng=?", arrayOf(ch, eng))
+                    val cursor = db!!.rawQuery("SELECT 1 FROM boshiamy WHERE ch=? AND eng=?", arrayOf(ch, eng))
                     val exists = cursor.count > 0
                     cursor.close()
                     if (!exists) {
                         val values = ContentValues()
                         values.put("ch", ch)
                         values.put("eng", eng)
-                        db!!.insert("mix", null, values)
+                        db!!.insert("boshiamy", null, values)
                         count++
                     }
                 }
@@ -109,9 +109,9 @@ class BDatabase(context: Context?) :
     fun reverseLookup(word: String): ArrayList<String> {
         if (db == null) db = writableDatabase
         val codes = ArrayList<String>()
-        // Query the 'mix' table for the English code (eng) corresponding to the character (ch)
+        // Query the 'boshiamy' table for the English code (eng) corresponding to the character (ch)
         // Ordering by length(eng) ASC so shorter codes appear first
-        val q = "SELECT eng FROM mix WHERE ch = ? ORDER BY length(eng) ASC;"
+        val q = "SELECT eng FROM boshiamy WHERE ch = ? ORDER BY length(eng) ASC;"
         val cursor = db!!.rawQuery(q, arrayOf(word))
         val engIdx = cursor.getColumnIndex(ENG)
         if (engIdx != -1) {
@@ -200,11 +200,11 @@ class BDatabase(context: Context?) :
         val resExact = ArrayList<B>()
         k = k.lowercase()
         val tables = ArrayList<String>()
-        if (!(table == "mix" || table == "ji" || table == "cj" || table == "stroke" || table == "sym")) {
-            table = "mix"
+        if (!(table == "boshiamy" || table == "ji" || table == "cj" || table == "stroke" || table == "sym")) {
+            table = "boshiamy"
         }
-        if (table == "mix") {
-            tables.add("mix")
+        if (table == "boshiamy") {
+            tables.add("boshiamy")
             tables.add("sym")
             tables.add("ji")
             tables.add("cj")
