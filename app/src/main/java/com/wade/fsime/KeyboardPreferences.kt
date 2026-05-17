@@ -14,7 +14,7 @@ class KeyboardPreferences(contextWrapper: ContextWrapper) {
         preferences = PreferenceManager.getDefaultSharedPreferences(contextWrapper)
     }
     fun candidateOrder(): String {
-        return safeRead("candidateOrder", "TraditionalOnly")
+        return safeRead("candidateOrder", "ChineseBoth")
     }
 
     fun getHotkey(k: String): String {
