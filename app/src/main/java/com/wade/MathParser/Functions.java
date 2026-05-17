@@ -382,12 +382,40 @@ public class Functions {
     }
 
 
+    public static double sin(double x) {
+        return Math.sin(Math.toRadians(x));
+    }
+
+    public static double cos(double x) {
+        return Math.cos(Math.toRadians(x));
+    }
+
+    public static double tan(double x) {
+        return Math.tan(Math.toRadians(x));
+    }
+
+    public static double asin(double x) {
+        return Math.toDegrees(Math.asin(x));
+    }
+
+    public static double acos(double x) {
+        return Math.toDegrees(Math.acos(x));
+    }
+
+    public static double atan(double x) {
+        return Math.toDegrees(Math.atan(x));
+    }
+
+    public static double atan2(double y, double x) {
+        return Math.toDegrees(Math.atan2(y, x));
+    }
+
     public static double cot(double x) {
-        return 1.0 / Math.tan(x);
+        return 1.0 / Math.tan(Math.toRadians(x));
     }
 
     public static double arccos(double x) {
-        return Math.acos(x);
+        return Math.toDegrees(Math.acos(x));
     }
 
     public static double acosh(double x) {
@@ -399,7 +427,7 @@ public class Functions {
     }
 
     public static double arcsin(double x) {
-        return Math.asin(x);
+        return Math.toDegrees(Math.asin(x));
     }
 
     public static double asinh(double x) {
@@ -411,7 +439,7 @@ public class Functions {
     }
 
     public static double sec(double x) {
-        return 1.0 / Math.cos(x);
+        return 1.0 / Math.cos(Math.toRadians(x));
     }
 
     public static double asec(double x) {
@@ -419,7 +447,7 @@ public class Functions {
     }
 
     public static double arcsec(double x) {
-        return Math.acos(1.0 / x);
+        return Math.toDegrees(Math.acos(1.0 / x));
     }
 
     public static double sech(double x) {
@@ -435,7 +463,7 @@ public class Functions {
     }
 
     public static double csc(double x) {
-        return 1.0 / Math.sin(x);
+        return 1.0 / Math.sin(Math.toRadians(x));
     }
 
     public static double acsc(double x) {
@@ -443,7 +471,7 @@ public class Functions {
     }
 
     public static double arccsc(double x) {
-        return Math.asin(1.0 / x);
+        return Math.toDegrees(Math.asin(1.0 / x));
     }
 
     public static double csch(double x) {
@@ -459,7 +487,7 @@ public class Functions {
     }
 
     public static double arctan(double x) {
-        return Math.atan(x);
+        return Math.toDegrees(Math.atan(x));
     }
 
     public static double atanh(double x) {
@@ -479,7 +507,7 @@ public class Functions {
     }
 
     public static double arccot(double x) {
-        return arctan(1.0 / x);
+        return Math.toDegrees(Math.atan(1.0 / x));
     }
 
     public static double acoth(double x) {

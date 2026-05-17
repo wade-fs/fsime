@@ -234,13 +234,10 @@ public class MathParser implements Cloneable {
      * x° => toRadians(x)
      */
     private String fixDegrees(String src) {
-        char deg = '°';
-        // 24deg | 24degrees => 24°
-        // 24rad | 24 radian | 24radians => 24
         if (getVariable("degrees") == null)
-            src = src.replaceAll("(?<=\\d)degrees(?=[^\\w]|$)", String.valueOf(deg));
+            src = src.replaceAll("(?<=\\d)degrees(?=[^\\w]|$)", "");
         if (getVariable("deg") == null)
-            src = src.replaceAll("(?<=\\d)deg(?=[^\\w]|$)", String.valueOf(deg));
+            src = src.replaceAll("(?<=\\d)deg(?=[^\\w]|$)", "");
         if (getVariable("radians") == null)
             src = src.replaceAll("(?<=\\d)radians(?=[^\\w]|$)", "");
         if (getVariable("radian") == null)
@@ -248,7 +245,9 @@ public class MathParser implements Cloneable {
         if (getVariable("rad") == null)
             src = src.replaceAll("(?<=\\d)rad(?=[^\\w]|$)", "");
 
-        return fix(src, "toRadians", deg);
+        src = src.replace("°", "");
+
+        return src;
     }
 
     /**
