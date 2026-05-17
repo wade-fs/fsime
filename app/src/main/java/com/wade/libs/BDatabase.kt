@@ -39,80 +39,69 @@ class BDatabase(context: Context?) :
     }
 
     fun getCompose(word: String): ArrayList<String> {
-        if (db == null) db = writableDatabase
+        val db = writableDatabase
         val composes = ArrayList<String>()
-        val q = "SELECT * FROM boshiamy WHERE ch = '$word';"
-        val cursor = db!!.rawQuery(q, null)
-        var next = cursor.moveToFirst()
-        while (next) {
-            val idx = cursor.getColumnIndex(ENG)
-            if (idx >= 0) {
-                val compose = cursor.getString(idx)
-                composes.add(compose)
+        val q = "SELECT eng FROM boshiamy WHERE ch = ?;"
+        val cursor = db.rawQuery(q, arrayOf(word))
+        val engIdx = cursor.getColumnIndex(ENG)
+        if (engIdx != -1) {
+            while (cursor.moveToNext()) {
+                composes.add(cursor.getString(engIdx))
             }
-            next = cursor.moveToNext()
         }
         cursor.close()
         return composes
     }
 
     fun saveCompose(ch: String, composes: ArrayList<String>) {
-        if (ch.length != 1) {
-            return
-        }
-        if (db == null) db = writableDatabase
-        db!!.beginTransaction()
+        if (ch.length != 1) return
+        val db = writableDatabase
+        db.beginTransaction()
         try {
-            db!!.delete("boshiamy", "ch=?", arrayOf(ch))
+            db.delete("boshiamy", "ch=?", arrayOf(ch))
+            val values = ContentValues()
             for (item in composes) {
-                val values = ContentValues()
+                values.clear()
                 values.put("eng", item)
                 values.put("ch", ch)
-                db!!.insert("boshiamy", null, values)
+                db.insert("boshiamy", null, values)
             }
-            db!!.setTransactionSuccessful()
+            db.setTransactionSuccessful()
         } finally {
-            db!!.endTransaction()
+            db.endTransaction()
         }
     }
 
     fun batchImportMix(lines: List<String>): Int {
-        if (db == null) db = writableDatabase
+        val db = writableDatabase
         var count = 0
-        db!!.beginTransaction()
+        db.beginTransaction()
         try {
+            val sql = "INSERT OR IGNORE INTO boshiamy (ch, eng) VALUES (?, ?)"
+            val statement = db.compileStatement(sql)
             for (line in lines) {
                 val parts = line.split(Regex("\\s+")).filter { it.isNotEmpty() }
                 if (parts.size >= 2) {
-                    val ch = parts[0]
-                    val eng = parts[1]
-                    // Check if exists
-                    val cursor = db!!.rawQuery("SELECT 1 FROM boshiamy WHERE ch=? AND eng=?", arrayOf(ch, eng))
-                    val exists = cursor.count > 0
-                    cursor.close()
-                    if (!exists) {
-                        val values = ContentValues()
-                        values.put("ch", ch)
-                        values.put("eng", eng)
-                        db!!.insert("boshiamy", null, values)
+                    statement.clearBindings()
+                    statement.bindString(1, parts[0])
+                    statement.bindString(2, parts[1])
+                    if (statement.executeInsert() != -1L) {
                         count++
                     }
                 }
             }
-            db!!.setTransactionSuccessful()
+            db.setTransactionSuccessful()
         } finally {
-            db!!.endTransaction()
+            db.endTransaction()
         }
         return count
     }
 
     fun reverseLookup(word: String): ArrayList<String> {
-        if (db == null) db = writableDatabase
+        val db = writableDatabase
         val codes = ArrayList<String>()
-        // Query the 'boshiamy' table for the English code (eng) corresponding to the character (ch)
-        // Ordering by length(eng) ASC so shorter codes appear first
         val q = "SELECT eng FROM boshiamy WHERE ch = ? ORDER BY length(eng) ASC;"
-        val cursor = db!!.rawQuery(q, arrayOf(word))
+        val cursor = db.rawQuery(q, arrayOf(word))
         val engIdx = cursor.getColumnIndex(ENG)
         if (engIdx != -1) {
             while (cursor.moveToNext()) {
@@ -129,6 +118,7 @@ class BDatabase(context: Context?) :
     var FUZZY_EXACT = 0
     var FUZZY_PREFIX = 1
     var FUZZY_FULL = 2
+
     @SuppressLint("Range")
     private fun query(
         k: String,
@@ -139,49 +129,50 @@ class BDatabase(context: Context?) :
         fuzzy: Int
     ): ArrayList<B> {
         val list = ArrayList<B>()
-        var q: String
-        val cursor: Cursor
-        var count = 0
-        var n: Boolean
-        if (k.indexOf('"') >= 0) return list
-        k.replace("\"".toRegex(), "\"\"")
+        val db = writableDatabase
         val useFreq = table == "ngram"
         val orderBy = if (useFreq) " ORDER BY freq DESC" else ""
         
-        q = "select * from $table where "
-        q += if (fuzzy == FUZZY_EXACT) {
-            "$field = \"$k\"$orderBy LIMIT $max OFFSET $start;"
+        val q: String
+        val selectionArgs: Array<String>
+        
+        if (fuzzy == FUZZY_EXACT) {
+            q = "SELECT * FROM $table WHERE $field = ?$orderBy LIMIT ? OFFSET ?;"
+            selectionArgs = arrayOf(k, max.toString(), start.toString())
         } else if (fuzzy == FUZZY_PREFIX) {
-            val pattern = if (useFreq) "$k%" else k + "_%"
-            "$field like \"$pattern\"$orderBy LIMIT $max OFFSET $start;"
+            val pattern = if (useFreq) "$k%" else "${k}_%"
+            q = "SELECT * FROM $table WHERE $field LIKE ?$orderBy LIMIT ? OFFSET ?;"
+            selectionArgs = arrayOf(pattern, max.toString(), start.toString())
         } else {
-            "$field like \"%$k%\"$orderBy LIMIT $max OFFSET $start;"
+            q = "SELECT * FROM $table WHERE $field LIKE ?$orderBy LIMIT ? OFFSET ?;"
+            selectionArgs = arrayOf("%$k%", max.toString(), start.toString())
         }
-        cursor = db!!.rawQuery(q, null)
-        n = cursor.moveToFirst()
+        
+        val cursor = db.rawQuery(q, selectionArgs)
         val idIdx = cursor.getColumnIndex(ID)
         val chIdx = cursor.getColumnIndex(CH)
+        val engIdx = cursor.getColumnIndex(ENG)
         val freqIdx = cursor.getColumnIndex(FREQ)
-        while (n && count <= max) {
+        
+        while (cursor.moveToNext() && list.size < max) {
             val b = B()
             if (idIdx != -1) b.id = cursor.getInt(idIdx)
             if (chIdx != -1) b.ch = cursor.getString(chIdx)
-            if (useFreq && freqIdx != -1) {
-                b.freq = cursor.getDouble(freqIdx)
-            }
-            val _ch : String? = b.ch
-            if (_ch != null) {
-                if (ts == 1) {
-                    b.ch = StoT(_ch)
-                } else if (ts == 2) {
-                    b.ch = TtoS(_ch)
+            if (engIdx != -1) b.eng = cursor.getString(engIdx)
+            if (useFreq && freqIdx != -1) b.freq = cursor.getDouble(freqIdx)
+            
+            val originalCh = b.ch
+            if (originalCh != null) {
+                b.ch = when (ts) {
+                    1 -> StoT(originalCh)
+                    2 -> TtoS(originalCh)
+                    else -> originalCh
                 }
             }
-            if (!isIn(list, b)) {
+            
+            if (list.none { it.ch == b.ch }) {
                 list.add(b)
-                ++count
             }
-            n = cursor.moveToNext()
         }
         cursor.close()
         return list
@@ -189,91 +180,70 @@ class BDatabase(context: Context?) :
 
     @SuppressLint("Range")
     fun getWord(k: String, start: Int, max: Int, table: String): ArrayList<String> {
-        var k = k
-        var start = start
-        var max = max
-        var table = table
-        if (db == null) db = writableDatabase
-        if (k.length == 0) return ArrayList()
-        val list = ArrayList<String>()
-        list.add(k)
-        val resExact = ArrayList<B>()
-        k = k.lowercase()
-        val tables = ArrayList<String>()
-        if (!(table == "boshiamy" || table == "ji" || table == "cj" || table == "stroke" || table == "sym")) {
-            table = "boshiamy"
-        }
-        if (table == "boshiamy") {
-            tables.add("boshiamy")
-            tables.add("sym")
-            tables.add("ji")
-            tables.add("cj")
-            tables.add("stroke")
-            max = max + max + max
+        if (k.isEmpty()) return ArrayList()
+        
+        val searchKey = k.lowercase()
+        val resultList = ArrayList<String>()
+        resultList.add(k)
+        
+        val tables = mutableListOf<String>()
+        var limitMax = max
+        
+        val targetTable = if (table in listOf("boshiamy", "ji", "cj", "stroke", "sym")) table else "boshiamy"
+        if (targetTable == "boshiamy") {
+            tables.addAll(listOf("boshiamy", "sym", "ji", "cj", "stroke"))
+            limitMax *= 3
         } else {
-            tables.add(table)
-            tables.add("sym")
+            tables.addAll(listOf(targetTable, "sym"))
         }
+
+        val candidates = ArrayList<B>()
+        
+        // Phase 1: Exact Match
         for (t in tables) {
-            val r = query(k, start, max, t, "eng", FUZZY_EXACT)
-            val res = ArrayList<B>()
-            for (b in r) {
-                if (b.ch!!.length > 1) { // 多個中文字
-                    val s = b.ch!!.split("".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                    for (ch in Arrays.asList<String>(*s)) {
-                        val bb = B()
-                        bb.ch = ch
-                        bb.eng = b.eng
-                        res.add(bb)
-                        max--
+            val results = query(searchKey, start, limitMax, t, "eng", FUZZY_EXACT)
+            for (b in results) {
+                val chars = b.ch ?: continue
+                if (chars.length > 1) {
+                    for (char in chars) {
+                        candidates.add(B().apply { ch = char.toString(); eng = b.eng })
+                        limitMax--
                     }
                 } else {
-                    res.add(b)
-                    max--
+                    candidates.add(b)
+                    limitMax--
                 }
-                if (max <= 0) {
-                    break
-                }
+                if (limitMax <= 0) break
             }
-            resExact.addAll(res)
-            if (max <= 0) {
-                break
-            }
+            if (limitMax <= 0) break
         }
-        if (max > 0) { // 如果不足，再找更多比對結果
-            start = if (start < resExact.size) 0 else start - resExact.size
+
+        // Phase 2: Prefix Match (if needed)
+        if (limitMax > 0) {
+            val adjustedStart = if (start < candidates.size) 0 else start - candidates.size
             for (t in tables) {
-                val r = query(k, start, max, t, "eng", FUZZY_PREFIX)
-                val res = ArrayList<B>()
-                for (b in r) {
-                    if (b.ch!!.length > 1) { // 多個中文字
-                        val s =
-                            b.ch!!.split("".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                        for (ch in Arrays.asList<String>(*s)) {
-                            val bb = B()
-                            bb.ch = ch
-                            bb.eng = b.eng
-                            res.add(bb)
-                            max--
+                val results = query(searchKey, adjustedStart, limitMax, t, "eng", FUZZY_PREFIX)
+                for (b in results) {
+                    val chars = b.ch ?: continue
+                    if (chars.length > 1) {
+                        for (char in chars) {
+                            candidates.add(B().apply { ch = char.toString(); eng = b.eng })
+                            limitMax--
                         }
                     } else {
-                        res.add(b)
-                        max--
+                        candidates.add(b)
+                        limitMax--
                     }
-                    if (max <= 0) {
-                        break
-                    }
+                    if (limitMax <= 0) break
                 }
-                resExact.addAll(res)
-                if (max <= 0) {
-                    break
-                }
+                if (limitMax <= 0) break
             }
         }
-        for (d in resExact) {
-            list.add(d.ch!!)
+
+        for (cand in candidates) {
+            cand.ch?.let { resultList.add(it) }
         }
-        return list
+        return resultList
     }
 
     @SuppressLint("Range")
