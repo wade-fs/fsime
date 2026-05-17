@@ -7,8 +7,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
-import com.wade.libs.TS.StoT
-import com.wade.libs.TS.TtoS
 import java.util.Arrays
 
 class BDatabase(context: Context?) :
@@ -154,7 +152,7 @@ class BDatabase(context: Context?) :
         val engIdx = cursor.getColumnIndex(ENG)
         val freqIdx = cursor.getColumnIndex(FREQ)
         
-        if (ts != 0) {
+        if (ts != 0 && !TS.isInitialized()) {
             val mapping = getTSMapping()
             TS.initMapping(mapping["UTF8T"] ?: "", mapping["UTF8S"] ?: "")
         }
@@ -169,8 +167,8 @@ class BDatabase(context: Context?) :
             val originalCh = b.ch
             if (originalCh != null) {
                 b.ch = when (ts) {
-                    1 -> StoT(originalCh)
-                    2 -> TtoS(originalCh)
+                    1 -> TS.StoT(originalCh)
+                    2 -> TS.TtoS(originalCh)
                     else -> originalCh
                 }
             }
@@ -333,7 +331,7 @@ class BDatabase(context: Context?) :
 
     companion object {
         private const val DATABASE_NAME = "b.db"
-        private const val DATABASE_VERSION = 7
+        private const val DATABASE_VERSION = 8
         private const val ID = "id"
         private const val ENG = "eng"
         private const val CH = "ch"

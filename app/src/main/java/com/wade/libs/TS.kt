@@ -28,6 +28,10 @@ object TS {
         Log.i("TS", "Initialized mapping with $size characters")
     }
 
+    fun isInitialized(): Boolean {
+        return initialized
+    }
+
     @JvmStatic
     fun StoT(text: String): String {
         if (!initialized) return text

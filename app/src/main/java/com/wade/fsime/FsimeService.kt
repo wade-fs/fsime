@@ -278,7 +278,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun setCandidateOrder() {
-        val candidateOrder: String = sharedPreferences?.candidateOrder() ?: "ChineseBoth"        bdatabase?.setTs(
+        val candidateOrder: String = sharedPreferences?.candidateOrder() ?: "ChineseBoth"
+        bdatabase?.setTs(
             when (candidateOrder) {
                 "TraditionalOnly" -> 1
                 "SimplifiedOnly" -> 2
