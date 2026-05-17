@@ -331,7 +331,7 @@ class BDatabase(context: Context?) :
 
     companion object {
         private const val DATABASE_NAME = "b.db"
-        private const val DATABASE_VERSION = 8
+        private const val DATABASE_VERSION = 9
         private const val ID = "id"
         private const val ENG = "eng"
         private const val CH = "ch"
