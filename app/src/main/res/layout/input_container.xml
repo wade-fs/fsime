@@ -5,7 +5,7 @@
   This is free software with NO WARRANTY etc. etc.,
   see LICENSE or <https://www.gnu.org/licenses/>.
 -->
-<com.wade.fsime.InputContainer xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wade.fsime.ui.view.InputContainer xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -16,7 +16,7 @@
     android:layout_gravity="bottom"
     android:orientation="vertical"
   >
-    <com.wade.fsime.CandidatesView
+    <com.wade.fsime.ui.view.CandidatesView
       android:id="@+id/candidates_view"
       android:layout_width="match_parent"
       android:layout_height="@dimen/height__candidate_button"
@@ -25,7 +25,7 @@
     <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
-      <com.wade.fsime.KeyboardView
+      <com.wade.fsime.ui.view.KeyboardView
         android:id="@+id/keyboard_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:visibility="gone">
-        <com.wade.fsime.HandwritingView
+        <com.wade.fsime.ui.view.HandwritingView
           android:id="@+id/handwriting_view"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -80,4 +80,4 @@
       </RelativeLayout>
     </FrameLayout>
   </LinearLayout>
-</com.wade.fsime.InputContainer>
+</com.wade.fsime.ui.view.InputContainer>
