@@ -274,7 +274,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         val keyShiftText = key.shiftText ?: ""
         val keyStrokeText = key.strokeText ?: ""
         val keyJiText = key.jiText ?: ""
-        val keyCjText = key.cjText ?: ""
         val keyUpText = if (key.upText?.isNotEmpty() == true) key.upText else ""
         val keyDownText = if (key.downText?.isNotEmpty() == true) key.downText else ""
         val keyLeftText = if (key.leftText?.isNotEmpty() == true) key.leftText else ""
@@ -310,7 +309,6 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             }
             
             if (keyDownText.isNotEmpty()) canvas.drawText(keyDownText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
-            else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
             
             if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
             else if (keyJiText.isNotEmpty()) canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)

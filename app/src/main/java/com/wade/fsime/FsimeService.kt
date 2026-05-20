@@ -513,7 +513,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
             else -> {
                 if (shiftText.isNotEmpty() && !key.isControlKey) {
-                    currentInputConnection?.commitText(shiftText, 1)
+                    effectStrokeAppend(shiftText)
                 } else if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_DIGIT && shiftText.isNotEmpty()) {
                     effectStrokeAppend(shiftText)
                 } else if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
@@ -536,7 +536,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         } else {
             var swipeText = when (swipeDir) {
                 SWIPE_LU -> if (key.upText?.isNotEmpty() == true) key.upText else key.shiftText
-                SWIPE_RD -> if (key.downText?.isNotEmpty() == true) key.downText else key.cjText
+                SWIPE_RD -> if (key.downText?.isNotEmpty() == true) key.downText else ""
                 SWIPE_LD -> if (key.leftText?.isNotEmpty() == true) key.leftText else key.jiText
                 SWIPE_RU -> if (key.rightText?.isNotEmpty() == true) key.rightText else key.strokeText
                 else -> key.valueText

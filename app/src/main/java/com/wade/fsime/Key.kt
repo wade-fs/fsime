@@ -43,7 +43,6 @@ class Key(
     var shiftText: String?,
     val strokeText: String?,
     val jiText: String?,
-    val cjText: String?,
     val upText: String?,
     val downText: String?,
     val leftText: String?,
@@ -137,7 +136,6 @@ class Key(
             
             val strokeText = attributesArray.getString(R.styleable.Key_stroke) ?: ""
             val jiText = attributesArray.getString(R.styleable.Key_ji) ?: ""
-            val cjText = attributesArray.getString(R.styleable.Key_cj) ?: ""
             val upText = attributesArray.getString(R.styleable.Key_up) ?: ""
             val downText = attributesArray.getString(R.styleable.Key_down) ?: ""
             val leftText = attributesArray.getString(R.styleable.Key_left) ?: ""
@@ -172,7 +170,7 @@ class Key(
             return Key(
                 grandparentKeyboard, isLongPressable, isRepeatable, isSwipeable, isShiftable,
                 isExtendedLeft, isExtendedRight, isPreviewable, keyCode, valueText, displayText,
-                shiftText, strokeText, jiText, cjText, upText, downText, leftText, rightText,
+                shiftText, strokeText, jiText, upText, downText, leftText, rightText,
                 width, height, fillColour, borderColour, borderThickness, textColour, otherColour,
                 textSwipeColour, textSize, textOffsetX, textOffsetY, previewMagnification,
                 previewMarginY, x, y
