@@ -1,83 +1,57 @@
 plugins {
-    id 'com.android.application'
+    id('com.android.application')
 }
 
 android {
-    namespace = 'com.wade.fsime'
-    compileSdk = 35
-
-    // 定義簽署設定
     signingConfigs {
         release {
-            keyAlias = 'androidapk'
-            keyPassword = 'jjchen'
-            storeFile = file('/home/wade/.ssh/androidapk.jks')
-            storePassword = 'jjchen'
+            keyAlias 'androidapk'
+            keyPassword 'jjchen'
+            storeFile file('/home/wade/.ssh/androidapk.jks')
+            storePassword 'jjchen'
         }
     }
-
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.wade.fsime"
         minSdkVersion = 33
         targetSdkVersion = 35
-        versionCode = 260517
-        versionName = "26-05-17"
+        versionCode = 260520
+        versionName = "26-05-20"
     }
-
     buildTypes {
-        release {
-            minifyEnabled = false
-            shrinkResources = false
-            // 必須加入這一行，release 編譯才會進行簽署
-            signingConfig = signingConfigs.release
-            
-            // 使用陣列方式設定 Proguard 檔案
-            setProguardFiles([getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'])
-        }
+       release {
+           minifyEnabled = true
+           shrinkResources = true
+           signingConfig signingConfigs.release
+           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+       }
     }
-
+    namespace = 'com.wade.fsime'
     buildFeatures {
         buildConfig = true
     }
-
-    // 修正原本導致 'val' 錯誤的區塊
-    androidComponents {
-        onVariants(selector().all()) { variant ->
-            variant.outputs.each { output ->
-                // 在 Groovy 中定義變數使用 'def'
-                def appID = android.defaultConfig.applicationId
-                def vName = android.defaultConfig.versionName
-                def newName = "${appID}-${vName}.apk"
-                
-                // 使用 .set() 是現代 Gradle Property API 的標準作法
-                output.outputFileName.set(newName)
-            }
-        }
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
     androidResources {
         ignoreAssetsPattern = '*.cmd:*.cmdr'
     }
-
     lint {
         checkReleaseBuilds = false
         abortOnError = false
     }
 }
 
-// 設定基礎檔案名稱
 base {
     archivesName = "com.wade.fsime-${android.defaultConfig.versionName}"
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation('com.google.android.material:material:1.12.0')
+    implementation('com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1')
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.google.mlkit:digital-ink-recognition:18.1.0'
+    implementation 'androidx.work:work-runtime-ktx:2.11.2'
 }

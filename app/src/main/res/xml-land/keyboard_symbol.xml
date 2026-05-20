@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:keyFillColour="@color/key_fill"
+    app:keyTextColour="@color/green"
+    app:keyOtherColour="@color/umbrella_grey"
+    app:keyHeight="@dimen/key_height__fsime"
+    app:keyTextOffsetY="@dimen/baseline_correction__fsime"
+    app:keyTextSize="@dimen/font_size__symbol"
+    app:keyWidth="@dimen/key_width__digit">
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
+        <Key app:keyValueText="☝️" app:keyDisplayText="☝️" app:up="👆" app:down="👇" app:left="👈" app:right="👉" />
+        <Key app:keyValueText="👥" app:keyDisplayText="👥" app:up="👨‍👩‍👧‍👦" app:down="👬" app:left="👫" app:right="👭" />
+        <Key app:keyValueText="☘️" app:keyDisplayText="☘️" app:up="🌿" app:down="🌵" app:left="🎋" app:right="🍃" />
+        <Key app:keyValueText="🍀" app:keyDisplayText="🍀" app:up="🌻" app:down="🌹" app:left="🌷" app:right="🌼" />
+        <Key app:keyValueText="✋" app:keyDisplayText="✋" app:up="🖖" app:down="✊" app:left="👊" app:right="🤛" />
+        <Key app:keyValueText="🤙" app:keyDisplayText="🤙" app:up="🤳" app:down="👂" app:left="👃" app:right="👅" />
+        <Key app:keyValueText="✈️" app:keyDisplayText="✈️" app:up="🚁" app:down="🚂" app:left="🚌" app:right="🚗" />
+        <Key app:keyValueText="♾️" app:keyDisplayText="♾️" app:up="➕" app:down="➖" app:left="✖️" app:right="➗" />
+        <Key app:keyValueText="☀️" app:keyDisplayText="☀️" app:up="⛅" app:down="☁️" app:left="🌧️" app:right="❄️" />
+        <Key app:keyValueText="⭕" app:keyDisplayText="⭕" app:up="❌" app:down="❓" app:left="❗" app:right="💯" />
+        <Key
+            app:keyDisplayText="\u232B"
+            app:keyIsPreviewable="false"
+            app:keyIsRepeatable="true"
+            app:keyValueText="BACKSPACE"
+            app:keyTextColour="@color/umbrella_orange" />
+    </Row>
+    <Row app:keyWidth="8.33%" app:keysAreShiftable="false">
+        <Key app:keyValueText="💫" app:keyDisplayText="💫" app:up="🌌" app:down="🌍" app:left="🌕" app:right="🌑" />
+        <Key app:keyValueText="❓" app:keyDisplayText="❓" app:up="❔" app:down="❕" app:left="⁉️" app:right="💬" />
+        <Key app:keyValueText="👋" app:keyDisplayText="👋" app:up="🖐️" app:down="🖖" app:left="🤚" app:right="🤙" />
+        <Key app:keyValueText="🔥" app:keyDisplayText="🔥" app:up="💥" app:down="🌪️" app:left="🌊" app:right="🌬️" />
+        <Key app:keyValueText="🚀" app:keyDisplayText="🚀" app:up="🛸" app:down="🛰️" app:left="🌠" app:right="☄️" />
+        <Key app:keyValueText="💬" app:keyDisplayText="💬" app:up="💭" app:down="🗯️" app:left="✉️" app:right="📮" />
+        <Key app:keyValueText="🌟" app:keyDisplayText="🌟" app:up="✨" app:down="💫" app:left="🌙" app:right="🌞" />
+        <Key app:keyValueText="👀" app:keyDisplayText="👀" app:up="👁️" app:down="👅" app:left="👂" app:right="👃" />
+        <Key app:keyValueText="✨" app:keyDisplayText="✨" app:up="💎" app:down="💍" app:left="👑" app:right="🔮" />
+        <Key app:keyValueText="✅" app:keyDisplayText="✅" app:up="🆗" app:down="🆒" app:left="🆙" app:right="🆕" />
+        <Key app:keyValueText="📌" app:keyDisplayText="📌" app:up="📍" app:down="📎" app:left="📏" app:right="📐" />
+        <Key app:keyValueText="🛫" app:keyDisplayText="🛫" app:up="🛬" app:down="🚁" app:left="🛸" app:right="🚀" />
+    </Row>
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
+        <Key app:keyValueText="🛬" app:keyDisplayText="🛬" app:up="🛫" app:down="🚁" app:left="🛸" app:right="🚀" />
+        <Key app:keyValueText="⚠️" app:keyDisplayText="⚠️" app:up="🚫" app:down="🔞" app:left="🚷" app:right="⛔" />
+        <Key app:keyValueText="😭" app:keyDisplayText="😭" app:up="😂" app:down="😍" app:left="😎" app:right="😡" />
+        <Key app:keyValueText="🙏" app:keyDisplayText="🙏" app:up="🙇" app:down="🙋" app:left="🙌" app:right="👐" />
+        <Key app:keyValueText="💪" app:keyDisplayText="💪" app:up="🦵" app:down="🦶" app:left="🦷" app:right="🦴" />
+        <Key app:keyValueText="👍" app:keyDisplayText="👍" app:up="👎" app:down="👌" app:left="👊" app:right="🤛" />
+        <Key app:keyValueText="❤️" app:keyDisplayText="❤️" app:up="🧡" app:down="💛" app:left="💚" app:right="💙" />
+        <Key app:keyValueText="🎉" app:keyDisplayText="🎉" app:up="🎊" app:down="🎈" app:left="🎂" app:right="🎁" />
+        <Key app:keyValueText="😂" app:keyDisplayText="😂" app:up="🤣" app:down="😅" app:left="😆" app:right="😁" />
+        <Key app:keyValueText="🤔" app:keyDisplayText="🤔" app:up="🤨" app:down="🧐" app:left="🙄" app:right="😒" />
+        <Key app:keyValueText="🔍" app:keyDisplayText="🔍" app:up="🔎" app:down="🔦" app:left="🗝️" app:right="🔐" />
+    </Row>
+    <Row app:keyWidth="9.09%" app:keysAreShiftable="false">
+        <Key
+            app:keyDisplayText="⇧"
+            app:keyIsPreviewable="false"
+            app:keyValueText="SHIFT"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u2303"
+            app:keyIsPreviewable="false"
+            app:keyValueText="CTRL"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="💤" app:keyDisplayText="💤" app:up="😴" app:down="🛌" app:left="🛀" app:right="🚽" />
+        <Key app:keyValueText="🛑" app:keyDisplayText="🛑" app:up="🚧" app:down="🚦" app:left="🚥" app:right="🚨" />
+        <Key app:keyValueText="👏" app:keyDisplayText="👏" app:up="🤝" app:down="🤜" app:left="🤛" app:right="👊" />
+        <Key app:keyValueText="✌️" app:keyDisplayText="✌️" app:up="🤞" app:down="🤘" app:left="🤙" app:right="🖖" />
+        <Key app:keyValueText="💡" app:keyDisplayText="💡" app:up="🕯️" app:down="🔋" app:left="🔌" app:right="💻" />
+        <Key app:keyValueText="❌" app:keyDisplayText="❌" app:up="⭕" app:down="➖" app:left="➕" app:right="✖️" />
+        <Key app:keyValueText="✉️" app:keyDisplayText="✉️" app:up="📩" app:down="📤" app:left="📥" app:right="📦" />
+        <Key app:keyValueText="🎵" app:keyDisplayText="🎵" app:up="🎶" app:down="🎼" app:left="🎹" app:right="🎸" />
+        <Key app:keyValueText="📍" app:keyDisplayText="📍" app:up="📌" app:down="📎" app:left="✂️" app:right="📐" />
+    </Row>
+    <Row app:keyWidth="9.09%">
+        <Key
+            app:keyDisplayText="\u238B"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="ESC"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key
+            app:keyDisplayText="\u21B9"
+            app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
+            app:keyValueText="TAB"
+            app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="➖" app:keyDisplayText="➖" app:up="➕" app:down="✖️" app:left="➗" app:right="＝" />
+        <Key app:keyValueText="🤝" app:keyDisplayText="🤝" app:up="💍" app:down="💎" app:left="🎁" app:right="🎀" />
+        <Key
+            app:keyDisplayText="@string/display_text__symbol_space_bar"
+            app:keyIsLongPressable="true"
+            app:keyIsPreviewable="false"
+            app:keyIsSwipeable="true"
+            app:keyTextColour="@color/umbrella_orange"
+            app:keyValueText="SPACE"
+            app:keyWidth="18.18%" />
+        <Key app:keyValueText="⏳" app:keyDisplayText="⏳" app:up="⌛" app:down="⌚" app:left="⏰" app:right="📅" />
+        <Key app:keyValueText="🎯" app:keyDisplayText="🎯" app:up="🏀" app:down="⚽" app:left="⚾" app:right="🎾" />
+        <Key app:keyValueText="⚡" app:keyDisplayText="⚡" app:up="⛈️" app:down="❄️" app:left="💧" app:right="🔥" />
+        <Key
+            app:keyDisplayText="\u23CE"
+            app:keyIsPreviewable="false"
+            app:keyValueText="ENTER"
+            app:keyWidth="18.18%"
+            app:keyTextColour="@color/umbrella_orange" />
+    </Row>
+</Keyboard>

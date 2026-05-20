@@ -9,6 +9,7 @@ debug/
 /daemon
 /wrapper
 release/
+app/build/
 
 # From https://github.com/github/gitignore/blob/master/Android.gitignore
 
@@ -43,7 +44,6 @@ proguard/
 
 # Log Files
 *.log
-log
 
 # Android Studio Navigation editor temp files
 .navigation/

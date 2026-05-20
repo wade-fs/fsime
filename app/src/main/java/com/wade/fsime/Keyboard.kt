@@ -235,8 +235,6 @@ class Keyboard(private val context: Context, layoutResourceId: Int, name: String
     private fun capKeyboardHeight() {
         val keyboardHeightCorrectionFactor =
             Math.min(1f, KEYBOARD_HEIGHT_MAX_FRACTION * screenHeight / height)
-        if (keyboardHeightCorrectionFactor >= 1f) return
-
         for (key in keyList) {
             key.y = (key.y * keyboardHeightCorrectionFactor).toInt()
             key.height = (key.height * keyboardHeightCorrectionFactor).toInt()
