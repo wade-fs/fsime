@@ -6,11 +6,11 @@
     app:keyHeight="@dimen/key_height__fsime"
     app:keyTextOffsetY="@dimen/baseline_correction__fsime"
     app:keyTextSize="@dimen/font_size__fsime"
-    app:keyWidth="6.25%">
-    <!-- 16 columns x 4 rows. All 53 unique keys from portrait matched. -->
+    app:keyWidth="5%">
+    <!-- 20 columns x 4 rows -->
 
     <Row app:keysAreShiftable="true">
-        <!-- Main: 11 cols -->
+        <!-- ESC (1) + Q-P (10) + BACKSPACE (1) = 12 units. Spacer 5. Numpad 789 (3). -->
         <Key app:keyDisplayText="\u238B" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="ESC" app:keyTextColour="@color/umbrella_orange" />
         <Key app:cj="手" app:ji="ㄆ" app:keyValueText="q" app:keyValueTextShifted="Q" />
         <Key app:cj="田" app:ji="ㄊ" app:keyValueText="w" app:keyValueTextShifted="W" />
@@ -22,17 +22,17 @@
         <Key app:cj="戈" app:ji="ㄛ" app:keyValueText="i" app:keyValueTextShifted="I" />
         <Key app:cj="人" app:ji="ㄟ" app:keyValueText="o" app:keyValueTextShifted="O" />
         <Key app:cj="心" app:ji="ㄣ" app:keyValueText="p" app:keyValueTextShifted="P" />
+        <Key app:keyDisplayText="\u232B" app:keyIsPreviewable="false" app:keyIsRepeatable="true" app:keyValueText="BACKSPACE" app:keyTextColour="@color/umbrella_orange" />
         
-        <!-- Digits: 3 cols (Offset to right) -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyValueText="7" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="8" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="9" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
+        <Key app:keyWidth="25%" /> <!-- Spacer (5 * 5% = 25%) -->
+        
+        <Key app:keyValueText="7" app:ji="˙" app:keyValueTextShifted="&amp;" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="8" app:ji="ㄚ" app:keyValueTextShifted="*" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="9" app:ji="ㄞ" app:keyValueTextShifted="(" app:keyTextColour="@color/umbrella_blue" />
     </Row>
 
     <Row app:keysAreShiftable="true">
-        <!-- Main: 11 cols -->
+        <!-- TAB (1) + A-L (10) + [ (1) + ] (1) = 13 units. Spacer 4. Numpad 456 (3). -->
         <Key app:keyDisplayText="\u21B9" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="TAB" app:keyTextColour="@color/umbrella_orange" />
         <Key app:cj="日" app:ji="ㄇ" app:keyValueText="a" app:keyValueTextShifted="A" />
         <Key app:cj="尸" app:ji="ㄋ" app:keyValueText="s" app:keyValueTextShifted="S" />
@@ -43,19 +43,19 @@
         <Key app:cj="十" app:ji="ㄨ" app:keyValueText="j" app:keyValueTextShifted="J" />
         <Key app:cj="大" app:ji="ㄜ" app:keyValueText="k" app:keyValueTextShifted="K" />
         <Key app:cj="中" app:ji="ㄠ" app:keyValueText="l" app:keyValueTextShifted="L" />
-        <Key app:keyDisplayText="\u232B" app:keyIsPreviewable="false" app:keyIsRepeatable="true" app:keyValueText="BACKSPACE" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="[" app:keyValueTextShifted="{" />
+        <Key app:keyValueText="]" app:keyValueTextShifted="}" />
 
-        <!-- Digits: 3 cols -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyValueText="4" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="5" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="6" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
+        <Key app:keyWidth="20%" /> <!-- Spacer (4 * 5% = 20%) -->
+        
+        <Key app:keyValueText="4" app:ji="ˋ" app:keyValueTextShifted="$" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="5" app:ji="ㄓ" app:keyValueTextShifted="%" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="6" app:ji="ˊ" app:keyValueTextShifted="^" app:keyTextColour="@color/umbrella_blue" />
     </Row>
 
     <Row app:keysAreShiftable="true">
-        <!-- Main: 11 cols -->
-        <Key app:keyDisplayText="⇧" app:keyIsPreviewable="false" app:keyValueText="SHIFT" app:keyValueTextShifted="⬆" app:keyTextColour="@color/umbrella_orange" />
+        <!-- SHIFT (2) + CTRL (1) + Z-M (7) + ; (1) + ' (1) + ENTER (2) = 14 units. Spacer 3. Numpad 123 (3). -->
+        <Key app:keyDisplayText="⇧" app:keyIsPreviewable="false" app:keyValueText="SHIFT" app:keyValueTextShifted="⬆" app:keyTextColour="@color/umbrella_orange" app:keyWidth="10%" />
         <Key app:keyDisplayText="\u2303" app:keyIsPreviewable="false" app:keyValueText="CTRL" app:keyTextColour="@color/umbrella_orange" />
         <Key app:cj="重" app:ji="ㄈ" app:stroke="一" app:keyValueText="z" app:keyValueTextShifted="Z" />
         <Key app:cj="難" app:ji="ㄌ" app:stroke="丨" app:keyValueText="x" app:keyValueTextShifted="X" />
@@ -65,32 +65,40 @@
         <Key app:cj="弓" app:ji="ㄙ" app:keyValueText="n" app:keyValueTextShifted="N" />
         <Key app:cj="一" app:ji="ㄩ" app:keyValueText="m" app:keyValueTextShifted="M" />
         <Key app:ji="ㄤ" app:keyValueText=";" app:keyValueTextShifted=":" />
-        <Key app:keyDisplayText="\u23CE" app:keyIsPreviewable="false" app:keyValueText="ENTER" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="'" app:keyValueTextShifted='"' />
+        <Key app:keyDisplayText="\u23CE" app:keyIsPreviewable="false" app:keyValueText="ENTER" app:keyTextColour="@color/umbrella_orange" app:keyWidth="10%" />
 
-        <!-- Digits: 3 cols -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyWidth="6.25%" /> <!-- Spacer -->
-        <Key app:keyValueText="1" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="2" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
-        <Key app:keyValueText="3" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
+        <Key app:keyWidth="15%" /> <!-- Spacer (3 * 5% = 15%) -->
+        
+        <Key app:keyValueText="1" app:ji="ㄅ" app:keyValueTextShifted="!" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="2" app:ji="ㄉ" app:keyValueTextShifted="\@" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyValueText="3" app:ji="ˇ" app:keyValueTextShifted="#" app:keyTextColour="@color/umbrella_blue" />
     </Row>
 
     <Row>
-        <!-- Symbols & Space (11 cols) -->
+        <!-- ` (1) + \ (1) + - (1) + = (1) + SPACE (4) + , (1) + . (1) + / (1) = 11 units. 
+             Nav: Home, End, Left, Up, Down, Right (6 units).
+             Numpad: 0 (2) + . (1) = 3 units.
+             Total: 11 + 6 + 3 = 20 units. Perfect. -->
         <Key app:keyValueText="`" app:keyValueTextShifted="~" />
-        <Key app:keyValueText="[" app:keyValueTextShifted="{" />
-        <Key app:keyValueText="]" app:keyValueTextShifted="}" />
         <Key app:keyValueText="\\" app:keyValueTextShifted="|" />
-        <Key app:keyDisplayText="@string/display_text__fsime_space_bar" app:keyIsLongPressable="true" app:keyIsPreviewable="false" app:keyIsSwipeable="true" app:keyTextColour="@color/umbrella_orange" app:keyValueText="SPACE" app:keyWidth="25%" />
         <Key app:ji="ㄦ" app:keyValueText="-" app:keyValueTextShifted="_" />
-        <Key app:keyValueText="=" app:keyValueTextShifted="+"  />
+        <Key app:keyValueText="=" app:keyValueTextShifted="+" />
+        <Key app:keyDisplayText="@string/display_text__fsime_space_bar" app:keyIsLongPressable="true" app:keyIsPreviewable="false" app:keyIsSwipeable="true" app:keyTextColour="@color/umbrella_orange" app:keyValueText="SPACE" app:keyWidth="20%" />
         <Key app:ji="ㄝ" app:keyValueText="," app:keyValueTextShifted="&lt;" />
-        <Key app:ji="ㄡ" app:keyValueText="." app:keyValueTextShifted="&gt;"  />
-        <Key app:ji="ㄥ" app:keyValueText="/" app:keyValueTextShifted="\u003F"  />
-        <Key app:keyValueText="'" app:keyValueTextShifted='"' />
+        <Key app:ji="ㄡ" app:keyValueText="." app:keyValueTextShifted="&gt;" />
+        <Key app:ji="ㄥ" app:keyValueText="/" app:keyValueTextShifted="\u003F" />
+        
+        <!-- Navigation Keys (6 units) -->
+        <Key app:keyValueText="⇱" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="⇲" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="←" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↑" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↓" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="→" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
 
-        <!-- Digits: 3 cols -->
-        <Key app:keyValueText="0" app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" app:keyWidth="12.5%" />
-        <Key app:keyValueText="." app:keyTextColour="@color/umbrella_blue" app:keysAreShiftable="false" />
+        <!-- Numpad 0 and Dot -->
+        <Key app:keyValueText="0" app:ji="ㄢ" app:keyValueTextShifted=")" app:keyTextColour="@color/umbrella_blue" app:keyWidth="10%" />
+        <Key app:keyValueText="." app:keyTextColour="@color/umbrella_blue" />
     </Row>
 </Keyboard>
