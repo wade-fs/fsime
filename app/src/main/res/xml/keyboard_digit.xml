@@ -54,7 +54,7 @@
         <Key app:keyValueText="'" />
         <Key app:keyValueText="&quot;" />
         <Key app:keyValueText="π" />
-        <Key app:keyValueText="%" />
+        <Key app:keyValueText="e" />
     </Row>
     <Row app:keyWidth="9.09%">
         <Key
@@ -62,7 +62,7 @@
             app:keyIsPreviewable="false"
             app:keyValueText="SHIFT"
             app:keyTextColour="@color/umbrella_orange" />
-        <Key app:keyValueText="e" />
+        <Key app:keyValueText="%" />
         <Key app:keyValueText="Σ" app:keyValueTextShifted="∫" />
         <Key app:keyValueText="lim" app:keyValueTextShifted="derivative" />
         <Key
