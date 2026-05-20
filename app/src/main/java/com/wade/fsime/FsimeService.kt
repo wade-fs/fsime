@@ -42,7 +42,6 @@ import java.util.*
 class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, HandwritingView.HandwritingListener {
     var fullKB: Keyboard? = null
     var fsimeKB: Keyboard? = null
-    var pureKB: Keyboard? = null
     var digitKB: Keyboard? = null
     var symbolKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
@@ -74,7 +73,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     private fun reinitializeKeyboards() {
         fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
-        pureKB = Keyboard(this, R.xml.keyboard_pure, KEYBOARD_NAME_PURE)
         digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
         symbolKB = Keyboard(this, R.xml.keyboard_symbol, KEYBOARD_NAME_SYMBOL)
         
@@ -84,7 +82,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 PREFERENCES_FILE_NAME,
                 KEYBOARD_NAME_PREFERENCE_KEY
             )
-            val keyboardSet = arrayOf(fullKB!!, fsimeKB!!, pureKB!!, digitKB!!, symbolKB!!)
+            val keyboardSet = arrayOf(fullKB!!, fsimeKB!!, digitKB!!, symbolKB!!)
             var targetKeyboard = fullKB
             for (k in keyboardSet) {
                 if (k.name == savedKeyboardName) {
@@ -329,7 +327,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         var keyboardSet = arrayOf<Keyboard>()
         keyboardSet += fullKB!!
         keyboardSet += fsimeKB!!
-        keyboardSet += pureKB!!
         keyboardSet += digitKB!!
         keyboardSet += symbolKB!!
 
@@ -736,7 +733,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val SPACE_BAR_VALUE_TEXT = "SPACE"
         private const val KEYBOARD_NAME_FULL = "full"
         private const val KEYBOARD_NAME_FSIME = "mix"
-        private const val KEYBOARD_NAME_PURE = "pure"
         private const val KEYBOARD_NAME_DIGIT = "digit"
         private const val KEYBOARD_NAME_SYMBOL = "symbol"
         const val PREFERENCES_FILE_NAME = "preferences.txt"

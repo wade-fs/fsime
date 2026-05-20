@@ -264,7 +264,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             keyTextShiftPaint.color = key.textColour
         } else {
             when (kb.name) {
-                "mix", "pure", "full", "digit" -> if (key.isPreviewable) keyTextPaint.color = key.textColour
+                "mix", "full", "digit" -> if (key.isPreviewable) keyTextPaint.color = key.textColour
                 "stroke" -> keyTextStrokePaint.color = key.textColour
             }
         }
@@ -313,7 +313,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             else if (keyCjText.isNotEmpty()) canvas.drawText(keyCjText, keyRightTextX - 20, keyDownTextY - 5, keyTextDownPaint)
             
             if (keyLeftText.isNotEmpty()) canvas.drawText(keyLeftText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
-            else if (keyJiText.isNotEmpty() && kb.name != "pure") canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
+            else if (keyJiText.isNotEmpty()) canvas.drawText(keyJiText, keyLeftTextX - 20, keyDownTextY - 5, keyTextLeftPaint)
             
             if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
             else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
