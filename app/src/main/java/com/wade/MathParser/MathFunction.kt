@@ -64,7 +64,7 @@ interface MathFunction {
                         if (method.parameterTypes.isNotEmpty() && method.parameterTypes[0] == MathParser::class.java) {
                             pars.add(parser)
                         }
-                        if (parameterCount == -1) {
+                        if (getParameterCount() == -1) {
                             pars.add(parameters)
                         } else {
                             pars.addAll(listOf(*parameters))

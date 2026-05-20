@@ -10,5 +10,5 @@ class MathFunctionInvalidArgumentsException(
 ) : MathParserException(
     src,
     index,
-    function.name() + "() Expected " + function.parameterCount + " arguments but found " + count
+    function.name() + "() Expected " + function.getParameterCount() + " arguments but found " + count
 )
