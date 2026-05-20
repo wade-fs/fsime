@@ -8,16 +8,16 @@
     app:keyTextSize="@dimen/font_size__fsime"
     app:keyWidth="@dimen/key_width__digit">
     <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
-        <Key app:keyValueText="1" app:keyValueTextShifted="!" />
-        <Key app:keyValueText="2" app:keyValueTextShifted="\@" />
-        <Key app:keyValueText="3" app:keyValueTextShifted="#" />
-        <Key app:keyValueText="4" app:keyValueTextShifted="$" />
-        <Key app:keyValueText="5" app:keyValueTextShifted="%" />
-        <Key app:keyValueText="6" app:keyValueTextShifted="^" />
-        <Key app:keyValueText="7" app:keyValueTextShifted="&amp;" />
-        <Key app:keyValueText="8" app:keyValueTextShifted="*" />
-        <Key app:keyValueText="9" app:keyValueTextShifted="~" />
-        <Key app:keyValueText="0" app:keyValueTextShifted="`" />
+        <Key app:keyValueText="1" />
+        <Key app:keyValueText="2" />
+        <Key app:keyValueText="3" />
+        <Key app:keyValueText="4" />
+        <Key app:keyValueText="5" />
+        <Key app:keyValueText="6" />
+        <Key app:keyValueText="7" />
+        <Key app:keyValueText="8" />
+        <Key app:keyValueText="9" />
+        <Key app:keyValueText="0" />
         <Key
             app:keyDisplayText="\u232B"
             app:keyIsPreviewable="false"
@@ -26,16 +26,16 @@
             app:keyTextColour="@color/umbrella_orange" />
     </Row>
     <Row app:keyWidth="9.09%" app:keysAreShiftable="true">
-        <Key app:keyValueText="+" app:keyValueTextShifted="+" />
-        <Key app:keyValueText="-" app:keyValueTextShifted="–" />
-        <Key app:keyValueText="*" app:keyValueTextShifted="×" />
-        <Key app:keyValueText="/" app:keyValueTextShifted="÷" />
-        <Key app:keyValueText="=" app:keyValueTextShifted="≈" />
+        <Key app:keyValueText="+" />
+        <Key app:keyValueText="-" />
+        <Key app:keyValueText="*" />
+        <Key app:keyValueText="/" />
+        <Key app:keyValueText="=" />
         <Key app:keyValueText="(" app:keyValueTextShifted="{" />
         <Key app:keyValueText=")" app:keyValueTextShifted="}" />
         <Key app:keyValueText="^" app:keyValueTextShifted="²" />
         <Key app:keyValueText="√" app:keyValueTextShifted="∛" />
-        <Key app:keyValueText="!" app:keyValueTextShifted="¡" />
+        <Key app:keyValueText="!" />
         <Key
             app:keyDisplayText="⎋"
             app:keyIsPreviewable="false"
@@ -50,15 +50,11 @@
         <Key app:keyValueText="log" app:keyValueTextShifted="log2" />
         <Key app:keyValueText="ln" app:keyValueTextShifted="e^" />
         <Key app:keyValueText="." app:keyValueTextShifted="," />
-        <Key app:keyValueText="," app:keyValueTextShifted=";" />
-        <Key app:keyValueText="|" app:keyValueTextShifted="\\" />
-        <Key app:keyValueText="°" app:keyValueTextShifted="'" />
+        <Key app:keyValueText="°" />
+        <Key app:keyValueText="'" />
+        <Key app:keyValueText="&quot;" />
         <Key app:keyValueText="π" />
-        <Key
-            app:keyDisplayText="⏎"
-            app:keyIsPreviewable="false"
-            app:keyValueText="ENTER"
-            app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="%" />
     </Row>
     <Row app:keyWidth="9.09%">
         <Key
@@ -77,7 +73,11 @@
             app:keyTextColour="@color/umbrella_orange"
             app:keyValueText="SPACE"
             app:keyWidth="45.45%" />
-        <Key app:keyValueText="&lt;" app:keyValueTextShifted="&lt;" />
-        <Key app:keyValueText="&gt;" app:keyValueTextShifted="&gt;" />
+        <Key
+            app:keyDisplayText="⏎"
+            app:keyIsPreviewable="false"
+            app:keyValueText="ENTER"
+            app:keyTextColour="@color/umbrella_orange"
+            app:keyWidth="18.18%" />
     </Row>
 </Keyboard>
