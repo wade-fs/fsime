@@ -5,10 +5,10 @@ plugins {
 android {
     signingConfigs {
         release {
-            keyAlias 'androidapk'
-            keyPassword 'jjchen'
-            storeFile file('/home/wade/.ssh/androidapk.jks')
-            storePassword 'jjchen'
+            keyAlias = 'androidapk'
+            keyPassword = 'jjchen'
+            storeFile = file('/home/wade/.ssh/androidapk.jks')
+            storePassword = 'jjchen'
         }
     }
     compileSdk = 35
@@ -23,7 +23,7 @@ android {
        release {
            minifyEnabled = true
            shrinkResources = true
-           signingConfig signingConfigs.release
+           signingConfig = signingConfigs.release
            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
     }

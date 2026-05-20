@@ -15,6 +15,8 @@ import com.wade.fsime.ui.view.HandwritingView
 import com.wade.fsime.ui.view.KeyboardView
 import com.wade.fsime.ui.adapter.CandidatesViewAdapter
 
+import com.wade.fsime.engine.InputProcessor
+import com.wade.fsime.engine.KeyboardState
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.inputmethodservice.InputMethodService
@@ -54,8 +56,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     var digitKB: Keyboard? = null
     var symbolKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
-    private var mComposing = ""
-    private var candidateList: List<String> = ArrayList()
+    
+    private lateinit var inputProcessor: InputProcessor
+    
     private var inputOptionsBits = 0
     private var enterKeyHasAction = false
     private var inputIsPassword = false
@@ -100,6 +103,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 }
             }
             it.keyboard = targetKeyboard
+            inputProcessor.setKeyboard(targetKeyboard!!.name!!)
             it.redrawKeyboard()
         }
     }
@@ -107,6 +111,17 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onCreate() {
         super.onCreate()
         sharedPreferences = KeyboardPreferences(this)
+        bdatabase = BDatabase(applicationContext)
+        inputProcessor = InputProcessor(this, bdatabase!!, sharedPreferences!!)
+        
+        inputProcessor.onStateChanged = { state ->
+            inputContainer?.let {
+                it.setCandidateList(state.candidates)
+                it.showHandwriting(state.isHandwritingVisible)
+                // If you had a composing text view, you'd update it here.
+            }
+        }
+
         initSpeechRecognizer()
         initHandwritingRecognizer()
 
@@ -254,7 +269,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             ?.addOnSuccessListener { result ->
                 val candidates = result.candidates.map { it.text }
                 if (candidates.isNotEmpty()) {
-                    setCandidateList(candidates)
+                    inputProcessor.setCandidates(candidates)
                     inputContainer?.clearHandwriting()
                 }
             }
@@ -288,12 +303,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                         val codes = db.reverseLookup(firstChar)
                         
                         if (codes.isNotEmpty()) {
-                            setCandidateList(codes)
+                            inputProcessor.setCandidates(codes)
                         }
                     }
                 }
             }
-        } else if (mComposing.isEmpty()) {
+        } else if (inputProcessor.state.composingText.isEmpty()) {
             // Clear candidates only if we are not currently composing
             // setCandidateList(emptyList())
         }
@@ -371,7 +386,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         updateFullscreenMode() // needed in API level 31+ so that fullscreen works after rotate whilst keyboard showing
         val isFullscreen = isFullscreenMode
         inputContainer!!.setBackground(isFullscreen)
-        inputContainer!!.setCandidateList(candidateList)
+        inputContainer!!.setCandidateList(inputProcessor.state.candidates)
         setEnterKeyDisplayText()
         setCandidateOrder()
     }
@@ -413,7 +428,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onCandidate(candidate: String?) {
         val inputConnection = currentInputConnection ?: return
         inputConnection.commitText(candidate, 1)
-        mComposing = ""
+        inputProcessor.clearComposition()
         updateRelative(candidate!!)
     }
 
@@ -434,8 +449,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun turnCandidateOff() {
-        mComposing = ""
-        inputContainer!!.setCandidateList(ArrayList())
+        inputProcessor.clearComposition()
     }
 
     override fun onKey(key: Key) {
@@ -459,8 +473,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 if (codeMaps.containsKey(keyCode)) {
                     val hk = sharedPreferences!!.getHotkey(codeMaps[keyCode]!!)
                     if (hk.isNotEmpty()) {
-                        mComposing = ""
-                        effectStrokeAppend(hk)
+                        inputProcessor.clearComposition()
+                        inputProcessor.appendStroke(hk)
                         return
                     }
                 }
@@ -476,7 +490,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
         when (valueText) {
             "VOICE" -> startVoiceInput()
-            "HANDWRITING" -> inputContainer?.showHandwriting(true)
+            "HANDWRITING" -> inputProcessor.updateHandwritingVisibility(true)
             "⎆" -> keyDownUps(
                 intArrayOf(
                     KeyEvent.KEYCODE_CTRL_LEFT,
@@ -502,7 +516,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             ESC_KEY_VALUE_TEXT -> turnCandidateOff()
             SPACE_BAR_VALUE_TEXT -> effectSpaceKey(inputConnection)
             ENTER_KEY_VALUE_TEXT -> effectEnterKey(inputConnection)
-            else -> effectStrokeAppend(valueText)
+            else -> inputProcessor.appendStroke(valueText)
         }
     }
 
@@ -512,23 +526,23 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         when (valueText) {
             SPACE_BAR_VALUE_TEXT -> showSystemKeyboardChanger(this)
             ESC_KEY_VALUE_TEXT -> {
-                inputContainer?.showHandwriting(true)
+                inputProcessor.updateHandwritingVisibility(true)
             }
             SHIFT_KEY_VALUE_TEXT -> {
                 startVoiceInput()
             }
             "VOICE" -> {
-                inputContainer?.showHandwriting(true)
+                inputProcessor.updateHandwritingVisibility(true)
             }
             else -> {
                 if (shiftText.isNotEmpty() && !key.isControlKey) {
-                    effectStrokeAppend(shiftText)
+                    inputProcessor.appendStroke(shiftText)
                 } else if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_DIGIT && shiftText.isNotEmpty()) {
-                    effectStrokeAppend(shiftText)
+                    inputProcessor.appendStroke(shiftText)
                 } else if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
                     currentInputConnection?.commitText(valueText, 1)
                 } else {
-                    effectStrokeAppend(valueText)
+                    inputProcessor.appendStroke(valueText)
                 }
             }
         }
@@ -562,7 +576,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL) {
                 currentInputConnection?.commitText(swipeText, 1)
             } else {
-                effectStrokeAppend(swipeText ?: "")
+                inputProcessor.appendStroke(swipeText ?: "")
             }
         }
     }
@@ -605,61 +619,16 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         } else {
             (currentIndex + keyboardSet.size - 1) % keyboardSet.size
         }
-        inputContainer!!.keyboard = keyboardSet[nextIndex]
+        val nextKeyboard = keyboardSet[nextIndex]
+        inputContainer!!.keyboard = nextKeyboard
+        inputProcessor.setKeyboard(nextKeyboard.name!!)
         inputContainer!!.redrawKeyboard()
-        saveKeyboard(keyboardSet[nextIndex])
-    }
-
-    private fun computeCandidateList(mComposing: String): List<String> {
-        val db = bdatabase ?: return emptyList()
-        return if (mComposing.isEmpty()) {
-            emptyList()
-        } else db.getWord(
-            mComposing,
-            0,
-            30,
-            inputContainer!!.keyboard!!.name!!
-        )
-    }
-
-    private fun effectStrokeAppend(key: String) {
-        val newInputSequence = mComposing + key
-        var list = computeCandidateList(newInputSequence)
-        
-        // Handle factorial in digit keyboard immediately if possible
-        if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_DIGIT && newInputSequence.endsWith("!")) {
-            val parser = MathParser.create()
-            try {
-                val res = parser.parse(newInputSequence)
-                // If parsing succeeds, we add the expression and its result to the top
-                list = mutableListOf(newInputSequence, res.toString()) + list
-            } catch (e: Exception) {
-                // If parsing fails (e.g. incomplete expression), we just continue
-            }
-        }
-        
-        if (list.size == 1) {
-            val parser = MathParser.create()
-            try {
-                val exp = list[0]
-                val exps = exp.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                for (i in 0 until exps.size - 1) {
-                    parser.addExpression(exps[i])
-                }
-                val res = parser.parse(exps[exps.size - 1])
-                list = list.toMutableList().apply { add(res.toString()) }
-            } catch (e: Exception) {
-            }
-        }
-        mComposing = newInputSequence
-        setCandidateList(list)
+        saveKeyboard(nextKeyboard)
     }
 
     private fun effectBackspace(inputConnection: InputConnection) {
-        if (mComposing.isNotEmpty()) {
-            mComposing = removeSuffixRegex("(?s).", mComposing)
-            val newCandidateList = computeCandidateList(mComposing)
-            setCandidateList(newCandidateList)
+        if (inputProcessor.state.composingText.isNotEmpty()) {
+            inputProcessor.backspace()
             inputContainer!!.setKeyRepeatIntervalMilliseconds(
                 BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8
             )
@@ -686,19 +655,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     private fun updateRelative(sel: String) {
         val inputConnection = currentInputConnection ?: return
         val context = getTextBeforeCursor(inputConnection, 2)
-        val tb = if (usePhrase) "phrase" else "vocabulary"
-        val list = bdatabase!!.getPhrase(
-            tb,
-            context,
-            0,
-            30
-        )
-        setCandidateList(list)
+        val list = inputProcessor.getAssociatedPhrases(context)
+        inputProcessor.setCandidates(list)
     }
 
     private fun effectSpaceKey(inputConnection: InputConnection) {
-        if (mComposing.isNotEmpty()) {
-            val sel = if (candidateList.size > 1) getCandidate(1) else getCandidate(0)
+        if (inputProcessor.state.composingText.isNotEmpty()) {
+            val sel = if (inputProcessor.state.candidates.size > 1) getCandidate(1) else getCandidate(0)
             onCandidate(sel)
         } else {
             inputConnection.commitText(" ", 1)
@@ -706,14 +669,14 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun effectEnterKey(inputConnection: InputConnection) {
-        if (mComposing.isNotEmpty()) {
+        if (inputProcessor.state.composingText.isNotEmpty()) {
             onCandidate(getCandidate(0))
         } else if (enterKeyHasAction) {
             inputConnection.performEditorAction(inputOptionsBits)
         } else {
             inputConnection.commitText("\n", 1)
         }
-        setCandidateList(emptyList())
+        inputProcessor.clearComposition()
     }
 
     override fun saveKeyboard(keyboard: Keyboard) {
@@ -725,14 +688,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         )
     }
 
-    private fun setCandidateList(candidateList: List<String>) {
-        this.candidateList = candidateList
-        inputContainer!!.setCandidateList(candidateList)
-    }
-
     private fun getCandidate(idx: Int): String {
         return try {
-            if (candidateList.size > idx) candidateList[idx] else ""
+            val candidates = inputProcessor.state.candidates
+            if (candidates.size > idx) candidates[idx] else ""
         } catch (exception: IndexOutOfBoundsException) {
             ""
         }
