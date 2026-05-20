@@ -616,6 +616,19 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     private fun effectStrokeAppend(key: String) {
         val newInputSequence = mComposing + key
         var list = computeCandidateList(newInputSequence)
+        
+        // Handle factorial in digit keyboard immediately if possible
+        if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_DIGIT && newInputSequence.endsWith("!")) {
+            val parser = MathParser.create()
+            try {
+                val res = parser.parse(newInputSequence)
+                // If parsing succeeds, we add the expression and its result to the top
+                list = mutableListOf(newInputSequence, res.toString()) + list
+            } catch (e: Exception) {
+                // If parsing fails (e.g. incomplete expression), we just continue
+            }
+        }
+        
         if (list.size == 1) {
             val parser = MathParser.create()
             try {
