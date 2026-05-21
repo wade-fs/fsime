@@ -14,12 +14,34 @@ class BDatabase(context: Context?) :
     private var db: SQLiteDatabase? = null
     private var ts = 0
 
+    val FUZZY_EXACT = 0
+    val FUZZY_PREFIX = 1
+    val FUZZY_FULL = 2
+
     init {
         setForcedUpgrade(DATABASE_VERSION)
+        initializeUserTable()
+    }
+
+    private fun initializeUserTable() {
+        val db = writableDatabase
+        db.execSQL("CREATE TABLE IF NOT EXISTS user_learning (context TEXT, ch TEXT, freq INTEGER, PRIMARY KEY (context, ch))")
     }
 
     fun setTs(t: Int) {
         ts = t
+    }
+
+    fun updateUsage(context: String, ch: String) {
+        val db = writableDatabase
+        // We track unigrams (context = "") and bigrams (context = last char)
+        val contextKey = if (context.isEmpty()) "" else context.substring(context.length - 1)
+        
+        db.execSQL(
+            "INSERT INTO user_learning (context, ch, freq) VALUES (?, ?, 1) " +
+            "ON CONFLICT(context, ch) DO UPDATE SET freq = freq + 1",
+            arrayOf(contextKey, ch)
+        )
     }
 
     private fun isIn(res: ArrayList<B>, b: B): Boolean {
@@ -113,10 +135,6 @@ class BDatabase(context: Context?) :
         return codes
     }
 
-    var FUZZY_EXACT = 0
-    var FUZZY_PREFIX = 1
-    var FUZZY_FULL = 2
-
     @SuppressLint("Range")
     private fun query(
         k: String,
@@ -129,20 +147,31 @@ class BDatabase(context: Context?) :
         val list = ArrayList<B>()
         val db = writableDatabase
         val useFreq = table == "ngram"
-        val orderBy = if (useFreq) " ORDER BY freq DESC" else ""
         
+        // If it's a phrase lookup (ngram), we join with user_learning to prioritize user choices
         val q: String
         val selectionArgs: Array<String>
         
-        if (fuzzy == FUZZY_EXACT) {
-            q = "SELECT * FROM $table WHERE $field = ?$orderBy LIMIT ? OFFSET ?;"
+        if (useFreq) {
+            // Join with user_learning to get personalized frequency
+            q = """
+                SELECT n.context, n.ch, (n.freq + IFNULL(u.freq * 100000, 0)) as total_freq 
+                FROM ngram n 
+                LEFT JOIN user_learning u ON n.context = u.context AND n.ch = u.ch
+                WHERE n.context = ? 
+                ORDER BY total_freq DESC 
+                LIMIT ? OFFSET ?;
+            """.trimIndent()
+            selectionArgs = arrayOf(k, max.toString(), start.toString())
+        } else if (fuzzy == FUZZY_EXACT) {
+            q = "SELECT * FROM $table WHERE $field = ? LIMIT ? OFFSET ?;"
             selectionArgs = arrayOf(k, max.toString(), start.toString())
         } else if (fuzzy == FUZZY_PREFIX) {
             val pattern = if (useFreq) "$k%" else "${k}_%"
-            q = "SELECT * FROM $table WHERE $field LIKE ?$orderBy LIMIT ? OFFSET ?;"
+            q = "SELECT * FROM $table WHERE $field LIKE ? LIMIT ? OFFSET ?;"
             selectionArgs = arrayOf(pattern, max.toString(), start.toString())
         } else {
-            q = "SELECT * FROM $table WHERE $field LIKE ?$orderBy LIMIT ? OFFSET ?;"
+            q = "SELECT * FROM $table WHERE $field LIKE ? LIMIT ? OFFSET ?;"
             selectionArgs = arrayOf("%$k%", max.toString(), start.toString())
         }
         
@@ -151,6 +180,7 @@ class BDatabase(context: Context?) :
         val chIdx = cursor.getColumnIndex(CH)
         val engIdx = cursor.getColumnIndex(ENG)
         val freqIdx = cursor.getColumnIndex(FREQ)
+        val totalFreqIdx = cursor.getColumnIndex("total_freq")
         
         if (ts != 0 && !TS.isInitialized()) {
             val mapping = getTSMapping()
@@ -162,7 +192,11 @@ class BDatabase(context: Context?) :
             if (idIdx != -1) b.id = cursor.getInt(idIdx)
             if (chIdx != -1) b.ch = cursor.getString(chIdx)
             if (engIdx != -1) b.eng = cursor.getString(engIdx)
-            if (useFreq && freqIdx != -1) b.freq = cursor.getDouble(freqIdx)
+            if (totalFreqIdx != -1) {
+                b.freq = cursor.getDouble(totalFreqIdx)
+            } else if (useFreq && freqIdx != -1) {
+                b.freq = cursor.getDouble(freqIdx)
+            }
             
             val originalCh = b.ch
             if (originalCh != null) {

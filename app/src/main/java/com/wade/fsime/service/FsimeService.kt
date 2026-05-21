@@ -427,7 +427,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     override fun onCandidate(candidate: String?) {
         val inputConnection = currentInputConnection ?: return
+        val context = getTextBeforeCursor(inputConnection, 1)
         inputConnection.commitText(candidate, 1)
+        
+        if (candidate != null) {
+            inputProcessor.recordSelection(context, candidate)
+        }
+        
         inputProcessor.clearComposition()
         updateRelative(candidate!!)
     }

@@ -111,6 +111,10 @@ class InputProcessor(
         return bdatabase.getPhrase(tb, contextString, 0, 30)
     }
 
+    fun recordSelection(contextString: String, selection: String) {
+        bdatabase.updateUsage(contextString, selection)
+    }
+
     fun pickCandidate(index: Int): String? {
         val candidate = state.candidates.getOrNull(index)
         if (candidate != null) {
