@@ -1,3 +1,8 @@
+# 混瞎輸入法 (FS IME)
+
+[![Release](https://img.shields.io/github/v/release/wade/fsime?label=最新版本)](https://github.com/wade/fsime/releases/latest)
+[![Download APK](https://img.shields.io/badge/下載-APK-success)](https://github.com/wade/fsime/releases/download/v1.0/com.wade.fsime-v1.0-release.apk)
+
 # 原始來源: [筆劃輸入法][1]
 # 用法
 - 想法是用全英文鍵盤來進行嘸蝦米＋注音＋倉頡＋筆劃...輸入，所以稱之為混瞎輸入法 (FS IME)

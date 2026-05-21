@@ -5,10 +5,11 @@ plugins {
 android {
     signingConfigs {
         release {
-            keyAlias = 'androidapk'
-            keyPassword = 'jjchen'
-            storeFile = file('/home/wade/.ssh/androidapk.jks')
-            storePassword = 'jjchen'
+            keyAlias = System.getenv("SIGNING_KEY_ALIAS") ?: 'androidapk'
+            keyPassword = System.getenv("SIGNING_KEY_PASSWORD") ?: 'jjchen'
+            val keyFile = System.getenv("SIGNING_KEY_FILE")
+            storeFile = if (keyFile != null) file(keyFile) else file('/home/wade/.ssh/androidapk.jks')
+            storePassword = System.getenv("SIGNING_STORE_PASSWORD") ?: 'jjchen'
         }
     }
     compileSdk = 35
@@ -16,8 +17,10 @@ android {
         applicationId = "com.wade.fsime"
         minSdkVersion = 33
         targetSdkVersion = 35
+        // versionCode = 260521
+        // versionName = "26-05-21"
         versionCode = 260521
-        versionName = "26-05-21"
+        versionName = "v1.0"
     }
     buildTypes {
        release {
