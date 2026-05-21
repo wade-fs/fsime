@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'
 
+env:
+  # 解決 GitHub Actions 的 Node.js 20 廢棄警告
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,8 +27,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Decode Keystore
-        if: env.SIGNING_KEY_BASE64 != null
         run: |
+          if [ -z "${{ secrets.SIGNING_KEY_BASE64 }}" ]; then
+            echo "Error: SIGNING_KEY_BASE64 secret is missing!"
+            exit 1
+          fi
           echo "${{ secrets.SIGNING_KEY_BASE64 }}" | base64 --decode > release.jks
         env:
           SIGNING_KEY_BASE64: ${{ secrets.SIGNING_KEY_BASE64 }}
