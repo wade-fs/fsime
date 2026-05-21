@@ -32,16 +32,24 @@ class BDatabase(context: Context?) :
         ts = t
     }
 
-    fun updateUsage(context: String, ch: String) {
+    fun updateUsage(prevChar: String, code: String, ch: String) {
         val db = writableDatabase
-        // We track unigrams (context = "") and bigrams (context = last char)
-        val contextKey = if (context.isEmpty()) "" else context.substring(context.length - 1)
-        
+        // 1. Record bigram association (context = previous character)
+        val contextKey = if (prevChar.isEmpty()) "" else prevChar.substring(prevChar.length - 1)
         db.execSQL(
             "INSERT INTO user_learning (context, ch, freq) VALUES (?, ?, 1) " +
             "ON CONFLICT(context, ch) DO UPDATE SET freq = freq + 1",
             arrayOf(contextKey, ch)
         )
+
+        // 2. Record code association (context = "code:" + input sequence)
+        if (code.isNotEmpty()) {
+            db.execSQL(
+                "INSERT INTO user_learning (context, ch, freq) VALUES (?, ?, 1) " +
+                "ON CONFLICT(context, ch) DO UPDATE SET freq = freq + 1",
+                arrayOf("code:$code", ch)
+            )
+        }
     }
 
     private fun isIn(res: ArrayList<B>, b: B): Boolean {
@@ -148,32 +156,32 @@ class BDatabase(context: Context?) :
         val db = writableDatabase
         val useFreq = table == "ngram"
         
-        // If it's a phrase lookup (ngram), we join with user_learning to prioritize user choices
+        // Context key for user learning: 
+        // If it's ngram, use k (the context), else use "code:" + k
+        val userContextKey = if (useFreq) k else "code:$k"
+
         val q: String
         val selectionArgs: Array<String>
         
-        if (useFreq) {
-            // Join with user_learning to get personalized frequency
-            q = """
-                SELECT n.context, n.ch, (n.freq + IFNULL(u.freq * 100000, 0)) as total_freq 
-                FROM ngram n 
-                LEFT JOIN user_learning u ON n.context = u.context AND n.ch = u.ch
-                WHERE n.context = ? 
-                ORDER BY total_freq DESC 
-                LIMIT ? OFFSET ?;
-            """.trimIndent()
-            selectionArgs = arrayOf(k, max.toString(), start.toString())
-        } else if (fuzzy == FUZZY_EXACT) {
-            q = "SELECT * FROM $table WHERE $field = ? LIMIT ? OFFSET ?;"
-            selectionArgs = arrayOf(k, max.toString(), start.toString())
-        } else if (fuzzy == FUZZY_PREFIX) {
-            val pattern = if (useFreq) "$k%" else "${k}_%"
-            q = "SELECT * FROM $table WHERE $field LIKE ? LIMIT ? OFFSET ?;"
-            selectionArgs = arrayOf(pattern, max.toString(), start.toString())
-        } else {
-            q = "SELECT * FROM $table WHERE $field LIKE ? LIMIT ? OFFSET ?;"
-            selectionArgs = arrayOf("%$k%", max.toString(), start.toString())
+        // We join with user_learning for ALL queries to prioritize user choices
+        val baseFreqColumn = if (useFreq) "t.freq" else "0"
+        val whereClause = if (fuzzy == FUZZY_EXACT) "t.$field = ?" else "t.$field LIKE ?"
+        val pattern = when (fuzzy) {
+            FUZZY_EXACT -> k
+            FUZZY_PREFIX -> if (useFreq) "$k%" else "${k}_%"
+            else -> "%$k%"
         }
+
+        q = """
+            SELECT t.*, (IFNULL(u.freq, 0) * 100000 + $baseFreqColumn) as total_freq 
+            FROM $table t 
+            LEFT JOIN user_learning u ON u.context = ? AND u.ch = t.ch
+            WHERE $whereClause 
+            ORDER BY total_freq DESC 
+            LIMIT ? OFFSET ?;
+        """.trimIndent()
+        
+        selectionArgs = arrayOf(userContextKey, pattern, max.toString(), start.toString())
         
         val cursor = db.rawQuery(q, selectionArgs)
         val idIdx = cursor.getColumnIndex(ID)

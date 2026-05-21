@@ -111,8 +111,9 @@ class InputProcessor(
         return bdatabase.getPhrase(tb, contextString, 0, 30)
     }
 
-    fun recordSelection(contextString: String, selection: String) {
-        bdatabase.updateUsage(contextString, selection)
+    fun recordSelection(prevChar: String, selection: String) {
+        val code = state.composingText
+        bdatabase.updateUsage(prevChar, code, selection)
     }
 
     fun pickCandidate(index: Int): String? {

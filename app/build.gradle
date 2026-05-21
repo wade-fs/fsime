@@ -16,8 +16,8 @@ android {
         applicationId = "com.wade.fsime"
         minSdkVersion = 33
         targetSdkVersion = 35
-        versionCode = 260520
-        versionName = "26-05-20"
+        versionCode = 260521
+        versionName = "26-05-21"
     }
     buildTypes {
        release {
