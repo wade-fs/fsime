@@ -22,6 +22,6 @@
   只要在您的終端機輸入：
 
    1 git tag v1.0
-   2 git push origin v1.0
+   2 git push github v1.0
   GitHub 就會開始自動幫您編譯並上傳 APK 到 Release 頁面了！
 
