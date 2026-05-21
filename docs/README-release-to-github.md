@@ -22,6 +22,12 @@
   只要在您的終端機輸入：
 
    1 git tag v1.0
-   2 git push github v1.0
+   2 git push origin v1.0
   GitHub 就會開始自動幫您編譯並上傳 APK 到 Release 頁面了！
 
+  要怎樣重設 tag?
+  需要先刪本地的:
+
+   1 git tag -d v1.1
+   2 git tag v1.1
+   3 git push github v1.1 --force

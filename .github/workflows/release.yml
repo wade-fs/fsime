@@ -26,12 +26,19 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Decode Keystore
+      - name: Check Secrets and Decode Keystore
         run: |
-          if [ -z "${{ secrets.SIGNING_KEY_BASE64 }}" ]; then
-            echo "Error: SIGNING_KEY_BASE64 secret is missing!"
+          missing=0
+          if [ -z "${{ secrets.SIGNING_KEY_BASE64 }}" ]; then echo "Error: SIGNING_KEY_BASE64 is missing"; missing=1; fi
+          if [ -z "${{ secrets.KEY_ALIAS }}" ]; then echo "Error: KEY_ALIAS is missing"; missing=1; fi
+          if [ -z "${{ secrets.KEY_PASSWORD }}" ]; then echo "Error: KEY_PASSWORD is missing"; missing=1; fi
+          if [ -z "${{ secrets.STORE_PASSWORD }}" ]; then echo "Error: STORE_PASSWORD is missing"; missing=1; fi
+          
+          if [ $missing -eq 1 ]; then
+            echo "Please set all required secrets in GitHub: Settings -> Secrets and variables -> Actions"
             exit 1
           fi
+          
           echo "${{ secrets.SIGNING_KEY_BASE64 }}" | base64 --decode > release.jks
         env:
           SIGNING_KEY_BASE64: ${{ secrets.SIGNING_KEY_BASE64 }}
