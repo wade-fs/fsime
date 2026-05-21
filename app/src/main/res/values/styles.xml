@@ -74,4 +74,11 @@
     <item name="android:insetBottom">@dimen/inset_vertical__main_activity__button</item>
     <item name="android:minHeight">@dimen/min_height__main_activity__button</item>
   </style>
+
+  <style name="Theme.AppCompat.NoActionBar.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
 </resources>

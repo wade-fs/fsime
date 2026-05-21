@@ -17,6 +17,16 @@ import com.wade.fsime.ui.adapter.CandidatesViewAdapter
 
 import com.wade.fsime.engine.InputProcessor
 import com.wade.fsime.engine.KeyboardState
+import android.net.Uri
+import android.provider.Settings
+import android.Manifest
+import android.content.pm.PackageManager
+import com.wade.fsime.activity.OCRActivity
+import com.wade.fsime.activity.OCRResultHolder
+import androidx.core.content.ContextCompat
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.IntentFilter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.inputmethodservice.InputMethodService
@@ -69,6 +79,41 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     
     private var recognizer: DigitalInkRecognizer? = null
     private var model: DigitalInkRecognitionModel? = null
+    private var pendingOcrResult: String? = null
+
+    private val ocrResultReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action == OCRActivity.ACTION_OCR_RESULT) {
+                val text = intent.getStringExtra(OCRActivity.EXTRA_OCR_TEXT)
+                if (!text.isNullOrEmpty()) {
+                    pendingOcrResult = text
+                    commitPendingOcrResult()
+                }
+            }
+        }
+    }
+
+    private fun checkOCRResultHolder() {
+        val text = OCRResultHolder.pendingResult
+        if (!text.isNullOrEmpty()) {
+            Log.i(LOG_TAG, "Found result in OCRResultHolder: '$text'")
+            pendingOcrResult = text
+            OCRResultHolder.pendingResult = null
+            commitPendingOcrResult()
+        }
+    }
+
+    private fun commitPendingOcrResult() {
+        val text = pendingOcrResult ?: return
+        val ic = currentInputConnection
+        if (ic != null) {
+            Log.i(LOG_TAG, "Committing OCR text: '$text'")
+            ic.commitText(text, 1)
+            pendingOcrResult = null
+        } else {
+            Log.w(LOG_TAG, "Cannot commit OCR text, InputConnection is null")
+        }
+    }
 
     val SWIPE_NONE = 0
     val SWIPE_RU = 1
@@ -122,6 +167,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
         }
 
+        val filter = IntentFilter(OCRActivity.ACTION_OCR_RESULT)
+        registerReceiver(ocrResultReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+
         initSpeechRecognizer()
         initHandwritingRecognizer()
 
@@ -152,6 +200,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onDestroy() {
         super.onDestroy()
         speechRecognizer?.destroy()
+        unregisterReceiver(ocrResultReceiver)
     }
 
     private fun initSpeechRecognizer() {
@@ -198,6 +247,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun startVoiceInput() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(applicationContext, "需開啟錄音權限才能使用語音輸入，請在設定中開啟", Toast.LENGTH_LONG).show()
+            openAppSettings()
+            return
+        }
+
         if (speechRecognizer == null) {
             Toast.makeText(applicationContext, "此裝置不支援語音辨識", Toast.LENGTH_LONG).show()
             initSpeechRecognizer() // 嘗試再次初始化
@@ -217,6 +272,14 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         } catch (e: Exception) {
             Toast.makeText(applicationContext, "無法啟動語音：${e.message}", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun openAppSettings() {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+            data = Uri.fromParts("package", packageName, null)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        startActivity(intent)
     }
 
     private fun initHandwritingRecognizer() {
@@ -383,12 +446,15 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     override fun onStartInputView(editorInfo: EditorInfo, isRestarting: Boolean) {
         super.onStartInputView(editorInfo, isRestarting)
+        Log.d(LOG_TAG, "onStartInputView, checking OCR holder...")
         updateFullscreenMode() // needed in API level 31+ so that fullscreen works after rotate whilst keyboard showing
         val isFullscreen = isFullscreenMode
         inputContainer!!.setBackground(isFullscreen)
         inputContainer!!.setCandidateList(inputProcessor.state.candidates)
         setEnterKeyDisplayText()
         setCandidateOrder()
+        
+        checkOCRResultHolder() // Check for results whenever keyboard appears
     }
 
     private fun setEnterKeyDisplayText() {
@@ -538,7 +604,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 startVoiceInput()
             }
             "VOICE" -> {
-                inputProcessor.updateHandwritingVisibility(true)
+                val intent = Intent(this, OCRActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
             }
             else -> {
                 if (shiftText.isNotEmpty() && !key.isControlKey) {

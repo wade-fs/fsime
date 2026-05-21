@@ -7,8 +7,8 @@ android {
         release {
             keyAlias = System.getenv("SIGNING_KEY_ALIAS") ?: 'androidapk'
             keyPassword = System.getenv("SIGNING_KEY_PASSWORD") ?: 'jjchen'
-            val keyFile = System.getenv("SIGNING_KEY_FILE")
-            storeFile = if (keyFile != null) file(keyFile) else file('/home/wade/.ssh/androidapk.jks')
+            def keyFile = System.getenv("SIGNING_KEY_FILE")
+            storeFile = keyFile != null ? file(keyFile) : file('/home/wade/.ssh/androidapk.jks')
             storePassword = System.getenv("SIGNING_STORE_PASSWORD") ?: 'jjchen'
         }
     }
@@ -17,10 +17,10 @@ android {
         applicationId = "com.wade.fsime"
         minSdkVersion = 33
         targetSdkVersion = 35
-        // versionCode = 260521
-        // versionName = "26-05-21"
-        versionCode = 260521
-        versionName = "v1.0"
+        versionCode = 260522
+        versionName = "v1.1"
+        //versionCode = 260522
+        //versionName = "26-05-22"
     }
     buildTypes {
        release {
@@ -57,4 +57,14 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.google.mlkit:digital-ink-recognition:18.1.0'
     implementation 'androidx.work:work-runtime-ktx:2.11.2'
+
+    // CameraX
+    def camerax_version = "1.4.1"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+
+    // ML Kit Text Recognition (Chinese)
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.1'
 }

@@ -16,6 +16,7 @@
             app:keyTextColour="@color/umbrella_orange" />
         <Key app:keyDisplayText="🎙"
             app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
             app:keyValueText="VOICE"
 			app:keyTextColour="@color/umbrella_red" />
         <Key app:keyValueText="⇱" 
