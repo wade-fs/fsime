@@ -5,10 +5,6 @@ on:
     tags:
       - 'v*'
 
-env:
-  # 解決 GitHub Actions 的 Node.js 20 廢棄警告
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,19 +25,25 @@ jobs:
       - name: Check Secrets and Decode Keystore
         run: |
           missing=0
-          if [ -z "${{ secrets.SIGNING_KEY_BASE64 }}" ]; then echo "Error: SIGNING_KEY_BASE64 is missing"; missing=1; fi
-          if [ -z "${{ secrets.KEY_ALIAS }}" ]; then echo "Error: KEY_ALIAS is missing"; missing=1; fi
-          if [ -z "${{ secrets.KEY_PASSWORD }}" ]; then echo "Error: KEY_PASSWORD is missing"; missing=1; fi
-          if [ -z "${{ secrets.STORE_PASSWORD }}" ]; then echo "Error: STORE_PASSWORD is missing"; missing=1; fi
-          
+          echo "=== Debugging Secrets (checking length only) ==="
+          if [ -z "${{ secrets.SIGNING_KEY_BASE64 }}" ]; then echo "Error: SIGNING_KEY_BASE64 is missing"; missing=1; else echo "SIGNING_KEY_BASE64 is present (length: ${#SECRET_KEY_B64})"; fi
+          if [ -z "${{ secrets.KEY_ALIAS }}" ]; then echo "Error: KEY_ALIAS is missing"; missing=1; else echo "KEY_ALIAS is present"; fi
+          if [ -z "${{ secrets.KEY_PASSWORD }}" ]; then echo "Error: KEY_PASSWORD is missing"; missing=1; else echo "KEY_PASSWORD is present"; fi
+          if [ -z "${{ secrets.STORE_PASSWORD }}" ]; then echo "Error: STORE_PASSWORD is missing"; missing=1; else echo "STORE_PASSWORD is present"; fi
+
           if [ $missing -eq 1 ]; then
-            echo "Please set all required secrets in GitHub: Settings -> Secrets and variables -> Actions"
+            echo "::error::One or more secrets are missing. Please check GitHub Settings -> Secrets -> Actions."
             exit 1
           fi
-          
-          echo "$SIGNING_KEY_BASE64" | base64 --decode > release.jks
+
+          echo "${{ secrets.SIGNING_KEY_BASE64 }}" | base64 --decode > release.jks
+          if [ $? -ne 0 ]; then
+            echo "::error::Failed to decode SIGNING_KEY_BASE64. Ensure it is a valid base64 string."
+            exit 1
+          fi
+          echo "Keystore decoded successfully."
         env:
-          SIGNING_KEY_BASE64: ${{ secrets.SIGNING_KEY_BASE64 }}
+          SECRET_KEY_B64: ${{ secrets.SIGNING_KEY_BASE64 }}
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
@@ -60,3 +62,4 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
