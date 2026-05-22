@@ -39,7 +39,7 @@ jobs:
             exit 1
           fi
           
-          echo "${{ secrets.SIGNING_KEY_BASE64 }}" | base64 --decode > release.jks
+          echo "$SIGNING_KEY_BASE64" | base64 --decode > release.jks
         env:
           SIGNING_KEY_BASE64: ${{ secrets.SIGNING_KEY_BASE64 }}
 
