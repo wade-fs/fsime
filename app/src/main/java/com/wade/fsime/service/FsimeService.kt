@@ -23,6 +23,8 @@ import android.Manifest
 import android.content.pm.PackageManager
 import com.wade.fsime.activity.OCRActivity
 import com.wade.fsime.activity.OCRResultHolder
+import com.wade.fsime.activity.BarcodeActivity
+import com.wade.fsime.activity.BarcodeResultHolder
 import androidx.core.content.ContextCompat
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -603,6 +605,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             SHIFT_KEY_VALUE_TEXT -> {
                 startVoiceInput()
             }
+            "⇱" -> {
+                val intent = Intent(this, BarcodeActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
+            }
             "VOICE" -> {
                 val intent = Intent(this, OCRActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -799,3 +807,4 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8 = 100
     }
 }
+
