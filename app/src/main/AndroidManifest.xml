@@ -68,5 +68,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar.FullScreen"
         android:screenOrientation="portrait"
         android:exported="false" />
+
+    <activity
+        android:name="com.wade.fsime.activity.QRCodeActivity"
+        android:theme="@style/Theme.AppCompat.NoActionBar.FullScreen"
+        android:screenOrientation="portrait"
+        android:exported="false" />
   </application>
 </manifest>

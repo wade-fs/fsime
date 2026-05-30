@@ -25,6 +25,7 @@
 			app:keyTextColour="@color/umbrella_yellow" />
         <Key app:keyValueText="⇲"
             app:keyIsPreviewable="false"
+            app:keyIsLongPressable="true"
 			app:keyTextColour="@color/umbrella_yellow" />
         <Key app:keyValueText="⇞"
             app:keyIsPreviewable="false"

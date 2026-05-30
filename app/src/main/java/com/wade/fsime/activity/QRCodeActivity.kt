@@ -24,21 +24,17 @@ import com.wade.fsime.R
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class BarcodeActivity : AppCompatActivity() {
+class QRCodeActivity : AppCompatActivity() {
 
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var previewView: PreviewView
-    private lateinit var viewfinder: View
     private var isAnalysisActive = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ocr)
+        setContentView(R.layout.activity_qrcode)
 
         previewView = findViewById(R.id.previewView)
-        viewfinder = findViewById(R.id.viewfinder)
-        val hintText = findViewById<android.widget.TextView>(R.id.hint_text)
-        hintText.text = "請將條碼對準方框"
 
         if (allPermissionsGranted()) {
             startCamera()
@@ -62,7 +58,7 @@ class BarcodeActivity : AppCompatActivity() {
             }
 
             val options = BarcodeScannerOptions.Builder()
-                .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS)
+                .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
                 .build()
             val scanner = BarcodeScanning.getClient(options)
 
@@ -106,14 +102,14 @@ class BarcodeActivity : AppCompatActivity() {
                             isAnalysisActive = false
                             BarcodeResultHolder.pendingResult = resultText
                             runOnUiThread {
-                                Toast.makeText(this, "辨識成功: $resultText", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "QR Code 辨識成功: $resultText", Toast.LENGTH_SHORT).show()
                                 finish()
                             }
                         }
                     }
                 }
                 .addOnFailureListener { e ->
-                    Log.e(TAG, "Barcode scanning failed", e)
+                    Log.e(TAG, "QR Code scanning failed", e)
                 }
                 .addOnCompleteListener {
                     imageProxy.close()
@@ -121,68 +117,6 @@ class BarcodeActivity : AppCompatActivity() {
         } else {
             imageProxy.close()
         }
-    }
-
-    private fun imageProxyToBitmap(image: ImageProxy): Bitmap? {
-        val buffer = image.planes[0].buffer
-        val bytes = ByteArray(buffer.remaining())
-        buffer.get(bytes)
-        val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-        
-        val rotationDegrees = image.imageInfo.rotationDegrees.toFloat()
-        return if (rotationDegrees != 0f) {
-            val matrix = Matrix()
-            matrix.postRotate(rotationDegrees)
-            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        } else {
-            bitmap
-        }
-    }
-
-    private fun getCroppedBitmap(fullBitmap: Bitmap): Bitmap {
-        val previewWidth = previewView.width.toFloat()
-        val previewHeight = previewView.height.toFloat()
-        val bitmapWidth = fullBitmap.width.toFloat()
-        val bitmapHeight = fullBitmap.height.toFloat()
-
-        val scale: Float
-        val dx: Float
-        val dy: Float
-
-        if (bitmapWidth * previewHeight > previewWidth * bitmapHeight) {
-            scale = previewHeight / bitmapHeight
-            dx = (previewWidth - bitmapWidth * scale) * 0.5f
-            dy = 0f
-        } else {
-            scale = previewWidth / bitmapWidth
-            dx = 0f
-            dy = (previewHeight - bitmapHeight * scale) * 0.5f
-        }
-
-        val matrix = Matrix()
-        matrix.postScale(scale, scale)
-        matrix.postTranslate(dx, dy)
-        
-        val inverseMatrix = Matrix()
-        matrix.invert(inverseMatrix)
-
-        val viewfinderRect = RectF(
-            viewfinder.left.toFloat(),
-            viewfinder.top.toFloat(),
-            viewfinder.right.toFloat(),
-            viewfinder.bottom.toFloat()
-        )
-        
-        val bitmapRect = RectF()
-        inverseMatrix.mapRect(bitmapRect, viewfinderRect)
-
-        val padding = 15f
-        val left = (bitmapRect.left - padding).coerceAtLeast(0f).toInt()
-        val top = (bitmapRect.top - padding).coerceAtLeast(0f).toInt()
-        val width = (bitmapRect.width() + padding * 2).toInt().coerceAtMost(fullBitmap.width - left)
-        val height = (bitmapRect.height() + padding * 2).toInt().coerceAtMost(fullBitmap.height - top)
-
-        return Bitmap.createBitmap(fullBitmap, left, top, width, height)
     }
 
     private fun openAppSettings() {
@@ -209,7 +143,7 @@ class BarcodeActivity : AppCompatActivity() {
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
-                Toast.makeText(this, "需開啟相機權限才能辨識條碼，請在設定中開啟", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "需開啟相機權限才能辨識 QR Code，請在設定中開啟", Toast.LENGTH_LONG).show()
                 openAppSettings()
                 finish()
             }
@@ -217,8 +151,8 @@ class BarcodeActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "BarcodeActivity"
-        private const val REQUEST_CODE_PERMISSIONS = 11
+        private const val TAG = "QRCodeActivity"
+        private const val REQUEST_CODE_PERMISSIONS = 12
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 }

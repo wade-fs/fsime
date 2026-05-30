@@ -24,6 +24,7 @@ import android.content.pm.PackageManager
 import com.wade.fsime.activity.OCRActivity
 import com.wade.fsime.activity.OCRResultHolder
 import com.wade.fsime.activity.BarcodeActivity
+import com.wade.fsime.activity.QRCodeActivity
 import com.wade.fsime.activity.BarcodeResultHolder
 import androidx.core.content.ContextCompat
 import android.content.BroadcastReceiver
@@ -96,21 +97,33 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun checkOCRResultHolder() {
-        val text = OCRResultHolder.pendingResult
-        if (!text.isNullOrEmpty()) {
-            Log.i(LOG_TAG, "Found result in OCRResultHolder: '$text'")
-            pendingOcrResult = text
+        val ocrText = OCRResultHolder.pendingResult
+        if (!ocrText.isNullOrEmpty()) {
+            Log.i(LOG_TAG, "Found result in OCRResultHolder: '$ocrText'")
+            pendingOcrResult = ocrText
             OCRResultHolder.pendingResult = null
-            commitPendingOcrResult()
+            commitPendingOcrResult(sendEnter = false)
+        }
+
+        val barcodeText = BarcodeResultHolder.pendingResult
+        if (!barcodeText.isNullOrEmpty()) {
+            Log.i(LOG_TAG, "Found result in BarcodeResultHolder: '$barcodeText'")
+            pendingOcrResult = barcodeText
+            BarcodeResultHolder.pendingResult = null
+            commitPendingOcrResult(sendEnter = true)
         }
     }
 
-    private fun commitPendingOcrResult() {
+    private fun commitPendingOcrResult(sendEnter: Boolean = false) {
         val text = pendingOcrResult ?: return
         val ic = currentInputConnection
         if (ic != null) {
             Log.i(LOG_TAG, "Committing OCR text: '$text'")
             ic.commitText(text, 1)
+            if (sendEnter) {
+                Log.i(LOG_TAG, "Sending Enter action after barcode")
+                effectEnterKey(ic)
+            }
             pendingOcrResult = null
         } else {
             Log.w(LOG_TAG, "Cannot commit OCR text, InputConnection is null")
@@ -607,6 +620,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
             "⇱" -> {
                 val intent = Intent(this, BarcodeActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
+            }
+            "⇲" -> {
+                val intent = Intent(this, QRCodeActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
                 startActivity(intent)
