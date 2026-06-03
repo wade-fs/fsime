@@ -1,0 +1,85 @@
+# Rime schema settings for FSIME
+schema:
+  schema_id: fsime
+  name: "混瞎"
+  version: "3.1"
+  author: "Wade"
+  description: |
+    FSIME Mixed Input Method.
+    All keys (a-z, 0-9, symbols) are for CODING.
+    Use Arrow keys to select, Space to commit.
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 英文 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - fallback_segmentor
+  translators:
+    - table_translator
+  filters:
+    - uniquifier
+
+speller:
+  # 包含所有你要求的 46 個按鍵
+  alphabet: "abcdefghijklmnopqrstuvwxyz1234567890-;',./`[]\\"
+  initials: "abcdefghijklmnopqrstuvwxyz1234567890-;',./`[]\\"
+  auto_select: false
+  max_code_length: 6
+  delimiter: " "
+
+translator:
+  dictionary: fsime
+  enable_completion: false
+  enable_sentence: false
+  enable_charset_filter: false
+  enable_encoder: false
+  encode_phrase_duration: 0
+  enable_user_dict: false
+  strict_spelling: true
+  max_phrase_length: 1
+
+menu:
+  page_size: 9
+  select_keys: ""
+
+key_binder:
+  import_preset: default
+  bindings:
+    # 方向鍵選字
+    - { when: has_menu, accept: Down, send: Page_Down }
+    - { when: has_menu, accept: Up, send: Page_Up }
+    # 讓空白鍵始終送出第一個(或選中的)候選字
+    - { when: has_menu, accept: space, send: commit }
+    # 屏蔽數字鍵選字功能，讓數字鍵回歸組字
+    - { when: composing, accept: 1, send: 1 }
+    - { when: composing, accept: 2, send: 2 }
+    - { when: composing, accept: 3, send: 3 }
+    - { when: composing, accept: 4, send: 4 }
+    - { when: composing, accept: 5, send: 5 }
+    - { when: composing, accept: 6, send: 6 }
+    - { when: composing, accept: 7, send: 7 }
+    - { when: composing, accept: 8, send: 8 }
+    - { when: composing, accept: 9, send: 9 }
+    - { when: composing, accept: 0, send: 0 }
+
+punctuator:
+  full_shape: {}
+  half_shape: {}
+
+recognizer:
+  import_preset: default
+  patterns: {}
