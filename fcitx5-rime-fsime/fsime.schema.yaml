@@ -34,12 +34,10 @@ engine:
     - uniquifier
 
 speller:
-  # 包含所有你要求的 46 個按鍵
   alphabet: "abcdefghijklmnopqrstuvwxyz1234567890-;',./`[]\\"
-  initials: "abcdefghijklmnopqrstuvwxyz1234567890-;',./`[]\\"
+  delimiter: " "
   auto_select: false
   max_code_length: 6
-  delimiter: " "
 
 translator:
   dictionary: fsime
@@ -57,24 +55,29 @@ menu:
   select_keys: ""
 
 key_binder:
-  import_preset: default
   bindings:
-    # 方向鍵選字
     - { when: has_menu, accept: Down, send: Page_Down }
     - { when: has_menu, accept: Up, send: Page_Up }
-    # 讓空白鍵始終送出第一個(或選中的)候選字
-    - { when: has_menu, accept: space, send: commit }
-    # 屏蔽數字鍵選字功能，讓數字鍵回歸組字
     - { when: composing, accept: 1, send: 1 }
+    - { when: has_menu,  accept: 1, send: 1 }
     - { when: composing, accept: 2, send: 2 }
+    - { when: has_menu,  accept: 2, send: 2 }
     - { when: composing, accept: 3, send: 3 }
+    - { when: has_menu,  accept: 3, send: 3 }
     - { when: composing, accept: 4, send: 4 }
+    - { when: has_menu,  accept: 4, send: 4 }
     - { when: composing, accept: 5, send: 5 }
+    - { when: has_menu,  accept: 5, send: 5 }
     - { when: composing, accept: 6, send: 6 }
+    - { when: has_menu,  accept: 6, send: 6 }
     - { when: composing, accept: 7, send: 7 }
+    - { when: has_menu,  accept: 7, send: 7 }
     - { when: composing, accept: 8, send: 8 }
+    - { when: has_menu,  accept: 8, send: 8 }
     - { when: composing, accept: 9, send: 9 }
+    - { when: has_menu,  accept: 9, send: 9 }
     - { when: composing, accept: 0, send: 0 }
+    - { when: has_menu,  accept: 0, send: 0 }
 
 punctuator:
   full_shape: {}
