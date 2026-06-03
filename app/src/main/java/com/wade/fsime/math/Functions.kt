@@ -251,7 +251,7 @@ object Functions {
         val newParser = parser.clone()
         newParser.addVariable(variableName, from, 0)
         val variable = newParser.getVariable(variableName)
-        val ans = arrayOfNulls<Double>(1)
+        val ans = arrayOf<Any>(from)
         var out = 0.0
         if (step < 0) {
             val tmp = from
@@ -455,9 +455,9 @@ object Functions {
         var type = "!="
 
         if (matcher.find()) {
-            ca = parser.parse(matcher.group(1).trim())
-            cb = parser.parse(matcher.group(3).trim())
-            type = matcher.group(2).trim()
+            ca = parser.parse(matcher.group(1)!!.trim())
+            cb = parser.parse(matcher.group(3)!!.trim())
+            type = matcher.group(2)!!.trim()
         } else {
             ca = parser.parse(condition)
         }

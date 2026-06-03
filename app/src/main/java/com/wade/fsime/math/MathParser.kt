@@ -310,9 +310,9 @@ class MathParser private constructor() : Cloneable {
     private fun fixDoubleType(src: String): String {
         val matcher = Utils.doubleType.matcher(src)
         if (matcher.find()) {
-            val a = matcher.group(1)
+            val a = matcher.group(1)!!
             var b = a
-            val e = matcher.group(2)
+            val e = matcher.group(2)!!
             var ignoreE = a.endsWith("-") || a.endsWith("+")
             if (!ignoreE) {
                 try {
@@ -336,7 +336,7 @@ class MathParser private constructor() : Cloneable {
     private fun fixBinary(src: String): String {
         val matcher = Utils.binary.matcher(src)
         if (matcher.find()) {
-            val a = matcher.group(0)
+            val a = matcher.group(0)!!
             val value = java.lang.Long.parseLong(a.substring(3, a.length - 1), 2)
             val newSrc = src.substring(0, matcher.start() + 1) + value + src.substring(matcher.end() - 1)
             return fixBinary(newSrc)
@@ -350,7 +350,7 @@ class MathParser private constructor() : Cloneable {
     private fun fixHexadecimal(src: String): String {
         val matcher = Utils.hexadecimal.matcher(src)
         if (matcher.find()) {
-            val a = matcher.group(0)
+            val a = matcher.group(0)!!
             val value = java.lang.Long.parseLong(a.substring(3, a.length - 1), 16)
             val newSrc = src.substring(0, matcher.start() + 1) + value + src.substring(matcher.end() - 1)
             return fixHexadecimal(newSrc)
@@ -364,7 +364,7 @@ class MathParser private constructor() : Cloneable {
     private fun fixOctal(src: String): String {
         val matcher = Utils.octal.matcher(src)
         if (matcher.find()) {
-            val a = matcher.group(0)
+            val a = matcher.group(0)!!
             val value = java.lang.Long.parseLong(a.substring(3, a.length - 1), 8)
             val newSrc = src.substring(0, matcher.start() + 1) + value + src.substring(matcher.end() - 1)
             return fixOctal(newSrc)
@@ -453,7 +453,7 @@ class MathParser private constructor() : Cloneable {
             val matcher = Utils.innermostParentheses.matcher(src)
             if (matcher.find()) {
                 val name = generateTmpName()
-                var exp = matcher.group(0).trim { it <= ' ' }
+                var exp = matcher.group(0)!!.trim { it <= ' ' }
                 exp = exp.substring(1, exp.length - 1)
 
                 val matcher2 = Utils.splitParameters.matcher(exp)
@@ -486,7 +486,7 @@ class MathParser private constructor() : Cloneable {
                         } else if (answers.size > 1) throw MathFunctionNotFoundException(main, main.indexOf(wordBefore), wordBefore)
                     }
                 }
-                if (answers.size > 1 && function == null) throw MathFunctionNotFoundException(main, -1, null, matcher.group(0).trim { it <= ' ' })
+                if (answers.size > 1 && function == null) throw MathFunctionNotFoundException(main, -1, null, matcher.group(0)!!.trim { it <= ' ' })
 
                 val answers2 = ArrayList<Any>()
                 if (function == null) {
@@ -816,7 +816,8 @@ class MathParser private constructor() : Cloneable {
             return if (function == null) answer[0] as Double else function!!.calculate(answer)
         }
 
-        fun updateAnswer(vararg answers: Any?) {
+        fun updateAnswer(vararg answers: Any) {
+            @Suppress("UNCHECKED_CAST")
             this.answer = answers as Array<Any>
         }
 

@@ -304,10 +304,6 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             return
         }
         val builder = DigitalInkRecognitionModel.builder(modelIdentifier)
-        if (builder == null) {
-            Log.e(LOG_TAG, "Failed to create DigitalInkRecognitionModel builder")
-            return
-        }
         model = builder.build()
         val currentModel = model
         if (currentModel == null) {
