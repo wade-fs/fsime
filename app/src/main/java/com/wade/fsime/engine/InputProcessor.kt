@@ -87,13 +87,17 @@ class InputProcessor(
             try {
                 val parser = MathParser.create()
                 val exp = resultList[0]
+                android.util.Log.d("FSIME_MATH", "Attempting to parse: $exp")
                 val exps = exp.split(";").filter { it.isNotEmpty() }
                 for (i in 0 until exps.size - 1) {
                     parser.addExpression(exps[i])
                 }
                 val res = parser.parse(exps.last())
+                android.util.Log.d("FSIME_MATH", "Parse result: $res")
                 resultList.add(res.toString())
-            } catch (ignore: Exception) {}
+            } catch (e: Exception) {
+                android.util.Log.e("FSIME_MATH", "Parse failed: ${e.message}", e)
+            }
         }
 
         return resultList

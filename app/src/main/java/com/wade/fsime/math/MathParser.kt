@@ -147,7 +147,9 @@ class MathParser private constructor() : Cloneable {
 
         @JvmStatic
         fun create(): MathParser {
-            return MathParser()
+            return MathParser().apply {
+                functions.addAll(Functions.functions)
+            }
         }
 
         /**
@@ -813,7 +815,7 @@ class MathParser private constructor() : Cloneable {
 
         @Throws(MathParserException::class)
         fun getAnswer(): Double {
-            return if (function == null) answer[0] as Double else function!!.calculate(answer)
+            return if (function == null) answer[0] as Double else function!!.calculate(*answer)
         }
 
         fun updateAnswer(vararg answers: Any) {
@@ -837,7 +839,7 @@ class MathParser private constructor() : Cloneable {
                         if (o !is Double) allAreDouble = false
                     }
                 }
-                if (allAreDouble) function!!.calculate(ans.toArray(arrayOf<Double>())) else function!!.calculate(ans.toTypedArray())
+                if (allAreDouble) function!!.calculate(*ans.toArray(arrayOf<Double>())) else function!!.calculate(*ans.toTypedArray())
             }
         }
 

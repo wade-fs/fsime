@@ -173,7 +173,7 @@ object Functions {
 
     @JvmStatic
     fun ln(a: Double): Double {
-        return ln(a)
+        return kotlin.math.ln(a)
     }
 
     @JvmStatic
@@ -476,47 +476,47 @@ object Functions {
 
     @JvmStatic
     fun sin(x: Double): Double {
-        return sin(Math.toRadians(x))
+        return kotlin.math.sin(Math.toRadians(x))
     }
 
     @JvmStatic
     fun cos(x: Double): Double {
-        return cos(Math.toRadians(x))
+        return kotlin.math.cos(Math.toRadians(x))
     }
 
     @JvmStatic
     fun tan(x: Double): Double {
-        return tan(Math.toRadians(x))
+        return kotlin.math.tan(Math.toRadians(x))
     }
 
     @JvmStatic
     fun asin(x: Double): Double {
-        return Math.toDegrees(asin(x))
+        return Math.toDegrees(kotlin.math.asin(x))
     }
 
     @JvmStatic
     fun acos(x: Double): Double {
-        return Math.toDegrees(acos(x))
+        return Math.toDegrees(kotlin.math.acos(x))
     }
 
     @JvmStatic
     fun atan(x: Double): Double {
-        return Math.toDegrees(atan(x))
+        return Math.toDegrees(kotlin.math.atan(x))
     }
 
     @JvmStatic
     fun atan2(y: Double, x: Double): Double {
-        return Math.toDegrees(atan2(y, x))
+        return Math.toDegrees(kotlin.math.atan2(y, x))
     }
 
     @JvmStatic
     fun cot(x: Double): Double {
-        return 1.0 / tan(Math.toRadians(x))
+        return 1.0 / kotlin.math.tan(Math.toRadians(x))
     }
 
     @JvmStatic
     fun arccos(x: Double): Double {
-        return Math.toDegrees(acos(x))
+        return Math.toDegrees(kotlin.math.acos(x))
     }
 
     @JvmStatic
@@ -526,12 +526,12 @@ object Functions {
 
     @JvmStatic
     fun arccosh(x: Double): Double {
-        return ln(x + sqrt(x * x - 1))
+        return kotlin.math.ln(x + kotlin.math.sqrt(x * x - 1))
     }
 
     @JvmStatic
     fun arcsin(x: Double): Double {
-        return Math.toDegrees(asin(x))
+        return Math.toDegrees(kotlin.math.asin(x))
     }
 
     @JvmStatic
@@ -541,12 +541,12 @@ object Functions {
 
     @JvmStatic
     fun arcsinh(x: Double): Double {
-        return ln(x + sqrt(x * x + 1))
+        return kotlin.math.ln(x + kotlin.math.sqrt(x * x + 1))
     }
 
     @JvmStatic
     fun sec(x: Double): Double {
-        return 1.0 / cos(Math.toRadians(x))
+        return 1.0 / kotlin.math.cos(Math.toRadians(x))
     }
 
     @JvmStatic
@@ -556,7 +556,7 @@ object Functions {
 
     @JvmStatic
     fun arcsec(x: Double): Double {
-        return Math.toDegrees(acos(1.0 / x))
+        return Math.toDegrees(kotlin.math.acos(1.0 / x))
     }
 
     @JvmStatic
@@ -616,7 +616,7 @@ object Functions {
 
     @JvmStatic
     fun arctanh(x: Double): Double {
-        return 0.5 * ln((1 + x) / (1 - x))
+        return 0.5 * kotlin.math.ln((1 + x) / (1 - x))
     }
 
     @JvmStatic
