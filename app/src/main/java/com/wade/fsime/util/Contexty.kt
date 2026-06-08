@@ -67,4 +67,17 @@ object Contexty {
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showInputMethodPicker()
     }
+
+    @JvmStatic
+    fun isInputMethodEnabled(context: Context): Boolean {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val enabledImes = imm.enabledInputMethodList
+        val packageName = context.packageName
+        for (info in enabledImes) {
+            if (info.packageName == packageName) {
+                return true
+            }
+        }
+        return false
+    }
 }

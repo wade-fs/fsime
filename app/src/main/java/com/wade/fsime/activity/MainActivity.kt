@@ -31,14 +31,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        findViewById<View>(R.id.input_method_settings_button).setOnClickListener(this)
-        findViewById<View>(R.id.change_keyboard_button).setOnClickListener(this)
+        findViewById<View>(R.id.setup_ime_button).setOnClickListener(this)
         findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
         findViewById<View>(R.id.practice_button).setOnClickListener(this)
         findViewById<View>(R.id.db_management_button).setOnClickListener(this)
         findViewById<View>(R.id.digit_guide_button).setOnClickListener(this)
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
+        
+        val showShortestCodeCheckbox = findViewById<CheckBox>(R.id.ck_show_shortest_code_checkbox)
+        showShortestCodeCheckbox.isChecked = sharedPreferences!!.getUseKb("ck_show_shortest_code")
+        showShortestCodeCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences!!.write("ck_show_shortest_code", isChecked)
+        }
+
         val hkIds = intArrayOf(
             R.id.Ctrl1, R.id.Ctrl2, R.id.Ctrl3, R.id.Ctrl4, R.id.Ctrl5,
             R.id.Ctrl6, R.id.Ctrl7, R.id.Ctrl8, R.id.Ctrl9, R.id.Ctrl0,
@@ -94,8 +100,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         val viewId = view.id
         when (viewId) {
-            R.id.input_method_settings_button -> showSystemInputMethodSettings(this)
-            R.id.change_keyboard_button -> showSystemKeyboardChanger(this)
+            R.id.setup_ime_button -> {
+                if (!com.wade.fsime.util.Contexty.isInputMethodEnabled(this)) {
+                    // Step 1: Guide to enable
+                    com.wade.fsime.util.Contexty.showSystemInputMethodSettings(this)
+                } else {
+                    // Step 2: Already enabled, show picker to "use"
+                    com.wade.fsime.util.Contexty.showSystemKeyboardChanger(this)
+                }
+            }
             R.id.practice_button -> {
                 startActivity(Intent(this, PracticeActivity::class.java))
             }
