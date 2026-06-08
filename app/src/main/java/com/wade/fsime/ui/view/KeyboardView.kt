@@ -324,7 +324,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
         if (key.valueText == "SPACE" && shortestCode != null) {
             val paint = Paint(keyTextPaint).apply {
-                textSize = key.textSize * 0.48f
+                textSize = key.textSize * 0.72f
                 color = Color.GREEN
                 textAlign = Paint.Align.CENTER
             }
