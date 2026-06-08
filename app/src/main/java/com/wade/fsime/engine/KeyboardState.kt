@@ -6,6 +6,7 @@ package com.wade.fsime.engine
 data class KeyboardState(
     val composingText: String = "",
     val candidates: List<String> = emptyList(),
+    val shortestCode: String? = null,
     val activeKeyboardName: String = "full",
     val isHandwritingVisible: Boolean = false
 )

@@ -178,6 +178,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             inputContainer?.let {
                 it.setCandidateList(state.candidates)
                 it.showHandwriting(state.isHandwritingVisible)
+                it.redrawKeyboard() // Redraw to update Space key shortest code
                 // If you had a composing text view, you'd update it here.
             }
         }
@@ -384,7 +385,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
         } else if (inputProcessor.state.composingText.isEmpty()) {
             // Clear candidates only if we are not currently composing
-            // setCandidateList(emptyList())
+            inputProcessor.setCandidates(emptyList())
         }
     }
 
@@ -511,7 +512,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             inputProcessor.recordSelection(context, candidate)
         }
         
-        inputProcessor.clearComposition()
+        inputProcessor.commitText()
         updateRelative(candidate!!)
     }
 
@@ -774,7 +775,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         } else {
             inputConnection.commitText("\n", 1)
         }
-        inputProcessor.clearComposition()
+        inputProcessor.commitText()
+    }
+
+    override fun getShortestCode(): String? {
+        val showShortestCode = sharedPreferences?.getUseKb("ck_show_shortest_code") ?: true
+        if (!showShortestCode) return null
+        return inputProcessor.state.shortestCode
     }
 
     override fun saveKeyboard(keyboard: Keyboard) {

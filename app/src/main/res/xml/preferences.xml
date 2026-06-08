@@ -42,4 +42,11 @@
 			app:useSimpleSummaryProvider="true"
 			android:key="CtrlE" android:title="^e" />
 	</PreferenceCategory>
+
+    <PreferenceCategory android:title="General">
+        <CheckBoxPreference
+            android:key="ck_show_shortest_code"
+            android:title="@string/ck_show_shortest_code"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -78,6 +78,7 @@
 	<string name="ck_use_stroke">use Stroke Keyboard</string>
 	<string name="ck_use_mil">use Military Keyboard</string>
 	<string name="ck_phrase">phrase first</string>
+	<string name="ck_show_shortest_code">show shortest code on Space key</string>
 
 	<string name="label_practice">Blind Practice</string>
     <string name="label_db_management">Database Management</string>
@@ -126,6 +127,9 @@
 
 [Predictive Text]\n
 • Supports ngram next-word prediction\n\n
+
+[Shortest Code Hint]\n
+• Displays the shortest input code for the last selected character on the Space key. This helps users learn more efficient ways to type characters. Can be toggled in Settings.\n\n
 
 [Math &amp; Advanced Calculus]\n
 • Σ (Sum): Σ(var, expr, start, end) -> Σ(i, i^2, 1, 5)\n

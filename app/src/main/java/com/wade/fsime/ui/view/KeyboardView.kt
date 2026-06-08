@@ -178,6 +178,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         fun onSwipe(key: Key, swipeDir: Int)
         fun onGlobalSwipe(direction: Int)
         fun saveKeyboard(keyboard: Keyboard)
+        fun getShortestCode(): String?
     }
 
     fun setKeyboardListener(keyboardListener: KeyboardListener?) {
@@ -211,12 +212,13 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
 
         canvas.drawRect(keyboardRectangle, keyboardFillPaint)
 
+        val shortestCode = keyboardListener?.getShortestCode()
         for (key in list) {
-            drawKey(canvas, key, kb)
+            drawKey(canvas, key, kb, shortestCode)
         }
     }
 
-    private fun drawKey(canvas: Canvas, key: Key, kb: Keyboard) {
+    private fun drawKey(canvas: Canvas, key: Key, kb: Keyboard, shortestCode: String?) {
         keyRectangle.set(0, 0, key.width, key.height)
         var keyFillColour = key.fillColour
         if (key === activeKey ||
@@ -318,6 +320,15 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
             
             if (keyRightText.isNotEmpty()) canvas.drawText(keyRightText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
             else if (keyStrokeText.isNotEmpty()) canvas.drawText(keyStrokeText, keyRightTextX - 20, keyUpTextY, keyTextRightPaint)
+        }
+
+        if (key.valueText == "SPACE" && shortestCode != null) {
+            val paint = Paint(keyTextPaint).apply {
+                textSize = key.textSize * 0.48f
+                color = Color.GREEN
+                textAlign = Paint.Align.CENTER
+            }
+            canvas.drawText(shortestCode, keyTextX, keyTextY + 20, paint)
         }
 
         canvas.translate((-key.x).toFloat(), (-key.y).toFloat())

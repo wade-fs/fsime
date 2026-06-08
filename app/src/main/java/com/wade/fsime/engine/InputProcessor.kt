@@ -28,6 +28,10 @@ class InputProcessor(
         state = state.copy(activeKeyboardName = name)
     }
 
+    fun setCandidates(candidates: List<String>) {
+        state = state.copy(candidates = candidates)
+    }
+
     fun updateHandwritingVisibility(visible: Boolean) {
         state = state.copy(isHandwritingVisible = visible)
     }
@@ -35,9 +39,15 @@ class InputProcessor(
     fun appendStroke(stroke: String) {
         val newComposing = state.composingText + stroke
         val newCandidates = computeCandidateList(newComposing)
+        val newShortestCode = if (newCandidates.isNotEmpty()) {
+            bdatabase.reverseLookup(newCandidates[0]).firstOrNull()
+        } else {
+            null
+        }
         state = state.copy(
             composingText = newComposing,
-            candidates = newCandidates
+            candidates = newCandidates,
+            shortestCode = newShortestCode
         )
     }
 
@@ -45,9 +55,15 @@ class InputProcessor(
         if (state.composingText.isNotEmpty()) {
             val newComposing = removeSuffixRegex("(?s).", state.composingText)
             val newCandidates = computeCandidateList(newComposing)
+            val newShortestCode = if (newCandidates.isNotEmpty()) {
+                bdatabase.reverseLookup(newCandidates[0]).firstOrNull()
+            } else {
+                null
+            }
             state = state.copy(
                 composingText = newComposing,
-                candidates = newCandidates
+                candidates = newCandidates,
+                shortestCode = newShortestCode
             )
         }
     }
@@ -56,8 +72,8 @@ class InputProcessor(
         state = state.copy(composingText = "", candidates = emptyList())
     }
 
-    fun setCandidates(candidates: List<String>) {
-        state = state.copy(candidates = candidates)
+    fun commitText() {
+        state = state.copy(composingText = "", candidates = emptyList())
     }
 
     fun computeCandidateList(composing: String): List<String> {
@@ -103,13 +119,6 @@ class InputProcessor(
         return resultList
     }
 
-    fun updateRelative(lastCommitted: String) {
-        // Logic for phrase/vocabulary association
-        val tb = if (sharedPreferences.getUseKb("ck_phrase")) "phrase" else "vocabulary"
-        // This normally needs context from the input connection which we don't have here.
-        // We might need to pass the context string into this method.
-    }
-    
     fun getAssociatedPhrases(contextString: String): List<String> {
         val tb = if (sharedPreferences.getUseKb("ck_phrase")) "phrase" else "vocabulary"
         return bdatabase.getPhrase(tb, contextString, 0, 30)
@@ -118,6 +127,10 @@ class InputProcessor(
     fun recordSelection(prevChar: String, selection: String) {
         val code = state.composingText
         bdatabase.updateUsage(prevChar, code, selection)
+        
+        // Update shortestCode for the selected candidate
+        val newShortestCode = bdatabase.reverseLookup(selection).firstOrNull()
+        state = state.copy(shortestCode = newShortestCode)
     }
 
     fun pickCandidate(index: Int): String? {

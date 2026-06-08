@@ -56,6 +56,7 @@
 	<string name="ck_use_stroke">使用筆劃鍵盤</string>
 	<string name="ck_use_mil">使用測地程式</string>
 	<string name="ck_phrase">使用關聯詞庫</string>
+	<string name="ck_show_shortest_code">在空白鍵顯示字根提示</string>
 
 	<string name="label_practice">真瞎練習</string>
     <string name="label_db_management">資料庫管理</string>
@@ -106,6 +107,9 @@
 【關聯詞與預測】\n
 • 支援 ngram 預測，輸入後自動顯示可能的下一個字\n
 • 可在設定中選擇「關聯詞優先」\n\n
+
+【字根提示秘技】\n
+• 在選取候選字後，空白鍵會顯示該字的最短拆碼編碼。此功能有助於使用者學習更快速的拆碼方式。可在設定中隨時開啟或關閉。\n\n
 
 【豐富的鍵盤功能】\n
 • 提供 Full (全功能)、FS (混瞎)、Math (數字/運算)、Stroke (筆劃) 等多種模式\n
