@@ -30,6 +30,8 @@ import androidx.core.content.ContextCompat
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.IntentFilter
+import android.os.Build
+import android.graphics.Color
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.inputmethodservice.InputMethodService
@@ -395,6 +397,22 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         inputContainer!!.initialiseCandidatesView(this)
         inputContainer!!.initialiseKeyboardView(this, loadSavedKeyboard())
         inputContainer!!.setHandwritingListener(this)
+
+        // Fix for the white shading layer on the bottom row (navigation bar area)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window?.window?.let { win ->
+                win.navigationBarColor = Color.BLACK
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    win.navigationBarDividerColor = Color.TRANSPARENT
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                    @Suppress("DEPRECATION")
+                    win.decorView.systemUiVisibility = win.decorView.systemUiVisibility and
+                            View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
+                }
+            }
+        }
+
         return inputContainer!!
     }
 

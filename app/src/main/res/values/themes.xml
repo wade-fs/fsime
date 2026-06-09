@@ -6,7 +6,7 @@
     <!-- Base -->
     <item name="android:textColor">@android:color/black</item>
     <item name="android:textColorHint">@color/umbrella_grey</item>
-    <item name="android:windowBackground">@android:color/white</item>
+    <item name="android:windowBackground">@android:color/black</item>
     <!-- Primary -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryVariant">@color/yellow</item>
