@@ -802,6 +802,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         return inputProcessor.state.shortestCode
     }
 
+    override fun getHintFontSize(): String {
+        return sharedPreferences?.read("hintFontSize", "Small") ?: "Small"
+    }
+
     override fun saveKeyboard(keyboard: Keyboard) {
         savePreferenceString(
             applicationContext,

@@ -42,7 +42,7 @@
                 android:text="@string/label_db_management" />
         </LinearLayout>
 
-        <!-- Third Row: Guide and Shortest Code Toggle -->
+        <!-- Third Row: Guide -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,38 +51,47 @@
             <Button
                 android:id="@+id/digit_guide_button"
                 style="@style/MainActivityButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:text="@string/label_digit_keyboard_guide" />
-
-            <CheckBox
-                android:id="@+id/ck_show_shortest_code_checkbox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/ck_show_shortest_code" />
         </LinearLayout>
 
-        <!-- Fourth Row: Candidate Order Label and Button -->
+        <!-- Shortest Code Toggle Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <TextView
-                style="@style/MainActivityText"
-                android:layout_width="0dp"
-                android:layout_weight="1.2"
-                android:gravity="start"
-                android:text="@string/text__main_activity__candidate_order" />
+            <Button
+                android:id="@+id/ck_show_shortest_code_button"
+                style="@style/MainActivityButton"
+                android:layout_width="match_parent"
+                android:text="@string/ck_show_shortest_code" />
+        </LinearLayout>
 
+        <!-- Hint Font Size Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/hint_font_size_button"
+                style="@style/MainActivityButton"
+                android:layout_width="match_parent"
+                android:text="@string/pref_hint_font_size" />
+        </LinearLayout>
+
+        <!-- Candidate Order Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
             <Button
                 android:id="@+id/candidate_order_button"
                 style="@style/MainActivityButton"
-                android:layout_width="0dp"
-                android:layout_weight="0.8"
-                android:focusable="true"
-                android:text="@string/traditional_only" />
+                android:layout_width="match_parent"
+                android:text="@string/text__main_activity__candidate_order" />
         </LinearLayout>
 
         <EditText

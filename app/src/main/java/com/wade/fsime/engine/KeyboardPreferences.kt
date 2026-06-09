@@ -32,12 +32,12 @@ class KeyboardPreferences(contextWrapper: ContextWrapper) {
 
     //    private boolean read(String key, boolean defaultValue) { return preferences.getBoolean(key, defaultValue); }
     //    private int read(String key, int defaultValue) { return preferences.getInt(key, defaultValue); }
-    private fun read(key: String, defaultValue: String): String? {
-        return preferences.getString(key, defaultValue)
+    fun read(key: String, defaultValue: String): String {
+        return preferences.getString(key, defaultValue) ?: defaultValue
     }
 
     private fun safeRead(key: String, defaultValue: String): String {
-        return read(key, defaultValue) ?: return "0"
+        return read(key, defaultValue)
     }
     fun write(key: String?, value: String?) {
         preferences.edit().putString(key, value).apply()

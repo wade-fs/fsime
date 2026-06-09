@@ -179,6 +179,7 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         fun onGlobalSwipe(direction: Int)
         fun saveKeyboard(keyboard: Keyboard)
         fun getShortestCode(): String?
+        fun getHintFontSize(): String
     }
 
     fun setKeyboardListener(keyboardListener: KeyboardListener?) {
@@ -323,8 +324,15 @@ class KeyboardView(context: Context, attributes: AttributeSet?) : View(context, 
         }
 
         if (key.valueText == "SPACE" && shortestCode != null) {
+            val hintFontSize = keyboardListener?.getHintFontSize() ?: "Small"
+            val scale = when (hintFontSize) {
+                "Small" -> 1.0f
+                "Medium" -> 1.3f
+                "Large" -> 1.69f
+                else -> 1.0f
+            }
             val paint = Paint(keyTextPaint).apply {
-                textSize = key.textSize * 0.72f
+                textSize = key.textSize * 0.72f * scale
                 color = Color.GREEN
                 textAlign = Paint.Align.CENTER
             }

@@ -13,6 +13,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnFocusChangeListener
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
@@ -36,14 +37,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.practice_button).setOnClickListener(this)
         findViewById<View>(R.id.db_management_button).setOnClickListener(this)
         findViewById<View>(R.id.digit_guide_button).setOnClickListener(this)
+        findViewById<View>(R.id.ck_show_shortest_code_button).setOnClickListener(this)
+        findViewById<View>(R.id.hint_font_size_button).setOnClickListener(this)
         findViewById<View>(R.id.test_input).requestFocus()
         sharedPreferences = KeyboardPreferences(this)
         
-        val showShortestCodeCheckbox = findViewById<CheckBox>(R.id.ck_show_shortest_code_checkbox)
-        showShortestCodeCheckbox.isChecked = sharedPreferences!!.getUseKb("ck_show_shortest_code")
-        showShortestCodeCheckbox.setOnCheckedChangeListener { _, isChecked ->
-            sharedPreferences!!.write("ck_show_shortest_code", isChecked)
-        }
+        updateAllSettingsButtonText()
 
         val hkIds = intArrayOf(
             R.id.Ctrl1, R.id.Ctrl2, R.id.Ctrl3, R.id.Ctrl4, R.id.Ctrl5,
@@ -71,20 +70,61 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    private fun updateAllSettingsButtonText() {
         setCandidateOrderButtonText()
+        setHintFontSizeButtonText()
+        setShowShortestCodeButtonText()
+    }
+
+    private fun setShowShortestCodeButtonText() {
+        val button = findViewById<Button>(R.id.ck_show_shortest_code_button)
+        val isEnabled = sharedPreferences!!.getUseKb("ck_show_shortest_code")
+        val statusText = if (isEnabled) getString(R.string.status_on) else getString(R.string.status_off)
+        button.text = "${getString(R.string.ck_show_shortest_code)}: $statusText"
     }
 
     private fun setCandidateOrderButtonText() {
-        val candidateOrderButton = findViewById<TextView>(R.id.candidate_order_button)
+        val candidateOrderButton = findViewById<Button>(R.id.candidate_order_button)
         val candidateOrder = sharedPreferences!!.candidateOrder()
-        val candidateOrderButtonText = getString(
+        val statusText = getString(
             when (candidateOrder) {
                 "TraditionalOnly" -> R.string.traditional_only
                 "SimplifiedOnly" -> R.string.simplified_only
                 else -> R.string.chinese_both
             }
         )
-        candidateOrderButton.text = candidateOrderButtonText
+        candidateOrderButton.text = "${getString(R.string.text__main_activity__candidate_order)}: $statusText"
+    }
+
+    private fun setHintFontSizeButtonText() {
+        val button = findViewById<Button>(R.id.hint_font_size_button)
+        val size = sharedPreferences!!.read("hintFontSize", "Small")
+        val text = when (size) {
+            "Small" -> getString(R.string.font_size_small)
+            "Medium" -> getString(R.string.font_size_medium)
+            "Large" -> getString(R.string.font_size_large)
+            else -> getString(R.string.font_size_small)
+        }
+        button.text = "${getString(R.string.pref_hint_font_size)}: $text"
+    }
+
+    private fun toggleShowShortestCode() {
+        val current = sharedPreferences!!.getUseKb("ck_show_shortest_code")
+        sharedPreferences!!.write("ck_show_shortest_code", !current)
+        setShowShortestCodeButtonText()
+    }
+
+    private fun setNextHintFontSize() {
+        val current = sharedPreferences!!.read("hintFontSize", "Small")
+        val next = when (current) {
+            "Small" -> "Medium"
+            "Medium" -> "Large"
+            else -> "Small"
+        }
+        sharedPreferences!!.write("hintFontSize", next)
+        setHintFontSizeButtonText()
     }
     private fun setNextCandidateOrder() {
         val candidateOrder = sharedPreferences!!.candidateOrder()
@@ -124,6 +164,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.candidate_order_button -> {
                 setNextCandidateOrder()
+                view.requestFocusFromTouch()
+            }
+            R.id.hint_font_size_button -> {
+                setNextHintFontSize()
+                view.requestFocusFromTouch()
+            }
+            R.id.ck_show_shortest_code_button -> {
+                toggleShowShortestCode()
                 view.requestFocusFromTouch()
             }
         }
