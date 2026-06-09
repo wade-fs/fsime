@@ -232,9 +232,7 @@ class BDatabase(context: Context?) :
         val searchKey = k.lowercase()
         val resultList = ArrayList<String>()
         // Only add the search key if it's alphanumeric (code), not a Chinese character
-        if (k.all { it in 'a'..'z' || it in 'A'..'Z' || it in '0'..'9' || it in ",.-/;" }) {
-            resultList.add(k)
-        }
+        resultList.add(k)
         
         val tables = mutableListOf<String>()
         var limitMax = max
