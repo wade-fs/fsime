@@ -385,7 +385,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             }
         } else if (inputProcessor.state.composingText.isEmpty()) {
             // Clear candidates only if we are not currently composing
-            inputProcessor.setCandidates(emptyList())
+            // inputProcessor.setCandidates(emptyList())
         }
     }
 
