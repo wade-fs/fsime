@@ -418,13 +418,13 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     private fun setCandidateOrder() {
         val candidateOrder: String = sharedPreferences!!.candidateOrder()
-        bdatabase!!.setTs(
-            when (candidateOrder) {
-                "TraditionalOnly" -> 1
-                "SimplifiedOnly" -> 2
-                else -> 0
-            }
-        )
+        val tsMode = when (candidateOrder) {
+            "TraditionalOnly" -> 1
+            "SimplifiedOnly" -> 2
+            else -> 0
+        }
+        bdatabase!!.setTs(tsMode)
+        inputProcessor.setTs(tsMode)
     }
 
     private fun loadSavedKeyboard(): Keyboard? {

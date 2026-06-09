@@ -4,28 +4,28 @@ import android.util.Log
 
 /**
  * Created by npes87184 on 2015/4/10.
- * Modified to load mappings from database.
+ * Modified to load mappings from database and handle supplementary characters.
  */
 object TS {
-    private val T2S = HashMap<Char, Char>()
-    private val S2T = HashMap<Char, Char>()
+    private val T2S = HashMap<Int, Int>()
+    private val S2T = HashMap<Int, Int>()
     private var initialized = false
 
     fun initMapping(utf8t: String, utf8s: String) {
         if (initialized) return
         
-        val tChars = utf8t.toCharArray()
-        val sChars = utf8s.toCharArray()
+        val tCodePoints = utf8t.codePoints().toArray()
+        val sCodePoints = utf8s.codePoints().toArray()
         
-        val size = minOf(tChars.size, sChars.size)
+        val size = minOf(tCodePoints.size, sCodePoints.size)
         for (i in 0 until size) {
-            val cT = tChars[i]
-            val cS = sChars[i]
+            val cT = tCodePoints[i]
+            val cS = sCodePoints[i]
             T2S[cT] = cS
             S2T[cS] = cT
         }
         initialized = true
-        Log.i("TS", "Initialized mapping with $size characters")
+        Log.i("TS", "Initialized mapping with $size code points")
     }
 
     fun isInitialized(): Boolean {
@@ -34,29 +34,31 @@ object TS {
 
     @JvmStatic
     fun StoT(text: String): String {
-        if (!initialized) return text
-        val chars = text.toCharArray()
-        var i = 0
-        val n = chars.size
-        while (i < n) {
-            val found = S2T[chars[i]]
-            if (null != found) chars[i] = found
-            ++i
+        if (!initialized || text.isEmpty()) return text
+        val result = StringBuilder()
+        text.codePoints().forEach { cp ->
+            val found = S2T[cp]
+            if (found != null) {
+                result.appendCodePoint(found)
+            } else {
+                result.appendCodePoint(cp)
+            }
         }
-        return String(chars)
+        return result.toString()
     }
 
     @JvmStatic
     fun TtoS(text: String): String {
-        if (!initialized) return text
-        val chars = text.toCharArray()
-        var i = 0
-        val n = chars.size
-        while (i < n) {
-            val found = T2S[chars[i]]
-            if (null != found) chars[i] = found
-            ++i
+        if (!initialized || text.isEmpty()) return text
+        val result = StringBuilder()
+        text.codePoints().forEach { cp ->
+            val found = T2S[cp]
+            if (found != null) {
+                result.appendCodePoint(found)
+            } else {
+                result.appendCodePoint(cp)
+            }
         }
-        return String(chars)
+        return result.toString()
     }
 }

@@ -190,6 +190,7 @@ class BDatabase(context: Context?) :
         val freqIdx = cursor.getColumnIndex(FREQ)
         val totalFreqIdx = cursor.getColumnIndex("total_freq")
         
+        // Ensure TS is initialized if needed
         if (ts != 0 && !TS.isInitialized()) {
             val mapping = getTSMapping()
             TS.initMapping(mapping["UTF8T"] ?: "", mapping["UTF8S"] ?: "")
@@ -215,6 +216,7 @@ class BDatabase(context: Context?) :
                 }
             }
             
+            // Deduplicate: check if this character is already in the list
             if (list.none { it.ch == b.ch }) {
                 list.add(b)
             }
@@ -229,7 +231,10 @@ class BDatabase(context: Context?) :
         
         val searchKey = k.lowercase()
         val resultList = ArrayList<String>()
-        resultList.add(k)
+        // Only add the search key if it's alphanumeric (code), not a Chinese character
+        if (k.all { it in 'a'..'z' || it in 'A'..'Z' || it in '0'..'9' || it in ",.-/;" }) {
+            resultList.add(k)
+        }
         
         val tables = mutableListOf<String>()
         var limitMax = max
@@ -242,22 +247,28 @@ class BDatabase(context: Context?) :
             tables.addAll(listOf(targetTable, "sym"))
         }
 
-        val candidates = ArrayList<B>()
+        val candidates = ArrayList<String>()
+        
+        // Helper to add unique characters, handling surrogate pairs correctly
+        fun addCandidates(b: B) {
+            val s = b.ch ?: return
+            var i = 0
+            while (i < s.length) {
+                val cp = s.codePointAt(i)
+                val charStr = String(Character.toChars(cp))
+                if (!candidates.contains(charStr)) {
+                    candidates.add(charStr)
+                    limitMax--
+                }
+                i += Character.charCount(cp)
+            }
+        }
         
         // Phase 1: Exact Match
         for (t in tables) {
             val results = query(searchKey, start, limitMax, t, "eng", FUZZY_EXACT)
             for (b in results) {
-                val chars = b.ch ?: continue
-                if (chars.length > 1) {
-                    for (char in chars) {
-                        candidates.add(B().apply { ch = char.toString(); eng = b.eng })
-                        limitMax--
-                    }
-                } else {
-                    candidates.add(b)
-                    limitMax--
-                }
+                addCandidates(b)
                 if (limitMax <= 0) break
             }
             if (limitMax <= 0) break
@@ -269,16 +280,7 @@ class BDatabase(context: Context?) :
             for (t in tables) {
                 val results = query(searchKey, adjustedStart, limitMax, t, "eng", FUZZY_PREFIX)
                 for (b in results) {
-                    val chars = b.ch ?: continue
-                    if (chars.length > 1) {
-                        for (char in chars) {
-                            candidates.add(B().apply { ch = char.toString(); eng = b.eng })
-                            limitMax--
-                        }
-                    } else {
-                        candidates.add(b)
-                        limitMax--
-                    }
+                    addCandidates(b)
                     if (limitMax <= 0) break
                 }
                 if (limitMax <= 0) break
@@ -286,7 +288,9 @@ class BDatabase(context: Context?) :
         }
 
         for (cand in candidates) {
-            cand.ch?.let { resultList.add(it) }
+            if (!resultList.contains(cand)) {
+                resultList.add(cand)
+            }
         }
         return resultList
     }

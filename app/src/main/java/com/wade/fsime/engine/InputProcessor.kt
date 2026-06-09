@@ -28,6 +28,10 @@ class InputProcessor(
         state = state.copy(activeKeyboardName = name)
     }
 
+    fun setTs(t: Int) {
+        bdatabase.setTs(t)
+    }
+
     fun setCandidates(candidates: List<String>) {
         state = state.copy(candidates = candidates)
     }
