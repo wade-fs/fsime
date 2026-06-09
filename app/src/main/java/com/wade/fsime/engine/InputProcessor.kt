@@ -93,19 +93,27 @@ class InputProcessor(
         var resultList: MutableList<String> = listFromDb.toMutableList()
 
         // Handle math parsing for digit keyboard
-        if (state.activeKeyboardName == "digit" && composing.endsWith("!")) {
+        if (state.activeKeyboardName == "digit" && (composing.endsWith("!") || composing.any { it in "0123456789+-*/^√" })) {
             try {
                 val parser = MathParser.create()
+                val isRadian = sharedPreferences.angleUnit() == "radian"
+                android.util.Log.d("FSIME_MATH", "Digit parse: mode=$isRadian, expr=$composing")
+                parser.isRadianMode = isRadian
                 val res = parser.parse(composing)
-                resultList.add(0, composing)
+                if (resultList.isEmpty() || resultList[0] != composing) {
+                    resultList.add(0, composing)
+                }
                 resultList.add(1, res.toString())
-            } catch (ignore: Exception) {}
+            } catch (e: Exception) {
+                android.util.Log.e("FSIME_MATH", "Digit parse failed: ${e.message}", e)
+            }
         }
 
         // Handle complex math expressions (separated by ;)
         if (resultList.size == 1) {
             try {
                 val parser = MathParser.create()
+                parser.isRadianMode = sharedPreferences.angleUnit() == "radian"
                 val exp = resultList[0]
                 android.util.Log.d("FSIME_MATH", "Attempting to parse: $exp")
                 val exps = exp.split(";").filter { it.isNotEmpty() }

@@ -16,11 +16,25 @@
         android:orientation="vertical"
         android:padding="@dimen/padding__main_activity">
 
-        <!-- First Row: Unified Setup Button -->
-        <Button
-            android:id="@+id/setup_ime_button"
-            style="@style/MainActivityButton"
-            android:text="@string/label__main_activity__setup_ime" />
+        <!-- First Row: Unified Setup Button and User Guide -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/setup_ime_button"
+                style="@style/MainActivityButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/label__main_activity__setup_ime" />
+
+            <Button
+                android:id="@+id/digit_guide_button"
+                style="@style/MainActivityButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/label_digit_keyboard_guide" />
+        </LinearLayout>
 
         <!-- Second Row: Practice and DB Management -->
         <LinearLayout
@@ -42,42 +56,25 @@
                 android:text="@string/label_db_management" />
         </LinearLayout>
 
-        <!-- Third Row: Guide -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/digit_guide_button"
-                style="@style/MainActivityButton"
-                android:layout_width="match_parent"
-                android:text="@string/label_digit_keyboard_guide" />
-        </LinearLayout>
+        <!-- Removed separate Guide Row -->
 
-        <!-- Shortest Code Toggle Row -->
+        <!-- Shortest Code and Hint Font Size Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/ck_show_shortest_code_button"
                 style="@style/MainActivityButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="@string/ck_show_shortest_code" />
-        </LinearLayout>
 
-        <!-- Hint Font Size Row -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
             <Button
                 android:id="@+id/hint_font_size_button"
                 style="@style/MainActivityButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:text="@string/pref_hint_font_size" />
         </LinearLayout>
 
@@ -92,6 +89,19 @@
                 style="@style/MainActivityButton"
                 android:layout_width="match_parent"
                 android:text="@string/text__main_activity__candidate_order" />
+        </LinearLayout>
+
+        <!-- Angle Unit Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/angle_unit_button"
+                style="@style/MainActivityButton"
+                android:layout_width="match_parent"
+                android:text="@string/label_angle_unit" />
         </LinearLayout>
 
         <EditText

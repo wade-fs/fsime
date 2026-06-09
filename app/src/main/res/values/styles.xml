@@ -16,6 +16,8 @@
     <item name="android:textSize">@dimen/font_size__main_activity__button</item>
     <item name="android:insetTop">@dimen/inset_vertical__main_activity__button</item>
     <item name="android:insetBottom">@dimen/inset_vertical__main_activity__button</item>
+    <item name="android:layout_marginLeft">@dimen/margin_horizontal__main_activity__button</item>
+    <item name="android:layout_marginRight">@dimen/margin_horizontal__main_activity__button</item>
     <item name="android:minHeight">@dimen/min_height__main_activity__button</item>
   </style>
   <style name="MainActivityInput">

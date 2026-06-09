@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.main_activity)
         findViewById<View>(R.id.setup_ime_button).setOnClickListener(this)
         findViewById<View>(R.id.candidate_order_button).setOnClickListener(this);
+        findViewById<View>(R.id.angle_unit_button).setOnClickListener(this)
         findViewById<View>(R.id.practice_button).setOnClickListener(this)
         findViewById<View>(R.id.db_management_button).setOnClickListener(this)
         findViewById<View>(R.id.digit_guide_button).setOnClickListener(this)
@@ -76,6 +77,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setCandidateOrderButtonText()
         setHintFontSizeButtonText()
         setShowShortestCodeButtonText()
+        setAngleUnitButtonText()
+    }
+
+    private fun setAngleUnitButtonText() {
+        val button = findViewById<Button>(R.id.angle_unit_button)
+        val unit = sharedPreferences!!.angleUnit()
+        val statusText = if (unit == "radian") getString(R.string.angle_unit_radian) else getString(R.string.angle_unit_degree)
+        button.text = "${getString(R.string.label_angle_unit)}: $statusText"
     }
 
     private fun setShowShortestCodeButtonText() {
@@ -108,6 +117,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             else -> getString(R.string.font_size_small)
         }
         button.text = "${getString(R.string.pref_hint_font_size)}: $text"
+    }
+
+    private fun toggleAngleUnit() {
+        val current = sharedPreferences!!.angleUnit()
+        val next = if (current == "degree") "radian" else "degree"
+        sharedPreferences!!.write("angle_unit", next)
+        setAngleUnitButtonText()
     }
 
     private fun toggleShowShortestCode() {
@@ -172,6 +188,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.ck_show_shortest_code_button -> {
                 toggleShowShortestCode()
+                view.requestFocusFromTouch()
+            }
+            R.id.angle_unit_button -> {
+                toggleAngleUnit()
                 view.requestFocusFromTouch()
             }
         }

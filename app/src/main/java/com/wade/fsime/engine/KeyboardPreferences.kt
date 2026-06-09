@@ -17,6 +17,10 @@ class KeyboardPreferences(contextWrapper: ContextWrapper) {
         return safeRead("candidateOrder", "ChineseBoth")
     }
 
+    fun angleUnit(): String {
+        return safeRead("angle_unit", "degree")
+    }
+
     fun getHotkey(k: String): String {
         return safeRead(k, "")
     }

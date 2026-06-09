@@ -401,8 +401,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         // Fix for the white shading layer on the bottom row (navigation bar area)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window?.window?.let { win ->
+                @Suppress("DEPRECATION")
                 win.navigationBarColor = Color.BLACK
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    @Suppress("DEPRECATION")
                     win.navigationBarDividerColor = Color.TRANSPARENT
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {

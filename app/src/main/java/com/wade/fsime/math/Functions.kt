@@ -39,6 +39,17 @@ object Functions {
         functions.add(LogFunction())
         functions.add(RadicalFunction())
         try {
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("unitDegree", MathParser::class.java, Double::class.javaPrimitiveType), "unitDegree"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("unitMinute", MathParser::class.java, Double::class.javaPrimitiveType), "unitMinute"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("unitSecond", MathParser::class.java, Double::class.javaPrimitiveType), "unitSecond"))
+            
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("sin", MathParser::class.java, Double::class.javaPrimitiveType), "sin"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("cos", MathParser::class.java, Double::class.javaPrimitiveType), "cos"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("tan", MathParser::class.java, Double::class.javaPrimitiveType), "tan"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("asin", MathParser::class.java, Double::class.javaPrimitiveType), "asin"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("acos", MathParser::class.java, Double::class.javaPrimitiveType), "acos"))
+            functions.add(MathFunction.wrap(Functions::class.java.getMethod("atan", MathParser::class.java, Double::class.javaPrimitiveType), "atan"))
+
             functions.add(
                 MathFunction.wrap(
                     Functions::class.java.getMethod(
@@ -129,7 +140,12 @@ object Functions {
                         index++
                     }
                 }
-                functions.add(MathFunction.wrap(method))
+                
+                val wrapped = MathFunction.wrap(method)
+                // Avoid adding duplicates if a function with same name and parameter count already exists
+                if (functions.none { it.compareNames(wrapped.name()) && it.getParameterCount() == wrapped.getParameterCount() }) {
+                    functions.add(wrapped)
+                }
             }
         }
     }
@@ -475,48 +491,84 @@ object Functions {
     }
 
     @JvmStatic
-    fun sin(x: Double): Double {
-        return kotlin.math.sin(Math.toRadians(x))
+    fun unitDegree(parser: MathParser, x: Double): Double {
+        return Math.toRadians(x)
     }
 
     @JvmStatic
-    fun cos(x: Double): Double {
-        return kotlin.math.cos(Math.toRadians(x))
+    fun unitMinute(parser: MathParser, x: Double): Double {
+        return Math.toRadians(x / 60.0)
     }
 
     @JvmStatic
-    fun tan(x: Double): Double {
-        return kotlin.math.tan(Math.toRadians(x))
+    fun unitSecond(parser: MathParser, x: Double): Double {
+        return Math.toRadians(x / 3600.0)
+    }
+
+    private fun isExplicitRadian(parser: MathParser): Boolean {
+        return parser.hasExplicitAngleUnits
     }
 
     @JvmStatic
-    fun asin(x: Double): Double {
-        return Math.toDegrees(kotlin.math.asin(x))
+    fun sin(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        android.util.Log.d("FSIME_MATH", "sin: x=$x, mode=${parser.isRadianMode}, explicit=${parser.hasExplicitAngleUnits} -> isRadian=$isRadian")
+        return kotlin.math.sin(if (isRadian) x else Math.toRadians(x))
     }
 
     @JvmStatic
-    fun acos(x: Double): Double {
-        return Math.toDegrees(kotlin.math.acos(x))
+    fun cos(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        android.util.Log.d("FSIME_MATH", "cos: x=$x, mode=${parser.isRadianMode}, explicit=${parser.hasExplicitAngleUnits} -> isRadian=$isRadian")
+        return kotlin.math.cos(if (isRadian) x else Math.toRadians(x))
     }
 
     @JvmStatic
-    fun atan(x: Double): Double {
-        return Math.toDegrees(kotlin.math.atan(x))
+    fun tan(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        android.util.Log.d("FSIME_MATH", "tan: x=$x, mode=${parser.isRadianMode}, explicit=${parser.hasExplicitAngleUnits} -> isRadian=$isRadian")
+        return kotlin.math.tan(if (isRadian) x else Math.toRadians(x))
     }
 
     @JvmStatic
-    fun atan2(y: Double, x: Double): Double {
-        return Math.toDegrees(kotlin.math.atan2(y, x))
+    fun asin(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.asin(x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
-    fun cot(x: Double): Double {
-        return 1.0 / kotlin.math.tan(Math.toRadians(x))
+    fun acos(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.acos(x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
-    fun arccos(x: Double): Double {
-        return Math.toDegrees(kotlin.math.acos(x))
+    fun atan(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.atan(x)
+        return if (isRadian) res else Math.toDegrees(res)
+    }
+
+    @JvmStatic
+    fun atan2(parser: MathParser, y: Double, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.atan2(y, x)
+        return if (isRadian) res else Math.toDegrees(res)
+    }
+
+    @JvmStatic
+    fun cot(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        return 1.0 / kotlin.math.tan(if (isRadian) x else Math.toRadians(x))
+    }
+
+    @JvmStatic
+    fun arccos(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.acos(x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
@@ -530,8 +582,10 @@ object Functions {
     }
 
     @JvmStatic
-    fun arcsin(x: Double): Double {
-        return Math.toDegrees(kotlin.math.asin(x))
+    fun arcsin(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.asin(x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
@@ -545,18 +599,21 @@ object Functions {
     }
 
     @JvmStatic
-    fun sec(x: Double): Double {
-        return 1.0 / kotlin.math.cos(Math.toRadians(x))
+    fun sec(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        return 1.0 / kotlin.math.cos(if (isRadian) x else Math.toRadians(x))
     }
 
     @JvmStatic
-    fun asec(x: Double): Double {
-        return arcsec(x)
+    fun asec(parser: MathParser, x: Double): Double {
+        return arcsec(parser, x)
     }
 
     @JvmStatic
-    fun arcsec(x: Double): Double {
-        return Math.toDegrees(kotlin.math.acos(1.0 / x))
+    fun arcsec(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.acos(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
@@ -565,28 +622,33 @@ object Functions {
     }
 
     @JvmStatic
-    fun asech(x: Double): Double {
-        return arcsech(x)
+    fun asech(parser: MathParser, x: Double): Double {
+        return arcsech(parser, x)
     }
 
     @JvmStatic
-    fun arcsech(x: Double): Double {
-        return arccosh(1.0 / x)
+    fun arcsech(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = arccosh(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
-    fun csc(x: Double): Double {
-        return 1.0 / sin(Math.toRadians(x))
+    fun csc(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        return 1.0 / kotlin.math.sin(if (isRadian) x else Math.toRadians(x))
     }
 
     @JvmStatic
-    fun acsc(x: Double): Double {
-        return arccsc(x)
+    fun acsc(parser: MathParser, x: Double): Double {
+        return arccsc(parser, x)
     }
 
     @JvmStatic
-    fun arccsc(x: Double): Double {
-        return Math.toDegrees(asin(1.0 / x))
+    fun arccsc(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.asin(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
@@ -595,18 +657,20 @@ object Functions {
     }
 
     @JvmStatic
-    fun acsch(x: Double): Double {
-        return arccsch(x)
+    fun acsch(parser: MathParser, x: Double): Double {
+        return arccsch(parser, x)
     }
 
     @JvmStatic
-    fun arccsch(x: Double): Double {
-        return arcsinh(1.0 / x)
+    fun arccsch(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = arcsinh(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
-    fun arctan(x: Double): Double {
-        return Math.toDegrees(atan(x))
+    fun arctan(parser: MathParser, x: Double): Double {
+        return atan(parser, x)
     }
 
     @JvmStatic
@@ -625,23 +689,27 @@ object Functions {
     }
 
     @JvmStatic
-    fun acot(x: Double): Double {
-        return arccot(x)
+    fun acot(parser: MathParser, x: Double): Double {
+        return arccot(parser, x)
     }
 
     @JvmStatic
-    fun arccot(x: Double): Double {
-        return Math.toDegrees(atan(1.0 / x))
+    fun arccot(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = kotlin.math.atan(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic
-    fun acoth(x: Double): Double {
-        return arccoth(x)
+    fun acoth(parser: MathParser, x: Double): Double {
+        return arccoth(parser, x)
     }
 
     @JvmStatic
-    fun arccoth(x: Double): Double {
-        return arctanh(1.0 / x)
+    fun arccoth(parser: MathParser, x: Double): Double {
+        val isRadian = parser.isRadianMode || isExplicitRadian(parser)
+        val res = arctanh(1.0 / x)
+        return if (isRadian) res else Math.toDegrees(res)
     }
 
     @JvmStatic

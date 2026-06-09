@@ -115,8 +115,10 @@ class MathParser private constructor() : Cloneable {
     /**
      * [isRoundEnabled]
      */
-    var isRoundEnabled = true
+    var isRoundEnabled = false
     var roundScale = 6
+    var isRadianMode = false
+    var hasExplicitAngleUnits = false
 
     val variables = ArrayList<MathVariable>()
     val functions = ArrayList<MathFunction>()
@@ -222,6 +224,8 @@ class MathParser private constructor() : Cloneable {
      */
     private fun firstSimplify(expression: String): String {
         var exp = Utils.realTrim(expression)
+        hasExplicitAngleUnits = exp.contains("π") || exp.contains("Π") || exp.contains("pi") ||
+                exp.contains("°") || exp.contains("'") || exp.contains("\"")
         exp = exp.replace("²", "^2")
         exp = exp.replace("³", "^3")
         exp = exp.replace("×", "*")
@@ -252,13 +256,18 @@ class MathParser private constructor() : Cloneable {
      */
     private fun fixDegrees(src: String): String {
         var s = src
-        if (getVariable("degrees") == null) s = s.replace("(?<=\\d)degrees(?=[^\\w]|$)".toRegex(), "")
-        if (getVariable("deg") == null) s = s.replace("(?<=\\d)deg(?=[^\\w]|$)".toRegex(), "")
+        // Insert + between angle units if they are juxtaposed with digits, supporting DMS addition (e.g. 45°30' -> 45°+30')
+        s = s.replace("(?<=[°'\"\\)])\\s*(?=\\d)".toRegex(), "+")
+
+        if (getVariable("degrees") == null) s = s.replace("(?<=\\d)degrees(?=[^\\w]|$)".toRegex(), "°")
+        if (getVariable("deg") == null) s = s.replace("(?<=\\d)deg(?=[^\\w]|$)".toRegex(), "°")
         if (getVariable("radians") == null) s = s.replace("(?<=\\d)radians(?=[^\\w]|$)".toRegex(), "")
         if (getVariable("radian") == null) s = s.replace("(?<=\\d)radian(?=[^\\w]|$)".toRegex(), "")
         if (getVariable("rad") == null) s = s.replace("(?<=\\d)rad(?=[^\\w]|$)".toRegex(), "")
 
-        s = s.replace("°", "")
+        s = fix(s, "unitDegree", '°')
+        s = fix(s, "unitMinute", '\'')
+        s = fix(s, "unitSecond", '"')
         return s
     }
 
@@ -765,6 +774,8 @@ class MathParser private constructor() : Cloneable {
         newParser.tmpGenerator.set(tmpGenerator.get())
         newParser.isRoundEnabled = isRoundEnabled
         newParser.roundScale = roundScale
+        newParser.isRadianMode = isRadianMode
+        newParser.hasExplicitAngleUnits = hasExplicitAngleUnits
         return newParser
     }
 

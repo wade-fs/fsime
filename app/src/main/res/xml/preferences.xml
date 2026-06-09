@@ -44,6 +44,13 @@
 	</PreferenceCategory>
 
     <PreferenceCategory android:title="General">
+        <ListPreference
+            android:key="angle_unit"
+            android:title="@string/label_angle_unit"
+            android:entries="@array/angle_units"
+            android:entryValues="@array/angle_unit_values"
+            android:defaultValue="degree"
+            app:useSimpleSummaryProvider="true" />
         <CheckBoxPreference
             android:key="ck_show_shortest_code"
             android:title="@string/ck_show_shortest_code"

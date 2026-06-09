@@ -57,13 +57,17 @@
 	<string name="ck_use_stroke">使用筆劃鍵盤</string>
 	<string name="ck_use_mil">使用測地程式</string>
 	<string name="ck_phrase">使用關聯詞庫</string>
-	<string name="ck_show_shortest_code">在空白鍵顯示字根提示</string>
+	<string name="ck_show_shortest_code">字根提示</string>
 	<string name="pref_hint_font_size">提示字大小</string>
 	<string name="font_size_small">小</string>
 	<string name="font_size_medium">中</string>
 	<string name="font_size_large">大</string>
 	<string name="status_on">開</string>
 	<string name="status_off">關</string>
+
+    <string name="label_angle_unit">角度單位</string>
+    <string name="angle_unit_degree">角度</string>
+    <string name="angle_unit_radian">徑度</string>
 
 	<string name="label_practice">真瞎練習</string>
     <string name="label_db_management">資料庫管理</string>
@@ -90,7 +94,7 @@
 	<string name="label_errors">錯誤: %1$d</string>
 	<string name="label_reset_stats">重置統計</string>
 
-      <string name="label_digit_keyboard_guide">狂想輸入法使用說明</string>
+      <string name="label_digit_keyboard_guide">使用說明</string>
       <string name="digit_keyboard_guide_text">
 【鍵盤切換與手勢操作】\n
 • 全域手勢：\n

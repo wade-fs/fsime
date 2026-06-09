@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="angle_units">
+        <item>@string/angle_unit_degree</item>
+        <item>@string/angle_unit_radian</item>
+    </string-array>
+    <string-array name="angle_unit_values">
+        <item>degree</item>
+        <item>radian</item>
+    </string-array>
+</resources>
