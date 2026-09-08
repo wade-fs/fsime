@@ -1,0 +1,8 @@
+; FsimeIME.def — DLL export definitions for the TSF text service
+LIBRARY FsimeIME.dll
+
+EXPORTS
+    DllGetClassObject   PRIVATE
+    DllCanUnloadNow     PRIVATE
+    DllRegisterServer   PRIVATE
+    DllUnregisterServer PRIVATE
