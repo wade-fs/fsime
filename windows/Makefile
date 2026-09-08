@@ -17,7 +17,6 @@
 #   make backend      — 只編譯 Go 後端
 #   make frontend     — 只編譯 C++ DLL (需要 mingw-w64)
 #   make db           — 複製 b.db 到 dist/
-#   make dist         — 打包所有輸出到 dist/
 #   make clean        — 清除編譯產物
 #   make check-deps   — 檢查編譯環境
 # =============================================================================
@@ -64,7 +63,7 @@ CXXFLAGS        := -std=c++17 -O2 -Wall -DUNICODE -D_UNICODE \
 LDFLAGS         := -shared \
                    -Wl,--subsystem,windows \
                    -Wl,--kill-at \
-                   -lole32 -loleaut32 -luuid \
+                   -lole32 -loleaut32 -luuid -lgdi32 \
                    $(FRONTEND_DIR)/FsimeIME.def
 
 # Inno Setup
@@ -76,6 +75,7 @@ WINE            := wine
 WINEDEBUG       ?= -all
 
 FRONTEND_SRCS   := $(FRONTEND_DIR)/FsimeTextService.cpp \
+                   $(FRONTEND_DIR)/Register.cpp \
                    $(FRONTEND_DIR)/PipeClient.cpp
 
 # ---------------------------------------------------------------------------

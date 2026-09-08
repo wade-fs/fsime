@@ -31,12 +31,14 @@
 // GUIDs — generate unique values with uuidgen for your own IME
 // ---------------------------------------------------------------------------
 // {CLSID_FsimeTextService}
-static const CLSID CLSID_FsimeTextService =
+extern const CLSID CLSID_FsimeTextService =
     { 0xa1b2c3d4, 0xe5f6, 0x7890, {0xab, 0xcd, 0xef, 0x01, 0x23, 0x45, 0x67, 0x89} };
 
 // Language profile GUID
-static const GUID GUID_Profile =
+extern const GUID GUID_Profile =
     { 0xb2c3d4e5, 0xf6a7, 0x8901, {0xbc, 0xde, 0xf0, 0x12, 0x34, 0x56, 0x78, 0x9a} };
+
+HINSTANCE g_hInst = nullptr;
 
 // ---------------------------------------------------------------------------
 // Helper: build a JSON request string
@@ -52,6 +54,125 @@ static std::string MakeSelectRequest(int index) {
 static std::string MakeResetRequest() {
     return "{\"type\":\"reset\"}";
 }
+
+// ---------------------------------------------------------------------------
+// CandidateWindow — Minimal Win32 floating UI for composition and candidates
+// ---------------------------------------------------------------------------
+class CandidateWindow {
+public:
+    CandidateWindow() : hwnd_(nullptr) {}
+    ~CandidateWindow() { Destroy(); }
+
+    void Init() {
+        if (hwnd_) return;
+        WNDCLASSW wc = {};
+        wc.lpfnWndProc = WndProc;
+        wc.hInstance = g_hInst;
+        wc.lpszClassName = L"FsimeCandidateWindow";
+        wc.hbrBackground = CreateSolidBrush(RGB(245, 245, 245));
+        RegisterClassW(&wc);
+
+        hwnd_ = CreateWindowExW(
+            WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_NOACTIVATE,
+            L"FsimeCandidateWindow", L"",
+            WS_POPUP | WS_BORDER,
+            0, 0, 200, 300,
+            nullptr, nullptr, g_hInst, this
+        );
+    }
+
+    void Destroy() {
+        if (hwnd_) { DestroyWindow(hwnd_); hwnd_ = nullptr; }
+    }
+
+    void Update(const std::wstring& comp, const std::vector<std::wstring>& cands) {
+        comp_ = comp;
+        cands_ = cands;
+        if (comp.empty() && cands.empty()) {
+            ShowWindow(hwnd_, SW_HIDE);
+            return;
+        }
+
+        // Try to get caret position, fallback to cursor position
+        GUITHREADINFO gti = { sizeof(GUITHREADINFO) };
+        POINT pt = {0, 0};
+        if (GetGUIThreadInfo(GetCurrentThreadId(), &gti) && gti.hwndCaret) {
+            pt.x = gti.rcCaret.left;
+            pt.y = gti.rcCaret.bottom;
+            ClientToScreen(gti.hwndCaret, &pt);
+        } else {
+            GetCursorPos(&pt);
+        }
+
+        int height = 10;
+        if (!comp_.empty()) height += 30;
+        height += (int)std::min<size_t>(cands_.size(), 9) * 25;
+
+        SetWindowPos(hwnd_, HWND_TOPMOST, pt.x + 5, pt.y + 5, 200, height, SWP_NOACTIVATE | SWP_SHOWWINDOW);
+        InvalidateRect(hwnd_, nullptr, TRUE);
+    }
+
+private:
+    HWND hwnd_;
+    std::wstring comp_;
+    std::vector<std::wstring> cands_;
+
+    static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
+        CandidateWindow* self = nullptr;
+        if (msg == WM_NCCREATE) {
+            auto cs = (CREATESTRUCT*)lp;
+            self = (CandidateWindow*)cs->lpCreateParams;
+            SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)self);
+        } else {
+            self = (CandidateWindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+        }
+
+        if (self && msg == WM_PAINT) {
+            PAINTSTRUCT ps;
+            HDC hdc = BeginPaint(hwnd, &ps);
+            self->OnPaint(hdc);
+            EndPaint(hwnd, &ps);
+            return 0;
+        }
+        return DefWindowProcW(hwnd, msg, wp, lp);
+    }
+
+    void OnPaint(HDC hdc) {
+        SetBkMode(hdc, TRANSPARENT);
+        HFONT hFont = CreateFontW(20, 0, 0, 0, FW_NORMAL, 0, 0, 0, DEFAULT_CHARSET, 0, 0, CLEARTYPE_QUALITY, 0, L"Microsoft JhengHei");
+        HFONT hOld = (HFONT)SelectObject(hdc, hFont);
+
+        RECT rc;
+        GetClientRect(hwnd_, &rc);
+        FillRect(hdc, &rc, (HBRUSH)GetClassLongPtr(hwnd_, GCLP_HBRBACKGROUND));
+
+        int y = 5;
+        if (!comp_.empty()) {
+            std::wstring text = L"輸入: " + comp_;
+            SetTextColor(hdc, RGB(0, 100, 200));
+            TextOutW(hdc, 10, y, text.c_str(), (int)text.length());
+            y += 25;
+            
+            HPEN hPen = CreatePen(PS_SOLID, 1, RGB(200, 200, 200));
+            HPEN hOldPen = (HPEN)SelectObject(hdc, hPen);
+            MoveToEx(hdc, 0, y, nullptr);
+            LineTo(hdc, rc.right, y);
+            SelectObject(hdc, hOldPen);
+            DeleteObject(hPen);
+            y += 5;
+        }
+
+        SetTextColor(hdc, RGB(0, 0, 0));
+        for (size_t i = 0; i < cands_.size() && i < 9; ++i) {
+            std::wstring text = std::to_wstring((i == 9) ? 0 : i + 1) + L". " + cands_[i];
+            TextOutW(hdc, 10, y, text.c_str(), (int)text.length());
+            y += 25;
+        }
+
+        SelectObject(hdc, hOld);
+        DeleteObject(hFont);
+    }
+};
 
 // ---------------------------------------------------------------------------
 // FsimeTextService — implements ITfTextInputProcessor + ITfKeyEventSink
@@ -95,6 +216,7 @@ public:
         threadMgr_->AddRef();
         clientId_ = tid;
         pipe_.Connect(); // best-effort: server may not be up yet
+        candWin_.Init();
 
         // Register key event sink
         ITfKeystrokeMgr* keystrokeMgr = nullptr;
@@ -115,6 +237,7 @@ public:
             keystrokeMgr->Release();
         }
         pipe_.Disconnect();
+        candWin_.Destroy();
         if (threadMgr_) { threadMgr_->Release(); threadMgr_ = nullptr; }
         clientId_ = kNullClientId;
         return S_OK;
@@ -170,6 +293,7 @@ private:
     ITfThreadMgr*  threadMgr_;
     TfClientId     clientId_;
     PipeClient     pipe_;
+    CandidateWindow candWin_;
 
     // Decide whether to intercept this key.
     bool ShouldEat(WPARAM vk) {
@@ -196,9 +320,7 @@ private:
         if (!resp.commit.empty()) {
             CommitText(pCtx, resp.commit);
         }
-        // TODO: Update composition display (ITfComposition) and candidate window
-        // This requires additional TSF sink registration (ITfCompositionSink).
-        // For the skeleton, the commit path is functional.
+        candWin_.Update(resp.composition, resp.candidates);
     }
 
     void CommitText(ITfContext* pCtx, const std::wstring& text) {
@@ -249,7 +371,10 @@ public:
 // DLL entry points
 // ---------------------------------------------------------------------------
 BOOL WINAPI DllMain(HINSTANCE hInst, DWORD reason, LPVOID) {
-    (void)hInst; (void)reason;
+    if (reason == DLL_PROCESS_ATTACH) {
+        g_hInst = hInst;
+        DisableThreadLibraryCalls(hInst);
+    }
     return TRUE;
 }
 
@@ -263,10 +388,13 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv) {
 
 STDAPI DllCanUnloadNow() { return S_FALSE; }
 
+STDAPI RegisterServer();
+STDAPI UnregisterServer();
+
 STDAPI DllRegisterServer() {
-    // TODO: register CLSID, language profile via ITfInputProcessorProfiles
-    // See PIME's Register.cpp for a complete implementation.
-    return S_OK;
+    return RegisterServer();
 }
 
-STDAPI DllUnregisterServer() { return S_OK; }
+STDAPI DllUnregisterServer() {
+    return UnregisterServer();
+}
