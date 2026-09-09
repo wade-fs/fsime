@@ -42,10 +42,21 @@ GOARCH          := amd64
 CGO_ENABLED     := 0
 GOFLAGS         := -trimpath -ldflags="-s -w"
 
-# MinGW-w64 交叉編譯器 (前端 DLL)
-CXX             := x86_64-w64-mingw32-g++
-WINDRES         := x86_64-w64-mingw32-windres
-STRIP           := x86_64-w64-mingw32-strip
+# 自動偵測是否在 Windows 上執行 (例如 Git Bash)
+ifeq ($(OS),Windows_NT)
+    CXX             := g++
+    STRIP           := strip
+    WINE            :=
+    WINEDEBUG       :=
+    Z_PREFIX        :=
+else
+    # Linux 交叉編譯
+    CXX             := x86_64-w64-mingw32-g++
+    STRIP           := x86_64-w64-mingw32-strip
+    WINE            := wine
+    WINEDEBUG       := -all
+    Z_PREFIX        := Z:
+endif
 
 # ---------------------------------------------------------------------------
 # 輸出檔案
@@ -61,6 +72,7 @@ CXXFLAGS        := -std=c++17 -O2 -Wall -DUNICODE -D_UNICODE \
                    -D_WIN32_WINNT=0x0601 -DWINVER=0x0601
 
 LDFLAGS         := -shared \
+                   -static -static-libgcc -static-libstdc++ \
                    -Wl,--subsystem,windows \
                    -Wl,--kill-at \
                    -lole32 -loleaut32 -luuid -lgdi32 \
@@ -71,8 +83,6 @@ INNO_DIR        := $(CURDIR)/inno-setup-6.4.0
 INNO_ISCC       := $(INNO_DIR)/ISCC.exe
 INNO_SCRIPT     := $(CURDIR)/scripts/fsime.iss
 INSTALLER_OUT   := $(CURDIR)/output
-WINE            := wine
-WINEDEBUG       ?= -all
 
 FRONTEND_SRCS   := $(FRONTEND_DIR)/FsimeTextService.cpp \
                    $(FRONTEND_DIR)/Register.cpp \
@@ -140,14 +150,15 @@ $(DIST_DIR):
 # 安裝包 (Inno Setup via Wine)
 # ---------------------------------------------------------------------------
 installer: backend frontend db $(INSTALLER_OUT)
-	@command -v $(WINE) >/dev/null 2>&1 || { \
-		echo "❌ 缺少 wine: sudo apt install wine64"; exit 1; }
-	@test -f $(INNO_ISCC) || { \
+	@if [ -n "$(WINE)" ] && ! command -v $(WINE) >/dev/null 2>&1; then \
+		echo "❌ 缺少 wine: sudo apt install wine64"; exit 1; \
+	fi
+	@test -f "$(INNO_ISCC)" || { \
 		echo "❌ 找不到 ISCC.exe: $(INNO_ISCC)"; exit 1; }
-	@echo ">>> [installer] 使用 Wine + Inno Setup 6.4.0 打包..."
-	WINEDEBUG=$(WINEDEBUG) $(WINE) $(INNO_ISCC) \
-		/O"Z:$(INSTALLER_OUT)" \
-		"Z:$(INNO_SCRIPT)"
+	@echo ">>> [installer] 使用 Inno Setup 打包..."
+	$(if $(WINE),WINEDEBUG=$(WINEDEBUG)) $(WINE) "$(INNO_ISCC)" \
+		/O"$(Z_PREFIX)$(INSTALLER_OUT)" \
+		"$(Z_PREFIX)$(INNO_SCRIPT)"
 	@echo ""
 	@echo "✅ 安裝包輸出："
 	@ls -lh $(INSTALLER_OUT)/FsimeIME-*-setup.exe 2>/dev/null || \
