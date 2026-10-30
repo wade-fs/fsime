@@ -1,7 +1,10 @@
 package com.wade.fsime.engine
 
 import android.content.Context
+import android.view.inputmethod.EditorInfo
 import com.wade.fsime.data.BDatabase
+import com.wade.fsime.engine.phrase.PhraseLearner
+import com.wade.fsime.engine.zhuyin.ZhuyinStateMachine
 import com.wade.fsime.math.MathParser
 import com.wade.fsime.util.Stringy.removeSuffixRegex
 
@@ -23,9 +26,16 @@ class InputProcessor(
     var onStateChanged: ((KeyboardState) -> Unit)? = null
 
     private var usePhrase = sharedPreferences.getUseKb("ck_phrase")
+    private val zhuyinStateMachine = ZhuyinStateMachine()
+    val phraseLearner = PhraseLearner(bdatabase, sharedPreferences)
+
+    fun isZhuyinMode(): Boolean = state.activeKeyboardName in listOf("zhuyin", "ji")
 
     fun setKeyboard(name: String) {
         state = state.copy(activeKeyboardName = name)
+        if (isZhuyinMode()) {
+            zhuyinStateMachine.reset()
+        }
     }
 
     fun setTs(t: Int) {
@@ -41,22 +51,55 @@ class InputProcessor(
     }
 
     fun appendStroke(stroke: String) {
-        val newComposing = state.composingText + stroke
-        val newCandidates = computeCandidateList(newComposing)
-        val newShortestCode = if (newCandidates.isNotEmpty()) {
-            bdatabase.reverseLookup(newCandidates[0]).firstOrNull()
+        if (isZhuyinMode()) {
+            val stepResult = zhuyinStateMachine.processKey(stroke)
+            val (newComposing, newDisplay) = when (stepResult) {
+                is ZhuyinStateMachine.ZhuyinStepResult.Updated -> stepResult.searchCode to stepResult.displayText
+                is ZhuyinStateMachine.ZhuyinStepResult.SyllableClosed -> stepResult.searchCode to stepResult.displayText
+                is ZhuyinStateMachine.ZhuyinStepResult.AutoSegmented -> stepResult.searchCode to stepResult.displayText
+                is ZhuyinStateMachine.ZhuyinStepResult.Ignored -> (state.composingText + stroke) to (state.displayComposing + stroke)
+            }
+            val newCandidates = computeCandidateList(newComposing)
+            state = state.copy(
+                composingText = newComposing,
+                composingDisplay = newDisplay,
+                candidates = newCandidates,
+                shortestCode = null
+            )
         } else {
-            null
+            val newComposing = state.composingText + stroke
+            val newCandidates = computeCandidateList(newComposing)
+            val newShortestCode = if (newCandidates.isNotEmpty()) {
+                bdatabase.reverseLookup(newCandidates[0]).firstOrNull()
+            } else {
+                null
+            }
+            state = state.copy(
+                composingText = newComposing,
+                composingDisplay = newComposing,
+                candidates = newCandidates,
+                shortestCode = newShortestCode
+            )
         }
-        state = state.copy(
-            composingText = newComposing,
-            candidates = newCandidates,
-            shortestCode = newShortestCode
-        )
     }
 
     fun backspace() {
-        if (state.composingText.isNotEmpty()) {
+        if (isZhuyinMode()) {
+            val removed = zhuyinStateMachine.backspace()
+            if (removed && !zhuyinStateMachine.isEmpty()) {
+                val newComposing = zhuyinStateMachine.currentSearchCode()
+                val newDisplay = zhuyinStateMachine.currentDisplay()
+                val newCandidates = computeCandidateList(newComposing)
+                state = state.copy(
+                    composingText = newComposing,
+                    composingDisplay = newDisplay,
+                    candidates = newCandidates,
+                    shortestCode = null
+                )
+            } else {
+                clearComposition()
+            }
+        } else if (state.composingText.isNotEmpty()) {
             val newComposing = removeSuffixRegex("(?s).", state.composingText)
             val newCandidates = computeCandidateList(newComposing)
             val newShortestCode = if (newCandidates.isNotEmpty()) {
@@ -66,18 +109,45 @@ class InputProcessor(
             }
             state = state.copy(
                 composingText = newComposing,
+                composingDisplay = newComposing,
                 candidates = newCandidates,
                 shortestCode = newShortestCode
             )
         }
     }
 
+    fun setZhuyinTone1(): Boolean {
+        if (!isZhuyinMode()) return false
+        if (zhuyinStateMachine.currentSyllableHasNucleus() && !zhuyinStateMachine.currentSyllableHasTone()) {
+            val res = zhuyinStateMachine.closeWithTone1()
+            if (res is ZhuyinStateMachine.ZhuyinStepResult.SyllableClosed) {
+                val newComposing = res.searchCode
+                val newDisplay = res.displayText
+                val newCandidates = computeCandidateList(newComposing)
+                state = state.copy(
+                    composingText = newComposing,
+                    composingDisplay = newDisplay,
+                    candidates = newCandidates,
+                    shortestCode = null
+                )
+                return true
+            }
+        }
+        return false
+    }
+
     fun clearComposition() {
-        state = state.copy(composingText = "", candidates = emptyList())
+        if (isZhuyinMode()) {
+            zhuyinStateMachine.reset()
+        }
+        state = state.copy(composingText = "", composingDisplay = "", candidates = emptyList())
     }
 
     fun commitText() {
-        state = state.copy(composingText = "", candidates = emptyList())
+        if (isZhuyinMode()) {
+            zhuyinStateMachine.reset()
+        }
+        state = state.copy(composingText = "", composingDisplay = "", candidates = emptyList())
     }
 
     fun computeCandidateList(composing: String): List<String> {
@@ -90,7 +160,7 @@ class InputProcessor(
             state.activeKeyboardName
         )
         
-        var resultList: MutableList<String> = listFromDb.toMutableList()
+        val resultList: MutableList<String> = listFromDb.toMutableList()
 
         // Handle math parsing for digit keyboard
         if (state.activeKeyboardName == "digit" && (composing.endsWith("!") || composing.any { it in "0123456789+-*/^√" })) {
@@ -136,13 +206,22 @@ class InputProcessor(
         return bdatabase.getPhrase(tb, contextString, 0, 30)
     }
 
-    fun recordSelection(prevChar: String, selection: String) {
+    fun recordSelection(prevChar: String, selection: String, editorInfo: EditorInfo? = null) {
         val code = state.composingText
+        val isZhuyin = isZhuyinMode()
+        val boshiamyCode = if (!isZhuyin) code else null
+        val zhuyinCode = if (isZhuyin) code else null
+
         bdatabase.updateUsage(prevChar, code, selection)
-        
+        phraseLearner.onCandidateSelected(selection, editorInfo, boshiamyCode, zhuyinCode)
+
         // Update shortestCode for the selected candidate
         val newShortestCode = bdatabase.reverseLookup(selection).firstOrNull()
         state = state.copy(shortestCode = newShortestCode)
+    }
+
+    fun onSentenceCommitted(sentence: String, editorInfo: EditorInfo? = null) {
+        phraseLearner.onSentenceCommitted(sentence, editorInfo)
     }
 
     fun pickCandidate(index: Int): String? {

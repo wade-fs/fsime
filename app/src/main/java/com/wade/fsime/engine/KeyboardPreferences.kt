@@ -28,6 +28,10 @@ class KeyboardPreferences(contextWrapper: ContextWrapper) {
         return safeRead(k, false)
     }
 
+    fun isPersonalizedLearningEnabled(): Boolean {
+        return safeRead("ck_personalized_learning", true)
+    }
+
 //    fun resetAllToDefault() {
 //        val editor = preferences.edit()
 //        editor.clear()

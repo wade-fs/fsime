@@ -55,5 +55,9 @@
             android:key="ck_show_shortest_code"
             android:title="@string/ck_show_shortest_code"
             android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="ck_personalized_learning"
+            android:title="@string/ck_personalized_learning"
+            android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>

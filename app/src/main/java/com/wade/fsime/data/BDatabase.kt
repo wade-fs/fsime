@@ -7,6 +7,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
+import com.wade.fsime.data.repository.CandidatePhrase
+import com.wade.fsime.data.repository.CodeType
 import java.util.Arrays
 
 class BDatabase(context: Context?) :
@@ -21,11 +23,32 @@ class BDatabase(context: Context?) :
     init {
         setForcedUpgrade(DATABASE_VERSION)
         initializeUserTable()
+        initializeUserPhrasesTable()
     }
 
     private fun initializeUserTable() {
         val db = writableDatabase
         db.execSQL("CREATE TABLE IF NOT EXISTS user_learning (context TEXT, ch TEXT, freq INTEGER, PRIMARY KEY (context, ch))")
+    }
+
+    private fun initializeUserPhrasesTable() {
+        val db = writableDatabase
+        db.execSQL("""
+            CREATE TABLE IF NOT EXISTS user_phrases (
+                phrase TEXT PRIMARY KEY,
+                boshiamy_code TEXT,
+                zhuyin_code TEXT,
+                freq REAL DEFAULT 1.0,
+                selected_count INTEGER DEFAULT 1,
+                source TEXT NOT NULL,
+                confidence REAL DEFAULT 1.0,
+                created_at INTEGER NOT NULL,
+                last_used INTEGER NOT NULL
+            );
+        """.trimIndent())
+        db.execSQL("CREATE INDEX IF NOT EXISTS idx_phrases_boshiamy ON user_phrases (boshiamy_code, freq DESC);")
+        db.execSQL("CREATE INDEX IF NOT EXISTS idx_phrases_zhuyin ON user_phrases (zhuyin_code, freq DESC);")
+        db.execSQL("CREATE INDEX IF NOT EXISTS idx_phrases_lru ON user_phrases (last_used ASC);")
     }
 
     fun setTs(t: Int) {
@@ -237,7 +260,13 @@ class BDatabase(context: Context?) :
         val tables = mutableListOf<String>()
         var limitMax = max
         
-        val targetTable = if (table in listOf("boshiamy", "ji", "cj", "stroke", "sym")) table else "boshiamy"
+        val targetTable = when (table) {
+            "zhuyin", "ji" -> "ji"
+            "cj" -> "cj"
+            "stroke" -> "stroke"
+            "sym" -> "sym"
+            else -> "boshiamy"
+        }
         if (targetTable == "boshiamy") {
             tables.addAll(listOf("boshiamy", "sym", "ji", "cj", "stroke"))
             limitMax *= 3
@@ -246,6 +275,17 @@ class BDatabase(context: Context?) :
         }
 
         val candidates = ArrayList<String>()
+
+        // 0. Search user_phrases first
+        val codeType = if (targetTable == "ji") CodeType.ZHUYIN else CodeType.BOSHIAMY
+        val userPhrases = searchUserPhrases(searchKey, codeType, max)
+        for (up in userPhrases) {
+            if (!candidates.contains(up.phrase)) {
+                candidates.add(up.phrase)
+                limitMax--
+                if (limitMax <= 0) break
+            }
+        }
         
         // Helper to add unique characters, handling surrogate pairs correctly
         fun addCandidates(b: B) {
@@ -371,6 +411,249 @@ class BDatabase(context: Context?) :
         }
         cursor.close()
         return mapping
+    }
+
+    fun generateBoshiamyCode(phrase: String): String? {
+        if (phrase.isEmpty()) return null
+        val shortestCodes = mutableListOf<String>()
+        for (i in 0 until phrase.length) {
+            val charStr = phrase[i].toString()
+            val codes = reverseLookup(charStr)
+            val shortest = codes.minByOrNull { it.length } ?: return null
+            shortestCodes.add(shortest)
+        }
+
+        return when (phrase.length) {
+            1 -> shortestCodes[0]
+            2 -> {
+                val c1 = shortestCodes[0].take(2)
+                val c2 = shortestCodes[1].take(2)
+                c1 + c2
+            }
+            3 -> {
+                shortestCodes[0].take(1) + shortestCodes[1].take(1) + shortestCodes[2].take(1)
+            }
+            else -> {
+                shortestCodes[0].take(1) + shortestCodes[1].take(1) + shortestCodes[2].take(1) + shortestCodes.last().take(1)
+            }
+        }
+    }
+
+    fun generateZhuyinCode(phrase: String): String? {
+        if (phrase.isEmpty()) return null
+        val db = writableDatabase
+        val syllables = mutableListOf<String>()
+        for (i in 0 until phrase.length) {
+            val charStr = phrase[i].toString()
+            val cursor = db.rawQuery("SELECT eng FROM ji WHERE ch = ? LIMIT 1", arrayOf(charStr))
+            val eng = if (cursor.moveToFirst()) cursor.getString(0) else null
+            cursor.close()
+            if (eng == null) return null
+            syllables.add(eng)
+        }
+        return syllables.joinToString(" ")
+    }
+
+    fun incrementUserPhraseUsage(
+        phrase: String,
+        boshiamyCode: String? = null,
+        zhuyinCode: String? = null,
+        source: String = "selected",
+        timestamp: Long = System.currentTimeMillis()
+    ) {
+        if (phrase.length < 2) return
+        val db = writableDatabase
+        val bCode = boshiamyCode ?: generateBoshiamyCode(phrase)
+        val zCode = zhuyinCode ?: generateZhuyinCode(phrase)
+
+        db.execSQL(
+            """
+            INSERT INTO user_phrases (phrase, boshiamy_code, zhuyin_code, freq, selected_count, source, confidence, created_at, last_used)
+            VALUES (?, ?, ?, 1.0, 1, ?, 1.0, ?, ?)
+            ON CONFLICT(phrase) DO UPDATE SET
+                freq = freq + 1.0,
+                selected_count = selected_count + 1,
+                last_used = ?,
+                boshiamy_code = COALESCE(?, boshiamy_code),
+                zhuyin_code = COALESCE(?, zhuyin_code);
+            """.trimIndent(),
+            arrayOf<Any?>(phrase, bCode, zCode, source, timestamp, timestamp, timestamp, bCode, zCode)
+        )
+    }
+
+    fun batchInsertMinedPhrases(phrases: List<CandidatePhrase>) {
+        if (phrases.isEmpty()) return
+        val db = writableDatabase
+        db.beginTransaction()
+        try {
+            val sql = """
+                INSERT INTO user_phrases (phrase, boshiamy_code, zhuyin_code, freq, selected_count, source, confidence, created_at, last_used)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(phrase) DO UPDATE SET
+                    freq = freq + 1.0,
+                    confidence = MAX(confidence, excluded.confidence),
+                    last_used = excluded.last_used;
+            """.trimIndent()
+            val stmt = db.compileStatement(sql)
+            for (p in phrases) {
+                val bCode = p.boshiamyCode ?: generateBoshiamyCode(p.phrase)
+                val zCode = p.zhuyinCode ?: generateZhuyinCode(p.phrase)
+                stmt.clearBindings()
+                stmt.bindString(1, p.phrase)
+                if (bCode != null) stmt.bindString(2, bCode) else stmt.bindNull(2)
+                if (zCode != null) stmt.bindString(3, zCode) else stmt.bindNull(3)
+                stmt.bindDouble(4, p.freq)
+                stmt.bindLong(5, p.selectedCount.toLong())
+                stmt.bindString(6, p.source)
+                stmt.bindDouble(7, p.confidence)
+                stmt.bindLong(8, p.createdAt)
+                stmt.bindLong(9, p.lastUsed)
+                stmt.execute()
+            }
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
+
+    fun searchUserPhrases(code: String, type: CodeType, limit: Int = 30): List<CandidatePhrase> {
+        val list = mutableListOf<CandidatePhrase>()
+        val db = writableDatabase
+        val column = if (type == CodeType.BOSHIAMY) "boshiamy_code" else "zhuyin_code"
+
+        val sql = """
+            SELECT phrase, boshiamy_code, zhuyin_code, freq, selected_count, source, confidence, created_at, last_used
+            FROM user_phrases
+            WHERE $column = ? OR $column LIKE ?
+            ORDER BY (CASE WHEN $column = ? THEN 1 ELSE 0 END) DESC, freq DESC
+            LIMIT ?;
+        """.trimIndent()
+
+        val cursor = db.rawQuery(sql, arrayOf(code, "$code%", code, limit.toString()))
+        val pIdx = cursor.getColumnIndex("phrase")
+        val bIdx = cursor.getColumnIndex("boshiamy_code")
+        val zIdx = cursor.getColumnIndex("zhuyin_code")
+        val fIdx = cursor.getColumnIndex("freq")
+        val sIdx = cursor.getColumnIndex("selected_count")
+        val srcIdx = cursor.getColumnIndex("source")
+        val cIdx = cursor.getColumnIndex("confidence")
+        val caIdx = cursor.getColumnIndex("created_at")
+        val luIdx = cursor.getColumnIndex("last_used")
+
+        while (cursor.moveToNext()) {
+            list.add(
+                CandidatePhrase(
+                    phrase = cursor.getString(pIdx),
+                    boshiamyCode = if (bIdx != -1) cursor.getString(bIdx) else null,
+                    zhuyinCode = if (zIdx != -1) cursor.getString(zIdx) else null,
+                    freq = if (fIdx != -1) cursor.getDouble(fIdx) else 1.0,
+                    selectedCount = if (sIdx != -1) cursor.getInt(sIdx) else 1,
+                    source = if (srcIdx != -1) cursor.getString(srcIdx) else "selected",
+                    confidence = if (cIdx != -1) cursor.getDouble(cIdx) else 1.0,
+                    createdAt = if (caIdx != -1) cursor.getLong(caIdx) else 0L,
+                    lastUsed = if (luIdx != -1) cursor.getLong(luIdx) else 0L
+                )
+            )
+        }
+        cursor.close()
+        return list
+    }
+
+    fun decayAndPruneMinedPhrases(halfLifeDays: Double = 7.0, minWeight: Double = 0.2): Int {
+        val db = writableDatabase
+        val now = System.currentTimeMillis()
+        val lambda = Math.log(2.0) / (halfLifeDays * 86400000.0)
+
+        val cursor = db.rawQuery("SELECT phrase, freq, last_used FROM user_phrases WHERE source = 'mined'", null)
+        val toDelete = mutableListOf<String>()
+        val pIdx = cursor.getColumnIndex("phrase")
+        val fIdx = cursor.getColumnIndex("freq")
+        val lIdx = cursor.getColumnIndex("last_used")
+
+        while (cursor.moveToNext()) {
+            val phrase = cursor.getString(pIdx)
+            val freq = cursor.getDouble(fIdx)
+            val lastUsed = cursor.getLong(lIdx)
+            val timeDiff = (now - lastUsed).coerceAtLeast(0L)
+            val decayedWeight = freq * Math.exp(-lambda * timeDiff)
+            if (decayedWeight < minWeight) {
+                toDelete.add(phrase)
+            }
+        }
+        cursor.close()
+
+        if (toDelete.isNotEmpty()) {
+            db.beginTransaction()
+            try {
+                for (phrase in toDelete) {
+                    db.delete("user_phrases", "phrase = ?", arrayOf(phrase))
+                }
+                db.setTransactionSuccessful()
+            } finally {
+                db.endTransaction()
+            }
+        }
+        return toDelete.size
+    }
+
+    fun exportUserPhrases(): List<String> {
+        val db = readableDatabase
+        val lines = mutableListOf<String>()
+        val cursor = db.rawQuery("SELECT phrase, boshiamy_code, zhuyin_code, freq, source FROM user_phrases ORDER BY freq DESC", null)
+        val pIdx = cursor.getColumnIndex("phrase")
+        val bIdx = cursor.getColumnIndex("boshiamy_code")
+        val zIdx = cursor.getColumnIndex("zhuyin_code")
+        val fIdx = cursor.getColumnIndex("freq")
+        val sIdx = cursor.getColumnIndex("source")
+        while (cursor.moveToNext()) {
+            val p = cursor.getString(pIdx)
+            val b = cursor.getString(bIdx) ?: ""
+            val z = cursor.getString(zIdx) ?: ""
+            val f = cursor.getDouble(fIdx)
+            val s = cursor.getString(sIdx)
+            lines.add("$p\t$b\t$z\t$f\t$s")
+        }
+        cursor.close()
+        return lines
+    }
+
+    fun importUserPhrases(lines: List<String>): Int {
+        val db = writableDatabase
+        var count = 0
+        db.beginTransaction()
+        try {
+            val sql = """
+                INSERT OR REPLACE INTO user_phrases (phrase, boshiamy_code, zhuyin_code, freq, selected_count, source, confidence, created_at, last_used)
+                VALUES (?, ?, ?, ?, 1, ?, 1.0, ?, ?)
+            """.trimIndent()
+            val stmt = db.compileStatement(sql)
+            val now = System.currentTimeMillis()
+            for (line in lines) {
+                val parts = line.split("\t")
+                if (parts.isNotEmpty() && parts[0].isNotBlank()) {
+                    val phrase = parts[0].trim()
+                    val bCode = parts.getOrNull(1)?.takeIf { it.isNotBlank() } ?: generateBoshiamyCode(phrase)
+                    val zCode = parts.getOrNull(2)?.takeIf { it.isNotBlank() } ?: generateZhuyinCode(phrase)
+                    val freq = parts.getOrNull(3)?.toDoubleOrNull() ?: 1.0
+                    val source = parts.getOrNull(4)?.takeIf { it.isNotBlank() } ?: "manual"
+
+                    stmt.clearBindings()
+                    stmt.bindString(1, phrase)
+                    if (bCode != null) stmt.bindString(2, bCode) else stmt.bindNull(2)
+                    if (zCode != null) stmt.bindString(3, zCode) else stmt.bindNull(3)
+                    stmt.bindDouble(4, freq)
+                    stmt.bindString(5, source)
+                    stmt.bindLong(6, now)
+                    stmt.bindLong(7, now)
+                    stmt.execute()
+                    count++
+                }
+            }
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+        return count
     }
 
     companion object {

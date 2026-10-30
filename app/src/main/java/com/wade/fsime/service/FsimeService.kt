@@ -14,7 +14,7 @@ import com.wade.fsime.ui.view.InputContainer
 import com.wade.fsime.ui.view.HandwritingView
 import com.wade.fsime.ui.view.KeyboardView
 import com.wade.fsime.ui.adapter.CandidatesViewAdapter
-
+import com.wade.fsime.engine.InputFieldClassifier
 import com.wade.fsime.engine.InputProcessor
 import com.wade.fsime.engine.KeyboardState
 import android.net.Uri
@@ -70,9 +70,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     var fsimeKB: Keyboard? = null
     var digitKB: Keyboard? = null
     var symbolKB: Keyboard? = null
+    var zhuyinKB: Keyboard? = null
     private var inputContainer: InputContainer? = null
     
     private lateinit var inputProcessor: InputProcessor
+    private var currentEditorInfo: EditorInfo? = null
+    private val committedSentenceBuffer = StringBuilder()
     
     private var inputOptionsBits = 0
     private var enterKeyHasAction = false
@@ -147,6 +150,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     private fun reinitializeKeyboards() {
         fullKB = Keyboard(this, R.xml.keyboard_full, KEYBOARD_NAME_FULL)
         fsimeKB = Keyboard(this, R.xml.keyboard_fsime, KEYBOARD_NAME_FSIME)
+        zhuyinKB = Keyboard(this, R.xml.keyboard_zhuyin, KEYBOARD_NAME_ZHUYIN)
         digitKB = Keyboard(this, R.xml.keyboard_digit, KEYBOARD_NAME_DIGIT)
         symbolKB = Keyboard(this, R.xml.keyboard_symbol, KEYBOARD_NAME_SYMBOL)
         
@@ -156,7 +160,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 PREFERENCES_FILE_NAME,
                 KEYBOARD_NAME_PREFERENCE_KEY
             )
-            val keyboardSet = arrayOf(fullKB!!, fsimeKB!!, digitKB!!, symbolKB!!)
+            val keyboardSet = arrayOf(fullKB!!, fsimeKB!!, zhuyinKB!!, digitKB!!, symbolKB!!)
             var targetKeyboard = fullKB
             for (k in keyboardSet) {
                 if (k.name == savedKeyboardName) {
@@ -181,7 +185,15 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 it.setCandidateList(state.candidates)
                 it.showHandwriting(state.isHandwritingVisible)
                 it.redrawKeyboard() // Redraw to update Space key shortest code
-                // If you had a composing text view, you'd update it here.
+            }
+            val ic = currentInputConnection
+            if (ic != null) {
+                val text = state.displayComposing
+                if (text.isNotEmpty()) {
+                    ic.setComposingText(text, 1)
+                } else {
+                    ic.finishComposingText()
+                }
             }
         }
 
@@ -446,6 +458,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         var keyboardSet = arrayOf<Keyboard>()
         keyboardSet += fullKB!!
         keyboardSet += fsimeKB!!
+        if (zhuyinKB != null) keyboardSet += zhuyinKB!!
         keyboardSet += digitKB!!
         keyboardSet += symbolKB!!
 
@@ -457,6 +470,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     override fun onStartInput(editorInfo: EditorInfo, isRestarting: Boolean) {
         super.onStartInput(editorInfo, isRestarting)
+        currentEditorInfo = editorInfo
 
         inputOptionsBits = editorInfo.imeOptions
         enterKeyHasAction = inputOptionsBits and EditorInfo.IME_FLAG_NO_ENTER_ACTION == 0
@@ -478,6 +492,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
 
     override fun onStartInputView(editorInfo: EditorInfo, isRestarting: Boolean) {
         super.onStartInputView(editorInfo, isRestarting)
+        currentEditorInfo = editorInfo
         Log.d(LOG_TAG, "onStartInputView, checking OCR holder...")
         updateFullscreenMode() // needed in API level 31+ so that fullscreen works after rotate whilst keyboard showing
         val isFullscreen = isFullscreenMode
@@ -487,6 +502,16 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         setCandidateOrder()
         
         checkOCRResultHolder() // Check for results whenever keyboard appears
+    }
+
+    override fun onFinishInputView(finishingInput: Boolean) {
+        super.onFinishInputView(finishingInput)
+        currentInputConnection?.finishComposingText()
+        inputProcessor.clearComposition()
+        if (committedSentenceBuffer.isNotEmpty()) {
+            inputProcessor.onSentenceCommitted(committedSentenceBuffer.toString(), currentEditorInfo)
+            committedSentenceBuffer.clear()
+        }
     }
 
     private fun setEnterKeyDisplayText() {
@@ -529,7 +554,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         inputConnection.commitText(candidate, 1)
         
         if (candidate != null) {
-            inputProcessor.recordSelection(context, candidate)
+            inputProcessor.recordSelection(context, candidate, currentEditorInfo)
+            committedSentenceBuffer.append(candidate)
         }
         
         inputProcessor.commitText()
@@ -588,6 +614,12 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         }
 
         if (inputContainer!!.keyboard!!.name == KEYBOARD_NAME_SYMBOL && !key.isControlKey) {
+            inputConnection.commitText(valueText, 1)
+            return
+        }
+
+        val directMode = InputFieldClassifier.classify(currentEditorInfo)
+        if (directMode == InputFieldClassifier.DirectMode.DIRECT_COMMIT && !key.isControlKey) {
             inputConnection.commitText(valueText, 1)
             return
         }
@@ -748,6 +780,9 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     private fun effectBackspace(inputConnection: InputConnection) {
         if (inputProcessor.state.composingText.isNotEmpty()) {
             inputProcessor.backspace()
+            if (inputProcessor.state.composingText.isEmpty()) {
+                inputConnection.finishComposingText()
+            }
             inputContainer!!.setKeyRepeatIntervalMilliseconds(
                 BACKSPACE_REPEAT_INTERVAL_MILLISECONDS_UTF_8
             )
@@ -779,8 +814,21 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun effectSpaceKey(inputConnection: InputConnection) {
-        if (inputProcessor.state.composingText.isNotEmpty()) {
-            val sel = if (inputProcessor.state.candidates.size > 1) getCandidate(1) else getCandidate(0)
+        if (inputProcessor.state.composingText.isEmpty()) {
+            inputConnection.commitText(" ", 1)
+            if (committedSentenceBuffer.isNotEmpty()) {
+                inputProcessor.onSentenceCommitted(committedSentenceBuffer.toString(), currentEditorInfo)
+                committedSentenceBuffer.clear()
+            }
+            return
+        }
+
+        if (inputProcessor.isZhuyinMode() && inputProcessor.setZhuyinTone1()) {
+            return
+        }
+
+        val sel = if (inputProcessor.state.candidates.size > 1) getCandidate(1) else getCandidate(0)
+        if (sel.isNotEmpty()) {
             onCandidate(sel)
         } else {
             inputConnection.commitText(" ", 1)
@@ -794,6 +842,10 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
             inputConnection.performEditorAction(inputOptionsBits)
         } else {
             inputConnection.commitText("\n", 1)
+        }
+        if (committedSentenceBuffer.isNotEmpty()) {
+            inputProcessor.onSentenceCommitted(committedSentenceBuffer.toString(), currentEditorInfo)
+            committedSentenceBuffer.clear()
         }
         inputProcessor.commitText()
     }
@@ -845,6 +897,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
         private const val SPACE_BAR_VALUE_TEXT = "SPACE"
         private const val KEYBOARD_NAME_FULL = "full"
         private const val KEYBOARD_NAME_FSIME = "mix"
+        const val KEYBOARD_NAME_ZHUYIN = "zhuyin"
         private const val KEYBOARD_NAME_DIGIT = "digit"
         private const val KEYBOARD_NAME_SYMBOL = "symbol"
         const val PREFERENCES_FILE_NAME = "preferences.txt"

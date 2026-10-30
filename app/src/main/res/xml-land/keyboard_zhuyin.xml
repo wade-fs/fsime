@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:keyFillColour="@color/key_fill"
+    app:keyTextColour="@color/green"
+    app:keyOtherColour="@color/umbrella_grey"
+    app:keyHeight="@dimen/key_height__fsime"
+    app:keyTextOffsetY="@dimen/baseline_correction__fsime"
+    app:keyTextSize="@dimen/font_size__fsime"
+    app:keyWidth="5%">
+    <!-- Grid: 20 units (5% each) -->
+
+    <Row app:keysAreShiftable="false">
+        <Key app:keyDisplayText="\u238B" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="ESC" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyDisplayText="ㄆ" app:keyValueText="ㄆ" app:up="q" />
+        <Key app:keyDisplayText="ㄊ" app:keyValueText="ㄊ" app:up="w" />
+        <Key app:keyDisplayText="ㄍ" app:keyValueText="ㄍ" app:up="e" />
+        <Key app:keyDisplayText="ㄐ" app:keyValueText="ㄐ" app:up="r" />
+        <Key app:keyDisplayText="ㄔ" app:keyValueText="ㄔ" app:up="t" />
+        <Key app:keyDisplayText="ㄗ" app:keyValueText="ㄗ" app:up="y" />
+        <Key app:keyDisplayText="ㄧ" app:keyValueText="ㄧ" app:up="u" />
+        <Key app:keyDisplayText="ㄛ" app:keyValueText="ㄛ" app:up="i" />
+        <Key app:keyDisplayText="ㄟ" app:keyValueText="ㄟ" app:up="o" />
+        <Key app:keyDisplayText="ㄣ" app:keyValueText="ㄣ" app:up="p" />
+        <Key app:keyDisplayText="\u232B" app:keyIsPreviewable="false" app:keyIsRepeatable="true" app:keyValueText="BACKSPACE" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="[" app:keyValueTextShifted="{" />
+        <Key app:keyValueText="]" app:keyValueTextShifted="}" />
+        <Key app:keyValueText="⇱" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="⇞" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="˙" app:keyValueText="˙" app:up="7" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="ㄚ" app:keyValueText="ㄚ" app:up="8" />
+        <Key app:keyDisplayText="ㄞ" app:keyValueText="ㄞ" app:up="9" />
+        <Key app:keyDisplayText="ㄢ" app:keyValueText="ㄢ" app:up="0" />
+    </Row>
+
+    <Row app:keysAreShiftable="false">
+        <Key app:keyDisplayText="\u21B9" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="TAB" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyDisplayText="ㄇ" app:keyValueText="ㄇ" app:up="a" />
+        <Key app:keyDisplayText="ㄋ" app:keyValueText="ㄋ" app:up="s" />
+        <Key app:keyDisplayText="ㄎ" app:keyValueText="ㄎ" app:up="d" />
+        <Key app:keyDisplayText="ㄑ" app:keyValueText="ㄑ" app:up="f" />
+        <Key app:keyDisplayText="ㄕ" app:keyValueText="ㄕ" app:up="g" />
+        <Key app:keyDisplayText="ㄘ" app:keyValueText="ㄘ" app:up="h" />
+        <Key app:keyDisplayText="ㄨ" app:keyValueText="ㄨ" app:up="j" />
+        <Key app:keyDisplayText="ㄜ" app:keyValueText="ㄜ" app:up="k" />
+        <Key app:keyDisplayText="ㄠ" app:keyValueText="ㄠ" app:up="l" />
+        <Key app:keyDisplayText="ㄤ" app:keyValueText="ㄤ" app:up=";" />
+        <Key app:keyValueText="'" app:keyValueTextShifted='"' />
+        <Key app:keyValueText="\\" app:keyValueTextShifted="|" />
+        <Key app:keyValueText="←" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↑" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="→" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyDisplayText="ˋ" app:keyValueText="ˋ" app:up="4" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="ㄓ" app:keyValueText="ㄓ" app:up="5" />
+        <Key app:keyDisplayText="ˊ" app:keyValueText="ˊ" app:up="6" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="ˇ" app:keyValueText="ˇ" app:up="3" app:keyTextColour="@color/umbrella_blue" />
+    </Row>
+
+    <Row app:keysAreShiftable="false">
+        <Key app:keyDisplayText="⇧" app:keyIsPreviewable="false" app:keyValueText="SHIFT" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyDisplayText="ㄈ" app:keyValueText="ㄈ" app:up="z" />
+        <Key app:keyDisplayText="ㄌ" app:keyValueText="ㄌ" app:up="x" />
+        <Key app:keyDisplayText="ㄏ" app:keyValueText="ㄏ" app:up="c" />
+        <Key app:keyDisplayText="ㄒ" app:keyValueText="ㄒ" app:up="v" />
+        <Key app:keyDisplayText="ㄖ" app:keyValueText="ㄖ" app:up="b" />
+        <Key app:keyDisplayText="ㄙ" app:keyValueText="ㄙ" app:up="n" />
+        <Key app:keyDisplayText="ㄩ" app:keyValueText="ㄩ" app:up="m" />
+        <Key app:keyDisplayText="ㄝ" app:keyValueText="ㄝ" app:up="," />
+        <Key app:keyDisplayText="ㄡ" app:keyValueText="ㄡ" app:up="." />
+        <Key app:keyDisplayText="ㄥ" app:keyValueText="ㄥ" app:up="/" />
+        <Key app:keyDisplayText="ㄦ" app:keyValueText="ㄦ" app:up="-" />
+        <Key app:keyValueText="⇲" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="↓" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_yellow" />
+        <Key app:keyValueText="⇟" app:keyIsPreviewable="false" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="ㄅ" app:keyValueText="ㄅ" app:up="1" />
+        <Key app:keyDisplayText="ㄉ" app:keyValueText="ㄉ" app:up="2" />
+        <Key app:keyValueText="=" app:keyValueTextShifted="+" />
+        <Key app:keyValueText="-" app:keyValueTextShifted="_" />
+        <Key app:keyValueText="`" app:keyValueTextShifted="~" />
+    </Row>
+
+    <Row>
+        <Key app:keyDisplayText="🎤" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="VOICE" app:keyTextColour="@color/umbrella_red" />
+        <Key app:keyDisplayText="✍" app:keyIsPreviewable="false" app:keyIsLongPressable="true" app:keyValueText="HANDWRITING" app:keyTextColour="@color/umbrella_blue" />
+        <Key app:keyDisplayText="," app:keyValueText="," />
+        <Key app:keyDisplayText="@string/display_text__ji_space_bar" app:keyIsLongPressable="true" app:keyIsPreviewable="false" app:keyIsSwipeable="true" app:keyTextColour="@color/umbrella_orange" app:keyValueText="SPACE" app:keyWidth="40%" />
+        <Key app:keyDisplayText="\u23CE" app:keyIsPreviewable="false" app:keyValueText="ENTER" app:keyWidth="25%" app:keyTextColour="@color/umbrella_orange" />
+        <Key app:keyValueText="0" />
+        <Key app:keyValueText="." />
+        <Key app:keyValueText="/" />
+        <Key app:keyValueText="1" />
+    </Row>
+</Keyboard>
