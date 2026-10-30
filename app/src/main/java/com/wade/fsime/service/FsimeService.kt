@@ -141,6 +141,8 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     val SWIPE_LU = 4
     val SWIPE_RD = 8
     private var usePhrase = false
+    // 選字 commit 期間暫停 onStateChanged 對 composing 的寫入，避免舊 composing 被重新注入
+    private var isCommitting = false
 
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
@@ -187,7 +189,7 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
                 it.redrawKeyboard() // Redraw to update Space key shortest code
             }
             val ic = currentInputConnection
-            if (ic != null) {
+            if (ic != null && !isCommitting) {
                 val text = state.displayComposing
                 if (text.isNotEmpty()) {
                     ic.setComposingText(text, 1)
@@ -551,14 +553,18 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     override fun onCandidate(candidate: String?) {
         val inputConnection = currentInputConnection ?: return
         val context = getTextBeforeCursor(inputConnection, 1)
+        // isCommitting=true：暫停 onStateChanged 的 setComposingText，
+        // 讓 ic.commitText 能直接替換 composing region，不被 recordSelection 的 state 更新干擾
+        isCommitting = true
         inputConnection.commitText(candidate, 1)
-        
         if (candidate != null) {
             inputProcessor.recordSelection(context, candidate, currentEditorInfo)
             committedSentenceBuffer.append(candidate)
         }
-        
         inputProcessor.commitText()
+        isCommitting = false
+        // 手動結束 composing，state 已清空，此時是 no-op（安全）
+        currentInputConnection?.finishComposingText()
         updateRelative(candidate!!)
     }
 

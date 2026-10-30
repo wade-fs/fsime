@@ -27,6 +27,8 @@ class PhraseLearner(
     ) {
         if (!PrivacyGate.shouldLearn(editorInfo, prefs)) return
         if (phrase.length < 2) return
+        // 只學習包含中文字符的詞彙，過濾純英文或數字
+        if (!phrase.any { WordSegmenter.isChineseChar(it) }) return
 
         scope.launch {
             withContext(Dispatchers.IO) {
