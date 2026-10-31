@@ -315,39 +315,46 @@ class FsimeService : InputMethodService(), CandidateListener, KeyboardListener, 
     }
 
     private fun initHandwritingRecognizer() {
-        val modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag("zh-Hani-TW")
-        if (modelIdentifier == null) {
-            Log.e(LOG_TAG, "Model identifier not found for zh-Hani-TW")
-            return
-        }
-        val builder = DigitalInkRecognitionModel.builder(modelIdentifier)
-        model = builder.build()
-        val currentModel = model
-        if (currentModel == null) {
-            Log.e(LOG_TAG, "Failed to build DigitalInkRecognitionModel")
-            return
-        }
-        val remoteModelManager = RemoteModelManager.getInstance()
-        
-        remoteModelManager.isModelDownloaded(currentModel)
-            .addOnSuccessListener { isDownloaded ->
-                if (isDownloaded) {
-                    val options = DigitalInkRecognizerOptions.builder(currentModel).build()
-                    recognizer = DigitalInkRecognition.getClient(options)
-                } else {
-                    Toast.makeText(this, "手寫辨識模型下載中...", Toast.LENGTH_SHORT).show()
-                    remoteModelManager.download(currentModel, DownloadConditions.Builder().build())
-                        .addOnSuccessListener {
-                            val options = DigitalInkRecognizerOptions.builder(currentModel).build()
-                            recognizer = DigitalInkRecognition.getClient(options)
-                            Toast.makeText(this, "手寫辨識就緒", Toast.LENGTH_SHORT).show()
-                        }
-                        .addOnFailureListener { e ->
-                            Log.e(LOG_TAG, "Error downloading model", e)
-                            Toast.makeText(this, "下載失敗：請確認網路連線", Toast.LENGTH_SHORT).show()
-                        }
-                }
+        try {
+            val modelIdentifier = DigitalInkRecognitionModelIdentifier.fromLanguageTag("zh-Hani-TW")
+            if (modelIdentifier == null) {
+                Log.e(LOG_TAG, "Model identifier not found for zh-Hani-TW")
+                return
             }
+            val builder = DigitalInkRecognitionModel.builder(modelIdentifier)
+            model = builder.build()
+            val currentModel = model
+            if (currentModel == null) {
+                Log.e(LOG_TAG, "Failed to build DigitalInkRecognitionModel")
+                return
+            }
+            val remoteModelManager = RemoteModelManager.getInstance()
+            
+            remoteModelManager.isModelDownloaded(currentModel)
+                .addOnSuccessListener { isDownloaded ->
+                    if (isDownloaded) {
+                        val options = DigitalInkRecognizerOptions.builder(currentModel).build()
+                        recognizer = DigitalInkRecognition.getClient(options)
+                    } else {
+                        Toast.makeText(this, "手寫辨識模型下載中...", Toast.LENGTH_SHORT).show()
+                        remoteModelManager.download(currentModel, DownloadConditions.Builder().build())
+                            .addOnSuccessListener {
+                                val options = DigitalInkRecognizerOptions.builder(currentModel).build()
+                                recognizer = DigitalInkRecognition.getClient(options)
+                                Toast.makeText(this, "手寫辨識就緒", Toast.LENGTH_SHORT).show()
+                            }
+                            .addOnFailureListener { e ->
+                                Log.e(LOG_TAG, "Error downloading model", e)
+                                Toast.makeText(this, "下載失敗：請確認網路連線", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.e(LOG_TAG, "Error checking if model is downloaded", e)
+                }
+        } catch (e: Exception) {
+            Log.e(LOG_TAG, "Failed to init handwriting recognizer", e)
+        }
     }
 
     override fun onInkFinished(ink: Ink) {
