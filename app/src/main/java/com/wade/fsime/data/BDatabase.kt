@@ -276,17 +276,6 @@ class BDatabase(context: Context?) :
 
         val candidates = ArrayList<String>()
 
-        // 0. Search user_phrases first
-        val codeType = if (targetTable == "ji") CodeType.ZHUYIN else CodeType.BOSHIAMY
-        val userPhrases = searchUserPhrases(searchKey, codeType, max)
-        for (up in userPhrases) {
-            if (!candidates.contains(up.phrase)) {
-                candidates.add(up.phrase)
-                limitMax--
-                if (limitMax <= 0) break
-            }
-        }
-        
         // Helper to add unique characters, handling surrogate pairs correctly
         fun addCandidates(b: B) {
             val s = b.ch ?: return
@@ -376,6 +365,36 @@ class BDatabase(context: Context?) :
             if (suggestion.isNotEmpty() && !list.contains(suggestion)) {
                 list.add(suggestion)
             }
+        }
+
+        // 從 user_phrases 補充關聯詞預測：
+        // 找出以 context 最後一字開頭的學習詞，取後續字符作為關聯候選
+        // 例：選了「學」→ user_phrases 有「學習」→ 補上「習」
+        if (k.isNotEmpty()) {
+            val lastChar = k.last().toString()
+            try {
+                val db = writableDatabase
+                val sql = """
+                    SELECT phrase FROM user_phrases
+                    WHERE phrase LIKE ?
+                    ORDER BY freq DESC, selected_count DESC
+                    LIMIT ?;
+                """.trimIndent()
+                val cursor = db.rawQuery(sql, arrayOf("$lastChar%", max.toString()))
+                if (cursor.moveToFirst()) {
+                    do {
+                        val phrase = cursor.getString(0) ?: continue
+                        if (phrase.length >= 2 && phrase.startsWith(lastChar)) {
+                            // 補上這個詞的後續部分（去掉已選的前綴）
+                            val suffix = phrase.substring(lastChar.length)
+                            if (suffix.isNotEmpty() && !list.contains(suffix)) {
+                                list.add(suffix)
+                            }
+                        }
+                    } while (cursor.moveToNext() && list.size < max)
+                }
+                cursor.close()
+            } catch (_: Exception) {}
         }
         
         return list
